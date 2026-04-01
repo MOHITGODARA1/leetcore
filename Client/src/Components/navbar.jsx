@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-
+import Login from "../Auth/Login";
 // const NAV_LINKS = [
 //     { label: "DSA", icon: "⬡", desc: "Data Structures & Algorithms" },
 //     { label: "OS", icon: "◈", desc: "Operating Systems" },
@@ -184,23 +184,7 @@ function Navbar() {
                             <p className="text-[#888] text-sm">Sign in to sync your progress and compete.</p>
                         </div>
 
-                        {/* Google Button */}
-                        <button
-                            onClick={() => alert("Google login not working yet")}
-                            className="group w-full mb-4 flex relative items-center justify-center gap-3 bg-white text-black py-3.5 rounded-xl font-medium hover:bg-[#f0f0f0] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(255,255,255,0.1)] transition-all duration-300 cursor-pointer border-none"
-                        >
-                            <img src="https://www.svgrepo.com/show/475656/google-color.svg" className="w-6 h-6 transition-transform group-hover:scale-110" />
-                            <span>Continue with Google</span>
-                        </button>
-
-                        {/* GitHub Button */}
-                        <button
-                            onClick={() => alert("Github login not working yet")}
-                            className="group w-full flex relative items-center justify-center gap-3 bg-[#0d1117] text-white py-3.5 rounded-xl border border-white/[0.1] hover:bg-[#161b22] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(255,255,255,0.05)] transition-all duration-300 cursor-pointer"
-                        >
-                            <img src="https://www.svgrepo.com/show/512317/github-142.svg" className="w-6 h-6 invert transition-transform group-hover:scale-110" />
-                            <span>Continue with GitHub</span>
-                        </button>
+                        <Login />
 
                         {/* Divider line */}
                         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/[0.1] to-transparent my-8"></div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 const NODES = [
     // Row 0
     { id: "arrays", label: "Arrays & Hashing", x: 280, y: 20 },
@@ -13,19 +13,19 @@ const NODES = [
     // Row 2
     { id: "linked", label: "Linked List", x: 60, y: 270 },
     { id: "queue", label: "Queue & Deque", x: 260, y: 270 },
-    { id: "hashing", label: "Hashing (Map, Set)", x: 460, y: 270 },
-    { id: "recursion", label: "Recursion +\nBacktracking", x: 660, y: 270 },
+    { id: "hashing", label: "Hashing", x: 460, y: 270 },
+    { id: "recursion", label: "Backtracking", x: 660, y: 270 },
 
     // Row 3
     { id: "bsearch", label: "Binary Search", x: 100, y: 400 },
-    { id: "sorting", label: "Sorting (Advanced)", x: 330, y: 400 },
+    { id: "sorting", label: "Sorting", x: 330, y: 400 },
     { id: "trees", label: "Trees", x: 560, y: 400 },
 
     // Row 4
-    { id: "heap", label: "Heap / Priority Queue", x: 80, y: 530 },
+    { id: "heap", label: "Heap", x: 80, y: 530 },
     { id: "tries", label: "Tries", x: 290, y: 530 },
-    { id: "greedy", label: "Greedy Algorithms", x: 490, y: 530 },
-    { id: "graphs", label: "Basic Graphs", x: 680, y: 530 },
+    { id: "greedy", label: "Greedy", x: 490, y: 530 },
+    { id: "graphs", label: "Graphs", x: 680, y: 530 },
 ];
 
 const EDGES = [
@@ -122,83 +122,84 @@ export default function HeroGraph() {
                     const prog = completed[node.id] ?? 0;
 
                     return (
-                        <g
-                            key={node.id}
-                            transform={`translate(${node.x},${node.y})`}
-                            onMouseEnter={() => setHovered(node.id)}
-                            onMouseLeave={() => setHovered(null)}
-                            onClick={() => setCompleted(p => {
-                                const cur = p[node.id] ?? 0;
-                                return { ...p, [node.id]: cur >= 100 ? 0 : cur + 25 };
-                            })}
-                            style={{ cursor: "pointer" }}
-                        >
-                            {/* Outer glow ring on hover */}
-                            {isHov && (
-                                <rect x="-4" y="-4" width={NW + 8} height={NH + 8} rx="14"
-                                    fill="none" stroke="#e8c547" strokeWidth="1.5"
-                                    opacity="0.3" style={{ filter: "blur(6px)" }} />
-                            )}
+                        <Link key={node.id} to={`/topic/${node.id}`}>
+                            <g
+                                transform={`translate(${node.x},${node.y})`}
+                                onMouseEnter={() => setHovered(node.id)}
+                                onMouseLeave={() => setHovered(null)}
+                                onClick={() => setCompleted(p => {
+                                    const cur = p[node.id] ?? 0;
+                                    return { ...p, [node.id]: cur >= 100 ? 0 : cur + 25 };
+                                })}
+                                style={{ cursor: "pointer" }}
+                            >
+                                {/* Outer glow ring on hover */}
+                                {isHov && (
+                                    <rect x="-4" y="-4" width={NW + 8} height={NH + 8} rx="14"
+                                        fill="none" stroke="#e8c547" strokeWidth="1.5"
+                                        opacity="0.3" style={{ filter: "blur(6px)" }} />
+                                )}
 
-                            {/* Card background */}
-                            <rect
-                                width={NW} height={NH} rx="10"
-                                fill={isHov ? "#1f232b" : isDim ? "#121519" : "#171a20"}
-                                stroke={
-                                    isHov ? "#e8c547" :
-                                        isConn ? "rgba(232,197,71,0.4)" :
-                                            "rgba(255,255,255,0.08)"
-                                }
-                                strokeWidth={isHov ? 1.5 : 1}
-                                style={{ transition: "all 0.2s" }}
-                            />
+                                {/* Card background */}
+                                <rect
+                                    width={NW} height={NH} rx="10"
+                                    fill={isHov ? "#1f232b" : isDim ? "#121519" : "#171a20"}
+                                    stroke={
+                                        isHov ? "#e8c547" :
+                                            isConn ? "rgba(232,197,71,0.4)" :
+                                                "rgba(255,255,255,0.08)"
+                                    }
+                                    strokeWidth={isHov ? 1.5 : 1}
+                                    style={{ transition: "all 0.2s" }}
+                                />
 
-                            {/* Label */}
-                            {node.label.includes("\n") ? (
-                                <>
-                                    <text x={NW / 2} y="19" textAnchor="middle"
+                                {/* Label */}
+                                {node.label.includes("\n") ? (
+                                    <>
+                                        <text x={NW / 2} y="19" textAnchor="middle"
+                                            style={{
+                                                fill: isDim ? "rgba(240,236,228,0.2)" : "#f0ece4",
+                                                fontSize: "11px", fontFamily: "ui-monospace,monospace",
+                                                fontWeight: 600, transition: "fill 0.2s",
+                                            }}>
+                                            {node.label.split("\n")[0]}
+                                        </text>
+                                        <text x={NW / 2} y="32" textAnchor="middle"
+                                            style={{
+                                                fill: isDim ? "rgba(240,236,228,0.2)" : "#f0ece4",
+                                                fontSize: "11px", fontFamily: "ui-monospace,monospace",
+                                                fontWeight: 600, transition: "fill 0.2s",
+                                            }}>
+                                            {node.label.split("\n")[1]}
+                                        </text>
+                                    </>
+                                ) : (
+                                    <text x={NW / 2} y="42" textAnchor="middle"
                                         style={{
                                             fill: isDim ? "rgba(240,236,228,0.2)" : "#f0ece4",
-                                            fontSize: "11px", fontFamily: "ui-monospace,monospace",
+                                            fontSize: "14px", fontFamily: "ui-monospace,monospace",
                                             fontWeight: 600, transition: "fill 0.2s",
                                         }}>
-                                        {node.label.split("\n")[0]}
+                                        {node.label}
                                     </text>
-                                    <text x={NW / 2} y="32" textAnchor="middle"
-                                        style={{
-                                            fill: isDim ? "rgba(240,236,228,0.2)" : "#f0ece4",
-                                            fontSize: "11px", fontFamily: "ui-monospace,monospace",
-                                            fontWeight: 600, transition: "fill 0.2s",
-                                        }}>
-                                        {node.label.split("\n")[1]}
-                                    </text>
-                                </>
-                            ) : (
-                                <text x={NW / 2} y="34" textAnchor="middle"
-                                    style={{
-                                        fill: isDim ? "rgba(240,236,228,0.2)" : "#f0ece4",
-                                        fontSize: "14px", fontFamily: "ui-monospace,monospace",
-                                        fontWeight: 600, transition: "fill 0.2s",
-                                    }}>
-                                    {node.label}
-                                </text>
-                            )}
+                                )}
 
-                            {/* Progress track */}
-                            <rect x="10" y="55" width={NW - 20} height="5" rx="2.5"
-                                fill="rgba(255,255,255,0.08)" />
-                            {/* Progress fill */}
-                            <rect x="10" y="42" width={(NW - 20) * prog / 100} height="5" rx="2.5"
+                                {/* Progress track */}
+                                {/*<rect x="10" y="55" width={NW - 20} height="5" rx="2.5"
+                                fill="rgba(255,255,255,0.08)" />*/}
+                                {/* Progress fill */}
+                                {/*<rect x="10" y="42" width={(NW - 20) * prog / 100} height="5" rx="2.5"
                                 fill="#e8c547"
                                 opacity={isDim ? 0.2 : 1}
-                                style={{ transition: "width 0.35s ease, opacity 0.2s" }} />
+                                style={{ transition: "width 0.35s ease, opacity 0.2s" }} />*/}
 
-                            {/* Done tick */}
-                            {prog === 100 && (
+                                {/* Done tick */}
+                                {/*prog === 100 && (
                                 <text x={NW - 10} y="23" textAnchor="middle"
                                     style={{ fill: "#e8c547", fontSize: "12px" }}>✓</text>
-                            )}
-                        </g>
+                            )*/}
+                            </g>
+                        </Link>
                     );
                 })}
             </svg>
