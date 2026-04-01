@@ -10,7 +10,7 @@ const DashNavbar = () => {
     const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
-        fetch(`${API_URL}/api/v1/auth/profile`, { credentials: "include" })
+        fetch(`${API_URL}/profile`, { credentials: "include" })
             .then((res) => {
                 if (!res.ok) throw new Error("Not logged in");
                 return res.json();
