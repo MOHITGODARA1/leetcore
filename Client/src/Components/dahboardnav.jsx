@@ -10,7 +10,7 @@ const DashNavbar = () => {
     const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
-        fetch(`${API_URL}/profile`, { credentials: "include" })
+        fetch(`${API_URL}/api/v1/auth/profile`, { credentials: "include" })
             .then((res) => {
                 if (!res.ok) throw new Error("Not logged in");
                 return res.json();
@@ -188,8 +188,8 @@ const DashNavbar = () => {
                                 key={link.href}
                                 href={link.href}
                                 className={`dash-nav-link dash-font-dmono dash-anim-l${i + 1} ${window.location.pathname === link.href
-                                        ? "text-[#e8c547] active"
-                                        : "text-[#6b6560]"
+                                    ? "text-[#e8c547] active"
+                                    : "text-[#6b6560]"
                                     }`}
                             >
                                 {link.label}

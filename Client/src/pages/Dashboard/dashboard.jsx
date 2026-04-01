@@ -9,7 +9,7 @@ const Dashboard = () => {
     const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
-        fetch(`${API_URL}/profile`, {
+        fetch(`${API_URL}/api/v1/auth/profile`, {
             credentials: "include",
         })
             .then(res => {
