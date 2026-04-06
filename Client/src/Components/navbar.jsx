@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Login from "../Auth/Login";
 // const NAV_LINKS = [
 //     { label: "DSA", icon: "⬡", desc: "Data Structures & Algorithms" },
@@ -8,15 +8,9 @@ import Login from "../Auth/Login";
 // ];
 
 function Navbar() {
-    const [active, setActive] = useState(null);
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [hovered, setHovered] = useState(null);
-    const [indStyle, setIndStyle] = useState({ left: 0, width: 0, opacity: 0 });
     const [openAuth, setOpenAuth] = useState(false);
-
-    const navRef = useRef(null);
-    const btnRefs = useRef({});
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
@@ -24,16 +18,7 @@ function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    useEffect(() => {
-        const key = hovered ?? active;
-        if (key && btnRefs.current[key] && navRef.current) {
-            const elR = btnRefs.current[key].getBoundingClientRect();
-            const navR = navRef.current.getBoundingClientRect();
-            setIndStyle({ left: elR.left - navR.left, width: elR.width, opacity: 1 });
-        } else {
-            setIndStyle(s => ({ ...s, opacity: 0 }));
-        }
-    }, [hovered, active]);
+
 
     return (
         <>

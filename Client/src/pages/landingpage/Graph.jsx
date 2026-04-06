@@ -70,7 +70,6 @@ function curvePath(from, to) {
 
 export default function HeroGraph() {
     const [hovered, setHovered] = useState(null);
-    const [completed, setCompleted] = useState({});
 
     const connectedTo = hovered
         ? new Set(EDGES.flatMap(([a, b]) => a === hovered ? [b] : b === hovered ? [a] : []))
@@ -119,7 +118,6 @@ export default function HeroGraph() {
                     const isHov = hovered === node.id;
                     const isConn = connectedTo.has(node.id);
                     const isDim = hovered !== null && !isHov && !isConn;
-                    const prog = completed[node.id] ?? 0;
 
                     return (
                         <Link key={node.id} to={`/topic/${node.id}`}>
@@ -127,10 +125,6 @@ export default function HeroGraph() {
                                 transform={`translate(${node.x},${node.y})`}
                                 onMouseEnter={() => setHovered(node.id)}
                                 onMouseLeave={() => setHovered(null)}
-                                onClick={() => setCompleted(p => {
-                                    const cur = p[node.id] ?? 0;
-                                    return { ...p, [node.id]: cur >= 100 ? 0 : cur + 25 };
-                                })}
                                 style={{ cursor: "pointer" }}
                             >
                                 {/* Outer glow ring on hover */}

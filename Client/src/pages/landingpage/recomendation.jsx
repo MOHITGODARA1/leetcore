@@ -229,7 +229,7 @@ function VideoCard({ video, index }) {
 }
 
 export default function Recommendations() {
-    const [active, setActive] = useState("All");
+    const [active] = useState("All");
 
     const filtered = active === "All"
         ? VIDEOS

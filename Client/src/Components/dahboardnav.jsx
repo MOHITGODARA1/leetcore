@@ -23,7 +23,7 @@ const DashNavbar = () => {
                 setUser(null);
                 setLoading(false);
             });
-    }, []);
+    }, [API_URL]);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
@@ -63,6 +63,7 @@ const DashNavbar = () => {
     const navLinks = [
         { label: "Dashboard", href: "/dashboard" },
         { label: "Leaderboard", href: "/leaderboard" },
+        { label: "Weekly Leaderboard", href: "/weeklyleaderboard" }
     ];
 
     return (
@@ -142,7 +143,7 @@ const DashNavbar = () => {
                     border-radius: 6px;
                     font-family: 'DM Mono', monospace;
                 }
-                .dash-drop-item:hover { background: rgba(232,197,71,0.08); color: #e8c547; }
+                .dash-drop-item:hover { background: rgba(232,197,71,0.08); color: #e8e6e1ff; }
                 .dash-drop-item.danger:hover { background: rgba(239,68,68,0.08); color: #f87171; }
 
                 .dash-drop-divider {
@@ -154,8 +155,8 @@ const DashNavbar = () => {
 
             <nav
                 className={`dash-nav-line fixed top-0 inset-x-0 z-50 flex items-center px-8 transition-all duration-300 ${scrolled
-                    ? "scrolled bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/[0.07] shadow-[0_0_40px_rgba(0,0,0,0.6)]"
-                    : "bg-[#0a0a0a]/80 backdrop-blur-lg"
+                    ? "scrolled bg-[#1f1f1f] backdrop-blur-xl border-b border-white/[0.07] shadow-[0_0_40px_rgba(0,0,0,0.6)]"
+                    : "bg-[#1f1f1f] backdrop-blur-lg"
                     }`}
                 style={{ height: 70 }}
             >
@@ -188,7 +189,7 @@ const DashNavbar = () => {
                                 key={link.href}
                                 href={link.href}
                                 className={`dash-nav-link dash-font-dmono dash-anim-l${i + 1} ${window.location.pathname === link.href
-                                    ? "text-[#e8c547] active"
+                                    ? "text-white active"
                                     : "text-[#6b6560]"
                                     }`}
                             >
