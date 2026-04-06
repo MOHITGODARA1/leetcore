@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import DashNavbar from "../../Components/dahboardnav";
 import LeftNavbar from "./component/Leftnavbar";
 import RightNavbar from "./component/RightNavbar";
-import DSAGraph from "./component/Graphs/DSAGraph";
+import DSAGraph from "./component/Graphs/DsaGraph.jsx";
 import OSGraph from "./component/Graphs/operatingSystemGraph";
 import NetworkGraph from "./component/Graphs/NetworkGraph";
 import DBsGraph from "./component/Graphs/DbmsGraph";
