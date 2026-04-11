@@ -1,8 +1,8 @@
 const Login = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
     const handleGithubLogin = () => {
-        window.location.href = `${API_URL}/github`;
+        window.location.href = `${API_URL}/api/v1/auth/github`;
     };
 
     const handleGoogleLogin = () => {
