@@ -2,11 +2,11 @@ import { useState } from "react";
 import DashNavbar from "../Components/dahboardnav";
 import ContentrightNav from "./ContentComponent/ContentrightNav";
 import ContentNavbar from "../Components/ContentNav";
-import Array from "./Content/Array";
+import SlidingWindow from "./Content/SlidingWindow";
 import PracticeArray from "./Content/PracticeQuestion";
 import Arraydiscussion from "../Discussion/Arraydiscussion";
 
-function Arraypage() {
+function SlidingWindowpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
     return (
@@ -23,7 +23,7 @@ function Arraypage() {
                     <div className="p-8 lg:p-12 xl:px-16 pb-20 max-w-7xl mx-auto w-full">
 
                         {/* ✅ conditional rendering */}
-                        {activeTab === "doc" && <Array />}
+                        {activeTab === "doc" && <SlidingWindow />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 
@@ -41,4 +41,4 @@ function Arraypage() {
     );
 }
 
-export default Arraypage;
+export default SlidingWindowpage;

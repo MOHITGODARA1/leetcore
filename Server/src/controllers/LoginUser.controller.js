@@ -103,7 +103,7 @@ export const GithubCallback = async (req, res) => {
 
         // 🔹 STEP 7: Redirect to frontend
         console.log(process.env.CLIENT_URL);
-        return res.redirect(`${process.env.CLIENT_URL}/dashboard`);
+        return res.redirect(`${process.env.CLIENT_URL}/dashboard/dsa`);
 
     } catch (error) {
         console.error("❌ OAuth Error:", error.response?.data || error.message);

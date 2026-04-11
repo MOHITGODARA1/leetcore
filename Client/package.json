@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
+    "@xyflow/react": "^12.10.2",
     "axios": "^1.14.0",
     "framer-motion": "^12.38.0",
     "gsap": "^3.14.2",
