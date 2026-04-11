@@ -12,7 +12,7 @@ import BinarySearchpage from "./pages/BinarySearchpage";
 import Recursionpage from "./pages/Recursionpage";
 import Hashingpage from "./pages/Hashingpage";
 import Backtrackingpage from "./pages/Backtrackingpage";
-import DynamicProgrammingPage from "./pages/DynamicProgrammingPage";
+import DynamicProgrammingPage from "./pages/DynamicProgrammingpage";
 import Quepage from "./pages/Queuepage";
 import { Routes, Route, useParams } from "react-router-dom";
 
