@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 function RightProgressbar() {
     const { topic } = useParams();
-    const API_URL = import.meta.env.VITE_API_URL_1 || "http://localhost:5000";
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
     const [stats, setStats] = useState({
         topic: topic || "Topic",

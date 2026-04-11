@@ -199,7 +199,7 @@ function StatsBar({ questions, checked }) {
 
 function PracticeQuestion() {
     const { topic } = useParams();
-    const API_URL = import.meta.env.VITE_API_URL_1;
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
