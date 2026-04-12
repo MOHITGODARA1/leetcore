@@ -3,15 +3,15 @@ import RightSuggestion from "./RightSuggestion";
 
 function RightNavbar() {
     return (
-        <div className="fixed right-0 top-[10vh] h-[90vh] w-80 flex flex-col mr-4">
+        <div className="fixed right-0 top-[10vh] h-[90vh] w-80 flex flex-col gap-3">
 
-            {/* Calendar Section */}
-            <div className="h-[49%] border-gray-700 bg-[#1f1f1f] rounded-lg">
+            {/* Calendar */}
+            <div className="h-[47%] bg-[#1f1f1f] rounded-xl overflow-hidden border border-gray-800">
                 <RightCalender />
             </div>
 
-            {/* Suggestion Section */}
-            <div className="h-[47%] bg-[#1f1f1f] rounded-lg mt-2">
+            {/* Suggestion */}
+            <div className="h-[47%] bg-[#1f1f1f] rounded-xl overflow-hidden border border-gray-800">
                 <RightSuggestion />
             </div>
 

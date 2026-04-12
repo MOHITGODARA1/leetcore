@@ -47,7 +47,9 @@ function RightCalender() {
             fontFamily: "'Inter', sans-serif",
             userSelect: "none",
             height: "100%",
-            boxSizing: "border-box",
+            // boxSizing: "border-box",
+            width: "100%",
+
         }}>
             <style>{`
         @keyframes slideInFromRight {
@@ -118,6 +120,7 @@ function RightCalender() {
                 alignItems: "center",
                 justifyContent: "space-between",
                 marginBottom: "18px",
+
             }}>
                 <button className="nav-btn" onClick={() => navigate("prev")}>
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -185,8 +188,8 @@ function RightCalender() {
             <div
                 key={`${year}-${month}`}
                 className={`cal-grid ${animating
-                        ? direction === "next" ? "exit-left" : "exit-right"
-                        : direction === "next" ? "enter-right" : direction === "prev" ? "enter-left" : "enter-right"
+                    ? direction === "next" ? "exit-left" : "exit-right"
+                    : direction === "next" ? "enter-right" : direction === "prev" ? "enter-left" : "enter-right"
                     }`}
                 style={{
                     display: "grid",

@@ -17,10 +17,10 @@ const nodeStyle = {
 const defaultEdgeOptions = {
     markerEnd: {
         type: MarkerType.ArrowClosed,
-        color: "#e7db37ff", // yellow
+        color: "#636362ff", // yellow
     },
     style: {
-        stroke: "#e7db37ff",
+        stroke: "#636362ff",
         strokeWidth: 1.6,
         opacity: 0.75,
     },
