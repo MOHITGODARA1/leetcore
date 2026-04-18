@@ -1,13 +1,13 @@
 import Progress from "../models/Progress.model.js";
 import questions from "../data/questions.json" with { type: "json" };
 
-// ✅ GET Progress (for UI)
+// GET Progress (for UI)
 export const getProgress = async (req, res) => {
     try {
         const userId = req.user._id;
         const { topic } = req.query;
 
-        // 🔥 Filter questions by topic (case-insensitive)
+        // Filter questions by topic (case-insensitive)
         const topicQuestions = questions.filter(q => q.topic.toLowerCase() === topic.toLowerCase());
 
         const total = topicQuestions.length;
@@ -37,7 +37,7 @@ export const getProgress = async (req, res) => {
                 solved: progress?.hard?.solved || 0,
                 total: hardTotal
             },
-            
+
             solvedQuestions: progress?.solvedQuestions || []
         });
 
@@ -47,7 +47,7 @@ export const getProgress = async (req, res) => {
 };
 
 
-// ✅ UPDATE Progress (when user solves question)
+// UPDATE Progress (when user solves question)
 export const updateProgress = async (req, res) => {
     try {
         const userId = req.user._id;
@@ -67,7 +67,7 @@ export const updateProgress = async (req, res) => {
             });
         }
 
-        // 🚫 Prevent duplicate solve
+        //  Prevent duplicate solve
         const alreadySolved = progress.solvedQuestions.find(
             q => q.question_name === question_name
         );
@@ -76,7 +76,7 @@ export const updateProgress = async (req, res) => {
             return res.json({ message: "Already solved" });
         }
 
-        // ✅ Add solved question
+        //  Add solved question
         progress.solvedQuestions.push({ question_name, difficulty });
 
         progress.solved += 1;

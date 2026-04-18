@@ -1,13 +1,13 @@
 import { useState } from "react";
-import DashNavbar from "../Components/dahboardnav";
-import ContentrightNav from "./ContentComponent/ContentrightNav";
-import ContentNavbar from "../Components/ContentNav";
-import Hashing from "./Content/Hashing";
-import PracticeArray from "./Content/PracticeQuestion";
-import Arraydiscussion from "../Discussion/Arraydiscussion";
+import DashNavbar from "../../../Components/dahboardnav";
+import ContentrightNav from "../../ContentComponent/ContentrightNav";
+import ContentNavbar from "../../../Components/ContentNav";
+import Array from "../Content/Array";
+import PracticeArray from "../Components/PracticeQuestion";
+import Arraydiscussion from "../../Discussion/Arraydiscussion";
 
-function Hashingpage() {
-    const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
+function Arraypage() {
+    const [activeTab, setActiveTab] = useState("doc"); //  default active
 
     return (
         <div className=" min-h-screen text-white flex flex-col">
@@ -17,13 +17,13 @@ function Hashingpage() {
                 {/* Main Content Area */}
                 <div className="flex-1 flex flex-col min-w-0">
 
-                    {/* ✅ pass state */}
+                    {/*  pass state */}
                     <ContentNavbar active={activeTab} setActive={setActiveTab} />
 
                     <div className="p-8 lg:p-12 xl:px-16 pb-20 max-w-7xl mx-auto w-full">
 
-                        {/* ✅ conditional rendering */}
-                        {activeTab === "doc" && <Hashing />}
+                        {/*  conditional rendering */}
+                        {activeTab === "doc" && <Array />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 
@@ -41,4 +41,4 @@ function Hashingpage() {
     );
 }
 
-export default Hashingpage;
+export default Arraypage;

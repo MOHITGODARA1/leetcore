@@ -1,12 +1,12 @@
 import { useState } from "react";
-import DashNavbar from "../Components/dahboardnav";
-import ContentrightNav from "./ContentComponent/ContentrightNav";
-import ContentNavbar from "../Components/ContentNav";
-import Recursion from "./Content/Recursion";
-import PracticeArray from "./Content/PracticeQuestion";
-import Arraydiscussion from "../Discussion/Arraydiscussion";
+import DashNavbar from "../../../Components/dahboardnav";
+import ContentrightNav from "../../ContentComponent/ContentrightNav";
+import ContentNavbar from "../../../Components/ContentNav";
+import Hashing from "../Content/Hashing";
+import PracticeArray from "../Components/PracticeQuestion";
+import Arraydiscussion from "../../Discussion/Arraydiscussion";
 
-function Recursionpage() {
+function Hashingpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
     return (
@@ -23,7 +23,7 @@ function Recursionpage() {
                     <div className="p-8 lg:p-12 xl:px-16 pb-20 max-w-7xl mx-auto w-full">
 
                         {/* ✅ conditional rendering */}
-                        {activeTab === "doc" && <Recursion />}
+                        {activeTab === "doc" && <Hashing />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 
@@ -41,4 +41,4 @@ function Recursionpage() {
     );
 }
 
-export default Recursionpage;
+export default Hashingpage;

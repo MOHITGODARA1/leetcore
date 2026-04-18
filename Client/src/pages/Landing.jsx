@@ -1,9 +1,9 @@
 import Navbar from "../Components/navbar";
-import HeroLeft from "./landingpage/HeroSection";
-import HeroGraph from "./landingpage/Graph";
-import Recommendations from "./landingpage/recomendation";
-import TrustedBy from "./landingpage/trusted";
-import BecomeSponsor from "./landingpage/Sponser";
+import HeroLeft from "../Features/landingpage/HeroSection";
+import HeroGraph from "../Features/landingpage/Graph";
+import Recommendations from "../Features/landingpage/recomendation";
+import TrustedBy from "../Features/landingpage/trusted";
+import BecomeSponsor from "../Features/landingpage/Sponser";
 import Footer from "../Components/Footer";
 function Landing() {
     return (

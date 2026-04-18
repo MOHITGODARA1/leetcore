@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Landing from "./pages/Landing";
-import Dashboard from "./pages/Dashboard/dashboard";
-import Arraypage from "./pages/Arraypage";
-import Stringpage from "./pages/Stringpage";
-import Twopointerpage from "./pages/TwoPointerpage";
-import Stackpage from "./pages/Stackpage";
-import LinkedListpage from "./pages/LinkedListpage";
-import SlidingWindowpage from "./pages/SlidingWindowpage";
-import SlowFastpage from "./pages/SlowFastpage";
-import BinarySearchpage from "./pages/BinarySearchpage";
-import Recursionpage from "./pages/Recursionpage";
-import Hashingpage from "./pages/Hashingpage";
-import Backtrackingpage from "./pages/Backtrackingpage";
-import DynamicProgrammingPage from "./pages/DynamicProgrammingpage";
-import Quepage from "./pages/Queuepage";
-import Leaderboardpage from "./pages/Leaderboardpage";
-import WeeklyLeaderboardpage from "./pages/WeeklyLeaderboard";
+import Dashboard from "./Features/Dashboard/DashboardPage";
+import Arraypage from "./Features/DSA/page/Arraypage";
+import Stringpage from "./Features/DSA/page/Stringpage";
+import Twopointerpage from "./Features/DSA/page/TwoPointerpage";
+import Stackpage from "./Features/DSA/page/Stackpage";
+import LinkedListpage from "./Features/DSA/page/LinkedListpage";
+import SlidingWindowpage from "./Features/DSA/page/SlidingWindowpage";
+import SlowFastpage from "./Features/DSA/page/SlowFastpage";
+import BinarySearchpage from "./Features/DSA/page/BinarySearchpage";
+import Recursionpage from "./Features/DSA/page/Recursionpage";
+import Hashingpage from "./Features/DSA/page/Hashingpage";
+import Backtrackingpage from "./Features/DSA/page/Backtrackingpage";
+import DynamicProgrammingPage from "./Features/DSA/page/DynamicProgrammingpage";
+import Queuepage from "./Features/DSA/page/Queuepage";
+import Leaderboardpage from "./Features/Leaderboard/Leaderboardpage";
+import WeeklyLeaderboardpage from "./Features/Weeklyboard/WeeklyLeaderboard";
 import { Routes, Route, useParams } from "react-router-dom";
 
 /* Fallback Page */
@@ -27,7 +27,7 @@ const Page = ({ title }) => {
   );
 };
 
-/* 🔥 Topic Renderer */
+/*  Topic Renderer */
 function TopicRenderer() {
   const { topic } = useParams();
 
@@ -42,7 +42,7 @@ function TopicRenderer() {
     "binary-search": <BinarySearchpage />,
     "hashing": <Hashingpage />,
     "backtracking": <Backtrackingpage />,
-    "queue": <Quepage />,
+    "queue": <Queuepage />,
     "dynamic-programming": <DynamicProgrammingPage />,
     "recursion": <Recursionpage />,
   };
@@ -50,7 +50,7 @@ function TopicRenderer() {
   return topicMap[topic] || <Page title="Not Found" />;
 }
 
-/* 🔥 Protected Route */
+/*  Protected Route */
 const ProtectedRoute = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -65,7 +65,7 @@ const ProtectedRoute = ({ children }) => {
         return res.json();
       })
       .then((data) => {
-        setUser(data.user); // ✅ FIXED
+        setUser(data.user); //  FIXED
         setLoading(false);
       })
       .catch(() => {
@@ -85,7 +85,7 @@ const ProtectedRoute = ({ children }) => {
   if (!user) {
     return (
       <div className="h-screen flex items-center justify-center text-white bg-[#0a0a0a]">
-        <h1 className="text-xl">Not Logged In ❌</h1>
+        <h1 className="text-xl">Not Logged In </h1>
       </div>
     );
   }
@@ -93,7 +93,7 @@ const ProtectedRoute = ({ children }) => {
   return children;
 };
 
-/* 🔥 Main App */
+/*  Main App */
 function App() {
   return (
     <Routes>

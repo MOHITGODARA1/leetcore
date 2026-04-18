@@ -1,7 +1,7 @@
 import React from "react";
-import DashNavbar from "../Components/dahboardnav";
-import TopThree from "../Leaderboard/Topthree";
-import Otherrank from "../Leaderboard/otherrank";
+import DashNavbar from "../../Components/dahboardnav";
+import Topthreeweekly from "./components/topthreeweekly";
+import Otherweeklyrank from "./components/otherweeklyrank";
 function Leaderboardpage() {
     return (
         <div
@@ -38,8 +38,8 @@ function Leaderboardpage() {
                 <h1 className="font-syne text-4xl font-extrabold tracking-tight text-white mb-10">
                     Leaderboard
                 </h1>
-                <TopThree />
-                <Otherrank />
+                <Topthreeweekly />
+                <Otherweeklyrank />
             </div>
         </div>
     );

@@ -1,12 +1,12 @@
 import { useState } from "react";
-import DashNavbar from "../Components/dahboardnav";
-import ContentrightNav from "./ContentComponent/ContentrightNav";
-import ContentNavbar from "../Components/ContentNav";
-import Stack from "./Content/Stack";
-import PracticeArray from "./Content/PracticeQuestion";
-import Arraydiscussion from "../Discussion/Arraydiscussion";
+import DashNavbar from "../../../Components/dahboardnav";
+import ContentrightNav from "../../ContentComponent/ContentrightNav";
+import ContentNavbar from "../../../Components/ContentNav";
+import Backtracking from "../Content/Backtracking";
+import PracticeArray from "../Components/PracticeQuestion";
+import Arraydiscussion from "../../Discussion/Arraydiscussion";
 
-function Stackpage() {
+function Backtrackingpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
     return (
@@ -23,7 +23,7 @@ function Stackpage() {
                     <div className="p-8 lg:p-12 xl:px-16 pb-20 max-w-7xl mx-auto w-full">
 
                         {/* ✅ conditional rendering */}
-                        {activeTab === "doc" && <Stack />}
+                        {activeTab === "doc" && <Backtracking />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 
@@ -41,4 +41,4 @@ function Stackpage() {
     );
 }
 
-export default Stackpage;
+export default Backtrackingpage;

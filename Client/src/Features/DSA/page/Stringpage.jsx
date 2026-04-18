@@ -1,12 +1,12 @@
 import { useState } from "react";
-import DashNavbar from "../Components/dahboardnav";
-import ContentrightNav from "./ContentComponent/ContentrightNav";
-import ContentNavbar from "../Components/ContentNav";
-import LinkedList from "./Content/LinkedList";
-import PracticeArray from "./Content/PracticeQuestion";
-import Arraydiscussion from "../Discussion/Arraydiscussion";
+import DashNavbar from "../../../Components/dahboardnav";
+import ContentrightNav from "../../ContentComponent/ContentrightNav";
+import ContentNavbar from "../../../Components/ContentNav";
+import String from "../Content/String";
+import PracticeQuestion from "../Components/PracticeQuestion";
+import Arraydiscussion from "../../Discussion/Arraydiscussion";
 
-function LinkedListpage() {
+function Stringpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
     return (
@@ -23,8 +23,8 @@ function LinkedListpage() {
                     <div className="p-8 lg:p-12 xl:px-16 pb-20 max-w-7xl mx-auto w-full">
 
                         {/* ✅ conditional rendering */}
-                        {activeTab === "doc" && <LinkedList />}
-                        {activeTab === "practice" && <PracticeArray />}
+                        {activeTab === "doc" && <String />}
+                        {activeTab === "practice" && <PracticeQuestion />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 
                     </div>
@@ -41,4 +41,4 @@ function LinkedListpage() {
     );
 }
 
-export default LinkedListpage;
+export default Stringpage;

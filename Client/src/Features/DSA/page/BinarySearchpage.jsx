@@ -1,12 +1,12 @@
 import { useState } from "react";
-import DashNavbar from "../Components/dahboardnav";
-import ContentrightNav from "./ContentComponent/ContentrightNav";
-import ContentNavbar from "../Components/ContentNav";
-import String from "./Content/String";
-import PracticeQuestion from "./Content/PracticeQuestion";
-import Arraydiscussion from "../Discussion/Arraydiscussion";
+import DashNavbar from "../../../Components/dahboardnav";
+import ContentrightNav from "../../ContentComponent/ContentrightNav";
+import ContentNavbar from "../../../Components/ContentNav";
+import BinarySearch from "../Content/BinarySearch";
+import PracticeArray from "../Components/PracticeQuestion";
+import Arraydiscussion from "../../Discussion/Arraydiscussion";
 
-function Stringpage() {
+function BinarySearchpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
     return (
@@ -23,8 +23,8 @@ function Stringpage() {
                     <div className="p-8 lg:p-12 xl:px-16 pb-20 max-w-7xl mx-auto w-full">
 
                         {/* ✅ conditional rendering */}
-                        {activeTab === "doc" && <String />}
-                        {activeTab === "practice" && <PracticeQuestion />}
+                        {activeTab === "doc" && <BinarySearch />}
+                        {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 
                     </div>
@@ -41,4 +41,4 @@ function Stringpage() {
     );
 }
 
-export default Stringpage;
+export default BinarySearchpage;

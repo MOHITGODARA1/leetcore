@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import DashNavbar from "../../Components/dahboardnav";
 import LeftNavbar from "./component/Leftnavbar";
 import RightNavbar from "./component/RightNavbar";
-import DSAGraph from "./component/Graphs/DsaGraph";
-import OSGraph from "./component/Graphs/operatingSystemGraph";
-import NetworkGraph from "./component/Graphs/NetworkGraph";
-import DBsGraph from "./component/Graphs/DbmsGraph";
-import OOPSGraph from "./component/Graphs/OOPSGraph";
-import LLDGraph from "./component/Graphs/LLDGraph";
-import SystemDesgineGraph from "./component/Graphs/SystemDesgine";
-import InterviewPrepGraph from "./component/Graphs/InterviewPrep";
+import DSAGraph from "./Graphs/DsaGraph";
+import OSGraph from "./Graphs/operatingSystemGraph";
+import NetworkGraph from "./Graphs/NetworkGraph";
+import DBsGraph from "./Graphs/DbmsGraph";
+import OOPSGraph from "./Graphs/OOPSGraph";
+import LLDGraph from "./Graphs/LLDGraph";
+import SystemDesgineGraph from "./Graphs/SystemDesgine";
+import InterviewPrepGraph from "./Graphs/InterviewPrep";
 
 const Dashboard = () => {
     // const [user, setUser] = useState(null);
