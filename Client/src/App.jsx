@@ -14,6 +14,8 @@ import Hashingpage from "./pages/Hashingpage";
 import Backtrackingpage from "./pages/Backtrackingpage";
 import DynamicProgrammingPage from "./pages/DynamicProgrammingpage";
 import Quepage from "./pages/Queuepage";
+import Leaderboardpage from "./pages/Leaderboardpage";
+import WeeklyLeaderboardpage from "./pages/WeeklyLeaderboard";
 import { Routes, Route, useParams } from "react-router-dom";
 
 /* Fallback Page */
@@ -96,6 +98,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
+      {/* <ProtectedRoute>
+        <Route path="/dashboard" element={<Navigate to="/dashboard/dsa" replace />} />
+      </ProtectedRoute> */}
       <Route path="/dashboard/:subject" element={
         <ProtectedRoute>
           <Dashboard />
@@ -104,6 +109,16 @@ function App() {
       <Route path="/dashboard/:subject/:topic" element={
         <ProtectedRoute>
           <TopicRenderer />
+        </ProtectedRoute>
+      } />
+      <Route path="/leaderboard" element={
+        <ProtectedRoute>
+          <Leaderboardpage />
+        </ProtectedRoute>
+      } />
+      <Route path="/weeklyleaderboard" element={
+        <ProtectedRoute>
+          <WeeklyLeaderboardpage />
         </ProtectedRoute>
       } />
     </Routes>

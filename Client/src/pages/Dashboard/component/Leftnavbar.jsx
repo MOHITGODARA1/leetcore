@@ -39,11 +39,11 @@ function LeftNavbar() {
                     key={item.slug}
                     onClick={() => navigate(`/dashboard/${item.slug}`)}
                     className={`
-                        flex items-center gap-4 px-3 py-3 rounded-md text-md w-full
-                        transition-all duration-150
+                        flex items-center gap-4 px-3 py-2 rounded-md text-md w-full
+                        transition-all duration-150 cursor-pointer
                         ${active
-                            ? "bg-[#1a1d21] text-white"
-                            : "text-gray-400 hover:text-white hover:bg-[#15171a]"
+                            ? "bg-[#23272c] text-white"
+                            : "text-white hover:bg-[#1a1d21]"
                         }
                     `}
                 >
@@ -58,7 +58,7 @@ function LeftNavbar() {
             bg-[#0d0f11] text-white border-r border-gray-800 flex flex-col">
 
             {/* 🔍 Search */}
-            <div className="p-3">
+            {/* <div className="p-3">
                 <div className="flex items-center gap-2 px-3 py-2 bg-[#15171a] rounded-md text-gray-400 text-sm">
                     <Search size={14} />
                     <input
@@ -67,7 +67,7 @@ function LeftNavbar() {
                         className="bg-transparent outline-none w-full text-sm"
                     />
                 </div>
-            </div>
+            </div> */}
 
             {/* CORE TOPICS */}
             <div className="px-3 mt-2">

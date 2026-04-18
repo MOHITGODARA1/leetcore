@@ -3,7 +3,7 @@ import HeroLeft from "./landingpage/HeroSection";
 import HeroGraph from "./landingpage/Graph";
 import Recommendations from "./landingpage/recomendation";
 import TrustedBy from "./landingpage/trusted";
-import AboutBuilder from "./landingpage/Builtby";
+import BecomeSponsor from "./landingpage/Sponser";
 import Footer from "../Components/Footer";
 function Landing() {
     return (
@@ -53,7 +53,7 @@ function Landing() {
             {/* Recommendations Section */}
             <Recommendations />
             <TrustedBy />
-            <AboutBuilder />
+            <BecomeSponsor />
             <Footer />
         </div>
     );

@@ -61,7 +61,7 @@ const DashNavbar = () => {
     };
 
     const navLinks = [
-        { label: "Dashboard", href: "/dashboard" },
+        { label: "Dashboard", href: "/dashboard/dsa" },
         { label: "Leaderboard", href: "/leaderboard" },
         { label: "Weekly Leaderboard", href: "/weeklyleaderboard" }
     ];
@@ -158,7 +158,7 @@ const DashNavbar = () => {
                     ? "scrolled bg-[#1f1f1f] backdrop-blur-xl border-b border-white/[0.07] shadow-[0_0_40px_rgba(0,0,0,0.6)]"
                     : "bg-[#1f1f1f] backdrop-blur-lg"
                     }`}
-                style={{ height: 70 }}
+                style={{ height: 58 }}
             >
                 {/* Logo */}
                 <a href="/" className="dash-anim-logo flex items-center gap-2.5 no-underline shrink-0">
@@ -190,7 +190,7 @@ const DashNavbar = () => {
                                 href={link.href}
                                 className={`dash-nav-link dash-font-dmono dash-anim-l${i + 1} ${window.location.pathname === link.href
                                     ? "text-white active"
-                                    : "text-[#6b6560]"
+                                    : "text-[#96908b]"
                                     }`}
                             >
                                 {link.label}
@@ -257,7 +257,7 @@ const DashNavbar = () => {
 
                                     <div className="dash-drop-divider" />
 
-                                    <a href="/dashboard" className="dash-drop-item">
+                                    <a href="/dashboard/dsa" className="dash-drop-item">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" />
                                         </svg>
