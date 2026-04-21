@@ -54,7 +54,7 @@ function LeftNavbar() {
         });
 
     return (
-        <div className="fixed top-[9vh] left-0 h-[91vh] w-64 
+        <div className="fixed top-[9vh] left-0 h-[91vh] w-60 
             bg-[#0d0f11] text-white border-r border-gray-800 flex flex-col">
 
             {/* 🔍 Search */}

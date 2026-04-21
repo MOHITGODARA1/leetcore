@@ -5,7 +5,7 @@ import ContentNavbar from "../../../Components/ContentNav";
 import Queue from "../Content/Queue";
 import PracticeArray from "../Components/PracticeQuestion";
 import Arraydiscussion from "../../Discussion/Arraydiscussion";
-
+import VideoSuggestion from "../Components/VideoSuggestion";
 function Queuepage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
@@ -24,6 +24,7 @@ function Queuepage() {
 
                         {/* ✅ conditional rendering */}
                         {activeTab === "doc" && <Queue />}
+                        {activeTab === "video" && <VideoSuggestion />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 

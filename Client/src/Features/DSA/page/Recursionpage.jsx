@@ -5,7 +5,7 @@ import ContentNavbar from "../../../Components/ContentNav";
 import Recursion from "../Content/Recursion";
 import PracticeArray from "../Components/PracticeQuestion";
 import Arraydiscussion from "../../Discussion/Arraydiscussion";
-
+import VideoSuggestion from "../Components/VideoSuggestion";
 function Recursionpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
@@ -24,6 +24,7 @@ function Recursionpage() {
 
                         {/* ✅ conditional rendering */}
                         {activeTab === "doc" && <Recursion />}
+                        {activeTab === "video" && <VideoSuggestion />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 

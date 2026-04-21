@@ -5,7 +5,7 @@ import ContentNavbar from "../../../Components/ContentNav";
 import SlowFast from "../Content/SlowFast";
 import PracticeArray from "../Components/PracticeQuestion";
 import Arraydiscussion from "../../Discussion/Arraydiscussion";
-
+import VideoSuggestion from "../Components/VideoSuggestion";
 function SlowFastpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
@@ -24,6 +24,7 @@ function SlowFastpage() {
 
                         {/* ✅ conditional rendering */}
                         {activeTab === "doc" && <SlowFast />}
+                        {activeTab === "video" && <VideoSuggestion />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 

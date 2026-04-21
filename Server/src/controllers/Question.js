@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 // load JSON manually
-const filePath = path.resolve(import.meta.dirname, "../data/questions.json");
+const filePath = path.resolve(import.meta.dirname, "../data/DSA/questions.json");
 const questions = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
 export const getQuestionsByTopic = (req, res) => {

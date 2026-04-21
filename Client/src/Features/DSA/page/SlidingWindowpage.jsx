@@ -5,7 +5,7 @@ import ContentNavbar from "../../../Components/ContentNav";
 import SlidingWindow from "../Content/SlidingWindow";
 import PracticeArray from "../Components/PracticeQuestion";
 import Arraydiscussion from "../../Discussion/Arraydiscussion";
-
+import VideoSuggestion from "../Components/VideoSuggestion";
 function SlidingWindowpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
@@ -24,6 +24,7 @@ function SlidingWindowpage() {
 
                         {/* ✅ conditional rendering */}
                         {activeTab === "doc" && <SlidingWindow />}
+                        {activeTab === "video" && <VideoSuggestion />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 

@@ -5,7 +5,7 @@ import ContentNavbar from "../../../Components/ContentNav";
 import String from "../Content/String";
 import PracticeQuestion from "../Components/PracticeQuestion";
 import Arraydiscussion from "../../Discussion/Arraydiscussion";
-
+import VideoSuggestion from "../Components/VideoSuggestion";
 function Stringpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
@@ -24,6 +24,7 @@ function Stringpage() {
 
                         {/* ✅ conditional rendering */}
                         {activeTab === "doc" && <String />}
+                        {activeTab === "video" && <VideoSuggestion />}
                         {activeTab === "practice" && <PracticeQuestion />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 

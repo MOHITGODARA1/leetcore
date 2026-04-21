@@ -5,7 +5,7 @@ import ContentNavbar from "../../../Components/ContentNav";
 import Backtracking from "../Content/Backtracking";
 import PracticeArray from "../Components/PracticeQuestion";
 import Arraydiscussion from "../../Discussion/Arraydiscussion";
-
+import VideoSuggestion from "../Components/VideoSuggestion";
 function Backtrackingpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
@@ -24,6 +24,7 @@ function Backtrackingpage() {
 
                         {/* ✅ conditional rendering */}
                         {activeTab === "doc" && <Backtracking />}
+                        {activeTab === "video" && <VideoSuggestion />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 

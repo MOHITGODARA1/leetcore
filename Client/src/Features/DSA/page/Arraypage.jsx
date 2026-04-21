@@ -5,7 +5,7 @@ import ContentNavbar from "../../../Components/ContentNav";
 import Array from "../Content/Array";
 import PracticeArray from "../Components/PracticeQuestion";
 import Arraydiscussion from "../../Discussion/Arraydiscussion";
-
+import Arrayvideo from "../Components/VideoSuggestion";
 function Arraypage() {
     const [activeTab, setActiveTab] = useState("doc"); //  default active
 
@@ -24,6 +24,7 @@ function Arraypage() {
 
                         {/*  conditional rendering */}
                         {activeTab === "doc" && <Array />}
+                        {activeTab === "video" && <Arrayvideo />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 

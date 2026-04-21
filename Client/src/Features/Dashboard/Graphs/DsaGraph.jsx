@@ -3,7 +3,7 @@ import { ReactFlow, Background, MarkerType } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
 const nodeStyle = {
-    background: "#161616",
+    background: "#161616ff",
     color: "#f5f5f5",
     border: "1px solid #3a3a3a",
     borderRadius: "10px",
@@ -17,10 +17,10 @@ const nodeStyle = {
 const defaultEdgeOptions = {
     markerEnd: {
         type: MarkerType.ArrowClosed,
-        color: "#636362ff", // yellow
+        color: "#e9e9e3ff", // yellow
     },
     style: {
-        stroke: "#636362ff",
+        stroke: "#e9e9e3ff",
         strokeWidth: 1.6,
         opacity: 0.75,
     },
@@ -85,8 +85,8 @@ export default function DSAGraph() {
                 style={{
                     position: "absolute",
                     inset: 0,
-                    background:
-                        "radial-gradient(circle at 25% 30%, rgba(250,204,21,0.12), transparent 40%), radial-gradient(circle at 75% 70%, rgba(250,204,21,0.08), transparent 40%)",
+                    // background:
+                    //     "radial-gradient(circle at 25% 30%, rgba(250,204,21,0.12), transparent 40%), radial-gradient(circle at 75% 70%, rgba(250,204,21,0.08), transparent 40%)",
                     animation: "moveBg 16s linear infinite",
                 }}
             />

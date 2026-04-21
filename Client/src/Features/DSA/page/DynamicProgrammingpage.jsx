@@ -5,7 +5,7 @@ import ContentNavbar from "../../../Components/ContentNav";
 import DynamicProgramming from "../Content/DynamicProgramming";
 import PracticeArray from "../Components/PracticeQuestion";
 import Arraydiscussion from "../../Discussion/Arraydiscussion";
-
+import VideoSuggestion from "../Components/VideoSuggestion";
 function DynamicProgrammingPage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
@@ -24,6 +24,7 @@ function DynamicProgrammingPage() {
 
                         {/* ✅ conditional rendering */}
                         {activeTab === "doc" && <DynamicProgramming />}
+                        {activeTab === "video" && <VideoSuggestion />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 

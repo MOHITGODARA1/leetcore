@@ -2,6 +2,7 @@ function ContentNavbar({ active, setActive }) {
 
     const navItems = [
         { id: "doc", label: "Documentation" },
+        { id: "video", label: "Video" },
         { id: "practice", label: "Practice" },
         { id: "discussion", label: "Discussion" },
     ];

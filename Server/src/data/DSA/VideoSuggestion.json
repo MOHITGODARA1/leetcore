@@ -1,0 +1,548 @@
+{
+    "arrays": [
+        {
+            "title": "Introduction to Arrays",
+            "url": "https://www.youtube.com/embed/8wmn7k1TTcI"
+        },
+        {
+            "title": "Array Basics",
+            "url": "https://www.youtube.com/embed/RBSGKlAvoiM"
+        },
+        {
+            "title": "Two Sum Problem",
+            "url": "https://www.youtube.com/embed/KLlXCFG5TnA"
+        },
+        {
+            "title": "Kadane Algorithm",
+            "url": "https://www.youtube.com/embed/w_KEocd__20"
+        },
+        {
+            "title": "Best Time to Buy Sell Stock",
+            "url": "https://www.youtube.com/embed/1pkOgXD63yU"
+        },
+        {
+            "title": "Merge Intervals",
+            "url": "https://www.youtube.com/embed/2JzRBPFYbKE"
+        },
+        {
+            "title": "Set Matrix Zero",
+            "url": "https://www.youtube.com/embed/N0MgLvceX7M"
+        },
+        {
+            "title": "Next Permutation",
+            "url": "https://www.youtube.com/embed/LuLCLgMElus"
+        },
+        {
+            "title": "Rotate Matrix",
+            "url": "https://www.youtube.com/embed/Y72QeX0Efxw"
+        },
+        {
+            "title": "Majority Element",
+            "url": "https://www.youtube.com/embed/nP_ns3uSh80"
+        }
+    ],
+    "string": [
+        {
+            "title": "String Basics",
+            "url": "https://www.youtube.com/embed/gy3j4h7q2e4"
+        },
+        {
+            "title": "Reverse String",
+            "url": "https://www.youtube.com/embed/hAqTO7E3-tw"
+        },
+        {
+            "title": "Palindrome Check",
+            "url": "https://www.youtube.com/embed/jJXJ16kPFWg"
+        },
+        {
+            "title": "Valid Anagram",
+            "url": "https://www.youtube.com/embed/9UtInBqnCgA"
+        },
+        {
+            "title": "Longest Substring Without Repeating",
+            "url": "https://www.youtube.com/embed/wiGpQwVHdE0"
+        },
+        {
+            "title": "String Compression",
+            "url": "https://www.youtube.com/embed/aY1z0n8vBxk"
+        },
+        {
+            "title": "Count and Say",
+            "url": "https://www.youtube.com/embed/p9R2cR0UoYk"
+        },
+        {
+            "title": "Z Algorithm",
+            "url": "https://www.youtube.com/embed/CpZh4eF8QBw"
+        },
+        {
+            "title": "KMP Algorithm",
+            "url": "https://www.youtube.com/embed/V5-7GzOfADQ"
+        },
+        {
+            "title": "Rabin Karp",
+            "url": "https://www.youtube.com/embed/BQ9E-2umSWc"
+        }
+    ],
+    "two_pointer": [
+        {
+            "title": "Two Pointer Basics",
+            "url": "https://www.youtube.com/embed/jzZsG8n2R9A"
+        },
+        {
+            "title": "Container With Most Water",
+            "url": "https://www.youtube.com/embed/UuiTKBwPgAo"
+        },
+        {
+            "title": "3Sum Problem",
+            "url": "https://www.youtube.com/embed/onLoX6Nhvmg"
+        },
+        {
+            "title": "Remove Duplicates",
+            "url": "https://www.youtube.com/embed/ZA3g8kZkVqg"
+        },
+        {
+            "title": "Trapping Rain Water",
+            "url": "https://www.youtube.com/embed/m18Hntz4go8"
+        },
+        {
+            "title": "Sort Colors",
+            "url": "https://www.youtube.com/embed/4xbWSRZHqac"
+        },
+        {
+            "title": "Move Zeroes",
+            "url": "https://www.youtube.com/embed/aayNRwUN3Do"
+        },
+        {
+            "title": "Valid Palindrome",
+            "url": "https://www.youtube.com/embed/jJXJ16kPFWg"
+        },
+        {
+            "title": "Merge Sorted Array",
+            "url": "https://www.youtube.com/embed/1j7p8V7bC1E"
+        },
+        {
+            "title": "Squares of Sorted Array",
+            "url": "https://www.youtube.com/embed/Qa0cYlY1lZk"
+        }
+    ],
+    "hashing": [
+        {
+            "title": "Hashing Basics",
+            "url": "https://www.youtube.com/embed/shs0KM3wKv8"
+        },
+        {
+            "title": "Two Sum HashMap",
+            "url": "https://www.youtube.com/embed/KLlXCFG5TnA"
+        },
+        {
+            "title": "Frequency Count",
+            "url": "https://www.youtube.com/embed/d0l6Yy0V5Pc"
+        },
+        {
+            "title": "Subarray Sum Equals K",
+            "url": "https://www.youtube.com/embed/fFVZt-6sgyo"
+        },
+        {
+            "title": "Longest Consecutive Sequence",
+            "url": "https://www.youtube.com/embed/P6RZZMu_maU"
+        },
+        {
+            "title": "Group Anagrams",
+            "url": "https://www.youtube.com/embed/vzdNOK2oB2E"
+        },
+        {
+            "title": "Top K Frequent Elements",
+            "url": "https://www.youtube.com/embed/YPTqKIgVk-k"
+        },
+        {
+            "title": "Intersection of Arrays",
+            "url": "https://www.youtube.com/embed/baX0tC1f6wQ"
+        },
+        {
+            "title": "Happy Number",
+            "url": "https://www.youtube.com/embed/ljz85bxOYJ0"
+        },
+        {
+            "title": "Isomorphic Strings",
+            "url": "https://www.youtube.com/embed/ef9dWbqV2rM"
+        }
+    ],
+    "sliding_window": [
+        {
+            "title": "Sliding Window Basics",
+            "url": "https://www.youtube.com/embed/MK-NZ4hN7rs"
+        },
+        {
+            "title": "Max Subarray Size K",
+            "url": "https://www.youtube.com/embed/2zqT0Qp6z0k"
+        },
+        {
+            "title": "Longest Substring Unique",
+            "url": "https://www.youtube.com/embed/wiGpQwVHdE0"
+        },
+        {
+            "title": "Minimum Window Substring",
+            "url": "https://www.youtube.com/embed/jSto0O4AJbM"
+        },
+        {
+            "title": "Max Consecutive Ones",
+            "url": "https://www.youtube.com/embed/k7mXW1K1V5o"
+        },
+        {
+            "title": "Permutation in String",
+            "url": "https://www.youtube.com/embed/UbyhOgBN834"
+        },
+        {
+            "title": "Fruit Into Baskets",
+            "url": "https://www.youtube.com/embed/e3bs0uA1NhQ"
+        },
+        {
+            "title": "Longest Repeating Replacement",
+            "url": "https://www.youtube.com/embed/gqXU1UyA8pk"
+        },
+        {
+            "title": "Binary Subarrays Sum",
+            "url": "https://www.youtube.com/embed/jS0gJxTT3T8"
+        },
+        {
+            "title": "Nice Subarrays",
+            "url": "https://www.youtube.com/embed/6f2v9r0g7O8"
+        }
+    ],
+    "binary_search": [
+        {
+            "title": "Binary Search Basics",
+            "url": "https://www.youtube.com/embed/s4DPM8ct1pI"
+        },
+        {
+            "title": "Lower Bound",
+            "url": "https://www.youtube.com/embed/Y4mgxe9q7Y0"
+        },
+        {
+            "title": "Upper Bound",
+            "url": "https://www.youtube.com/embed/0V5a6D3y5uY"
+        },
+        {
+            "title": "Search Rotated Array",
+            "url": "https://www.youtube.com/embed/5qGrJbHhqFs"
+        },
+        {
+            "title": "Find Peak Element",
+            "url": "https://www.youtube.com/embed/T6H9t3Iu7nE"
+        },
+        {
+            "title": "Square Root",
+            "url": "https://www.youtube.com/embed/3Jf6Z2k8ZpM"
+        },
+        {
+            "title": "Median of Two Sorted Arrays",
+            "url": "https://www.youtube.com/embed/q6IEA26hvXc"
+        },
+        {
+            "title": "Kth Missing Number",
+            "url": "https://www.youtube.com/embed/W4H7JH3h6p8"
+        },
+        {
+            "title": "Allocate Books",
+            "url": "https://www.youtube.com/embed/pV0eG3y7Z3U"
+        },
+        {
+            "title": "Aggressive Cows",
+            "url": "https://www.youtube.com/embed/3L8pH6jK0Ck"
+        }
+    ],
+    "linked_list": [
+        {
+            "title": "Linked List Basics",
+            "url": "https://www.youtube.com/embed/N6dOwBde7-M"
+        },
+        {
+            "title": "Reverse Linked List",
+            "url": "https://www.youtube.com/embed/G0_I-ZF0S38"
+        },
+        {
+            "title": "Detect Cycle",
+            "url": "https://www.youtube.com/embed/gBTe7lFR3vc"
+        },
+        {
+            "title": "Middle of List",
+            "url": "https://www.youtube.com/embed/A2_ldqM4QcY"
+        },
+        {
+            "title": "Merge Two Lists",
+            "url": "https://www.youtube.com/embed/XIdigk956u0"
+        },
+        {
+            "title": "Remove Nth Node",
+            "url": "https://www.youtube.com/embed/XVuQxVej6y8"
+        },
+        {
+            "title": "Add Two Numbers",
+            "url": "https://www.youtube.com/embed/LN9qzE0k7yg"
+        },
+        {
+            "title": "Flatten List",
+            "url": "https://www.youtube.com/embed/ysN9w6cGd9I"
+        },
+        {
+            "title": "Clone List",
+            "url": "https://www.youtube.com/embed/VNf6VynfpdM"
+        },
+        {
+            "title": "Rotate List",
+            "url": "https://www.youtube.com/embed/zLJf8d6hF7M"
+        }
+    ],
+    "stack": [
+        {
+            "title": "Stack Basics",
+            "url": "https://www.youtube.com/embed/wjI1WNcIntg"
+        },
+        {
+            "title": "Next Greater Element",
+            "url": "https://www.youtube.com/embed/Du881K7Jtk8"
+        },
+        {
+            "title": "Valid Parentheses",
+            "url": "https://www.youtube.com/embed/WTzjTskDFMg"
+        },
+        {
+            "title": "Min Stack",
+            "url": "https://www.youtube.com/embed/qkLl7nAwDPo"
+        },
+        {
+            "title": "Largest Rectangle Histogram",
+            "url": "https://www.youtube.com/embed/ZXuK6P3v1eE"
+        },
+        {
+            "title": "Stock Span",
+            "url": "https://www.youtube.com/embed/p9eZ2tZ7R3U"
+        },
+        {
+            "title": "Infix to Postfix",
+            "url": "https://www.youtube.com/embed/vc9j9y7QZ2g"
+        },
+        {
+            "title": "Celebrity Problem",
+            "url": "https://www.youtube.com/embed/Cp3b6h7Zs9E"
+        },
+        {
+            "title": "Sort Stack",
+            "url": "https://www.youtube.com/embed/4Z4p4jFvC6M"
+        },
+        {
+            "title": "Balanced Brackets",
+            "url": "https://www.youtube.com/embed/9XlH3gH3yFQ"
+        }
+    ],
+    "queue": [
+        {
+            "title": "Queue Basics",
+            "url": "https://www.youtube.com/embed/XuCbpw6Bj1U"
+        },
+        {
+            "title": "Queue using Array",
+            "url": "https://www.youtube.com/embed/okr-XE8yTO8"
+        },
+        {
+            "title": "Queue using Linked List",
+            "url": "https://www.youtube.com/embed/9PHkM0Jri_4"
+        },
+        {
+            "title": "Circular Queue",
+            "url": "https://www.youtube.com/embed/0q5I6z8p1xA"
+        },
+        {
+            "title": "Deque Implementation",
+            "url": "https://www.youtube.com/embed/8kZ0nPZ5j6Q"
+        },
+        {
+            "title": "Sliding Window Maximum",
+            "url": "https://www.youtube.com/embed/DfljaUwZsOk"
+        },
+        {
+            "title": "First Negative Integer",
+            "url": "https://www.youtube.com/embed/8t6m3n2G9hE"
+        },
+        {
+            "title": "LRU Cache",
+            "url": "https://www.youtube.com/embed/7ABFKPK2hD4"
+        },
+        {
+            "title": "Implement Stack using Queue",
+            "url": "https://www.youtube.com/embed/ox9g4y4l5cE"
+        },
+        {
+            "title": "Rotten Oranges (Queue BFS)",
+            "url": "https://www.youtube.com/embed/y704fEOx0s0"
+        }
+    ],
+    "recursion": [
+        {
+            "title": "Recursion Basics",
+            "url": "https://www.youtube.com/embed/yVdKa8dnKiE"
+        },
+        {
+            "title": "Print All Subsequences",
+            "url": "https://www.youtube.com/embed/eQCS_v3bw0Q"
+        },
+        {
+            "title": "Subset Sum",
+            "url": "https://www.youtube.com/embed/rYkfBRtMJr8"
+        },
+        {
+            "title": "Permutations",
+            "url": "https://www.youtube.com/embed/YK78FU5Ffjw"
+        },
+        {
+            "title": "Combination Sum",
+            "url": "https://www.youtube.com/embed/OyZFFqQtu98"
+        },
+        {
+            "title": "N Queens",
+            "url": "https://www.youtube.com/embed/i05Ju7AftcM"
+        },
+        {
+            "title": "Palindrome Partitioning",
+            "url": "https://www.youtube.com/embed/WBgsABoClE0"
+        },
+        {
+            "title": "Generate Parentheses",
+            "url": "https://www.youtube.com/embed/s9fokUqJ76A"
+        },
+        {
+            "title": "Tower of Hanoi",
+            "url": "https://www.youtube.com/embed/3h2x2Yt3W9A"
+        },
+        {
+            "title": "Rat in a Maze",
+            "url": "https://www.youtube.com/embed/bLGZhJlt4y0"
+        }
+    ],
+    "dynamic_programming": [
+        {
+            "title": "DP Introduction",
+            "url": "https://www.youtube.com/embed/oBt53YbR9Kk"
+        },
+        {
+            "title": "Fibonacci DP",
+            "url": "https://www.youtube.com/embed/tyB0ztf0DNY"
+        },
+        {
+            "title": "Climbing Stairs",
+            "url": "https://www.youtube.com/embed/Y0lT9Fck7qI"
+        },
+        {
+            "title": "0/1 Knapsack",
+            "url": "https://www.youtube.com/embed/GqOmJHQZivw"
+        },
+        {
+            "title": "Longest Common Subsequence",
+            "url": "https://www.youtube.com/embed/Ua0GhsJSlWM"
+        },
+        {
+            "title": "Longest Increasing Subsequence",
+            "url": "https://www.youtube.com/embed/cjWnW0hdF1Y"
+        },
+        {
+            "title": "Edit Distance",
+            "url": "https://www.youtube.com/embed/XYi2-LPrwm4"
+        },
+        {
+            "title": "Matrix Chain Multiplication",
+            "url": "https://www.youtube.com/embed/vRVfmbCFW7Y"
+        },
+        {
+            "title": "Partition Equal Subset Sum",
+            "url": "https://www.youtube.com/embed/3N6XrZ9pGWs"
+        },
+        {
+            "title": "Coin Change",
+            "url": "https://www.youtube.com/embed/H9bfqozjoqs"
+        }
+    ],
+    "slow_fast": [
+        {
+            "title": "Floyd Cycle Detection",
+            "url": "https://www.youtube.com/embed/gBTe7lFR3vc"
+        },
+        {
+            "title": "Middle of Linked List",
+            "url": "https://www.youtube.com/embed/A2_ldqM4QcY"
+        },
+        {
+            "title": "Detect Cycle in List",
+            "url": "https://www.youtube.com/embed/gBTe7lFR3vc"
+        },
+        {
+            "title": "Happy Number",
+            "url": "https://www.youtube.com/embed/ljz85bxOYJ0"
+        },
+        {
+            "title": "Find Duplicate Number",
+            "url": "https://www.youtube.com/embed/32Ll35mhWg0"
+        },
+        {
+            "title": "Remove Nth Node",
+            "url": "https://www.youtube.com/embed/XVuQxVej6y8"
+        },
+        {
+            "title": "Palindrome Linked List",
+            "url": "https://www.youtube.com/embed/8-2e3Qb3hW8"
+        },
+        {
+            "title": "Intersection of Lists",
+            "url": "https://www.youtube.com/embed/0DYoPz2Tpt4"
+        },
+        {
+            "title": "Loop Length Detection",
+            "url": "https://www.youtube.com/embed/Va5sL8kY1J4"
+        },
+        {
+            "title": "Reorder List",
+            "url": "https://www.youtube.com/embed/S5bfdUTrKLM"
+        }
+    ],
+    "backtracking": [
+        {
+            "title": "Backtracking Basics",
+            "url": "https://www.youtube.com/embed/Zq4upTEaQyM"
+        },
+        {
+            "title": "Subsets",
+            "url": "https://www.youtube.com/embed/b7AYbpM5YrE"
+        },
+        {
+            "title": "Permutations",
+            "url": "https://www.youtube.com/embed/YK78FU5Ffjw"
+        },
+        {
+            "title": "Combination Sum",
+            "url": "https://www.youtube.com/embed/OyZFFqQtu98"
+        },
+        {
+            "title": "N Queens",
+            "url": "https://www.youtube.com/embed/i05Ju7AftcM"
+        },
+        {
+            "title": "Sudoku Solver",
+            "url": "https://www.youtube.com/embed/FWAIf_EVUKE"
+        },
+        {
+            "title": "Word Search",
+            "url": "https://www.youtube.com/embed/pfiQ_PS1g8E"
+        },
+        {
+            "title": "Palindrome Partitioning",
+            "url": "https://www.youtube.com/embed/WBgsABoClE0"
+        },
+        {
+            "title": "Rat in Maze",
+            "url": "https://www.youtube.com/embed/bLGZhJlt4y0"
+        },
+        {
+            "title": "Kth Permutation",
+            "url": "https://www.youtube.com/embed/wT7gcXLYoao"
+        }
+    ]
+}

@@ -5,7 +5,7 @@ import ContentNavbar from "../../../Components/ContentNav";
 import LinkedList from "../Content/LinkedList";
 import PracticeArray from "../Components/PracticeQuestion";
 import Arraydiscussion from "../../Discussion/Arraydiscussion";
-
+import VideoSuggestion from "../Components/VideoSuggestion";
 function LinkedListpage() {
     const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
 
@@ -24,6 +24,7 @@ function LinkedListpage() {
 
                         {/* ✅ conditional rendering */}
                         {activeTab === "doc" && <LinkedList />}
+                        {activeTab === "video" && <VideoSuggestion />}
                         {activeTab === "practice" && <PracticeArray />}
                         {activeTab === "discussion" && <Arraydiscussion />}
 

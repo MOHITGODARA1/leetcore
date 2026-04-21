@@ -7,7 +7,7 @@ import PracticeQuestion from "../Components/PracticeQuestion";
 import Arraydiscussion from "../../Discussion/Arraydiscussion";
 
 function Twopointerpage() {
-    const [activeTab, setActiveTab] = useState("doc"); // ✅ default active
+    const [activeTab, setActiveTab] = useState("doc");
 
     return (
         <div className=" min-h-screen text-white flex flex-col">
@@ -17,12 +17,12 @@ function Twopointerpage() {
                 {/* Main Content Area */}
                 <div className="flex-1 flex flex-col min-w-0">
 
-                    {/* ✅ pass state */}
+                    {/*  pass state */}
                     <ContentNavbar active={activeTab} setActive={setActiveTab} />
 
                     <div className="p-8 lg:p-12 xl:px-16 pb-20 max-w-7xl mx-auto w-full">
 
-                        {/* ✅ conditional rendering */}
+                        {/*  conditional rendering */}
                         {activeTab === "doc" && <TwoPointer />}
                         {activeTab === "practice" && <PracticeQuestion />}
                         {activeTab === "discussion" && <Arraydiscussion />}

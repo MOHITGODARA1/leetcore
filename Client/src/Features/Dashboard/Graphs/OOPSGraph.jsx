@@ -1,72 +1,120 @@
+import { useNavigate, useParams } from "react-router-dom";
+import { ReactFlow, Background, MarkerType } from "@xyflow/react";
+import "@xyflow/react/dist/style.css";
 
+const nodeStyle = {
+    background: "#161616ff",
+    color: "#f5f5f5",
+    border: "1px solid #3a3a3a",
+    borderRadius: "10px",
+    padding: "10px 16px",
+    fontWeight: "500",
+    fontSize: "13px",
+    cursor: "pointer",
+    transition: "all 0.2s ease",
+};
 
-const EDGE = "#ffffff";
-const SW = 5;
+const defaultEdgeOptions = {
+    markerEnd: {
+        type: MarkerType.ArrowClosed,
+        color: "#e9e9e3ff",
+    },
+    style: {
+        stroke: "#e9e9e3ff",
+        strokeWidth: 1.6,
+        opacity: 0.75,
+    },
+};
 
-const edges = [
-    "M305 75 C305 120, 185 140, 185 170",
-    "M305 75 C305 120, 445 140, 445 170",
-    "M185 215 C185 260, 110 280, 110 310",
-    "M185 215 C185 260, 300 280, 300 310",
-    "M445 215 C445 260, 480 280, 480 310",
-    "M110 355 C200 420, 300 420, 315 460",
-    "M300 355 C300 420, 315 420, 315 460",
-    "M480 355 C400 420, 315 420, 315 460",
-    "M315 505 C315 560, 155 580, 155 630",
-    "M315 505 C315 560, 335 580, 335 630",
-    "M315 505 C315 560, 525 580, 525 630",
-];
+export default function OOPSGraph() {
+    const navigate = useNavigate();
+    const { subject } = useParams();
 
-const nodes = [
-    { label: "Classes", x: 240, y: 30, w: 130 },
-    { label: "Encapsulation", x: 120, y: 170, w: 130 },
-    { label: "Inheritance", x: 380, y: 170, w: 130 },
-    { label: "Polymorphism", x: 44, y: 310, w: 130 },
-    { label: "Abstraction", x: 238, y: 310, w: 130 },
-    { label: "Interfaces", x: 418, y: 310, w: 130 },
-    { label: "Design Patterns", x: 250, y: 460, w: 130 },
-    { label: "SOLID", x: 90, y: 630, w: 130 },
-    { label: "Coupling", x: 270, y: 630, w: 130 },
-    { label: "Cohesion", x: 460, y: 630, w: 130 },
-];
+    const nodes = [
+        { id: "1", data: { label: "Classes & Objects", slug: "classes-objects" }, position: { x: 160, y: 0 }, style: nodeStyle },
+        { id: "2", data: { label: "Constructors", slug: "constructors" }, position: { x: 480, y: 0 }, style: nodeStyle },
+        { id: "3", data: { label: "Encapsulation", slug: "encapsulation" }, position: { x: 60, y: 120 }, style: nodeStyle },
+        { id: "4", data: { label: "Inheritance", slug: "inheritance" }, position: { x: 330, y: 120 }, style: nodeStyle },
+        { id: "5", data: { label: "Access Modifiers", slug: "access-modifiers" }, position: { x: 570, y: 120 }, style: nodeStyle },
+        { id: "6", data: { label: "Polymorphism", slug: "polymorphism" }, position: { x: 60, y: 240 }, style: nodeStyle },
+        { id: "7", data: { label: "Abstraction", slug: "abstraction" }, position: { x: 330, y: 240 }, style: nodeStyle },
+        { id: "8", data: { label: "Interfaces", slug: "interfaces" }, position: { x: 580, y: 240 }, style: nodeStyle },
+        { id: "9", data: { label: "Overloading", slug: "overloading" }, position: { x: 60, y: 360 }, style: nodeStyle },
+        { id: "10", data: { label: "Overriding", slug: "overriding" }, position: { x: 310, y: 360 }, style: nodeStyle },
+        { id: "11", data: { label: "Abstract Classes", slug: "abstract-classes" }, position: { x: 560, y: 360 }, style: nodeStyle },
+        { id: "12", data: { label: "Design Patterns", slug: "design-patterns" }, position: { x: 60, y: 480 }, style: nodeStyle },
+        { id: "13", data: { label: "SOLID Principles", slug: "solid-principles" }, position: { x: 310, y: 480 }, style: nodeStyle },
+        { id: "14", data: { label: "Exception Handling", slug: "exception-handling" }, position: { x: 560, y: 480 }, style: nodeStyle },
+    ];
 
-const OFFSET = 110;
+    const edges = [
+        { id: "e1-3", source: "1", target: "3" },
+        { id: "e1-4", source: "1", target: "4" },
+        { id: "e2-4", source: "2", target: "4" },
+        { id: "e2-5", source: "2", target: "5" },
+        { id: "e3-6", source: "3", target: "6" },
+        { id: "e4-6", source: "4", target: "6" },
+        { id: "e4-7", source: "4", target: "7" },
+        { id: "e5-7", source: "5", target: "7" },
+        { id: "e5-8", source: "5", target: "8" },
+        { id: "e6-9", source: "6", target: "9" },
+        { id: "e7-10", source: "7", target: "10" },
+        { id: "e8-10", source: "8", target: "10" },
+        { id: "e8-11", source: "8", target: "11" },
+        { id: "e9-12", source: "9", target: "12" },
+        { id: "e10-13", source: "10", target: "13" },
+        { id: "e11-14", source: "11", target: "14" },
+    ];
 
-function Node({ label, x, y, w }) {
+    const onNodeClick = (event, node) => {
+        const slug = node?.data?.slug;
+        if (slug) {
+            navigate(`/dashboard/${subject}/${slug}`);
+        }
+    };
+
     return (
-        <div style={{
-            position: "absolute",
-            left: x + OFFSET,
-            top: y,
-            width: w,
-            height: 45,
-            background: "#4f5bd5",
-            borderRadius: 10,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#fff",
-            fontSize: 11,
-            fontWeight: 500,
-            padding: "0 12px",
-        }}>
-            {label}
+        <div
+            style={{
+                width: "100%",
+                height: "700px",
+                position: "relative",
+                overflow: "hidden",
+                background: "#0d0f11",
+            }}
+        >
+            <div
+                style={{
+                    position: "absolute",
+                    inset: 0,
+                    animation: "moveBg 16s linear infinite",
+                }}
+            />
+
+            <ReactFlow
+                nodes={nodes}
+                edges={edges}
+                onNodeClick={onNodeClick}
+                defaultEdgeOptions={defaultEdgeOptions}
+                fitView
+                nodesDraggable={false}
+                nodesConnectable={false}
+                elementsSelectable={false}
+                zoomOnScroll={false}
+                zoomOnPinch={false}
+                panOnDrag={false}
+                proOptions={{ hideAttribution: true }}
+            >
+                <Background color="#2a2a2a" gap={28} />
+            </ReactFlow>
+
+            <style>{`
+                @keyframes moveBg {
+                    0% { transform: translate(0,0); }
+                    50% { transform: translate(-20px, -20px); }
+                    100% { transform: translate(0,0); }
+                }
+            `}</style>
         </div>
     );
 }
-
-function OOPSGraph() {
-    return (
-        <div style={{ position: "relative", width: "100%", height: 740, background: "#0d0f11" }}>
-            <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}>
-                <g transform={`translate(${OFFSET}, 0)`}>
-                    {edges.map((d, i) => (
-                        <path key={i} d={d} stroke={EDGE} strokeWidth={SW} fill="none" />
-                    ))}
-                </g>
-            </svg>
-            {nodes.map((n) => <Node key={n.label} {...n} />)}
-        </div>
-    );
-}
-export default OOPSGraph;

@@ -1,5 +1,6 @@
 import Progress from "../models/Progress.model.js";
-import questions from "../data/questions.json" with { type: "json" };
+import questions from "../data/DSA/questions.json" with { type: "json" };
+import { updateStreakDate } from "./streak.controller.js";
 
 // GET Progress (for UI)
 export const getProgress = async (req, res) => {
@@ -86,6 +87,9 @@ export const updateProgress = async (req, res) => {
         if (difficulty === "Hard") progress.hard.solved += 1;
 
         await progress.save();
+
+        // Update streak
+        updateStreakDate(userId);
 
         res.json({ message: "Progress updated", progress });
 
