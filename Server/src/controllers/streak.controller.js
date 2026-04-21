@@ -36,8 +36,12 @@ export const updateStreakDate = async (userId) => {
             streak = new Streak({ userId });
         }
         
-        const todayDate = new Date();
-        const todayStr = `${todayDate.getFullYear()}-${String(todayDate.getMonth() + 1).padStart(2, '0')}-${String(todayDate.getDate()).padStart(2, '0')}`;
+        // Adjust server time (usually UTC) to IST (+05:30)
+        const now = new Date();
+        const istOffset = 5.5 * 60 * 60 * 1000;
+        const todayDate = new Date(now.getTime() + istOffset);
+        
+        const todayStr = `${todayDate.getUTCFullYear()}-${String(todayDate.getUTCMonth() + 1).padStart(2, '0')}-${String(todayDate.getUTCDate()).padStart(2, '0')}`;
         
         if (!streak.activeDates.includes(todayStr)) {
             streak.activeDates.push(todayStr);
