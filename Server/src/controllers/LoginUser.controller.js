@@ -69,14 +69,14 @@ export const GithubCallback = async (req, res) => {
         }
 
         //  STEP 4: Find or Create User
-        let user = await User.findOne({ githubId: githubUser.id });
+        let user = await User.findOne({ githubId: githubUser.id.toString() });
 
         if (!user) {
             user = await User.create({
-                githubId: githubUser.id,
+                githubId: githubUser.id.toString(),
                 username: githubUser.login,
                 avatar: githubUser.avatar_url,
-                email: email || null,
+                email: email || `no-email-${githubUser.id}@github.com`,
             });
             console.log("New user created");
         } else {
@@ -86,7 +86,7 @@ export const GithubCallback = async (req, res) => {
         //  STEP 5: JWT Token
         const jwtToken = jwt.sign(
             {
-                id: user._id,
+                id: user._id.toString(),
                 username: user.username,
                 avatar: user.avatar,
             },

@@ -8,7 +8,7 @@ const router = Router();
 router.get("/github", GithubLogin);
 router.get("/github/callback", GithubCallback);
 
-//  Dashboard API
+// Dashboard API
 router.get("/profile", authMiddleware, (req, res) => {
     res.json({
         success: true,
