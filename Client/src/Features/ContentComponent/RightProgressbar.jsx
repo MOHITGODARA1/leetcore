@@ -38,14 +38,14 @@ function RightProgressbar() {
 
     useEffect(() => {
         fetchProgress();
-        
+
         window.addEventListener("progressUpdated", fetchProgress);
         return () => window.removeEventListener("progressUpdated", fetchProgress);
     }, [topic, API_URL]);
 
     const { total, solved, easy, medium, hard } = stats;
     const progress = total > 0 ? (solved / total) : 0;
-    
+
     const radius = 46;
     const stroke = 9;
     const circumference = 2 * Math.PI * radius;
@@ -92,11 +92,11 @@ function RightProgressbar() {
             </div>
 
             {/* Ring + Difficulty */}
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center gap-4">
 
                 {/* Ring */}
                 <div className="relative flex items-center justify-center flex-shrink-0">
-                    <svg width="110" height="110" viewBox="0 0 110 110">
+                    <svg className="w-[90px] h-[90px] sm:w-[110px] sm:h-[110px]" viewBox="0 0 110 110">
                         <circle cx="55" cy="55" r={radius} fill="none" stroke="#1e1e1e" strokeWidth={stroke} />
                         <circle
                             cx="55" cy="55" r={radius}
@@ -110,14 +110,17 @@ function RightProgressbar() {
                             style={{ transition: "stroke-dashoffset 1.1s cubic-bezier(.4,0,.2,1)" }}
                         />
                     </svg>
+
                     <div className="absolute text-center">
-                        <div className="text-xl font-medium">{Math.round(progress * 100)}%</div>
+                        <div className="text-lg sm:text-xl font-medium">
+                            {Math.round(progress * 100)}%
+                        </div>
                         <div className="text-[10px] text-gray-500">completed</div>
                     </div>
                 </div>
 
                 {/* Difficulty bars */}
-                <div className="flex flex-col gap-3 flex-1">
+                <div className="flex flex-col gap-3 flex-1 w-full">
                     <DiffRow label="Easy" color="#1D9E75" data={easy} barRef={eBarRef} />
                     <DiffRow label="Med." color="#BA7517" data={medium} barRef={mBarRef} />
                     <DiffRow label="Hard" color="#E24B4A" data={hard} barRef={hBarRef} />

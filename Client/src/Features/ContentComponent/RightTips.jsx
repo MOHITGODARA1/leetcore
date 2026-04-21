@@ -46,11 +46,11 @@ function RightTips() {
     const [hovered, setHovered] = useState(null);
 
     return (
-        <div className="h-full text-white p-4 flex flex-col gap-5 overflow-y-auto">
+        <div className="h-full text-white p-3 sm:p-4 flex flex-col gap-4 sm:gap-5 overflow-y-auto">
             {/* Header */}
             <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-500 inline-block" />
-                <h2 className="text-[11px] font-medium tracking-widest uppercase text-gray-500">
+                <h2 className="text-[10px] sm:text-[11px] font-medium tracking-widest uppercase text-gray-500">
                     DSA Smart Tips
                 </h2>
             </div>
@@ -65,7 +65,7 @@ function RightTips() {
                             onMouseEnter={() => setHovered(index)}
                             onMouseLeave={() => setHovered(null)}
                             className={`
-                flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer
+                flex items-start gap-2 sm:gap-3 p-3 sm:p-3.5 rounded-xl border cursor-pointer
                 transition-all duration-200 ease-out
                 ${hovered === index
                                     ? "bg-[#2a2a2a] border-[#444] -translate-y-0.5"
@@ -78,22 +78,22 @@ function RightTips() {
                             }}
                         >
                             {/* Icon */}
-                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-[11px] font-semibold font-mono flex-shrink-0 mt-0.5 ${c.icon}`}>
+                            <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[10px] sm:text-[11px] font-semibold font-mono flex-shrink-0 mt-0.5 ${c.icon}`}>
                                 {item.icon}
                             </div>
 
                             {/* Body */}
                             <div className="flex-1 min-w-0">
-                                <p className={`text-[13px] font-medium mb-1 ${c.title}`}>
+                                <p className={`text-[12px] sm:text-[13px] font-medium mb-1 ${c.title}`}>
                                     {item.title}
                                 </p>
-                                <p className="text-[12px] text-gray-400 leading-snug">
+                                <p className="text-[11px] sm:text-[12px] text-gray-400 leading-snug break-words">
                                     {item.tip}
                                 </p>
                             </div>
 
                             {/* Badge */}
-                            <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5 ${c.badge}`}>
+                            <span className={`text-[9px] sm:text-[10px] font-medium px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5 whitespace-nowrap ${c.badge}`}>
                                 {item.badge}
                             </span>
                         </div>

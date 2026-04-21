@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import DashNavbar from "../../Components/dahboardnav";
 import LeftNavbar from "./component/Leftnavbar";
@@ -13,48 +13,33 @@ import SystemDesgineGraph from "./Graphs/SystemDesgine";
 import InterviewPrepGraph from "./Graphs/InterviewPrep";
 
 const Dashboard = () => {
-    // const [user, setUser] = useState(null);
-    // const [loading, setLoading] = useState(true);
     const { subject } = useParams();
-
-    // fallback if no param
     const activeSubject = subject ? subject.toLowerCase() : "dsa";
-
     const API_URL = import.meta.env.VITE_API_URL;
 
-    // useEffect(() => {
-    //     fetch(`${API_URL}/profile`, {
-    //         credentials: "include",
-    //     })
-    //         .then(res => {
-    //             if (!res.ok) throw new Error("Not logged in");
-    //             return res.json();
-    //         })
-    //         .then(data => {
-    //             setUser(data.user); // ✅ FIXED
-    //             setLoading(false);
-    //         })
-    //         .catch(() => {
-    //             setUser(null);
-    //             setLoading(false);
-    //         });
-    // }, [API_URL]);
+    const [leftOpen, setLeftOpen] = useState(false);
+    const leftRef = useRef(null);
 
-    // if (loading) {
-    //     return (
-    //         <div className="h-screen flex items-center justify-center bg-[#0a0a0a] text-white">
-    //             Loading...
-    //         </div>
-    //     );
-    // }
+    // Close left drawer when clicking outside
+    useEffect(() => {
+        if (!leftOpen) return;
+        const handleClick = (e) => {
+            if (leftRef.current && !leftRef.current.contains(e.target)) {
+                setLeftOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClick);
+        document.addEventListener("touchstart", handleClick);
+        return () => {
+            document.removeEventListener("mousedown", handleClick);
+            document.removeEventListener("touchstart", handleClick);
+        };
+    }, [leftOpen]);
 
-    // if (!user) {
-    //     return (
-    //         <div className="h-screen flex items-center justify-center text-white bg-[#0a0a0a]">
-    //             <h1 className="text-xl">Not Logged In ❌</h1>
-    //         </div>
-    //     );
-    // }
+    // Close drawer on route/subject change
+    useEffect(() => {
+        setLeftOpen(false);
+    }, [subject]);
 
     const renderGraph = () => {
         switch (activeSubject) {
@@ -72,19 +57,54 @@ const Dashboard = () => {
 
     return (
         <>
-            <DashNavbar />
-            <div className="flex">
+            {/* Navbar — pass hamburger toggle & state */}
+            <DashNavbar
+                onHamburgerClick={() => setLeftOpen((v) => !v)}
+                hamburgerOpen={leftOpen}
+            />
 
-                {/* Left Sidebar */}
-                <LeftNavbar />
+            <div className="flex h-screen overflow-hidden">
 
-                {/* Center Content (FIXED) */}
-                <div className="ml-64 mr-80 mt-[10vh] h-[90vh] w-full bg-[#0d0f11] relative z-10">
+                {/* ── Left Sidebar ── */}
+                {/* Desktop: always visible, fixed */}
+                <div className="hidden lg:block fixed top-0 left-0 h-full z-30">
+                    <LeftNavbar />
+                </div>
+
+                {/* Mobile: drawer overlay */}
+                {leftOpen && (
+                    <div className="lg:hidden fixed inset-0 z-40 flex">
+                        {/* Backdrop */}
+                        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+                        {/* Drawer */}
+                        <div
+                            ref={leftRef}
+                            className="relative z-50 h-full"
+                            style={{ width: "256px" }}
+                        >
+                            <LeftNavbar />
+                        </div>
+                    </div>
+                )}
+
+                {/* ── Center Content ── */}
+                <div
+                    className="
+                        flex-1
+                        mt-[10vh] h-[90vh]
+                        bg-[#0d0f11]
+                        relative z-10
+                        overflow-hidden
+                        lg:ml-64 lg:mr-80
+                    "
+                >
                     {renderGraph()}
                 </div>
 
-                {/* Right Sidebar */}
-                <RightNavbar />
+                {/* ── Right Sidebar ── desktop only ── */}
+                <div className="hidden lg:block fixed top-0 right-0 h-full z-30">
+                    <RightNavbar />
+                </div>
             </div>
         </>
     );

@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { ReactFlow, Background, MarkerType } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
@@ -17,7 +18,7 @@ const nodeStyle = {
 const defaultEdgeOptions = {
     markerEnd: {
         type: MarkerType.ArrowClosed,
-        color: "#e9e9e3ff", // yellow
+        color: "#e9e9e3ff",
     },
     style: {
         stroke: "#e9e9e3ff",
@@ -29,6 +30,28 @@ const defaultEdgeOptions = {
 export default function DSAGraph() {
     const navigate = useNavigate();
     const { subject } = useParams();
+    const containerRef = useRef(null);
+    const [height, setHeight] = useState(700);
+
+    useEffect(() => {
+        const updateHeight = () => {
+            if (containerRef.current) {
+                const vw = window.innerWidth;
+                // Scale height proportionally: taller on desktop, shorter on mobile
+                if (vw < 480) {
+                    setHeight(Math.max(window.innerHeight * 0.55, 340));
+                } else if (vw < 768) {
+                    setHeight(Math.max(window.innerHeight * 0.6, 420));
+                } else {
+                    setHeight(700);
+                }
+            }
+        };
+
+        updateHeight();
+        window.addEventListener("resize", updateHeight);
+        return () => window.removeEventListener("resize", updateHeight);
+    }, []);
 
     const nodes = [
         { id: "1", data: { label: "Arrays", slug: "arrays" }, position: { x: 200, y: 0 }, style: nodeStyle },
@@ -72,31 +95,31 @@ export default function DSAGraph() {
 
     return (
         <div
+            ref={containerRef}
             style={{
                 width: "100%",
-                height: "700px",
+                height: `${height}px`,
                 position: "relative",
                 overflow: "hidden",
                 background: "#0d0f11",
             }}
         >
-            {/* Subtle Yellow Motion Background */}
             <div
                 style={{
                     position: "absolute",
                     inset: 0,
-                    // background:
-                    //     "radial-gradient(circle at 25% 30%, rgba(250,204,21,0.12), transparent 40%), radial-gradient(circle at 75% 70%, rgba(250,204,21,0.08), transparent 40%)",
                     animation: "moveBg 16s linear infinite",
                 }}
             />
 
             <ReactFlow
+                key={height} // remount on height change so fitView recalculates
                 nodes={nodes}
                 edges={edges}
                 onNodeClick={onNodeClick}
                 defaultEdgeOptions={defaultEdgeOptions}
                 fitView
+                fitViewOptions={{ padding: 0.15 }}
                 nodesDraggable={false}
                 nodesConnectable={false}
                 elementsSelectable={false}

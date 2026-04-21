@@ -5,6 +5,7 @@ const DashNavbar = () => {
     const [loading, setLoading] = useState(true);
     const [scrolled, setScrolled] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const dropdownRef = useRef(null);
 
     const API_URL = import.meta.env.VITE_API_URL;
@@ -41,6 +42,25 @@ const DashNavbar = () => {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
+    // Close mobile menu on resize to desktop
+    useEffect(() => {
+        const onResize = () => {
+            if (window.innerWidth >= 768) setMobileMenuOpen(false);
+        };
+        window.addEventListener("resize", onResize);
+        return () => window.removeEventListener("resize", onResize);
+    }, []);
+
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => { document.body.style.overflow = ""; };
+    }, [mobileMenuOpen]);
+
     const getInitials = (name) => {
         if (!name) return "?";
         return name
@@ -63,8 +83,10 @@ const DashNavbar = () => {
     const navLinks = [
         { label: "Dashboard", href: "/dashboard/dsa" },
         { label: "Leaderboard", href: "/leaderboard" },
-        { label: "Weekly Leaderboard", href: "/weeklyleaderboard" }
+        { label: "Weekly Leaderboard", href: "/weeklyleaderboard" },
     ];
+
+    const isActive = (href) => window.location.pathname === href;
 
     return (
         <>
@@ -73,18 +95,21 @@ const DashNavbar = () => {
                 .dash-font-syne  { font-family: 'Syne', sans-serif; }
                 .dash-font-dmono { font-family: 'DM Mono', monospace; }
 
-                @keyframes dashLogoIn { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
-                @keyframes dashActsIn { from{opacity:0;transform:translateX(20px)}  to{opacity:1;transform:translateX(0)} }
-                @keyframes dashLinkIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+                @keyframes dashLogoIn  { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
+                @keyframes dashActsIn  { from{opacity:0;transform:translateX(20px)}  to{opacity:1;transform:translateX(0)} }
+                @keyframes dashLinkIn  { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
                 @keyframes dashHexGlow { 0%,100%{filter:brightness(1)} 50%{filter:brightness(1.35) drop-shadow(0 0 10px #e8c547)} }
-                @keyframes dashDropIn { from{opacity:0;transform:translateY(-8px) scale(0.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+                @keyframes dashDropIn  { from{opacity:0;transform:translateY(-8px) scale(0.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+                @keyframes dashMobileIn { from{opacity:0;transform:translateY(-12px)} to{opacity:1;transform:translateY(0)} }
 
                 .dash-anim-logo { animation: dashLogoIn 0.7s cubic-bezier(0.16,1,0.3,1) both; }
                 .dash-anim-acts { animation: dashActsIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
                 .dash-anim-l1   { animation: dashLinkIn 0.55s cubic-bezier(0.16,1,0.3,1) 0.08s both; }
                 .dash-anim-l2   { animation: dashLinkIn 0.55s cubic-bezier(0.16,1,0.3,1) 0.16s both; }
+                .dash-anim-l3   { animation: dashLinkIn 0.55s cubic-bezier(0.16,1,0.3,1) 0.24s both; }
                 .dash-hex-pulse { animation: dashHexGlow 3s ease-in-out infinite; }
                 .dash-dropdown  { animation: dashDropIn 0.22s cubic-bezier(0.16,1,0.3,1) both; }
+                .dash-mobile-menu { animation: dashMobileIn 0.28s cubic-bezier(0.16,1,0.3,1) both; }
 
                 .dash-nav-line::after {
                     content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
@@ -115,6 +140,29 @@ const DashNavbar = () => {
                 .dash-nav-link:hover::after,
                 .dash-nav-link.active::after { transform: scaleX(1); }
 
+                /* Mobile nav link style */
+                .dash-mobile-link {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 13px 16px;
+                    font-size: 0.78rem;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    color: #96908b;
+                    border-radius: 8px;
+                    transition: background 0.15s, color 0.15s;
+                    font-family: 'DM Mono', monospace;
+                    border-left: 2px solid transparent;
+                }
+                .dash-mobile-link:hover { background: rgba(232,197,71,0.07); color: #e8e6e1; }
+                .dash-mobile-link.active {
+                    color: #e8c547;
+                    border-left-color: #e8c547;
+                    background: rgba(232,197,71,0.06);
+                }
+
                 .dash-avatar-btn {
                     cursor: pointer;
                     border: none;
@@ -122,6 +170,9 @@ const DashNavbar = () => {
                     background: transparent;
                     border-radius: 6px;
                     transition: box-shadow 0.2s, transform 0.15s;
+                    /* Ensure min touch target */
+                    min-width: 36px;
+                    min-height: 36px;
                 }
                 .dash-avatar-btn:hover { transform: scale(1.06); }
                 .dash-avatar-btn.open { box-shadow: 0 0 0 2px #e8c547; }
@@ -151,46 +202,102 @@ const DashNavbar = () => {
                     background: rgba(255,255,255,0.07);
                     margin: 4px 0;
                 }
+
+                /* Hamburger */
+                .dash-burger {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5px;
+                    width: 40px;
+                    height: 40px;
+                    background: transparent;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 8px;
+                    transition: background 0.15s;
+                    padding: 0;
+                    flex-shrink: 0;
+                }
+                .dash-burger:hover { background: rgba(255,255,255,0.06); }
+                .dash-burger-line {
+                    width: 20px;
+                    height: 1.5px;
+                    background: #96908b;
+                    border-radius: 2px;
+                    transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), opacity 0.2s, background 0.2s;
+                    transform-origin: center;
+                }
+                .dash-burger.open .dash-burger-line:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: #e8c547; }
+                .dash-burger.open .dash-burger-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
+                .dash-burger.open .dash-burger-line:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: #e8c547; }
+
+                /* Mobile overlay */
+                .dash-overlay {
+                    position: fixed;
+                    inset: 0;
+                    background: rgba(0,0,0,0.5);
+                    backdrop-filter: blur(2px);
+                    z-index: 40;
+                    animation: fadeIn 0.2s ease both;
+                }
+                @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+                /* Dropdown positioning on small screens */
+                @media (max-width: 380px) {
+                    .dash-dropdown-menu {
+                        right: -8px !important;
+                        width: calc(100vw - 32px) !important;
+                        max-width: 260px;
+                    }
+                }
             `}</style>
 
+            {/* Mobile overlay backdrop */}
+            {mobileMenuOpen && (
+                <div
+                    className="dash-overlay md:hidden"
+                    onClick={() => setMobileMenuOpen(false)}
+                />
+            )}
+
             <nav
-                className={`dash-nav-line fixed top-0 inset-x-0 z-50 flex items-center px-8 transition-all duration-300 ${scrolled
-                    ? "scrolled bg-[#1f1f1f] backdrop-blur-xl border-b border-white/[0.07] shadow-[0_0_40px_rgba(0,0,0,0.6)]"
-                    : "bg-[#1f1f1f] backdrop-blur-lg"
+                className={`dash-nav-line fixed top-0 inset-x-0 z-50 flex items-center px-4 sm:px-6 md:px-8 transition-all duration-300 ${scrolled
+                        ? "scrolled bg-[#1f1f1f] backdrop-blur-xl border-b border-white/[0.07] shadow-[0_0_40px_rgba(0,0,0,0.6)]"
+                        : "bg-[#1f1f1f] backdrop-blur-lg"
                     }`}
                 style={{ height: 58 }}
             >
                 {/* Logo */}
-                <a href="/" className="dash-anim-logo flex items-center gap-2.5 no-underline shrink-0">
+                <a href="/" className="dash-anim-logo flex items-center gap-2 sm:gap-2.5 no-underline shrink-0">
                     <div
-                        className="dash-hex-pulse w-9 h-9 bg-[#e8c547] grid place-items-center shrink-0"
+                        className="dash-hex-pulse w-8 h-8 sm:w-9 sm:h-9 bg-[#e8c547] grid place-items-center shrink-0"
                         style={{ clipPath: "polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)" }}
                     >
                         <div
-                            className="w-4 h-4 bg-[#0a0a0a]"
+                            className="w-3.5 h-3.5 sm:w-4 sm:h-4 bg-[#0a0a0a]"
                             style={{ clipPath: "polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)" }}
                         />
                     </div>
                     <div>
-                        <p className="dash-font-syne font-black text-[1.2rem] text-[#f0ece4] leading-none tracking-tight m-0">
+                        <p className="dash-font-syne font-black text-[1.05rem] sm:text-[1.2rem] text-[#f0ece4] leading-none tracking-tight m-0">
                             Leet<span className="text-[#e8c547]">Core</span>
                         </p>
-                        <span className="dash-font-dmono text-[0.48rem] tracking-[0.2em] uppercase text-[#4a4540] block mt-0.5">
+                        <span className="dash-font-dmono text-[0.42rem] sm:text-[0.48rem] tracking-[0.2em] uppercase text-[#4a4540] block mt-0.5 hidden xs:block">
                             Judge System
                         </span>
                     </div>
                 </a>
 
-                {/* Nav Links */}
+                {/* Desktop Nav Links */}
                 {!loading && user && (
-                    <div className="hidden md:flex items-center gap-6 ml-10">
+                    <div className="hidden md:flex items-center gap-5 lg:gap-6 ml-8 lg:ml-10">
                         {navLinks.map((link, i) => (
                             <a
                                 key={link.href}
                                 href={link.href}
-                                className={`dash-nav-link dash-font-dmono dash-anim-l${i + 1} ${window.location.pathname === link.href
-                                    ? "text-white active"
-                                    : "text-[#96908b]"
+                                className={`dash-nav-link dash-font-dmono dash-anim-l${i + 1} ${isActive(link.href) ? "text-white active" : "text-[#96908b]"
                                     }`}
                             >
                                 {link.label}
@@ -200,7 +307,7 @@ const DashNavbar = () => {
                 )}
 
                 {/* Right Side */}
-                <div className="dash-anim-acts flex items-center gap-4 ml-auto">
+                <div className="dash-anim-acts flex items-center gap-2 sm:gap-4 ml-auto">
 
                     {/* Loading Skeleton */}
                     {loading && (
@@ -211,7 +318,7 @@ const DashNavbar = () => {
                     {!loading && !user && (
                         <a
                             href="/signin"
-                            className="dash-font-syne font-bold text-[0.75rem] tracking-[0.04em] uppercase px-5 py-[7px] rounded-md bg-[#e8c547] text-[#0a0a0a] hover:bg-[#f0d060] hover:-translate-y-px transition-all duration-200 no-underline"
+                            className="dash-font-syne font-bold text-[0.7rem] sm:text-[0.75rem] tracking-[0.04em] uppercase px-3.5 sm:px-5 py-[7px] rounded-md bg-[#e8c547] text-[#0a0a0a] hover:bg-[#f0d060] hover:-translate-y-px transition-all duration-200 no-underline whitespace-nowrap"
                         >
                             Sign In →
                         </a>
@@ -226,11 +333,7 @@ const DashNavbar = () => {
                                 aria-label="Open user menu"
                             >
                                 {user.avatar ? (
-                                    <img
-                                        src={user.avatar}
-                                        alt="user"
-                                        className="w-full h-full object-cover"
-                                    />
+                                    <img src={user.avatar} alt="user" className="w-full h-full object-cover" />
                                 ) : (
                                     <div className="w-full h-full bg-gradient-to-br from-[#e8c547] to-[#ff6b35] flex items-center justify-center text-[#0a0a0a] font-bold text-sm dash-font-syne">
                                         {getInitials(user.name || user.username)}
@@ -240,9 +343,7 @@ const DashNavbar = () => {
 
                             {/* Dropdown Menu */}
                             {dropdownOpen && (
-                                <div
-                                    className="dash-dropdown absolute right-0 mt-3 w-52 bg-[#0f0f13]/95 backdrop-blur-xl border border-white/[0.09] rounded-xl shadow-[0_16px_48px_rgba(0,0,0,0.6)] p-2 z-[999]"
-                                >
+                                <div className="dash-dropdown dash-dropdown-menu absolute right-0 mt-3 w-52 bg-[#0f0f13]/95 backdrop-blur-xl border border-white/[0.09] rounded-xl shadow-[0_16px_48px_rgba(0,0,0,0.6)] p-2 z-[999]">
                                     {/* User Info */}
                                     <div className="px-3 py-2.5 mb-1">
                                         <p className="dash-font-syne font-bold text-[#f0ece4] text-sm leading-none">
@@ -263,14 +364,12 @@ const DashNavbar = () => {
                                         </svg>
                                         Dashboard
                                     </a>
-
                                     <a href="/leaderboard" className="dash-drop-item">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" />
                                         </svg>
                                         Leaderboard
                                     </a>
-
                                     <a href="/profile" className="dash-drop-item">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
@@ -290,8 +389,107 @@ const DashNavbar = () => {
                             )}
                         </div>
                     )}
+
+                    {/* Hamburger — only visible on mobile when logged in */}
+                    {!loading && user && (
+                        <button
+                            className={`dash-burger md:hidden ${mobileMenuOpen ? "open" : ""}`}
+                            onClick={() => setMobileMenuOpen((v) => !v)}
+                            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                            aria-expanded={mobileMenuOpen}
+                        >
+                            <span className="dash-burger-line" />
+                            <span className="dash-burger-line" />
+                            <span className="dash-burger-line" />
+                        </button>
+                    )}
                 </div>
             </nav>
+
+            {/* Mobile Menu Drawer */}
+            {!loading && user && mobileMenuOpen && (
+                <div
+                    className="dash-mobile-menu md:hidden fixed top-[58px] inset-x-0 z-50 bg-[#1a1a1a]/98 backdrop-blur-xl border-b border-white/[0.07] shadow-[0_24px_48px_rgba(0,0,0,0.7)]"
+                >
+                    {/* User info strip */}
+                    <div className="flex items-center gap-3 px-5 py-4 border-b border-white/[0.06]">
+                        <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0">
+                            {user.avatar ? (
+                                <img src={user.avatar} alt="user" className="w-full h-full object-cover" />
+                            ) : (
+                                <div className="w-full h-full bg-gradient-to-br from-[#e8c547] to-[#ff6b35] flex items-center justify-center text-[#0a0a0a] font-bold text-sm dash-font-syne">
+                                    {getInitials(user.name || user.username)}
+                                </div>
+                            )}
+                        </div>
+                        <div className="min-w-0">
+                            <p className="dash-font-syne font-bold text-[#f0ece4] text-sm leading-none truncate">
+                                {user.name || user.username}
+                            </p>
+                            {user.email && (
+                                <p className="dash-font-dmono text-[#4a4540] text-[0.6rem] mt-1 truncate">
+                                    {user.email}
+                                </p>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Nav Links */}
+                    <div className="px-3 py-3 flex flex-col gap-1">
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className={`dash-mobile-link ${isActive(link.href) ? "active" : ""}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                {link.label === "Dashboard" && (
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" />
+                                    </svg>
+                                )}
+                                {link.label === "Leaderboard" && (
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" />
+                                    </svg>
+                                )}
+                                {link.label === "Weekly Leaderboard" && (
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
+                                    </svg>
+                                )}
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
+
+                    {/* Bottom actions */}
+                    <div className="px-3 pb-4 flex flex-col gap-1 border-t border-white/[0.06] pt-3">
+                        <a
+                            href="/profile"
+                            className="dash-mobile-link"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+                            </svg>
+                            Profile
+                        </a>
+                        <button
+                            onClick={() => { setMobileMenuOpen(false); handleLogout(); }}
+                            className="dash-mobile-link text-left w-full"
+                            style={{ color: "#6b7280", borderLeftColor: "transparent" }}
+                            onMouseEnter={e => { e.currentTarget.style.color = "#f87171"; e.currentTarget.style.background = "rgba(239,68,68,0.08)"; }}
+                            onMouseLeave={e => { e.currentTarget.style.color = "#6b7280"; e.currentTarget.style.background = ""; }}
+                        >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" y1="12" x2="9" y2="12" />
+                            </svg>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            )}
         </>
     );
 };

@@ -39,15 +39,19 @@ function RightSuggestion() {
         "inline-flex items-center rounded-full cursor-pointer overflow-hidden " +
         "bg-[#2a2a2a] border border-[#3a3a3a] h-7 " +
         "transition-all duration-200 ease-out " +
-        "hover:scale-105 hover:border-[#4a4a4a]";
+        "hover:scale-105 hover:border-[#4a4a4a] " +
+        "max-w-full min-w-0";
 
     const PillItem = ({ item, delay }) => (
-        <div className={pillStyle} style={{ transitionDelay: `${delay}ms` }}>
-            <span className="px-3 text-sm text-gray-300 whitespace-nowrap">
+        <div
+            className={pillStyle}
+            style={{ transitionDelay: `${delay}ms` }}
+        >
+            <span className="px-2 sm:px-3 text-xs sm:text-sm text-gray-300 whitespace-nowrap truncate">
                 {item.name}
             </span>
             <span
-                className="h-5 px-2 w-auto min-w-[28px] mr-1 flex items-center justify-center rounded-full text-xs font-semibold whitespace-nowrap"
+                className="h-5 px-1.5 sm:px-2 w-auto min-w-[24px] sm:min-w-[28px] mr-1 flex items-center justify-center rounded-full text-xs font-semibold whitespace-nowrap flex-shrink-0"
                 style={{ backgroundColor: "#F59E0B", color: "#1a1a1a" }}
             >
                 {item.count}
@@ -56,23 +60,21 @@ function RightSuggestion() {
     );
 
     return (
-        <div className="h-full text-white p-5 flex flex-col gap-6 overflow-y-auto">
+        <div className="h-full w-full text-white p-3 sm:p-4 md:p-5 flex flex-col gap-4 sm:gap-6 overflow-y-auto overflow-x-hidden">
 
             {/* Exams */}
             <div
-                className={`transition-all duration-500 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                className={`transition-all duration-500 min-w-0 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
-                <h2 className="text-xs tracking-wider uppercase font-semibold mb-4 text-gray-400">
+                <h2 className="text-xs tracking-wider uppercase font-semibold mb-3 sm:mb-4 text-gray-400">
                     Placement Exams
                 </h2>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {exams.map((item, index) => (
                         <PillItem key={index} item={item} delay={index * 50} />
                     ))}
                 </div>
             </div>
-
-
 
         </div>
     );
