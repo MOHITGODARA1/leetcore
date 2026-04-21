@@ -264,8 +264,8 @@ const DashNavbar = () => {
 
             <nav
                 className={`dash-nav-line fixed top-0 inset-x-0 z-50 flex items-center px-4 sm:px-6 md:px-8 transition-all duration-300 ${scrolled
-                        ? "scrolled bg-[#1f1f1f] backdrop-blur-xl border-b border-white/[0.07] shadow-[0_0_40px_rgba(0,0,0,0.6)]"
-                        : "bg-[#1f1f1f] backdrop-blur-lg"
+                    ? "scrolled bg-[#1f1f1f] backdrop-blur-xl border-b border-white/[0.07] shadow-[0_0_40px_rgba(0,0,0,0.6)]"
+                    : "bg-[#1f1f1f] backdrop-blur-lg"
                     }`}
                 style={{ height: 58 }}
             >
@@ -391,7 +391,7 @@ const DashNavbar = () => {
                     )}
 
                     {/* Hamburger — only visible on mobile when logged in */}
-                    {!loading && user && (
+                    {/* {!loading && user && (
                         <button
                             className={`dash-burger md:hidden ${mobileMenuOpen ? "open" : ""}`}
                             onClick={() => setMobileMenuOpen((v) => !v)}
@@ -402,7 +402,7 @@ const DashNavbar = () => {
                             <span className="dash-burger-line" />
                             <span className="dash-burger-line" />
                         </button>
-                    )}
+                    )} */}
                 </div>
             </nav>
 
