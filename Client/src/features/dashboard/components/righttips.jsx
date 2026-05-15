@@ -1,38 +1,24 @@
 import {
-    Lightbulb,
-    ArrowUpRight,
-    CheckCircle2,
-    Brain,
-    Clock3,
+    Play,
+    Flame,
+    Trophy,
 } from "lucide-react";
 
 function RightTips() {
 
-    const tips = [
+    const runs = [
         {
-            icon: Brain,
-            title: "Solve Smart",
-            description:
-                "Focus on understanding patterns instead of memorizing solutions.",
+            icon: Play,
+            text: "Start solving your first DSA question today.",
         },
         {
-            icon: Clock3,
-            title: "Consistency Wins",
-            description:
-                "Even 2 quality problems daily beats random 10-hour grinding.",
+            icon: Flame,
+            text: "Maintain your daily coding streak consistently.",
         },
         {
-            icon: CheckCircle2,
-            title: "Revise Questions",
-            description:
-                "Re-solving previous problems improves retention much faster.",
-        },
-        {
-            icon: CheckCircle2,
-            title: "Revise Questions",
-            description:
-                "Re-solving previous problems improves retention much faster.",
-        },
+            icon: Trophy,
+            text: "Complete challenges and unlock achievements.",
+        }
     ];
 
     return (
@@ -40,94 +26,70 @@ function RightTips() {
         <div
             className="
                 relative
-                w-[96%]
+                w-[94%]
                 rounded-3xl
                 border
                 border-white/10
-                bg-white dark:bg-neutral-900
+                bg-white
+                dark:bg-neutral-900
                 p-6
                 overflow-hidden
-                text-white
-                
             "
         >
 
-            {/* Background Glow */}
 
 
-            {/* Grid Texture */}
-            <div
-                className="
-                    absolute
-                    inset-0
-                    opacity-[0.03]
-                    bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
-                    bg-[size:28px_28px]
-                "
-            />
+            {/* Heading */}
+            <div className="relative z-10 mb-6">
+
+                <h2
+                    className="
+                        text-xl
+                        font-semibold
+                        text-black
+                        dark:text-white
+                    "
+                >
+                    Run Your Ads
+                </h2>
 
 
 
-            {/* Tips */}
+            </div>
+
+            {/* Content */}
             <div
                 className="
                     relative
                     z-10
                     flex
                     flex-col
-                    gap-4
+                    gap-3
                 "
             >
 
-                {tips.map((tip, index) => {
 
-                    const Icon = tip.icon;
-
-                    return (
-
-                        <div
-                            key={index}
-                            className="
-                                group
-                            "
-                        >
-
-                            <div
-                                className="
-                                    flex
-                                    items-start
-                                    gap-4
-                                "
-                            >
-
-
-
-
-                                {/* Text */}
-                                <div>
-
-                                    <p
-                                        className="
-                                            text-sm
-                                            text-white
-                                            leading-relaxed
-                                        "
-                                    >
-                                        {index + 1}. {tip.description}
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    );
-
-                })}
+                {/* CTA Button */}
+                <button
+                    className="
+                        mt-2
+                        w-full
+                        rounded-2xl
+                        bg-[#F46717]
+                        py-3
+                        text-md
+                        font-medium
+                        text-white
+                        transition-all
+                        duration-300
+                        hover:scale-[1.02]
+                        cursor-pointer
+                    "
+                >
+                    Run Your Ad
+                </button>
 
             </div>
-
         </div>
 
     );

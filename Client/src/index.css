@@ -71,6 +71,7 @@ body {
 }
 
 @keyframes softFloat {
+
   0%,
   100% {
     transform: translateY(0);
@@ -82,6 +83,7 @@ body {
 }
 
 @keyframes gentlePulse {
+
   0%,
   100% {
     transform: scale(1);
@@ -120,6 +122,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -128,4 +131,22 @@ body {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

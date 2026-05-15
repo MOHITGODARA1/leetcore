@@ -3,26 +3,74 @@ import {
     Brain,
     Trophy,
     User,
+    LogOut,
+    Flag,
+    MessageSquare,
+    HeartHandshake
+
 } from "lucide-react";
-import { useAuth } from "../../../context/AuthContext"
+import logo from "../../../assets/Icons/Prefixlogo.png"
+import {
+    useState,
+    useEffect,
+    useRef,
+} from "react";
+import { Link, useLocation } from "react-router-dom";
+
+import { useAuth } from "../../../context/AuthContext";
+
 function DashLeftNavBar() {
-    const { user } = useAuth();
+
+    const { user, logout } = useAuth();
+
+    const [showMenu, setShowMenu] = useState(false);
+
+    const menuRef = useRef(null);
+
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+
+        function handleClickOutside(event) {
+
+            if (
+                menuRef.current &&
+                !menuRef.current.contains(event.target)
+            ) {
+                setShowMenu(false);
+            }
+
+        }
+
+        document.addEventListener(
+            "mousedown",
+            handleClickOutside
+        );
+
+        return () => {
+            document.removeEventListener(
+                "mousedown",
+                handleClickOutside
+            );
+        };
+
+    }, []);
 
     const navItems = [
         {
             name: "Home",
             icon: Home,
-            active: true,
+            to: "/dashboard",
         },
         {
             name: "OA",
             icon: Brain,
-            active: false,
+            to: "/dashboard/online-assessment",
         },
         {
             name: "Contest",
             icon: Trophy,
-            active: false,
+            to: "/dashboard/contest",
         },
     ];
 
@@ -32,26 +80,30 @@ function DashLeftNavBar() {
             className="
                 h-full
                 rounded-2xl
-                ml-[0.2vw]
-                w-[85px]
+                w-full
+                md:w-[85px]
                 bg-white/8
-                border-r
+                border
                 border-white/10
                 flex
-                flex-col
+                flex-row
+                md:flex-col
                 items-center
                 justify-between
-                py-6
+                px-3
+                py-3
+                md:px-0
+                md:py-6
+                relative
             "
         >
 
             {/* Top Section */}
-            <div className="flex flex-col items-center w-full">
+            <div className="flex md:flex-col items-center w-auto md:w-full">
 
                 {/* Logo */}
-                <div className="mb-8">
+                <Link to="/dashboard" className="mr-4 md:mr-0 md:mb-8">
 
-                    {/* Replace later with your logo */}
                     <div
                         className="
                             w-8
@@ -61,19 +113,21 @@ function DashLeftNavBar() {
                             flex
                             items-center
                             justify-center
-                            text-white
-                            text-2xl
-                            font-bold
                         "
                     >
-                        <img src="./Prefixlogo.png" alt="" />
+                        <img
+                            src={logo}
+                            alt="logo"
+                        />
                     </div>
 
-                </div>
+                </Link>
 
                 {/* Divider */}
                 <div
                     className="
+                        hidden
+                        md:block
                         w-10
                         h-[1px]
                         bg-white/10
@@ -82,35 +136,39 @@ function DashLeftNavBar() {
                 />
 
                 {/* Navigation */}
-                <div className="flex flex-col items-center gap-7">
+                <div className="flex md:flex-col items-center gap-2 md:gap-7">
 
                     {navItems.map((item, index) => {
 
                         const Icon = item.icon;
+                        const isActive = pathname === item.to;
 
                         return (
 
-                            <button
+                            <Link
+                                to={item.to}
                                 key={index}
                                 className={`
                                     relative
-                                    w-[60px]
-                                    h-[63px]
-                                    rounded-2xl
+                                    w-[56px]
+                                    h-[56px]
+                                    md:w-[60px]
+                                    md:h-[63px]
+                                    rounded-xl
+                                    md:rounded-2xl
                                     flex
                                     flex-col
                                     items-center
                                     justify-center
-                                    gap-2
+                                    gap-1
+                                    md:gap-2
                                     transition-all
                                     duration-300
 
-                                    ${item.active
+                                    ${isActive
                                         ? `
                                             bg-[#111]
-                                            
                                             text-white
-                                            
                                           `
                                         : `
                                             text-gray-400
@@ -121,15 +179,20 @@ function DashLeftNavBar() {
                                 `}
                             >
 
-                                {/* Active Glow Line */}
-                                {item.active && (
+                                {/* Active Line */}
+                                {isActive && (
                                     <div
                                         className="
                                             absolute
-                                            left-0
-                                            top-0
-                                            h-full
-                                            w-[3px]
+                                            left-2
+                                            right-2
+                                            bottom-0
+                                            h-[3px]
+                                            md:left-0
+                                            md:right-auto
+                                            md:top-0
+                                            md:h-full
+                                            md:w-[3px]
                                             bg-[#F46717]
                                             rounded-full
                                         "
@@ -139,7 +202,7 @@ function DashLeftNavBar() {
                                 <Icon
                                     size={20}
                                     className={
-                                        item.active
+                                        isActive
                                             ? "text-white"
                                             : "text-white/70"
                                     }
@@ -154,7 +217,7 @@ function DashLeftNavBar() {
                                     {item.name}
                                 </span>
 
-                            </button>
+                            </Link>
 
                         );
 
@@ -164,38 +227,188 @@ function DashLeftNavBar() {
 
             </div>
 
-            {/* Bottom Profile */}
-            <button
-                className="
-                    w-12
-                    h-12
-                    rounded-full
-                    bg-[#3A3A45]
+            {/* Profile Section */}
+            <div
+                className="relative flex-shrink-0"
+                ref={menuRef}
+            >
+
+                {/* Avatar Button */}
+                <button
+                    onClick={() =>
+                        setShowMenu(!showMenu)
+                    }
+                    className="
+                        w-12
+                        h-12
+                        rounded-full
+                        bg-[#3A3A45]
+                        flex
+                        items-center
+                        justify-center
+                        border
+                        cursor-pointer
+                        border-white/10
+                        hover:scale-105
+                        transition
+                        overflow-hidden
+                    "
+                >
+
+                    {
+                        user?.avatar ? (
+                            <img
+                                src={user.avatar}
+                                alt="avatar"
+                                className="
+                                    w-full
+                                    h-full
+                                    object-cover
+                                "
+                            />
+                        ) : (
+                            <User
+                                size={28}
+                                className="text-gray-300"
+                            />
+                        )
+                    }
+
+                </button>
+
+                {/* Dropdown Menu */}
+                {/* Dropdown Menu */}
+                {
+                    showMenu && (
+                        <div
+                            className="
+                absolute
+                right-0
+                top-14
+                md:top-auto
+                md:bottom-16
+                md:left-14
+                md:right-auto
+                w-52
+                rounded-2xl
+                bg-[#161616]
+                border
+                border-white/10
+                shadow-2xl
+                z-50
+                overflow-hidden
+                backdrop-blur-xl
+            "
+                        >
+
+                            {/* Profile */}
+                            <Link
+                                to="/dashboard/profile"
+                                className="
+                    w-full
                     flex
                     items-center
-                    justify-center
-                    border
-                    border-white/10
-                    hover:scale-105
+                    gap-3
+                    px-4
+                    py-3
+                    text-sm
+                    text-white
+                    hover:bg-white/5
                     transition
                 "
-            >
-                {
-                    user.avatar ? (
-                        <img
-                            src={user.avatar}
-                            alt="avatar"
-                            className="rounded-full object-cover"
-                        />
-                    ) : (
-                        <User
-                            size={28}
-                            className="text-gray-300"
-                        />
+                            >
+                                <User size={18} />
+                                Profile
+                            </Link>
+
+                            {/* Feedback */}
+                            <Link
+                                to="/dashboard/feedback"
+                                className="
+                    w-full
+                    flex
+                    items-center
+                    gap-3
+                    px-4
+                    py-3
+                    text-sm
+                    text-white
+                    hover:bg-white/5
+                    transition
+                "
+                            >
+                                <MessageSquare size={18} />
+                                Feedback
+                            </Link>
+
+                            {/* Report Bug */}
+                            <Link
+                                to="/dashboard/reportbug"
+                                className="
+                    w-full
+                    flex
+                    items-center
+                    gap-3
+                    px-4
+                    py-3
+                    text-sm
+                    text-white
+                    hover:bg-white/5
+                    transition
+                "
+                            >
+                                <Flag size={18} />
+                                Report Bug
+                            </Link>
+
+                            {/* Become Sponsor */}
+                            <Link
+                                to="/dashboard/become-sponsor"
+                                className="
+                    w-full
+                    flex
+                    items-center
+                    gap-3
+                    px-4
+                    py-3
+                    text-sm
+                    text-white
+                    hover:bg-white/5
+                    transition
+                "
+                            >
+                                <HeartHandshake size={18} />
+                                Become Sponsor
+                            </Link>
+
+                            {/* Divider */}
+                            <div className="h-[1px] bg-white/10" />
+
+                            {/* Logout */}
+                            <button
+                                onClick={logout}
+                                className="
+                    w-full
+                    flex
+                    items-center
+                    gap-3
+                    px-4
+                    py-3
+                    text-sm
+                    text-red-400
+                    hover:bg-red-500/10
+                    transition
+                "
+                            >
+                                <LogOut size={18} />
+                                Logout
+                            </button>
+
+                        </div>
                     )
                 }
 
-            </button>
+            </div>
 
         </div>
 

@@ -4,10 +4,35 @@ import jwt from "jsonwebtoken";
 
 const DEFAULT_CLIENT_URL = "http://localhost:5174";
 
+const requiredEnv = (key) => {
+    const value = process.env[key];
+
+    if (!value) {
+        throw new Error(`Missing required environment variable: ${key}`);
+    }
+
+    return value;
+};
+
+const getGithubCallbackUrl = () => (
+    process.env.GITHUB_CALLBACK_URL || "http://localhost:4000/api/v1/auth/github/callback"
+);
+
+const getPrimaryEmail = (emails = []) => {
+    const primaryVerifiedEmail = emails.find(email => email.primary && email.verified)?.email;
+    const primaryEmail = emails.find(email => email.primary)?.email;
+    const verifiedEmail = emails.find(email => email.verified)?.email;
+
+    return primaryVerifiedEmail || primaryEmail || verifiedEmail || "";
+};
+
 const githubLogin = (req, res) => {
 
+    const clientId = requiredEnv("GITHUB_CLIENT_ID");
+
     const params = new URLSearchParams({
-        client_id: process.env.GITHUB_CLIENT_ID,
+        client_id: clientId,
+        redirect_uri: getGithubCallbackUrl(),
         scope: "read:user user:email",
     });
 
@@ -30,13 +55,18 @@ const registerUser = async (req, res) => {
             });
         }
 
+        const clientId = requiredEnv("GITHUB_CLIENT_ID");
+        const clientSecret = requiredEnv("GITHUB_CLIENT_SECRET");
+        const jwtSecret = requiredEnv("JWT_SECRET");
+
         // Exchange code for access token
         const tokenResponse = await axios.post(
             "https://github.com/login/oauth/access_token",
             {
-                client_id: process.env.GITHUB_CLIENT_ID,
-                client_secret: process.env.GITHUB_CLIENT_SECRET,
+                client_id: clientId,
+                client_secret: clientSecret,
                 code,
+                redirect_uri: getGithubCallbackUrl(),
             },
             {
                 headers: {
@@ -46,6 +76,13 @@ const registerUser = async (req, res) => {
         );
 
         const accessToken = tokenResponse.data.access_token;
+
+        if (!accessToken) {
+            return res.status(401).json({
+                success: false,
+                message: tokenResponse.data.error_description || "GitHub did not return an access token",
+            });
+        }
 
         // Fetch GitHub user
         const githubUser = await axios.get(
@@ -67,10 +104,6 @@ const registerUser = async (req, res) => {
             }
         );
 
-        const primaryEmail = emailResponse.data.find(
-            email => email.primary
-        )?.email || "";
-
         // Extract GitHub data
         const {
             id,
@@ -81,23 +114,40 @@ const registerUser = async (req, res) => {
             name,
         } = githubUser.data;
 
+        const githubId = String(id);
+        const primaryEmail = getPrimaryEmail(emailResponse.data);
+        const email = primaryEmail || `${githubId}+${login}@users.noreply.github.com`;
+
+        const userData = {
+            githubId,
+            username: login,
+            email,
+            avatar: avatar_url,
+            profileUrl: html_url,
+            bio: bio || "",
+            name: name || login,
+            lastLogin: new Date(),
+        };
+
+        const existingUserQuery = {
+            $or: [
+                { githubId },
+                { email },
+            ],
+        };
+
         // Find existing user
-        let user = await User.findOne({
-            githubId: id,
-        });
+        let user = await User.findOne(existingUserQuery);
 
         // Create user if not exists
         if (!user) {
 
-            user = await User.create({
-                githubId: id,
-                username: login,
-                email: primaryEmail,
-                avatar: avatar_url,
-                profileUrl: html_url,
-                bio,
-                name,
-            });
+            user = await User.create(userData);
+
+        } else {
+
+            user.set(userData);
+            await user.save();
 
         }
 
@@ -106,7 +156,7 @@ const registerUser = async (req, res) => {
             {
                 id: user._id,
             },
-            process.env.JWT_SECRET,
+            jwtSecret,
             {
                 expiresIn: "7d",
             }

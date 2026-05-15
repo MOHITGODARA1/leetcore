@@ -27,9 +27,18 @@ const UserSchema = new mongoose.Schema(
             type: String,
             default: "",
         },
+        profileUrl: {
+            type: String,
+            default: "",
+        },
         bio: {
             type: String,
             default: "",
+        },
+        name: {
+            type: String,
+            default: "",
+            trim: true,
         },
 
         lastLogin: {
@@ -44,5 +53,4 @@ const UserSchema = new mongoose.Schema(
 
 
 export default mongoose.model("User", UserSchema);
-
 

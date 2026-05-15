@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 
 const MONTHS = [
     "January", "February", "March", "April", "May", "June",
@@ -13,31 +13,15 @@ const COLOR_MAP = {
     amber: { dot: "bg-amber-400", pip: "#EF9F27", label: "Due" },
 };
 
-function todayKey() {
-    const t = new Date();
-    return `${t.getFullYear()}-${t.getMonth()}-${t.getDate()}`;
-}
-
 export default function Calendar() {
     const today = new Date();
     const [view, setView] = useState({ year: today.getFullYear(), month: today.getMonth() });
     const [selected, setSelected] = useState({ day: today.getDate(), month: today.getMonth(), year: today.getFullYear() });
-    const [events, setEvents] = useState([
+    const [events] = useState([
         { day: today.getDate(), month: today.getMonth(), year: today.getFullYear(), name: "Study group", color: "green" },
         { day: today.getDate() + 2, month: today.getMonth(), year: today.getFullYear(), name: "Math exam", color: "red" },
         { day: today.getDate() + 5, month: today.getMonth(), year: today.getFullYear(), name: "Assignment due", color: "amber" },
     ]);
-    const [studyDays] = useState(() => {
-        const s = new Set();
-        for (let i = 0; i < 5; i++) {
-            const d = new Date(today);
-            d.setDate(today.getDate() - i);
-            if (Math.random() > 0.25) s.add(d.toDateString());
-        }
-        return s;
-    });
-    const [eventText, setEventText] = useState("");
-    const [activeColor, setActiveColor] = useState("red");
 
     const { year: viewYear, month: viewMonth } = view;
 
@@ -48,13 +32,6 @@ export default function Calendar() {
     const nextMonth = () => setView(v => v.month === 11
         ? { year: v.year + 1, month: 0 }
         : { year: v.year, month: v.month + 1 });
-
-    const addEvent = useCallback(() => {
-        const name = eventText.trim();
-        if (!name) return;
-        setEvents(prev => [...prev, { ...selected, name, color: activeColor }]);
-        setEventText("");
-    }, [eventText, selected, activeColor]);
 
     // Build calendar cells (always 42 = 6 rows × 7)
     const firstDay = new Date(viewYear, viewMonth, 1).getDay();
@@ -70,24 +47,6 @@ export default function Calendar() {
     for (let d = 1; d <= remaining; d++)
         cells.push({ day: d, type: "next" });
 
-    // Streak (last 7 days)
-    const streakDots = Array.from({ length: 7 }, (_, i) => {
-        const d = new Date(today);
-        d.setDate(today.getDate() - (6 - i));
-        return studyDays.has(d.toDateString());
-    });
-    const streak = (() => {
-        let s = 0;
-        for (let i = 0; i < 7; i++) {
-            const d = new Date(today);
-            d.setDate(today.getDate() - i);
-            if (studyDays.has(d.toDateString())) s++;
-            else if (i > 0) break;
-        }
-        return s;
-    })();
-
-    // Events for footer
     const selEvents = events.filter(e =>
         e.day === selected.day && e.month === selected.month && e.year === selected.year);
 
@@ -153,8 +112,6 @@ export default function Calendar() {
                         const isToday = day === today.getDate() && cellMonth === today.getMonth() && cellYear === today.getFullYear();
                         const isSelected = day === selected.day && cellMonth === selected.month && cellYear === selected.year;
                         const isOther = type !== "current";
-                        const colIdx = idx % 7;
-                        const isWeekend = colIdx === 0 || colIdx === 6;
                         const dayEvts = events.filter(e => e.day === day && e.month === cellMonth && e.year === cellYear);
 
                         return (
@@ -174,12 +131,12 @@ export default function Calendar() {
                             >
                                 {day}
 
+
                             </div>
                         );
                     })}
                 </div>
             </div>
-
 
 
         </div>

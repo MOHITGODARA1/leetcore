@@ -1,9 +1,12 @@
-function DashMain() {
+import Dashmainnavbar from "../../../components/layout/dashnavbar";
+import Topics from "./topics";
+function Dashmain() {
     return (
         <div>
-            <h1>Main</h1>
+            <Dashmainnavbar />
+            <Topics />
         </div>
     );
 }
 
-export default DashMain;
+export default Dashmain;

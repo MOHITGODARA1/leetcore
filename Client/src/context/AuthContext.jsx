@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {
     createContext,
     useContext,
@@ -15,6 +16,8 @@ export const AuthProvider = ({ children }) => {
 
     const [loading, setLoading] = useState(true);
 
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+
     useEffect(() => {
 
         const fetchUser = async () => {
@@ -22,7 +25,7 @@ export const AuthProvider = ({ children }) => {
             try {
 
                 const response = await axios.get(
-                    `${import.meta.env.VITE_API_URL}/api/v1/auth/me`,
+                    `${apiUrl}/api/v1/auth/me`,
                     {
                         withCredentials: true,
                     }
@@ -30,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
                 setUser(response.data.user);
 
-            } catch (error) {
+            } catch {
 
                 setUser(null);
 
@@ -44,7 +47,24 @@ export const AuthProvider = ({ children }) => {
 
         fetchUser();
 
-    }, []);
+    }, [apiUrl]);
+
+    const logout = async () => {
+        try {
+            await axios.post(
+                `${apiUrl}/api/v1/auth/logout`,
+                {},
+                {
+                    withCredentials: true,
+                }
+            );
+        } catch (error) {
+            console.error("Logout failed:", error);
+        } finally {
+            setUser(null);
+            window.location.assign("/");
+        }
+    };
 
     return (
         <AuthContext.Provider
@@ -52,6 +72,7 @@ export const AuthProvider = ({ children }) => {
                 user,
                 setUser,
                 loading,
+                logout,
             }}
         >
             {children}

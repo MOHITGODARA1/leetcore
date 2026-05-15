@@ -1,8 +1,8 @@
 import DashLeftNavBar from "./components/dashleftnavbar";
-import DashMain from "./components/dashmain";
+import Dashmain from "./components/dashmain";
 import DashRightNavBar from "./components/dashrightnavbar";
 
-function Dashboard({ user }) {
+function Dashboard() {
 
     return (
 
@@ -12,18 +12,21 @@ function Dashboard({ user }) {
                 min-h-screen
                 bg-[#070709]
                 flex
+                flex-col
+                md:flex-row
                 gap-3
                 p-3
-                overflow-hidden
+                overflow-x-hidden
             "
         >
 
             {/* Left Navbar */}
             <div
                 className="
-                    w-[85px]
+                    w-full
+                    md:w-[85px]
                     lg:w-[90px]
-                    h-[calc(100vh-24px)]
+                    md:h-[calc(100vh-24px)]
                     flex-shrink-0
                 "
             >
@@ -34,16 +37,18 @@ function Dashboard({ user }) {
             <div
                 className="
                     flex-1
-                    h-[calc(100vh-24px)]
+                    min-h-[calc(100vh-112px)]
+                    md:h-[calc(100vh-24px)]
                     overflow-y-auto
-                    rounded-3xl
+                    rounded-2xl
+                    md:rounded-3xl
                     border
                     border-white/5
                     bg-white/8
                     backdrop-blur-xl
                 "
             >
-                <DashMain />
+                <Dashmain />
             </div>
 
             {/* Right Sidebar */}
