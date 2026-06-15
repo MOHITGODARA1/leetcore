@@ -4,6 +4,8 @@ import {
     Paperclip, Monitor, Smartphone, Tablet, CheckCircle
 } from "lucide-react";
 import DashboardPageShell from "./components/DashboardPageShell";
+import { useAuth } from "../../context/AuthContext";
+import { bugService } from "../../services/bugService";
 
 const BUG_AREAS = [
     { value: "profile", label: "Profile" },
@@ -14,12 +16,6 @@ const BUG_AREAS = [
     { value: "other", label: "Other" },
 ];
 
-const PRIORITIES = [
-    { value: "normal", label: "Normal", color: "text-blue-400", border: "border-blue-400/40", bg: "bg-blue-400/10", dot: "bg-blue-400", desc: "Minor visual glitch or cosmetic issue" },
-    { value: "high", label: "High", color: "text-yellow-400", border: "border-yellow-400/40", bg: "bg-yellow-400/10", dot: "bg-yellow-400", desc: "Feature broken, workaround exists" },
-    { value: "critical", label: "Critical", color: "text-red-400", border: "border-red-400/40", bg: "bg-red-400/10", dot: "bg-red-400", desc: "Blocks core functionality entirely" },
-];
-
 const DEVICES = [
     { value: "desktop", label: "Desktop", icon: Monitor },
     { value: "tablet", label: "Tablet", icon: Tablet },
@@ -28,7 +24,7 @@ const DEVICES = [
 
 const MAX_CHARS = 1000;
 
-function SuccessState({ onReset }) {
+function SuccessState({ message, onReset }) {
     return (
         <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
             <div className="w-16 h-16 rounded-full bg-green-400/10 flex items-center justify-center">
@@ -36,7 +32,7 @@ function SuccessState({ onReset }) {
             </div>
             <h2 className="text-xl font-semibold text-white">Bug report submitted!</h2>
             <p className="text-sm text-white/50 max-w-xs leading-6">
-                Our team will investigate and may follow up via your account email. Thanks for helping make LeetCore better.
+                {message || "Our team will investigate and may follow up via your account email. Thanks for helping make LeetCore better."}
             </p>
             <button onClick={onReset} className="mt-2 text-sm text-[#F46717] hover:underline">
                 Submit another report
@@ -46,8 +42,8 @@ function SuccessState({ onReset }) {
 }
 
 export default function ReportBugPage() {
+    const { user } = useAuth();
     const [area, setArea] = useState("dashboard");
-    const [priority, setPriority] = useState("normal");
     const [device, setDevice] = useState("desktop");
     const [title, setTitle] = useState("");
     const [steps, setSteps] = useState("");
@@ -55,12 +51,12 @@ export default function ReportBugPage() {
     const [attachments, setAttachments] = useState([]);
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [successMsg, setSuccessMsg] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
     const fileRef = useRef();
 
     const charsLeft = MAX_CHARS - steps.length;
     const canSubmit = title.trim().length > 3 && steps.trim().length > 10 && !loading;
-
-    const selectedPriority = PRIORITIES.find((p) => p.value === priority);
 
     const handleFiles = (e) => {
         const files = Array.from(e.target.files || []);
@@ -69,10 +65,38 @@ export default function ReportBugPage() {
 
     const removeFile = (i) => setAttachments((prev) => prev.filter((_, idx) => idx !== i));
 
-    const handleSubmit = () => {
-        if (!canSubmit) return;
+    const handleSubmit = async () => {
+        if (!canSubmit || !user) return;
         setLoading(true);
-        setTimeout(() => { setLoading(false); setSubmitted(true); }, 1400);
+        setErrorMsg("");
+        try {
+            // Concatenate expected behaviour if provided
+            const fullDescription = expected.trim() 
+                ? `${steps}\n\nExpected behavior:\n${expected}`
+                : steps;
+
+            const payload = {
+                userId: user._id,
+                name: user.name || user.username,
+                email: user.email,
+                device,
+                bugArea: area,
+                bugTitle: title,
+                bugDescription: fullDescription,
+            };
+            const response = await bugService.submitBugReport(payload);
+            if (response.data && response.data.success) {
+                setSuccessMsg(response.data.message);
+                setSubmitted(true);
+            }
+        } catch (err) {
+            console.error("Failed to submit bug report:", err);
+            setErrorMsg(
+                err.response?.data?.message || "Something went wrong. Please try again."
+            );
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleReset = () => {
@@ -82,8 +106,9 @@ export default function ReportBugPage() {
         setExpected("");
         setAttachments([]);
         setArea("dashboard");
-        setPriority("normal");
         setDevice("desktop");
+        setErrorMsg("");
+        setSuccessMsg("");
     };
 
     // Progress: title + steps + expected = 3 segments
@@ -120,7 +145,7 @@ export default function ReportBugPage() {
 
                         <div className="p-5 sm:p-7">
                             {submitted ? (
-                                <SuccessState onReset={handleReset} />
+                                <SuccessState message={successMsg} onReset={handleReset} />
                             ) : (
                                 <div className="space-y-7">
 
@@ -168,32 +193,7 @@ export default function ReportBugPage() {
                                         </div>
                                     </div>
 
-                                    {/* Priority picker */}
-                                    <div>
-                                        <p className="text-sm text-white/55 mb-3">Priority</p>
-                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                                            {PRIORITIES.map((p) => (
-                                                <button
-                                                    key={p.value}
-                                                    type="button"
-                                                    onClick={() => setPriority(p.value)}
-                                                    className={`text-left p-3 rounded-xl border transition-all ${
-                                                        priority === p.value
-                                                            ? `${p.border} ${p.bg}`
-                                                            : "border-white/8 bg-white/3 hover:border-white/15"
-                                                    }`}
-                                                >
-                                                    <div className="flex items-center gap-2 mb-1">
-                                                        <span className={`w-2 h-2 rounded-full ${p.dot}`} />
-                                                        <span className={`text-sm font-medium ${priority === p.value ? p.color : "text-white/70"}`}>
-                                                            {p.label}
-                                                        </span>
-                                                    </div>
-                                                    <p className="text-xs text-white/35 leading-4">{p.desc}</p>
-                                                </button>
-                                            ))}
-                                        </div>
-                                    </div>
+                                    {/* Priority picker removed */}
 
                                     {/* Title */}
                                     <div>
@@ -239,7 +239,7 @@ export default function ReportBugPage() {
                                     {/* Screenshot upload */}
                                     <div>
                                         <p className="text-sm text-white/55 mb-2">
-                                            Screenshots <span className="text-white/30">(up to 3)</span>
+                                            Screenshots <span className="text-white/30">(optional, up to 3)</span>
                                         </p>
                                         <div className="flex flex-wrap gap-2">
                                             {attachments.map((file, i) => (
@@ -264,6 +264,12 @@ export default function ReportBugPage() {
                                         </div>
                                         <input ref={fileRef} type="file" accept="image/*" multiple className="hidden" onChange={handleFiles} />
                                     </div>
+
+                                    {errorMsg && (
+                                        <p className="text-sm text-red-400 font-medium bg-red-400/10 border border-red-400/20 px-4 py-2.5 rounded-xl">
+                                            {errorMsg}
+                                        </p>
+                                    )}
 
                                     {/* Footer */}
                                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2 border-t border-white/6">
@@ -326,21 +332,7 @@ export default function ReportBugPage() {
                             </p>
                         </div>
 
-                        {/* Priority legend */}
-                        <div className="rounded-2xl border border-white/8 bg-[#111113] p-5">
-                            <h2 className="text-base font-semibold mb-3">Priority guide</h2>
-                            <div className="space-y-3">
-                                {PRIORITIES.map((p) => (
-                                    <div key={p.value} className="flex items-start gap-2.5">
-                                        <span className={`mt-1.5 w-2 h-2 rounded-full shrink-0 ${p.dot}`} />
-                                        <div>
-                                            <p className={`text-sm font-medium ${p.color}`}>{p.label}</p>
-                                            <p className="text-xs text-white/40 mt-0.5">{p.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                        {/* Priority legend removed */}
                     </aside>
                 </div>
             </div>

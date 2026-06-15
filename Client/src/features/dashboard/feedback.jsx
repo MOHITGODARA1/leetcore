@@ -4,6 +4,8 @@ import {
     CheckCircle, Clock, Lightbulb, Bug, Palette, MoreHorizontal, Upload
 } from "lucide-react";
 import DashboardPageShell from "./components/DashboardPageShell";
+import { useAuth } from "../../context/AuthContext";
+import { feedbackService } from "../../services/feedbackService";
 
 const FEEDBACK_CATEGORIES = [
     { value: "experience", label: "Product experience", icon: Smile, color: "text-blue-400", bg: "bg-blue-400/10" },
@@ -42,7 +44,7 @@ function StarRating({ value, onChange }) {
     );
 }
 
-function SuccessState({ onReset }) {
+function SuccessState({ message, onReset }) {
     return (
         <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
             <div className="w-16 h-16 rounded-full bg-green-400/10 flex items-center justify-center">
@@ -50,7 +52,7 @@ function SuccessState({ onReset }) {
             </div>
             <h2 className="text-xl font-semibold text-white">Thanks for the feedback!</h2>
             <p className="text-sm text-white/50 max-w-xs leading-6">
-                We read every submission. If your feedback needs a response, we'll follow up via your account email.
+                {message || "We read every submission. If your feedback needs a response, we'll follow up via your account email."}
             </p>
             <button
                 onClick={onReset}
@@ -63,12 +65,15 @@ function SuccessState({ onReset }) {
 }
 
 export default function FeedbackPage() {
+    const { user } = useAuth();
     const [category, setCategory] = useState("experience");
     const [rating, setRating] = useState(0);
     const [text, setText] = useState("");
     const [attachment, setAttachment] = useState(null);
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [successMsg, setSuccessMsg] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
     const fileRef = useRef();
 
     const selectedCategory = FEEDBACK_CATEGORIES.find((c) => c.value === category);
@@ -80,13 +85,32 @@ export default function FeedbackPage() {
         if (file) setAttachment(file);
     };
 
-    const handleSubmit = () => {
-        if (!canSubmit) return;
+    const handleSubmit = async () => {
+        if (!canSubmit || !user) return;
         setLoading(true);
-        setTimeout(() => {
+        setErrorMsg("");
+        try {
+            const payload = {
+                userId: user._id,
+                name: user.name || user.username,
+                email: user.email,
+                about: category,
+                rating,
+                message: text,
+            };
+            const response = await feedbackService.submitFeedback(payload);
+            if (response.data && response.data.success) {
+                setSuccessMsg(response.data.message);
+                setSubmitted(true);
+            }
+        } catch (err) {
+            console.error("Failed to submit feedback:", err);
+            setErrorMsg(
+                err.response?.data?.message || "Something went wrong. Please try again."
+            );
+        } finally {
             setLoading(false);
-            setSubmitted(true);
-        }, 1400);
+        }
     };
 
     const handleReset = () => {
@@ -95,6 +119,8 @@ export default function FeedbackPage() {
         setText("");
         setAttachment(null);
         setCategory("experience");
+        setErrorMsg("");
+        setSuccessMsg("");
     };
 
     return (
@@ -130,7 +156,7 @@ export default function FeedbackPage() {
 
                         <div className="p-5 sm:p-7">
                             {submitted ? (
-                                <SuccessState onReset={handleReset} />
+                                <SuccessState message={successMsg} onReset={handleReset} />
                             ) : (
                                 <div className="space-y-7">
                                     {/* Category picker */}
@@ -228,6 +254,12 @@ export default function FeedbackPage() {
                                             onChange={handleFile}
                                         />
                                     </div>
+
+                                    {errorMsg && (
+                                        <p className="text-sm text-red-400 font-medium bg-red-400/10 border border-red-400/20 px-4 py-2.5 rounded-xl">
+                                            {errorMsg}
+                                        </p>
+                                    )}
 
                                     {/* Footer */}
                                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2 border-t border-white/6">
