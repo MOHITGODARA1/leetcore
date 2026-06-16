@@ -1,504 +1,426 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
-    BadgeCheck,
-    HeartHandshake,
-    Megaphone,
-    Send,
-    Sparkles,
-    Users,
-    TrendingUp,
-    Globe,
-    ChevronRight,
-    CheckCircle2,
-    BarChart3,
-    Zap,
-    Star,
-    ArrowRight,
-    Mail,
-    Building2,
-    Target,
-    MessageSquare,
+    HeartHandshake, Building2, User, Mail, Phone, MessageSquare, Send,
+    CheckCircle, AlertTriangle, ArrowRight, ShieldCheck, Sparkles, Star, Users, BarChart3, Zap
 } from "lucide-react";
+import DashboardPageShell from "./components/DashboardPageShell";
+import { useAuth } from "../../context/AuthContext";
+import { sponsorshipService } from "../../services/sponsorshipService";
 
-/* ─── Inline mock shell ────────────────────────────────────────────── */
-function DashboardPageShell({ children }) {
-    return (
-        <div style={{ minHeight: "100vh", background: "#0b0b0d", fontFamily: "'Sora', sans-serif" }}>
-            <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-            {children}
-        </div>
-    );
-}
-
-/* ─── Data ──────────────────────────────────────────────────────────── */
 const BENEFITS = [
     {
         icon: Users,
-        title: "Focused Audience",
-        text: "Reach students actively preparing for DSA, system design, and placement interviews — already in a learning mindset.",
+        title: "Targeted Audience",
+        text: "Directly reach students, engineers, and developers preparing for technical interviews, DSA, and system design.",
         stat: "50k+",
-        statLabel: "monthly learners",
+        statLabel: "active learners",
     },
     {
         icon: BarChart3,
-        title: "High-Intent Traffic",
-        text: "Sponsor placements live in calm dashboard surfaces where users look for guidance — not in noisy ad slots.",
+        title: "High Engagement",
+        text: "Sponsor card placements are integrated contextually into learning dashboards without intrusive ads.",
         stat: "4.2×",
-        statLabel: "avg. engagement rate",
+        statLabel: "avg. click rate",
     },
     {
         icon: Zap,
-        title: "Fast to Launch",
-        text: "Start with a single compact placement and scale once the audience fit is confirmed. Zero long-term lock-in.",
-        stat: "48h",
-        statLabel: "onboarding time",
-    },
-];
-
-const TIERS = [
-    {
-        name: "Starter",
-        price: "$299",
-        period: "/mo",
-        color: "#6b7280",
-        perks: ["1 dashboard placement", "Logo + link", "Basic analytics", "Monthly report"],
-    },
-    {
-        name: "Growth",
-        price: "$799",
-        period: "/mo",
-        color: "#F46717",
-        highlight: true,
-        perks: ["3 dashboard placements", "Logo + custom CTA", "Real-time analytics", "Weekly report", "Dedicated Slack channel"],
-    },
-    {
-        name: "Partner",
-        price: "Custom",
-        period: "",
-        color: "#a78bfa",
-        perks: ["Unlimited placements", "Full co-branding", "Priority analytics", "Custom integrations", "Quarterly strategy call"],
+        title: "Empower the Community",
+        text: "Every sponsorship helps keep the platform free, funding education and support for early-career developers.",
+        stat: "100%",
+        statLabel: "education impact",
     },
 ];
 
 const LOGOS = ["Google", "Microsoft", "Stripe", "Notion", "Vercel", "Linear"];
 
-/* ─── Sub-components ────────────────────────────────────────────────── */
-function StatPill({ value, label }) {
+function SuccessState({ message, onReset }) {
     return (
-        <div style={{
-            display: "flex", flexDirection: "column", alignItems: "center",
-            padding: "16px 24px", background: "rgba(244,103,23,0.08)",
-            border: "1px solid rgba(244,103,23,0.2)", borderRadius: "16px",
-        }}>
-            <span style={{ fontSize: "1.75rem", fontWeight: 800, color: "#F46717", fontFamily: "'Space Mono', monospace" }}>{value}</span>
-            <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.45)", marginTop: "4px", textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</span>
+        <div className="flex flex-col items-center justify-center py-16 text-center gap-5">
+            <div className="w-16 h-16 rounded-full bg-green-400/10 flex items-center justify-center border border-green-400/25">
+                <CheckCircle size={32} className="text-green-400" />
+            </div>
+            <h2 className="text-2xl font-bold text-white tracking-tight">Request Received!</h2>
+            <p className="text-sm text-white/50 max-w-sm leading-6">
+                {message || "Thank you for your interest in sponsoring our platform. Our team has received your request and will contact you shortly to discuss the opportunity."}
+            </p>
+            <button
+                type="button"
+                onClick={onReset}
+                className="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 hover:border-white/20 bg-white/4 px-5 py-2.5 text-sm font-semibold text-white/70 hover:text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
+            >
+                <ArrowRight size={14} />
+                Submit another request
+            </button>
         </div>
     );
 }
 
-function BenefitCard({ icon: Icon, title, text, stat, statLabel }) {
-    const [hovered, setHovered] = useState(false);
-    return (
-        <div
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            style={{
-                borderRadius: "20px",
-                border: `1px solid ${hovered ? "rgba(244,103,23,0.35)" : "rgba(255,255,255,0.07)"}`,
-                background: hovered ? "rgba(244,103,23,0.06)" : "rgba(255,255,255,0.03)",
-                padding: "24px",
-                transition: "all 0.25s ease",
-                cursor: "default",
-                position: "relative",
-                overflow: "hidden",
-            }}
-        >
-            {hovered && (
-                <div style={{
-                    position: "absolute", top: 0, right: 0,
-                    width: "120px", height: "120px",
-                    background: "radial-gradient(circle, rgba(244,103,23,0.12) 0%, transparent 70%)",
-                    pointerEvents: "none",
-                }} />
-            )}
-            <div style={{
-                width: "42px", height: "42px", borderRadius: "12px",
-                background: "rgba(244,103,23,0.12)", color: "#F46717",
-                display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-                <Icon size={20} />
-            </div>
-            <h3 style={{ marginTop: "16px", fontSize: "1rem", fontWeight: 600, color: "#fff" }}>{title}</h3>
-            <p style={{ marginTop: "8px", fontSize: "0.875rem", lineHeight: 1.7, color: "rgba(255,255,255,0.45)" }}>{text}</p>
-            <div style={{ marginTop: "20px", display: "flex", alignItems: "baseline", gap: "6px" }}>
-                <span style={{ fontSize: "1.5rem", fontWeight: 800, color: "#F46717", fontFamily: "'Space Mono', monospace" }}>{stat}</span>
-                <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.35)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{statLabel}</span>
-            </div>
-        </div>
-    );
-}
-
-function TierCard({ name, price, period, color, perks, highlight }) {
-    return (
-        <div style={{
-            borderRadius: "20px",
-            border: `1px solid ${highlight ? color : "rgba(255,255,255,0.08)"}`,
-            background: highlight ? `linear-gradient(135deg, rgba(244,103,23,0.12), rgba(244,103,23,0.04))` : "rgba(255,255,255,0.03)",
-            padding: "28px 24px",
-            position: "relative",
-            flex: "1 1 0",
-            minWidth: "200px",
-        }}>
-            {highlight && (
-                <div style={{
-                    position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%)",
-                    background: "#F46717", color: "#fff", fontSize: "0.7rem", fontWeight: 700,
-                    padding: "4px 14px", borderRadius: "999px", textTransform: "uppercase", letterSpacing: "0.1em",
-                    whiteSpace: "nowrap",
-                }}>Most Popular</div>
-            )}
-            <p style={{ fontSize: "0.85rem", fontWeight: 600, color, textTransform: "uppercase", letterSpacing: "0.08em" }}>{name}</p>
-            <div style={{ marginTop: "12px", display: "flex", alignItems: "baseline", gap: "4px" }}>
-                <span style={{ fontSize: "2rem", fontWeight: 800, color: "#fff", fontFamily: "'Space Mono', monospace" }}>{price}</span>
-                {period && <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.4)" }}>{period}</span>}
-            </div>
-            <ul style={{ marginTop: "20px", display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
-                {perks.map(p => (
-                    <li key={p} style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.85rem", color: "rgba(255,255,255,0.6)" }}>
-                        <CheckCircle2 size={15} style={{ color, flexShrink: 0 }} />
-                        {p}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
-}
-
-/* ─── Main component ────────────────────────────────────────────────── */
-function BecomeSponsorPage() {
-    const [step, setStep] = useState(1); // 1 = form, 2 = success
-    const [form, setForm] = useState({ company: "", email: "", goal: "", tier: "Growth" });
-    const [errors, setErrors] = useState({});
-    const [loading, setLoading] = useState(false);
-
-    function validate() {
-        const e = {};
-        if (!form.company.trim()) e.company = "Required";
-        if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email)) e.email = "Valid email required";
-        if (!form.goal.trim()) e.goal = "Required";
-        return e;
-    }
-
-    async function handleSubmit() {
-        const e = validate();
-        if (Object.keys(e).length) { setErrors(e); return; }
-        setLoading(true);
-        await new Promise(r => setTimeout(r, 1400));
-        setLoading(false);
-        setStep(2);
-    }
-
-    const inputStyle = (err) => ({
-        marginTop: "8px",
-        width: "100%",
-        borderRadius: "14px",
-        border: `1px solid ${err ? "#f87171" : "rgba(255,255,255,0.1)"}`,
-        background: "rgba(255,255,255,0.04)",
-        padding: "12px 16px",
-        color: "#fff",
-        fontSize: "0.9rem",
-        outline: "none",
-        boxSizing: "border-box",
-        fontFamily: "'Sora', sans-serif",
-        transition: "border-color 0.2s",
+export default function BecomeSponsorPage() {
+    const { user } = useAuth();
+    const [form, setForm] = useState({
+        companyName: "",
+        contactName: "",
+        email: "",
+        phone: "",
+        message: "",
     });
+    const [errors, setErrors] = useState({});
+    const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [successMsg, setSuccessMsg] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
+
+    useEffect(() => {
+        if (user) {
+            setForm((f) => ({
+                ...f,
+                contactName: user.name || user.username || "",
+                email: user.email || "",
+            }));
+        }
+    }, [user]);
+
+    const validate = () => {
+        const e = {};
+        if (!form.companyName.trim()) {
+            e.companyName = "Organization/Company Name is required";
+        }
+        if (!form.contactName.trim()) {
+            e.contactName = "Contact Person Name is required";
+        }
+        if (!form.email.trim()) {
+            e.email = "Email Address is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+            e.email = "Please enter a valid email address";
+        }
+        if (!form.phone.trim()) {
+            e.phone = "Phone Number is required";
+        } else if (!/^\+?[0-9\s\-()]{7,20}$/.test(form.phone.trim())) {
+            e.phone = "Please enter a valid phone number";
+        }
+        if (!form.message.trim()) {
+            e.message = "Sponsorship Details / Message is required";
+        } else if (form.message.trim().length < 20) {
+            e.message = "Please tell us a bit more (at least 20 characters)";
+        }
+        return e;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const validationErrors = validate();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+        setLoading(true);
+        setErrorMsg("");
+        try {
+            const payload = {
+                companyName: form.companyName.trim(),
+                contactName: form.contactName.trim(),
+                email: form.email.trim(),
+                phone: form.phone.trim(),
+                message: form.message.trim(),
+            };
+            const response = await sponsorshipService.submitSponsorshipRequest(payload);
+            if (response.data && response.data.success) {
+                setSuccessMsg(response.data.message);
+                setSubmitted(true);
+            }
+        } catch (err) {
+            console.error("Failed to submit sponsorship request:", err);
+            setErrorMsg(
+                err.response?.data?.message || "Something went wrong. Please try again."
+            );
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleReset = () => {
+        setSubmitted(false);
+        setForm({
+            companyName: "",
+            contactName: user?.name || user?.username || "",
+            email: user?.email || "",
+            phone: "",
+            message: "",
+        });
+        setErrors({});
+        setErrorMsg("");
+        setSuccessMsg("");
+    };
 
     return (
         <DashboardPageShell>
-            <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "40px 20px 80px" }}>
-
-                {/* ── Hero header ── */}
-                <div style={{ textAlign: "center", marginBottom: "60px" }}>
-                    <div style={{
-                        display: "inline-flex", alignItems: "center", gap: "8px",
-                        background: "rgba(244,103,23,0.1)", border: "1px solid rgba(244,103,23,0.25)",
-                        borderRadius: "999px", padding: "6px 16px", marginBottom: "24px",
-                    }}>
-                        <HeartHandshake size={14} style={{ color: "#F46717" }} />
-                        <span style={{ fontSize: "0.78rem", fontWeight: 600, color: "#F46717", textTransform: "uppercase", letterSpacing: "0.1em" }}>Become a Sponsor</span>
+            <div className="p-5 sm:p-8 text-white max-w-6xl mx-auto">
+                {/* Hero Header */}
+                <div className="text-center max-w-3xl mx-auto mb-12">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#F46717]/20 bg-[#F46717]/8 text-[#F46717] text-xs font-semibold uppercase tracking-wider mb-5">
+                        <HeartHandshake size={14} />
+                        Sponsor Us
                     </div>
-                    <h1 style={{
-                        fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 800,
-                        color: "#fff", lineHeight: 1.1, margin: "0 auto", maxWidth: "720px",
-                        letterSpacing: "-0.02em",
-                    }}>
-                        Reach developers <span style={{
-                            background: "linear-gradient(90deg, #F46717, #ff9a5c)",
-                            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-                        }}>right when it matters</span>
+                    <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                        Reach developers & support{" "}
+                        <span className="bg-gradient-to-r from-[#F46717] to-[#ff8c4b] bg-clip-text text-transparent">
+                            early-career talent
+                        </span>
                     </h1>
-                    <p style={{
-                        marginTop: "20px", fontSize: "1.05rem", color: "rgba(255,255,255,0.45)",
-                        maxWidth: "540px", margin: "20px auto 0", lineHeight: 1.75,
-                    }}>
-                        Partner with LeetCore to reach focused, high-intent learners who are building real technical skills every day.
+                    <p className="mt-4 text-white/50 text-sm sm:text-base leading-7 max-w-2xl mx-auto">
+                        Partner with LeetCore to build brand awareness with high-intent learners, while funding scholarships, server resources, and tools for students and developers worldwide.
                     </p>
-
-                    {/* Quick stats */}
-                    <div style={{
-                        marginTop: "40px", display: "flex", justifyContent: "center",
-                        flexWrap: "wrap", gap: "12px",
-                    }}>
-                        {[["50k+", "Monthly users"], ["92%", "Placement rate"], ["4.2×", "Engagement"], ["48h", "Go live"]].map(([v, l]) => (
-                            <StatPill key={l} value={v} label={l} />
-                        ))}
-                    </div>
                 </div>
 
-                {/* ── Social proof strip ── */}
-                <div style={{
-                    marginBottom: "60px", padding: "18px 28px",
-                    border: "1px solid rgba(255,255,255,0.06)",
-                    borderRadius: "16px", background: "rgba(255,255,255,0.02)",
-                    display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap", justifyContent: "center",
-                }}>
-                    <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.3)", textTransform: "uppercase", letterSpacing: "0.1em", flexShrink: 0 }}>Trusted by teams at</span>
-                    {LOGOS.map(l => (
-                        <span key={l} style={{
-                            fontSize: "0.9rem", fontWeight: 700, color: "rgba(255,255,255,0.25)",
-                            letterSpacing: "0.04em", textTransform: "uppercase",
-                        }}>{l}</span>
+                {/* Social Proof logos */}
+                <div className="mb-12 border border-white/5 rounded-2xl bg-white/2 p-4 sm:p-5 flex items-center justify-center gap-5 sm:gap-10 flex-wrap opacity-50 hover:opacity-75 transition-opacity">
+                    <span className="text-xs text-white/40 uppercase tracking-widest font-semibold shrink-0">
+                        Supporting organizations like
+                    </span>
+                    {LOGOS.map((logo) => (
+                        <span key={logo} className="text-sm font-bold tracking-wider text-white/30 hover:text-white/60 transition-colors uppercase">
+                            {logo}
+                        </span>
                     ))}
                 </div>
 
-                {/* ── Main grid: benefits + form ── */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr min(420px, 100%)", gap: "24px", alignItems: "start" }}>
-
-                    {/* Left column */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-
-                        {/* Benefits */}
-                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px" }}>
-                            {BENEFITS.map(b => <BenefitCard key={b.title} {...b} />)}
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-6 items-start">
+                    {/* Left side: benefits & guide */}
+                    <div className="space-y-6">
+                        {/* Benefits cards */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            {BENEFITS.map(({ icon: Icon, title, text, stat, statLabel }) => (
+                                <div key={title} className="rounded-2xl border border-white/8 bg-[#111113]/80 p-5 hover:border-[#F46717]/30 transition-colors group">
+                                    <div className="w-10 h-10 rounded-xl bg-[#F46717]/10 text-[#F46717] flex items-center justify-center group-hover:scale-105 transition-transform">
+                                        <Icon size={18} />
+                                    </div>
+                                    <h3 className="mt-4 text-base font-semibold text-white">{title}</h3>
+                                    <p className="mt-2 text-xs leading-5 text-white/40">{text}</p>
+                                    <div className="mt-4 flex items-baseline gap-1.5 border-t border-white/5 pt-3">
+                                        <span className="text-xl font-bold text-[#F46717] font-mono">{stat}</span>
+                                        <span className="text-[10px] text-white/30 uppercase tracking-wider">{statLabel}</span>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
 
-                        {/* Pricing tiers */}
-                        <div style={{
-                            borderRadius: "20px",
-                            border: "1px solid rgba(255,255,255,0.07)",
-                            background: "rgba(255,255,255,0.02)",
-                            padding: "28px",
-                        }}>
-                            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
-                                <Star size={18} style={{ color: "#F46717" }} />
-                                <h2 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#fff", margin: 0 }}>Sponsorship tiers</h2>
-                            </div>
-                            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-                                {TIERS.map(t => <TierCard key={t.name} {...t} />)}
-                            </div>
-                        </div>
-
-                        {/* How it works */}
-                        <div style={{
-                            borderRadius: "20px",
-                            border: "1px solid rgba(255,255,255,0.07)",
-                            background: "rgba(255,255,255,0.02)",
-                            padding: "28px",
-                        }}>
-                            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
-                                <Target size={18} style={{ color: "#F46717" }} />
-                                <h2 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#fff", margin: 0 }}>How it works</h2>
-                            </div>
-                            <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+                        {/* Why Sponsor Section */}
+                        <div className="rounded-2xl border border-white/8 bg-[#111113]/80 p-6 space-y-4">
+                            <h2 className="text-lg font-bold flex items-center gap-2">
+                                <Sparkles className="text-[#F46717]" size={18} />
+                                Why sponsor LeetCore?
+                            </h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {[
-                                    { n: "01", title: "Submit your interest", desc: "Fill out the form with your brand details and campaign goal." },
-                                    { n: "02", title: "We review & match", desc: "Our team reviews your request and suggests the best placement within 48h." },
-                                    { n: "03", title: "Go live", desc: "Your sponsor card goes live and you start receiving analytics immediately." },
-                                ].map((s, i, arr) => (
-                                    <div key={s.n} style={{ display: "flex", gap: "16px", position: "relative" }}>
-                                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                                            <div style={{
-                                                width: "36px", height: "36px", borderRadius: "50%", flexShrink: 0,
-                                                background: "rgba(244,103,23,0.12)", border: "1px solid rgba(244,103,23,0.3)",
-                                                display: "flex", alignItems: "center", justifyContent: "center",
-                                                color: "#F46717", fontSize: "0.7rem", fontWeight: 800, fontFamily: "'Space Mono', monospace",
-                                            }}>{s.n}</div>
-                                            {i < arr.length - 1 && (
-                                                <div style={{ width: "1px", flex: 1, background: "rgba(255,255,255,0.08)", margin: "8px 0" }} />
-                                            )}
+                                    { title: "Direct Recruitment", desc: "Build developer relations and advertise hiring directly to top performing programmers." },
+                                    { title: "Product Adoption", desc: "Get tools, APIs, and cloud services adopted by students and developers early in their workflow." },
+                                    { title: "Sustaining Open Education", desc: "Provide high quality DSA, gamified practice sheets, and mock tests to learners." },
+                                    { title: "Brand Alignment", desc: "Showcase your company's alignment with open-source education, tech diversity, and community building." },
+                                ].map(({ title, desc }) => (
+                                    <div key={title} className="flex gap-3">
+                                        <ShieldCheck className="text-green-400 shrink-0 mt-0.5" size={16} />
+                                        <div>
+                                            <p className="text-sm font-semibold">{title}</p>
+                                            <p className="text-xs text-white/40 leading-5 mt-1">{desc}</p>
                                         </div>
-                                        <div style={{ paddingBottom: i < arr.length - 1 ? "24px" : 0 }}>
-                                            <p style={{ margin: 0, fontWeight: 600, color: "#fff", fontSize: "0.95rem" }}>{s.title}</p>
-                                            <p style={{ margin: "6px 0 0", fontSize: "0.85rem", color: "rgba(255,255,255,0.4)", lineHeight: 1.6 }}>{s.desc}</p>
-                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Sponsorship tiers */}
+                        <div className="rounded-2xl border border-white/8 bg-[#111113]/80 p-6 space-y-4">
+                            <h2 className="text-lg font-bold flex items-center gap-2">
+                                <Star className="text-yellow-400" size={18} />
+                                Flexible levels to suit your goals
+                            </h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                {[
+                                    { name: "Starter", desc: "Best for individual creators, open source projects, and local tech groups.", highlight: false },
+                                    { name: "Growth (Popular)", desc: "Perfect for scaling startups, developer tooling, and mid-sized teams.", highlight: true },
+                                    { name: "Enterprise / Partner", desc: "Full co-branded placement, tailored challenges, and direct hiring access.", highlight: false }
+                                ].map(({ name, desc, highlight }) => (
+                                    <div key={name} className={`p-4 rounded-xl border text-xs leading-5 transition-all ${
+                                        highlight
+                                            ? "border-[#F46717] bg-[#F46717]/5 text-white"
+                                            : "border-white/5 bg-white/2 text-white/50"
+                                    }`}>
+                                        <p className={`font-semibold text-sm ${highlight ? "text-[#F46717]" : "text-white"}`}>{name}</p>
+                                        <p className="mt-2 text-white/40 leading-relaxed">{desc}</p>
                                     </div>
                                 ))}
                             </div>
                         </div>
                     </div>
 
-                    {/* Right column — form or success */}
-                    <div style={{
-                        borderRadius: "24px",
-                        border: "1px solid rgba(255,255,255,0.1)",
-                        background: "linear-gradient(160deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
-                        padding: "28px",
-                        position: "sticky",
-                        top: "24px",
-                    }}>
-                        {step === 1 ? (
-                            <>
-                                <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
-                                    <div style={{
-                                        width: "36px", height: "36px", borderRadius: "10px",
-                                        background: "rgba(250,204,21,0.12)", color: "#fbbf24",
-                                        display: "flex", alignItems: "center", justifyContent: "center",
-                                    }}>
-                                        <Sparkles size={18} />
+                    {/* Right side: form or success state */}
+                    <div className="rounded-2xl border border-white/8 bg-[#111113] p-5 sm:p-6 sticky top-6">
+                        {submitted ? (
+                            <SuccessState message={successMsg} onReset={handleReset} />
+                        ) : (
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                <div className="flex items-center gap-2.5 pb-3 border-b border-white/6 mb-3">
+                                    <div className="w-9 h-9 rounded-lg bg-yellow-400/10 text-yellow-400 flex items-center justify-center">
+                                        <Sparkles size={16} />
                                     </div>
                                     <div>
-                                        <h2 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 700, color: "#fff" }}>Sponsor request</h2>
-                                        <p style={{ margin: 0, fontSize: "0.75rem", color: "rgba(255,255,255,0.35)" }}>We respond within 48 hours</p>
+                                        <h2 className="text-base font-bold text-white leading-tight">Become a Partner</h2>
+                                        <p className="text-[10px] text-white/35 mt-0.5">We review requests in 48 hours</p>
                                     </div>
                                 </div>
 
-                                {/* Tier selector */}
-                                <div style={{ marginBottom: "20px" }}>
-                                    <p style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.5)", marginBottom: "10px", fontWeight: 500 }}>Interested tier</p>
-                                    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                                        {["Starter", "Growth", "Partner"].map(t => (
-                                            <button
-                                                key={t}
-                                                onClick={() => setForm(f => ({ ...f, tier: t }))}
-                                                style={{
-                                                    padding: "7px 16px", borderRadius: "999px", fontSize: "0.8rem", fontWeight: 600,
-                                                    cursor: "pointer", transition: "all 0.2s", fontFamily: "'Sora', sans-serif",
-                                                    border: form.tier === t ? "1px solid #F46717" : "1px solid rgba(255,255,255,0.1)",
-                                                    background: form.tier === t ? "rgba(244,103,23,0.15)" : "transparent",
-                                                    color: form.tier === t ? "#F46717" : "rgba(255,255,255,0.45)",
-                                                }}
-                                            >{t}</button>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Fields */}
-                                {[
-                                    { key: "company", label: "Company or creator name", placeholder: "Acme Inc.", icon: Building2 },
-                                    { key: "email", label: "Work email", placeholder: "you@company.com", icon: Mail },
-                                ].map(({ key, label, placeholder, icon: Icon }) => (
-                                    <label key={key} style={{ display: "block", marginBottom: "16px" }}>
-                                        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                                            <Icon size={13} style={{ color: "rgba(255,255,255,0.35)" }} />
-                                            <span style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.55)", fontWeight: 500 }}>{label}</span>
-                                        </div>
-                                        <input
-                                            value={form[key]}
-                                            onChange={e => { setForm(f => ({ ...f, [key]: e.target.value })); setErrors(er => ({ ...er, [key]: undefined })); }}
-                                            style={inputStyle(errors[key])}
-                                            placeholder={placeholder}
-                                        />
-                                        {errors[key] && <p style={{ margin: "4px 0 0", fontSize: "0.75rem", color: "#f87171" }}>{errors[key]}</p>}
+                                {/* Company Name */}
+                                <div>
+                                    <label className="flex items-center gap-1.5 text-xs text-white/50 font-medium mb-1.5">
+                                        <Building2 size={13} className="text-white/30" />
+                                        Organization / Company Name <span className="text-red-400">*</span>
                                     </label>
-                                ))}
+                                    <input
+                                        type="text"
+                                        value={form.companyName}
+                                        onChange={(e) => {
+                                            setForm((f) => ({ ...f, companyName: e.target.value }));
+                                            setErrors((er) => ({ ...er, companyName: null }));
+                                        }}
+                                        placeholder="e.g. Acme Corporation"
+                                        className={`w-full rounded-xl border px-3.5 py-2.5 text-sm bg-white/4 text-white placeholder:text-white/20 outline-none transition-colors ${
+                                            errors.companyName ? "border-red-400 focus:border-red-400" : "border-white/10 focus:border-[#F46717]"
+                                        }`}
+                                    />
+                                    {errors.companyName && (
+                                        <p className="text-[11px] text-red-400 mt-1">{errors.companyName}</p>
+                                    )}
+                                </div>
 
-                                <label style={{ display: "block", marginBottom: "20px" }}>
-                                    <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                                        <MessageSquare size={13} style={{ color: "rgba(255,255,255,0.35)" }} />
-                                        <span style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.55)", fontWeight: 500 }}>Campaign goal</span>
-                                    </div>
+                                {/* Contact Person Name */}
+                                <div>
+                                    <label className="flex items-center gap-1.5 text-xs text-white/50 font-medium mb-1.5">
+                                        <User size={13} className="text-white/30" />
+                                        Contact Person Name <span className="text-red-400">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={form.contactName}
+                                        onChange={(e) => {
+                                            setForm((f) => ({ ...f, contactName: e.target.value }));
+                                            setErrors((er) => ({ ...er, contactName: null }));
+                                        }}
+                                        placeholder="e.g. Jane Doe"
+                                        className={`w-full rounded-xl border px-3.5 py-2.5 text-sm bg-white/4 text-white placeholder:text-white/20 outline-none transition-colors ${
+                                            errors.contactName ? "border-red-400 focus:border-red-400" : "border-white/10 focus:border-[#F46717]"
+                                        }`}
+                                    />
+                                    {errors.contactName && (
+                                        <p className="text-[11px] text-red-400 mt-1">{errors.contactName}</p>
+                                    )}
+                                </div>
+
+                                {/* Email Address */}
+                                <div>
+                                    <label className="flex items-center gap-1.5 text-xs text-white/50 font-medium mb-1.5">
+                                        <Mail size={13} className="text-white/30" />
+                                        Email Address <span className="text-red-400">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={form.email}
+                                        onChange={(e) => {
+                                            setForm((f) => ({ ...f, email: e.target.value }));
+                                            setErrors((er) => ({ ...er, email: null }));
+                                        }}
+                                        placeholder="e.g. jane@acme.com"
+                                        className={`w-full rounded-xl border px-3.5 py-2.5 text-sm bg-white/4 text-white placeholder:text-white/20 outline-none transition-colors ${
+                                            errors.email ? "border-red-400 focus:border-red-400" : "border-white/10 focus:border-[#F46717]"
+                                        }`}
+                                    />
+                                    {errors.email && (
+                                        <p className="text-[11px] text-red-400 mt-1">{errors.email}</p>
+                                    )}
+                                </div>
+
+                                {/* Phone Number */}
+                                <div>
+                                    <label className="flex items-center gap-1.5 text-xs text-white/50 font-medium mb-1.5">
+                                        <Phone size={13} className="text-white/30" />
+                                        Phone Number <span className="text-red-400">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={form.phone}
+                                        onChange={(e) => {
+                                            setForm((f) => ({ ...f, phone: e.target.value }));
+                                            setErrors((er) => ({ ...er, phone: null }));
+                                        }}
+                                        placeholder="e.g. +1 (555) 019-2834"
+                                        className={`w-full rounded-xl border px-3.5 py-2.5 text-sm bg-white/4 text-white placeholder:text-white/20 outline-none transition-colors ${
+                                            errors.phone ? "border-red-400 focus:border-red-400" : "border-white/10 focus:border-[#F46717]"
+                                        }`}
+                                    />
+                                    {errors.phone && (
+                                        <p className="text-[11px] text-red-400 mt-1">{errors.phone}</p>
+                                    )}
+                                </div>
+
+                                {/* Sponsorship Message */}
+                                <div>
+                                    <label className="flex items-center gap-1.5 text-xs text-white/50 font-medium mb-1.5">
+                                        <MessageSquare size={13} className="text-white/30" />
+                                        Sponsorship Details / Message <span className="text-red-400">*</span>
+                                    </label>
                                     <textarea
                                         rows={4}
-                                        value={form.goal}
-                                        onChange={e => { setForm(f => ({ ...f, goal: e.target.value })); setErrors(er => ({ ...er, goal: undefined })); }}
-                                        style={{ ...inputStyle(errors.goal), resize: "none" }}
-                                        placeholder="Tell us what you're promoting and your target audience…"
+                                        value={form.message}
+                                        onChange={(e) => {
+                                            setForm((f) => ({ ...f, message: e.target.value }));
+                                            setErrors((er) => ({ ...er, message: null }));
+                                        }}
+                                        placeholder="How would you like to sponsor us? (Starter, Growth, Partner tiers, target placements, developer advocacy details...)"
+                                        className={`w-full resize-none rounded-xl border px-3.5 py-2.5 text-sm bg-white/4 text-white placeholder:text-white/20 outline-none transition-colors ${
+                                            errors.message ? "border-red-400 focus:border-red-400" : "border-white/10 focus:border-[#F46717]"
+                                        }`}
                                     />
-                                    {errors.goal && <p style={{ margin: "4px 0 0", fontSize: "0.75rem", color: "#f87171" }}>{errors.goal}</p>}
-                                </label>
+                                    {errors.message && (
+                                        <p className="text-[11px] text-red-400 mt-1">{errors.message}</p>
+                                    )}
+                                </div>
 
+                                {errorMsg && (
+                                    <p className="text-xs text-red-400 font-medium bg-red-400/10 border border-red-400/20 px-3.5 py-2.5 rounded-xl flex items-center gap-2">
+                                        <AlertTriangle size={14} className="shrink-0" />
+                                        {errorMsg}
+                                    </p>
+                                )}
+
+                                {/* Submit button */}
                                 <button
-                                    onClick={handleSubmit}
+                                    type="submit"
                                     disabled={loading}
-                                    style={{
-                                        width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
-                                        borderRadius: "14px", background: loading ? "rgba(244,103,23,0.5)" : "#F46717",
-                                        padding: "14px", border: "none", cursor: loading ? "default" : "pointer",
-                                        color: "#fff", fontWeight: 700, fontSize: "0.95rem", fontFamily: "'Sora', sans-serif",
-                                        transition: "background 0.2s",
-                                        boxShadow: loading ? "none" : "0 8px 24px rgba(244,103,23,0.3)",
-                                    }}
+                                    className={`w-full inline-flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold text-white transition-all shadow-md ${
+                                        loading
+                                            ? "bg-[#F46717]/60 cursor-not-allowed"
+                                            : "bg-[#F46717] hover:bg-[#ff7d34] hover:shadow-[#F46717]/25 active:scale-95"
+                                    }`}
                                 >
                                     {loading ? (
-                                        <>
-                                            <div style={{
-                                                width: "16px", height: "16px", borderRadius: "50%",
-                                                border: "2px solid rgba(255,255,255,0.3)", borderTopColor: "#fff",
-                                                animation: "spin 0.7s linear infinite",
-                                            }} />
-                                            Sending…
-                                            <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
-                                        </>
+                                        <span className="flex items-center gap-2">
+                                            <span className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                                            Submitting…
+                                        </span>
                                     ) : (
-                                        <><Send size={16} /> Submit interest</>
+                                        <>
+                                            <Send size={14} />
+                                            Submit interest
+                                        </>
                                     )}
                                 </button>
-
-                                <p style={{ marginTop: "14px", fontSize: "0.72rem", color: "rgba(255,255,255,0.25)", textAlign: "center", lineHeight: 1.6 }}>
-                                    No commitment required. We'll follow up within 48h with placement options.
+                                <p className="text-[10px] text-white/30 leading-relaxed text-center">
+                                    No immediate commitments. We review requests and provide tailored options in under 48 hours.
                                 </p>
-                            </>
-                        ) : (
-                            /* Success state */
-                            <div style={{ textAlign: "center", padding: "24px 0" }}>
-                                <div style={{
-                                    width: "64px", height: "64px", borderRadius: "50%",
-                                    background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)",
-                                    display: "flex", alignItems: "center", justifyContent: "center",
-                                    margin: "0 auto 20px",
-                                }}>
-                                    <CheckCircle2 size={30} style={{ color: "#22c55e" }} />
-                                </div>
-                                <h2 style={{ margin: 0, fontSize: "1.4rem", fontWeight: 800, color: "#fff" }}>Request received!</h2>
-                                <p style={{ marginTop: "12px", fontSize: "0.9rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.7 }}>
-                                    Thanks, <strong style={{ color: "#fff" }}>{form.company}</strong>! We'll review your <strong style={{ color: "#F46717" }}>{form.tier}</strong> tier interest and get back to <strong style={{ color: "#fff" }}>{form.email}</strong> within 48 hours.
-                                </p>
-                                <button
-                                    onClick={() => { setStep(1); setForm({ company: "", email: "", goal: "", tier: "Growth" }); }}
-                                    style={{
-                                        marginTop: "24px", display: "inline-flex", alignItems: "center", gap: "6px",
-                                        borderRadius: "999px", border: "1px solid rgba(255,255,255,0.12)",
-                                        background: "transparent", padding: "10px 20px", cursor: "pointer",
-                                        color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", fontFamily: "'Sora', sans-serif",
-                                    }}
-                                >
-                                    <ArrowRight size={14} /> Submit another request
-                                </button>
-                            </div>
+                            </form>
                         )}
                     </div>
                 </div>
-
-                {/* ── FAQ strip ── */}
-                <div style={{ marginTop: "48px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
-                    {[
-                        { q: "Can I cancel anytime?", a: "Yes — monthly plans can be cancelled before the next billing cycle with no penalty." },
-                        { q: "Do I get performance data?", a: "All tiers include analytics. Growth and Partner get real-time dashboards." },
-                        { q: "What formats are supported?", a: "We support logo + link cards, rich text banners, and custom HTML for Partner tier." },
-                    ].map(({ q, a }) => (
-                        <div key={q} style={{
-                            borderRadius: "16px", border: "1px solid rgba(255,255,255,0.06)",
-                            background: "rgba(255,255,255,0.02)", padding: "20px 22px",
-                        }}>
-                            <p style={{ margin: 0, fontWeight: 600, color: "#fff", fontSize: "0.9rem" }}>{q}</p>
-                            <p style={{ margin: "8px 0 0", fontSize: "0.82rem", color: "rgba(255,255,255,0.4)", lineHeight: 1.7 }}>{a}</p>
-                        </div>
-                    ))}
-                </div>
-
             </div>
         </DashboardPageShell>
     );
 }
-
-export default BecomeSponsorPage;
