@@ -9,6 +9,45 @@ import {
 import axios from "axios";
 
 const AuthContext = createContext();
+const AUTH_TOKEN_KEY = "leetcore_auth_token";
+
+const getTokenFromUrl = () => {
+    const hash = window.location.hash || "";
+    const queryIndex = hash.indexOf("?");
+
+    if (queryIndex === -1) {
+        return "";
+    }
+
+    const route = hash.slice(0, queryIndex);
+    const params = new URLSearchParams(hash.slice(queryIndex + 1));
+    const token = params.get("token") || "";
+
+    if (!token) {
+        return "";
+    }
+
+    params.delete("token");
+
+    const nextQuery = params.toString();
+    const nextHash = `${route || "#/"}${nextQuery ? `?${nextQuery}` : ""}`;
+
+    window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}${nextHash}`
+    );
+
+    return token;
+};
+
+const getStoredToken = () => localStorage.getItem(AUTH_TOKEN_KEY) || "";
+
+const getAuthHeaders = () => {
+    const token = getStoredToken();
+
+    return token ? { Authorization: `Bearer ${token}` } : {};
+};
 
 export const AuthProvider = ({ children }) => {
 
@@ -23,11 +62,17 @@ export const AuthProvider = ({ children }) => {
         const fetchUser = async () => {
 
             try {
+                const urlToken = getTokenFromUrl();
+
+                if (urlToken) {
+                    localStorage.setItem(AUTH_TOKEN_KEY, urlToken);
+                }
 
                 const response = await axios.get(
                     `${apiUrl}/api/v1/auth/me`,
                     {
                         withCredentials: true,
+                        headers: getAuthHeaders(),
                     }
                 );
 
@@ -35,6 +80,7 @@ export const AuthProvider = ({ children }) => {
 
             } catch {
 
+                localStorage.removeItem(AUTH_TOKEN_KEY);
                 setUser(null);
 
             } finally {
@@ -56,11 +102,13 @@ export const AuthProvider = ({ children }) => {
                 {},
                 {
                     withCredentials: true,
+                    headers: getAuthHeaders(),
                 }
             );
         } catch (error) {
             console.error("Logout failed:", error);
         } finally {
+            localStorage.removeItem(AUTH_TOKEN_KEY);
             setUser(null);
             window.location.assign("/");
         }

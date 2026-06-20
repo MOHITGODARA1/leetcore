@@ -18,6 +18,20 @@ const requiredEnv = (key) => {
 
 const trimTrailingSlash = (url) => url?.replace(/\/$/, "");
 
+const isProductionUrl = (url = "") => url.startsWith("https://");
+
+const getAuthCookieOptions = () => {
+    const clientUrl = process.env.CLIENT_URL || DEFAULT_CLIENT_URL;
+    const useSecureCookie = process.env.NODE_ENV === "production" || isProductionUrl(clientUrl);
+
+    return {
+        httpOnly: true,
+        secure: useSecureCookie,
+        sameSite: useSecureCookie ? "none" : "lax",
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+    };
+};
+
 const getGithubCallbackUrl = () => {
     if (process.env.GITHUB_CALLBACK_URL) {
         return process.env.GITHUB_CALLBACK_URL;
@@ -190,16 +204,11 @@ const registerUser = async (req, res) => {
         );
 
         // Send cookie
-        res.cookie("token", token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "lax",
-            maxAge: 7 * 24 * 60 * 60 * 1000,
-        });
+        res.cookie("token", token, getAuthCookieOptions());
 
         const clientUrl = trimTrailingSlash(process.env.CLIENT_URL || DEFAULT_CLIENT_URL);
 
-        return res.redirect(`${clientUrl}/#/dashboard`);
+        return res.redirect(`${clientUrl}/#/dashboard?token=${encodeURIComponent(token)}`);
 
     } catch (error) {
 
@@ -229,7 +238,7 @@ const registerUser = async (req, res) => {
 const logoutUser = async (req, res) => {
     try {
 
-        res.clearCookie("token");
+        res.clearCookie("token", getAuthCookieOptions());
 
         return res.status(200).json({
             success: true,
