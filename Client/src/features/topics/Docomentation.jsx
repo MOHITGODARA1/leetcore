@@ -39,9 +39,9 @@ function Docomentation(){
             <div
                 className="
                     flex-1
-                    min-h-[calc(100vh-112px)]
+                    h-[calc(100vh-112px)]
                     md:h-[calc(100vh-24px)]
-                    overflow-y-auto
+                    overflow-hidden
                     rounded-2xl
                     md:rounded-3xl
                     border
@@ -50,9 +50,9 @@ function Docomentation(){
                     backdrop-blur-xl
                 "
             >
-                <div className="flex min-h-full flex-col lg:flex-row">
+                <div className="flex h-full min-h-0 flex-col lg:flex-row">
                     <Docsleftnavbar doc={doc} topicName={decodeURIComponent(topic || "")} />
-                    <div className="min-w-0 flex-1">
+                    <div className="min-h-0 min-w-0 flex-1 overflow-y-auto">
                         <DocsContent doc={doc} />
                     </div>
                 </div>

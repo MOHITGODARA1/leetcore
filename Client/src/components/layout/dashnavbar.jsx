@@ -61,10 +61,11 @@ function Dashmainnavbar() {
                         key={index}
                         className="
               min-w-[138px]
-              sm:min-w-[160px]
+              sm:min-w-[150px]
               h-[136px]
-              sm:h-[148px]
+              sm:h-[140px]
               bg-white/[0.045]
+              mt-2
               border
               border-white/10
               rounded-2xl
@@ -72,10 +73,8 @@ function Dashmainnavbar() {
               flex-col
               items-center
               justify-center
-              shadow-[0_14px_40px_rgba(0,0,0,0.18)]
               lc-interactive
-              hover:border-[#F46717]/35
-              hover:bg-white/[0.07]
+              
               cursor-pointer
             "
                     >
@@ -83,9 +82,9 @@ function Dashmainnavbar() {
                         <div
                             className={`
                 ${item.bg}
-                w-[90%]
+                w-[88%]
                 h-[78px]
-                sm:h-[86px]
+                sm:h-[80px]
                 rounded-2xl
                 flex
                 

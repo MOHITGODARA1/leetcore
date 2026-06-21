@@ -12,7 +12,7 @@ function LandingPage() {
 
     return (
         <>
-            <div className="lc-shell min-h-screen">
+            <div className=" min-h-screen">
                 {/* Navbar with padding */}
                 <div className="h-16 px-4 sm:px-6 lg:px-10 py-3">
                     <LandingNavbar onLoginClick={() => setIsLoginOpen(true)} />

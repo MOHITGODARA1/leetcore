@@ -37,7 +37,7 @@ function LandingNavbar({ onLoginClick }) {
                 {/* Logo */}
                 <div className="flex items-center cursor-pointer shrink-0">
 
-                    <img src="/leetcorelogo.png" alt="Leetcore Logo" className="h-16 sm:h-20 -my-4 object-contain" />
+                    <img src="/leetcorelogo.png" alt="Leetcore Logo" className="h-16 sm:h-23 -my-4 object-contain" />
                 </div>
 
                 {/* Right Side */}
@@ -56,10 +56,6 @@ function LandingNavbar({ onLoginClick }) {
               text-white
               rounded-xl
               font-semibold
-              shadow-[0_12px_32px_rgba(244,103,23,0.24)]
-
-              hover:bg-[#ff7d34]
-              hover:shadow-[0_16px_42px_rgba(244,103,23,0.34)]
               active:scale-[0.98]
               transition-all
               duration-300

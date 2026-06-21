@@ -1,281 +1,4366 @@
 {
   "array": {
     "topic": "Array",
-    "title": "Array Documentation",
+    "title": "Let's Master Arrays & Vectors",
+    "hero": {
+      "id": "hero",
+      "eyebrow": "DSA Documentation",
+      "title": "Let's Master Arrays & Vectors",
+      "subtitle": "Learn contiguous memory, index-based access, and dynamic array resizing",
+      "accent": "Build confidence with array indices, vectors, and traversal logic",
+      "stats": [
+        {
+          "label": "Complexity",
+          "value": "O(1) Access"
+        },
+        {
+          "label": "Core Types",
+          "value": "Fixed/Dynamic"
+        },
+        {
+          "label": "Patterns",
+          "value": "Prefix, Window"
+        }
+      ],
+      "visual": {
+        "values": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "labels": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    },
+    "sections": [
+{
+"id": "introduction",
+"title": "Introduction",
+"type": "paragraph",
+"content": [
+"Array aur Vector linear data structures hote hain jo multiple elements ko sequential order mein store karte hain.",
+"Inmein har element ek index ke through access kiya ja sakta hai.",
+"Array ka size fixed hota hai aur create hone ke baad change nahi kiya ja sakta.",
+"Vector ek dynamic array hota hai jo runtime par apna size automatically increase ya decrease kar sakta hai."
+],
+"highlights": [
+"Core DSA Topic",
+"Interview Ready",
+"Contiguous Memory",
+"STL Vectors"
+]
+},
+{
+  "id": "definition",
+  "title": "One Line Definition",
+  "type": "dual_callout",
+  "array": "A fixed-size collection of elements stored in contiguous memory locations.",
+  "vector": "A dynamic array provided by C++ STL that automatically resizes itself when needed."
+},
+
+{
+  "id": "real-life-example",
+  "title": "Real Life Example",
+  "type": "comparison",
+
+  "array": {
+    "title": "Train Compartments",
+    "description": "Imagine karo aapne train mein 5 compartments reserve kiye hain. Reservation ke baad compartments ki sankhya fix ho jaati hai.",
+    "diagram": "[A] [B] [C] [D] [E]"
+  },
+
+  "vector": {
+    "title": "Queue Line",
+    "description": "Queue mein log aate aur jaate rehte hain. Size dynamically change hoti rehti hai.",
+    "diagram": "[A] [B] [C]\n↓\n[A] [B] [C] [D]\n↓\n[A] [B] [C] [D] [E]"
+  }
+},
+
+{
+  "id": "why-learn",
+  "title": "Why We Learn This?",
+  "type": "list",
+
+  "items": [
+    "Foundation of DSA",
+    "Used in almost every coding question",
+    "Helps understand memory management",
+    "Required for Sliding Window, Prefix Sum, Two Pointers and Binary Search",
+    "Vectors solve fixed-size limitations of arrays",
+    "Most STL-based DSA problems use vectors"
+  ]
+},
+
+{
+  "id": "visualization",
+  "title": "Visualization",
+  "type": "visualization",
+  "initialArray": [10, 20, 30, 40, 50],
+  "operations": ["push_back()", "pop_back()", "insert()", "erase()"],
+  "controls": {
+    "operationLabel": "Operation",
+    "valueLabel": "Value",
+    "indexLabel": "Index",
+    "buttonLabel": "Run Visualization"
+  },
+  "labels": {
+    "before": "Before Operation",
+    "after": "After Operation",
+    "index": "Index",
+    "value": "Value"
+  },
+  "arrayCode": "int arr[5] = {10,20,30,40,50};",
+  "vectorCode": "vector<int> vec = {10,20,30,40,50};",
+  "diagram": {
+    "indexes": [0,1,2,3,4],
+    "values": [10,20,30,40,50]
+  },
+  "output": "30"
+},
+
+{
+  "id": "internal-working",
+  "title": "Internal Working",
+  "type": "array_vector_internal",
+
+  "array": {
+    "memory": {
+      "addresses": [1000,1004,1008,1012,1016],
+      "values": [10,20,30,40,50]
+    },
+
+    "explanation": [
+      "Array stores data in contiguous memory.",
+      "Each integer usually takes 4 bytes.",
+      "Next address = Previous address + 4."
+    ]
+  },
+
+  "vector": {
+    "size": 3,
+    "capacity": 4,
+
+    "growthPattern": [
+      0,
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+
+    "capacityExplanation": "Capacity generally doubles when full. Exact growth depends on STL implementation.",
+
+    "reallocation": {
+      "oldCapacity": 4,
+      "newCapacity": 8
+    }
+  }
+},
+
+{
+  "id": "declaration",
+  "title": "Declaration",
+  "type": "syntax",
+
+  "tabs": [
+    {
+      "label": "Array",
+      "code": "int arr[5];\nint arr[5]={10,20,30,40,50};"
+    },
+
+    {
+      "label": "Vector",
+      "code": "vector<int> vec;\nvector<int> vec={10,20,30,40,50};"
+    }
+  ]
+},
+
+{
+  "id": "complexity",
+  "title": "Basic Operations & Time Complexity",
+  "type": "comparison_table",
+
+  "rows": [
+    {
+      "operation": "Traversal",
+      "array": "O(n)",
+      "vector": "O(n)"
+    },
+    {
+      "operation": "Access",
+      "array": "O(1)",
+      "vector": "O(1)"
+    },
+    {
+      "operation": "Update",
+      "array": "O(1)",
+      "vector": "O(1)"
+    },
+    {
+      "operation": "Insert",
+      "array": "O(n)",
+      "vector": "O(n)"
+    }
+  ]
+},
+
+{
+  "id": "vector-functions",
+  "title": "Important Vector Functions",
+  "type": "functions",
+
+  "items": [
+    {
+      "name": "push_back()",
+      "description": "Add element"
+    },
+    {
+      "name": "pop_back()",
+      "description": "Remove last element"
+    },
+    {
+      "name": "size()",
+      "description": "Current size"
+    },
+    {
+      "name": "capacity()",
+      "description": "Current capacity"
+    },
+    {
+      "name": "front()",
+      "description": "First element"
+    },
+    {
+      "name": "back()",
+      "description": "Last element"
+    },
+    {
+      "name": "empty()",
+      "description": "Check empty"
+    },
+    {
+      "name": "clear()",
+      "description": "Remove all elements"
+    }
+  ]
+},
+
+{
+  "id": "array-vs-vector",
+  "title": "Array vs Vector",
+  "type": "comparison_table",
+
+  "rows": [
+    {
+      "feature": "Size",
+      "array": "Fixed",
+      "vector": "Dynamic"
+    },
+    {
+      "feature": "Memory",
+      "array": "Contiguous",
+      "vector": "Contiguous"
+    },
+    {
+      "feature": "Access",
+      "array": "O(1)",
+      "vector": "O(1)"
+    },
+    {
+      "feature": "Resize",
+      "array": "No",
+      "vector": "Yes"
+    },
+    {
+      "feature": "STL Support",
+      "array": "No",
+      "vector": "Yes"
+    }
+  ]
+},
+
+{
+  "id": "common-mistakes",
+  "title": "Common Mistakes",
+  "type": "mistakes",
+
+  "items": [
+    {
+      "title": "Array Out Of Bounds",
+      "wrong": "int arr[5];\ncout << arr[5];",
+      "why": "Valid indexes are 0 to 4."
+    },
+
+    {
+      "title": "Accessing Empty Vector",
+      "wrong": "vector<int> vec;\ncout << vec.back();",
+      "why": "Calling back() on empty vector causes runtime error."
+    }
+  ]
+},
+
+{
+  "id": "when-not-to-use",
+  "title": "When Not To Use Array Or Vector",
+  "type": "table",
+
+  "rows": [
+    {
+      "situation": "Frequent insert/delete at beginning",
+      "choice": "Linked List"
+    },
+    {
+      "situation": "Fast search needed",
+      "choice": "Hash Map"
+    },
+    {
+      "situation": "FIFO operations",
+      "choice": "Queue"
+    },
+    {
+      "situation": "LIFO operations",
+      "choice": "Stack"
+    }
+  ]
+},
+
+{
+  "id": "interview-questions",
+  "title": "Interview Questions",
+  "type": "list",
+
+  "items": [
+    "When to Use a Vector?",
+    "When Not to Use Arrays or Vectors?",
+    "Difference Between Array and Vector?",
+    "What is Capacity in Vector?",
+    "Why does Vector resize?"
+  ]
+},
+
+{
+  "id": "quick-revision",
+  "title": "Interview Rule",
+  "type": "callout",
+
+  "content": "If size is fixed use Array. If size changes use Vector. If insertions and deletions are frequent, consider another data structure."
+}
+
+]
+  },
+  "string": {
+    "topic": "Strings",
+    "title": "Let's Master Strings",
+    "subtitle": "Learn character traversal, pattern matching and text manipulation",
+    "hero": {
+      "id": "hero",
+      "eyebrow": "DSA Documentation",
+      "title": "Let's Master Strings",
+      "subtitle": "Learn character traversal, pattern matching and text manipulation",
+      "accent": "Build confidence with character indexes, substrings and pattern logic",
+      "stats": [
+        {
+          "label": "Patterns",
+          "value": "4+"
+        },
+        {
+          "label": "Core ops",
+          "value": "8"
+        },
+        {
+          "label": "Problems",
+          "value": "18"
+        }
+      ],
+      "visual": {
+        "values": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "labels": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    },
     "sections": [
       {
         "id": "introduction",
-        "title": "1. Introduction",
+        "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "Array ek linear data structure hai jisme same type ke multiple elements ek sequence me store hote hain.",
-          "Array ka use tab hota hai jab hume data ko index ke through fast access karna ho.",
-          "DSA me arrays searching, sorting, sliding window, prefix sum aur two pointer jaise patterns ki foundation hain.",
-          "Real projects me arrays lists, tables, buffers aur collections ko represent karne ke kaam aate hain."
+          "Strings are ordered sequences of characters used to represent text, tokens, identifiers, and encoded information.",
+          "Most string problems are solved by combining indexing, frequency tracking, two pointers, sliding windows, and careful boundary handling."
+        ],
+        "highlights": [
+          "Core topic",
+          "Interview ready",
+          "Pattern based",
+          "Demo docs"
         ]
       },
       {
-        "id": "definition",
-        "title": "2. One Line Definition",
-        "type": "callout",
-        "content": "Array ek linear data structure hai jo elements ko contiguous memory locations me store karta hai."
-      },
-      {
-        "id": "real-life-example",
-        "title": "3. Real Life Example",
-        "type": "example",
-        "content": [
-          "Array ko cinema hall ki ek row ki seats ki tarah samjho.",
-          "Har seat ka ek number hota hai, jaise arr[0], arr[1], arr[2].",
-          "Agar seat number pata hai, to directly us seat par pahunch sakte ho."
-        ],
-        "diagram": "Index:  0      1      2      3\\nValue: [10]   [20]   [30]   [40]"
-      },
-      {
-        "id": "why-learn",
-        "title": "4. Why We Learn This?",
-        "type": "list",
-        "items": [
-          "Array DSA ka sabse basic aur important topic hai.",
-          "Most algorithms me input array ke form me milta hai.",
-          "Interview me array se two pointer, sliding window, prefix sum jaise patterns test hote hain.",
-          "Competitive programming me arrays fast access aur simple memory layout ki wajah se useful hote hain.",
-          "Real-world apps me arrays product lists, marks, logs, matrix rows aur batches store karne me use hote hain."
-        ]
-      },
-      {
-        "id": "visualization",
-        "title": "5. Visualization",
-        "type": "visualization",
-        "diagram": "arr = [5, 8, 12, 20]\\n\\nMemory blocks:\\n+------+  +------+  +------+  +------+\\n|  5   |  |  8   |  |  12  |  |  20  |\\n+------+  +------+  +------+  +------+\\n 1000     1004     1008     1012",
-        "code": "#include <iostream>\\nusing namespace std;\\n\\nint main() {\\n    int arr[4] = {5, 8, 12, 20};\\n\\n    for (int i = 0; i < 4; i++) {\\n        cout << \"Index \" << i << \" -> Value \" << arr[i]\\n             << \" -> Address \" << &arr[i] << endl;\\n    }\\n\\n    return 0;\\n}"
-      },
-      {
-        "id": "internal-working",
-        "title": "6. Internal Working",
-        "type": "internal",
-        "content": [
-          "Array memory me contiguous blocks me store hota hai, matlab elements ek ke baad ek rakhe jaate hain.",
-          "Agar int ka size 4 bytes hai aur arr[0] ka address 1000 hai, to next element ka address 1004 hoga.",
-          "Index access fast hota hai kyunki formula hota hai: address = base_address + index * element_size.",
-          "Isliye arr[2] ke liye CPU direct 1000 + 2 * 4 = 1008 par ja sakta hai."
-        ],
-        "memory": [
-          "arr[0] -> 1000",
-          "arr[1] -> 1004",
-          "arr[2] -> 1008",
-          "arr[3] -> 1012"
-        ],
-        "structure": "Array -> Contiguous Memory Blocks"
-      },
-      {
-        "id": "basic-operations",
-        "title": "7. Basic Operations",
-        "type": "operations",
+        "id": "what-you-learn",
+        "title": "What You'll Learn",
+        "type": "learn_cards",
         "items": [
           {
-            "name": "Access",
-            "stl": "v[i]",
-            "visual": "[10, 20, 30] -> v[1] = 20",
-            "code": "vector<int> v = {10, 20, 30};\\ncout << v[1];"
+            "icon": "Type",
+            "title": "Core Concepts",
+            "description": "Understand character indexing, length, immutability rules, substrings, and traversal patterns.",
+            "progress": 90
           },
           {
-            "name": "Insert at end",
-            "stl": "push_back()",
-            "visual": "[10, 20] -> push_back(30) -> [10, 20, 30]",
-            "code": "vector<int> v = {10, 20};\\nv.push_back(30);"
+            "icon": "Gauge",
+            "title": "Time Complexity",
+            "description": "Learn how concatenation, slicing, search, and traversal affect runtime across languages.",
+            "progress": 78
           },
           {
-            "name": "Delete from end",
-            "stl": "pop_back()",
-            "visual": "[10, 20, 30] -> pop_back() -> [10, 20]",
-            "code": "vector<int> v = {10, 20, 30};\\nv.pop_back();"
+            "icon": "Code2",
+            "title": "String APIs",
+            "description": "Practice common operations like find, substr, append, split, compare, and replace.",
+            "progress": 86
           },
           {
-            "name": "Insert at middle",
-            "stl": "insert()",
-            "visual": "[10, 30] -> insert 20 -> [10, 20, 30]",
-            "code": "vector<int> v = {10, 30};\\nv.insert(v.begin() + 1, 20);"
-          },
-          {
-            "name": "Erase",
-            "stl": "erase()",
-            "visual": "[10, 20, 30] -> erase index 1 -> [10, 30]",
-            "code": "vector<int> v = {10, 20, 30};\\nv.erase(v.begin() + 1);"
-          },
-          {
-            "name": "Size",
-            "stl": "size()",
-            "visual": "[10, 20, 30] -> size = 3",
-            "code": "vector<int> v = {10, 20, 30};\\ncout << v.size();"
-          },
-          {
-            "name": "Clear",
-            "stl": "clear()",
-            "visual": "[10, 20, 30] -> clear() -> []",
-            "code": "vector<int> v = {10, 20, 30};\\nv.clear();"
+            "icon": "Brain",
+            "title": "Patterns",
+            "description": "Recognize palindrome, anagram, sliding window, and prefix/suffix style questions.",
+            "progress": 82
           }
         ]
       },
       {
+        "id": "definition",
+        "title": "One Line Definition",
+        "type": "callout",
+        "content": "A string is a linear sequence of characters where each character can be accessed by position and processed using traversal or pattern techniques."
+      },
+      {
+        "id": "real-life-example",
+        "title": "Real Life Example",
+        "type": "example",
+        "content": [
+          "Think of a string like letters written on a row of name tags.",
+          "Each character has a position, so you can inspect, compare, or build new text from indexes."
+        ],
+        "visual": {
+          "title": "Name tag characters",
+          "items": [
+            {
+              "label": "0",
+              "color": "#f04438"
+            },
+            {
+              "label": "1",
+              "color": "#2563eb"
+            },
+            {
+              "label": "2",
+              "color": "#6b7280"
+            },
+            {
+              "label": "3",
+              "color": "#f8fafc"
+            },
+            {
+              "label": "4",
+              "color": "#16a34a"
+            }
+          ]
+        }
+      },
+      {
+        "id": "why-learn",
+        "title": "Why We Learn This?",
+        "type": "why_learn",
+        "items": [
+          {
+            "icon": "Sparkles",
+            "title": "Interview Relevance",
+            "description": "String questions test index control, edge cases, and pattern recognition very quickly."
+          },
+          {
+            "icon": "Trophy",
+            "title": "Competitive Programming",
+            "description": "Text parsing, hashing, and window techniques appear frequently in contests."
+          },
+          {
+            "icon": "Workflow",
+            "title": "Real World Applications",
+            "description": "Search bars, URLs, logs, usernames, validation, and parsers all depend on strings."
+          },
+          {
+            "icon": "Brain",
+            "title": "Problem Solving Foundation",
+            "description": "String mastery improves two pointer, hashing, recursion, and dynamic programming skills."
+          }
+        ]
+      },
+      {
+        "id": "basic-operations",
+        "title": "Basic Operations",
+        "type": "operations",
+        "columns": [
+          "Operation",
+          "Description",
+          "STL Function",
+          "Time Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Access",
+            "description": "Read character at index",
+            "stl": "s[i]",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Update",
+            "description": "Modify character in mutable string",
+            "stl": "s[i] = ch",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Append",
+            "description": "Add character/text at end",
+            "stl": "push_back()",
+            "complexity": "O(1) amortized"
+          },
+          {
+            "operation": "Substring",
+            "description": "Extract a range",
+            "stl": "substr()",
+            "complexity": "O(k)"
+          },
+          {
+            "operation": "Find",
+            "description": "Search for pattern",
+            "stl": "find()",
+            "complexity": "O(n*m)"
+          },
+          {
+            "operation": "Erase",
+            "description": "Remove characters",
+            "stl": "erase()",
+            "complexity": "O(n)"
+          },
+          {
+            "operation": "Length",
+            "description": "Get total characters",
+            "stl": "size()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Traverse",
+            "description": "Visit every character",
+            "stl": "begin(), end()",
+            "complexity": "O(n)"
+          }
+        ],
+        "panelTitle": "Functions Covered",
+        "functions": [
+          "push_back()",
+          "pop_back()",
+          "substr()",
+          "find()",
+          "erase()",
+          "size()",
+          "begin()",
+          "end()",
+          "compare()"
+        ]
+      },
+      {
+        "id": "visualization",
+        "title": "Interactive Visualization",
+        "type": "visualization",
+        "initialArray": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "operations": [
+          "push_back()",
+          "pop_back()",
+          "insert()",
+          "erase()"
+        ],
+        "controls": {
+          "operationLabel": "Operation",
+          "valueLabel": "Value",
+          "indexLabel": "Index",
+          "buttonLabel": "Run Visualization"
+        },
+        "labels": {
+          "before": "Before Operation",
+          "after": "After Operation",
+          "index": "Index",
+          "value": "Value"
+        }
+      },
+      {
+        "id": "internal-working",
+        "title": "Internal Working",
+        "type": "internal",
+        "memory": {
+          "index": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "address": [
+            1000,
+            1004,
+            1008,
+            1012,
+            1016
+          ],
+          "value": [
+            10,
+            20,
+            30,
+            40,
+            50
+          ]
+        },
+        "explanation": [
+          "This demo section shows how the topic can explain its internal model visually.",
+          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+        ],
+        "formula": {
+          "label": "position = base + step * index",
+          "example": "1000 + 4 * 4 = 1016"
+        }
+      },
+      {
         "id": "syntax",
-        "title": "8. Syntax",
+        "title": "Syntax",
         "type": "syntax",
-        "snippets": [
+        "tabs": [
           {
-            "label": "Basic Declaration",
-            "code": "int arr[5];"
+            "label": "C++",
+            "language": "cpp",
+            "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    string s = \"leetcore\";\n    cout << s[0];\n    cout << s.substr(0, 4);\n}"
           },
           {
-            "label": "Initialization",
-            "code": "int arr[5] = {1, 2, 3, 4, 5};"
+            "label": "Java",
+            "language": "java",
+            "code": "String s = \"leetcore\";\nSystem.out.println(s.charAt(0));\nSystem.out.println(s.substring(0, 4));"
           },
           {
-            "label": "Accessing Elements",
-            "code": "cout << arr[0];\\narr[1] = 10;"
+            "label": "Python",
+            "language": "python",
+            "code": "s = \"leetcore\"\nprint(s[0])\nprint(s[:4])\nfor ch in s:\n    print(ch)"
           },
           {
-            "label": "STL Vector Implementation",
-            "code": "#include <vector>\\nvector<int> v = {1, 2, 3};\\nv.push_back(4);"
-          },
-          {
-            "label": "Custom Traversal",
-            "code": "for (int i = 0; i < n; i++) {\\n    cout << arr[i] << \" \";\\n}"
+            "label": "STL",
+            "language": "cpp",
+            "code": "string s = \"leetcore\";\ns.push_back('s');\nint pos = s.find(\"core\");\ns.erase(0, 4);"
           }
         ]
       },
       {
         "id": "complexity",
-        "title": "9. Time & Space Complexity Summary",
+        "title": "Time and Space Complexity",
         "type": "complexity",
+        "columns": [
+          "Operation",
+          "Best Case",
+          "Average Case",
+          "Worst Case",
+          "Space Complexity"
+        ],
         "rows": [
-          { "operation": "Access by index", "time": "O(1)", "space": "O(1)" },
-          { "operation": "Search", "time": "O(n)", "space": "O(1)" },
-          { "operation": "Insert at end", "time": "O(1) amortized", "space": "O(1)" },
-          { "operation": "Insert at middle", "time": "O(n)", "space": "O(1)" },
-          { "operation": "Delete at end", "time": "O(1)", "space": "O(1)" },
-          { "operation": "Delete at middle", "time": "O(n)", "space": "O(1)" },
-          { "operation": "Traverse", "time": "O(n)", "space": "O(1)" }
+          {
+            "operation": "Access",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Update",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Append",
+            "best": "O(1) amortized",
+            "average": "O(1) amortized",
+            "worst": "O(1) amortized",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Substring",
+            "best": "O(k)",
+            "average": "O(k)",
+            "worst": "O(k)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Find",
+            "best": "O(n*m)",
+            "average": "O(n*m)",
+            "worst": "O(n*m)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Erase",
+            "best": "O(n)",
+            "average": "O(n)",
+            "worst": "O(n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Length",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          }
+        ]
+      },
+      {
+        "id": "videos",
+        "title": "Recommended Videos",
+        "type": "videos",
+        "items": [
+          {
+            "title": "String Basics for Interviews",
+            "channel": "LeetCore Academy",
+            "duration": "12:41",
+            "url": "https://www.youtube.com/results?search_query=String%20Basics%20for%20Interviews%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          },
+          {
+            "title": "Sliding Window on Strings",
+            "channel": "LeetCore Academy",
+            "duration": "14:08",
+            "url": "https://www.youtube.com/results?search_query=Sliding%20Window%20on%20Strings%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          },
+          {
+            "title": "Palindrome and Anagram Patterns",
+            "channel": "LeetCore Academy",
+            "duration": "15:22",
+            "url": "https://www.youtube.com/results?search_query=Palindrome%20and%20Anagram%20Patterns%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          }
         ]
       },
       {
         "id": "common-mistakes",
-        "title": "10. Common Mistakes",
+        "title": "Common Mistakes",
         "type": "mistakes",
         "items": [
           {
-            "title": "Out of bounds access",
-            "wrong": "int arr[3] = {1, 2, 3};\\ncout << arr[3];",
-            "correct": "int arr[3] = {1, 2, 3};\\ncout << arr[2];",
-            "why": "Array ka last valid index n - 1 hota hai. arr[3] invalid hai jab size 3 ho."
+            "title": "Ignoring edge cases",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "// assumes input is always valid\nsolve(data);",
+            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
+            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
           },
           {
-            "title": "Nested loop use karna jab optimized pattern possible ho",
-            "wrong": "for (int i = 0; i < n; i++) {\\n    for (int j = i + 1; j < n; j++) {\\n        if (arr[i] + arr[j] == target) cout << i << \" \" << j;\\n    }\\n}",
-            "correct": "unordered_map<int, int> mp;\\nfor (int i = 0; i < n; i++) {\\n    int need = target - arr[i];\\n    if (mp.count(need)) cout << mp[need] << \" \" << i;\\n    mp[arr[i]] = i;\\n}",
-            "why": "Brute force O(n^2) hai, hashmap se same kaam O(n) me ho sakta hai."
+            "title": "Using brute force when a pattern exists",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
+            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
+            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
           }
         ]
       },
       {
         "id": "interview-questions",
-        "title": "11. Interview Questions",
+        "title": "Interview Questions",
         "type": "questions",
-        "total": 30,
+        "columns": [
+          "Problem Name",
+          "Platform",
+          "Difficulty",
+          "Pattern",
+          "Link"
+        ],
         "categories": [
           {
             "name": "Basics",
             "questions": [
-              { "name": "Build Array from Permutation", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/build-array-from-permutation/", "pattern": "Basics" },
-              { "name": "Concatenation of Array", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/concatenation-of-array/", "pattern": "Basics" },
-              { "name": "Running Sum of 1d Array", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/running-sum-of-1d-array/", "pattern": "Basics" },
-              { "name": "Find Pivot Index", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/find-pivot-index/", "pattern": "Basics" },
-              { "name": "Largest Element in Array", "platform": "GFG", "difficulty": "Easy", "link": "https://www.geeksforgeeks.org/problems/largest-element-in-array4009/", "pattern": "Basics" }
+              {
+                "name": "Valid Anagram",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
+              },
+              {
+                "name": "Valid Palindrome",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
+              },
+              {
+                "name": "Longest Substring Without Repeating Characters",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
+              }
             ]
           },
           {
             "name": "Two Pointer",
             "questions": [
-              { "name": "Two Sum II", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/", "pattern": "Two Pointer" },
-              { "name": "Move Zeroes", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/move-zeroes/", "pattern": "Two Pointer" },
-              { "name": "Remove Duplicates from Sorted Array", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/", "pattern": "Two Pointer" },
-              { "name": "Container With Most Water", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/container-with-most-water/", "pattern": "Two Pointer" },
-              { "name": "3Sum", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/3sum/", "pattern": "Two Pointer" }
+              {
+                "name": "Valid Anagram",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
+              },
+              {
+                "name": "Valid Palindrome",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
+              },
+              {
+                "name": "Longest Substring Without Repeating Characters",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
+              }
             ]
           },
           {
             "name": "Sliding Window",
             "questions": [
-              { "name": "Maximum Average Subarray I", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/maximum-average-subarray-i/", "pattern": "Sliding Window" },
-              { "name": "Max Consecutive Ones III", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/max-consecutive-ones-iii/", "pattern": "Sliding Window" },
-              { "name": "Minimum Size Subarray Sum", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/minimum-size-subarray-sum/", "pattern": "Sliding Window" },
-              { "name": "Fruit Into Baskets", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/fruit-into-baskets/", "pattern": "Sliding Window" },
-              { "name": "Sliding Window Maximum", "platform": "LeetCode", "difficulty": "Hard", "link": "https://leetcode.com/problems/sliding-window-maximum/", "pattern": "Sliding Window" }
+              {
+                "name": "Valid Anagram",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
+              },
+              {
+                "name": "Valid Palindrome",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
+              },
+              {
+                "name": "Longest Substring Without Repeating Characters",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
+              }
             ]
           },
           {
             "name": "Prefix Sum",
             "questions": [
-              { "name": "Range Sum Query Immutable", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/range-sum-query-immutable/", "pattern": "Prefix Sum" },
-              { "name": "Subarray Sum Equals K", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/subarray-sum-equals-k/", "pattern": "Prefix Sum" },
-              { "name": "Product of Array Except Self", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/product-of-array-except-self/", "pattern": "Prefix Sum" },
-              { "name": "Find the Highest Altitude", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/find-the-highest-altitude/", "pattern": "Prefix Sum" },
-              { "name": "Continuous Subarray Sum", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/continuous-subarray-sum/", "pattern": "Prefix Sum" }
+              {
+                "name": "Valid Anagram",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
+              },
+              {
+                "name": "Valid Palindrome",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
+              },
+              {
+                "name": "Longest Substring Without Repeating Characters",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
+              }
             ]
           },
           {
             "name": "Binary Search",
             "questions": [
-              { "name": "Binary Search", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/binary-search/", "pattern": "Binary Search" },
-              { "name": "Search Insert Position", "platform": "LeetCode", "difficulty": "Easy", "link": "https://leetcode.com/problems/search-insert-position/", "pattern": "Binary Search" },
-              { "name": "Find First and Last Position", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/", "pattern": "Binary Search" },
-              { "name": "Search in Rotated Sorted Array", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/search-in-rotated-sorted-array/", "pattern": "Binary Search" },
-              { "name": "Median of Two Sorted Arrays", "platform": "LeetCode", "difficulty": "Hard", "link": "https://leetcode.com/problems/median-of-two-sorted-arrays/", "pattern": "Binary Search" }
+              {
+                "name": "Valid Anagram",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
+              },
+              {
+                "name": "Valid Palindrome",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
+              },
+              {
+                "name": "Longest Substring Without Repeating Characters",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
+              }
             ]
           },
           {
-            "name": "Advanced Problems",
+            "name": "Advanced",
             "questions": [
-              { "name": "Maximum Subarray", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/maximum-subarray/", "pattern": "Kadane" },
-              { "name": "Merge Intervals", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/merge-intervals/", "pattern": "Sorting" },
-              { "name": "Set Matrix Zeroes", "platform": "LeetCode", "difficulty": "Medium", "link": "https://leetcode.com/problems/set-matrix-zeroes/", "pattern": "Matrix" },
-              { "name": "Trapping Rain Water", "platform": "LeetCode", "difficulty": "Hard", "link": "https://leetcode.com/problems/trapping-rain-water/", "pattern": "Two Pointer" },
-              { "name": "First Missing Positive", "platform": "LeetCode", "difficulty": "Hard", "link": "https://leetcode.com/problems/first-missing-positive/", "pattern": "Index Placement" }
+              {
+                "name": "Valid Anagram",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
+              },
+              {
+                "name": "Valid Palindrome",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
+              },
+              {
+                "name": "Longest Substring Without Repeating Characters",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
+              }
             ]
           }
         ]
       },
       {
-        "id": "quick-revision",
-        "title": "12. Quick Revision",
-        "type": "list",
-        "items": [
-          "Array contiguous memory me store hota hai.",
-          "Index access O(1) hota hai.",
-          "Insert/delete middle me O(n) lagta hai because shifting hoti hai.",
-          "Array patterns: two pointer, sliding window, prefix sum, binary search.",
-          "Out of bounds access avoid karna sabse important hai."
-        ]
-      },
-      {
         "id": "practice-roadmap",
-        "title": "14. Practice Roadmap",
+        "title": "Practice Roadmap",
         "type": "roadmap",
         "groups": [
           {
             "level": "Beginner",
-            "count": 5,
-            "questions": ["Build Array from Permutation", "Concatenation of Array", "Running Sum of 1d Array", "Largest Element in Array", "Move Zeroes"]
+            "count": 3,
+            "progress": 72,
+            "questions": [
+              "Reverse String",
+              "Valid Palindrome",
+              "Valid Anagram"
+            ]
           },
           {
             "level": "Intermediate",
-            "count": 10,
-            "questions": ["Two Sum II", "Remove Duplicates from Sorted Array", "Find Pivot Index", "Maximum Average Subarray I", "Minimum Size Subarray Sum", "Range Sum Query Immutable", "Subarray Sum Equals K", "Product of Array Except Self", "Search Insert Position", "Search in Rotated Sorted Array"]
+            "count": 3,
+            "progress": 48,
+            "questions": [
+              "Group Anagrams",
+              "Longest Substring Without Repeating Characters",
+              "Minimum Window Substring"
+            ]
           },
           {
             "level": "Advanced",
-            "count": 15,
-            "questions": ["3Sum", "Container With Most Water", "Max Consecutive Ones III", "Sliding Window Maximum", "Continuous Subarray Sum", "Find First and Last Position", "Median of Two Sorted Arrays", "Maximum Subarray", "Merge Intervals", "Set Matrix Zeroes", "Trapping Rain Water", "First Missing Positive", "Fruit Into Baskets", "Product of Array Except Self", "Subarray Sum Equals K"]
+            "count": 3,
+            "progress": 26,
+            "questions": [
+              "Rabin Karp",
+              "KMP Prefix Function",
+              "Longest Palindromic Substring"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "hashing": {
+    "topic": "Hashing",
+    "title": "Let's Master Hashing",
+    "subtitle": "Learn maps, sets, frequency tables and constant-time lookup patterns",
+    "hero": {
+      "id": "hero",
+      "eyebrow": "DSA Documentation",
+      "title": "Let's Master Hashing",
+      "subtitle": "Learn maps, sets, frequency tables and constant-time lookup patterns",
+      "accent": "Use keys and frequencies to reduce repeated scanning",
+      "stats": [
+        {
+          "label": "Patterns",
+          "value": "4+"
+        },
+        {
+          "label": "Core ops",
+          "value": "8"
+        },
+        {
+          "label": "Problems",
+          "value": "18"
+        }
+      ],
+      "visual": {
+        "values": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "labels": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    },
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "type": "paragraph",
+        "content": [
+          "Hashing stores data using keys so lookup, insertion, and deletion are usually very fast.",
+          "In DSA, hashing is commonly used for frequency counting, duplicate detection, pair lookup, grouping, and prefix-state tracking."
+        ],
+        "highlights": [
+          "Core topic",
+          "Interview ready",
+          "Pattern based",
+          "Demo docs"
+        ]
+      },
+      {
+        "id": "what-you-learn",
+        "title": "What You'll Learn",
+        "type": "learn_cards",
+        "items": [
+          {
+            "icon": "Boxes",
+            "title": "Core Concepts",
+            "description": "Understand keys, values, hash functions, buckets, collisions, maps, and sets.",
+            "progress": 88
+          },
+          {
+            "icon": "Gauge",
+            "title": "Time Complexity",
+            "description": "Learn average O(1) behavior and why collisions can degrade performance.",
+            "progress": 80
+          },
+          {
+            "icon": "Cpu",
+            "title": "Memory Tradeoffs",
+            "description": "Reason about extra space used by maps, sets, and frequency tables.",
+            "progress": 76
+          },
+          {
+            "icon": "Code2",
+            "title": "STL Operations",
+            "description": "Practice unordered_map, unordered_set, count, find, insert, and erase.",
+            "progress": 86
+          }
+        ]
+      },
+      {
+        "id": "definition",
+        "title": "One Line Definition",
+        "type": "callout",
+        "content": "Hashing maps keys to buckets using a hash function so values can be inserted, searched, and deleted efficiently on average."
+      },
+      {
+        "id": "real-life-example",
+        "title": "Real Life Example",
+        "type": "example",
+        "content": [
+          "Think of hashing like looking up a book using its unique catalog code.",
+          "Instead of scanning every book, the code guides you directly to a likely location."
+        ],
+        "visual": {
+          "title": "Library lookup card",
+          "items": [
+            {
+              "label": "0",
+              "color": "#f04438"
+            },
+            {
+              "label": "1",
+              "color": "#2563eb"
+            },
+            {
+              "label": "2",
+              "color": "#6b7280"
+            },
+            {
+              "label": "3",
+              "color": "#f8fafc"
+            },
+            {
+              "label": "4",
+              "color": "#16a34a"
+            }
+          ]
+        }
+      },
+      {
+        "id": "why-learn",
+        "title": "Why We Learn This?",
+        "type": "why_learn",
+        "items": [
+          {
+            "icon": "Sparkles",
+            "title": "Interview Relevance",
+            "description": "Hash maps are a common optimization for pair, frequency, and duplicate problems."
+          },
+          {
+            "icon": "Trophy",
+            "title": "Competitive Programming",
+            "description": "Hashing helps convert nested loops into direct lookups."
+          },
+          {
+            "icon": "Workflow",
+            "title": "Real World Applications",
+            "description": "Caches, indexes, dictionaries, session stores, and database lookup layers use hashing ideas."
+          },
+          {
+            "icon": "Brain",
+            "title": "Problem Solving Foundation",
+            "description": "Hashing supports prefix sums, grouping, graph visited sets, and memoization."
+          }
+        ]
+      },
+      {
+        "id": "basic-operations",
+        "title": "Basic Operations",
+        "type": "operations",
+        "columns": [
+          "Operation",
+          "Description",
+          "STL Function",
+          "Time Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Insert",
+            "description": "Store key or key-value pair",
+            "stl": "insert()",
+            "complexity": "O(1) avg"
+          },
+          {
+            "operation": "Search",
+            "description": "Check if key exists",
+            "stl": "find()",
+            "complexity": "O(1) avg"
+          },
+          {
+            "operation": "Update",
+            "description": "Change value for key",
+            "stl": "mp[key] = value",
+            "complexity": "O(1) avg"
+          },
+          {
+            "operation": "Delete",
+            "description": "Remove key",
+            "stl": "erase()",
+            "complexity": "O(1) avg"
+          },
+          {
+            "operation": "Count",
+            "description": "Get frequency/existence",
+            "stl": "count()",
+            "complexity": "O(1) avg"
+          },
+          {
+            "operation": "Size",
+            "description": "Number of keys",
+            "stl": "size()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Clear",
+            "description": "Remove all keys",
+            "stl": "clear()",
+            "complexity": "O(n)"
+          },
+          {
+            "operation": "Traverse",
+            "description": "Iterate over entries",
+            "stl": "begin(), end()",
+            "complexity": "O(n)"
+          }
+        ],
+        "panelTitle": "Functions Covered",
+        "functions": [
+          "unordered_map",
+          "unordered_set",
+          "insert()",
+          "find()",
+          "erase()",
+          "count()",
+          "size()",
+          "clear()",
+          "begin()",
+          "end()"
+        ]
+      },
+      {
+        "id": "visualization",
+        "title": "Interactive Visualization",
+        "type": "visualization",
+        "initialArray": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "operations": [
+          "push_back()",
+          "pop_back()",
+          "insert()",
+          "erase()"
+        ],
+        "controls": {
+          "operationLabel": "Operation",
+          "valueLabel": "Value",
+          "indexLabel": "Index",
+          "buttonLabel": "Run Visualization"
+        },
+        "labels": {
+          "before": "Before Operation",
+          "after": "After Operation",
+          "index": "Index",
+          "value": "Value"
+        }
+      },
+      {
+        "id": "internal-working",
+        "title": "Internal Working",
+        "type": "internal",
+        "memory": {
+          "index": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "address": [
+            1000,
+            1004,
+            1008,
+            1012,
+            1016
+          ],
+          "value": [
+            10,
+            20,
+            30,
+            40,
+            50
+          ]
+        },
+        "explanation": [
+          "This demo section shows how the topic can explain its internal model visually.",
+          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+        ],
+        "formula": {
+          "label": "position = base + step * index",
+          "example": "1000 + 4 * 4 = 1016"
+        }
+      },
+      {
+        "id": "syntax",
+        "title": "Syntax",
+        "type": "syntax",
+        "tabs": [
+          {
+            "label": "C++",
+            "language": "cpp",
+            "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    unordered_map<int, int> freq;\n    vector<int> nums = {1, 2, 2, 3};\n    for (int x : nums) freq[x]++;\n}"
+          },
+          {
+            "label": "Java",
+            "language": "java",
+            "code": "Map<Integer, Integer> freq = new HashMap<>();\nint[] nums = {1, 2, 2, 3};\nfor (int x : nums) {\n    freq.put(x, freq.getOrDefault(x, 0) + 1);\n}"
+          },
+          {
+            "label": "Python",
+            "language": "python",
+            "code": "from collections import Counter\nnums = [1, 2, 2, 3]\nfreq = Counter(nums)\nprint(freq[2])"
+          },
+          {
+            "label": "STL",
+            "language": "cpp",
+            "code": "unordered_map<int, int> mp;\nmp[10] = 1;\nif (mp.find(10) != mp.end()) mp.erase(10);"
+          }
+        ]
+      },
+      {
+        "id": "complexity",
+        "title": "Time and Space Complexity",
+        "type": "complexity",
+        "columns": [
+          "Operation",
+          "Best Case",
+          "Average Case",
+          "Worst Case",
+          "Space Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Insert",
+            "best": "O(1) avg",
+            "average": "O(1) avg",
+            "worst": "O(n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Search",
+            "best": "O(1) avg",
+            "average": "O(1) avg",
+            "worst": "O(n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Update",
+            "best": "O(1) avg",
+            "average": "O(1) avg",
+            "worst": "O(n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Delete",
+            "best": "O(1) avg",
+            "average": "O(1) avg",
+            "worst": "O(n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Count",
+            "best": "O(1) avg",
+            "average": "O(1) avg",
+            "worst": "O(n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Size",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Clear",
+            "best": "O(n)",
+            "average": "O(n)",
+            "worst": "O(n)",
+            "space": "O(1)"
+          }
+        ]
+      },
+      {
+        "id": "videos",
+        "title": "Recommended Videos",
+        "type": "videos",
+        "items": [
+          {
+            "title": "Hashing and Frequency Maps",
+            "channel": "LeetCore Academy",
+            "duration": "12:41",
+            "url": "https://www.youtube.com/results?search_query=Hashing%20and%20Frequency%20Maps%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          },
+          {
+            "title": "Two Sum with HashMap",
+            "channel": "LeetCore Academy",
+            "duration": "14:08",
+            "url": "https://www.youtube.com/results?search_query=Two%20Sum%20with%20HashMap%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          },
+          {
+            "title": "Sets and Duplicate Detection",
+            "channel": "LeetCore Academy",
+            "duration": "15:22",
+            "url": "https://www.youtube.com/results?search_query=Sets%20and%20Duplicate%20Detection%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Common Mistakes",
+        "type": "mistakes",
+        "items": [
+          {
+            "title": "Ignoring edge cases",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "// assumes input is always valid\nsolve(data);",
+            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
+            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
+          },
+          {
+            "title": "Using brute force when a pattern exists",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
+            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
+            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
+          }
+        ]
+      },
+      {
+        "id": "interview-questions",
+        "title": "Interview Questions",
+        "type": "questions",
+        "columns": [
+          "Problem Name",
+          "Platform",
+          "Difficulty",
+          "Pattern",
+          "Link"
+        ],
+        "categories": [
+          {
+            "name": "Basics",
+            "questions": [
+              {
+                "name": "Two Sum",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
+              },
+              {
+                "name": "Contains Duplicate",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
+              },
+              {
+                "name": "Group Anagrams",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
+              }
+            ]
+          },
+          {
+            "name": "Two Pointer",
+            "questions": [
+              {
+                "name": "Two Sum",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
+              },
+              {
+                "name": "Contains Duplicate",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
+              },
+              {
+                "name": "Group Anagrams",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
+              }
+            ]
+          },
+          {
+            "name": "Sliding Window",
+            "questions": [
+              {
+                "name": "Two Sum",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
+              },
+              {
+                "name": "Contains Duplicate",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
+              },
+              {
+                "name": "Group Anagrams",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
+              }
+            ]
+          },
+          {
+            "name": "Prefix Sum",
+            "questions": [
+              {
+                "name": "Two Sum",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
+              },
+              {
+                "name": "Contains Duplicate",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
+              },
+              {
+                "name": "Group Anagrams",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
+              }
+            ]
+          },
+          {
+            "name": "Binary Search",
+            "questions": [
+              {
+                "name": "Two Sum",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
+              },
+              {
+                "name": "Contains Duplicate",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
+              },
+              {
+                "name": "Group Anagrams",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "questions": [
+              {
+                "name": "Two Sum",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
+              },
+              {
+                "name": "Contains Duplicate",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
+              },
+              {
+                "name": "Group Anagrams",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "practice-roadmap",
+        "title": "Practice Roadmap",
+        "type": "roadmap",
+        "groups": [
+          {
+            "level": "Beginner",
+            "count": 3,
+            "progress": 72,
+            "questions": [
+              "Contains Duplicate",
+              "Valid Anagram",
+              "Two Sum"
+            ]
+          },
+          {
+            "level": "Intermediate",
+            "count": 3,
+            "progress": 48,
+            "questions": [
+              "Group Anagrams",
+              "Subarray Sum Equals K",
+              "Longest Consecutive Sequence"
+            ]
+          },
+          {
+            "level": "Advanced",
+            "count": 3,
+            "progress": 26,
+            "questions": [
+              "Minimum Window Substring",
+              "LRU Cache",
+              "Randomized Set"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "binarysearch": {
+    "topic": "Binary Search",
+    "title": "Let's Master Binary Search",
+    "subtitle": "Learn sorted search, answer-space search and boundary handling",
+    "hero": {
+      "id": "hero",
+      "eyebrow": "DSA Documentation",
+      "title": "Let's Master Binary Search",
+      "subtitle": "Learn sorted search, answer-space search and boundary handling",
+      "accent": "Cut the search space in half with every decision",
+      "stats": [
+        {
+          "label": "Patterns",
+          "value": "4+"
+        },
+        {
+          "label": "Core ops",
+          "value": "8"
+        },
+        {
+          "label": "Problems",
+          "value": "18"
+        }
+      ],
+      "visual": {
+        "values": [
+          2,
+          5,
+          8,
+          12,
+          18
+        ],
+        "labels": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    },
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "type": "paragraph",
+        "content": [
+          "Binary search is a searching technique used when the answer space is ordered or monotonic.",
+          "It repeatedly compares the middle candidate and discards the half that cannot contain the answer."
+        ],
+        "highlights": [
+          "Core topic",
+          "Interview ready",
+          "Pattern based",
+          "Demo docs"
+        ]
+      },
+      {
+        "id": "what-you-learn",
+        "title": "What You'll Learn",
+        "type": "learn_cards",
+        "items": [
+          {
+            "icon": "Boxes",
+            "title": "Core Concepts",
+            "description": "Understand low, high, mid, sorted order, monotonic conditions, and boundaries.",
+            "progress": 90
+          },
+          {
+            "icon": "Gauge",
+            "title": "Time Complexity",
+            "description": "See why halving the search space gives O(log n) runtime.",
+            "progress": 88
+          },
+          {
+            "icon": "Brain",
+            "title": "Answer Search",
+            "description": "Apply binary search to minimum feasible value and maximum possible value problems.",
+            "progress": 78
+          },
+          {
+            "icon": "Code2",
+            "title": "Templates",
+            "description": "Practice lower_bound, upper_bound, and custom predicate templates.",
+            "progress": 84
+          }
+        ]
+      },
+      {
+        "id": "definition",
+        "title": "One Line Definition",
+        "type": "callout",
+        "content": "Binary search is an algorithm that finds a target or boundary by repeatedly halving a sorted or monotonic search space."
+      },
+      {
+        "id": "real-life-example",
+        "title": "Real Life Example",
+        "type": "example",
+        "content": [
+          "Binary search is like opening a dictionary near the middle and deciding whether to go left or right.",
+          "Every step removes a large part of the remaining possibilities."
+        ],
+        "visual": {
+          "title": "Finding a page in a dictionary",
+          "items": [
+            {
+              "label": "0",
+              "color": "#f04438"
+            },
+            {
+              "label": "1",
+              "color": "#2563eb"
+            },
+            {
+              "label": "2",
+              "color": "#6b7280"
+            },
+            {
+              "label": "3",
+              "color": "#f8fafc"
+            },
+            {
+              "label": "4",
+              "color": "#16a34a"
+            }
+          ]
+        }
+      },
+      {
+        "id": "why-learn",
+        "title": "Why We Learn This?",
+        "type": "why_learn",
+        "items": [
+          {
+            "icon": "Sparkles",
+            "title": "Interview Relevance",
+            "description": "Boundary bugs in binary search reveal how carefully you reason about invariants."
+          },
+          {
+            "icon": "Trophy",
+            "title": "Competitive Programming",
+            "description": "Answer-space binary search is a core contest technique."
+          },
+          {
+            "icon": "Workflow",
+            "title": "Real World Applications",
+            "description": "Search, ranking, pagination, thresholds, and scheduling systems often rely on sorted lookup."
+          },
+          {
+            "icon": "Brain",
+            "title": "Problem Solving Foundation",
+            "description": "Binary search strengthens monotonic thinking and invariant design."
+          }
+        ]
+      },
+      {
+        "id": "basic-operations",
+        "title": "Basic Operations",
+        "type": "operations",
+        "columns": [
+          "Operation",
+          "Description",
+          "STL Function",
+          "Time Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Search",
+            "description": "Find exact target",
+            "stl": "binary_search()",
+            "complexity": "O(log n)"
+          },
+          {
+            "operation": "Lower Bound",
+            "description": "First value not less than x",
+            "stl": "lower_bound()",
+            "complexity": "O(log n)"
+          },
+          {
+            "operation": "Upper Bound",
+            "description": "First value greater than x",
+            "stl": "upper_bound()",
+            "complexity": "O(log n)"
+          },
+          {
+            "operation": "Insert Pos",
+            "description": "Find sorted insert index",
+            "stl": "lower_bound()",
+            "complexity": "O(log n)"
+          },
+          {
+            "operation": "First Occurrence",
+            "description": "Leftmost target",
+            "stl": "custom search",
+            "complexity": "O(log n)"
+          },
+          {
+            "operation": "Last Occurrence",
+            "description": "Rightmost target",
+            "stl": "custom search",
+            "complexity": "O(log n)"
+          },
+          {
+            "operation": "Answer Search",
+            "description": "Find feasible boundary",
+            "stl": "predicate()",
+            "complexity": "O(log range)"
+          },
+          {
+            "operation": "Traverse Check",
+            "description": "Predicate validation",
+            "stl": "check(mid)",
+            "complexity": "O(n log range)"
+          }
+        ],
+        "panelTitle": "Functions Covered",
+        "functions": [
+          "binary_search()",
+          "lower_bound()",
+          "upper_bound()",
+          "sort()",
+          "begin()",
+          "end()",
+          "mid",
+          "check()",
+          "predicate()"
+        ]
+      },
+      {
+        "id": "visualization",
+        "title": "Interactive Visualization",
+        "type": "visualization",
+        "initialArray": [
+          2,
+          5,
+          8,
+          12,
+          18
+        ],
+        "operations": [
+          "push_back()",
+          "pop_back()",
+          "insert()",
+          "erase()"
+        ],
+        "controls": {
+          "operationLabel": "Operation",
+          "valueLabel": "Value",
+          "indexLabel": "Index",
+          "buttonLabel": "Run Visualization"
+        },
+        "labels": {
+          "before": "Before Operation",
+          "after": "After Operation",
+          "index": "Index",
+          "value": "Value"
+        }
+      },
+      {
+        "id": "internal-working",
+        "title": "Internal Working",
+        "type": "internal",
+        "memory": {
+          "index": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "address": [
+            1000,
+            1004,
+            1008,
+            1012,
+            1016
+          ],
+          "value": [
+            2,
+            5,
+            8,
+            12,
+            18
+          ]
+        },
+        "explanation": [
+          "This demo section shows how the topic can explain its internal model visually.",
+          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+        ],
+        "formula": {
+          "label": "position = base + step * index",
+          "example": "1000 + 4 * 4 = 1016"
+        }
+      },
+      {
+        "id": "syntax",
+        "title": "Syntax",
+        "type": "syntax",
+        "tabs": [
+          {
+            "label": "C++",
+            "language": "cpp",
+            "code": "int lo = 0, hi = n - 1;\nwhile (lo <= hi) {\n    int mid = lo + (hi - lo) / 2;\n    if (a[mid] == target) return mid;\n    if (a[mid] < target) lo = mid + 1;\n    else hi = mid - 1;\n}"
+          },
+          {
+            "label": "Java",
+            "language": "java",
+            "code": "int lo = 0, hi = nums.length - 1;\nwhile (lo <= hi) {\n    int mid = lo + (hi - lo) / 2;\n    if (nums[mid] == target) return mid;\n    if (nums[mid] < target) lo = mid + 1;\n    else hi = mid - 1;\n}"
+          },
+          {
+            "label": "Python",
+            "language": "python",
+            "code": "lo, hi = 0, len(nums) - 1\nwhile lo <= hi:\n    mid = (lo + hi) // 2\n    if nums[mid] == target:\n        return mid\n    if nums[mid] < target:\n        lo = mid + 1\n    else:\n        hi = mid - 1"
+          },
+          {
+            "label": "STL",
+            "language": "cpp",
+            "code": "bool ok = binary_search(v.begin(), v.end(), x);\nauto it = lower_bound(v.begin(), v.end(), x);\nint index = it - v.begin();"
+          }
+        ]
+      },
+      {
+        "id": "complexity",
+        "title": "Time and Space Complexity",
+        "type": "complexity",
+        "columns": [
+          "Operation",
+          "Best Case",
+          "Average Case",
+          "Worst Case",
+          "Space Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Search",
+            "best": "O(log n)",
+            "average": "O(log n)",
+            "worst": "O(log n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Lower Bound",
+            "best": "O(log n)",
+            "average": "O(log n)",
+            "worst": "O(log n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Upper Bound",
+            "best": "O(log n)",
+            "average": "O(log n)",
+            "worst": "O(log n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Insert Pos",
+            "best": "O(log n)",
+            "average": "O(log n)",
+            "worst": "O(log n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "First Occurrence",
+            "best": "O(log n)",
+            "average": "O(log n)",
+            "worst": "O(log n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Last Occurrence",
+            "best": "O(log n)",
+            "average": "O(log n)",
+            "worst": "O(log n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Answer Search",
+            "best": "O(log range)",
+            "average": "O(log range)",
+            "worst": "O(log range)",
+            "space": "O(1)"
+          }
+        ]
+      },
+      {
+        "id": "videos",
+        "title": "Recommended Videos",
+        "type": "videos",
+        "items": [
+          {
+            "title": "Binary Search Template",
+            "channel": "LeetCore Academy",
+            "duration": "12:41",
+            "url": "https://www.youtube.com/results?search_query=Binary%20Search%20Template%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                2,
+                5,
+                8,
+                12
+              ]
+            }
+          },
+          {
+            "title": "Lower Bound and Upper Bound",
+            "channel": "LeetCore Academy",
+            "duration": "14:08",
+            "url": "https://www.youtube.com/results?search_query=Lower%20Bound%20and%20Upper%20Bound%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                2,
+                5,
+                8,
+                12
+              ]
+            }
+          },
+          {
+            "title": "Binary Search on Answer",
+            "channel": "LeetCore Academy",
+            "duration": "15:22",
+            "url": "https://www.youtube.com/results?search_query=Binary%20Search%20on%20Answer%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                2,
+                5,
+                8,
+                12
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Common Mistakes",
+        "type": "mistakes",
+        "items": [
+          {
+            "title": "Ignoring edge cases",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "// assumes input is always valid\nsolve(data);",
+            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
+            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
+          },
+          {
+            "title": "Using brute force when a pattern exists",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
+            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
+            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
+          }
+        ]
+      },
+      {
+        "id": "interview-questions",
+        "title": "Interview Questions",
+        "type": "questions",
+        "columns": [
+          "Problem Name",
+          "Platform",
+          "Difficulty",
+          "Pattern",
+          "Link"
+        ],
+        "categories": [
+          {
+            "name": "Basics",
+            "questions": [
+              {
+                "name": "Binary Search",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
+              },
+              {
+                "name": "Search Insert Position",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
+              },
+              {
+                "name": "Koko Eating Bananas",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
+              }
+            ]
+          },
+          {
+            "name": "Two Pointer",
+            "questions": [
+              {
+                "name": "Binary Search",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
+              },
+              {
+                "name": "Search Insert Position",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
+              },
+              {
+                "name": "Koko Eating Bananas",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
+              }
+            ]
+          },
+          {
+            "name": "Sliding Window",
+            "questions": [
+              {
+                "name": "Binary Search",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
+              },
+              {
+                "name": "Search Insert Position",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
+              },
+              {
+                "name": "Koko Eating Bananas",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
+              }
+            ]
+          },
+          {
+            "name": "Prefix Sum",
+            "questions": [
+              {
+                "name": "Binary Search",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
+              },
+              {
+                "name": "Search Insert Position",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
+              },
+              {
+                "name": "Koko Eating Bananas",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
+              }
+            ]
+          },
+          {
+            "name": "Binary Search",
+            "questions": [
+              {
+                "name": "Binary Search",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
+              },
+              {
+                "name": "Search Insert Position",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
+              },
+              {
+                "name": "Koko Eating Bananas",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "questions": [
+              {
+                "name": "Binary Search",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
+              },
+              {
+                "name": "Search Insert Position",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
+              },
+              {
+                "name": "Koko Eating Bananas",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "practice-roadmap",
+        "title": "Practice Roadmap",
+        "type": "roadmap",
+        "groups": [
+          {
+            "level": "Beginner",
+            "count": 3,
+            "progress": 72,
+            "questions": [
+              "Binary Search",
+              "Search Insert Position",
+              "First Bad Version"
+            ]
+          },
+          {
+            "level": "Intermediate",
+            "count": 3,
+            "progress": 48,
+            "questions": [
+              "Find First and Last Position",
+              "Search in Rotated Sorted Array",
+              "Koko Eating Bananas"
+            ]
+          },
+          {
+            "level": "Advanced",
+            "count": 3,
+            "progress": 26,
+            "questions": [
+              "Median of Two Sorted Arrays",
+              "Split Array Largest Sum",
+              "Aggressive Cows"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "linkedlist": {
+    "topic": "Linked List",
+    "title": "Let's Master Linked Lists",
+    "subtitle": "Learn nodes, pointers, traversal and fast-slow patterns",
+    "hero": {
+      "id": "hero",
+      "eyebrow": "DSA Documentation",
+      "title": "Let's Master Linked Lists",
+      "subtitle": "Learn nodes, pointers, traversal and fast-slow patterns",
+      "accent": "Think in references instead of indexes",
+      "stats": [
+        {
+          "label": "Patterns",
+          "value": "4+"
+        },
+        {
+          "label": "Core ops",
+          "value": "8"
+        },
+        {
+          "label": "Problems",
+          "value": "18"
+        }
+      ],
+      "visual": {
+        "values": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "labels": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    },
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "type": "paragraph",
+        "content": [
+          "A linked list stores elements as nodes where each node points to the next node in the sequence.",
+          "Unlike arrays, linked lists do not require contiguous memory, but direct index access is not constant time."
+        ],
+        "highlights": [
+          "Core topic",
+          "Interview ready",
+          "Pattern based",
+          "Demo docs"
+        ]
+      },
+      {
+        "id": "what-you-learn",
+        "title": "What You'll Learn",
+        "type": "learn_cards",
+        "items": [
+          {
+            "icon": "Boxes",
+            "title": "Core Concepts",
+            "description": "Understand nodes, head, tail, next pointers, null termination, and traversal.",
+            "progress": 88
+          },
+          {
+            "icon": "Gauge",
+            "title": "Time Complexity",
+            "description": "Compare O(1) pointer insertion with O(n) search and indexed access.",
+            "progress": 80
+          },
+          {
+            "icon": "Workflow",
+            "title": "Pointer Changes",
+            "description": "Practice reconnecting links for insert, delete, reverse, and merge operations.",
+            "progress": 82
+          },
+          {
+            "icon": "Brain",
+            "title": "Patterns",
+            "description": "Learn fast-slow pointer, cycle detection, reversal, and merge techniques.",
+            "progress": 86
+          }
+        ]
+      },
+      {
+        "id": "definition",
+        "title": "One Line Definition",
+        "type": "callout",
+        "content": "A linked list is a linear data structure made of nodes where each node stores data and a reference to the next node."
+      },
+      {
+        "id": "real-life-example",
+        "title": "Real Life Example",
+        "type": "example",
+        "content": [
+          "Think of a linked list as clues where each clue points to the next location.",
+          "You cannot jump to the fifth clue directly unless you follow the chain from the head."
+        ],
+        "visual": {
+          "title": "Treasure map chain",
+          "items": [
+            {
+              "label": "0",
+              "color": "#f04438"
+            },
+            {
+              "label": "1",
+              "color": "#2563eb"
+            },
+            {
+              "label": "2",
+              "color": "#6b7280"
+            },
+            {
+              "label": "3",
+              "color": "#f8fafc"
+            },
+            {
+              "label": "4",
+              "color": "#16a34a"
+            }
+          ]
+        }
+      },
+      {
+        "id": "why-learn",
+        "title": "Why We Learn This?",
+        "type": "why_learn",
+        "items": [
+          {
+            "icon": "Sparkles",
+            "title": "Interview Relevance",
+            "description": "Linked lists test pointer clarity and mutation discipline."
+          },
+          {
+            "icon": "Trophy",
+            "title": "Competitive Programming",
+            "description": "They appear in cycle, merge, reverse, and simulation problems."
+          },
+          {
+            "icon": "Workflow",
+            "title": "Real World Applications",
+            "description": "Linked structures influence queues, adjacency lists, memory allocators, and undo stacks."
+          },
+          {
+            "icon": "Brain",
+            "title": "Problem Solving Foundation",
+            "description": "They improve reference handling and edge-case thinking."
+          }
+        ]
+      },
+      {
+        "id": "basic-operations",
+        "title": "Basic Operations",
+        "type": "operations",
+        "columns": [
+          "Operation",
+          "Description",
+          "STL Function",
+          "Time Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Access Head",
+            "description": "Read first node",
+            "stl": "head",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Traverse",
+            "description": "Visit each node",
+            "stl": "while(curr)",
+            "complexity": "O(n)"
+          },
+          {
+            "operation": "Search",
+            "description": "Find a value",
+            "stl": "loop",
+            "complexity": "O(n)"
+          },
+          {
+            "operation": "Insert Front",
+            "description": "Add before head",
+            "stl": "newNode->next",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Insert Middle",
+            "description": "Reconnect links",
+            "stl": "next pointers",
+            "complexity": "O(n)"
+          },
+          {
+            "operation": "Delete Front",
+            "description": "Move head",
+            "stl": "head = head->next",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Delete Middle",
+            "description": "Bypass node",
+            "stl": "prev->next",
+            "complexity": "O(n)"
+          },
+          {
+            "operation": "Reverse",
+            "description": "Reverse links",
+            "stl": "prev/curr/next",
+            "complexity": "O(n)"
+          }
+        ],
+        "panelTitle": "Functions Covered",
+        "functions": [
+          "ListNode",
+          "head",
+          "next",
+          "new",
+          "delete",
+          "prev",
+          "curr",
+          "slow",
+          "fast"
+        ]
+      },
+      {
+        "id": "visualization",
+        "title": "Interactive Visualization",
+        "type": "visualization",
+        "initialArray": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "operations": [
+          "push_back()",
+          "pop_back()",
+          "insert()",
+          "erase()"
+        ],
+        "controls": {
+          "operationLabel": "Operation",
+          "valueLabel": "Value",
+          "indexLabel": "Index",
+          "buttonLabel": "Run Visualization"
+        },
+        "labels": {
+          "before": "Before Operation",
+          "after": "After Operation",
+          "index": "Index",
+          "value": "Value"
+        }
+      },
+      {
+        "id": "internal-working",
+        "title": "Internal Working",
+        "type": "internal",
+        "memory": {
+          "index": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "address": [
+            1000,
+            1004,
+            1008,
+            1012,
+            1016
+          ],
+          "value": [
+            10,
+            20,
+            30,
+            40,
+            50
+          ]
+        },
+        "explanation": [
+          "This demo section shows how the topic can explain its internal model visually.",
+          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+        ],
+        "formula": {
+          "label": "position = base + step * index",
+          "example": "1000 + 4 * 4 = 1016"
+        }
+      },
+      {
+        "id": "syntax",
+        "title": "Syntax",
+        "type": "syntax",
+        "tabs": [
+          {
+            "label": "C++",
+            "language": "cpp",
+            "code": "struct ListNode {\n    int val;\n    ListNode* next;\n    ListNode(int x) : val(x), next(nullptr) {}\n};"
+          },
+          {
+            "label": "Java",
+            "language": "java",
+            "code": "class ListNode {\n    int val;\n    ListNode next;\n    ListNode(int val) {\n        this.val = val;\n    }\n}"
+          },
+          {
+            "label": "Python",
+            "language": "python",
+            "code": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next"
+          },
+          {
+            "label": "STL",
+            "language": "cpp",
+            "code": "list<int> ls;\nls.push_back(10);\nls.push_front(5);\nls.pop_back();\nls.erase(ls.begin());"
+          }
+        ]
+      },
+      {
+        "id": "complexity",
+        "title": "Time and Space Complexity",
+        "type": "complexity",
+        "columns": [
+          "Operation",
+          "Best Case",
+          "Average Case",
+          "Worst Case",
+          "Space Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Access Head",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Traverse",
+            "best": "O(n)",
+            "average": "O(n)",
+            "worst": "O(n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Search",
+            "best": "O(n)",
+            "average": "O(n)",
+            "worst": "O(n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Insert Front",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Insert Middle",
+            "best": "O(n)",
+            "average": "O(n)",
+            "worst": "O(n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Delete Front",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Delete Middle",
+            "best": "O(n)",
+            "average": "O(n)",
+            "worst": "O(n)",
+            "space": "O(1)"
+          }
+        ]
+      },
+      {
+        "id": "videos",
+        "title": "Recommended Videos",
+        "type": "videos",
+        "items": [
+          {
+            "title": "Linked List Basics",
+            "channel": "LeetCore Academy",
+            "duration": "12:41",
+            "url": "https://www.youtube.com/results?search_query=Linked%20List%20Basics%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          },
+          {
+            "title": "Reverse a Linked List",
+            "channel": "LeetCore Academy",
+            "duration": "14:08",
+            "url": "https://www.youtube.com/results?search_query=Reverse%20a%20Linked%20List%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          },
+          {
+            "title": "Fast and Slow Pointer Pattern",
+            "channel": "LeetCore Academy",
+            "duration": "15:22",
+            "url": "https://www.youtube.com/results?search_query=Fast%20and%20Slow%20Pointer%20Pattern%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Common Mistakes",
+        "type": "mistakes",
+        "items": [
+          {
+            "title": "Ignoring edge cases",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "// assumes input is always valid\nsolve(data);",
+            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
+            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
+          },
+          {
+            "title": "Using brute force when a pattern exists",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
+            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
+            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
+          }
+        ]
+      },
+      {
+        "id": "interview-questions",
+        "title": "Interview Questions",
+        "type": "questions",
+        "columns": [
+          "Problem Name",
+          "Platform",
+          "Difficulty",
+          "Pattern",
+          "Link"
+        ],
+        "categories": [
+          {
+            "name": "Basics",
+            "questions": [
+              {
+                "name": "Reverse Linked List",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
+              },
+              {
+                "name": "Linked List Cycle",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
+              },
+              {
+                "name": "Merge Two Sorted Lists",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
+              }
+            ]
+          },
+          {
+            "name": "Two Pointer",
+            "questions": [
+              {
+                "name": "Reverse Linked List",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
+              },
+              {
+                "name": "Linked List Cycle",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
+              },
+              {
+                "name": "Merge Two Sorted Lists",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
+              }
+            ]
+          },
+          {
+            "name": "Sliding Window",
+            "questions": [
+              {
+                "name": "Reverse Linked List",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
+              },
+              {
+                "name": "Linked List Cycle",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
+              },
+              {
+                "name": "Merge Two Sorted Lists",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
+              }
+            ]
+          },
+          {
+            "name": "Prefix Sum",
+            "questions": [
+              {
+                "name": "Reverse Linked List",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
+              },
+              {
+                "name": "Linked List Cycle",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
+              },
+              {
+                "name": "Merge Two Sorted Lists",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
+              }
+            ]
+          },
+          {
+            "name": "Binary Search",
+            "questions": [
+              {
+                "name": "Reverse Linked List",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
+              },
+              {
+                "name": "Linked List Cycle",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
+              },
+              {
+                "name": "Merge Two Sorted Lists",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "questions": [
+              {
+                "name": "Reverse Linked List",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
+              },
+              {
+                "name": "Linked List Cycle",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
+              },
+              {
+                "name": "Merge Two Sorted Lists",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "practice-roadmap",
+        "title": "Practice Roadmap",
+        "type": "roadmap",
+        "groups": [
+          {
+            "level": "Beginner",
+            "count": 3,
+            "progress": 72,
+            "questions": [
+              "Reverse Linked List",
+              "Middle of the Linked List",
+              "Merge Two Sorted Lists"
+            ]
+          },
+          {
+            "level": "Intermediate",
+            "count": 3,
+            "progress": 48,
+            "questions": [
+              "Remove Nth Node From End",
+              "Linked List Cycle II",
+              "Add Two Numbers"
+            ]
+          },
+          {
+            "level": "Advanced",
+            "count": 3,
+            "progress": 26,
+            "questions": [
+              "Reverse Nodes in K Group",
+              "Copy List with Random Pointer",
+              "LRU Cache"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "stack": {
+    "topic": "Stack",
+    "title": "Let's Master Stack",
+    "subtitle": "Learn LIFO processing, monotonic stacks and expression handling",
+    "hero": {
+      "id": "hero",
+      "eyebrow": "DSA Documentation",
+      "title": "Let's Master Stack",
+      "subtitle": "Learn LIFO processing, monotonic stacks and expression handling",
+      "accent": "Use last-in-first-out order to manage pending work",
+      "stats": [
+        {
+          "label": "Patterns",
+          "value": "4+"
+        },
+        {
+          "label": "Core ops",
+          "value": "8"
+        },
+        {
+          "label": "Problems",
+          "value": "18"
+        }
+      ],
+      "visual": {
+        "values": [
+          5,
+          10,
+          15,
+          20,
+          25
+        ],
+        "labels": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    },
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "type": "paragraph",
+        "content": [
+          "A stack is a linear data structure where the last inserted element is removed first.",
+          "Stacks are useful when you need to reverse order, track open states, evaluate expressions, or maintain monotonic candidates."
+        ],
+        "highlights": [
+          "Core topic",
+          "Interview ready",
+          "Pattern based",
+          "Demo docs"
+        ]
+      },
+      {
+        "id": "what-you-learn",
+        "title": "What You'll Learn",
+        "type": "learn_cards",
+        "items": [
+          {
+            "icon": "Boxes",
+            "title": "Core Concepts",
+            "description": "Understand push, pop, top, empty state, and LIFO behavior.",
+            "progress": 92
+          },
+          {
+            "icon": "Gauge",
+            "title": "Time Complexity",
+            "description": "Learn why standard stack operations are O(1).",
+            "progress": 90
+          },
+          {
+            "icon": "Workflow",
+            "title": "Monotonic Stack",
+            "description": "Use stack ordering to solve next greater, histogram, and span problems.",
+            "progress": 80
+          },
+          {
+            "icon": "Code2",
+            "title": "STL Operations",
+            "description": "Practice stack, vector as stack, push, pop, top, size, and empty.",
+            "progress": 86
+          }
+        ]
+      },
+      {
+        "id": "definition",
+        "title": "One Line Definition",
+        "type": "callout",
+        "content": "A stack follows LIFO order, meaning the most recently pushed element is the first one popped."
+      },
+      {
+        "id": "real-life-example",
+        "title": "Real Life Example",
+        "type": "example",
+        "content": [
+          "A stack behaves like plates placed on top of each other.",
+          "You add a plate to the top and remove the top plate first."
+        ],
+        "visual": {
+          "title": "Stack of plates",
+          "items": [
+            {
+              "label": "0",
+              "color": "#f04438"
+            },
+            {
+              "label": "1",
+              "color": "#2563eb"
+            },
+            {
+              "label": "2",
+              "color": "#6b7280"
+            },
+            {
+              "label": "3",
+              "color": "#f8fafc"
+            },
+            {
+              "label": "4",
+              "color": "#16a34a"
+            }
+          ]
+        }
+      },
+      {
+        "id": "why-learn",
+        "title": "Why We Learn This?",
+        "type": "why_learn",
+        "items": [
+          {
+            "icon": "Sparkles",
+            "title": "Interview Relevance",
+            "description": "Stack questions test ordering, matching, and deferred processing."
+          },
+          {
+            "icon": "Trophy",
+            "title": "Competitive Programming",
+            "description": "Monotonic stack is essential for nearest greater/smaller problems."
+          },
+          {
+            "icon": "Workflow",
+            "title": "Real World Applications",
+            "description": "Function calls, undo history, parsing, and browser navigation use stack-like behavior."
+          },
+          {
+            "icon": "Brain",
+            "title": "Problem Solving Foundation",
+            "description": "Stacks build intuition for recursion, DFS, and state rollback."
+          }
+        ]
+      },
+      {
+        "id": "basic-operations",
+        "title": "Basic Operations",
+        "type": "operations",
+        "columns": [
+          "Operation",
+          "Description",
+          "STL Function",
+          "Time Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Push",
+            "description": "Insert on top",
+            "stl": "push()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Pop",
+            "description": "Remove top",
+            "stl": "pop()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Top",
+            "description": "Read top value",
+            "stl": "top()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Empty",
+            "description": "Check if stack is empty",
+            "stl": "empty()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Size",
+            "description": "Count values",
+            "stl": "size()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Clear",
+            "description": "Remove all values",
+            "stl": "loop pop",
+            "complexity": "O(n)"
+          },
+          {
+            "operation": "Traverse",
+            "description": "Use auxiliary copy",
+            "stl": "copy stack",
+            "complexity": "O(n)"
+          },
+          {
+            "operation": "Monotonic Push",
+            "description": "Maintain order",
+            "stl": "while + pop",
+            "complexity": "O(n) total"
+          }
+        ],
+        "panelTitle": "Functions Covered",
+        "functions": [
+          "push()",
+          "pop()",
+          "top()",
+          "empty()",
+          "size()",
+          "stack<int>",
+          "vector<int>",
+          "back()",
+          "push_back()"
+        ]
+      },
+      {
+        "id": "visualization",
+        "title": "Interactive Visualization",
+        "type": "visualization",
+        "initialArray": [
+          5,
+          10,
+          15,
+          20,
+          25
+        ],
+        "operations": [
+          "push_back()",
+          "pop_back()",
+          "insert()",
+          "erase()"
+        ],
+        "controls": {
+          "operationLabel": "Operation",
+          "valueLabel": "Value",
+          "indexLabel": "Index",
+          "buttonLabel": "Run Visualization"
+        },
+        "labels": {
+          "before": "Before Operation",
+          "after": "After Operation",
+          "index": "Index",
+          "value": "Value"
+        }
+      },
+      {
+        "id": "internal-working",
+        "title": "Internal Working",
+        "type": "internal",
+        "memory": {
+          "index": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "address": [
+            1000,
+            1004,
+            1008,
+            1012,
+            1016
+          ],
+          "value": [
+            5,
+            10,
+            15,
+            20,
+            25
+          ]
+        },
+        "explanation": [
+          "This demo section shows how the topic can explain its internal model visually.",
+          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+        ],
+        "formula": {
+          "label": "position = base + step * index",
+          "example": "1000 + 4 * 4 = 1016"
+        }
+      },
+      {
+        "id": "syntax",
+        "title": "Syntax",
+        "type": "syntax",
+        "tabs": [
+          {
+            "label": "C++",
+            "language": "cpp",
+            "code": "#include <stack>\nstack<int> st;\nst.push(10);\nst.push(20);\ncout << st.top();\nst.pop();"
+          },
+          {
+            "label": "Java",
+            "language": "java",
+            "code": "Deque<Integer> st = new ArrayDeque<>();\nst.push(10);\nst.push(20);\nSystem.out.println(st.peek());\nst.pop();"
+          },
+          {
+            "label": "Python",
+            "language": "python",
+            "code": "st = []\nst.append(10)\nst.append(20)\nprint(st[-1])\nst.pop()"
+          },
+          {
+            "label": "STL",
+            "language": "cpp",
+            "code": "stack<int> st;\nst.push(10);\nst.pop();\nif (!st.empty()) cout << st.top();"
+          }
+        ]
+      },
+      {
+        "id": "complexity",
+        "title": "Time and Space Complexity",
+        "type": "complexity",
+        "columns": [
+          "Operation",
+          "Best Case",
+          "Average Case",
+          "Worst Case",
+          "Space Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Push",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Pop",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Top",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Empty",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Size",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Clear",
+            "best": "O(n)",
+            "average": "O(n)",
+            "worst": "O(n)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Traverse",
+            "best": "O(n)",
+            "average": "O(n)",
+            "worst": "O(n)",
+            "space": "O(1)"
+          }
+        ]
+      },
+      {
+        "id": "videos",
+        "title": "Recommended Videos",
+        "type": "videos",
+        "items": [
+          {
+            "title": "Stack Basics",
+            "channel": "LeetCore Academy",
+            "duration": "12:41",
+            "url": "https://www.youtube.com/results?search_query=Stack%20Basics%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                5,
+                10,
+                15,
+                20
+              ]
+            }
+          },
+          {
+            "title": "Valid Parentheses Explained",
+            "channel": "LeetCore Academy",
+            "duration": "14:08",
+            "url": "https://www.youtube.com/results?search_query=Valid%20Parentheses%20Explained%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                5,
+                10,
+                15,
+                20
+              ]
+            }
+          },
+          {
+            "title": "Monotonic Stack Pattern",
+            "channel": "LeetCore Academy",
+            "duration": "15:22",
+            "url": "https://www.youtube.com/results?search_query=Monotonic%20Stack%20Pattern%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                5,
+                10,
+                15,
+                20
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Common Mistakes",
+        "type": "mistakes",
+        "items": [
+          {
+            "title": "Ignoring edge cases",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "// assumes input is always valid\nsolve(data);",
+            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
+            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
+          },
+          {
+            "title": "Using brute force when a pattern exists",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
+            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
+            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
+          }
+        ]
+      },
+      {
+        "id": "interview-questions",
+        "title": "Interview Questions",
+        "type": "questions",
+        "columns": [
+          "Problem Name",
+          "Platform",
+          "Difficulty",
+          "Pattern",
+          "Link"
+        ],
+        "categories": [
+          {
+            "name": "Basics",
+            "questions": [
+              {
+                "name": "Valid Parentheses",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
+              },
+              {
+                "name": "Min Stack",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
+              },
+              {
+                "name": "Daily Temperatures",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
+              }
+            ]
+          },
+          {
+            "name": "Two Pointer",
+            "questions": [
+              {
+                "name": "Valid Parentheses",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
+              },
+              {
+                "name": "Min Stack",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
+              },
+              {
+                "name": "Daily Temperatures",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
+              }
+            ]
+          },
+          {
+            "name": "Sliding Window",
+            "questions": [
+              {
+                "name": "Valid Parentheses",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
+              },
+              {
+                "name": "Min Stack",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
+              },
+              {
+                "name": "Daily Temperatures",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
+              }
+            ]
+          },
+          {
+            "name": "Prefix Sum",
+            "questions": [
+              {
+                "name": "Valid Parentheses",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
+              },
+              {
+                "name": "Min Stack",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
+              },
+              {
+                "name": "Daily Temperatures",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
+              }
+            ]
+          },
+          {
+            "name": "Binary Search",
+            "questions": [
+              {
+                "name": "Valid Parentheses",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
+              },
+              {
+                "name": "Min Stack",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
+              },
+              {
+                "name": "Daily Temperatures",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "questions": [
+              {
+                "name": "Valid Parentheses",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
+              },
+              {
+                "name": "Min Stack",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
+              },
+              {
+                "name": "Daily Temperatures",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "practice-roadmap",
+        "title": "Practice Roadmap",
+        "type": "roadmap",
+        "groups": [
+          {
+            "level": "Beginner",
+            "count": 3,
+            "progress": 72,
+            "questions": [
+              "Valid Parentheses",
+              "Implement Stack using Queues",
+              "Baseball Game"
+            ]
+          },
+          {
+            "level": "Intermediate",
+            "count": 3,
+            "progress": 48,
+            "questions": [
+              "Min Stack",
+              "Daily Temperatures",
+              "Next Greater Element"
+            ]
+          },
+          {
+            "level": "Advanced",
+            "count": 3,
+            "progress": 26,
+            "questions": [
+              "Largest Rectangle in Histogram",
+              "Trapping Rain Water",
+              "Basic Calculator"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "queue": {
+    "topic": "Queue",
+    "title": "Let's Master Queue",
+    "subtitle": "Learn FIFO processing, deque operations and BFS foundations",
+    "hero": {
+      "id": "hero",
+      "eyebrow": "DSA Documentation",
+      "title": "Let's Master Queue",
+      "subtitle": "Learn FIFO processing, deque operations and BFS foundations",
+      "accent": "Process items in the same order they arrive",
+      "stats": [
+        {
+          "label": "Patterns",
+          "value": "4+"
+        },
+        {
+          "label": "Core ops",
+          "value": "8"
+        },
+        {
+          "label": "Problems",
+          "value": "18"
+        }
+      ],
+      "visual": {
+        "values": [
+          7,
+          14,
+          21,
+          28,
+          35
+        ],
+        "labels": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    },
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "type": "paragraph",
+        "content": [
+          "A queue is a linear data structure where the first inserted element is removed first.",
+          "Queues are used for scheduling, buffering, breadth-first search, and level-order traversal."
+        ],
+        "highlights": [
+          "Core topic",
+          "Interview ready",
+          "Pattern based",
+          "Demo docs"
+        ]
+      },
+      {
+        "id": "what-you-learn",
+        "title": "What You'll Learn",
+        "type": "learn_cards",
+        "items": [
+          {
+            "icon": "Boxes",
+            "title": "Core Concepts",
+            "description": "Understand push, pop, front, back, empty state, and FIFO behavior.",
+            "progress": 92
+          },
+          {
+            "icon": "Gauge",
+            "title": "Time Complexity",
+            "description": "Learn why queue insertion and removal are O(1).",
+            "progress": 88
+          },
+          {
+            "icon": "Workflow",
+            "title": "BFS Flow",
+            "description": "Use queues to process graph and tree levels in order.",
+            "progress": 84
+          },
+          {
+            "icon": "Code2",
+            "title": "STL Operations",
+            "description": "Practice queue, deque, push, pop, front, back, size, and empty.",
+            "progress": 86
+          }
+        ]
+      },
+      {
+        "id": "definition",
+        "title": "One Line Definition",
+        "type": "callout",
+        "content": "A queue follows FIFO order, meaning the earliest pushed element is the first one removed."
+      },
+      {
+        "id": "real-life-example",
+        "title": "Real Life Example",
+        "type": "example",
+        "content": [
+          "A queue behaves like people waiting for a service counter.",
+          "The person who joined first gets served first."
+        ],
+        "visual": {
+          "title": "People waiting in line",
+          "items": [
+            {
+              "label": "0",
+              "color": "#f04438"
+            },
+            {
+              "label": "1",
+              "color": "#2563eb"
+            },
+            {
+              "label": "2",
+              "color": "#6b7280"
+            },
+            {
+              "label": "3",
+              "color": "#f8fafc"
+            },
+            {
+              "label": "4",
+              "color": "#16a34a"
+            }
+          ]
+        }
+      },
+      {
+        "id": "why-learn",
+        "title": "Why We Learn This?",
+        "type": "why_learn",
+        "items": [
+          {
+            "icon": "Sparkles",
+            "title": "Interview Relevance",
+            "description": "Queue problems test process ordering and simulation."
+          },
+          {
+            "icon": "Trophy",
+            "title": "Competitive Programming",
+            "description": "BFS, shortest path in unweighted graphs, and sliding window deque patterns are common."
+          },
+          {
+            "icon": "Workflow",
+            "title": "Real World Applications",
+            "description": "Task schedulers, message brokers, print queues, and buffers use queue behavior."
+          },
+          {
+            "icon": "Brain",
+            "title": "Problem Solving Foundation",
+            "description": "Queues make level-order traversal and state expansion easier to reason about."
+          }
+        ]
+      },
+      {
+        "id": "basic-operations",
+        "title": "Basic Operations",
+        "type": "operations",
+        "columns": [
+          "Operation",
+          "Description",
+          "STL Function",
+          "Time Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Push",
+            "description": "Insert at back",
+            "stl": "push()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Pop",
+            "description": "Remove from front",
+            "stl": "pop()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Front",
+            "description": "Read first value",
+            "stl": "front()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Back",
+            "description": "Read last value",
+            "stl": "back()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Empty",
+            "description": "Check if queue is empty",
+            "stl": "empty()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Size",
+            "description": "Count values",
+            "stl": "size()",
+            "complexity": "O(1)"
+          },
+          {
+            "operation": "Clear",
+            "description": "Remove all values",
+            "stl": "loop pop",
+            "complexity": "O(n)"
+          },
+          {
+            "operation": "Deque Pop",
+            "description": "Remove from both ends",
+            "stl": "pop_front/back()",
+            "complexity": "O(1)"
+          }
+        ],
+        "panelTitle": "Functions Covered",
+        "functions": [
+          "queue<int>",
+          "deque<int>",
+          "push()",
+          "pop()",
+          "front()",
+          "back()",
+          "empty()",
+          "size()",
+          "push_back()",
+          "pop_front()"
+        ]
+      },
+      {
+        "id": "visualization",
+        "title": "Interactive Visualization",
+        "type": "visualization",
+        "initialArray": [
+          7,
+          14,
+          21,
+          28,
+          35
+        ],
+        "operations": [
+          "push_back()",
+          "pop_back()",
+          "insert()",
+          "erase()"
+        ],
+        "controls": {
+          "operationLabel": "Operation",
+          "valueLabel": "Value",
+          "indexLabel": "Index",
+          "buttonLabel": "Run Visualization"
+        },
+        "labels": {
+          "before": "Before Operation",
+          "after": "After Operation",
+          "index": "Index",
+          "value": "Value"
+        }
+      },
+      {
+        "id": "internal-working",
+        "title": "Internal Working",
+        "type": "internal",
+        "memory": {
+          "index": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "address": [
+            1000,
+            1004,
+            1008,
+            1012,
+            1016
+          ],
+          "value": [
+            7,
+            14,
+            21,
+            28,
+            35
+          ]
+        },
+        "explanation": [
+          "This demo section shows how the topic can explain its internal model visually.",
+          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+        ],
+        "formula": {
+          "label": "position = base + step * index",
+          "example": "1000 + 4 * 4 = 1016"
+        }
+      },
+      {
+        "id": "syntax",
+        "title": "Syntax",
+        "type": "syntax",
+        "tabs": [
+          {
+            "label": "C++",
+            "language": "cpp",
+            "code": "#include <queue>\nqueue<int> q;\nq.push(10);\nq.push(20);\ncout << q.front();\nq.pop();"
+          },
+          {
+            "label": "Java",
+            "language": "java",
+            "code": "Queue<Integer> q = new ArrayDeque<>();\nq.offer(10);\nq.offer(20);\nSystem.out.println(q.peek());\nq.poll();"
+          },
+          {
+            "label": "Python",
+            "language": "python",
+            "code": "from collections import deque\nq = deque()\nq.append(10)\nq.append(20)\nprint(q[0])\nq.popleft()"
+          },
+          {
+            "label": "STL",
+            "language": "cpp",
+            "code": "queue<int> q;\nq.push(10);\nq.pop();\nif (!q.empty()) cout << q.front();"
+          }
+        ]
+      },
+      {
+        "id": "complexity",
+        "title": "Time and Space Complexity",
+        "type": "complexity",
+        "columns": [
+          "Operation",
+          "Best Case",
+          "Average Case",
+          "Worst Case",
+          "Space Complexity"
+        ],
+        "rows": [
+          {
+            "operation": "Push",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Pop",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Front",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Back",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Empty",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Size",
+            "best": "O(1)",
+            "average": "O(1)",
+            "worst": "O(1)",
+            "space": "O(1)"
+          },
+          {
+            "operation": "Clear",
+            "best": "O(n)",
+            "average": "O(n)",
+            "worst": "O(n)",
+            "space": "O(1)"
+          }
+        ]
+      },
+      {
+        "id": "videos",
+        "title": "Recommended Videos",
+        "type": "videos",
+        "items": [
+          {
+            "title": "Queue Basics",
+            "channel": "LeetCore Academy",
+            "duration": "12:41",
+            "url": "https://www.youtube.com/results?search_query=Queue%20Basics%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                7,
+                14,
+                21,
+                28
+              ]
+            }
+          },
+          {
+            "title": "BFS with Queue",
+            "channel": "LeetCore Academy",
+            "duration": "14:08",
+            "url": "https://www.youtube.com/results?search_query=BFS%20with%20Queue%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                7,
+                14,
+                21,
+                28
+              ]
+            }
+          },
+          {
+            "title": "Deque and Sliding Window Maximum",
+            "channel": "LeetCore Academy",
+            "duration": "15:22",
+            "url": "https://www.youtube.com/results?search_query=Deque%20and%20Sliding%20Window%20Maximum%20dsa",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                7,
+                14,
+                21,
+                28
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Common Mistakes",
+        "type": "mistakes",
+        "items": [
+          {
+            "title": "Ignoring edge cases",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "// assumes input is always valid\nsolve(data);",
+            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
+            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
+          },
+          {
+            "title": "Using brute force when a pattern exists",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
+            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
+            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
+          }
+        ]
+      },
+      {
+        "id": "interview-questions",
+        "title": "Interview Questions",
+        "type": "questions",
+        "columns": [
+          "Problem Name",
+          "Platform",
+          "Difficulty",
+          "Pattern",
+          "Link"
+        ],
+        "categories": [
+          {
+            "name": "Basics",
+            "questions": [
+              {
+                "name": "Implement Queue using Stacks",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
+              },
+              {
+                "name": "Number of Recent Calls",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
+              },
+              {
+                "name": "Binary Tree Level Order Traversal",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Basics",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
+              }
+            ]
+          },
+          {
+            "name": "Two Pointer",
+            "questions": [
+              {
+                "name": "Implement Queue using Stacks",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
+              },
+              {
+                "name": "Number of Recent Calls",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
+              },
+              {
+                "name": "Binary Tree Level Order Traversal",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Two Pointer",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
+              }
+            ]
+          },
+          {
+            "name": "Sliding Window",
+            "questions": [
+              {
+                "name": "Implement Queue using Stacks",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
+              },
+              {
+                "name": "Number of Recent Calls",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
+              },
+              {
+                "name": "Binary Tree Level Order Traversal",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Sliding Window",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
+              }
+            ]
+          },
+          {
+            "name": "Prefix Sum",
+            "questions": [
+              {
+                "name": "Implement Queue using Stacks",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
+              },
+              {
+                "name": "Number of Recent Calls",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
+              },
+              {
+                "name": "Binary Tree Level Order Traversal",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Prefix Sum",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
+              }
+            ]
+          },
+          {
+            "name": "Binary Search",
+            "questions": [
+              {
+                "name": "Implement Queue using Stacks",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
+              },
+              {
+                "name": "Number of Recent Calls",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
+              },
+              {
+                "name": "Binary Tree Level Order Traversal",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Binary Search",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
+              }
+            ]
+          },
+          {
+            "name": "Advanced",
+            "questions": [
+              {
+                "name": "Implement Queue using Stacks",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
+              },
+              {
+                "name": "Number of Recent Calls",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
+              },
+              {
+                "name": "Binary Tree Level Order Traversal",
+                "platform": "LeetCode",
+                "difficulty": "Hard",
+                "pattern": "Advanced",
+                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "practice-roadmap",
+        "title": "Practice Roadmap",
+        "type": "roadmap",
+        "groups": [
+          {
+            "level": "Beginner",
+            "count": 3,
+            "progress": 72,
+            "questions": [
+              "Implement Queue using Stacks",
+              "Number of Recent Calls",
+              "First Unique Character"
+            ]
+          },
+          {
+            "level": "Intermediate",
+            "count": 3,
+            "progress": 48,
+            "questions": [
+              "Rotting Oranges",
+              "Binary Tree Level Order Traversal",
+              "Open the Lock"
+            ]
+          },
+          {
+            "level": "Advanced",
+            "count": 3,
+            "progress": 26,
+            "questions": [
+              "Sliding Window Maximum",
+              "Shortest Path in Binary Matrix",
+              "Design Circular Deque"
+            ]
           }
         ]
       }

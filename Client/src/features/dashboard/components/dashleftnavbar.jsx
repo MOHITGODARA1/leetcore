@@ -172,7 +172,7 @@ function DashLeftNavBar() {
                                         ? `
                                             bg-[#111]
                                             text-white
-                                            shadow-[0_12px_30px_rgba(244,103,23,0.12)]
+                                            
                                           `
                                         : `
                                             text-gray-400

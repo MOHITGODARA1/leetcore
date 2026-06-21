@@ -61,8 +61,6 @@ function RoadmapPreview() {
             <div className="p-4 sm:p-5">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div>
-
-
                         <h2 className="mt-4 max-w-xl text-xl font-semibold leading-tight text-white sm:text-2xl">
                             Move from random questions to a clear interview path.
                         </h2>
@@ -102,7 +100,7 @@ function RoadmapPreview() {
 
                             <div className="mt-2.5 h-1.5 overflow-hidden rounded-full bg-white/8">
                                 <div
-                                    className="h-full rounded-full bg-gray-400 transition-all duration-700"
+                                    className="h-full rounded-full bg-white transition-all duration-700"
                                     style={{ width: `${pattern.progress}%` }}
                                 />
                             </div>
