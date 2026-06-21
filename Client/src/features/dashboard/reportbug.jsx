@@ -1,7 +1,7 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import {
-    Bug, Send, CheckCircle2, AlertTriangle, Upload, X,
-    Paperclip, Monitor, Smartphone, Tablet, CheckCircle
+    Bug, Send, CheckCircle2, AlertTriangle,
+    Monitor, Smartphone, Tablet, CheckCircle, Clock
 } from "lucide-react";
 import DashboardPageShell from "./components/DashboardPageShell";
 import { useAuth } from "../../context/AuthContext";
@@ -48,22 +48,13 @@ export default function ReportBugPage() {
     const [title, setTitle] = useState("");
     const [steps, setSteps] = useState("");
     const [expected, setExpected] = useState("");
-    const [attachments, setAttachments] = useState([]);
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [successMsg, setSuccessMsg] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
-    const fileRef = useRef();
 
     const charsLeft = MAX_CHARS - steps.length;
     const canSubmit = title.trim().length > 3 && steps.trim().length > 10 && !loading;
-
-    const handleFiles = (e) => {
-        const files = Array.from(e.target.files || []);
-        setAttachments((prev) => [...prev, ...files].slice(0, 3));
-    };
-
-    const removeFile = (i) => setAttachments((prev) => prev.filter((_, idx) => idx !== i));
 
     const handleSubmit = async () => {
         if (!canSubmit || !user) return;
@@ -104,7 +95,6 @@ export default function ReportBugPage() {
         setTitle("");
         setSteps("");
         setExpected("");
-        setAttachments([]);
         setArea("dashboard");
         setDevice("desktop");
         setErrorMsg("");
@@ -124,8 +114,11 @@ export default function ReportBugPage() {
                 {/* Header */}
                 <div className="max-w-5xl">
                     <p className="text-sm text-[#F46717] font-semibold tracking-wide uppercase">Report Bug</p>
-                    <h1 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight">
-                        Found something broken?
+                    <h1 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">
+                        Found{" "}
+                        <span className="bg-gradient-to-r from-red-400 to-rose-500 bg-clip-text text-transparent">
+                            something broken?
+                        </span>
                     </h1>
                     <p className="mt-3 max-w-2xl text-white/50 leading-7">
                         Share the issue and steps to reproduce so we can fix it fast. The more detail, the better.
@@ -136,9 +129,9 @@ export default function ReportBugPage() {
                     {/* Form card */}
                     <div className="rounded-2xl border border-white/8 bg-[#111113] overflow-hidden">
                         {/* Progress bar */}
-                        <div className="h-0.5 bg-white/5">
+                        <div className="h-1 bg-white/5 relative">
                             <div
-                                className="h-full bg-[#F46717] transition-all duration-500"
+                                className="h-full bg-[#F46717] transition-all duration-500 shadow-[0_0_12px_#F46717]"
                                 style={{ width: `${progress}%` }}
                             />
                         </div>
@@ -152,17 +145,20 @@ export default function ReportBugPage() {
                                     {/* Area + Device row */}
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                         <div>
-                                            <p className="text-sm text-white/55 mb-2">Bug area</p>
+                                            <label className="flex items-center gap-2 text-sm font-semibold text-white/70 mb-2">
+                                                <Bug size={14} className="text-red-400" />
+                                                <span>Bug area</span>
+                                            </label>
                                             <div className="flex flex-wrap gap-2">
                                                 {BUG_AREAS.map(({ value, label }) => (
                                                     <button
                                                         key={value}
                                                         type="button"
                                                         onClick={() => setArea(value)}
-                                                        className={`px-3 py-1.5 rounded-xl border text-sm transition-all ${
+                                                        className={`px-3 py-1.5 rounded-xl border text-sm transition-all hover:scale-[1.02] active:scale-[0.98] ${
                                                             area === value
-                                                                ? "border-[#F46717] bg-[#F46717]/10 text-white"
-                                                                : "border-white/10 bg-white/4 text-white/50 hover:border-white/20 hover:text-white"
+                                                                ? "border-[#F46717] bg-[#F46717]/10 text-white shadow-md shadow-[#F46717]/5"
+                                                                : "border-white/10 bg-white/4 text-white/55 hover:border-white/20 hover:text-white"
                                                         }`}
                                                     >
                                                         {label}
@@ -172,17 +168,20 @@ export default function ReportBugPage() {
                                         </div>
 
                                         <div>
-                                            <p className="text-sm text-white/55 mb-2">Device</p>
+                                            <label className="flex items-center gap-2 text-sm font-semibold text-white/70 mb-2">
+                                                <Monitor size={14} className="text-blue-400" />
+                                                <span>Device</span>
+                                            </label>
                                             <div className="flex gap-2">
                                                 {DEVICES.map(({ value, label, icon: Icon }) => (
                                                     <button
                                                         key={value}
                                                         type="button"
                                                         onClick={() => setDevice(value)}
-                                                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-sm transition-all ${
+                                                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-sm transition-all hover:scale-[1.02] active:scale-[0.98] ${
                                                             device === value
-                                                                ? "border-[#F46717] bg-[#F46717]/10 text-white"
-                                                                : "border-white/10 bg-white/4 text-white/50 hover:border-white/20 hover:text-white"
+                                                                ? "border-[#F46717] bg-[#F46717]/10 text-white shadow-md shadow-[#F46717]/5"
+                                                                : "border-white/10 bg-white/4 text-white/55 hover:border-white/20 hover:text-white"
                                                         }`}
                                                     >
                                                         <Icon size={13} />
@@ -197,19 +196,25 @@ export default function ReportBugPage() {
 
                                     {/* Title */}
                                     <div>
-                                        <p className="text-sm text-white/55 mb-2">Bug title <span className="text-red-400">*</span></p>
+                                        <label className="flex items-center gap-2 text-sm font-semibold text-white/70 mb-2">
+                                            <AlertTriangle size={14} className="text-yellow-400" />
+                                            <span>Bug title <span className="text-red-400">*</span></span>
+                                        </label>
                                         <input
                                             value={title}
                                             onChange={(e) => setTitle(e.target.value)}
                                             placeholder="e.g. Profile cards overlap on mobile"
-                                            className="w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none focus:border-[#F46717] transition-colors"
+                                            className="w-full rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none focus:border-[#F46717] focus:ring-1 focus:ring-[#F46717] transition-all duration-300"
                                         />
                                     </div>
 
                                     {/* Steps to reproduce */}
                                     <div>
                                         <div className="flex items-center justify-between mb-2">
-                                            <p className="text-sm text-white/55">Steps to reproduce <span className="text-red-400">*</span></p>
+                                            <label className="flex items-center gap-2 text-sm font-semibold text-white/70">
+                                                <Clock size={14} className="text-orange-400" />
+                                                <span>Steps to reproduce <span className="text-red-400">*</span></span>
+                                            </label>
                                             <span className={`text-xs tabular-nums ${charsLeft < 100 ? "text-red-400" : "text-white/25"}`}>
                                                 {charsLeft} left
                                             </span>
@@ -220,49 +225,23 @@ export default function ReportBugPage() {
                                             value={steps}
                                             onChange={(e) => setSteps(e.target.value)}
                                             placeholder={"1. Go to...\n2. Click on...\n3. See the error"}
-                                            className="w-full resize-none rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none focus:border-[#F46717] transition-colors font-mono"
+                                            className="w-full resize-none rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none focus:border-[#F46717] focus:ring-1 focus:ring-[#F46717] transition-all duration-300 font-mono"
                                         />
                                     </div>
 
                                     {/* Expected behaviour */}
                                     <div>
-                                        <p className="text-sm text-white/55 mb-2">Expected behaviour</p>
+                                        <label className="flex items-center gap-2 text-sm font-semibold text-white/70 mb-2">
+                                            <CheckCircle2 size={14} className="text-green-400" />
+                                            <span>Expected behaviour</span>
+                                        </label>
                                         <textarea
                                             rows={3}
                                             value={expected}
                                             onChange={(e) => setExpected(e.target.value)}
                                             placeholder="What should have happened instead?"
-                                            className="w-full resize-none rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none focus:border-[#F46717] transition-colors"
+                                            className="w-full resize-none rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none focus:border-[#F46717] focus:ring-1 focus:ring-[#F46717] transition-all duration-300"
                                         />
-                                    </div>
-
-                                    {/* Screenshot upload */}
-                                    <div>
-                                        <p className="text-sm text-white/55 mb-2">
-                                            Screenshots <span className="text-white/30">(optional, up to 3)</span>
-                                        </p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {attachments.map((file, i) => (
-                                                <div key={i} className="flex items-center gap-2 px-3 py-2 rounded-xl border border-white/10 bg-white/4 text-sm text-white/60">
-                                                    <Paperclip size={13} className="text-[#F46717]" />
-                                                    <span className="max-w-[140px] truncate">{file.name}</span>
-                                                    <button type="button" onClick={() => removeFile(i)} className="text-white/30 hover:text-white">
-                                                        <X size={13} />
-                                                    </button>
-                                                </div>
-                                            ))}
-                                            {attachments.length < 3 && (
-                                                <button
-                                                    type="button"
-                                                    onClick={() => fileRef.current?.click()}
-                                                    className="flex items-center gap-2 px-3 py-2 rounded-xl border border-dashed border-white/15 text-sm text-white/40 hover:border-white/30 hover:text-white/60 transition-all"
-                                                >
-                                                    <Upload size={13} />
-                                                    Add image
-                                                </button>
-                                            )}
-                                        </div>
-                                        <input ref={fileRef} type="file" accept="image/*" multiple className="hidden" onChange={handleFiles} />
                                     </div>
 
                                     {errorMsg && (
@@ -280,9 +259,9 @@ export default function ReportBugPage() {
                                             type="button"
                                             onClick={handleSubmit}
                                             disabled={!canSubmit}
-                                            className={`inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition-all ${
+                                            className={`inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition-all shadow-md ${
                                                 canSubmit
-                                                    ? "bg-[#F46717] text-white hover:bg-[#ff7d34] active:scale-95"
+                                                    ? "bg-[#F46717] text-white hover:bg-[#ff7d34] hover:shadow-[#F46717]/20 active:scale-95"
                                                     : "bg-white/5 text-white/25 cursor-not-allowed"
                                             }`}
                                         >
@@ -304,8 +283,8 @@ export default function ReportBugPage() {
                     {/* Sidebar */}
                     <aside className="space-y-4">
                         {/* Tips */}
-                        <div className="rounded-2xl border border-white/8 bg-[#111113] p-5">
-                            <div className="w-10 h-10 rounded-xl bg-red-500/12 text-red-300 flex items-center justify-center mb-4">
+                        <div className="rounded-2xl border border-red-500/10 bg-red-500/[0.01] p-5 hover:border-red-500/30 hover:bg-red-500/[0.02] transition-all duration-300">
+                            <div className="w-10 h-10 rounded-xl bg-red-500/12 text-red-400 flex items-center justify-center mb-4">
                                 <Bug size={18} />
                             </div>
                             <h2 className="text-base font-semibold mb-3">A useful bug report includes</h2>
@@ -314,10 +293,9 @@ export default function ReportBugPage() {
                                     "The exact page or route where it happened",
                                     "Your browser and device size if layout-related",
                                     "The behaviour you expected vs. what occurred",
-                                    "A screenshot or screen recording if possible",
                                 ].map((tip) => (
-                                    <div key={tip} className="flex items-start gap-2.5">
-                                        <CheckCircle2 size={15} className="text-green-400 mt-0.5 shrink-0" />
+                                    <div key={tip} className="flex items-start gap-2.5 font-sans">
+                                        <CheckCircle2 size={14} className="text-green-400 mt-0.5 shrink-0" />
                                         <p className="text-sm text-white/55 leading-5">{tip}</p>
                                     </div>
                                 ))}
@@ -325,8 +303,11 @@ export default function ReportBugPage() {
                         </div>
 
                         {/* Warning */}
-                        <div className="rounded-2xl border border-yellow-300/15 bg-yellow-300/6 p-5">
-                            <AlertTriangle size={20} className="text-yellow-300 mb-3" />
+                        <div className="rounded-2xl border border-yellow-500/20 border-l-4 border-l-yellow-500 bg-yellow-500/[0.03] p-5 hover:border-yellow-500/40 hover:bg-yellow-500/[0.05] transition-all duration-300">
+                            <div className="flex items-center gap-2 text-yellow-400 mb-3">
+                                <AlertTriangle size={18} />
+                                <span className="font-semibold text-sm">Account Issue Notice</span>
+                            </div>
                             <p className="text-sm text-white/55 leading-6">
                                 For account access issues, try signing out and back in before submitting. This resolves most auth-related bugs.
                             </p>

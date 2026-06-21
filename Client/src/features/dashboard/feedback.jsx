@@ -1,7 +1,7 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import {
-    MessageSquare, Send, Smile, Star, Paperclip, X,
-    CheckCircle, Clock, Lightbulb, Bug, Palette, MoreHorizontal, Upload
+    MessageSquare, Send, Smile, Star,
+    CheckCircle, CheckCircle2, Clock, Lightbulb, Bug, Palette, MoreHorizontal
 } from "lucide-react";
 import DashboardPageShell from "./components/DashboardPageShell";
 import { useAuth } from "../../context/AuthContext";
@@ -69,21 +69,14 @@ export default function FeedbackPage() {
     const [category, setCategory] = useState("experience");
     const [rating, setRating] = useState(0);
     const [text, setText] = useState("");
-    const [attachment, setAttachment] = useState(null);
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [successMsg, setSuccessMsg] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
-    const fileRef = useRef();
 
     const selectedCategory = FEEDBACK_CATEGORIES.find((c) => c.value === category);
     const charsLeft = MAX_CHARS - text.length;
     const canSubmit = rating > 0 && text.trim().length > 10 && !loading;
-
-    const handleFile = (e) => {
-        const file = e.target.files?.[0];
-        if (file) setAttachment(file);
-    };
 
     const handleSubmit = async () => {
         if (!canSubmit || !user) return;
@@ -117,7 +110,6 @@ export default function FeedbackPage() {
         setSubmitted(false);
         setRating(0);
         setText("");
-        setAttachment(null);
         setCategory("experience");
         setErrorMsg("");
         setSuccessMsg("");
@@ -129,8 +121,11 @@ export default function FeedbackPage() {
                 {/* Header */}
                 <div className="max-w-5xl">
                     <p className="text-sm text-[#F46717] font-semibold tracking-wide uppercase">Feedback</p>
-                    <h1 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight">
-                        Help shape LeetCore
+                    <h1 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">
+                        Help{" "}
+                        <span className="bg-gradient-to-r from-[#F46717] to-[#ff8c4b] bg-clip-text text-transparent">
+                            shape LeetCore
+                        </span>
                     </h1>
                     <p className="mt-3 max-w-2xl text-white/50 leading-7">
                         Tell us what feels smooth, what feels confusing, and what would make practice easier.
@@ -142,9 +137,9 @@ export default function FeedbackPage() {
                     {/* Main form card */}
                     <div className="rounded-2xl border border-white/8 bg-[#111113] overflow-hidden">
                         {/* Progress indicator */}
-                        <div className="h-0.5 bg-white/5">
+                        <div className="h-1 bg-white/5 relative">
                             <div
-                                className="h-full bg-[#F46717] transition-all duration-500"
+                                className="h-full bg-[#F46717] transition-all duration-500 shadow-[0_0_12px_#F46717]"
                                 style={{
                                     width: `${Math.min(
                                         ((rating > 0 ? 33 : 0) + (text.length > 10 ? 34 : 0) + (category ? 33 : 0)),
@@ -161,16 +156,19 @@ export default function FeedbackPage() {
                                 <div className="space-y-7">
                                     {/* Category picker */}
                                     <div>
-                                        <p className="text-sm text-white/55 mb-3">What's this about?</p>
+                                        <label className="flex items-center gap-2 text-sm font-semibold text-white/70 mb-3">
+                                            <MessageSquare size={14} className="text-[#F46717]" />
+                                            <span>What's this about?</span>
+                                        </label>
                                         <div className="flex flex-wrap gap-2">
                                             {FEEDBACK_CATEGORIES.map(({ value, label, icon: Icon, color, bg }) => (
                                                 <button
                                                     key={value}
                                                     type="button"
                                                     onClick={() => setCategory(value)}
-                                                    className={`flex items-center gap-2 px-3.5 py-2 rounded-xl border text-sm font-medium transition-all ${
+                                                    className={`flex items-center gap-2 px-3.5 py-2 rounded-xl border text-sm font-medium transition-all hover:scale-[1.02] active:scale-[0.98] ${
                                                         category === value
-                                                            ? "border-[#F46717] bg-[#F46717]/10 text-white"
+                                                            ? "border-[#F46717] bg-[#F46717]/10 text-white shadow-md shadow-[#F46717]/5"
                                                             : "border-white/10 bg-white/4 text-white/55 hover:border-white/20 hover:text-white"
                                                     }`}
                                                 >
@@ -186,9 +184,10 @@ export default function FeedbackPage() {
 
                                     {/* Star rating */}
                                     <div>
-                                        <p className="text-sm text-white/55 mb-3">
-                                            How would you rate your experience?
-                                        </p>
+                                        <label className="flex items-center gap-2 text-sm font-semibold text-white/70 mb-3">
+                                            <Smile size={14} className="text-yellow-400" />
+                                            <span>How would you rate your experience?</span>
+                                        </label>
                                         <div className="flex items-center gap-4">
                                             <StarRating value={rating} onChange={setRating} />
                                             {rating > 0 && (
@@ -201,8 +200,11 @@ export default function FeedbackPage() {
 
                                     {/* Textarea */}
                                     <div>
-                                        <div className="flex items-center justify-between mb-2">
-                                            <p className="text-sm text-white/55">Your feedback</p>
+                                        <div className="flex items-center justify-between mb-3">
+                                            <label className="flex items-center gap-2 text-sm font-semibold text-white/70">
+                                                <Palette size={14} className="text-blue-400" />
+                                                <span>Your feedback</span>
+                                            </label>
                                             <span
                                                 className={`text-xs tabular-nums ${
                                                     charsLeft < 100 ? "text-red-400" : "text-white/25"
@@ -217,43 +219,11 @@ export default function FeedbackPage() {
                                             value={text}
                                             onChange={(e) => setText(e.target.value)}
                                             placeholder="What should we improve? Specific examples (page, device, expected behaviour) are the most helpful."
-                                            className="w-full resize-none rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none focus:border-[#F46717] transition-colors"
+                                            className="w-full resize-none rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none focus:border-[#F46717] focus:ring-1 focus:ring-[#F46717] transition-all duration-300"
                                         />
                                     </div>
 
-                                    {/* Attachment */}
-                                    <div>
-                                        <p className="text-sm text-white/55 mb-2">Attach a screenshot <span className="text-white/30">(optional)</span></p>
-                                        {attachment ? (
-                                            <div className="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-white/10 bg-white/4 w-fit">
-                                                <Paperclip size={14} className="text-[#F46717]" />
-                                                <span className="text-sm text-white/70 max-w-[200px] truncate">{attachment.name}</span>
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setAttachment(null)}
-                                                    className="text-white/30 hover:text-white transition-colors"
-                                                >
-                                                    <X size={14} />
-                                                </button>
-                                            </div>
-                                        ) : (
-                                            <button
-                                                type="button"
-                                                onClick={() => fileRef.current?.click()}
-                                                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-dashed border-white/15 text-sm text-white/40 hover:border-white/30 hover:text-white/60 transition-all"
-                                            >
-                                                <Upload size={14} />
-                                                Upload image
-                                            </button>
-                                        )}
-                                        <input
-                                            ref={fileRef}
-                                            type="file"
-                                            accept="image/*"
-                                            className="hidden"
-                                            onChange={handleFile}
-                                        />
-                                    </div>
+
 
                                     {errorMsg && (
                                         <p className="text-sm text-red-400 font-medium bg-red-400/10 border border-red-400/20 px-4 py-2.5 rounded-xl">
@@ -270,9 +240,9 @@ export default function FeedbackPage() {
                                             type="button"
                                             onClick={handleSubmit}
                                             disabled={!canSubmit}
-                                            className={`inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition-all ${
+                                            className={`inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition-all shadow-md ${
                                                 canSubmit
-                                                    ? "bg-[#F46717] text-white hover:bg-[#ff7d34] active:scale-95"
+                                                    ? "bg-[#F46717] text-white hover:bg-[#ff7d34] hover:shadow-[#F46717]/20 active:scale-95"
                                                     : "bg-white/5 text-white/25 cursor-not-allowed"
                                             }`}
                                         >
@@ -293,18 +263,45 @@ export default function FeedbackPage() {
                             )}
                         </div>
                     </div>
-
                     {/* Sidebar */}
                     <aside className="space-y-4">
                         {/* Stats row */}
                         <div className="grid grid-cols-2 gap-3">
                             {[
-                                { icon: Star, color: "text-yellow-300", iconBg: "bg-yellow-300/10", value: "4.8", label: "Avg rating" },
-                                { icon: Smile, color: "text-green-300", iconBg: "bg-green-300/10", value: "92%", label: "Happy users" },
-                                { icon: MessageSquare, color: "text-blue-300", iconBg: "bg-blue-300/10", value: "1.2k", label: "Total reviews" },
-                                { icon: CheckCircle, color: "text-[#F46717]", iconBg: "bg-[#F46717]/10", value: "87%", label: "Issues resolved" },
-                            ].map(({ icon: Icon, color, iconBg, value, label }) => (
-                                <div key={label} className="rounded-2xl border border-white/8 bg-[#111113] p-4">
+                                { 
+                                    icon: Star, 
+                                    color: "text-yellow-400", 
+                                    iconBg: "bg-yellow-400/10", 
+                                    value: "4.8", 
+                                    label: "Avg rating",
+                                    cardClass: "border-yellow-500/10 bg-yellow-500/[0.02] hover:border-yellow-500/30 hover:bg-yellow-500/[0.04]"
+                                },
+                                { 
+                                    icon: Smile, 
+                                    color: "text-green-400", 
+                                    iconBg: "bg-green-400/10", 
+                                    value: "92%", 
+                                    label: "Happy users",
+                                    cardClass: "border-green-500/10 bg-green-500/[0.02] hover:border-green-500/30 hover:bg-green-500/[0.04]"
+                                },
+                                { 
+                                    icon: MessageSquare, 
+                                    color: "text-blue-400", 
+                                    iconBg: "bg-blue-400/10", 
+                                    value: "1.2k", 
+                                    label: "Total reviews",
+                                    cardClass: "border-blue-500/10 bg-blue-500/[0.02] hover:border-blue-500/30 hover:bg-blue-500/[0.04]"
+                                },
+                                { 
+                                    icon: CheckCircle, 
+                                    color: "text-[#F46717]", 
+                                    iconBg: "bg-[#F46717]/10", 
+                                    value: "87%", 
+                                    label: "Issues resolved",
+                                    cardClass: "border-[#F46717]/10 bg-[#F46717]/[0.02] hover:border-[#F46717]/30 hover:bg-[#F46717]/[0.04]"
+                                },
+                            ].map(({ icon: Icon, color, iconBg, value, label, cardClass }) => (
+                                <div key={label} className={`rounded-2xl border p-4 hover:-translate-y-0.5 transition-all duration-300 cursor-default shadow-sm hover:shadow-md ${cardClass}`}>
                                     <div className={`w-8 h-8 rounded-lg ${iconBg} flex items-center justify-center mb-3`}>
                                         <Icon size={16} className={color} />
                                     </div>
@@ -315,26 +312,24 @@ export default function FeedbackPage() {
                         </div>
 
                         {/* Tips card */}
-                        <div className="rounded-2xl border border-white/8 bg-[#111113] p-5">
+                        <div className="rounded-2xl border border-white/8 bg-[#111113] p-5 hover:border-[#F46717]/20 hover:bg-white/[0.01] transition-all duration-300">
                             <div className="w-10 h-10 rounded-xl bg-[#F46717]/12 text-[#F46717] flex items-center justify-center mb-4">
                                 <MessageSquare size={18} />
                             </div>
-                            <h2 className="text-base font-semibold mb-2">What helps most?</h2>
-                            <ul className="space-y-2.5">
+                            <h2 className="text-base font-semibold mb-3">What helps most?</h2>
+                            <ul className="space-y-3">
                                 {[
                                     "Include the page or section you were on",
                                     "Mention your device or screen size",
                                     "Describe what you expected to happen",
                                 ].map((tip) => (
-                                    <li key={tip} className="flex items-start gap-2 text-sm text-white/50 leading-5">
-                                        <span className="mt-1.5 w-1 h-1 rounded-full bg-[#F46717]/50 shrink-0" />
-                                        {tip}
+                                    <li key={tip} className="flex items-start gap-2.5 text-sm text-white/50 leading-5">
+                                        <CheckCircle2 size={14} className="text-[#F46717] mt-0.5 shrink-0" />
+                                        <span>{tip}</span>
                                     </li>
                                 ))}
                             </ul>
                         </div>
-
-
                     </aside>
                 </div>
             </div>
