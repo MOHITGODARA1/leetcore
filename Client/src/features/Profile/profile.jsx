@@ -5,6 +5,7 @@ import Milestone from "./components/milestone";
 import ConsistencyBar from "./components/consistencybar";
 import ContestRating from "./components/contestrating";
 import Suggestion from "./components/suggestion";
+import RecentActivity from "./components/RecentActivity";
 import { useAuth } from "../../context/AuthContext";
 
 function Profile() {
@@ -84,6 +85,14 @@ function Profile() {
                     "
                 >
                     <ConsistencyBar userId={user?._id} />
+                </div>
+                <div
+                    className="
+                        w-full
+                        bg-white/8
+                    "
+                >
+                    <RecentActivity userId={user?._id} />
                 </div>
 
             </div>

@@ -122,9 +122,8 @@ export default function Calendar() {
                         <svg className="absolute w-full h-full text-[#b38f4f]/15" viewBox="0 0 100 100">
                             <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="currentColor" stroke="#b38f4f" strokeWidth="4" />
                         </svg>
-                        <div className="z-10 flex flex-col items-center justify-center text-center">
-                            <span className="text-[12px] font-bold text-[#e1b467] leading-none">{view.month + 1}</span>
-                            <span className="text-[7px] font-black text-[#e1b467] leading-none uppercase mt-0.5">{MONTHS_SHORT[view.month]}</span>
+                        <div className="z-10 flex items-center justify-center text-center">
+                            <span className="text-[11px] font-bold text-[#e1b467] leading-none uppercase tracking-wide">{MONTHS_SHORT[view.month]}</span>
                         </div>
                     </div>
 

@@ -482,4 +482,59 @@ router.post("/toggle-solve", authMiddleware, async (req, res) => {
     }
 });
 
+// Route to get recently solved problems
+router.get("/recent-solved", optionalAuth, async (req, res) => {
+    try {
+        const userId = req.user?.id || req.query.userId;
+        if (!userId) {
+            return res.status(401).json({ success: false, message: "User not logged in" });
+        }
+
+        const solvedList = await SolvedProblem.find({ userId })
+            .sort({ solvedAt: -1 })
+            .limit(10)
+            .lean();
+
+        const loadedQuestionsCache = {};
+        const getQuestionDetails = (topic, problemId) => {
+            const normTopic = normalizeTopicName(topic);
+            if (!normTopic) return null;
+            
+            if (!loadedQuestionsCache[normTopic]) {
+                const jsonPath = path.join(__dirname, "..", "data", "questions", `${normTopic}question.json`);
+                if (fs.existsSync(jsonPath)) {
+                    try {
+                        loadedQuestionsCache[normTopic] = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
+                    } catch (err) {
+                        console.error(`Error reading questions file for ${normTopic}:`, err);
+                        loadedQuestionsCache[normTopic] = [];
+                    }
+                } else {
+                    loadedQuestionsCache[normTopic] = [];
+                }
+            }
+            return loadedQuestionsCache[normTopic].find(q => q._id === problemId);
+        };
+
+        const recentSolved = solvedList.map(item => {
+            const qDetails = getQuestionDetails(item.topic, item.problemId);
+            return {
+                problemId: item.problemId,
+                title: qDetails?.title || "Unknown Problem",
+                topic: item.topic,
+                pattern: item.pattern,
+                solvedAt: item.solvedAt || item.createdAt
+            };
+        });
+
+        return res.status(200).json({
+            success: true,
+            recentSolved
+        });
+    } catch (error) {
+        console.error("Error in get recent-solved:", error);
+        return res.status(500).json({ success: false, message: "Internal server error" });
+    }
+});
+
 export default router;
