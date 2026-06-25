@@ -6,7 +6,8 @@ import {
     LogOut,
     Flag,
     MessageSquare,
-    HeartHandshake
+    HeartHandshake,
+    ChevronRight,
 
 } from "lucide-react";
 import logo from "../../../assets/Icons/Prefixlogo.png"
@@ -28,6 +29,9 @@ function DashLeftNavBar() {
     const menuRef = useRef(null);
 
     const { pathname } = useLocation();
+
+    const displayName = user?.name || user?.username || "User";
+    const displayEmail = user?.email || "No email added";
 
     useEffect(() => {
 
@@ -281,133 +285,189 @@ function DashLeftNavBar() {
 
                 </button>
 
-                {/* Dropdown Menu */}
-                {/* Dropdown Menu */}
                 {
                     showMenu && (
                         <div
                             className="
                 absolute
                 right-0
-                top-14
+                bottom-16
                 md:top-auto
-                md:bottom-16
-                md:left-14
+                md:bottom-0
+                md:left-[72px]
                 md:right-auto
-                w-52
-                rounded-2xl
-                bg-[#161616]
+                w-[min(calc(100vw-24px),280px)]
+                rounded-[14px]
+                bg-[#121214]/95
                 border
-                border-white/10
-                shadow-[0_24px_70px_rgba(0,0,0,0.4)]
+                border-white/[0.12]
+                shadow-[0_24px_80px_rgba(0,0,0,0.62)]
                 z-50
                 overflow-hidden
                 backdrop-blur-xl
             "
                         >
-
-                            {/* Profile */}
-                            <Link
-                                to="/dashboard/profile"
+                            <div
                                 className="
-                    w-full
-                    flex
-                    items-center
-                    gap-3
-                    px-4
-                    py-3
-                    text-sm
-                    text-white
-                    hover:bg-white/5
-                    transition-colors
-                "
-                            >
-                                <User size={18} />
-                                Profile
-                            </Link>
+                                    pointer-events-none
+                                    absolute
+                                    inset-0
+                                    bg-[radial-gradient(circle_at_28%_18%,rgba(244,103,23,0.14),transparent_34%),radial-gradient(circle_at_55%_55%,rgba(255,255,255,0.08),transparent_20%)]
+                                "
+                            />
 
-                            {/* Feedback */}
-                            <Link
-                                to="/dashboard/feedback"
-                                className="
-                    w-full
-                    flex
-                    items-center
-                    gap-3
-                    px-4
-                    py-3
-                    text-sm
-                    text-white
-                    hover:bg-white/5
-                    transition-colors
-                "
-                            >
-                                <MessageSquare size={18} />
-                                Feedback
-                            </Link>
+                            <div className="relative">
+                                <div className="flex items-center gap-4 px-5 py-5 border-b border-white/10">
+                                    <div
+                                        className="
+                                            w-9
+                                            h-9
+                                            rounded-full
+                                            bg-[#4A4A56]
+                                            border-[3px]
+                                            border-white/10
+                                            flex
+                                            items-center
+                                            justify-center
+                                            overflow-hidden
+                                            shrink-0
+                                        "
+                                    >
+                                        {user?.avatar ? (
+                                            <img
+                                                src={user.avatar}
+                                                alt={displayName}
+                                                className="w-10 h-10 object-cover"
+                                            />
+                                        ) : (
+                                            <User size={28} className="text-gray-200" />
+                                        )}
+                                    </div>
 
-                            {/* Report Bug */}
-                            <Link
-                                to="/dashboard/reportbug"
-                                className="
-                    w-full
-                    flex
-                    items-center
-                    gap-3
-                    px-4
-                    py-3
-                    text-sm
-                    text-white
-                    hover:bg-white/5
-                    transition-colors
-                "
-                            >
-                                <Flag size={18} />
-                                Report Bug
-                            </Link>
+                                    <div className="min-w-0">
+                                        <p className="text-md font-semibold text-white truncate">
+                                            {displayName}
+                                        </p>
+                                        <p className="text-xs text-gray-400 truncate">
+                                            {displayEmail}
+                                        </p>
+                                    </div>
+                                </div>
 
-                            {/* Become Sponsor */}
-                            <Link
-                                to="/dashboard/become-sponsor"
-                                className="
-                    w-full
-                    flex
-                    items-center
-                    gap-3
-                    px-4
-                    py-3
-                    text-sm
-                    text-white
-                    hover:bg-white/5
-                    transition-colors
-                "
-                            >
-                                <HeartHandshake size={18} />
-                                Become Sponsor
-                            </Link>
+                                <div className="py-3">
+                                    <Link
+                                        to="/dashboard/profile"
+                                        onClick={() => setShowMenu(false)}
+                                        className="
+                                            group
+                                            w-full
+                                            flex
+                                            items-center
+                                            gap-4
+                                            px-6
+                                            py-2
+                                            text-[14px]
+                                            font-medium
+                                            text-white
+                                            hover:bg-white/[0.06]
+                                            transition-colors
+                                        "
+                                    >
+                                        <User size={20} className="text-gray-300 group-hover:text-white" />
+                                        <span className="flex-1">My Profile</span>
+                                    </Link>
 
-                            {/* Divider */}
-                            <div className="h-[1px] bg-white/10" />
+                                    <Link
+                                        to="/dashboard/feedback"
+                                        onClick={() => setShowMenu(false)}
+                                        className="
+                                            group
+                                            w-full
+                                            flex
+                                            items-center
+                                            gap-4
+                                            px-6
+                                            py-2
+                                            text-[14px]
+                                            font-medium
+                                            text-white
+                                            hover:bg-white/[0.06]
+                                            transition-colors
+                                        "
+                                    >
+                                        <MessageSquare size={20} className="text-gray-300 group-hover:text-white" />
+                                        <span className="flex-1">Feedback</span>
+                                    </Link>
 
-                            {/* Logout */}
-                            <button
-                                onClick={logout}
-                                className="
-                    w-full
-                    flex
-                    items-center
-                    gap-3
-                    px-4
-                    py-3
-                    text-sm
-                    text-red-400
-                    hover:bg-red-500/10
-                    transition-colors
-                "
-                            >
-                                <LogOut size={18} />
-                                Logout
-                            </button>
+                                    <Link
+                                        to="/dashboard/reportbug"
+                                        onClick={() => setShowMenu(false)}
+                                        className="
+                                            group
+                                            w-full
+                                            flex
+                                            items-center
+                                            gap-4
+                                            px-6
+                                            py-2
+                                            text-[14px]
+                                            font-medium
+                                            text-white
+                                            hover:bg-white/[0.06]
+                                            transition-colors
+                                        "
+                                    >
+                                        <Flag size={20} className="text-gray-300 group-hover:text-white" />
+                                        <span className="flex-1">Bug Report</span>
+                                    </Link>
+
+                                    <Link
+                                        to="/dashboard/become-sponsor"
+                                        onClick={() => setShowMenu(false)}
+                                        className="
+                                            group
+                                            w-full
+                                            flex
+                                            items-center
+                                            gap-4
+                                            px-6
+                                            py-2
+                                            text-[14px]
+                                            font-medium
+                                            text-white
+                                            hover:bg-white/[0.06]
+                                            transition-colors
+                                        "
+                                    >
+                                        <HeartHandshake size={20} className="text-gray-300 group-hover:text-white" />
+                                        <span className="flex-1">Become Sponsor</span>
+                                        <ChevronRight size={19} className="text-gray-500 group-hover:text-gray-300" />
+                                    </Link>
+                                </div>
+
+                                <div className="border-t border-white/10 p-3">
+                                    <button
+                                        onClick={logout}
+                                        className="
+                                            w-full
+                                            flex
+                                            items-center
+                                            gap-4
+                                            rounded-xl
+                                            px-3
+                                            py-1
+                                            text-[14px]
+                                            font-medium
+                                            text-red-400
+                                            hover:bg-red-500/10
+                                            transition-colors
+                                        "
+                                    >
+                                        <LogOut size={20} />
+                                        <span>Logout</span>
+                                    </button>
+                                </div>
+                            </div>
 
                         </div>
                     )

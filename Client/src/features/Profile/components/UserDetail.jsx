@@ -1,4 +1,5 @@
-import { CalendarDays, ExternalLink, Mail, MapPin, Trophy, User } from "lucide-react";
+import { CalendarDays, Mail, MapPin, User } from "lucide-react";
+import { FiGithub } from "react-icons/fi";
 import { useAuth } from "../../../context/AuthContext";
 import { useDashboardStats } from "../../gamification/hooks/useDashboardStats";
 
@@ -16,93 +17,97 @@ function UserDetail() {
         : "This season";
 
     const profileStats = data?.stats || user?.stats || {};
-    const stats = [
-        { label: "Problems", value: profileStats.totalProblemsSolved || 0 },
-        { label: "Streak", value: `${profileStats.currentStreak || 0}d` },
-        { label: "Level", value: data?.stats?.level || user?.level || 1 },
-    ];
-
+    const totalSolved = profileStats.totalProblemsSolved || 0;
+    const currentStreak = profileStats.currentStreak || 0;
+    const level = data?.stats?.level || user?.level || 1;
+    const xp = data?.stats?.xp || user?.xp || 0;
 
     return (
-
-        <div
-            className="
-                h-full
-                flex
-                flex-col
-                p-5
-                sm:p-6
-                relative
-                text-white
-            "
-        >
-            <div className="flex flex-col items-center text-center">
-                <div className="relative">
-                    <div className="w-24 h-24 rounded-3xl bg-[#1f1f22] border border-white/10 overflow-hidden flex items-center justify-center">
-                        {user?.avatar ? (
-                            <img src={user.avatar} alt={displayName} className="w-full h-full object-cover" />
-                        ) : (
-                            <User size={42} className="text-white/60" />
-                        )}
-                    </div>
-                    <div className="absolute -bottom-2 -right-2 w-9 h-9 rounded-2xl bg-[#F46717] border-4 border-[#101011] flex items-center justify-center">
-                        <Trophy size={16} />
-                    </div>
+        <div className="h-full flex flex-col p-6 text-white font-sans">
+            {/* User Identity Section */}
+            <div className="flex items-center gap-4">
+                <div className="w-21 h-21 rounded-lg bg-neutral-900 border border-white/10 overflow-hidden flex items-center justify-center flex-shrink-0">
+                    {user?.avatar ? (
+                        <img src={user.avatar} alt={displayName} className="w-full h-full object-cover" />
+                    ) : (
+                        <User size={28} className="text-neutral-400" />
+                    )}
                 </div>
-
-                <h1 className="mt-5 text-2xl font-semibold leading-tight break-words max-w-full">
-                    {displayName}
-                </h1>
-                <p className="mt-1 text-sm text-white/50 break-all">{username}</p>
-
-                {user?.bio ? (
-                    <p className="mt-4 text-sm leading-6 text-white/65">{user.bio}</p>
-                ) : (
-                    <p className="mt-4 text-sm leading-6 text-white/65">
-                        Building interview confidence one focused practice session at a time.
+                
+                <div className="flex-1 min-w-0">
+                    <h1 className="text-xl font-semibold text-neutral-100 truncate leading-tight" title={displayName}>
+                        {displayName}
+                    </h1>
+                    <p className="text-xs text-neutral-400 truncate mt-1" title={username}>
+                        {username}
                     </p>
-                )}
-            </div>
-
-            <div className="grid grid-cols-3 gap-2 my-6">
-                {stats.map((item) => (
-                    <div key={item.label} className="rounded-2xl border border-white/8 bg-white/6 p-3 text-center">
-                        <p className="text-base font-semibold">{item.value}</p>
-                        <p className="mt-1 text-[11px] text-white/45">{item.label}</p>
+                    <div className="flex items-center gap-2 mt-2">
+                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#F46717]/10 text-[#F46717] border border-[#F46717]/20 uppercase tracking-wider">
+                            Level {level}
+                        </span>
+                        <span className="text-[9px] text-neutral-500 font-medium">
+                            {xp} XP
+                        </span>
                     </div>
-                ))}
-            </div>
-
-            <div className="space-y-3 text-sm text-white/65">
-                <div className="flex items-center gap-3 rounded-2xl bg-white/5 px-4 py-3">
-                    <Mail size={16} className="text-[#F46717] flex-shrink-0" />
-                    <span className="truncate">{user?.email || "No email connected"}</span>
-                </div>
-                <div className="flex items-center gap-3 rounded-2xl bg-white/5 px-4 py-3">
-                    <CalendarDays size={16} className="text-[#F46717] flex-shrink-0" />
-                    <span>Joined {joined}</span>
-                </div>
-                <div className="flex items-center gap-3 rounded-2xl bg-white/5 px-4 py-3">
-                    <MapPin size={16} className="text-[#F46717] flex-shrink-0" />
-                    <span>India Standard Time</span>
                 </div>
             </div>
 
+            {/* GitHub Profile Link as LeetCode-style Button */}
             {user?.profileUrl && (
                 <a
                     href={user.profileUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-6 inline-flex items-center justify-center gap-2 rounded-2xl bg-white text-black px-4 py-3 text-sm font-semibold transition hover:bg-white/90"
+                    className="mt-9 flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-lg border border-white/10 bg-white/5 text-neutral-200 text-xs font-semibold hover:bg-white/10 hover:text-white transition-all duration-200 cursor-pointer"
                 >
-                    View GitHub
-                    <ExternalLink size={16} />
+                    <FiGithub size={13} className="opacity-80" />
+                    <span>GitHub Profile</span>
                 </a>
             )}
 
+            {/* Bio Section */}
+            <div className="mt-5">
+                {user?.bio ? (
+                    <p className="text-sm leading-relaxed text-neutral-400 break-words">{user.bio}</p>
+                ) : (
+                    <p className="text-xs leading-relaxed text-neutral-500 italic">
+                        Building interview confidence one focused practice session at a time.
+                    </p>
+                )}
+            </div>
 
+            {/* Stats Summary Line */}
+            <div className="grid grid-cols-3 gap-3 border-t border-white/5 pt-4 mt-4 text-center">
+                <div className="text-left">
+                    <div className="text-sm font-semibold text-white">{totalSolved}</div>
+                    <div className="text-[9px] uppercase tracking-wider text-neutral-500 font-semibold mt-0.5">Solved</div>
+                </div>
+                <div className="text-left">
+                    <div className="text-sm font-semibold text-white">{currentStreak}d</div>
+                    <div className="text-[9px] uppercase tracking-wider text-neutral-500 font-semibold mt-0.5">Streak</div>
+                </div>
+                <div className="text-left">
+                    <div className="text-sm font-semibold text-white">{level}</div>
+                    <div className="text-[9px] uppercase tracking-wider text-neutral-500 font-semibold mt-0.5">Level</div>
+                </div>
+            </div>
+
+            {/* Info List */}
+            <div className="mt-5 pt-4 border-t border-white/5 space-y-3">
+                <div className="flex items-center gap-2.5 text-xs text-neutral-400">
+                    <Mail size={14} className="text-neutral-500 flex-shrink-0" />
+                    <span className="truncate text-neutral-300" title={user?.email}>{user?.email || "No email connected"}</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-xs text-neutral-400">
+                    <CalendarDays size={14} className="text-neutral-500 flex-shrink-0" />
+                    <span className="text-neutral-300">Joined {joined}</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-xs text-neutral-400">
+                    <MapPin size={14} className="text-neutral-500 flex-shrink-0" />
+                    <span className="text-neutral-300">India Standard Time</span>
+                </div>
+            </div>
         </div>
-
     );
 }
 

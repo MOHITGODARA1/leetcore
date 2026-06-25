@@ -60,6 +60,7 @@ function Profile() {
                        lg:w-[280px]
                        2xl:w-[320px]
                        h-fit
+                       lg:h-full
                         rounded-2xl
                         md:rounded-3xl
                         border
