@@ -19,6 +19,6 @@ router.get("/auth/github/callback", registerUser);
 
 router.post("/auth/logout", logoutUser);
 
-router.get("/auth/me", authMiddleware, currentUserRateLimiter, getCurrentUser);
+router.get("/auth/me", currentUserRateLimiter, authMiddleware, getCurrentUser);
 
 export default router;
