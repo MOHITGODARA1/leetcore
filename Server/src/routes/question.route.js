@@ -13,6 +13,15 @@ import { toDateKey, getRangeBounds, getYesterdayKey } from "../utils/date.utils.
 import { calculateDailyConsistencyScore, getNextStreak, calculateLevel } from "../utils/gamification.utils.js";
 
 const router = express.Router();
+
+const progressRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // limit each IP to 100 requests per window
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { success: false, message: "Too many requests, please try again later." }
+});
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -246,7 +255,7 @@ router.get("/patterns", optionalAuth, async (req, res) => {
 });
 
 // Route to get topic progress for profile dashboard
-router.get("/progress", optionalAuth, async (req, res) => {
+router.get("/progress", progressRateLimiter, optionalAuth, async (req, res) => {
     try {
         const userId = req.user?.id;
 
