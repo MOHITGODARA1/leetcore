@@ -341,7 +341,12 @@ router.get("/", optionalAuth, async (req, res) => {
 
         const normalizedTopic = normalizeTopicName(topic);
         const normalizedPattern = normalizePatternSlug(pattern);
-        const jsonPath = path.join(__dirname, "..", "data", "questions", `${normalizedTopic}question.json`);
+        const baseQuestionsDir = path.resolve(__dirname, "..", "data", "questions");
+        const jsonPath = path.resolve(baseQuestionsDir, `${normalizedTopic}question.json`);
+
+        if (jsonPath !== baseQuestionsDir && !jsonPath.startsWith(baseQuestionsDir + path.sep)) {
+            return res.status(403).json({ success: false, message: "Invalid topic path" });
+        }
 
         if (!fs.existsSync(jsonPath)) {
             return res.status(200).json({ success: true, questions: [] });
