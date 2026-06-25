@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import jwt from "jsonwebtoken";
+import rateLimit from "express-rate-limit";
 import authMiddleware from "../middleware/auth.middleware.js";
 import SolvedProblem from "../models/SolvedProblem.models.js";
 import User from "../models/User.models.js";
@@ -44,6 +45,14 @@ const optionalAuth = async (req, res, next) => {
     }
     next();
 };
+
+const recommendationLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 100,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { success: false, message: "Too many requests, please try again later." },
+});
 
 const patternMetadata = {
     "two-pointers": {
@@ -543,7 +552,7 @@ router.get("/recent-solved", optionalAuth, async (req, res) => {
 });
 
 // Route to get next recommended question
-router.get("/recommendation", optionalAuth, async (req, res) => {
+router.get("/recommendation", recommendationLimiter, optionalAuth, async (req, res) => {
     try {
         const userId = req.user?.id ?? req.query.userId;
         if (!userId) {
