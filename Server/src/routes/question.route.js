@@ -545,12 +545,15 @@ router.get("/recent-solved", optionalAuth, async (req, res) => {
 // Route to get next recommended question
 router.get("/recommendation", optionalAuth, async (req, res) => {
     try {
-        const userId = req.user?.id || req.query.userId;
+        const userId = req.user?.id ?? req.query.userId;
         if (!userId) {
             return res.status(401).json({ success: false, message: "User not logged in" });
         }
+        if (typeof userId !== "string") {
+            return res.status(400).json({ success: false, message: "Invalid userId" });
+        }
 
-        const lastSolved = await SolvedProblem.findOne({ userId })
+        const lastSolved = await SolvedProblem.findOne({ userId: { $eq: userId } })
             .sort({ solvedAt: -1, createdAt: -1 })
             .lean();
 
@@ -639,7 +642,7 @@ router.get("/recommendation", optionalAuth, async (req, res) => {
                     for (let i = 0; i <= currentTopicIdx; i++) {
                         const nextTopic = topicsOrder[i];
                         const nextQuestions = loadQuestions(nextTopic);
-                        const solvedList = await SolvedProblem.find({ userId, topic: nextTopic }).select("problemId").lean();
+                        const solvedList = await SolvedProblem.find({ userId: { $eq: userId }, topic: nextTopic }).select("problemId").lean();
                         const solvedSet = new Set(solvedList.map(p => p.problemId));
 
                         const unsolved = nextQuestions.find(q => !solvedSet.has(q._id));
