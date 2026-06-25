@@ -40,7 +40,8 @@ const sanitizeActivityPayload = (body = {}) => {
 };
 
 export const markDailyActivity = asyncHandler(async (req, res) => {
-    const userId = req.body.userId || req.user?.id;
+    const userIdCandidate = req.user?.id ?? req.body.userId;
+    const userId = typeof userIdCandidate === "string" ? userIdCandidate : null;
     const date = req.body.date ? toDateKey(req.body.date) : toDateKey();
 
     if (!userId) {
