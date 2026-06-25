@@ -41,6 +41,29 @@ function normalizePatternSlug(pattern) {
         .replace(/^-+|-+$/g, "");
 }
 
+const ALLOWED_TOPIC_FILE_PREFIXES = new Set([
+    "array",
+    "string",
+    "linkedlist",
+    "stack",
+    "queue",
+    "tree",
+    "graph",
+    "heap",
+    "hashing",
+    "recursion",
+    "backtracking",
+    "dynamicprogramming",
+    "greedy",
+    "binarysearch",
+    "slidingwindow",
+    "twopointers",
+    "bitmanipulation",
+    "trie",
+    "segmenttree",
+    "disjointset"
+]);
+
 // Optional Auth Middleware to grab user ID if logged in
 const optionalAuth = async (req, res, next) => {
     try {
@@ -109,6 +132,10 @@ async function checkAndAwardBadges(user, topic, pattern) {
 
     // 1. Check Topic Completion Badge
     try {
+        if (!normalizedTopic || !ALLOWED_TOPIC_FILE_PREFIXES.has(normalizedTopic)) {
+            return;
+        }
+
         const jsonPath = path.join(__dirname, "..", "data", "questions", `${normalizedTopic}question.json`);
         if (fs.existsSync(jsonPath)) {
             const totalCount = JSON.parse(fs.readFileSync(jsonPath, "utf-8")).length;
