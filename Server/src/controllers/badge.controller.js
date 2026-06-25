@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Badge from "../models/Badge.models.js";
 import User from "../models/User.models.js";
 import ApiError from "../utils/ApiError.js";
@@ -59,6 +60,15 @@ export const awardBadgeToUser = asyncHandler(async (req, res) => {
 
     if (!userId || !badgeId) {
         throw new ApiError(400, "userId and badgeId are required");
+    }
+
+    if (
+        typeof userId !== "string" ||
+        typeof badgeId !== "string" ||
+        !mongoose.Types.ObjectId.isValid(userId) ||
+        !mongoose.Types.ObjectId.isValid(badgeId)
+    ) {
+        throw new ApiError(400, "Invalid userId or badgeId");
     }
 
     const [badge, user] = await Promise.all([
