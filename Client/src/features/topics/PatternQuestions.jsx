@@ -74,7 +74,7 @@ function PatternQuestions() {
     return () => {
       isMounted = false;
     };
-  }, [topicName, patternName]);
+  }, [topicName, patternName, user?._id]);
 
   const handleToggleSolve = async (problemId) => {
     if (!user) {

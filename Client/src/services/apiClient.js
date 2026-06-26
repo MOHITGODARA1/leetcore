@@ -12,6 +12,7 @@ const apiClient = axios.create({
 });
 
 let csrfToken = null;
+let csrfTokenPromise = null;
 
 apiClient.interceptors.request.use(async (config) => {
     // 1. Attach Auth Token
@@ -24,12 +25,21 @@ apiClient.interceptors.request.use(async (config) => {
     const method = config.method ? config.method.toLowerCase() : "";
     if (["post", "put", "delete", "patch"].includes(method)) {
         if (!csrfToken) {
-            try {
+            if (!csrfTokenPromise) {
                 // Fetch CSRF token using standard axios to avoid request interceptor recursion
-                const response = await axios.get(`${apiUrl}/api/v1/csrf-token`, {
+                csrfTokenPromise = axios.get(`${apiUrl}/api/v1/csrf-token`, {
                     withCredentials: true
+                }).then(response => {
+                    csrfToken = response.data.csrfToken;
+                    csrfTokenPromise = null;
+                    return csrfToken;
+                }).catch(err => {
+                    csrfTokenPromise = null;
+                    throw err;
                 });
-                csrfToken = response.data.csrfToken;
+            }
+            try {
+                await csrfTokenPromise;
             } catch (err) {
                 console.error("Failed to fetch CSRF token on mutating request:", err);
             }
@@ -50,6 +60,7 @@ apiClient.interceptors.response.use(
     async (error) => {
         if (error.response && error.response.status === 403) {
             csrfToken = null;
+            csrfTokenPromise = null;
         }
         return Promise.reject(error);
     }

@@ -55,9 +55,23 @@ function BadgeEarnedPopup({ badge, onClose }) {
     const IconComp = ICON_MAPPING[badge?.slug] || Award;
     const gradientClass = GRADIENT_MAPPING[badge?.slug] || "from-orange-500/20 to-amber-500/10 border-orange-500/30 text-orange-400";
 
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") onClose();
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [onClose]);
+
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md px-4 animate-fade-in">
-            <div className="relative w-full max-w-md rounded-2xl border border-white/[0.08] bg-[#0c0c0e]/95 p-6 text-white shadow-2xl text-center overflow-hidden animate-scale-in">
+        <div 
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md px-4 animate-fade-in"
+            onClick={onClose}
+        >
+            <div 
+                className="relative w-full max-w-md rounded-2xl border border-white/[0.08] bg-[#0c0c0e]/95 p-6 text-white shadow-2xl text-center overflow-hidden animate-scale-in"
+                onClick={(e) => e.stopPropagation()}
+            >
                 {/* Sparkle backgrounds */}
                 <div className="absolute -top-10 -left-10 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
                 <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none" />

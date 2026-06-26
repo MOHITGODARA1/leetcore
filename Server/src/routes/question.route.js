@@ -577,26 +577,53 @@ router.post("/toggle-solve", authMiddleware, async (req, res) => {
             ? getNextStreak(user.stats?.lastActiveDate, user.stats?.currentStreak, date)
             : user.stats?.currentStreak || existingActivity?.streakCount || 0;
 
-        const activity = await UserActivity.findOneAndUpdate(
-            { userId, date },
-            {
-                $set: {
-                    active: true,
-                    problemsSolved: nextProblemsSolved,
-                    streakCount: nextStreak,
-                    consistencyScore,
-                    completionRate: consistencyScore
+        let activity;
+        try {
+            activity = await UserActivity.findOneAndUpdate(
+                { userId, date },
+                {
+                    $set: {
+                        active: true,
+                        problemsSolved: nextProblemsSolved,
+                        streakCount: nextStreak,
+                        consistencyScore,
+                        completionRate: consistencyScore
+                    },
+                    $inc: {
+                        xpEarned: xpDelta
+                    }
                 },
-                $inc: {
-                    xpEarned: xpDelta
+                {
+                    new: true,
+                    upsert: true,
+                    setDefaultsOnInsert: true
                 }
-            },
-            {
-                new: true,
-                upsert: true,
-                setDefaultsOnInsert: true
+            );
+        } catch (updateError) {
+            if (updateError.code === 11000) {
+                // Gracefully handle compound index duplicate key error on concurrent upsert operations
+                activity = await UserActivity.findOneAndUpdate(
+                    { userId, date },
+                    {
+                        $set: {
+                            active: true,
+                            problemsSolved: nextProblemsSolved,
+                            streakCount: nextStreak,
+                            consistencyScore,
+                            completionRate: consistencyScore
+                        },
+                        $inc: {
+                            xpEarned: xpDelta
+                        }
+                    },
+                    {
+                        new: true
+                    }
+                );
+            } else {
+                throw updateError;
             }
-        );
+        }
 
         if (wasNewActiveDay) {
             user.stats.totalActiveDays += 1;
@@ -658,6 +685,9 @@ router.get("/recent-solved", recentSolvedLimiter, optionalAuth, async (req, res)
         const userId = req.user?.id || req.query.userId;
         if (!userId) {
             return res.status(401).json({ success: false, message: "User not logged in" });
+        }
+        if (typeof userId !== "string") {
+            return res.status(400).json({ success: false, message: "Invalid userId" });
         }
 
         const all = req.query.all === "true";

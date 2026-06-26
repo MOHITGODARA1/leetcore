@@ -26,7 +26,7 @@ function UserDetail() {
         <div className="h-full flex flex-col p-6 text-white font-sans">
             {/* User Identity Section */}
             <div className="flex items-center gap-4">
-                <div className="w-21 h-21 rounded-lg bg-neutral-900 border border-white/10 overflow-hidden flex items-center justify-center flex-shrink-0">
+                <div className="w-20 h-20 rounded-lg bg-neutral-900 border border-white/10 overflow-hidden flex items-center justify-center flex-shrink-0">
                     {user?.avatar ? (
                         <img src={user.avatar} alt={displayName} className="w-full h-full object-cover" />
                     ) : (

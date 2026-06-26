@@ -1,6 +1,15 @@
 import { X } from "lucide-react";
+import { useEffect } from "react";
 
 function BadgeModal({ badge, onClose }) {
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") onClose();
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [onClose]);
+
     if (!badge) {
         return null;
     }

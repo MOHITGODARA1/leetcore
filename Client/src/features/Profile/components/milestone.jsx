@@ -6,7 +6,6 @@ import {
     Code, Type, Link as LinkIcon, Layers, ListCollapse, GitFork, Network
 } from "lucide-react";
 import { useAuth } from "../../../context/AuthContext";
-import { badgeService } from "../../../services/badgeService";
 import BadgeModal from "../../gamification/components/BadgeModal";
 import { createPortal } from "react-dom";
 import { useDashboardStats } from "../../gamification/hooks/useDashboardStats";
@@ -232,37 +231,21 @@ const PREDEFINED_ACHIEVEMENTS = [
 function Milestone({ progressData, loading: progressLoading }) {
     const { user } = useAuth();
     const { data: dashboardData } = useDashboardStats(user?._id);
-    const [userBadges, setUserBadges] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [selectedBadge, setSelectedBadge] = useState(null);
     const [showGallery, setShowGallery] = useState(false);
 
     useEffect(() => {
-        if (!user?._id) return;
-        let isMounted = true;
-        setLoading(true);
-
-        badgeService.getUserBadges(user._id)
-            .then(res => {
-                if (isMounted) {
-                    setUserBadges(res.data.badges || []);
-                }
-            })
-            .catch(err => {
-                console.error("Failed to load user badges:", err);
-            })
-            .finally(() => {
-                if (isMounted) {
-                    setLoading(false);
-                }
-            });
-
-        return () => {
-            isMounted = false;
+        if (!showGallery) return;
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") {
+                setShowGallery(false);
+            }
         };
-    }, [user?._id]);
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [showGallery]);
 
-    if (loading || progressLoading) {
+    if (progressLoading) {
         return (
             <div className="w-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 text-white flex flex-col items-center justify-center min-h-[140px] shadow-lg animate-pulse">
                 <Loader2 className="w-5 h-5 text-orange-500 animate-spin" />
@@ -288,7 +271,7 @@ function Milestone({ progressData, loading: progressLoading }) {
 
     // Resolve lock status for each badge
     const earnedSlugs = new Set();
-    const activeBadgesList = user?.badges || userBadges || [];
+    const activeBadgesList = user?.badges || [];
     activeBadgesList.forEach(ub => {
         const badge = ub.badgeId || ub;
         if (badge.slug) earnedSlugs.add(badge.slug);

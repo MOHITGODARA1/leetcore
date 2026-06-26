@@ -5,6 +5,8 @@ import {
     useEffect,
     useState,
     useRef,
+    useCallback,
+    useMemo,
 } from "react";
 import { createPortal } from "react-dom";
 
@@ -160,11 +162,11 @@ export const AuthProvider = ({ children }) => {
 
     }, [user, user?.badges, user?.level]);
 
-    const handleCloseBadge = () => {
+    const handleCloseBadge = useCallback(() => {
         setBadgeQueue(prev => prev.slice(1));
-    };
+    }, []);
 
-    const logout = async () => {
+    const logout = useCallback(async () => {
         try {
             await apiClient.post("/auth/logout");
         } catch (error) {
@@ -174,17 +176,17 @@ export const AuthProvider = ({ children }) => {
             setUser(null);
             window.location.assign("/");
         }
-    };
+    }, []);
+
+    const contextValue = useMemo(() => ({
+        user,
+        setUser,
+        loading,
+        logout,
+    }), [user, loading, logout]);
 
     return (
-        <AuthContext.Provider
-            value={{
-                user,
-                setUser,
-                loading,
-                logout,
-            }}
-        >
+        <AuthContext.Provider value={contextValue}>
             {children}
             {newLevel && createPortal(
                 <LevelUpPopup

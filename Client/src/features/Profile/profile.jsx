@@ -38,7 +38,7 @@ function Profile() {
         return () => {
             isMounted = false;
         };
-    }, [user]);
+    }, [user?._id]);
 
     return (
         <div

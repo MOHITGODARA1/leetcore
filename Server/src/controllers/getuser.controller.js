@@ -18,9 +18,12 @@ const getCurrentUser = async (req, res) => {
         // Recalculate actual solved count and level to sync database state
         const actualSolvedCount = await SolvedProblem.countDocuments({ userId: user._id });
         if (user.stats) {
-            user.stats.totalProblemsSolved = actualSolvedCount;
-            user.level = calculateLevel(user.xp, actualSolvedCount);
-            await user.save();
+            const calculatedLevel = calculateLevel(user.xp, actualSolvedCount);
+            if (user.stats.totalProblemsSolved !== actualSolvedCount || user.level !== calculatedLevel) {
+                user.stats.totalProblemsSolved = actualSolvedCount;
+                user.level = calculatedLevel;
+                await user.save();
+            }
         }
 
         await user.populate("badges.badgeId");
