@@ -15,6 +15,17 @@ import { calculateDailyConsistencyScore, getNextStreak, calculateLevel } from ".
 
 const router = express.Router();
 
+const submitSolutionLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 30, // limit each IP to 30 submit attempts per window
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+        success: false,
+        message: "Too many submission requests. Please try again later."
+    }
+});
+
 const progressRateLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100, // limit each IP to 100 requests per window
@@ -648,7 +659,7 @@ router.get("/detail/:problemId", optionalAuth, async (req, res) => {
 });
 
 // Route to submit a notepad solution to the user's GitHub repository
-router.post("/submit-solution", authMiddleware, async (req, res) => {
+router.post("/submit-solution", submitSolutionLimiter, authMiddleware, async (req, res) => {
     try {
         const { problemId, topic, solution } = req.body;
         const userId = req.user.id;
