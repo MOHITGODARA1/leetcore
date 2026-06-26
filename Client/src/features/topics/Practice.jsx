@@ -1,8 +1,6 @@
-import { useParams, Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
+import { useParams } from "react-router-dom";
 import DashLeftNavBar from "../dashboard/components/dashleftnavbar";
-import Patterns from "./pattern";
-import Heading from "./heading";
+import PatternQuestions from "./PatternQuestions";
 
 function Practice() {
     const { topic } = useParams();
@@ -52,23 +50,8 @@ function Practice() {
                     gap-6
                 "
             >
-                {/* Navigation Breadcrumb */}
-                <div className="flex items-center gap-2 text-xs text-white/50 font-medium select-none">
-                    <Link
-                        to="/dashboard"
-                        className="hover:text-orange-400 transition-colors"
-                    >
-                        DSA
-                    </Link>
-                    <ChevronRight size={12} />
-                    <span className="text-orange-300">{topicName}</span>
-                </div>
-                
                 <div>
-                    <Heading />
-                </div>
-                <div>
-                    <Patterns topicName={topicName} />
+                    <PatternQuestions embedded topicNameOverride={topicName} />
                 </div>
             </main>
         </div>

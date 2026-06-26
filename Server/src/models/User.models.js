@@ -47,6 +47,11 @@ const UserSchema = new mongoose.Schema(
             type: String,
             default: "",
         },
+        githubAccessToken: {
+            type: String,
+            default: "",
+            select: false,
+        },
         bio: {
             type: String,
             default: "",

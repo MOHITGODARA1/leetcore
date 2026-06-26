@@ -22,6 +22,8 @@ const allowedOrigins = [
     process.env.CLIENT_URL,
 ].filter(Boolean);
 
+const isProductionLike = process.env.NODE_ENV === "production" || process.env.CLIENT_URL?.startsWith("https://");
+
 app.use(cors({
     origin(origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
@@ -37,8 +39,8 @@ app.use(express.json());
 const csrfProtection = csurf({
     cookie: {
         httpOnly: true,
-        sameSite: "lax",
-        secure: process.env.NODE_ENV === "production",
+        sameSite: isProductionLike ? "none" : "lax",
+        secure: isProductionLike,
     },
 });
 

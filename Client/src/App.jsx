@@ -11,6 +11,7 @@ import ContestPage from "./features/dashboard/contest";
 import Docomentation from "./features/topics/Docomentation";
 import Practice from "./features/topics/Practice";
 import PatternQuestions from "./features/topics/PatternQuestions";
+import ProblemDetail from "./features/topics/ProblemDetail";
 
 /*  Main App */
 function App() {
@@ -96,6 +97,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Practice />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/dsa/Practice/:topic/problem/:problemId"
+          element={
+            <ProtectedRoute>
+              <ProblemDetail />
             </ProtectedRoute>
           }
         />

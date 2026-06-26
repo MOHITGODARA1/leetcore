@@ -1,5 +1,5 @@
 const errorMiddleware = (error, req, res, next) => {
-    const statusCode = error.statusCode || 500;
+    const statusCode = error.statusCode || error.status || 500;
 
     if (process.env.NODE_ENV !== "test") {
         console.error(error);
@@ -7,7 +7,10 @@ const errorMiddleware = (error, req, res, next) => {
 
     return res.status(statusCode).json({
         success: false,
-        message: error.message || "Internal server error",
+        message: error.code === "EBADCSRFTOKEN"
+            ? "Security token expired. Please refresh and try again."
+            : error.message || "Internal server error",
+        ...(error.code ? { code: error.code } : {}),
         ...(error.details ? { details: error.details } : {}),
     });
 };

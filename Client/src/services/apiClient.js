@@ -14,6 +14,23 @@ const apiClient = axios.create({
 let csrfToken = null;
 let csrfTokenPromise = null;
 
+const fetchCsrfToken = () => {
+    if (!csrfTokenPromise) {
+        // Fetch CSRF token using standard axios to avoid request interceptor recursion
+        csrfTokenPromise = axios.get(`${apiUrl}/api/v1/csrf-token`, {
+            withCredentials: true
+        }).then(response => {
+            csrfToken = response.data.csrfToken;
+            csrfTokenPromise = null;
+            return csrfToken;
+        }).catch(err => {
+            csrfTokenPromise = null;
+            throw err;
+        });
+    }
+    return csrfTokenPromise;
+};
+
 apiClient.interceptors.request.use(async (config) => {
     // 1. Attach Auth Token
     const token = localStorage.getItem(AUTH_TOKEN_KEY);
@@ -25,21 +42,8 @@ apiClient.interceptors.request.use(async (config) => {
     const method = config.method ? config.method.toLowerCase() : "";
     if (["post", "put", "delete", "patch"].includes(method)) {
         if (!csrfToken) {
-            if (!csrfTokenPromise) {
-                // Fetch CSRF token using standard axios to avoid request interceptor recursion
-                csrfTokenPromise = axios.get(`${apiUrl}/api/v1/csrf-token`, {
-                    withCredentials: true
-                }).then(response => {
-                    csrfToken = response.data.csrfToken;
-                    csrfTokenPromise = null;
-                    return csrfToken;
-                }).catch(err => {
-                    csrfTokenPromise = null;
-                    throw err;
-                });
-            }
             try {
-                await csrfTokenPromise;
+                await fetchCsrfToken();
             } catch (err) {
                 console.error("Failed to fetch CSRF token on mutating request:", err);
             }
@@ -54,13 +58,21 @@ apiClient.interceptors.request.use(async (config) => {
     return Promise.reject(error);
 });
 
-// Reset cached CSRF token on 403 failures
 apiClient.interceptors.response.use(
     (response) => response,
     async (error) => {
-        if (error.response && error.response.status === 403) {
+        const originalRequest = error.config;
+        if (error.response?.status === 403 && !originalRequest._retry) {
+            originalRequest._retry = true;
             csrfToken = null;
             csrfTokenPromise = null;
+            try {
+                const newToken = await fetchCsrfToken();
+                originalRequest.headers["X-CSRF-Token"] = newToken;
+                return apiClient(originalRequest);
+            } catch (err) {
+                console.error("Failed to refresh CSRF token on retry:", err);
+            }
         }
         return Promise.reject(error);
     }
