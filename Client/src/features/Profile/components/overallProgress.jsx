@@ -94,7 +94,11 @@ function OverallProgress({ progressData, loading }) {
 
     return (
         <div className="w-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 sm:p-6 text-white shadow-lg backdrop-blur-md relative overflow-hidden transition-all duration-300">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 w-full h-full max-w-4xl mx-auto">
+            {/* Soft glowing ambient radial gradients */}
+            <div className="absolute top-0 right-0 w-36 h-36 bg-orange-500/[0.02] rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-36 h-36 bg-indigo-500/[0.02] rounded-full blur-3xl pointer-events-none" />
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 w-full h-full max-w-4xl mx-auto relative z-10">
                 
                 {/* Left Side: Circular Centerpiece */}
                 <div className="relative flex items-center justify-center flex-shrink-0">
@@ -102,8 +106,9 @@ function OverallProgress({ progressData, loading }) {
                         <svg viewBox="0 0 200 200" className="transform -rotate-90 w-full h-full">
                             <defs>
                                 <linearGradient id="sunsetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stopColor="#f97316" />
-                                    <stop offset="100%" stopColor="#ec4899" />
+                                    <stop offset="0%" stopColor="#6366f1" /> {/* Indigo */}
+                                    <stop offset="50%" stopColor="#d946ef" /> {/* Fuchsia */}
+                                    <stop offset="100%" stopColor="#f97316" /> {/* Orange */}
                                 </linearGradient>
                             </defs>
                             {/* Background Circle */}
@@ -112,7 +117,7 @@ function OverallProgress({ progressData, loading }) {
                                 cy="100"
                                 r="75"
                                 fill="none"
-                                stroke="rgba(255,255,255,0.03)"
+                                stroke="rgba(255,255,255,0.06)"
                                 strokeWidth="12"
                             />
                             {/* Animated Progress Ring */}
@@ -138,7 +143,7 @@ function OverallProgress({ progressData, loading }) {
                                     /{totalQuestions}
                                 </span>
                             </h3>
-                            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-orange-400 mt-2">
+                            <p className="text-[10px] sm:text-xs font-black uppercase tracking-widest bg-gradient-to-r from-indigo-400 via-pink-400 to-orange-400 bg-clip-text text-transparent mt-2">
                                 {percentage}%
                             </p>
                         </div>
@@ -160,7 +165,7 @@ function OverallProgress({ progressData, loading }) {
                                 </span>
                             </div>
                             <span className="text-xs sm:text-sm text-neutral-400 font-semibold flex items-center gap-1">
-                                <span className="text-orange-400 font-bold text-sm sm:text-base">{problemsNeededForNext}</span>
+                                <span className="text-pink-400 font-bold text-sm sm:text-base">{problemsNeededForNext}</span>
                                 <span>{problemsNeededForNext === 1 ? "problem" : "problems"} to Level {level + 1}</span>
                             </span>
                         </div>
@@ -168,7 +173,7 @@ function OverallProgress({ progressData, loading }) {
                         <div className="relative">
                             <div className="w-full bg-white/[0.04] h-2.5 rounded-full overflow-hidden border border-white/[0.01]">
                                 <div
-                                    className="bg-gradient-to-r from-orange-500 to-rose-500 h-full rounded-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(244,63,94,0.25)]"
+                                    className="bg-gradient-to-r from-indigo-500 via-purple-500 to-orange-500 h-full rounded-full transition-all duration-700 ease-out shadow-[0_0_12px_rgba(244,63,94,0.2)]"
                                     style={{ width: `${levelProgressPercent}%` }}
                                 />
                             </div>
@@ -183,17 +188,17 @@ function OverallProgress({ progressData, loading }) {
                         {/* Difficulty breakdown */}
                         <div className="flex items-center gap-4">
                             <div className="flex items-center gap-1.5">
-                                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                                 <span className="text-neutral-400">Easy</span>
                                 <span className="text-white ml-0.5">{difficultyStats.easy}</span>
                             </div>
                             <div className="flex items-center gap-1.5">
-                                <span className="w-2 h-2 rounded-full bg-amber-500" />
+                                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
                                 <span className="text-neutral-400">Med</span>
                                 <span className="text-white ml-0.5">{difficultyStats.medium}</span>
                             </div>
                             <div className="flex items-center gap-1.5">
-                                <span className="w-2 h-2 rounded-full bg-rose-500" />
+                                <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
                                 <span className="text-neutral-400">Hard</span>
                                 <span className="text-white ml-0.5">{difficultyStats.hard}</span>
                             </div>
