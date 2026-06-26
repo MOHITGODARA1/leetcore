@@ -59,7 +59,7 @@ const githubLogin = (req, res) => {
     const params = new URLSearchParams({
         client_id: clientId,
         redirect_uri: getGithubCallbackUrl(),
-        scope: "read:user user:email",
+        scope: "read:user user:email public_repo",
     });
 
     const redirectURL = `https://github.com/login/oauth/authorize?${params.toString()}`;
@@ -157,6 +157,7 @@ const registerUser = async (req, res) => {
             email,
             avatar: avatar_url,
             profileUrl: html_url,
+            githubAccessToken: accessToken,
             bio: bio || "",
             name: name || login,
             lastLogin: new Date(),

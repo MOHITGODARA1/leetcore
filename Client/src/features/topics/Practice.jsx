@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import DashLeftNavBar from "../dashboard/components/dashleftnavbar";
-import Patterns from "./pattern";
-import Heading from "./heading";
+import PatternQuestions from "./PatternQuestions";
+
 function Practice() {
     const { topic } = useParams();
     const topicName = decodeURIComponent(topic || "");
@@ -47,12 +47,8 @@ function Practice() {
                     p-6
                 "
             >
-                
                 <div>
-                    <Heading />
-                </div>
-                <div>
-                    <Patterns topicName={topicName} />
+                    <PatternQuestions embedded topicNameOverride={topicName} />
                 </div>
             </main>
         </div>

@@ -1,22 +1,5 @@
 [
-  {
-    "_id": "arr_tp_001",
-    "title": "Container With Most Water",
-    "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 11,
-    "leetcodeUrl": "https://leetcode.com/problems/container-with-most-water/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Array",
-      "Two Pointers"
-    ],
-    "estimatedTime": "25 min"
-  },
+  
   {
     "_id": "arr_tp_002",
     "title": "Two Sum II - Input Array Is Sorted",
