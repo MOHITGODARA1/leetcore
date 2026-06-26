@@ -132,7 +132,10 @@ async function getOrCreateSubmissionRepo(githubClient, owner) {
 async function markProblemSolved({ user, userId, problemId, topic, pattern }) {
     const normalizedTopic = normalizeTopicName(topic);
     const normalizedPattern = normalizePatternSlug(pattern);
-    const existingSolved = await SolvedProblem.findOne({ userId, problemId });
+    const existingSolved = await SolvedProblem.findOne({
+        userId: { $eq: userId },
+        problemId: { $eq: problemId }
+    });
 
     if (existingSolved) {
         return {
@@ -650,10 +653,15 @@ router.post("/submit-solution", authMiddleware, async (req, res) => {
         const { problemId, topic, solution } = req.body;
         const userId = req.user.id;
 
-        if (!problemId || !topic || !solution?.trim()) {
+        if (
+            typeof problemId !== "string" ||
+            !problemId.trim() ||
+            !topic ||
+            !solution?.trim()
+        ) {
             return res.status(400).json({
                 success: false,
-                message: "problemId, topic, and solution are required"
+                message: "problemId must be a non-empty string, and topic and solution are required"
             });
         }
 
