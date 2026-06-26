@@ -16,11 +16,11 @@ function UserDetail() {
         })
         : "This season";
 
-    const profileStats = data?.stats || user?.stats || {};
+    const profileStats = user?.stats || data?.stats || {};
     const totalSolved = profileStats.totalProblemsSolved || 0;
     const currentStreak = profileStats.currentStreak || 0;
-    const level = data?.stats?.level || user?.level || 1;
-    const xp = data?.stats?.xp || user?.xp || 0;
+    const level = user?.level || data?.stats?.level || 1;
+    const xp = user?.xp || data?.stats?.xp || 0;
 
     return (
         <div className="h-full flex flex-col p-6 text-white font-sans">

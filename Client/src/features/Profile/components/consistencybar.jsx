@@ -101,10 +101,12 @@ function ConsistencyBar({ userId: userIdProp }) {
         <div
             className="
                 w-full
-                rounded-xl
-                bg-[#1F1F22]
+                rounded-2xl
+                bg-[#121215]/60
                 border
-                border-white/5
+                border-white/[0.05]
+                shadow-lg
+                backdrop-blur-md
                 p-6
                 overflow-hidden
                 relative
@@ -244,13 +246,21 @@ function ConsistencyBar({ userId: userIdProp }) {
                                     const dateKey = `${yearStr}-${monthStr}-${dayStr}`;
                                     
                                     const dayData = activityMap.get(dateKey);
-                                    const isSolved = (dayData?.problemsSolved || 0) > 0;
+                                    const solvedCount = dayData?.problemsSolved || 0;
                                     
-                                    let bgClass = "bg-white/10";
+                                    let bgClass = "bg-[#161b22] border border-white/[0.01]";
                                     if (loading) {
                                         bgClass = "bg-white/10 animate-pulse";
-                                    } else if (isSolved) {
-                                        bgClass = "bg-green-500";
+                                    } else if (solvedCount > 0) {
+                                        if (solvedCount === 1) {
+                                            bgClass = "bg-[#0e4429] hover:bg-[#0e4429]/80";
+                                        } else if (solvedCount === 2) {
+                                            bgClass = "bg-[#006d32] hover:bg-[#006d32]/80";
+                                        } else if (solvedCount === 3) {
+                                            bgClass = "bg-[#26a641] hover:bg-[#26a641]/80";
+                                        } else {
+                                            bgClass = "bg-[#39d353] hover:bg-[#39d353]/80";
+                                        }
                                     }
                                     
                                     return (

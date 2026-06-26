@@ -6,8 +6,14 @@ function BadgeModal({ badge, onClose }) {
     }
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
-            <div className="w-full max-w-md rounded-lg border border-white/10 bg-[#111113] p-5 text-white shadow-2xl">
+        <div 
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-sm px-4"
+            onClick={onClose}
+        >
+            <div 
+                className="w-full max-w-md rounded-2xl border border-white/[0.05] bg-[#121215] p-6 text-white shadow-2xl relative"
+                onClick={(e) => e.stopPropagation()}
+            >
                 <div className="flex items-start justify-between gap-4">
                     <div>
                         <p className="text-xs font-semibold uppercase tracking-normal text-[#F46717]">{badge.category}</p>

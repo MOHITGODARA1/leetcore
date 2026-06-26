@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 
 const preferredSectionIds = [
   "introduction",
@@ -71,9 +73,16 @@ function Docsleftnavbar({ doc, topicName }) {
   return (
     <aside className="w-full border-b border-white/5 bg-[#0b0b0c] lg:h-full lg:w-[355px] lg:flex-shrink-0 lg:border-b-0 lg:border-r lg:border-white/5">
       <div className="p-4 lg:sticky lg:top-0 lg:max-h-full lg:overflow-y-auto lg:px-8 lg:py-10">
-        <h1 className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-orange-200/70 lg:mb-8">
-          {doc?.topic || topicName}
-        </h1>
+        <div className="mb-5 flex items-center gap-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-orange-200/70 lg:mb-8 select-none">
+          <Link
+            to="/dashboard"
+            className="hover:text-orange-400 transition-colors"
+          >
+            DSA
+          </Link>
+          <ChevronRight size={12} className="text-orange-200/40" />
+          <span>{doc?.topic || topicName}</span>
+        </div>
 
         <nav aria-label="Documentation sections">
           <ul className="flex gap-2 overflow-x-auto pb-2 lg:flex-col lg:gap-5 lg:overflow-visible lg:pb-0">

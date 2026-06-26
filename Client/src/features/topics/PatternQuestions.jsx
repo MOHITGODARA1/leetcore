@@ -16,6 +16,14 @@ import DashLeftNavBar from "../dashboard/components/dashleftnavbar";
 import apiClient from "../../services/apiClient";
 import { useAuth } from "../../context/AuthContext";
 
+function formatDisplayName(str) {
+  if (!str) return "";
+  return str
+    .split("-")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
 function PatternQuestions() {
   const { topic, pattern } = useParams();
   const topicName = decodeURIComponent(topic || "");
@@ -105,7 +113,8 @@ function PatternQuestions() {
             ...prevUser,
             xp: response.data.xp,
             level: response.data.level,
-            stats: response.data.stats
+            stats: response.data.stats,
+            badges: response.data.badges || prevUser.badges
           };
         });
       }
@@ -240,7 +249,7 @@ function PatternQuestions() {
             to="/dashboard"
             className="hover:text-orange-400 transition-colors"
           >
-            Dashboard
+            DSA
           </Link>
           <ChevronRight size={12} />
           <Link
@@ -250,7 +259,7 @@ function PatternQuestions() {
             {topicName}
           </Link>
           <ChevronRight size={12} />
-          <span className="text-orange-300">{patternName}</span>
+          <span className="text-orange-300">{formatDisplayName(patternName)}</span>
         </div>
 
         {/* Header Block */}
@@ -264,12 +273,12 @@ function PatternQuestions() {
                 <ArrowLeft size={16} />
               </Link>
               <h1 className="text-3xl font-black text-white tracking-tight">
-                {patternName}
+                {formatDisplayName(patternName)}
               </h1>
             </div>
             <p className="mt-2 text-white/60 text-sm max-w-xl">
               Solve these 20 curated questions to build muscle memory for the{" "}
-              <span className="text-orange-400 font-semibold">{patternName}</span> pattern.
+              <span className="text-orange-400 font-semibold">{formatDisplayName(patternName)}</span> pattern.
             </p>
           </div>
 

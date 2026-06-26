@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { CheckSquare, Award, ChevronRight, Play, ExternalLink, X, Search } from "lucide-react";
 import { questionService } from "../../../services/questionService";
 
@@ -105,7 +106,7 @@ export default function RecentActivity({ userId }) {
     );
 
     return (
-        <div className="w-full rounded-xl bg-[#1F1F22] border border-white/5 p-6 relative min-h-[220px]">
+        <div className="w-full rounded-2xl bg-[#121215]/60 border border-white/[0.05] shadow-lg backdrop-blur-md p-6 relative min-h-[220px]">
             {/* Tab Header */}
             <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4 flex-wrap gap-4">
                 <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 p-1 rounded-xl">
@@ -279,9 +280,15 @@ export default function RecentActivity({ userId }) {
                 )
             )}
             {/* Submissions History Modal */}
-            {showModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm px-4">
-                    <div className="w-full max-w-xl rounded-2xl border border-white/10 bg-[#141416] p-6 text-white shadow-2xl relative flex flex-col max-h-[85vh] animate-in fade-in duration-200">
+            {showModal && createPortal(
+                <div 
+                    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-sm px-4"
+                    onClick={() => { setShowModal(false); setSearchTerm(""); }}
+                >
+                    <div 
+                        className="w-full max-w-xl rounded-2xl border border-white/10 bg-[#141416] p-6 text-white shadow-2xl relative flex flex-col max-h-[85vh] animate-in fade-in duration-200"
+                        onClick={(e) => e.stopPropagation()}
+                    >
                         <div className="flex items-start justify-between gap-4 mb-4 flex-shrink-0">
                             <div>
                                 <h2 className="text-xl font-bold">Solved History</h2>
@@ -381,7 +388,8 @@ export default function RecentActivity({ userId }) {
                             )}
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
         </div>
     );

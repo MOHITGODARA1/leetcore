@@ -1,7 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 import DashLeftNavBar from "../dashboard/components/dashleftnavbar";
 import Patterns from "./pattern";
 import Heading from "./heading";
+
 function Practice() {
     const { topic } = useParams();
     const topicName = decodeURIComponent(topic || "");
@@ -45,8 +47,22 @@ function Practice() {
                     bg-white/8
                     backdrop-blur-xl
                     p-6
+                    flex
+                    flex-col
+                    gap-6
                 "
             >
+                {/* Navigation Breadcrumb */}
+                <div className="flex items-center gap-2 text-xs text-white/50 font-medium select-none">
+                    <Link
+                        to="/dashboard"
+                        className="hover:text-orange-400 transition-colors"
+                    >
+                        DSA
+                    </Link>
+                    <ChevronRight size={12} />
+                    <span className="text-orange-300">{topicName}</span>
+                </div>
                 
                 <div>
                     <Heading />

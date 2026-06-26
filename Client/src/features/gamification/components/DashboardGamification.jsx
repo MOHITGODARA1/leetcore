@@ -20,7 +20,8 @@ function StatTile({ icon, label, value }) {
 function DashboardGamification() {
     const { user } = useAuth();
     const { data, loading } = useDashboardStats(user?._id);
-    const stats = data?.stats || {};
+    const stats = user?.stats || data?.stats || {};
+    const badgesCount = user?.badges?.length ?? stats.badgesCount ?? 0;
 
     return (
         <section className="px-4 pb-5 sm:px-6">
@@ -36,7 +37,7 @@ function DashboardGamification() {
                 <StatTile icon={<Flame size={17} />} label="Current streak" value={`${stats.currentStreak || 0}d`} />
                 <StatTile icon={<Target size={17} />} label="Active days" value={stats.totalActiveDays || 0} />
                 <StatTile icon={<Clock size={17} />} label="Study minutes" value={stats.totalStudyMinutes || 0} />
-                <StatTile icon={<Award size={17} />} label="Badges" value={stats.badgesCount || 0} />
+                <StatTile icon={<Award size={17} />} label="Badges" value={badgesCount} />
             </div>
 
             <div className="mt-4">
