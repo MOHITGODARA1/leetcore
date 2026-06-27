@@ -857,6 +857,12 @@ router.post("/submit-solution", submitSolutionLimiter, authMiddleware, async (re
         }
 
         const normalizedTopic = normalizeTopicName(topic);
+        const trimmedTopic = typeof topic === "string" ? topic.trim() : "";
+
+        if (!normalizedTopic || normalizedTopic !== trimmedTopic.toLowerCase()) {
+            return res.status(400).json({ success: false, message: "Invalid topic format" });
+        }
+
         const baseQuestionsDir = path.resolve(__dirname, "..", "data", "questions");
         const jsonPath = path.resolve(baseQuestionsDir, `${normalizedTopic}question.json`);
 
