@@ -5,6 +5,8 @@ import { fileURLToPath } from "url";
 import jwt from "jsonwebtoken";
 import axios from "axios";
 import rateLimit from "express-rate-limit";
+import vm from "vm";
+import { runVisibleTestCases, runCppSolution } from "../utils/compiler.utils.js";
 import authMiddleware from "../middleware/auth.middleware.js";
 import SolvedProblem from "../models/SolvedProblem.models.js";
 import User from "../models/User.models.js";
@@ -23,6 +25,17 @@ const submitSolutionLimiter = rateLimit({
     message: {
         success: false,
         message: "Too many submission requests. Please try again later."
+    }
+});
+
+const runSolutionLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 60,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+        success: false,
+        message: "Too many code run requests. Please try again later."
     }
 });
 
@@ -838,10 +851,63 @@ router.get("/detail/:problemId", optionalAuth, async (req, res) => {
     }
 });
 
-// Route to submit a notepad solution to the user's GitHub repository
+// Route to run a JavaScript solution against visible question test cases
+router.post("/run-solution", runSolutionLimiter, authMiddleware, async (req, res) => {
+    try {
+        const { problemId, topic, solution, language, customInput } = req.body;
+
+        if (
+            typeof problemId !== "string" ||
+            !problemId.trim() ||
+            !topic ||
+            !solution?.trim()
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "problemId must be a non-empty string, and topic and solution are required"
+            });
+        }
+
+        const normalizedTopic = normalizeTopicName(topic);
+        const baseQuestionsDir = path.resolve(__dirname, "..", "data", "questions");
+        const jsonPath = path.resolve(baseQuestionsDir, `${normalizedTopic}question.json`);
+
+        if (jsonPath !== baseQuestionsDir && !jsonPath.startsWith(baseQuestionsDir + path.sep)) {
+            return res.status(403).json({ success: false, message: "Invalid topic path" });
+        }
+
+        if (!fs.existsSync(jsonPath)) {
+            return res.status(404).json({ success: false, message: "Question not found" });
+        }
+
+        const questions = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
+        const question = questions.find(q => q._id === problemId);
+
+        if (!question) {
+            return res.status(404).json({ success: false, message: "Question not found" });
+        }
+
+        let runResult;
+        if (language === "cpp") {
+            runResult = await runCppSolution(question, solution, customInput !== undefined ? customInput : null);
+        } else {
+            runResult = runVisibleTestCases(question, solution);
+        }
+
+        return res.status(runResult.passed ? 200 : 422).json({
+            success: runResult.passed,
+            ...runResult
+        });
+    } catch (error) {
+        console.error("Error in run solution:", error.message);
+        return res.status(500).json({ success: false, message: "Failed to run solution" });
+    }
+});
+
+// Route to submit a tested solution to the user's GitHub repository
 router.post("/submit-solution", submitSolutionLimiter, authMiddleware, async (req, res) => {
     try {
-        const { problemId, topic, solution } = req.body;
+        const { problemId, topic, solution, language } = req.body;
         const userId = req.user.id;
 
         if (
@@ -879,6 +945,22 @@ router.post("/submit-solution", submitSolutionLimiter, authMiddleware, async (re
 
         if (!question) {
             return res.status(404).json({ success: false, message: "Question not found" });
+        }
+
+        let runResult;
+        if (language === "cpp") {
+            runResult = await runCppSolution(question, solution);
+        } else {
+            runResult = runVisibleTestCases(question, solution);
+        }
+
+        if (!runResult.passed) {
+            return res.status(422).json({
+                success: false,
+                code: "TEST_CASES_FAILED",
+                message: "Code did not pass the visible test cases, so it was not pushed to GitHub.",
+                ...runResult
+            });
         }
 
         const user = await User.findById(userId).select("+githubAccessToken");

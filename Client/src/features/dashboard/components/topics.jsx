@@ -61,78 +61,78 @@ function Topics() {
         },
 
         // RECURSION
-        {
-            title: "Recursion",
-            topic: "Recursion",
-            description:
-                "Build recursive thinking and divide problems elegantly.",
-        },
+        // {
+        //     title: "Recursion",
+        //     topic: "Recursion",
+        //     description:
+        //         "Build recursive thinking and divide problems elegantly.",
+        // },
 
-        {
-            title: "Backtracking",
-            topic: "Backtracking",
-            description:
-                "Generate combinations, permutations and search spaces.",
-        },
+        // {
+        //     title: "Backtracking",
+        //     topic: "Backtracking",
+        //     description:
+        //         "Generate combinations, permutations and search spaces.",
+        // },
 
         // TREES
-        {
-            title: "Trees",
-            topic: "Trees",
-            description:
-                "Learn traversals, depth, height and recursive trees.",
-        },
+        // {
+        //     title: "Trees",
+        //     topic: "Trees",
+        //     description:
+        //         "Learn traversals, depth, height and recursive trees.",
+        // },
 
-        {
-            title: "Binary Search Tree",
-            topic: "Binary Search Tree",
-            description:
-                "Master ordered trees and efficient searching.",
-        },
+        // {
+        //     title: "Binary Search Tree",
+        //     topic: "Binary Search Tree",
+        //     description:
+        //         "Master ordered trees and efficient searching.",
+        // },
 
-        {
-            title: "Heap / Priority Queue",
-            topic: "Heap / Priority Queue",
-            description:
-                "Solve top-k and priority-based problems efficiently.",
-        },
+        // {
+        //     title: "Heap / Priority Queue",
+        //     topic: "Heap / Priority Queue",
+        //     description:
+        //         "Solve top-k and priority-based problems efficiently.",
+        // },
 
         // GRAPHS
-        {
-            title: "Graphs",
-            topic: "Graphs",
-            description:
-                "Understand BFS, DFS and graph traversal techniques.",
-        },
+        // {
+        //     title: "Graphs",
+        //     topic: "Graphs",
+        //     description:
+        //         "Understand BFS, DFS and graph traversal techniques.",
+        // },
 
-        {
-            title: "Trie",
-            topic: "Trie",
-            description:
-                "Efficiently solve prefix and dictionary problems.",
-        },
+        // {
+        //     title: "Trie",
+        //     topic: "Trie",
+        //     description:
+        //         "Efficiently solve prefix and dictionary problems.",
+        // },
 
         // ADVANCED
-        {
-            title: "Greedy",
-            topic: "Greedy",
-            description:
-                "Learn local optimization strategies for interview problems.",
-        },
+        // {
+        //     title: "Greedy",
+        //     topic: "Greedy",
+        //     description:
+        //         "Learn local optimization strategies for interview problems.",
+        // },
 
-        {
-            title: "Dynamic Programming",
-            topic: "Dynamic Programming",
-            description:
-                "Master memoization, tabulation and optimization patterns.",
-        },
+        // {
+        //     title: "Dynamic Programming",
+        //     topic: "Dynamic Programming",
+        //     description:
+        //         "Master memoization, tabulation and optimization patterns.",
+        // },
 
-        {
-            title: "Bit Manipulation",
-            topic: "Bit Manipulation",
-            description:
-                "Solve problems using binary operations efficiently.",
-        },
+        // {
+        //     title: "Bit Manipulation",
+        //     topic: "Bit Manipulation",
+        //     description:
+        //         "Solve problems using binary operations efficiently.",
+        // },
 
     ];
 
