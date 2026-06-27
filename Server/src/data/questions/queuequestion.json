@@ -1,3431 +1,1221 @@
 [
   {
-    "_id": "que_tp_001",
-    "title": "Subsequence Two Pointers for Queue 1",
+    "_id": "que_001",
+    "title": "Implement Queue using Stacks",
     "topic": "queue",
-    "pattern": "two-pointers",
+    "pattern": "design",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1772,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-two-pointers-for-queue-1/",
-    "companies": [
-      "Airbnb",
-      "ByteDance",
-      "Netflix"
+    "problemNumber": 232,
+    "leetcodeUrl": "https://leetcode.com/problems/implement-queue-using-stacks/",
+    "description": "Implement a first-in-first-out (FIFO) queue using only two stacks. The implemented queue should support push, peek, pop, and empty operations.",
+    "examples": [
+      {
+        "input": "push(1), push(2), peek() -> 1, pop() -> 1, empty() -> false",
+        "output": "null, null, 1, 1, false",
+        "explanation": "Queue behavior simulated using two stacks."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
+    "constraints": [
+      "1 <= val <= 9",
+      "At most 100 calls to push, pop, peek, and empty.",
+      "All pop and peek calls are valid."
     ],
-    "estimatedTime": "15 min"
+    "hints": [
+      "Use one stack for input and another for output.",
+      "Transfer all elements lazily when output stack is empty.",
+      "This gives amortized O(1) per operation."
+    ],
+    "expectedTimeComplexity": "O(1) amortized",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Microsoft", "Apple"],
+    "tags": ["Queue", "Stack", "Design"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Implement Queue using Stacks - LeetCode 232",
+        "url": "https://www.youtube.com/watch?v=eanwa3ht3YQ"
+      }
+    ],
+    "relatedProblems": ["Implement Stack using Queues"],
+    "followUp": ["Can all operations be amortized O(1)?"],
+    "testCases": [
+      { "input": "push(1), push(2), peek()", "output": "1" },
+      { "input": "pop(), empty()", "output": "1, false" }
+    ],
+    "acceptanceRate": "62.4%",
+    "likes": 7100,
+    "dislikes": 380
   },
   {
-    "_id": "que_tp_002",
-    "title": "Search Two Pointers for Queue 2",
+    "_id": "que_002",
+    "title": "Number of Recent Calls",
     "topic": "queue",
-    "pattern": "two-pointers",
+    "pattern": "sliding-window-queue",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 2326,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-queue-2/",
-    "companies": [
-      "Airbnb",
-      "Atlassian",
-      "LinkedIn"
+    "problemNumber": 933,
+    "leetcodeUrl": "https://leetcode.com/problems/number-of-recent-calls/",
+    "description": "Implement RecentCounter class that counts the number of recent requests within the last 3000 milliseconds.",
+    "examples": [
+      {
+        "input": "ping(1), ping(100), ping(3001), ping(3002)",
+        "output": "1, 2, 3, 3",
+        "explanation": "Only pings within [t-3000, t] are counted."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
+    "constraints": [
+      "1 <= t <= 10^9",
+      "Each call to ping uses strictly increasing t.",
+      "At most 10^4 calls to ping."
     ],
-    "estimatedTime": "15 min"
+    "hints": [
+      "Use a queue to store ping times.",
+      "Pop from the front while front < t - 3000.",
+      "Queue size is the answer."
+    ],
+    "expectedTimeComplexity": "O(1) amortized",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Google", "Amazon"],
+    "tags": ["Queue", "Design", "Data Stream"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Number of Recent Calls - LeetCode 933",
+        "url": "https://www.youtube.com/watch?v=uGdZEzfmOHE"
+      }
+    ],
+    "relatedProblems": ["Moving Average from Data Stream", "Design Hit Counter"],
+    "followUp": ["What if the window size changes dynamically?"],
+    "testCases": [
+      { "input": "ping(1), ping(100), ping(3001), ping(3002)", "output": "1, 2, 3, 3" }
+    ],
+    "acceptanceRate": "72.6%",
+    "likes": 1900,
+    "dislikes": 1400
   },
   {
-    "_id": "que_tp_003",
-    "title": "Search Two Pointers for Queue 3",
+    "_id": "que_003",
+    "title": "Moving Average from Data Stream",
     "topic": "queue",
-    "pattern": "two-pointers",
+    "pattern": "sliding-window-queue",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 346,
+    "leetcodeUrl": "https://leetcode.com/problems/moving-average-from-data-stream/",
+    "description": "Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.",
+    "examples": [
+      {
+        "input": "MovingAverage(3), next(1)=1.0, next(10)=5.5, next(3)=4.67, next(5)=6.0",
+        "output": "1.0, 5.5, 4.67, 6.0",
+        "explanation": "Average of last 3 elements at each step."
+      }
+    ],
+    "constraints": [
+      "1 <= size <= 1000",
+      "-10^5 <= val <= 10^5",
+      "At most 10^4 calls to next."
+    ],
+    "hints": [
+      "Use a queue of max size = window size.",
+      "Track the running sum.",
+      "On overflow, subtract the oldest element before adding new."
+    ],
+    "expectedTimeComplexity": "O(1)",
+    "expectedSpaceComplexity": "O(size)",
+    "companies": ["Google", "Microsoft", "Amazon"],
+    "tags": ["Queue", "Array", "Design", "Data Stream"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Moving Average from Data Stream - LeetCode 346",
+        "url": "https://www.youtube.com/watch?v=3DOGGHIXqIA"
+      }
+    ],
+    "relatedProblems": ["Number of Recent Calls", "Design Hit Counter"],
+    "followUp": ["What if you need median instead of average?"],
+    "testCases": [
+      { "input": "size=3, next(1), next(10), next(3), next(5)", "output": "1.0, 5.5, 4.67, 6.0" }
+    ],
+    "acceptanceRate": "77.2%",
+    "likes": 2400,
+    "dislikes": 190
+  },
+  {
+    "_id": "que_004",
+    "title": "First Unique Character in a String",
+    "topic": "queue",
+    "pattern": "hash-map-queue",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 387,
+    "leetcodeUrl": "https://leetcode.com/problems/first-unique-character-in-a-string/",
+    "description": "Given a string s, find the first non-repeating character and return its index. Return -1 if none exists.",
+    "examples": [
+      {
+        "input": "s = \"leetcode\"",
+        "output": "0",
+        "explanation": "'l' appears only once and is first."
+      },
+      {
+        "input": "s = \"aabb\"",
+        "output": "-1",
+        "explanation": "All characters repeat."
+      }
+    ],
+    "constraints": [
+      "1 <= s.length <= 10^5",
+      "s consists of only lowercase English letters."
+    ],
+    "hints": [
+      "Count frequency of each character.",
+      "Use a queue to find the first with frequency 1.",
+      "Or iterate twice: once to count, once to find."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Bloomberg", "Microsoft", "Apple"],
+    "tags": ["Queue", "Hash Map", "String", "Counting"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "First Unique Character - LeetCode 387",
+        "url": "https://www.youtube.com/watch?v=GKgV3jcFRmQ"
+      }
+    ],
+    "relatedProblems": ["First Letter to Appear Twice", "Unique Number of Occurrences"],
+    "followUp": ["What if the string is a stream of characters?"],
+    "testCases": [
+      { "input": "\"leetcode\"", "output": "0" },
+      { "input": "\"aabb\"", "output": "-1" }
+    ],
+    "acceptanceRate": "61.1%",
+    "likes": 8900,
+    "dislikes": 290
+  },
+  {
+    "_id": "que_005",
+    "title": "Binary Tree Level Order Traversal",
+    "topic": "queue",
+    "pattern": "bfs",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 102,
+    "leetcodeUrl": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+    "description": "Given the root of a binary tree, return the level order traversal of its nodes' values as a list of lists.",
+    "examples": [
+      {
+        "input": "root = [3,9,20,null,null,15,7]",
+        "output": "[[3],[9,20],[15,7]]",
+        "explanation": "Nodes grouped by level."
+      }
+    ],
+    "constraints": [
+      "Number of nodes in [0, 2000].",
+      "-1000 <= Node.val <= 1000."
+    ],
+    "hints": [
+      "Use a queue for BFS.",
+      "Track level size before processing each level.",
+      "Add children to queue for next level."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Facebook", "Microsoft", "Bloomberg"],
+    "tags": ["Queue", "Tree", "BFS"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Binary Tree Level Order Traversal - BFS",
+        "url": "https://www.youtube.com/watch?v=6ZnyEApgFYg"
+      }
+    ],
+    "relatedProblems": ["Binary Tree Zigzag Level Order Traversal", "Average of Levels in Binary Tree", "N-ary Tree Level Order Traversal"],
+    "followUp": ["Can you do it bottom-up?"],
+    "testCases": [
+      { "input": "[3,9,20,null,null,15,7]", "output": "[[3],[9,20],[15,7]]" }
+    ],
+    "acceptanceRate": "66.1%",
+    "likes": 16000,
+    "dislikes": 320
+  },
+  {
+    "_id": "que_006",
+    "title": "Flood Fill",
+    "topic": "queue",
+    "pattern": "bfs",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 733,
+    "leetcodeUrl": "https://leetcode.com/problems/flood-fill/",
+    "description": "Given an image represented by an m x n grid, a starting pixel (sr, sc), and a new color, perform flood fill and return the modified image.",
+    "examples": [
+      {
+        "input": "image = [[1,1,1],[1,1,0],[1,0,1]], sr=1, sc=1, color=2",
+        "output": "[[2,2,2],[2,2,0],[2,0,1]]",
+        "explanation": "All connected 1s from (1,1) are changed to 2."
+      }
+    ],
+    "constraints": [
+      "m == image.length, n == image[i].length",
+      "1 <= m, n <= 50",
+      "0 <= image[i][j], color < 2^16"
+    ],
+    "hints": [
+      "Use BFS from the starting pixel.",
+      "Only spread to same-color neighbors.",
+      "Don't revisit already colored pixels."
+    ],
+    "expectedTimeComplexity": "O(m * n)",
+    "expectedSpaceComplexity": "O(m * n)",
+    "companies": ["Facebook", "Amazon", "Google"],
+    "tags": ["Queue", "BFS", "DFS", "Matrix", "Array"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Flood Fill - LeetCode 733",
+        "url": "https://www.youtube.com/watch?v=aehEcTEPtCs"
+      }
+    ],
+    "relatedProblems": ["Number of Islands", "Island Perimeter"],
+    "followUp": ["Can you do it iteratively with a queue?"],
+    "testCases": [
+      { "input": "[[1,1,1],[1,1,0],[1,0,1]], sr=1, sc=1, color=2", "output": "[[2,2,2],[2,2,0],[2,0,1]]" }
+    ],
+    "acceptanceRate": "63.2%",
+    "likes": 8200,
+    "dislikes": 780
+  },
+  {
+    "_id": "que_007",
+    "title": "Average of Levels in Binary Tree",
+    "topic": "queue",
+    "pattern": "bfs",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 637,
+    "leetcodeUrl": "https://leetcode.com/problems/average-of-levels-in-binary-tree/",
+    "description": "Given the root of a binary tree, return the average value of nodes on each level as an array.",
+    "examples": [
+      {
+        "input": "root = [3,9,20,15,7]",
+        "output": "[3.00000, 14.50000, 11.00000]",
+        "explanation": "Average of each level: 3, (9+20)/2, (15+7)/2."
+      }
+    ],
+    "constraints": [
+      "Number of nodes in [1, 10^4].",
+      "-2^31 <= Node.val <= 2^31 - 1."
+    ],
+    "hints": [
+      "Use BFS with a queue.",
+      "At each level, sum all values and divide by count.",
+      "Track level boundaries using queue size."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Facebook", "Amazon"],
+    "tags": ["Queue", "Tree", "BFS", "DFS"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Average of Levels in Binary Tree - LeetCode 637",
+        "url": "https://www.youtube.com/watch?v=BgkA2RCUgGs"
+      }
+    ],
+    "relatedProblems": ["Binary Tree Level Order Traversal", "Binary Tree Level Order Traversal II"],
+    "followUp": ["What if node values can overflow a 32-bit integer?"],
+    "testCases": [
+      { "input": "[3,9,20,15,7]", "output": "[3.0, 14.5, 11.0]" }
+    ],
+    "acceptanceRate": "71.8%",
+    "likes": 4200,
+    "dislikes": 210
+  },
+  {
+    "_id": "que_008",
+    "title": "Maximum Depth of Binary Tree (BFS)",
+    "topic": "queue",
+    "pattern": "bfs",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 104,
+    "leetcodeUrl": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+    "description": "Given the root of a binary tree, return its maximum depth using an iterative BFS approach.",
+    "examples": [
+      {
+        "input": "root = [3,9,20,null,null,15,7]",
+        "output": "3",
+        "explanation": "Longest path root->20->15 or root->20->7 has 3 nodes."
+      }
+    ],
+    "constraints": [
+      "Number of nodes in [0, 10^4].",
+      "-100 <= Node.val <= 100."
+    ],
+    "hints": [
+      "Use a queue for level-order traversal.",
+      "Increment depth counter at each level.",
+      "Return depth when queue is empty."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "LinkedIn", "Apple", "Google"],
+    "tags": ["Queue", "Tree", "BFS", "DFS"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Maximum Depth of Binary Tree - BFS Approach",
+        "url": "https://www.youtube.com/watch?v=hTM3phVI6YQ"
+      }
+    ],
+    "relatedProblems": ["Balanced Binary Tree", "Minimum Depth of Binary Tree", "Maximum Depth of N-ary Tree"],
+    "followUp": ["Compare BFS vs DFS approaches."],
+    "testCases": [
+      { "input": "[3,9,20,null,null,15,7]", "output": "3" }
+    ],
+    "acceptanceRate": "74.4%",
+    "likes": 12000,
+    "dislikes": 200
+  },
+  {
+    "_id": "que_009",
+    "title": "Symmetric Tree (BFS)",
+    "topic": "queue",
+    "pattern": "bfs",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 101,
+    "leetcodeUrl": "https://leetcode.com/problems/symmetric-tree/",
+    "description": "Given the root of a binary tree, check whether it is a mirror of itself (symmetric around its center). Solve iteratively using a queue.",
+    "examples": [
+      {
+        "input": "root = [1,2,2,3,4,4,3]",
+        "output": "true",
+        "explanation": "Tree is symmetric around center."
+      },
+      {
+        "input": "root = [1,2,2,null,3,null,3]",
+        "output": "false",
+        "explanation": "Not symmetric."
+      }
+    ],
+    "constraints": [
+      "Number of nodes in [1, 1000].",
+      "-100 <= Node.val <= 100."
+    ],
+    "hints": [
+      "Use a queue — enqueue pairs of mirror nodes.",
+      "Compare each pair: both null (ok), one null (fail), values differ (fail).",
+      "Enqueue children in mirror order."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Microsoft", "LinkedIn", "Bloomberg"],
+    "tags": ["Queue", "Tree", "BFS", "DFS"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Symmetric Tree - Iterative BFS",
+        "url": "https://www.youtube.com/watch?v=Mao9uzxwvmc"
+      }
+    ],
+    "relatedProblems": ["Invert Binary Tree", "Same Tree"],
+    "followUp": ["Can you solve it recursively?"],
+    "testCases": [
+      { "input": "[1,2,2,3,4,4,3]", "output": "true" },
+      { "input": "[1,2,2,null,3,null,3]", "output": "false" }
+    ],
+    "acceptanceRate": "56.9%",
+    "likes": 13000,
+    "dislikes": 310
+  },
+  {
+    "_id": "que_010",
+    "title": "Design Circular Queue",
+    "topic": "queue",
+    "pattern": "design",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 622,
+    "leetcodeUrl": "https://leetcode.com/problems/design-circular-queue/",
+    "description": "Design a circular queue that supports enQueue, deQueue, Front, Rear, isEmpty, and isFull operations.",
+    "examples": [
+      {
+        "input": "MyCircularQueue(3), enQueue(1)=true, enQueue(2)=true, enQueue(3)=true, enQueue(4)=false, Rear()=3, isFull()=true, deQueue()=true, enQueue(4)=true, Rear()=4",
+        "output": "true, true, true, false, 3, true, true, true, 4",
+        "explanation": "Queue of size 3 wraps around."
+      }
+    ],
+    "constraints": [
+      "1 <= k <= 1000",
+      "0 <= value <= 1000",
+      "At most 3000 calls to enQueue, deQueue, Front, Rear, isEmpty, isFull."
+    ],
+    "hints": [
+      "Use an array with head and tail pointers.",
+      "Use modulo arithmetic to wrap around.",
+      "Track size to distinguish full vs empty."
+    ],
+    "expectedTimeComplexity": "O(1) all operations",
+    "expectedSpaceComplexity": "O(k)",
+    "companies": ["Amazon", "Google", "Microsoft"],
+    "tags": ["Queue", "Array", "Linked List", "Design"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Design Circular Queue - LeetCode 622",
+        "url": "https://www.youtube.com/watch?v=aBbsfn863oM"
+      }
+    ],
+    "relatedProblems": ["Design Circular Deque", "Design Front Middle Back Queue"],
+    "followUp": ["Can you implement it using a linked list?"],
+    "testCases": [
+      { "input": "MyCircularQueue(3), enQueue(1), enQueue(4)", "output": "true, false" }
+    ],
+    "acceptanceRate": "52.0%",
+    "likes": 3900,
+    "dislikes": 290
+  },
+  {
+    "_id": "que_011",
+    "title": "Time Needed to Buy Tickets",
+    "topic": "queue",
+    "pattern": "simulation",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 2073,
+    "leetcodeUrl": "https://leetcode.com/problems/time-needed-to-buy-tickets/",
+    "description": "n people are in a line. Each round, the front person buys one ticket and goes to the end if they need more. Return the time for person k to finish buying all their tickets.",
+    "examples": [
+      {
+        "input": "tickets = [2,3,2], k = 2",
+        "output": "6",
+        "explanation": "Person 2 needs 2 tickets. Simulation takes 6 rounds."
+      },
+      {
+        "input": "tickets = [5,1,1,1], k = 0",
+        "output": "8",
+        "explanation": "Person 0 needs 5 tickets, takes 8 total rounds."
+      }
+    ],
+    "constraints": [
+      "n == tickets.length",
+      "1 <= n <= 100",
+      "1 <= tickets[i] <= 100",
+      "0 <= k < n"
+    ],
+    "hints": [
+      "Simulate the queue process.",
+      "Or compute mathematically: for i <= k, add min(tickets[i], tickets[k]); for i > k, add min(tickets[i], tickets[k]-1)."
+    ],
+    "expectedTimeComplexity": "O(n * max(tickets))",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Google"],
+    "tags": ["Queue", "Array", "Simulation"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Time Needed to Buy Tickets - LeetCode 2073",
+        "url": "https://www.youtube.com/watch?v=RR1TPGRNP5E"
+      }
+    ],
+    "relatedProblems": ["Number of Students Unable to Eat Lunch", "Implement Queue using Stacks"],
+    "followUp": ["Can you solve it in O(n) without simulation?"],
+    "testCases": [
+      { "input": "[2,3,2], k=2", "output": "6" },
+      { "input": "[5,1,1,1], k=0", "output": "8" }
+    ],
+    "acceptanceRate": "77.1%",
+    "likes": 3600,
+    "dislikes": 190
+  },
+  {
+    "_id": "que_012",
+    "title": "Binary Tree Zigzag Level Order Traversal",
+    "topic": "queue",
+    "pattern": "bfs",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1784,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-queue-3/",
-    "companies": [
-      "Bloomberg",
-      "Airbnb",
-      "Google"
+    "problemNumber": 103,
+    "leetcodeUrl": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+    "description": "Given the root of a binary tree, return the zigzag level order traversal: left-to-right for odd levels, right-to-left for even levels.",
+    "examples": [
+      {
+        "input": "root = [3,9,20,null,null,15,7]",
+        "output": "[[3],[20,9],[15,7]]",
+        "explanation": "Alternating direction per level."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
+    "constraints": [
+      "Number of nodes in [0, 2000].",
+      "-100 <= Node.val <= 100."
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "Use BFS with a queue.",
+      "Track current level direction.",
+      "Use a deque to insert at front or back based on direction."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Microsoft", "Bloomberg", "Meta"],
+    "tags": ["Queue", "Tree", "BFS", "Deque"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Binary Tree Zigzag Level Order Traversal",
+        "url": "https://www.youtube.com/watch?v=KIYyJqnHf8E"
+      }
+    ],
+    "relatedProblems": ["Binary Tree Level Order Traversal", "Binary Tree Level Order Traversal II"],
+    "followUp": ["Can you alternate direction without reversing the array?"],
+    "testCases": [
+      { "input": "[3,9,20,null,null,15,7]", "output": "[[3],[20,9],[15,7]]" }
+    ],
+    "acceptanceRate": "57.6%",
+    "likes": 9900,
+    "dislikes": 280
   },
   {
-    "_id": "que_tp_004",
-    "title": "Subarray Two Pointers for Queue 4",
+    "_id": "que_013",
+    "title": "Rotting Oranges",
     "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1528,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-queue-4/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_tp_005",
-    "title": "Minimum Cost Two Pointers for Queue 5",
-    "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2721,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-queue-5/",
-    "companies": [
-      "Microsoft",
-      "Stripes",
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_tp_006",
-    "title": "Subarray Two Pointers for Queue 6",
-    "topic": "queue",
-    "pattern": "two-pointers",
+    "pattern": "multi-source-bfs",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1977,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-queue-6/",
-    "companies": [
-      "Salesforce"
+    "problemNumber": 994,
+    "leetcodeUrl": "https://leetcode.com/problems/rotting-oranges/",
+    "description": "In a grid with 0 (empty), 1 (fresh orange), 2 (rotten orange), every minute rotten oranges spread to adjacent fresh ones. Return the minimum minutes for all oranges to rot, or -1 if impossible.",
+    "examples": [
+      {
+        "input": "grid = [[2,1,1],[1,1,0],[0,1,1]]",
+        "output": "4",
+        "explanation": "All fresh oranges rot after 4 minutes."
+      },
+      {
+        "input": "grid = [[0,2]]",
+        "output": "0",
+        "explanation": "No fresh oranges."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
+    "constraints": [
+      "m == grid.length, n == grid[i].length",
+      "1 <= m, n <= 10",
+      "grid[i][j] is 0, 1, or 2."
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "Start BFS from all rotten oranges simultaneously.",
+      "Count fresh oranges initially.",
+      "Return -1 if any fresh orange remains after BFS."
+    ],
+    "expectedTimeComplexity": "O(m * n)",
+    "expectedSpaceComplexity": "O(m * n)",
+    "companies": ["Amazon", "Google", "Facebook", "DoorDash"],
+    "tags": ["Queue", "BFS", "Array", "Matrix"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Rotting Oranges - Multi Source BFS",
+        "url": "https://www.youtube.com/watch?v=y704fEOx0s0"
+      }
+    ],
+    "relatedProblems": ["Walls and Gates", "01 Matrix", "Nearest Exit from Entrance in Maze"],
+    "followUp": ["What if oranges could rot diagonally too?"],
+    "testCases": [
+      { "input": "[[2,1,1],[1,1,0],[0,1,1]]", "output": "4" },
+      { "input": "[[1,2]]", "output": "1" }
+    ],
+    "acceptanceRate": "53.8%",
+    "likes": 14000,
+    "dislikes": 420
   },
   {
-    "_id": "que_tp_007",
-    "title": "Optimal Two Pointers for Queue 7",
+    "_id": "que_014",
+    "title": "Number of Islands",
     "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2087,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-two-pointers-for-queue-7/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_tp_008",
-    "title": "Continuous Two Pointers for Queue 8",
-    "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2078,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-two-pointers-for-queue-8/",
-    "companies": [
-      "Uber",
-      "Salesforce"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_tp_009",
-    "title": "Maximal Two Pointers for Queue 9",
-    "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1816,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-two-pointers-for-queue-9/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_tp_010",
-    "title": "K-th Distance Two Pointers for Queue 10",
-    "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1344,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-two-pointers-for-queue-10/",
-    "companies": [
-      "Microsoft",
-      "Apple"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_tp_011",
-    "title": "Minimum Cost Two Pointers for Queue 11",
-    "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1445,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-queue-11/",
-    "companies": [
-      "Netflix",
-      "Apple",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_tp_012",
-    "title": "K-th Distance Two Pointers for Queue 12",
-    "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1333,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-two-pointers-for-queue-12/",
-    "companies": [
-      "Salesforce",
-      "Stripes"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_tp_013",
-    "title": "Cyclic Two Pointers for Queue 13",
-    "topic": "queue",
-    "pattern": "two-pointers",
+    "pattern": "multi-source-bfs",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1855,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-two-pointers-for-queue-13/",
-    "companies": [
-      "Apple",
-      "Google"
+    "problemNumber": 200,
+    "leetcodeUrl": "https://leetcode.com/problems/number-of-islands/",
+    "description": "Given an m x n 2D binary grid of '1's (land) and '0's (water), return the number of islands using BFS.",
+    "examples": [
+      {
+        "input": "grid = [[\"1\",\"1\",\"0\"],[\"0\",\"1\",\"0\"],[\"0\",\"0\",\"1\"]]",
+        "output": "2",
+        "explanation": "Two separate islands."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
+    "constraints": [
+      "m == grid.length, n == grid[i].length",
+      "1 <= m, n <= 300",
+      "grid[i][j] is '0' or '1'."
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "BFS from every unvisited '1'.",
+      "Mark visited cells to avoid recount.",
+      "Each BFS start = one island."
+    ],
+    "expectedTimeComplexity": "O(m * n)",
+    "expectedSpaceComplexity": "O(min(m, n))",
+    "companies": ["Amazon", "Google", "Facebook", "Microsoft", "Bloomberg"],
+    "tags": ["Queue", "BFS", "DFS", "Matrix", "Union Find"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Number of Islands - BFS Solution",
+        "url": "https://www.youtube.com/watch?v=pV2kpPD66nE"
+      }
+    ],
+    "relatedProblems": ["Max Area of Island", "Surrounded Regions", "Walls and Gates"],
+    "followUp": ["What if the grid wraps around (toroidal)?"],
+    "testCases": [
+      { "input": "[[\"1\",\"1\",\"0\"],[\"0\",\"1\",\"0\"],[\"0\",\"0\",\"1\"]]", "output": "2" }
+    ],
+    "acceptanceRate": "58.9%",
+    "likes": 23000,
+    "dislikes": 530
   },
   {
-    "_id": "que_tp_014",
-    "title": "Validate Two Pointers for Queue 14",
+    "_id": "que_015",
+    "title": "01 Matrix",
     "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2924,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-two-pointers-for-queue-14/",
-    "companies": [
-      "Atlassian",
-      "Netflix",
-      "Meta"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_tp_015",
-    "title": "Optimal Two Pointers for Queue 15",
-    "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2374,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-two-pointers-for-queue-15/",
-    "companies": [
-      "Atlassian",
-      "Stripes"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_tp_016",
-    "title": "Search Two Pointers for Queue 16",
-    "topic": "queue",
-    "pattern": "two-pointers",
+    "pattern": "multi-source-bfs",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1105,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-queue-16/",
-    "companies": [
-      "Adobe",
-      "Apple",
-      "Microsoft"
+    "problemNumber": 542,
+    "leetcodeUrl": "https://leetcode.com/problems/01-matrix/",
+    "description": "Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.",
+    "examples": [
+      {
+        "input": "mat = [[0,0,0],[0,1,0],[1,1,1]]",
+        "output": "[[0,0,0],[0,1,0],[1,2,1]]",
+        "explanation": "Distance from each 1 to the nearest 0."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
+    "constraints": [
+      "m == mat.length, n == mat[i].length",
+      "1 <= m, n <= 10^4",
+      "1 <= m * n <= 10^4",
+      "mat[i][j] is 0 or 1.",
+      "At least one 0 in the matrix."
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "Start BFS from all 0-cells simultaneously.",
+      "Initialize distance of 0s as 0, all others as infinity.",
+      "BFS expands outward from all 0s at once."
+    ],
+    "expectedTimeComplexity": "O(m * n)",
+    "expectedSpaceComplexity": "O(m * n)",
+    "companies": ["Amazon", "Google", "Facebook"],
+    "tags": ["Queue", "BFS", "Dynamic Programming", "Matrix"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "01 Matrix - Multi Source BFS",
+        "url": "https://www.youtube.com/watch?v=Ex50jtvhwko"
+      }
+    ],
+    "relatedProblems": ["Rotting Oranges", "Walls and Gates", "Nearest Exit from Entrance in Maze"],
+    "followUp": ["Can you solve it with DP instead of BFS?"],
+    "testCases": [
+      { "input": "[[0,0,0],[0,1,0],[1,1,1]]", "output": "[[0,0,0],[0,1,0],[1,2,1]]" }
+    ],
+    "acceptanceRate": "48.9%",
+    "likes": 9400,
+    "dislikes": 420
   },
   {
-    "_id": "que_tp_017",
-    "title": "Optimal Two Pointers for Queue 17",
+    "_id": "que_016",
+    "title": "Walls and Gates",
     "topic": "queue",
-    "pattern": "two-pointers",
+    "pattern": "multi-source-bfs",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2522,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-two-pointers-for-queue-17/",
-    "companies": [
-      "Microsoft",
-      "Tencent"
+    "problemNumber": 286,
+    "leetcodeUrl": "https://leetcode.com/problems/walls-and-gates/",
+    "description": "Given a m x n grid with -1 (walls), 0 (gates), INF (empty rooms), fill each empty room with the distance to its nearest gate. If unreachable, keep INF.",
+    "examples": [
+      {
+        "input": "rooms = [[INF,-1,0,INF],[INF,INF,INF,-1],[INF,-1,INF,-1],[0,-1,INF,INF]]",
+        "output": "[[3,-1,0,1],[2,2,1,-1],[1,-1,2,-1],[0,-1,3,4]]",
+        "explanation": "BFS from all gates simultaneously fills distances."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
+    "constraints": [
+      "m == rooms.length, n == rooms[i].length",
+      "1 <= m, n <= 250",
+      "rooms[i][j] is -1, 0, or 2^31 - 1."
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "Start BFS from all gates (0s) simultaneously.",
+      "Expand to INF neighbors only.",
+      "Update distance as BFS level."
+    ],
+    "expectedTimeComplexity": "O(m * n)",
+    "expectedSpaceComplexity": "O(m * n)",
+    "companies": ["Facebook", "Google", "Amazon"],
+    "tags": ["Queue", "BFS", "Matrix"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Walls and Gates - Multi Source BFS",
+        "url": "https://www.youtube.com/watch?v=e69C6xhiSQE"
+      }
+    ],
+    "relatedProblems": ["01 Matrix", "Rotting Oranges", "Nearest Exit from Entrance in Maze"],
+    "followUp": ["What if there are multiple types of gates with different costs?"],
+    "testCases": [
+      { "input": "[[INF,-1,0,INF],[INF,INF,INF,-1],[INF,-1,INF,-1],[0,-1,INF,INF]]", "output": "[[3,-1,0,1],[2,2,1,-1],[1,-1,2,-1],[0,-1,3,4]]" }
+    ],
+    "acceptanceRate": "61.2%",
+    "likes": 4200,
+    "dislikes": 100
   },
   {
-    "_id": "que_tp_018",
-    "title": "K-th Distance Two Pointers for Queue 18",
+    "_id": "que_017",
+    "title": "Task Scheduler",
     "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2032,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-two-pointers-for-queue-18/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_tp_019",
-    "title": "Continuous Two Pointers for Queue 19",
-    "topic": "queue",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2928,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-two-pointers-for-queue-19/",
-    "companies": [
-      "Bloomberg",
-      "ByteDance",
-      "Stripes"
-    ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_tp_020",
-    "title": "Maximal Two Pointers for Queue 20",
-    "topic": "queue",
-    "pattern": "two-pointers",
+    "pattern": "greedy-priority-queue",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1730,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-two-pointers-for-queue-20/",
-    "companies": [
-      "Twilio",
-      "Apple"
+    "problemNumber": 621,
+    "leetcodeUrl": "https://leetcode.com/problems/task-scheduler/",
+    "description": "Given a list of CPU tasks and a cooldown n, find the minimum number of intervals to execute all tasks. Identical tasks must be separated by at least n intervals.",
+    "examples": [
+      {
+        "input": "tasks = ['A','A','A','B','B','B'], n = 2",
+        "output": "8",
+        "explanation": "A->B->idle->A->B->idle->A->B = 8 intervals."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Two Pointers"
+    "constraints": [
+      "1 <= tasks.length <= 10^4",
+      "tasks[i] is uppercase English letter.",
+      "0 <= n <= 100"
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "Use a max-heap to always pick the most frequent available task.",
+      "Use a cooldown queue of (task, available_time) pairs.",
+      "Simulate time step by step."
+    ],
+    "expectedTimeComplexity": "O(n log n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Facebook", "Google", "Microsoft"],
+    "tags": ["Queue", "Array", "Greedy", "Sorting", "Heap (Priority Queue)", "Counting"],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Task Scheduler - Priority Queue Approach",
+        "url": "https://www.youtube.com/watch?v=s8p8ukTyA2I"
+      }
+    ],
+    "relatedProblems": ["Reorganize String", "Rearrange String k Distance Apart"],
+    "followUp": ["Can you solve it with O(1) space using math?"],
+    "testCases": [
+      { "input": "['A','A','A','B','B','B'], n=2", "output": "8" }
+    ],
+    "acceptanceRate": "57.8%",
+    "likes": 11000,
+    "dislikes": 2000
   },
   {
-    "_id": "que_sw_001",
-    "title": "Count of Sliding Window for Queue 1",
+    "_id": "que_018",
+    "title": "Design Hit Counter",
     "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1645,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-queue-1/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_sw_002",
-    "title": "Optimal Sliding Window for Queue 2",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2428,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sliding-window-for-queue-2/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_sw_003",
-    "title": "Longest Sliding Window for Queue 3",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1484,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sliding-window-for-queue-3/",
-    "companies": [
-      "Salesforce",
-      "Apple",
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_sw_004",
-    "title": "Validate Sliding Window for Queue 4",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2631,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sliding-window-for-queue-4/",
-    "companies": [
-      "Meta",
-      "ByteDance"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_sw_005",
-    "title": "Subarray Sliding Window for Queue 5",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2991,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sliding-window-for-queue-5/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_sw_006",
-    "title": "Maximal Sliding Window for Queue 6",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1437,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-queue-6/",
-    "companies": [
-      "LinkedIn",
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_sw_007",
-    "title": "Subarray Sliding Window for Queue 7",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2639,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sliding-window-for-queue-7/",
-    "companies": [
-      "Tencent",
-      "Meta"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_sw_008",
-    "title": "Longest Sliding Window for Queue 8",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2761,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sliding-window-for-queue-8/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_sw_009",
-    "title": "Maximal Sliding Window for Queue 9",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2214,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-queue-9/",
-    "companies": [
-      "Meta",
-      "Oracle",
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_sw_010",
-    "title": "K-th Distance Sliding Window for Queue 10",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1636,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sliding-window-for-queue-10/",
-    "companies": [
-      "Microsoft",
-      "Amazon"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_sw_011",
-    "title": "Cyclic Sliding Window for Queue 11",
-    "topic": "queue",
-    "pattern": "sliding-window",
+    "pattern": "sliding-window-queue",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1263,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sliding-window-for-queue-11/",
-    "companies": [
-      "Oracle",
-      "Salesforce",
-      "Tencent"
+    "problemNumber": 362,
+    "leetcodeUrl": "https://leetcode.com/problems/design-hit-counter/",
+    "description": "Design a hit counter that counts the number of hits received in the past 5 minutes (300 seconds). Implement hit(timestamp) and getHits(timestamp).",
+    "examples": [
+      {
+        "input": "hit(1), hit(2), hit(3), getHits(4)=3, hit(300), getHits(300)=4, getHits(301)=3",
+        "output": "3, 4, 3",
+        "explanation": "Hits within the 300-second window."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
+    "constraints": [
+      "1 <= timestamp <= 2 * 10^9",
+      "All calls to hit are with increasing timestamp.",
+      "At most 300 calls to hit and getHits."
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "Use a queue to store timestamps.",
+      "On getHits, remove timestamps older than timestamp - 300.",
+      "Return queue size."
+    ],
+    "expectedTimeComplexity": "O(1) amortized",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Google", "Dropbox", "Twitter"],
+    "tags": ["Queue", "Binary Search", "Design"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Design Hit Counter - LeetCode 362",
+        "url": "https://www.youtube.com/watch?v=eNRFWVBFNGg"
+      }
+    ],
+    "relatedProblems": ["Number of Recent Calls", "Moving Average from Data Stream"],
+    "followUp": ["What if calls to hit are not in chronological order?"],
+    "testCases": [
+      { "input": "hit(1), hit(2), hit(3), getHits(4)", "output": "3" },
+      { "input": "hit(300), getHits(301)", "output": "1" }
+    ],
+    "acceptanceRate": "69.8%",
+    "likes": 2800,
+    "dislikes": 230
   },
   {
-    "_id": "que_sw_012",
-    "title": "Subsequence Sliding Window for Queue 12",
+    "_id": "que_019",
+    "title": "Jump Game III",
     "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1491,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sliding-window-for-queue-12/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_sw_013",
-    "title": "Maximal Sliding Window for Queue 13",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1312,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-queue-13/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_sw_014",
-    "title": "Minimum Cost Sliding Window for Queue 14",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2018,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sliding-window-for-queue-14/",
-    "companies": [
-      "Netflix",
-      "Adobe"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_sw_015",
-    "title": "Search Sliding Window for Queue 15",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2330,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-queue-15/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_sw_016",
-    "title": "Subarray Sliding Window for Queue 16",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1301,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sliding-window-for-queue-16/",
-    "companies": [
-      "Salesforce",
-      "Uber"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_sw_017",
-    "title": "Subarray Sliding Window for Queue 17",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2210,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sliding-window-for-queue-17/",
-    "companies": [
-      "Salesforce",
-      "Atlassian",
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_sw_018",
-    "title": "Subarray Sliding Window for Queue 18",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2876,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sliding-window-for-queue-18/",
-    "companies": [
-      "Salesforce",
-      "Apple",
-      "Stripes"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_sw_019",
-    "title": "Count of Sliding Window for Queue 19",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2453,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-queue-19/",
-    "companies": [
-      "Atlassian",
-      "Stripes"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_sw_020",
-    "title": "Maximal Sliding Window for Queue 20",
-    "topic": "queue",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1094,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-queue-20/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Queue",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_ps_001",
-    "title": "K-th Distance Prefix Sum for Queue 1",
-    "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1905,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-queue-1/",
-    "companies": [
-      "Netflix",
-      "Tencent"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_ps_002",
-    "title": "K-th Distance Prefix Sum for Queue 2",
-    "topic": "queue",
-    "pattern": "prefix-sum",
+    "pattern": "bfs",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1721,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-queue-2/",
-    "companies": [
-      "Bloomberg",
-      "Stripes"
+    "problemNumber": 1306,
+    "leetcodeUrl": "https://leetcode.com/problems/jump-game-iii/",
+    "description": "Given an array arr and a start index, you can jump to index i+arr[i] or i-arr[i]. Return true if you can reach any index with value 0.",
+    "examples": [
+      {
+        "input": "arr = [4,2,3,0,3,1,2], start = 5",
+        "output": "true",
+        "explanation": "Path: 5 -> 4 -> 1 -> 3 (value 0)."
+      },
+      {
+        "input": "arr = [3,0,2,1,2], start = 2",
+        "output": "false",
+        "explanation": "Cannot reach index with 0."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
+    "constraints": [
+      "1 <= arr.length <= 5 * 10^4",
+      "0 <= arr[i] < arr.length",
+      "0 <= start < arr.length"
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "Use BFS from the start index.",
+      "Enqueue both i+arr[i] and i-arr[i] if in bounds and unvisited.",
+      "Return true if a 0-value index is reached."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google"],
+    "tags": ["Queue", "BFS", "DFS", "Array"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Jump Game III - BFS Approach",
+        "url": "https://www.youtube.com/watch?v=80SDRH62xpg"
+      }
+    ],
+    "relatedProblems": ["Jump Game", "Jump Game II", "Jump Game IV"],
+    "followUp": ["Can you solve it with DFS instead?"],
+    "testCases": [
+      { "input": "[4,2,3,0,3,1,2], start=5", "output": "true" }
+    ],
+    "acceptanceRate": "68.2%",
+    "likes": 4100,
+    "dislikes": 130
   },
   {
-    "_id": "que_ps_003",
-    "title": "Validate Prefix Sum for Queue 3",
+    "_id": "que_020",
+    "title": "Reveal Cards In Increasing Order",
     "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2336,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-queue-3/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_ps_004",
-    "title": "Subarray Prefix Sum for Queue 4",
-    "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1505,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-prefix-sum-for-queue-4/",
-    "companies": [
-      "Meta",
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_ps_005",
-    "title": "Merge Prefix Sum for Queue 5",
-    "topic": "queue",
-    "pattern": "prefix-sum",
+    "pattern": "simulation",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2529,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-prefix-sum-for-queue-5/",
-    "companies": [
-      "Microsoft"
+    "problemNumber": 950,
+    "leetcodeUrl": "https://leetcode.com/problems/reveal-cards-in-increasing-order/",
+    "description": "Given an array of integers deck, order the deck so that when cards are revealed in a specific interleaved pattern (reveal top, move next to bottom), they appear in increasing order.",
+    "examples": [
+      {
+        "input": "deck = [17,13,11,2,3,5,7]",
+        "output": "[2,13,3,11,5,17,7]",
+        "explanation": "This arrangement reveals cards in sorted order."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
+    "constraints": [
+      "1 <= deck.length <= 1000",
+      "1 <= deck[i] <= 10^6",
+      "All values in deck are unique."
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "Simulate the reveal process using a queue of indices.",
+      "Sort the deck.",
+      "Place sorted cards at the indices in reveal order."
+    ],
+    "expectedTimeComplexity": "O(n log n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google"],
+    "tags": ["Queue", "Array", "Sorting", "Simulation"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Reveal Cards In Increasing Order - LeetCode 950",
+        "url": "https://www.youtube.com/watch?v=HWuDtAGbpzU"
+      }
+    ],
+    "relatedProblems": ["Deckrev", "Time Needed to Buy Tickets"],
+    "followUp": ["What if the deck had duplicate values?"],
+    "testCases": [
+      { "input": "[17,13,11,2,3,5,7]", "output": "[2,13,3,11,5,17,7]" }
+    ],
+    "acceptanceRate": "78.3%",
+    "likes": 3600,
+    "dislikes": 200
   },
   {
-    "_id": "que_ps_006",
-    "title": "Merge Prefix Sum for Queue 6",
+    "_id": "que_021",
+    "title": "Course Schedule (BFS / Kahn's Algorithm)",
     "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2831,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-prefix-sum-for-queue-6/",
-    "companies": [
-      "Microsoft",
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_ps_007",
-    "title": "Balanced Prefix Sum for Queue 7",
-    "topic": "queue",
-    "pattern": "prefix-sum",
+    "pattern": "topological-sort",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2166,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-prefix-sum-for-queue-7/",
-    "companies": [
-      "Microsoft",
-      "Oracle",
-      "Salesforce"
+    "problemNumber": 207,
+    "leetcodeUrl": "https://leetcode.com/problems/course-schedule/",
+    "description": "Given numCourses and prerequisites pairs, determine if you can finish all courses (i.e., no circular dependency). Solve using BFS-based topological sort.",
+    "examples": [
+      {
+        "input": "numCourses = 2, prerequisites = [[1,0]]",
+        "output": "true",
+        "explanation": "Take course 0, then course 1."
+      },
+      {
+        "input": "numCourses = 2, prerequisites = [[1,0],[0,1]]",
+        "output": "false",
+        "explanation": "Circular dependency."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
+    "constraints": [
+      "1 <= numCourses <= 2000",
+      "0 <= prerequisites.length <= 5000",
+      "prerequisites[i].length == 2",
+      "No duplicate pairs."
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "Build an adjacency list and in-degree map.",
+      "Enqueue all nodes with in-degree 0.",
+      "BFS: process node, decrement neighbors' in-degree, enqueue if 0.",
+      "If processed count equals numCourses, no cycle exists."
+    ],
+    "expectedTimeComplexity": "O(V + E)",
+    "expectedSpaceComplexity": "O(V + E)",
+    "companies": ["Amazon", "Facebook", "Google", "Uber", "Apple"],
+    "tags": ["Queue", "BFS", "Graph", "Topological Sort", "DFS"],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Course Schedule - Kahn's BFS Topological Sort",
+        "url": "https://www.youtube.com/watch?v=EgI5nU9etnU"
+      }
+    ],
+    "relatedProblems": ["Course Schedule II", "Alien Dictionary", "Minimum Height Trees"],
+    "followUp": ["Return the actual course order."],
+    "testCases": [
+      { "input": "numCourses=2, prerequisites=[[1,0]]", "output": "true" },
+      { "input": "numCourses=2, prerequisites=[[1,0],[0,1]]", "output": "false" }
+    ],
+    "acceptanceRate": "47.2%",
+    "likes": 17000,
+    "dislikes": 690
   },
   {
-    "_id": "que_ps_008",
-    "title": "Maximal Prefix Sum for Queue 8",
+    "_id": "que_022",
+    "title": "Sliding Window Maximum",
     "topic": "queue",
-    "pattern": "prefix-sum",
+    "pattern": "monotonic-deque",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 1505,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-prefix-sum-for-queue-8/",
-    "companies": [
-      "ByteDance",
-      "Airbnb"
+    "problemNumber": 239,
+    "leetcodeUrl": "https://leetcode.com/problems/sliding-window-maximum/",
+    "description": "Given an array nums and a sliding window of size k, return the maximum value in each window position as the window slides left to right.",
+    "examples": [
+      {
+        "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+        "output": "[3,3,5,5,6,7]",
+        "explanation": "Max of each window of size 3."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-10^4 <= nums[i] <= 10^4",
+      "1 <= k <= nums.length"
     ],
-    "estimatedTime": "35 min"
+    "hints": [
+      "Use a monotonic decreasing deque of indices.",
+      "Remove indices outside the window from the front.",
+      "Remove smaller elements from the back before inserting current."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(k)",
+    "companies": ["Amazon", "Google", "Microsoft", "Citadel"],
+    "tags": ["Queue", "Array", "Sliding Window", "Monotonic Queue", "Heap"],
+    "estimatedTime": "40 min",
+    "youtubeVideos": [
+      {
+        "title": "Sliding Window Maximum - Monotonic Deque",
+        "url": "https://www.youtube.com/watch?v=DfljaUwZsOk"
+      }
+    ],
+    "relatedProblems": ["Minimum Window Substring", "Min Stack", "Longest Subarray of 1s After Deleting One Element"],
+    "followUp": ["Can you extend this to a 2D matrix?"],
+    "testCases": [
+      { "input": "[1,3,-1,-3,5,3,6,7], k=3", "output": "[3,3,5,5,6,7]" }
+    ],
+    "acceptanceRate": "46.8%",
+    "likes": 15000,
+    "dislikes": 580
   },
   {
-    "_id": "que_ps_009",
-    "title": "Longest Prefix Sum for Queue 9",
+    "_id": "que_023",
+    "title": "Word Ladder",
     "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1968,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-prefix-sum-for-queue-9/",
-    "companies": [
-      "Bloomberg",
-      "Apple",
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_ps_010",
-    "title": "Subarray Prefix Sum for Queue 10",
-    "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1850,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-prefix-sum-for-queue-10/",
-    "companies": [
-      "Google",
-      "Atlassian",
-      "ByteDance"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_ps_011",
-    "title": "Search Prefix Sum for Queue 11",
-    "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1450,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-queue-11/",
-    "companies": [
-      "ByteDance",
-      "Tencent",
-      "Microsoft"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_ps_012",
-    "title": "Longest Prefix Sum for Queue 12",
-    "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1228,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-prefix-sum-for-queue-12/",
-    "companies": [
-      "Twilio",
-      "Twitter",
-      "Uber"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_ps_013",
-    "title": "Search Prefix Sum for Queue 13",
-    "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1471,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-queue-13/",
-    "companies": [
-      "Microsoft",
-      "Adobe",
-      "Twilio"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_ps_014",
-    "title": "Shortest Prefix Sum for Queue 14",
-    "topic": "queue",
-    "pattern": "prefix-sum",
+    "pattern": "bfs-shortest-path",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 1635,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-prefix-sum-for-queue-14/",
-    "companies": [
-      "Google"
+    "problemNumber": 127,
+    "leetcodeUrl": "https://leetcode.com/problems/word-ladder/",
+    "description": "Given beginWord, endWord, and a wordList, find the length of the shortest transformation sequence from beginWord to endWord, changing one letter at a time, each step must be a valid word.",
+    "examples": [
+      {
+        "input": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]",
+        "output": "5",
+        "explanation": "hit -> hot -> dot -> dog -> cog (length 5)."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
+    "constraints": [
+      "1 <= beginWord.length <= 10",
+      "endWord.length == beginWord.length",
+      "1 <= wordList.length <= 5000",
+      "All words are lowercase letters."
     ],
-    "estimatedTime": "35 min"
+    "hints": [
+      "Use BFS for shortest path.",
+      "Try replacing each character with a-z.",
+      "Use a set for O(1) lookup and mark visited words."
+    ],
+    "expectedTimeComplexity": "O(M^2 * N)",
+    "expectedSpaceComplexity": "O(M^2 * N)",
+    "companies": ["Amazon", "Facebook", "LinkedIn", "Yelp"],
+    "tags": ["Queue", "BFS", "Hash Set", "String"],
+    "estimatedTime": "45 min",
+    "youtubeVideos": [
+      {
+        "title": "Word Ladder - BFS Solution",
+        "url": "https://www.youtube.com/watch?v=h9iTnkgv05E"
+      }
+    ],
+    "relatedProblems": ["Word Ladder II", "Minimum Genetic Mutation"],
+    "followUp": ["Return all shortest transformation sequences (Word Ladder II)."],
+    "testCases": [
+      { "input": "beginWord=\"hit\", endWord=\"cog\", wordList=[\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]", "output": "5" }
+    ],
+    "acceptanceRate": "37.5%",
+    "likes": 12000,
+    "dislikes": 1800
   },
   {
-    "_id": "que_ps_015",
-    "title": "Subarray Prefix Sum for Queue 15",
+    "_id": "que_024",
+    "title": "Shortest Path in Binary Matrix",
     "topic": "queue",
-    "pattern": "prefix-sum",
+    "pattern": "bfs-shortest-path",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 1513,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-prefix-sum-for-queue-15/",
-    "companies": [
-      "Twilio",
-      "Amazon",
-      "Bloomberg"
+    "problemNumber": 1091,
+    "leetcodeUrl": "https://leetcode.com/problems/shortest-path-in-binary-matrix/",
+    "description": "Given an n x n binary matrix grid, return the length of the shortest clear path from top-left (0,0) to bottom-right (n-1,n-1). A clear path only passes through 0-cells, moving 8-directionally.",
+    "examples": [
+      {
+        "input": "grid = [[0,1],[1,0]]",
+        "output": "2",
+        "explanation": "Path: (0,0) -> (1,1), length 2."
+      },
+      {
+        "input": "grid = [[1,0,0],[1,1,0],[1,1,0]]",
+        "output": "-1",
+        "explanation": "No clear path exists."
+      }
     ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
+    "constraints": [
+      "n == grid.length == grid[i].length",
+      "1 <= n <= 100",
+      "grid[i][j] is 0 or 1."
     ],
-    "estimatedTime": "40 min"
+    "hints": [
+      "Use BFS starting from (0,0).",
+      "Explore all 8 directions.",
+      "Track visited cells to avoid revisiting.",
+      "Return -1 if queue empties without reaching (n-1, n-1)."
+    ],
+    "expectedTimeComplexity": "O(n^2)",
+    "expectedSpaceComplexity": "O(n^2)",
+    "companies": ["Amazon", "Google", "Facebook"],
+    "tags": ["Queue", "BFS", "Array", "Matrix"],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Shortest Path in Binary Matrix - BFS",
+        "url": "https://www.youtube.com/watch?v=YnxUdAO7TAo"
+      }
+    ],
+    "relatedProblems": ["Word Ladder", "01 Matrix", "Rotting Oranges"],
+    "followUp": ["What if diagonal movement is not allowed?"],
+    "testCases": [
+      { "input": "[[0,1],[1,0]]", "output": "2" },
+      { "input": "[[1,0,0],[1,1,0],[1,1,0]]", "output": "-1" }
+    ],
+    "acceptanceRate": "47.4%",
+    "likes": 5800,
+    "dislikes": 260
   },
   {
-    "_id": "que_ps_016",
-    "title": "Count of Prefix Sum for Queue 16",
+    "_id": "que_025",
+    "title": "Find Median from Data Stream",
     "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2221,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-prefix-sum-for-queue-16/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_ps_017",
-    "title": "Shortest Prefix Sum for Queue 17",
-    "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1836,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-prefix-sum-for-queue-17/",
-    "companies": [
-      "Twilio",
-      "LinkedIn",
-      "Apple"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_ps_018",
-    "title": "Count of Prefix Sum for Queue 18",
-    "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1720,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-prefix-sum-for-queue-18/",
-    "companies": [
-      "Stripes",
-      "Twilio",
-      "Netflix"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_ps_019",
-    "title": "Validate Prefix Sum for Queue 19",
-    "topic": "queue",
-    "pattern": "prefix-sum",
+    "pattern": "two-heaps",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 1451,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-queue-19/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_ps_020",
-    "title": "Validate Prefix Sum for Queue 20",
-    "topic": "queue",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1314,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-queue-20/",
-    "companies": [
-      "Stripes",
-      "Atlassian",
-      "Netflix"
-    ],
-    "tags": [
-      "Queue",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_bs_001",
-    "title": "Continuous Binary Search for Queue 1",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1605,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-binary-search-for-queue-1/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_bs_002",
-    "title": "Search Binary Search for Queue 2",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2116,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-queue-2/",
-    "companies": [
-      "ByteDance",
-      "Twitter",
-      "Tencent"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_bs_003",
-    "title": "Optimal Binary Search for Queue 3",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2319,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-queue-3/",
-    "companies": [
-      "Google",
-      "Microsoft",
-      "ByteDance"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_bs_004",
-    "title": "Merge Binary Search for Queue 4",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2283,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-queue-4/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_bs_005",
-    "title": "Merge Binary Search for Queue 5",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2775,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-queue-5/",
-    "companies": [
-      "Bloomberg",
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_bs_006",
-    "title": "Balanced Binary Search for Queue 6",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1621,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-search-for-queue-6/",
-    "companies": [
-      "Uber",
-      "Adobe"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_bs_007",
-    "title": "Longest Binary Search for Queue 7",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1228,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-binary-search-for-queue-7/",
-    "companies": [
-      "Adobe",
-      "Salesforce",
-      "Netflix"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_bs_008",
-    "title": "Cyclic Binary Search for Queue 8",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2536,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-queue-8/",
-    "companies": [
-      "Google",
-      "Apple",
-      "Tencent"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_bs_009",
-    "title": "Maximal Binary Search for Queue 9",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2608,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-queue-9/",
-    "companies": [
-      "Netflix",
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_bs_010",
-    "title": "Minimum Cost Binary Search for Queue 10",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2576,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-queue-10/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_bs_011",
-    "title": "Merge Binary Search for Queue 11",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2552,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-queue-11/",
-    "companies": [
-      "Bloomberg",
-      "Meta"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_bs_012",
-    "title": "Merge Binary Search for Queue 12",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1391,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-queue-12/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_bs_013",
-    "title": "Minimum Cost Binary Search for Queue 13",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2182,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-queue-13/",
-    "companies": [
-      "Uber",
-      "Microsoft",
-      "Netflix"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_bs_014",
-    "title": "Validate Binary Search for Queue 14",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1430,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-binary-search-for-queue-14/",
-    "companies": [
-      "ByteDance",
-      "Bloomberg",
-      "Twilio"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_bs_015",
-    "title": "Optimal Binary Search for Queue 15",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2904,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-queue-15/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_bs_016",
-    "title": "Minimum Cost Binary Search for Queue 16",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1230,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-queue-16/",
-    "companies": [
-      "Tencent",
-      "Twitter",
-      "Meta"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_bs_017",
-    "title": "Maximal Binary Search for Queue 17",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2346,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-queue-17/",
-    "companies": [
-      "Amazon",
-      "Airbnb",
-      "Netflix"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_bs_018",
-    "title": "Longest Binary Search for Queue 18",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1075,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-binary-search-for-queue-18/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_bs_019",
-    "title": "Merge Binary Search for Queue 19",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1860,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-queue-19/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_bs_020",
-    "title": "Minimum Cost Binary Search for Queue 20",
-    "topic": "queue",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1542,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-queue-20/",
-    "companies": [
-      "LinkedIn",
-      "Twilio"
-    ],
-    "tags": [
-      "Queue",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_mt_001",
-    "title": "Subarray Matrix for Queue 1",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1043,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-queue-1/",
-    "companies": [
-      "Google",
-      "Adobe",
-      "ByteDance"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_mt_002",
-    "title": "Cyclic Matrix for Queue 2",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2767,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-matrix-for-queue-2/",
-    "companies": [
-      "Microsoft",
-      "Adobe",
-      "Atlassian"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_mt_003",
-    "title": "Continuous Matrix for Queue 3",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1077,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-matrix-for-queue-3/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_mt_004",
-    "title": "Shortest Matrix for Queue 4",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1046,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-queue-4/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_mt_005",
-    "title": "Merge Matrix for Queue 5",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2807,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-queue-5/",
-    "companies": [
-      "Twilio",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_mt_006",
-    "title": "Optimal Matrix for Queue 6",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2388,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-matrix-for-queue-6/",
-    "companies": [
-      "Netflix",
-      "Salesforce",
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_mt_007",
-    "title": "Validate Matrix for Queue 7",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1075,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-matrix-for-queue-7/",
-    "companies": [
-      "ByteDance",
-      "Salesforce"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_mt_008",
-    "title": "Subsequence Matrix for Queue 8",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2991,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-matrix-for-queue-8/",
-    "companies": [
-      "Microsoft",
-      "Adobe"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_mt_009",
-    "title": "Shortest Matrix for Queue 9",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1945,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-queue-9/",
-    "companies": [
-      "Twilio",
-      "Salesforce",
-      "Apple"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_mt_010",
-    "title": "Minimum Cost Matrix for Queue 10",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1126,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-matrix-for-queue-10/",
-    "companies": [
-      "Twilio",
-      "Adobe"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_mt_011",
-    "title": "Longest Matrix for Queue 11",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2178,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-queue-11/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_mt_012",
-    "title": "K-th Distance Matrix for Queue 12",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2473,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-queue-12/",
-    "companies": [
-      "Apple",
-      "LinkedIn",
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_mt_013",
-    "title": "Count of Matrix for Queue 13",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1384,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-matrix-for-queue-13/",
-    "companies": [
-      "Bloomberg",
-      "Apple"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_mt_014",
-    "title": "Shortest Matrix for Queue 14",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1782,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-queue-14/",
-    "companies": [
-      "Google",
-      "Microsoft"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_mt_015",
-    "title": "Validate Matrix for Queue 15",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1617,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-matrix-for-queue-15/",
-    "companies": [
-      "Tencent",
-      "Microsoft"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_mt_016",
-    "title": "K-th Distance Matrix for Queue 16",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2090,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-queue-16/",
-    "companies": [
-      "Stripes",
-      "Tencent",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_mt_017",
-    "title": "Subarray Matrix for Queue 17",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2913,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-queue-17/",
-    "companies": [
-      "Oracle",
-      "Meta",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_mt_018",
-    "title": "Merge Matrix for Queue 18",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1480,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-queue-18/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_mt_019",
-    "title": "Continuous Matrix for Queue 19",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1988,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-matrix-for-queue-19/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_mt_020",
-    "title": "Minimum Cost Matrix for Queue 20",
-    "topic": "queue",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1316,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-matrix-for-queue-20/",
-    "companies": [
-      "Tencent",
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_srt_001",
-    "title": "Continuous Sorting for Queue 1",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1897,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sorting-for-queue-1/",
-    "companies": [
-      "Atlassian",
-      "Stripes"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_srt_002",
-    "title": "Maximal Sorting for Queue 2",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2423,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-queue-2/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_srt_003",
-    "title": "Continuous Sorting for Queue 3",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2868,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sorting-for-queue-3/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_srt_004",
-    "title": "K-th Distance Sorting for Queue 4",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1118,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-queue-4/",
-    "companies": [
-      "Oracle",
-      "Adobe"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_srt_005",
-    "title": "Optimal Sorting for Queue 5",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1870,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-queue-5/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_srt_006",
-    "title": "Validate Sorting for Queue 6",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1040,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sorting-for-queue-6/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_srt_007",
-    "title": "K-th Distance Sorting for Queue 7",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1585,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-queue-7/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_srt_008",
-    "title": "Subsequence Sorting for Queue 8",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1977,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sorting-for-queue-8/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_srt_009",
-    "title": "Validate Sorting for Queue 9",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1205,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sorting-for-queue-9/",
-    "companies": [
-      "Stripes",
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_srt_010",
-    "title": "K-th Distance Sorting for Queue 10",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1636,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-queue-10/",
-    "companies": [
-      "Tencent",
-      "Stripes",
-      "Meta"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_srt_011",
-    "title": "Cyclic Sorting for Queue 11",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2002,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-queue-11/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_srt_012",
-    "title": "Minimum Cost Sorting for Queue 12",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1386,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sorting-for-queue-12/",
-    "companies": [
-      "Amazon",
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_srt_013",
-    "title": "Shortest Sorting for Queue 13",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2293,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-queue-13/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_srt_014",
-    "title": "Maximal Sorting for Queue 14",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1042,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-queue-14/",
-    "companies": [
-      "Bloomberg",
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_srt_015",
-    "title": "Shortest Sorting for Queue 15",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2105,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-queue-15/",
-    "companies": [
-      "Adobe",
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_srt_016",
-    "title": "Subarray Sorting for Queue 16",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2705,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sorting-for-queue-16/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_srt_017",
-    "title": "Subarray Sorting for Queue 17",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2609,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sorting-for-queue-17/",
-    "companies": [
-      "Stripes",
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_srt_018",
-    "title": "Validate Sorting for Queue 18",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1440,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sorting-for-queue-18/",
-    "companies": [
-      "Uber",
-      "Stripes",
-      "Adobe"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_srt_019",
-    "title": "Merge Sorting for Queue 19",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2222,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sorting-for-queue-19/",
-    "companies": [
-      "LinkedIn",
-      "ByteDance",
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_srt_020",
-    "title": "Count of Sorting for Queue 20",
-    "topic": "queue",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2240,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sorting-for-queue-20/",
-    "companies": [
-      "Tencent",
-      "Twilio",
-      "Atlassian"
-    ],
-    "tags": [
-      "Queue",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_kd_001",
-    "title": "Minimum Cost Kadane’s Algorithm for Queue 1",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1728,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-queue-1/",
-    "companies": [
-      "Apple",
-      "Netflix",
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_kd_002",
-    "title": "Search Kadane’s Algorithm for Queue 2",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1799,
-    "leetcodeUrl": "https://leetcode.com/problems/search-kadane-s-algorithm-for-queue-2/",
-    "companies": [
-      "Apple",
-      "Stripes",
-      "Salesforce"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_kd_003",
-    "title": "Longest Kadane’s Algorithm for Queue 3",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1762,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-queue-3/",
-    "companies": [
-      "Twitter",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_kd_004",
-    "title": "Balanced Kadane’s Algorithm for Queue 4",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2183,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-kadane-s-algorithm-for-queue-4/",
-    "companies": [
-      "Stripes",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_kd_005",
-    "title": "Maximal Kadane’s Algorithm for Queue 5",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2449,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-queue-5/",
-    "companies": [
-      "LinkedIn",
-      "Tencent",
-      "Meta"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_kd_006",
-    "title": "Cyclic Kadane’s Algorithm for Queue 6",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1902,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-kadane-s-algorithm-for-queue-6/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_kd_007",
-    "title": "Subarray Kadane’s Algorithm for Queue 7",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1422,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-queue-7/",
-    "companies": [
-      "Stripes",
-      "Meta"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_kd_008",
-    "title": "Shortest Kadane’s Algorithm for Queue 8",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1489,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-kadane-s-algorithm-for-queue-8/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_kd_009",
-    "title": "Longest Kadane’s Algorithm for Queue 9",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1981,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-queue-9/",
-    "companies": [
-      "Meta",
-      "Apple",
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_kd_010",
-    "title": "Continuous Kadane’s Algorithm for Queue 10",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1831,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-kadane-s-algorithm-for-queue-10/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_kd_011",
-    "title": "Balanced Kadane’s Algorithm for Queue 11",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1114,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-kadane-s-algorithm-for-queue-11/",
-    "companies": [
-      "Twilio",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_kd_012",
-    "title": "Shortest Kadane’s Algorithm for Queue 12",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2725,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-kadane-s-algorithm-for-queue-12/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_kd_013",
-    "title": "Count of Kadane’s Algorithm for Queue 13",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2595,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-kadane-s-algorithm-for-queue-13/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_kd_014",
-    "title": "Count of Kadane’s Algorithm for Queue 14",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2401,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-kadane-s-algorithm-for-queue-14/",
-    "companies": [
-      "Adobe",
-      "Airbnb",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_kd_015",
-    "title": "Subsequence Kadane’s Algorithm for Queue 15",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1011,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-kadane-s-algorithm-for-queue-15/",
-    "companies": [
-      "Atlassian",
-      "ByteDance",
-      "Tencent"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_kd_016",
-    "title": "Subarray Kadane’s Algorithm for Queue 16",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2748,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-queue-16/",
-    "companies": [
-      "Meta",
-      "Atlassian"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_kd_017",
-    "title": "Merge Kadane’s Algorithm for Queue 17",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1516,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-kadane-s-algorithm-for-queue-17/",
-    "companies": [
-      "Netflix",
-      "Stripes",
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_kd_018",
-    "title": "Maximal Kadane’s Algorithm for Queue 18",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1828,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-queue-18/",
-    "companies": [
-      "Twilio",
-      "Bloomberg",
-      "Adobe"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_kd_019",
-    "title": "Subarray Kadane’s Algorithm for Queue 19",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1735,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-queue-19/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_kd_020",
-    "title": "Maximal Kadane’s Algorithm for Queue 20",
-    "topic": "queue",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2774,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-queue-20/",
-    "companies": [
-      "Oracle",
-      "Tencent",
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_hs_001",
-    "title": "Balanced Hashing for Queue 1",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1511,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-queue-1/",
-    "companies": [
-      "Meta",
-      "Netflix",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_hs_002",
-    "title": "Cyclic Hashing for Queue 2",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1165,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-hashing-for-queue-2/",
-    "companies": [
-      "Twitter",
-      "ByteDance"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_hs_003",
-    "title": "Continuous Hashing for Queue 3",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2470,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-queue-3/",
-    "companies": [
-      "Apple",
-      "Atlassian",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_hs_004",
-    "title": "Validate Hashing for Queue 4",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2569,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-hashing-for-queue-4/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_hs_005",
-    "title": "Count of Hashing for Queue 5",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2848,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-queue-5/",
-    "companies": [
-      "Airbnb",
-      "Meta",
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_hs_006",
-    "title": "Minimum Cost Hashing for Queue 6",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2540,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-hashing-for-queue-6/",
-    "companies": [
-      "Salesforce",
-      "Apple"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_hs_007",
-    "title": "Balanced Hashing for Queue 7",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2790,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-queue-7/",
-    "companies": [
-      "ByteDance",
-      "Salesforce",
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_hs_008",
-    "title": "Search Hashing for Queue 8",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2948,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-queue-8/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_hs_009",
-    "title": "Search Hashing for Queue 9",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2708,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-queue-9/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_hs_010",
-    "title": "Balanced Hashing for Queue 10",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2204,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-queue-10/",
-    "companies": [
-      "Bloomberg",
-      "Salesforce",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_hs_011",
-    "title": "Subarray Hashing for Queue 11",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2672,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-hashing-for-queue-11/",
-    "companies": [
-      "Uber",
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_hs_012",
-    "title": "Search Hashing for Queue 12",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1405,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-queue-12/",
-    "companies": [
-      "LinkedIn",
-      "Airbnb",
-      "Stripes"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_hs_013",
-    "title": "Maximal Hashing for Queue 13",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2225,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-hashing-for-queue-13/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_hs_014",
-    "title": "Balanced Hashing for Queue 14",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2629,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-queue-14/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_hs_015",
-    "title": "Maximal Hashing for Queue 15",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2478,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-hashing-for-queue-15/",
-    "companies": [
-      "ByteDance",
-      "Atlassian",
-      "Amazon"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_hs_016",
-    "title": "Optimal Hashing for Queue 16",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1403,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-queue-16/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_hs_017",
-    "title": "Longest Hashing for Queue 17",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1969,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-hashing-for-queue-17/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_hs_018",
-    "title": "Balanced Hashing for Queue 18",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2812,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-queue-18/",
-    "companies": [
-      "Adobe",
-      "ByteDance",
-      "Amazon"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_hs_019",
-    "title": "Search Hashing for Queue 19",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1309,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-queue-19/",
-    "companies": [
-      "Atlassian",
-      "Amazon",
-      "Netflix"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "que_hs_020",
-    "title": "Merge Hashing for Queue 20",
-    "topic": "queue",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2015,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-hashing-for-queue-20/",
-    "companies": [
-      "Stripes",
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_ms_001",
-    "title": "Merge Monotonic Stack for Queue 1",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2419,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-queue-1/",
-    "companies": [
-      "Adobe",
-      "Tencent"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_ms_002",
-    "title": "Maximal Monotonic Stack for Queue 2",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1776,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-monotonic-stack-for-queue-2/",
-    "companies": [
-      "Apple",
-      "Twitter",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_ms_003",
-    "title": "Optimal Monotonic Stack for Queue 3",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1926,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-monotonic-stack-for-queue-3/",
-    "companies": [
-      "Twilio",
-      "Amazon"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_ms_004",
-    "title": "Merge Monotonic Stack for Queue 4",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2446,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-queue-4/",
-    "companies": [
-      "ByteDance",
-      "Bloomberg",
-      "Netflix"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_ms_005",
-    "title": "Continuous Monotonic Stack for Queue 5",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2646,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-queue-5/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_ms_006",
-    "title": "Validate Monotonic Stack for Queue 6",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1821,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-monotonic-stack-for-queue-6/",
-    "companies": [
-      "Stripes",
-      "Twilio",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_ms_007",
-    "title": "Validate Monotonic Stack for Queue 7",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2751,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-monotonic-stack-for-queue-7/",
-    "companies": [
-      "Google",
-      "Amazon",
-      "Apple"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_ms_008",
-    "title": "Subarray Monotonic Stack for Queue 8",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2623,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-queue-8/",
-    "companies": [
-      "Atlassian",
-      "Apple"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_ms_009",
-    "title": "Longest Monotonic Stack for Queue 9",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1446,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-monotonic-stack-for-queue-9/",
-    "companies": [
-      "Microsoft",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_ms_010",
-    "title": "Merge Monotonic Stack for Queue 10",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2528,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-queue-10/",
-    "companies": [
-      "Uber",
-      "Google",
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_ms_011",
-    "title": "Subsequence Monotonic Stack for Queue 11",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2851,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-monotonic-stack-for-queue-11/",
-    "companies": [
-      "LinkedIn",
-      "Tencent",
-      "Microsoft"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_ms_012",
-    "title": "Subsequence Monotonic Stack for Queue 12",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1233,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-monotonic-stack-for-queue-12/",
-    "companies": [
-      "Amazon",
-      "Microsoft"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_ms_013",
-    "title": "Balanced Monotonic Stack for Queue 13",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1167,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-monotonic-stack-for-queue-13/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "que_ms_014",
-    "title": "K-th Distance Monotonic Stack for Queue 14",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1724,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-monotonic-stack-for-queue-14/",
-    "companies": [
-      "Twilio",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_ms_015",
-    "title": "Merge Monotonic Stack for Queue 15",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2129,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-queue-15/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_ms_016",
-    "title": "Continuous Monotonic Stack for Queue 16",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2669,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-queue-16/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "que_ms_017",
-    "title": "Validate Monotonic Stack for Queue 17",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1857,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-monotonic-stack-for-queue-17/",
-    "companies": [
-      "Google",
-      "Meta",
-      "Oracle"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "que_ms_018",
-    "title": "Cyclic Monotonic Stack for Queue 18",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1280,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-monotonic-stack-for-queue-18/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "que_ms_019",
-    "title": "Continuous Monotonic Stack for Queue 19",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1343,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-queue-19/",
-    "companies": [
-      "Meta",
-      "Airbnb"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "que_ms_020",
-    "title": "Search Monotonic Stack for Queue 20",
-    "topic": "queue",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2433,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-queue-20/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Queue",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
+    "problemNumber": 295,
+    "leetcodeUrl": "https://leetcode.com/problems/find-median-from-data-stream/",
+    "description": "Design a data structure that supports adding integers from a data stream and finding the median at any time using two priority queues.",
+    "examples": [
+      {
+        "input": "addNum(1), addNum(2), findMedian()=1.5, addNum(3), findMedian()=2.0",
+        "output": "1.5, 2.0",
+        "explanation": "Median updated after each insertion."
+      }
+    ],
+    "constraints": [
+      "-10^5 <= num <= 10^5",
+      "At least one element before findMedian.",
+      "At most 5 * 10^4 calls to addNum and findMedian."
+    ],
+    "hints": [
+      "Use a max-heap for the lower half and min-heap for the upper half.",
+      "Balance the two heaps to differ by at most 1 element.",
+      "Median is either the top of the larger heap or average of both tops."
+    ],
+    "expectedTimeComplexity": "O(log n) addNum, O(1) findMedian",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Microsoft", "Citadel", "Goldman Sachs"],
+    "tags": ["Queue", "Two Pointers", "Sorting", "Heap (Priority Queue)", "Design", "Data Stream"],
+    "estimatedTime": "45 min",
+    "youtubeVideos": [
+      {
+        "title": "Find Median from Data Stream - Two Heaps",
+        "url": "https://www.youtube.com/watch?v=itmhHWaHupI"
+      }
+    ],
+    "relatedProblems": ["Sliding Window Median", "Find Median Given that 99% Numbers are between 0-100"],
+    "followUp": ["What if you have 10^9 numbers? Can you use a different data structure?"],
+    "testCases": [
+      { "input": "addNum(1), addNum(2), findMedian()", "output": "1.5" },
+      { "input": "addNum(3), findMedian()", "output": "2.0" }
+    ],
+    "acceptanceRate": "51.9%",
+    "likes": 11000,
+    "dislikes": 220
   }
 ]

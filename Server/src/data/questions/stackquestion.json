@@ -1,3420 +1,1217 @@
 [
   {
-    "_id": "stk_tp_001",
-    "title": "Subarray Two Pointers for Stack 1",
+    "_id": "stk_001",
+    "title": "Valid Parentheses",
     "topic": "stack",
-    "pattern": "two-pointers",
+    "pattern": "matching-brackets",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 2657,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-stack-1/",
-    "companies": [
-      "Salesforce"
+    "problemNumber": 20,
+    "leetcodeUrl": "https://leetcode.com/problems/valid-parentheses/",
+    "description": "Given a string s containing just '(', ')', '{', '}', '[' and ']', determine if the input string is valid. Brackets must close in the correct order.",
+    "examples": [
+      {
+        "input": "s = \"()[]{}\"",
+        "output": "true",
+        "explanation": "All brackets are properly closed."
+      },
+      {
+        "input": "s = \"(]\"",
+        "output": "false",
+        "explanation": "Mismatched bracket types."
+      }
     ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
+    "constraints": [
+      "1 <= s.length <= 10^4",
+      "s consists of parentheses only '()[]{}'."
     ],
-    "estimatedTime": "20 min"
+    "hints": [
+      "Push opening brackets onto the stack.",
+      "On closing bracket, check if top of stack matches.",
+      "Stack should be empty at the end."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Facebook", "Microsoft", "Bloomberg"],
+    "tags": ["Stack", "String"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Valid Parentheses - LeetCode 20",
+        "url": "https://www.youtube.com/watch?v=WTzjTskDFMg"
+      }
+    ],
+    "relatedProblems": ["Generate Parentheses", "Longest Valid Parentheses", "Remove Invalid Parentheses"],
+    "followUp": ["What if there are multiple types of brackets nested deeply?"],
+    "testCases": [
+      { "input": "\"()[]{}\"", "output": "true" },
+      { "input": "\"(]\"", "output": "false" },
+      { "input": "\"{[]}\"", "output": "true" }
+    ],
+    "acceptanceRate": "40.9%",
+    "likes": 22000,
+    "dislikes": 1200
   },
   {
-    "_id": "stk_tp_002",
-    "title": "Cyclic Two Pointers for Stack 2",
+    "_id": "stk_002",
+    "title": "Implement Stack using Queues",
     "topic": "stack",
-    "pattern": "two-pointers",
+    "pattern": "design",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1350,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-two-pointers-for-stack-2/",
-    "companies": [
-      "Amazon",
-      "ByteDance",
-      "Apple"
+    "problemNumber": 225,
+    "leetcodeUrl": "https://leetcode.com/problems/implement-stack-using-queues/",
+    "description": "Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support push, top, pop, and empty operations.",
+    "examples": [
+      {
+        "input": "push(1), push(2), top() -> 2, pop() -> 2, empty() -> false",
+        "output": "null, null, 2, 2, false",
+        "explanation": "Stack operations mirrored using queues."
+      }
     ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
+    "constraints": [
+      "1 <= val <= 9",
+      "At most 100 calls to push, pop, top, and empty.",
+      "All calls to pop and top are valid."
     ],
-    "estimatedTime": "15 min"
+    "hints": [
+      "On every push, rotate the queue so the new element is at front.",
+      "All other operations are O(1).",
+      "Can also be done with a single queue."
+    ],
+    "expectedTimeComplexity": "O(n) push, O(1) others",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Microsoft"],
+    "tags": ["Stack", "Queue", "Design"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Implement Stack using Queues - LeetCode 225",
+        "url": "https://www.youtube.com/watch?v=rW4vm0-DLYc"
+      }
+    ],
+    "relatedProblems": ["Implement Queue using Stacks"],
+    "followUp": ["Can you implement it using only one queue?"],
+    "testCases": [
+      { "input": "push(1), push(2), top()", "output": "2" },
+      { "input": "pop(), empty()", "output": "2, false" }
+    ],
+    "acceptanceRate": "57.8%",
+    "likes": 4200,
+    "dislikes": 950
   },
   {
-    "_id": "stk_tp_003",
-    "title": "Search Two Pointers for Stack 3",
+    "_id": "stk_003",
+    "title": "Implement Queue using Stacks",
     "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1763,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-stack-3/",
-    "companies": [
-      "Google",
-      "Meta",
-      "Salesforce"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_tp_004",
-    "title": "Continuous Two Pointers for Stack 4",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1008,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-two-pointers-for-stack-4/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_tp_005",
-    "title": "Shortest Two Pointers for Stack 5",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2534,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-two-pointers-for-stack-5/",
-    "companies": [
-      "Oracle",
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_tp_006",
-    "title": "Longest Two Pointers for Stack 6",
-    "topic": "stack",
-    "pattern": "two-pointers",
+    "pattern": "design",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1427,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-two-pointers-for-stack-6/",
-    "companies": [
-      "Microsoft",
-      "Stripes"
+    "problemNumber": 232,
+    "leetcodeUrl": "https://leetcode.com/problems/implement-queue-using-stacks/",
+    "description": "Implement a first-in-first-out (FIFO) queue using only two stacks. Supported operations: push, peek, pop, empty.",
+    "examples": [
+      {
+        "input": "push(1), push(2), peek() -> 1, pop() -> 1, empty() -> false",
+        "output": "null, null, 1, 1, false",
+        "explanation": "Queue behavior using two stacks."
+      }
     ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
+    "constraints": [
+      "1 <= val <= 9",
+      "At most 100 calls total.",
+      "All pop/peek calls are valid."
     ],
-    "estimatedTime": "15 min"
+    "hints": [
+      "Use one stack for input and one for output.",
+      "Transfer elements lazily when output stack is empty.",
+      "Amortized O(1) per operation."
+    ],
+    "expectedTimeComplexity": "O(1) amortized",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Microsoft", "Apple"],
+    "tags": ["Stack", "Queue", "Design"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Implement Queue using Stacks - LeetCode 232",
+        "url": "https://www.youtube.com/watch?v=eanwa3ht3YQ"
+      }
+    ],
+    "relatedProblems": ["Implement Stack using Queues"],
+    "followUp": ["Can all operations be amortized O(1)?"],
+    "testCases": [
+      { "input": "push(1), push(2), peek()", "output": "1" },
+      { "input": "pop(), empty()", "output": "1, false" }
+    ],
+    "acceptanceRate": "62.4%",
+    "likes": 7100,
+    "dislikes": 380
   },
   {
-    "_id": "stk_tp_007",
-    "title": "Minimum Cost Two Pointers for Stack 7",
+    "_id": "stk_004",
+    "title": "Min Stack",
     "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
+    "pattern": "design",
+    "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 2021,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-stack-7/",
-    "companies": [
-      "Tencent",
-      "Bloomberg"
+    "problemNumber": 155,
+    "leetcodeUrl": "https://leetcode.com/problems/min-stack/",
+    "description": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.",
+    "examples": [
+      {
+        "input": "push(-2), push(0), push(-3), getMin() -> -3, pop(), top() -> 0, getMin() -> -2",
+        "output": "-3, 0, -2",
+        "explanation": "Min is tracked at each stack state."
+      }
     ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
+    "constraints": [
+      "-2^31 <= val <= 2^31 - 1",
+      "All pop/top/getMin calls are valid.",
+      "At most 3 * 10^4 calls."
     ],
-    "estimatedTime": "40 min"
+    "hints": [
+      "Use an auxiliary stack to track minimums.",
+      "Push current min alongside each element.",
+      "Pop both stacks together."
+    ],
+    "expectedTimeComplexity": "O(1) all operations",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Facebook", "Microsoft", "Uber"],
+    "tags": ["Stack", "Design"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Min Stack - LeetCode 155",
+        "url": "https://www.youtube.com/watch?v=qkLl7nAwDPo"
+      }
+    ],
+    "relatedProblems": ["Sliding Window Maximum", "Max Stack"],
+    "followUp": ["Can you do it with O(1) extra space?"],
+    "testCases": [
+      { "input": "push(-2), push(0), push(-3), getMin()", "output": "-3" },
+      { "input": "pop(), getMin()", "output": "-2" }
+    ],
+    "acceptanceRate": "53.4%",
+    "likes": 13000,
+    "dislikes": 880
   },
   {
-    "_id": "stk_tp_008",
-    "title": "Count of Two Pointers for Stack 8",
+    "_id": "stk_005",
+    "title": "Backspace String Compare",
     "topic": "stack",
-    "pattern": "two-pointers",
+    "pattern": "simulation",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 844,
+    "leetcodeUrl": "https://leetcode.com/problems/backspace-string-compare/",
+    "description": "Given two strings s and t typed into editors where '#' means backspace, return true if they are equal after processing.",
+    "examples": [
+      {
+        "input": "s = \"ab#c\", t = \"ad#c\"",
+        "output": "true",
+        "explanation": "Both become 'ac' after backspaces."
+      },
+      {
+        "input": "s = \"a#c\", t = \"b\"",
+        "output": "false",
+        "explanation": "s becomes 'c', t is 'b'."
+      }
+    ],
+    "constraints": [
+      "1 <= s.length, t.length <= 200",
+      "s and t only contain lowercase letters and '#'."
+    ],
+    "hints": [
+      "Use a stack and push characters, pop on '#'.",
+      "Or use two pointers from the end for O(1) space."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n) stack / O(1) two-pointer",
+    "companies": ["Facebook", "Amazon", "Google"],
+    "tags": ["Stack", "Two Pointers", "String", "Simulation"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Backspace String Compare - LeetCode 844",
+        "url": "https://www.youtube.com/watch?v=k2qrymM_DOo"
+      }
+    ],
+    "relatedProblems": ["Compare Strings by Frequency of Smallest Character"],
+    "followUp": ["Can you do it in O(1) space?"],
+    "testCases": [
+      { "input": "s=\"ab#c\", t=\"ad#c\"", "output": "true" },
+      { "input": "s=\"a#c\", t=\"b\"", "output": "false" }
+    ],
+    "acceptanceRate": "48.0%",
+    "likes": 7200,
+    "dislikes": 340
+  },
+  {
+    "_id": "stk_006",
+    "title": "Baseball Game",
+    "topic": "stack",
+    "pattern": "simulation",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 682,
+    "leetcodeUrl": "https://leetcode.com/problems/baseball-game/",
+    "description": "Given a list of operations ('integer', '+', 'D', 'C') for a baseball game score, calculate the sum of all valid scores.",
+    "examples": [
+      {
+        "input": "ops = [\"5\",\"2\",\"C\",\"D\",\"+\"]",
+        "output": "30",
+        "explanation": "Scores: 5, 2 → C removes 2 → D doubles 5 to 10 → + sums 5+10=15. Total = 5+10+15=30."
+      }
+    ],
+    "constraints": [
+      "1 <= ops.length <= 1000",
+      "ops[i] is 'C', 'D', '+', or an integer in [-3*10^4, 3*10^4]."
+    ],
+    "hints": [
+      "Use a stack to track valid scores.",
+      "Apply each operation directly on top elements."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google"],
+    "tags": ["Stack", "Array", "Simulation"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Baseball Game - LeetCode 682",
+        "url": "https://www.youtube.com/watch?v=Id_tqGdsZQI"
+      }
+    ],
+    "relatedProblems": ["Valid Parentheses", "Evaluate Reverse Polish Notation"],
+    "followUp": ["Extend to handle nested bracket scoring."],
+    "testCases": [
+      { "input": "[\"5\",\"2\",\"C\",\"D\",\"+\"]", "output": "30" }
+    ],
+    "acceptanceRate": "74.5%",
+    "likes": 3600,
+    "dislikes": 530
+  },
+  {
+    "_id": "stk_007",
+    "title": "Removing Stars From a String",
+    "topic": "stack",
+    "pattern": "simulation",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 2390,
+    "leetcodeUrl": "https://leetcode.com/problems/removing-stars-from-a-string/",
+    "description": "Given a string s containing stars '*', repeatedly remove the closest non-star character to the left of each star. Return the resulting string.",
+    "examples": [
+      {
+        "input": "s = \"leet**cod*e\"",
+        "output": "\"lecoe\"",
+        "explanation": "Stars remove 't', 'e', then 'd'."
+      }
+    ],
+    "constraints": [
+      "1 <= s.length <= 10^5",
+      "s consists of lowercase letters and '*'.",
+      "Operation is always possible."
+    ],
+    "hints": [
+      "Use a stack — push letters, pop on '*'.",
+      "Build result from remaining stack."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Google", "Amazon"],
+    "tags": ["Stack", "String", "Simulation"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Removing Stars From a String - LeetCode 2390",
+        "url": "https://www.youtube.com/watch?v=UrIDiWNVJpI"
+      }
+    ],
+    "relatedProblems": ["Backspace String Compare", "Baseball Game"],
+    "followUp": ["What if stars could remove multiple characters?"],
+    "testCases": [
+      { "input": "\"leet**cod*e\"", "output": "\"lecoe\"" }
+    ],
+    "acceptanceRate": "70.1%",
+    "likes": 3100,
+    "dislikes": 95
+  },
+  {
+    "_id": "stk_008",
+    "title": "Make The String Great",
+    "topic": "stack",
+    "pattern": "simulation",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 1544,
+    "leetcodeUrl": "https://leetcode.com/problems/make-the-string-great/",
+    "description": "Given a string s of lower and upper case letters, repeatedly remove adjacent pairs where one is the lowercase and the other is the uppercase version of the same letter. Return the resulting string.",
+    "examples": [
+      {
+        "input": "s = \"leEeetcode\"",
+        "output": "\"leetcode\"",
+        "explanation": "'eE' pair is removed, leaving 'leetcode'."
+      }
+    ],
+    "constraints": [
+      "1 <= s.length <= 100",
+      "s contains only English letters."
+    ],
+    "hints": [
+      "Use a stack.",
+      "If top of stack and current char form a bad pair, pop. Otherwise push."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Google"],
+    "tags": ["Stack", "String"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Make The String Great - LeetCode 1544",
+        "url": "https://www.youtube.com/watch?v=4yNDK4K1DhU"
+      }
+    ],
+    "relatedProblems": ["Remove All Adjacent Duplicates In String", "Backspace String Compare"],
+    "followUp": ["What if you need to remove k-length same-character groups?"],
+    "testCases": [
+      { "input": "\"leEeetcode\"", "output": "\"leetcode\"" }
+    ],
+    "acceptanceRate": "57.2%",
+    "likes": 3400,
+    "dislikes": 120
+  },
+  {
+    "_id": "stk_009",
+    "title": "Crawler Log Folder",
+    "topic": "stack",
+    "pattern": "simulation",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 1598,
+    "leetcodeUrl": "https://leetcode.com/problems/crawler-log-folder/",
+    "description": "Given a list of file system operations ('../', './', 'folder/'), find the minimum number of operations to return to the main folder.",
+    "examples": [
+      {
+        "input": "logs = [\"d1/\",\"d2/\",\"../\",\"d21/\",\"./\"]",
+        "output": "2",
+        "explanation": "Currently 2 folders deep."
+      }
+    ],
+    "constraints": [
+      "1 <= logs.length <= 10^3",
+      "logs[i].length >= 3",
+      "logs[i] is valid folder names."
+    ],
+    "hints": [
+      "Track current depth with a counter.",
+      "'../' decrements depth (min 0), './' does nothing, others increment."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon"],
+    "tags": ["Stack", "Array", "String"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Crawler Log Folder - LeetCode 1598",
+        "url": "https://www.youtube.com/watch?v=fsLTZEpqQPM"
+      }
+    ],
+    "relatedProblems": ["Simplify Path"],
+    "followUp": ["What if folder names can contain special characters?"],
+    "testCases": [
+      { "input": "[\"d1/\",\"d2/\",\"../\",\"d21/\",\"./\"]", "output": "2" }
+    ],
+    "acceptanceRate": "75.6%",
+    "likes": 1800,
+    "dislikes": 200
+  },
+  {
+    "_id": "stk_010",
+    "title": "Remove All Adjacent Duplicates In String",
+    "topic": "stack",
+    "pattern": "simulation",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 1047,
+    "leetcodeUrl": "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/",
+    "description": "Given a string s, repeatedly remove adjacent duplicate characters until no more can be removed. Return the final string.",
+    "examples": [
+      {
+        "input": "s = \"abbaca\"",
+        "output": "\"ca\"",
+        "explanation": "'bb' removed → 'aaca' → 'aa' removed → 'ca'."
+      }
+    ],
+    "constraints": [
+      "1 <= s.length <= 10^5",
+      "s consists of lowercase letters."
+    ],
+    "hints": [
+      "Use a stack.",
+      "If top equals current char, pop. Otherwise push.",
+      "Stack contents form the answer."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Bloomberg"],
+    "tags": ["Stack", "String"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Remove All Adjacent Duplicates In String",
+        "url": "https://www.youtube.com/watch?v=E_CNBOXSMGw"
+      }
+    ],
+    "relatedProblems": ["Remove All Adjacent Duplicates in String II", "Make The String Great"],
+    "followUp": ["What if you remove groups of k identical adjacent characters?"],
+    "testCases": [
+      { "input": "\"abbaca\"", "output": "\"ca\"" }
+    ],
+    "acceptanceRate": "72.0%",
+    "likes": 6200,
+    "dislikes": 200
+  },
+  {
+    "_id": "stk_011",
+    "title": "Balanced Binary Tree (using Stack)",
+    "topic": "stack",
+    "pattern": "iterative-tree-traversal",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 110,
+    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-tree/",
+    "description": "Given a binary tree, determine if it is height-balanced (every node's left and right subtree heights differ by at most 1). Solve iteratively using a stack.",
+    "examples": [
+      {
+        "input": "root = [3,9,20,null,null,15,7]",
+        "output": "true",
+        "explanation": "All subtrees are balanced."
+      },
+      {
+        "input": "root = [1,2,2,3,3,null,null,4,4]",
+        "output": "false",
+        "explanation": "Left subtree is too deep."
+      }
+    ],
+    "constraints": [
+      "Number of nodes in [0, 5000].",
+      "-10^4 <= Node.val <= 10^4."
+    ],
+    "hints": [
+      "Use a post-order traversal iteratively with a stack.",
+      "Return -1 from a subtree to signal imbalance.",
+      "Height of a node = 1 + max(leftHeight, rightHeight)."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Bloomberg", "Microsoft"],
+    "tags": ["Stack", "Tree", "DFS"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Balanced Binary Tree - LeetCode 110",
+        "url": "https://www.youtube.com/watch?v=QfJsau0ItOY"
+      }
+    ],
+    "relatedProblems": ["Maximum Depth of Binary Tree", "Minimum Depth of Binary Tree"],
+    "followUp": ["Can you do it in one pass without recursion?"],
+    "testCases": [
+      { "input": "[3,9,20,null,null,15,7]", "output": "true" }
+    ],
+    "acceptanceRate": "49.4%",
+    "likes": 8700,
+    "dislikes": 500
+  },
+  {
+    "_id": "stk_012",
+    "title": "Evaluate Reverse Polish Notation",
+    "topic": "stack",
+    "pattern": "expression-evaluation",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1369,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-two-pointers-for-stack-8/",
-    "companies": [
-      "LinkedIn",
-      "Amazon",
-      "Atlassian"
+    "problemNumber": 150,
+    "leetcodeUrl": "https://leetcode.com/problems/evaluate-reverse-polish-notation/",
+    "description": "Evaluate the value of an arithmetic expression in Reverse Polish Notation (postfix). Valid operators are +, -, *, /.",
+    "examples": [
+      {
+        "input": "tokens = [\"2\",\"1\",\"+\",\"3\",\"*\"]",
+        "output": "9",
+        "explanation": "((2 + 1) * 3) = 9."
+      },
+      {
+        "input": "tokens = [\"4\",\"13\",\"5\",\"/\",\"+\"]",
+        "output": "6",
+        "explanation": "(4 + (13 / 5)) = 6."
+      }
     ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
+    "constraints": [
+      "1 <= tokens.length <= 10^4",
+      "tokens[i] is either an operator or integer in [-200, 200]."
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "Push numbers onto the stack.",
+      "On operator, pop two numbers, apply, push result.",
+      "Division truncates toward zero."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "LinkedIn", "Yahoo"],
+    "tags": ["Stack", "Array", "Math"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Evaluate Reverse Polish Notation",
+        "url": "https://www.youtube.com/watch?v=iu0082c4HDE"
+      }
+    ],
+    "relatedProblems": ["Basic Calculator", "Expression Add Operators"],
+    "followUp": ["Can you support custom functions like sqrt()?"],
+    "testCases": [
+      { "input": "[\"2\",\"1\",\"+\",\"3\",\"*\"]", "output": "9" }
+    ],
+    "acceptanceRate": "48.1%",
+    "likes": 7900,
+    "dislikes": 1100
   },
   {
-    "_id": "stk_tp_009",
-    "title": "Shortest Two Pointers for Stack 9",
+    "_id": "stk_013",
+    "title": "Generate Parentheses",
     "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2340,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-two-pointers-for-stack-9/",
-    "companies": [
-      "Uber",
-      "Twilio",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_tp_010",
-    "title": "Longest Two Pointers for Stack 10",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2205,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-two-pointers-for-stack-10/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_tp_011",
-    "title": "Subarray Two Pointers for Stack 11",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1606,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-stack-11/",
-    "companies": [
-      "Uber",
-      "Tencent"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_tp_012",
-    "title": "Subarray Two Pointers for Stack 12",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1379,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-stack-12/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_tp_013",
-    "title": "Count of Two Pointers for Stack 13",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2288,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-two-pointers-for-stack-13/",
-    "companies": [
-      "Oracle",
-      "Google"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_tp_014",
-    "title": "Count of Two Pointers for Stack 14",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1301,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-two-pointers-for-stack-14/",
-    "companies": [
-      "Adobe",
-      "Bloomberg",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_tp_015",
-    "title": "Subsequence Two Pointers for Stack 15",
-    "topic": "stack",
-    "pattern": "two-pointers",
+    "pattern": "backtracking",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2640,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-two-pointers-for-stack-15/",
-    "companies": [
-      "ByteDance",
-      "Airbnb"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_tp_016",
-    "title": "Merge Two Pointers for Stack 16",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1744,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-two-pointers-for-stack-16/",
-    "companies": [
-      "ByteDance",
-      "Salesforce"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_tp_017",
-    "title": "Minimum Cost Two Pointers for Stack 17",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2233,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-stack-17/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_tp_018",
-    "title": "Subsequence Two Pointers for Stack 18",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1607,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-two-pointers-for-stack-18/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_tp_019",
-    "title": "Validate Two Pointers for Stack 19",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1285,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-two-pointers-for-stack-19/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_tp_020",
-    "title": "Subsequence Two Pointers for Stack 20",
-    "topic": "stack",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1888,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-two-pointers-for-stack-20/",
-    "companies": [
-      "Twilio",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Stack",
-      "Two Pointers"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_sw_001",
-    "title": "Continuous Sliding Window for Stack 1",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2055,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sliding-window-for-stack-1/",
-    "companies": [
-      "Twitter",
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_sw_002",
-    "title": "Count of Sliding Window for Stack 2",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2023,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-stack-2/",
-    "companies": [
-      "ByteDance",
-      "Oracle",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_sw_003",
-    "title": "Maximal Sliding Window for Stack 3",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1269,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-stack-3/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_sw_004",
-    "title": "Balanced Sliding Window for Stack 4",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1433,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sliding-window-for-stack-4/",
-    "companies": [
-      "Microsoft",
-      "ByteDance",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_sw_005",
-    "title": "Minimum Cost Sliding Window for Stack 5",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1163,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sliding-window-for-stack-5/",
-    "companies": [
-      "Amazon",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_sw_006",
-    "title": "Minimum Cost Sliding Window for Stack 6",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1250,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sliding-window-for-stack-6/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_sw_007",
-    "title": "Longest Sliding Window for Stack 7",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1892,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sliding-window-for-stack-7/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_sw_008",
-    "title": "Minimum Cost Sliding Window for Stack 8",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1464,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sliding-window-for-stack-8/",
-    "companies": [
-      "Airbnb",
-      "LinkedIn",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_sw_009",
-    "title": "Validate Sliding Window for Stack 9",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2900,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sliding-window-for-stack-9/",
-    "companies": [
-      "LinkedIn",
-      "Twilio"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_sw_010",
-    "title": "Optimal Sliding Window for Stack 10",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2630,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sliding-window-for-stack-10/",
-    "companies": [
-      "Uber",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_sw_011",
-    "title": "Continuous Sliding Window for Stack 11",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2047,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sliding-window-for-stack-11/",
-    "companies": [
-      "Netflix",
-      "Bloomberg",
-      "Google"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_sw_012",
-    "title": "Optimal Sliding Window for Stack 12",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1626,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sliding-window-for-stack-12/",
-    "companies": [
-      "Uber",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_sw_013",
-    "title": "Count of Sliding Window for Stack 13",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1426,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-stack-13/",
-    "companies": [
-      "Google",
-      "Netflix"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_sw_014",
-    "title": "Continuous Sliding Window for Stack 14",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1181,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sliding-window-for-stack-14/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_sw_015",
-    "title": "Longest Sliding Window for Stack 15",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2431,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sliding-window-for-stack-15/",
-    "companies": [
-      "ByteDance",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_sw_016",
-    "title": "Maximal Sliding Window for Stack 16",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2547,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-stack-16/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_sw_017",
-    "title": "Maximal Sliding Window for Stack 17",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1509,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-stack-17/",
-    "companies": [
-      "Airbnb",
-      "Tencent"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_sw_018",
-    "title": "Minimum Cost Sliding Window for Stack 18",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1248,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sliding-window-for-stack-18/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_sw_019",
-    "title": "Longest Sliding Window for Stack 19",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2009,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sliding-window-for-stack-19/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_sw_020",
-    "title": "Search Sliding Window for Stack 20",
-    "topic": "stack",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2731,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-stack-20/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Stack",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_ps_001",
-    "title": "Shortest Prefix Sum for Stack 1",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2399,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-prefix-sum-for-stack-1/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_ps_002",
-    "title": "Validate Prefix Sum for Stack 2",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1612,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-stack-2/",
-    "companies": [
-      "Google",
-      "Twilio",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_ps_003",
-    "title": "K-th Distance Prefix Sum for Stack 3",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2716,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-stack-3/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_ps_004",
-    "title": "Balanced Prefix Sum for Stack 4",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1510,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-prefix-sum-for-stack-4/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_ps_005",
-    "title": "Minimum Cost Prefix Sum for Stack 5",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1496,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-prefix-sum-for-stack-5/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_ps_006",
-    "title": "Validate Prefix Sum for Stack 6",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1149,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-stack-6/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_ps_007",
-    "title": "Continuous Prefix Sum for Stack 7",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2600,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-prefix-sum-for-stack-7/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_ps_008",
-    "title": "Validate Prefix Sum for Stack 8",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2245,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-stack-8/",
-    "companies": [
-      "Microsoft",
-      "Twilio"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_ps_009",
-    "title": "Cyclic Prefix Sum for Stack 9",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1651,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-prefix-sum-for-stack-9/",
-    "companies": [
-      "Atlassian",
-      "Meta",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ps_010",
-    "title": "Maximal Prefix Sum for Stack 10",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2904,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-prefix-sum-for-stack-10/",
-    "companies": [
-      "LinkedIn",
-      "Twilio",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_ps_011",
-    "title": "Minimum Cost Prefix Sum for Stack 11",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2977,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-prefix-sum-for-stack-11/",
-    "companies": [
-      "Stripes",
-      "ByteDance",
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_ps_012",
-    "title": "Subarray Prefix Sum for Stack 12",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1687,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-prefix-sum-for-stack-12/",
-    "companies": [
-      "Adobe",
-      "Twilio",
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_ps_013",
-    "title": "Cyclic Prefix Sum for Stack 13",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1248,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-prefix-sum-for-stack-13/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_ps_014",
-    "title": "K-th Distance Prefix Sum for Stack 14",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1560,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-stack-14/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_ps_015",
-    "title": "Optimal Prefix Sum for Stack 15",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1252,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-stack-15/",
-    "companies": [
-      "Bloomberg",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ps_016",
-    "title": "Subsequence Prefix Sum for Stack 16",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2699,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-prefix-sum-for-stack-16/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_ps_017",
-    "title": "Merge Prefix Sum for Stack 17",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2357,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-prefix-sum-for-stack-17/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_ps_018",
-    "title": "Search Prefix Sum for Stack 18",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2225,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-stack-18/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ps_019",
-    "title": "Merge Prefix Sum for Stack 19",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1297,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-prefix-sum-for-stack-19/",
-    "companies": [
-      "Salesforce",
-      "ByteDance",
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_ps_020",
-    "title": "K-th Distance Prefix Sum for Stack 20",
-    "topic": "stack",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1604,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-stack-20/",
-    "companies": [
-      "Microsoft",
-      "ByteDance"
-    ],
-    "tags": [
-      "Stack",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_bs_001",
-    "title": "Balanced Binary Search for Stack 1",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2858,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-search-for-stack-1/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_bs_002",
-    "title": "Cyclic Binary Search for Stack 2",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1911,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-stack-2/",
-    "companies": [
-      "Adobe",
-      "Bloomberg",
-      "Netflix"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_bs_003",
-    "title": "Optimal Binary Search for Stack 3",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1188,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-stack-3/",
-    "companies": [
-      "Stripes",
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_bs_004",
-    "title": "Validate Binary Search for Stack 4",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1062,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-binary-search-for-stack-4/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_bs_005",
-    "title": "Search Binary Search for Stack 5",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1413,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-stack-5/",
-    "companies": [
-      "Amazon",
-      "Atlassian",
-      "Netflix"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_bs_006",
-    "title": "Merge Binary Search for Stack 6",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2452,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-stack-6/",
-    "companies": [
-      "Salesforce",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_bs_007",
-    "title": "Maximal Binary Search for Stack 7",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2368,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-stack-7/",
-    "companies": [
-      "Apple",
-      "Uber",
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_bs_008",
-    "title": "Balanced Binary Search for Stack 8",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2618,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-search-for-stack-8/",
-    "companies": [
-      "Twitter",
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_bs_009",
-    "title": "Validate Binary Search for Stack 9",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2021,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-binary-search-for-stack-9/",
-    "companies": [
-      "ByteDance",
-      "Apple",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_bs_010",
-    "title": "Search Binary Search for Stack 10",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2356,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-stack-10/",
-    "companies": [
-      "Twitter",
-      "Salesforce",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_bs_011",
-    "title": "Continuous Binary Search for Stack 11",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1920,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-binary-search-for-stack-11/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_bs_012",
-    "title": "Minimum Cost Binary Search for Stack 12",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2776,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-stack-12/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_bs_013",
-    "title": "Subsequence Binary Search for Stack 13",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1205,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-stack-13/",
-    "companies": [
-      "Salesforce",
-      "LinkedIn",
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_bs_014",
-    "title": "Optimal Binary Search for Stack 14",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2370,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-stack-14/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_bs_015",
-    "title": "Count of Binary Search for Stack 15",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1717,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-binary-search-for-stack-15/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_bs_016",
-    "title": "Minimum Cost Binary Search for Stack 16",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2760,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-stack-16/",
-    "companies": [
-      "Tencent",
-      "Netflix",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_bs_017",
-    "title": "Cyclic Binary Search for Stack 17",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1851,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-stack-17/",
-    "companies": [
-      "Netflix",
-      "Twilio",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_bs_018",
-    "title": "K-th Distance Binary Search for Stack 18",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2601,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-binary-search-for-stack-18/",
-    "companies": [
-      "Meta",
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_bs_019",
-    "title": "Minimum Cost Binary Search for Stack 19",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1306,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-stack-19/",
-    "companies": [
-      "Amazon",
-      "Adobe",
-      "Tencent"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_bs_020",
-    "title": "Search Binary Search for Stack 20",
-    "topic": "stack",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2396,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-stack-20/",
-    "companies": [
-      "Meta",
-      "Airbnb"
-    ],
-    "tags": [
-      "Stack",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_mt_001",
-    "title": "Merge Matrix for Stack 1",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1731,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-stack-1/",
-    "companies": [
-      "Apple",
-      "Twilio"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_mt_002",
-    "title": "Subsequence Matrix for Stack 2",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1065,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-matrix-for-stack-2/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_mt_003",
-    "title": "Optimal Matrix for Stack 3",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2213,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-matrix-for-stack-3/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_mt_004",
-    "title": "Cyclic Matrix for Stack 4",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2981,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-matrix-for-stack-4/",
-    "companies": [
-      "Meta",
-      "Google"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_mt_005",
-    "title": "Optimal Matrix for Stack 5",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1674,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-matrix-for-stack-5/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_mt_006",
-    "title": "K-th Distance Matrix for Stack 6",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1467,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-stack-6/",
-    "companies": [
-      "Stripes",
-      "Google"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_mt_007",
-    "title": "Shortest Matrix for Stack 7",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2097,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-stack-7/",
-    "companies": [
-      "Google",
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_mt_008",
-    "title": "Count of Matrix for Stack 8",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1315,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-matrix-for-stack-8/",
-    "companies": [
-      "Netflix",
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_mt_009",
-    "title": "Merge Matrix for Stack 9",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1957,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-stack-9/",
-    "companies": [
-      "Apple",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_mt_010",
-    "title": "Cyclic Matrix for Stack 10",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1837,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-matrix-for-stack-10/",
-    "companies": [
-      "Twilio",
-      "Oracle",
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_mt_011",
-    "title": "Cyclic Matrix for Stack 11",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2456,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-matrix-for-stack-11/",
-    "companies": [
-      "Bloomberg",
-      "Tencent"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_mt_012",
-    "title": "Cyclic Matrix for Stack 12",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1301,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-matrix-for-stack-12/",
-    "companies": [
-      "Airbnb",
-      "Oracle",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_mt_013",
-    "title": "K-th Distance Matrix for Stack 13",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1577,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-stack-13/",
-    "companies": [
-      "Atlassian",
-      "Apple"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_mt_014",
-    "title": "Subarray Matrix for Stack 14",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2981,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-stack-14/",
-    "companies": [
-      "Oracle",
-      "Microsoft",
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_mt_015",
-    "title": "Shortest Matrix for Stack 15",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1356,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-stack-15/",
-    "companies": [
-      "Oracle",
-      "Atlassian",
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_mt_016",
-    "title": "Validate Matrix for Stack 16",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2342,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-matrix-for-stack-16/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_mt_017",
-    "title": "Search Matrix for Stack 17",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1991,
-    "leetcodeUrl": "https://leetcode.com/problems/search-matrix-for-stack-17/",
-    "companies": [
-      "Netflix",
-      "Atlassian"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_mt_018",
-    "title": "Continuous Matrix for Stack 18",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1834,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-matrix-for-stack-18/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_mt_019",
-    "title": "Maximal Matrix for Stack 19",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1809,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-matrix-for-stack-19/",
-    "companies": [
-      "Airbnb",
-      "Netflix",
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_mt_020",
-    "title": "Cyclic Matrix for Stack 20",
-    "topic": "stack",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2329,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-matrix-for-stack-20/",
-    "companies": [
-      "Bloomberg",
-      "Uber",
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_srt_001",
-    "title": "Longest Sorting for Stack 1",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1213,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sorting-for-stack-1/",
-    "companies": [
-      "ByteDance",
-      "Stripes",
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_srt_002",
-    "title": "Optimal Sorting for Stack 2",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2058,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-stack-2/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_srt_003",
-    "title": "Merge Sorting for Stack 3",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2790,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sorting-for-stack-3/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_srt_004",
-    "title": "K-th Distance Sorting for Stack 4",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2490,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-stack-4/",
-    "companies": [
-      "LinkedIn",
-      "Twilio",
-      "Netflix"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_srt_005",
-    "title": "Search Sorting for Stack 5",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1494,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-stack-5/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_srt_006",
-    "title": "Search Sorting for Stack 6",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1220,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-stack-6/",
-    "companies": [
-      "Oracle",
-      "Twilio",
-      "Netflix"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_srt_007",
-    "title": "Maximal Sorting for Stack 7",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2868,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-stack-7/",
-    "companies": [
-      "Uber",
-      "Salesforce",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_srt_008",
-    "title": "Cyclic Sorting for Stack 8",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1107,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-stack-8/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_srt_009",
-    "title": "Continuous Sorting for Stack 9",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1049,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sorting-for-stack-9/",
-    "companies": [
-      "Netflix",
-      "Tencent",
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_srt_010",
-    "title": "Balanced Sorting for Stack 10",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1371,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sorting-for-stack-10/",
-    "companies": [
-      "Oracle",
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_srt_011",
-    "title": "K-th Distance Sorting for Stack 11",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1915,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-stack-11/",
-    "companies": [
-      "Adobe",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_srt_012",
-    "title": "Search Sorting for Stack 12",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2049,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-stack-12/",
-    "companies": [
-      "Google",
-      "Netflix",
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_srt_013",
-    "title": "Cyclic Sorting for Stack 13",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1174,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-stack-13/",
-    "companies": [
-      "Atlassian",
-      "Salesforce"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_srt_014",
-    "title": "Validate Sorting for Stack 14",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2963,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sorting-for-stack-14/",
-    "companies": [
-      "Uber",
-      "Oracle",
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_srt_015",
-    "title": "Subsequence Sorting for Stack 15",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1838,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sorting-for-stack-15/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_srt_016",
-    "title": "Merge Sorting for Stack 16",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1992,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sorting-for-stack-16/",
-    "companies": [
-      "Atlassian",
-      "Netflix",
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_srt_017",
-    "title": "Optimal Sorting for Stack 17",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2582,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-stack-17/",
-    "companies": [
-      "Oracle",
-      "Tencent",
-      "Apple"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_srt_018",
-    "title": "Merge Sorting for Stack 18",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1944,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sorting-for-stack-18/",
-    "companies": [
-      "Uber",
-      "Netflix"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_srt_019",
-    "title": "K-th Distance Sorting for Stack 19",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1465,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-stack-19/",
-    "companies": [
-      "Oracle",
-      "Apple",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_srt_020",
-    "title": "Optimal Sorting for Stack 20",
-    "topic": "stack",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2577,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-stack-20/",
-    "companies": [
-      "Salesforce",
-      "Stripes",
-      "Apple"
-    ],
-    "tags": [
-      "Stack",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_kd_001",
-    "title": "Maximal Kadane’s Algorithm for Stack 1",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2379,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-stack-1/",
-    "companies": [
-      "Microsoft",
-      "Apple"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_kd_002",
-    "title": "K-th Distance Kadane’s Algorithm for Stack 2",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2069,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-kadane-s-algorithm-for-stack-2/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_kd_003",
-    "title": "Merge Kadane’s Algorithm for Stack 3",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2608,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-kadane-s-algorithm-for-stack-3/",
-    "companies": [
-      "Netflix",
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_kd_004",
-    "title": "Search Kadane’s Algorithm for Stack 4",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1163,
-    "leetcodeUrl": "https://leetcode.com/problems/search-kadane-s-algorithm-for-stack-4/",
-    "companies": [
-      "Google",
-      "ByteDance"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_kd_005",
-    "title": "Validate Kadane’s Algorithm for Stack 5",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2015,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-kadane-s-algorithm-for-stack-5/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_kd_006",
-    "title": "Maximal Kadane’s Algorithm for Stack 6",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2926,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-stack-6/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_kd_007",
-    "title": "Longest Kadane’s Algorithm for Stack 7",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2202,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-stack-7/",
-    "companies": [
-      "Apple",
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_kd_008",
-    "title": "Balanced Kadane’s Algorithm for Stack 8",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2543,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-kadane-s-algorithm-for-stack-8/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_kd_009",
-    "title": "Optimal Kadane’s Algorithm for Stack 9",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1182,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-kadane-s-algorithm-for-stack-9/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_kd_010",
-    "title": "Search Kadane’s Algorithm for Stack 10",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1650,
-    "leetcodeUrl": "https://leetcode.com/problems/search-kadane-s-algorithm-for-stack-10/",
-    "companies": [
-      "Netflix",
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_kd_011",
-    "title": "Count of Kadane’s Algorithm for Stack 11",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2323,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-kadane-s-algorithm-for-stack-11/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_kd_012",
-    "title": "Subarray Kadane’s Algorithm for Stack 12",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1536,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-stack-12/",
-    "companies": [
-      "Salesforce",
-      "Tencent"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_kd_013",
-    "title": "Cyclic Kadane’s Algorithm for Stack 13",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2841,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-kadane-s-algorithm-for-stack-13/",
-    "companies": [
-      "Amazon",
-      "Apple",
-      "Google"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_kd_014",
-    "title": "Maximal Kadane’s Algorithm for Stack 14",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1638,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-stack-14/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_kd_015",
-    "title": "Validate Kadane’s Algorithm for Stack 15",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2923,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-kadane-s-algorithm-for-stack-15/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_kd_016",
-    "title": "Maximal Kadane’s Algorithm for Stack 16",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1266,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-stack-16/",
-    "companies": [
-      "Bloomberg",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_kd_017",
-    "title": "Minimum Cost Kadane’s Algorithm for Stack 17",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2370,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-stack-17/",
-    "companies": [
-      "Bloomberg",
-      "Netflix",
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_kd_018",
-    "title": "Minimum Cost Kadane’s Algorithm for Stack 18",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1230,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-stack-18/",
-    "companies": [
-      "Apple",
-      "Google",
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_kd_019",
-    "title": "K-th Distance Kadane’s Algorithm for Stack 19",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2544,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-kadane-s-algorithm-for-stack-19/",
-    "companies": [
-      "Netflix",
-      "ByteDance"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_kd_020",
-    "title": "Shortest Kadane’s Algorithm for Stack 20",
-    "topic": "stack",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2878,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-kadane-s-algorithm-for-stack-20/",
-    "companies": [
-      "ByteDance",
-      "Apple",
-      "Salesforce"
-    ],
-    "tags": [
-      "Stack",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_hs_001",
-    "title": "Optimal Hashing for Stack 1",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1726,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-stack-1/",
-    "companies": [
-      "Meta",
-      "ByteDance",
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_hs_002",
-    "title": "Search Hashing for Stack 2",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1694,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-stack-2/",
-    "companies": [
-      "Google",
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_hs_003",
-    "title": "Search Hashing for Stack 3",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2822,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-stack-3/",
-    "companies": [
-      "Bloomberg",
-      "ByteDance"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_hs_004",
-    "title": "Count of Hashing for Stack 4",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1642,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-stack-4/",
-    "companies": [
-      "Twilio",
-      "Airbnb",
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_hs_005",
-    "title": "Continuous Hashing for Stack 5",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1559,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-stack-5/",
-    "companies": [
-      "Atlassian",
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_hs_006",
-    "title": "K-th Distance Hashing for Stack 6",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2064,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-hashing-for-stack-6/",
-    "companies": [
-      "Amazon",
-      "Airbnb",
-      "ByteDance"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_hs_007",
-    "title": "Shortest Hashing for Stack 7",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1557,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-hashing-for-stack-7/",
-    "companies": [
-      "LinkedIn",
-      "Airbnb"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_hs_008",
-    "title": "Subsequence Hashing for Stack 8",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1508,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-hashing-for-stack-8/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_hs_009",
-    "title": "Count of Hashing for Stack 9",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1245,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-stack-9/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_hs_010",
-    "title": "Search Hashing for Stack 10",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1196,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-stack-10/",
-    "companies": [
-      "Meta",
-      "Airbnb"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_hs_011",
-    "title": "Optimal Hashing for Stack 11",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1498,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-stack-11/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_hs_012",
-    "title": "Continuous Hashing for Stack 12",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2602,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-stack-12/",
-    "companies": [
-      "Twilio",
-      "Amazon",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_hs_013",
-    "title": "Shortest Hashing for Stack 13",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1541,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-hashing-for-stack-13/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_hs_014",
-    "title": "Validate Hashing for Stack 14",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1373,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-hashing-for-stack-14/",
-    "companies": [
-      "Stripes",
-      "ByteDance",
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_hs_015",
-    "title": "Optimal Hashing for Stack 15",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2705,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-stack-15/",
-    "companies": [
-      "LinkedIn",
-      "Twilio"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_hs_016",
-    "title": "Continuous Hashing for Stack 16",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1551,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-stack-16/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_hs_017",
-    "title": "Balanced Hashing for Stack 17",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2398,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-stack-17/",
-    "companies": [
-      "Twitter",
-      "Airbnb"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_hs_018",
-    "title": "Minimum Cost Hashing for Stack 18",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2587,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-hashing-for-stack-18/",
-    "companies": [
-      "Stripes",
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_hs_019",
-    "title": "Count of Hashing for Stack 19",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1142,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-stack-19/",
-    "companies": [
-      "Oracle",
-      "Bloomberg",
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "stk_hs_020",
-    "title": "Shortest Hashing for Stack 20",
-    "topic": "stack",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1933,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-hashing-for-stack-20/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_001",
-    "title": "Merge Monotonic Stack for Stack 1",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2020,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-stack-1/",
-    "companies": [
-      "Microsoft",
-      "Oracle",
-      "ByteDance"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_ms_002",
-    "title": "Maximal Monotonic Stack for Stack 2",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2562,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-monotonic-stack-for-stack-2/",
-    "companies": [
-      "Salesforce",
-      "Twitter",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_003",
-    "title": "Continuous Monotonic Stack for Stack 3",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2846,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-stack-3/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_ms_004",
-    "title": "Subarray Monotonic Stack for Stack 4",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1816,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-stack-4/",
-    "companies": [
-      "Bloomberg",
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_005",
-    "title": "Subarray Monotonic Stack for Stack 5",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2804,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-stack-5/",
-    "companies": [
-      "Adobe",
-      "Twitter"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_006",
-    "title": "Validate Monotonic Stack for Stack 6",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1159,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-monotonic-stack-for-stack-6/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "stk_ms_007",
-    "title": "Maximal Monotonic Stack for Stack 7",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2759,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-monotonic-stack-for-stack-7/",
-    "companies": [
-      "Meta",
-      "Twilio"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_008",
-    "title": "Merge Monotonic Stack for Stack 8",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2932,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-stack-8/",
-    "companies": [
-      "Twitter",
-      "Netflix",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_009",
-    "title": "Maximal Monotonic Stack for Stack 9",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2557,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-monotonic-stack-for-stack-9/",
-    "companies": [
-      "Apple",
-      "Adobe",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_010",
-    "title": "Balanced Monotonic Stack for Stack 10",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2797,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-monotonic-stack-for-stack-10/",
-    "companies": [
-      "Salesforce",
-      "Meta"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "stk_ms_011",
-    "title": "Count of Monotonic Stack for Stack 11",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1890,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-stack-11/",
-    "companies": [
-      "ByteDance",
-      "Amazon",
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_012",
-    "title": "Balanced Monotonic Stack for Stack 12",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2450,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-monotonic-stack-for-stack-12/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_013",
-    "title": "Minimum Cost Monotonic Stack for Stack 13",
+    "problemNumber": 22,
+    "leetcodeUrl": "https://leetcode.com/problems/generate-parentheses/",
+    "description": "Given n pairs of parentheses, generate all combinations of well-formed parentheses.",
+    "examples": [
+      {
+        "input": "n = 3",
+        "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]",
+        "explanation": "All valid combinations of 3 pairs."
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 8"
+    ],
+    "hints": [
+      "Use recursion/backtracking.",
+      "Add '(' if open count < n.",
+      "Add ')' if close count < open count."
+    ],
+    "expectedTimeComplexity": "O(4^n / sqrt(n))",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Facebook", "Microsoft"],
+    "tags": ["Stack", "String", "Backtracking"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Generate Parentheses - LeetCode 22",
+        "url": "https://www.youtube.com/watch?v=s9fokUqJ76A"
+      }
+    ],
+    "relatedProblems": ["Letter Combinations of a Phone Number", "Valid Parentheses", "Remove Invalid Parentheses"],
+    "followUp": ["Can you generate them iteratively?"],
+    "testCases": [
+      { "input": "n=3", "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]" }
+    ],
+    "acceptanceRate": "73.2%",
+    "likes": 20000,
+    "dislikes": 850
+  },
+  {
+    "_id": "stk_014",
+    "title": "Daily Temperatures",
     "topic": "stack",
     "pattern": "monotonic-stack",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1347,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-monotonic-stack-for-stack-13/",
-    "companies": [
-      "Adobe",
-      "Salesforce",
-      "Airbnb"
+    "problemNumber": 739,
+    "leetcodeUrl": "https://leetcode.com/problems/daily-temperatures/",
+    "description": "Given an array of daily temperatures, return an array where each element is the number of days until a warmer temperature. If no warmer day exists, put 0.",
+    "examples": [
+      {
+        "input": "temperatures = [73,74,75,71,69,72,76,73]",
+        "output": "[1,1,4,2,1,1,0,0]",
+        "explanation": "Days to wait for each warmer temperature."
+      }
     ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
+    "constraints": [
+      "1 <= temperatures.length <= 10^5",
+      "30 <= temperatures[i] <= 100"
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "Use a monotonic decreasing stack of indices.",
+      "When a warmer temp is found, pop and calculate difference.",
+      "Remaining indices in stack get 0."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Facebook", "Google"],
+    "tags": ["Stack", "Array", "Monotonic Stack"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Daily Temperatures - Monotonic Stack",
+        "url": "https://www.youtube.com/watch?v=cTBiBSnjO3c"
+      }
+    ],
+    "relatedProblems": ["Next Greater Element I", "Next Greater Element II", "Online Stock Span"],
+    "followUp": ["What if temperatures could repeat?"],
+    "testCases": [
+      { "input": "[73,74,75,71,69,72,76,73]", "output": "[1,1,4,2,1,1,0,0]" }
+    ],
+    "acceptanceRate": "67.5%",
+    "likes": 16000,
+    "dislikes": 380
   },
   {
-    "_id": "stk_ms_014",
-    "title": "Validate Monotonic Stack for Stack 14",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1503,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-monotonic-stack-for-stack-14/",
-    "companies": [
-      "ByteDance",
-      "Airbnb",
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_015",
-    "title": "Subarray Monotonic Stack for Stack 15",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2306,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-stack-15/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "stk_ms_016",
-    "title": "Shortest Monotonic Stack for Stack 16",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1159,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-monotonic-stack-for-stack-16/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_ms_017",
-    "title": "Merge Monotonic Stack for Stack 17",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1029,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-stack-17/",
-    "companies": [
-      "Airbnb",
-      "Twitter",
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "stk_ms_018",
-    "title": "Count of Monotonic Stack for Stack 18",
-    "topic": "stack",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2102,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-stack-18/",
-    "companies": [
-      "LinkedIn",
-      "Oracle"
-    ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "stk_ms_019",
-    "title": "Optimal Monotonic Stack for Stack 19",
+    "_id": "stk_015",
+    "title": "Car Fleet",
     "topic": "stack",
     "pattern": "monotonic-stack",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2500,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-monotonic-stack-for-stack-19/",
-    "companies": [
-      "Amazon"
+    "problemNumber": 853,
+    "leetcodeUrl": "https://leetcode.com/problems/car-fleet/",
+    "description": "n cars are driving toward a target. A car fleet is a group arriving at the same time. Return the number of car fleets.",
+    "examples": [
+      {
+        "input": "target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]",
+        "output": "3",
+        "explanation": "Cars form 3 distinct fleets."
+      }
     ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
+    "constraints": [
+      "n == position.length == speed.length",
+      "1 <= n <= 10^5",
+      "0 < target <= 10^6",
+      "All positions are unique."
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "Sort cars by position descending.",
+      "Calculate time to reach target for each car.",
+      "Use a stack — if a car catches up to fleet ahead, merge them."
+    ],
+    "expectedTimeComplexity": "O(n log n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Google", "Amazon"],
+    "tags": ["Stack", "Array", "Sorting", "Monotonic Stack"],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Car Fleet - LeetCode 853",
+        "url": "https://www.youtube.com/watch?v=Pr6T-3yB9RM"
+      }
+    ],
+    "relatedProblems": ["Car Fleet II"],
+    "followUp": ["What if cars could overtake each other?"],
+    "testCases": [
+      { "input": "target=12, position=[10,8,0,5,3], speed=[2,4,1,1,3]", "output": "3" }
+    ],
+    "acceptanceRate": "48.7%",
+    "likes": 4700,
+    "dislikes": 1200
   },
   {
-    "_id": "stk_ms_020",
-    "title": "Search Monotonic Stack for Stack 20",
+    "_id": "stk_016",
+    "title": "Decode String",
+    "topic": "stack",
+    "pattern": "nested-structure",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "problemNumber": 394,
+    "leetcodeUrl": "https://leetcode.com/problems/decode-string/",
+    "description": "Given an encoded string like '3[a2[c]]', decode it to 'accaccacc'. Encoding format is k[encoded_string] repeated k times.",
+    "examples": [
+      {
+        "input": "s = \"3[a2[c]]\"",
+        "output": "\"accaccacc\"",
+        "explanation": "'2[c]' = 'cc', '3[acc]' = 'accaccacc'."
+      }
+    ],
+    "constraints": [
+      "1 <= s.length <= 30",
+      "s consists of digits, letters, and '[', ']'.",
+      "All integers are in [1, 300].",
+      "Guaranteed valid input, no extra spaces."
+    ],
+    "hints": [
+      "Use two stacks: one for counts, one for strings.",
+      "On '[', push current string and count.",
+      "On ']', pop and repeat current string."
+    ],
+    "expectedTimeComplexity": "O(n * max_k)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Google", "Amazon", "Apple", "Bloomberg"],
+    "tags": ["Stack", "String", "Recursion"],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Decode String - LeetCode 394",
+        "url": "https://www.youtube.com/watch?v=qB0zZpBJlh8"
+      }
+    ],
+    "relatedProblems": ["Encode String with Shortest Length", "Number of Atoms"],
+    "followUp": ["Can you solve it recursively?"],
+    "testCases": [
+      { "input": "\"3[a2[c]]\"", "output": "\"accaccacc\"" }
+    ],
+    "acceptanceRate": "59.4%",
+    "likes": 12000,
+    "dislikes": 560
+  },
+  {
+    "_id": "stk_017",
+    "title": "Asteroid Collision",
+    "topic": "stack",
+    "pattern": "simulation",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "problemNumber": 735,
+    "leetcodeUrl": "https://leetcode.com/problems/asteroid-collision/",
+    "description": "Given an array of asteroids (positive = right, negative = left, size = absolute value), find the state after all collisions. Collisions: smaller explodes, equal both explode, same direction never collide.",
+    "examples": [
+      {
+        "input": "asteroids = [5,10,-5]",
+        "output": "[5,10]",
+        "explanation": "-5 hits 10 and explodes. 5 and 10 never meet."
+      },
+      {
+        "input": "asteroids = [8,-8]",
+        "output": "[]",
+        "explanation": "Both explode."
+      }
+    ],
+    "constraints": [
+      "2 <= asteroids.length <= 10^4",
+      "-1000 <= asteroids[i] <= 1000",
+      "asteroids[i] != 0"
+    ],
+    "hints": [
+      "Push positive asteroids onto the stack.",
+      "On negative, compare with top of stack.",
+      "Handle equal-size destruction and chained collisions."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Bloomberg"],
+    "tags": ["Stack", "Array", "Simulation"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Asteroid Collision - LeetCode 735",
+        "url": "https://www.youtube.com/watch?v=LN7KjRszjk4"
+      }
+    ],
+    "relatedProblems": ["Can Place Flowers", "Destroyed Planets"],
+    "followUp": ["What if asteroids could move in more than two directions?"],
+    "testCases": [
+      { "input": "[5,10,-5]", "output": "[5,10]" },
+      { "input": "[8,-8]", "output": "[]" }
+    ],
+    "acceptanceRate": "44.0%",
+    "likes": 7400,
+    "dislikes": 650
+  },
+  {
+    "_id": "stk_018",
+    "title": "Remove K Digits",
     "topic": "stack",
     "pattern": "monotonic-stack",
-    "difficulty": "Easy",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1348,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-stack-20/",
-    "companies": [
-      "Salesforce",
-      "Stripes",
-      "Adobe"
+    "problemNumber": 402,
+    "leetcodeUrl": "https://leetcode.com/problems/remove-k-digits/",
+    "description": "Given a string num representing a non-negative integer, remove k digits to make the resulting number the smallest possible.",
+    "examples": [
+      {
+        "input": "num = \"1432219\", k = 3",
+        "output": "\"1219\"",
+        "explanation": "Remove 4, 3, 2 to get the smallest."
+      },
+      {
+        "input": "num = \"10200\", k = 1",
+        "output": "\"200\"",
+        "explanation": "Remove 1; leading zeros stripped."
+      }
     ],
-    "tags": [
-      "Stack",
-      "Monotonic Stack"
+    "constraints": [
+      "1 <= k <= num.length <= 10^5",
+      "num consists of digits only.",
+      "num does not have leading zeros except '0' itself."
     ],
-    "estimatedTime": "20 min"
+    "hints": [
+      "Use a monotonic increasing stack.",
+      "Pop larger digits from the stack when you find a smaller one.",
+      "Handle remaining k removals and leading zeros."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Citadel"],
+    "tags": ["Stack", "String", "Greedy", "Monotonic Stack"],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Remove K Digits - Monotonic Stack",
+        "url": "https://www.youtube.com/watch?v=cFabMOnJaq0"
+      }
+    ],
+    "relatedProblems": ["Remove Duplicate Letters", "Create Maximum Number"],
+    "followUp": ["What if you want the largest number instead?"],
+    "testCases": [
+      { "input": "num=\"1432219\", k=3", "output": "\"1219\"" }
+    ],
+    "acceptanceRate": "31.0%",
+    "likes": 8100,
+    "dislikes": 320
+  },
+  {
+    "_id": "stk_019",
+    "title": "Online Stock Span",
+    "topic": "stack",
+    "pattern": "monotonic-stack",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "problemNumber": 901,
+    "leetcodeUrl": "https://leetcode.com/problems/online-stock-span/",
+    "description": "Design an algorithm that collects daily stock prices and returns the span of each day's stock price — the maximum number of consecutive days (including today) for which the price was <= today's price.",
+    "examples": [
+      {
+        "input": "prices = [100,80,60,70,60,75,85]",
+        "output": "[1,1,1,2,1,4,6]",
+        "explanation": "Span counts consecutive prior days with smaller or equal prices."
+      }
+    ],
+    "constraints": [
+      "1 <= price <= 10^5",
+      "At most 10^4 calls to next."
+    ],
+    "hints": [
+      "Use a stack of (price, span) pairs.",
+      "Accumulate spans of popped elements.",
+      "Each element is pushed and popped at most once."
+    ],
+    "expectedTimeComplexity": "O(1) amortized",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Goldman Sachs", "Bloomberg"],
+    "tags": ["Stack", "Design", "Monotonic Stack"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Online Stock Span - LeetCode 901",
+        "url": "https://www.youtube.com/watch?v=slYh0ZNEqSw"
+      }
+    ],
+    "relatedProblems": ["Daily Temperatures", "Next Greater Element II"],
+    "followUp": ["Can you handle price updates or deletions?"],
+    "testCases": [
+      { "input": "[100,80,60,70,60,75,85]", "output": "[1,1,1,2,1,4,6]" }
+    ],
+    "acceptanceRate": "64.2%",
+    "likes": 5800,
+    "dislikes": 360
+  },
+  {
+    "_id": "stk_020",
+    "title": "Simplify Path",
+    "topic": "stack",
+    "pattern": "simulation",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "problemNumber": 71,
+    "leetcodeUrl": "https://leetcode.com/problems/simplify-path/",
+    "description": "Given a Unix-style absolute file path, simplify it. '//' becomes '/', '.' stays, '..' goes up one directory.",
+    "examples": [
+      {
+        "input": "path = \"/home//foo/\"",
+        "output": "\"/home/foo\"",
+        "explanation": "Double slashes and trailing slash removed."
+      },
+      {
+        "input": "path = \"/../\"",
+        "output": "\"/\"",
+        "explanation": "Can't go above root."
+      }
+    ],
+    "constraints": [
+      "1 <= path.length <= 3000",
+      "path consists of English letters, digits, '.', '/', '_'.",
+      "path is a valid Unix path."
+    ],
+    "hints": [
+      "Split path by '/'.",
+      "Use a stack for directory names.",
+      "'..' pops, '.' and '' are ignored."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Facebook", "Microsoft", "Amazon"],
+    "tags": ["Stack", "String"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Simplify Path - LeetCode 71",
+        "url": "https://www.youtube.com/watch?v=qYlHrAKJfyA"
+      }
+    ],
+    "relatedProblems": ["Crawler Log Folder", "Minimum Number of Operations to Make Array Continuous"],
+    "followUp": ["Handle Windows-style paths with backslashes."],
+    "testCases": [
+      { "input": "\"/home//foo/\"", "output": "\"/home/foo\"" },
+      { "input": "\"/../\"", "output": "\"/\"" }
+    ],
+    "acceptanceRate": "43.6%",
+    "likes": 5200,
+    "dislikes": 1300
+  },
+  {
+    "_id": "stk_021",
+    "title": "Basic Calculator II",
+    "topic": "stack",
+    "pattern": "expression-evaluation",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "problemNumber": 227,
+    "leetcodeUrl": "https://leetcode.com/problems/basic-calculator-ii/",
+    "description": "Implement a basic calculator to evaluate a string expression with +, -, *, / and spaces (no parentheses). Integer division truncates toward zero.",
+    "examples": [
+      {
+        "input": "s = \"3+2*2\"",
+        "output": "7",
+        "explanation": "Multiplication before addition."
+      },
+      {
+        "input": "s = \" 3/2 \"",
+        "output": "1",
+        "explanation": "Integer division."
+      }
+    ],
+    "constraints": [
+      "1 <= s.length <= 3 * 10^5",
+      "s consists of digits, '+', '-', '*', '/', and spaces.",
+      "Guaranteed valid expression; result fits in 32-bit int."
+    ],
+    "hints": [
+      "Use a stack to defer additions/subtractions.",
+      "Apply * and / immediately.",
+      "Sum the stack at the end."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Citrix", "Microsoft"],
+    "tags": ["Stack", "Math", "String"],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Basic Calculator II - LeetCode 227",
+        "url": "https://www.youtube.com/watch?v=U2rWM5RBkFc"
+      }
+    ],
+    "relatedProblems": ["Basic Calculator", "Expression Add Operators", "Basic Calculator III"],
+    "followUp": ["Add support for parentheses."],
+    "testCases": [
+      { "input": "\"3+2*2\"", "output": "7" }
+    ],
+    "acceptanceRate": "43.9%",
+    "likes": 6400,
+    "dislikes": 800
+  },
+  {
+    "_id": "stk_022",
+    "title": "Largest Rectangle in Histogram",
+    "topic": "stack",
+    "pattern": "monotonic-stack",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "problemNumber": 84,
+    "leetcodeUrl": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+    "description": "Given an array of integers heights representing histogram bar heights (each width = 1), find the largest rectangle area possible.",
+    "examples": [
+      {
+        "input": "heights = [2,1,5,6,2,3]",
+        "output": "10",
+        "explanation": "Rectangle spanning bars at index 2-3 with height 5."
+      }
+    ],
+    "constraints": [
+      "1 <= heights.length <= 10^5",
+      "0 <= heights[i] <= 10^4"
+    ],
+    "hints": [
+      "Use a monotonic increasing stack of indices.",
+      "When a shorter bar is found, pop and calculate area.",
+      "Append height 0 to flush remaining stack at the end."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Facebook", "ByteDance"],
+    "tags": ["Stack", "Array", "Monotonic Stack"],
+    "estimatedTime": "45 min",
+    "youtubeVideos": [
+      {
+        "title": "Largest Rectangle in Histogram",
+        "url": "https://www.youtube.com/watch?v=zx5Sw9130L0"
+      }
+    ],
+    "relatedProblems": ["Maximal Rectangle", "Trapping Rain Water"],
+    "followUp": ["Extend to a 2D binary matrix (Maximal Rectangle)."],
+    "testCases": [
+      { "input": "[2,1,5,6,2,3]", "output": "10" }
+    ],
+    "acceptanceRate": "44.7%",
+    "likes": 15000,
+    "dislikes": 270
+  },
+  {
+    "_id": "stk_023",
+    "title": "Basic Calculator",
+    "topic": "stack",
+    "pattern": "expression-evaluation",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "problemNumber": 224,
+    "leetcodeUrl": "https://leetcode.com/problems/basic-calculator/",
+    "description": "Implement a basic calculator to evaluate a string expression with +, -, and parentheses. No * or /.",
+    "examples": [
+      {
+        "input": "s = \"(1+(4+5+2)-3)+(6+8)\"",
+        "output": "23",
+        "explanation": "Evaluate respecting parentheses and signs."
+      }
+    ],
+    "constraints": [
+      "1 <= s.length <= 3 * 10^5",
+      "s consists of digits, '+', '-', '(', ')', and ' '.",
+      "Guaranteed valid expression."
+    ],
+    "hints": [
+      "Use a stack to track the sign and running sum.",
+      "On '(', push current result and sign onto stack.",
+      "On ')', pop and combine with accumulated result."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Google", "Amazon", "Airbnb", "Microsoft"],
+    "tags": ["Stack", "Math", "String", "Recursion"],
+    "estimatedTime": "40 min",
+    "youtubeVideos": [
+      {
+        "title": "Basic Calculator - LeetCode 224",
+        "url": "https://www.youtube.com/watch?v=malk4rmAeUA"
+      }
+    ],
+    "relatedProblems": ["Basic Calculator II", "Basic Calculator III", "Expression Add Operators"],
+    "followUp": ["Add support for * and /."],
+    "testCases": [
+      { "input": "\"(1+(4+5+2)-3)+(6+8)\"", "output": "23" }
+    ],
+    "acceptanceRate": "43.0%",
+    "likes": 7200,
+    "dislikes": 620
+  },
+  {
+    "_id": "stk_024",
+    "title": "Maximal Rectangle",
+    "topic": "stack",
+    "pattern": "monotonic-stack",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "problemNumber": 85,
+    "leetcodeUrl": "https://leetcode.com/problems/maximal-rectangle/",
+    "description": "Given a binary matrix of 0s and 1s, find the largest rectangle containing only 1s and return its area.",
+    "examples": [
+      {
+        "input": "matrix = [[\"1\",\"0\",\"1\",\"0\",\"0\"],[\"1\",\"0\",\"1\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\",\"1\"],[\"1\",\"0\",\"0\",\"1\",\"0\"]]",
+        "output": "6",
+        "explanation": "Maximal rectangle covers 6 cells."
+      }
+    ],
+    "constraints": [
+      "rows == matrix.length",
+      "cols == matrix[i].length",
+      "1 <= rows, cols <= 200",
+      "matrix[i][j] is '0' or '1'."
+    ],
+    "hints": [
+      "Build a histogram row by row.",
+      "Apply Largest Rectangle in Histogram on each row.",
+      "Heights reset to 0 on '0' cells."
+    ],
+    "expectedTimeComplexity": "O(rows * cols)",
+    "expectedSpaceComplexity": "O(cols)",
+    "companies": ["Amazon", "Microsoft", "Google", "Citadel"],
+    "tags": ["Stack", "Array", "Matrix", "Dynamic Programming", "Monotonic Stack"],
+    "estimatedTime": "50 min",
+    "youtubeVideos": [
+      {
+        "title": "Maximal Rectangle - LeetCode 85",
+        "url": "https://www.youtube.com/watch?v=g8bSdXCG-lA"
+      }
+    ],
+    "relatedProblems": ["Largest Rectangle in Histogram", "Maximal Square"],
+    "followUp": ["Can you solve it using dynamic programming instead?"],
+    "testCases": [
+      { "input": "[[\"1\",\"0\",\"1\",\"0\"],[\"1\",\"0\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\"]]", "output": "6" }
+    ],
+    "acceptanceRate": "46.1%",
+    "likes": 8900,
+    "dislikes": 180
+  },
+  {
+    "_id": "stk_025",
+    "title": "Trapping Rain Water",
+    "topic": "stack",
+    "pattern": "monotonic-stack",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "problemNumber": 42,
+    "leetcodeUrl": "https://leetcode.com/problems/trapping-rain-water/",
+    "description": "Given n non-negative integers representing elevation heights, compute how much water can be trapped after raining. Solve using a stack-based approach.",
+    "examples": [
+      {
+        "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]",
+        "output": "6",
+        "explanation": "6 units of water are trapped between the bars."
+      },
+      {
+        "input": "height = [4,2,0,3,2,5]",
+        "output": "9",
+        "explanation": "9 units trapped in various pockets."
+      }
+    ],
+    "constraints": [
+      "n == height.length",
+      "1 <= n <= 2 * 10^4",
+      "0 <= height[i] <= 10^5"
+    ],
+    "hints": [
+      "Use a monotonic decreasing stack.",
+      "When a taller bar is found, water is trapped horizontally.",
+      "Width = distance between current bar and new stack top; height = min of both sides minus popped bar."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Microsoft", "Facebook", "Apple"],
+    "tags": ["Stack", "Array", "Two Pointers", "Dynamic Programming", "Monotonic Stack"],
+    "estimatedTime": "40 min",
+    "youtubeVideos": [
+      {
+        "title": "Trapping Rain Water - Stack Approach",
+        "url": "https://www.youtube.com/watch?v=ZI2z5pq0TqA"
+      }
+    ],
+    "relatedProblems": ["Container With Most Water", "Largest Rectangle in Histogram", "Product of Array Except Self"],
+    "followUp": ["Can you solve it in O(1) space using two pointers?"],
+    "testCases": [
+      { "input": "[0,1,0,2,1,0,1,3,2,1,2,1]", "output": "6" },
+      { "input": "[4,2,0,3,2,5]", "output": "9" }
+    ],
+    "acceptanceRate": "60.2%",
+    "likes": 31000,
+    "dislikes": 470
   }
 ]

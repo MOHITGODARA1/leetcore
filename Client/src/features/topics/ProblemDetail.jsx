@@ -422,7 +422,7 @@ function ProblemDetail() {
             </section>
 
             <section className="border-t border-white/10 pt-10">
-              <p className="text-lg md:text-xl leading-9 text-white/75">{details.description}</p>
+              <p className="text-md md:text-lg leading-9 text-white">{details.description}</p>
             </section>
 
             <section className="flex flex-col gap-8">
@@ -456,22 +456,113 @@ function ProblemDetail() {
             </section>
 
             <section className="grid gap-3 md:grid-cols-2">
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 text-lg text-white/70">
+              <div className="rounded-xl border border-white/10 bg-black/20 px-5 py-4 text-lg text-white/70">
                 <span className="font-black text-white">Expected Time Complexity:</span>{" "}
                 {details.expectedTimeComplexity}
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 text-lg text-white/70">
+              <div className="rounded-xl border border-white/10 bg-black/20 px-5 py-4 text-lg text-white/70">
                 <span className="font-black text-white">Expected Space Complexity:</span>{" "}
                 {details.expectedSpaceComplexity}
               </div>
             </section>
+            <section className="border-t border-white/10 pt-8">
+              <div className="rounded-2xl border border-white/10 bg-zinc-950/45 overflow-hidden">
+                <div className="flex flex-col gap-4 border-b border-white/10 p-5 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 text-xl font-black text-white">
+                      <PencilLine size={20} className="text-orange-400" />
+                      Your Answer
+                    </div>
+                    <p className="mt-1 text-sm text-white/45">
+                      Draft your solution, final code, dry run, or explanation. It saves on this device automatically.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={handleCopyAnswer}
+                      className="inline-flex items-center cursor-pointer gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-bold text-white/70 hover:bg-white/10 hover:text-white transition-colors"
+                    >
+                      {answerStatus === "Copied" ? <Check size={14} /> : <Copy size={14} />}
+                      Copy
+                    </button>
+                    <button
+                      type="button"
+                      onClick={needsGithubReconnect ? handleReconnectGithub : handleSubmitSolution}
+                      disabled={submittingSolution || (!needsGithubReconnect && !note.trim())}
+                      className="inline-flex items-center gap-2 rounded-lg  bg-white px-3 py-2 text-xs font-bold text-black cursor-pointer disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-white/35 transition-colors"
+                    >
+                      {submittingSolution ? (
+                        <Loader2 size={14} className="animate-spin" />
+                      ) : (
+                        <Send size={14} />
+                      )}
+                      {needsGithubReconnect ? "Reconnect GitHub" : "commit to GitHub"}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleClearAnswer}
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-xs font-bold text-red-200 hover:bg-red-500/20 transition-colors"
+                    >
+                      <Trash2 size={14} />
+                      Clear
+                    </button>
+                  </div>
+                </div>
+
+                <textarea
+                  value={note}
+                  onChange={(event) => handleNoteChange(event.target.value)}
+                  placeholder={`Write your answer here...\n\nApproach:\nComplexity:\nCode:`}
+                  className="min-h-[890px] w-full resize-y bg-black/45 p-5 font-mono text-sm leading-7 text-white outline-none placeholder-white/28 focus:bg-black/55"
+                />
+
+                <div className="flex flex-col gap-2 border-t border-white/10 px-5 py-3 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className={submitStatus ? (needsGithubReconnect ? "text-amber-300" : "text-emerald-300") : ""}>
+                    {submitStatus || answerStatus || "Ready"}
+                    </span>
+                    {needsGithubReconnect && (
+                      <button
+                        type="button"
+                        onClick={handleReconnectGithub}
+                        className="rounded-md border border-amber-400/30 bg-amber-400/10 px-2 py-1 font-bold text-amber-100 hover:bg-amber-400/20 transition-colors"
+                      >
+                        Reconnect GitHub
+                      </button>
+                    )}
+                  </div>
+                  <span>
+                    {answerStats.words} words · {answerStats.lines} lines · {answerStats.characters} characters
+                  </span>
+                </div>
+              </div>
+            </section>
+            {question?.testCases?.length > 0 && (
+              <section>
+                <h2 className="text-2xl font-black text-white">Test Cases</h2>
+                <div className="mt-4 flex flex-col gap-4">
+                  {question.testCases.map((testCase, index) => (
+                    <div key={`${testCase.input}-${index}`} className="rounded-lg bg-[#28282e] p-5 text-base leading-7 text-white/80">
+                      <p>
+                        <span className="font-black text-white">Input:</span> {testCase.input}
+                      </p>
+                      <p>
+                        <span className="font-black text-white">Output:</span> {testCase.output}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {question?.followUp?.length > 0 && (
               <section>
                 <h2 className="text-xl font-black text-white">Follow-up</h2>
                 <div className="mt-4 flex flex-col gap-3">
                   {question.followUp.map((item) => (
-                    <p key={item} className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 text-white/70">
+                    <p key={item} className="rounded-xl border border-white/10 bg-black/20 px-5 py-4 text-white/70">
                       {item}
                     </p>
                   ))}
@@ -497,23 +588,7 @@ function ProblemDetail() {
               </div>
             </section>
 
-            {question?.testCases?.length > 0 && (
-              <section>
-                <h2 className="text-2xl font-black text-white">Test Cases</h2>
-                <div className="mt-4 flex flex-col gap-4">
-                  {question.testCases.map((testCase, index) => (
-                    <div key={`${testCase.input}-${index}`} className="rounded-lg bg-[#28282e] p-5 text-base leading-7 text-white/80">
-                      <p>
-                        <span className="font-black text-white">Input:</span> {testCase.input}
-                      </p>
-                      <p>
-                        <span className="font-black text-white">Output:</span> {testCase.output}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
+            
 
             {question?.youtubeVideos?.length > 0 && (
               <section>
@@ -572,80 +647,7 @@ function ProblemDetail() {
               </section>
             )}
 
-            <section className="border-t border-white/10 pt-8">
-              <div className="rounded-2xl border border-white/10 bg-zinc-950/45 overflow-hidden">
-                <div className="flex flex-col gap-4 border-b border-white/10 p-5 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 text-xl font-black text-white">
-                      <PencilLine size={20} className="text-orange-400" />
-                      Your Answer
-                    </div>
-                    <p className="mt-1 text-sm text-white/45">
-                      Draft your solution, final code, dry run, or explanation. It saves on this device automatically.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={handleCopyAnswer}
-                      className="inline-flex items-center cursor-pointer gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-bold text-white/70 hover:bg-white/10 hover:text-white transition-colors"
-                    >
-                      {answerStatus === "Copied" ? <Check size={14} /> : <Copy size={14} />}
-                      Copy
-                    </button>
-                    <button
-                      type="button"
-                      onClick={needsGithubReconnect ? handleReconnectGithub : handleSubmitSolution}
-                      disabled={submittingSolution || (!needsGithubReconnect && !note.trim())}
-                      className="inline-flex items-center gap-2 rounded-lg  bg-white px-3 py-2 text-xs font-bold text-black cursor-pointer disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-white/35 transition-colors"
-                    >
-                      {submittingSolution ? (
-                        <Loader2 size={14} className="animate-spin" />
-                      ) : (
-                        <Send size={14} />
-                      )}
-                      {needsGithubReconnect ? "Reconnect GitHub" : "commit to GitHub"}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleClearAnswer}
-                      className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-xs font-bold text-red-200 hover:bg-red-500/20 transition-colors"
-                    >
-                      <Trash2 size={14} />
-                      Clear
-                    </button>
-                  </div>
-                </div>
-
-                <textarea
-                  value={note}
-                  onChange={(event) => handleNoteChange(event.target.value)}
-                  placeholder={`Write your answer here...\n\nApproach:\nComplexity:\nCode:`}
-                  className="min-h-[520px] w-full resize-y bg-black/45 p-5 font-mono text-sm leading-7 text-white outline-none placeholder-white/28 focus:bg-black/55"
-                />
-
-                <div className="flex flex-col gap-2 border-t border-white/10 px-5 py-3 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className={submitStatus ? (needsGithubReconnect ? "text-amber-300" : "text-emerald-300") : ""}>
-                    {submitStatus || answerStatus || "Ready"}
-                    </span>
-                    {needsGithubReconnect && (
-                      <button
-                        type="button"
-                        onClick={handleReconnectGithub}
-                        className="rounded-md border border-amber-400/30 bg-amber-400/10 px-2 py-1 font-bold text-amber-100 hover:bg-amber-400/20 transition-colors"
-                      >
-                        Reconnect GitHub
-                      </button>
-                    )}
-                  </div>
-                  <span>
-                    {answerStats.words} words · {answerStats.lines} lines · {answerStats.characters} characters
-                  </span>
-                </div>
-              </div>
-            </section>
+            
 
             {question?.leetcodeUrl && (
               <div className="flex justify-start">

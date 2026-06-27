@@ -54,6 +54,34 @@ function normalizePatternSlug(pattern) {
         .replace(/^-+|-+$/g, "");
 }
 
+function getQuestionsFilePath(topic) {
+    const normalizedTopic = normalizeTopicName(topic);
+    const baseQuestionsDir = path.resolve(__dirname, "..", "data", "questions");
+    const jsonPath = path.resolve(baseQuestionsDir, `${normalizedTopic}question.json`);
+
+    if (jsonPath !== baseQuestionsDir && !jsonPath.startsWith(baseQuestionsDir + path.sep)) {
+        return null;
+    }
+
+    return jsonPath;
+}
+
+function readTopicQuestions(topic) {
+    const jsonPath = getQuestionsFilePath(topic);
+
+    if (!jsonPath || !fs.existsSync(jsonPath)) {
+        return [];
+    }
+
+    try {
+        const questions = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
+        return Array.isArray(questions) ? questions : [];
+    } catch (err) {
+        console.error(`Error reading questions file for ${topic}:`, err);
+        return [];
+    }
+}
+
 function sanitizeSubmissionFileName(title = "solution") {
     const baseName = title
         .toLowerCase()
@@ -668,16 +696,18 @@ router.get("/progress", progressRateLimiter, optionalAuth, async (req, res) => {
 
         for (const t of topics) {
             const normTopic = normalizeTopicName(t.topic);
-            const jsonPath = path.join(__dirname, "..", "data", "questions", `${normTopic}question.json`);
-            let total = 180; // default fallback
-            if (fs.existsSync(jsonPath)) {
-                total = JSON.parse(fs.readFileSync(jsonPath, "utf-8")).length;
-            }
+            const questions = readTopicQuestions(t.topic);
+            const currentQuestionIds = questions.map((question) => question._id).filter(Boolean);
+            const total = currentQuestionIds.length;
             totalQuestionsAll += total;
 
             let solved = 0;
-            if (userId) {
-                solved = await SolvedProblem.countDocuments({ userId, topic: normTopic });
+            if (userId && currentQuestionIds.length > 0) {
+                solved = await SolvedProblem.countDocuments({
+                    userId,
+                    topic: normTopic,
+                    problemId: { $in: currentQuestionIds }
+                });
             }
             totalSolvedAll += solved;
 
@@ -1119,31 +1149,25 @@ router.get("/recent-solved", recentSolvedLimiter, optionalAuth, async (req, res)
             if (!normTopic) return null;
             
             if (!loadedQuestionsCache[normTopic]) {
-                const jsonPath = path.join(__dirname, "..", "data", "questions", `${normTopic}question.json`);
-                if (fs.existsSync(jsonPath)) {
-                    try {
-                        loadedQuestionsCache[normTopic] = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
-                    } catch (err) {
-                        console.error(`Error reading questions file for ${normTopic}:`, err);
-                        loadedQuestionsCache[normTopic] = [];
-                    }
-                } else {
-                    loadedQuestionsCache[normTopic] = [];
-                }
+                loadedQuestionsCache[normTopic] = readTopicQuestions(normTopic);
             }
             return loadedQuestionsCache[normTopic].find(q => q._id === problemId);
         };
 
-        const recentSolved = solvedList.map(item => {
+        const recentSolved = solvedList.flatMap(item => {
             const qDetails = getQuestionDetails(item.topic, item.problemId);
+            if (!qDetails) {
+                return [];
+            }
+
             return {
                 problemId: item.problemId,
-                title: qDetails?.title || "Unknown Problem",
+                title: qDetails.title,
                 topic: item.topic,
                 pattern: item.pattern,
-                difficulty: qDetails?.difficulty || "Medium",
-                leetcodeUrl: qDetails?.leetcodeUrl || "#",
-                problemNumber: qDetails?.problemNumber,
+                difficulty: qDetails.difficulty || "Medium",
+                leetcodeUrl: qDetails.leetcodeUrl || "#",
+                problemNumber: qDetails.problemNumber,
                 solvedAt: item.solvedAt || item.createdAt
             };
         });

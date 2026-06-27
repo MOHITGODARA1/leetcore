@@ -1,102 +1,265 @@
 [
-  
+  {
+    "_id": "arr_tp_001",
+    "title": "Two Sum",
+    "topic": "array",
+    "pattern": "hash-map",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 1,
+    "leetcodeUrl": "https://leetcode.com/problems/two-sum/",
+    "description":  "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice.\n You can return the answer in any order.",
+    "examples": [
+      {
+        "input": "nums = [2,7,11,15], target = 9",
+        "output": "[0,1]",
+        "explanation": "nums[0] + nums[1] = 2 + 7 = 9."
+      },
+      {
+        "input": "nums = [3,2,4], target = 6",
+        "output": "[1,2]",
+        "explanation": "nums[1] + nums[2] = 2 + 4 = 6."
+      }
+    ],
+    "constraints": [
+      "2 <= nums.length <= 10^4",
+      "-10^9 <= nums[i] <= 10^9",
+      "Only one valid answer exists."
+    ],
+    "hints": [
+      "Think about what complement you need for each number.",
+      "A hash map can store seen values for O(1) lookup.",
+      "One pass is enough."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Meta", "Apple", "Microsoft"],
+    "tags": ["Array", "Hash Map"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Two Sum - LeetCode 1 Solution",
+        "url": "https://www.youtube.com/watch?v=KLlXCFG5TnA"
+      }
+    ],
+    "relatedProblems": ["3Sum", "4Sum", "Two Sum II"],
+    "followUp": ["What if the array is sorted?"],
+    "testCases": [
+      { "input": "[2,7,11,15], target=9", "output": "[0,1]" },
+      { "input": "[3,3], target=6", "output": "[0,1]" }
+    ],
+    "acceptanceRate": "52.1%",
+    "likes": 55000,
+    "dislikes": 1800
+  },
   {
     "_id": "arr_tp_002",
-    "title": "Two Sum II - Input Array Is Sorted",
+    "title": "Best Time to Buy and Sell Stock",
     "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
+    "pattern": "sliding-window",
+    "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 167,
-    "leetcodeUrl": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
-    "companies": [
-      "Netflix",
-      "ByteDance",
-      "Microsoft"
+    "problemNumber": 121,
+    "leetcodeUrl": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+    "description": "Given an array prices where prices[i] is the price on day i, find the maximum profit from one transaction (buy before sell).",
+    "examples": [
+      {
+        "input": "prices = [7,1,5,3,6,4]",
+        "output": "5",
+        "explanation": "Buy on day 2 (price=1), sell on day 5 (price=6). Profit = 5."
+      },
+      {
+        "input": "prices = [7,6,4,3,1]",
+        "output": "0",
+        "explanation": "No transaction yields profit."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "1 <= prices.length <= 10^5",
+      "0 <= prices[i] <= 10^4"
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "Track the minimum price seen so far.",
+      "At each step compute profit vs current min.",
+      "One pass is enough."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Goldman Sachs", "Meta", "Microsoft"],
+    "tags": ["Array", "Greedy", "Sliding Window"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Best Time to Buy and Sell Stock",
+        "url": "https://www.youtube.com/watch?v=1pkOgXD63yU"
+      }
+    ],
+    "relatedProblems": ["Best Time to Buy and Sell Stock II", "Best Time to Buy and Sell Stock III"],
+    "followUp": ["What if you can make multiple transactions?"],
+    "testCases": [
+      { "input": "[7,1,5,3,6,4]", "output": "5" },
+      { "input": "[7,6,4,3,1]", "output": "0" }
+    ],
+    "acceptanceRate": "54.3%",
+    "likes": 29000,
+    "dislikes": 950
   },
   {
     "_id": "arr_tp_003",
-    "title": "3Sum",
+    "title": "Contains Duplicate",
     "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
+    "pattern": "hash-set",
+    "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 15,
-    "leetcodeUrl": "https://leetcode.com/problems/3sum/",
-    "companies": [
-      "ByteDance",
-      "Salesforce"
+    "problemNumber": 217,
+    "leetcodeUrl": "https://leetcode.com/problems/contains-duplicate/",
+    "description": "Given an integer array nums, return true if any value appears at least twice, and false if every element is distinct.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1]",
+        "output": "true",
+        "explanation": "1 appears twice."
+      },
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "false",
+        "explanation": "All elements are distinct."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-10^9 <= nums[i] <= 10^9"
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "A hash set tracks seen elements.",
+      "Sort first, then check adjacent elements."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Apple", "Microsoft"],
+    "tags": ["Array", "Hash Set", "Sorting"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Contains Duplicate - LeetCode 217",
+        "url": "https://www.youtube.com/watch?v=3OamzN90kPg"
+      }
+    ],
+    "relatedProblems": ["Contains Duplicate II", "Contains Duplicate III"],
+    "followUp": ["Can you do it in O(1) space?"],
+    "testCases": [
+      { "input": "[1,2,3,1]", "output": "true" },
+      { "input": "[1,2,3,4]", "output": "false" }
+    ],
+    "acceptanceRate": "61.5%",
+    "likes": 11000,
+    "dislikes": 1300
   },
   {
     "_id": "arr_tp_004",
-    "title": "Trapping Rain Water",
+    "title": "Product of Array Except Self",
     "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
+    "pattern": "prefix-suffix",
+    "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 42,
-    "leetcodeUrl": "https://leetcode.com/problems/trapping-rain-water/",
-    "companies": [
-      "Microsoft",
-      "Adobe"
+    "problemNumber": 238,
+    "leetcodeUrl": "https://leetcode.com/problems/product-of-array-except-self/",
+    "description": "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i], without division.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "[24,12,8,6]",
+        "explanation": "Each index holds product of all others."
+      },
+      {
+        "input": "nums = [-1,1,0,-3,3]",
+        "output": "[0,0,9,0,0]",
+        "explanation": "Zero causes most products to be 0."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "2 <= nums.length <= 10^5",
+      "-30 <= nums[i] <= 30",
+      "The product of any prefix/suffix fits in 32-bit integer."
     ],
-    "estimatedTime": "40 min"
+    "hints": [
+      "Compute prefix products left to right.",
+      "Compute suffix products right to left.",
+      "Multiply prefix and suffix at each index."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Apple", "Facebook", "Microsoft", "Lyft"],
+    "tags": ["Array", "Prefix Sum"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Product of Array Except Self",
+        "url": "https://www.youtube.com/watch?v=bNvIQI2wAjk"
+      }
+    ],
+    "relatedProblems": ["Trapping Rain Water", "Maximum Product Subarray"],
+    "followUp": ["Can you solve it with O(1) extra space (excluding output)?"],
+    "testCases": [
+      { "input": "[1,2,3,4]", "output": "[24,12,8,6]" }
+    ],
+    "acceptanceRate": "65.4%",
+    "likes": 21000,
+    "dislikes": 1200
   },
   {
     "_id": "arr_tp_005",
-    "title": "Valid Palindrome",
+    "title": "Maximum Subarray",
     "topic": "array",
-    "pattern": "two-pointers",
+    "pattern": "kadane",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 125,
-    "leetcodeUrl": "https://leetcode.com/problems/valid-palindrome/",
-    "companies": [
-      "Google",
-      "Stripes"
+    "problemNumber": 53,
+    "leetcodeUrl": "https://leetcode.com/problems/maximum-subarray/",
+    "description": "Given an integer array nums, find the subarray with the largest sum and return its sum.",
+    "examples": [
+      {
+        "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+        "output": "6",
+        "explanation": "Subarray [4,-1,2,1] has the largest sum = 6."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1",
+        "explanation": "Single element."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-10^4 <= nums[i] <= 10^4"
     ],
-    "estimatedTime": "20 min"
+    "hints": [
+      "Use Kadane's algorithm.",
+      "If current sum goes negative, reset to 0.",
+      "Track global max at each step."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Apple", "Google", "LinkedIn", "Microsoft"],
+    "tags": ["Array", "Dynamic Programming", "Divide and Conquer"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Maximum Subarray - Kadane's Algorithm",
+        "url": "https://www.youtube.com/watch?v=5WZl3MMT0Eg"
+      }
+    ],
+    "relatedProblems": ["Maximum Product Subarray", "Minimum Subarray"],
+    "followUp": ["If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach."],
+    "testCases": [
+      { "input": "[-2,1,-3,4,-1,2,1,-5,4]", "output": "6" }
+    ],
+    "acceptanceRate": "50.3%",
+    "likes": 32000,
+    "dislikes": 1400
   },
   {
     "_id": "arr_tp_006",
-    "title": "Remove Duplicates from Sorted Array",
-    "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 26,
-    "leetcodeUrl": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_tp_007",
     "title": "Move Zeroes",
     "topic": "array",
     "pattern": "two-pointers",
@@ -104,639 +267,378 @@
     "platform": "LeetCode",
     "problemNumber": 283,
     "leetcodeUrl": "https://leetcode.com/problems/move-zeroes/",
-    "companies": [
-      "Google",
-      "Adobe"
+    "description": "Given an integer array nums, move all 0s to the end while maintaining the relative order of the non-zero elements, in-place.",
+    "examples": [
+      {
+        "input": "nums = [0,1,0,3,12]",
+        "output": "[1,3,12,0,0]",
+        "explanation": "Non-zero elements maintain order, zeroes moved to end."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "1 <= nums.length <= 10^4",
+      "-2^31 <= nums[i] <= 2^31 - 1"
     ],
-    "estimatedTime": "20 min"
+    "hints": [
+      "Use a slow pointer for the next non-zero position.",
+      "Minimize the number of operations."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Facebook", "Apple", "Bloomberg"],
+    "tags": ["Array", "Two Pointers"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Move Zeroes - LeetCode 283",
+        "url": "https://www.youtube.com/watch?v=aayNRwUN3Do"
+      }
+    ],
+    "relatedProblems": ["Remove Element", "Remove Duplicates from Sorted Array"],
+    "followUp": ["Minimize the total number of operations done."],
+    "testCases": [
+      { "input": "[0,1,0,3,12]", "output": "[1,3,12,0,0]" }
+    ],
+    "acceptanceRate": "61.8%",
+    "likes": 15000,
+    "dislikes": 420
+  },
+  {
+    "_id": "arr_tp_007",
+    "title": "Find the Duplicate Number",
+    "topic": "array",
+    "pattern": "fast-slow-pointers",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 287,
+    "leetcodeUrl": "https://leetcode.com/problems/find-the-duplicate-number/",
+    "description": "Given an array nums containing n+1 integers where each is in [1, n], find the one duplicate number without modifying the array.",
+    "examples": [
+      {
+        "input": "nums = [1,3,4,2,2]",
+        "output": "2",
+        "explanation": "2 is the duplicate."
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 10^5",
+      "nums.length == n + 1",
+      "Only one duplicate, but may appear more than twice."
+    ],
+    "hints": [
+      "Model it as a linked list cycle problem.",
+      "Use Floyd's cycle detection.",
+      "Don't use O(n) extra space."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Bloomberg", "Microsoft"],
+    "tags": ["Array", "Two Pointers", "Binary Search", "Bit Manipulation"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Find the Duplicate Number - Floyd's Cycle",
+        "url": "https://www.youtube.com/watch?v=wjYnzkAhcNk"
+      }
+    ],
+    "relatedProblems": ["First Missing Positive", "Single Number"],
+    "followUp": ["How about using O(1) space and O(n) time?"],
+    "testCases": [
+      { "input": "[1,3,4,2,2]", "output": "2" }
+    ],
+    "acceptanceRate": "59.4%",
+    "likes": 21000,
+    "dislikes": 2100
   },
   {
     "_id": "arr_tp_008",
-    "title": "Sort Colors",
+    "title": "Intersection of Two Arrays II",
     "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
+    "pattern": "hash-map",
+    "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 75,
-    "leetcodeUrl": "https://leetcode.com/problems/sort-colors/",
-    "companies": [
-      "LinkedIn",
-      "Microsoft",
-      "Atlassian"
+    "problemNumber": 350,
+    "leetcodeUrl": "https://leetcode.com/problems/intersection-of-two-arrays-ii/",
+    "description": "Given two integer arrays nums1 and nums2, return an array of their intersection (each element appears as many times as it shows in both arrays).",
+    "examples": [
+      {
+        "input": "nums1 = [1,2,2,1], nums2 = [2,2]",
+        "output": "[2,2]",
+        "explanation": "2 appears twice in both arrays."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "1 <= nums1.length, nums2.length <= 1000",
+      "0 <= nums1[i], nums2[i] <= 1000"
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "Use a frequency map for the smaller array.",
+      "Iterate the larger and decrement count."
+    ],
+    "expectedTimeComplexity": "O(n + m)",
+    "expectedSpaceComplexity": "O(min(n,m))",
+    "companies": ["Facebook", "Amazon", "Apple"],
+    "tags": ["Array", "Hash Map", "Two Pointers", "Sorting"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Intersection of Two Arrays II",
+        "url": "https://www.youtube.com/watch?v=KqOdMcVUJoQ"
+      }
+    ],
+    "relatedProblems": ["Intersection of Two Arrays", "Find Common Characters"],
+    "followUp": ["What if the given array is already sorted?", "What if one array is very large and one is small?"],
+    "testCases": [
+      { "input": "[1,2,2,1], [2,2]", "output": "[2,2]" }
+    ],
+    "acceptanceRate": "56.2%",
+    "likes": 7200,
+    "dislikes": 1050
   },
   {
     "_id": "arr_tp_009",
-    "title": "Squares of a Sorted Array",
+    "title": "Plus One",
     "topic": "array",
-    "pattern": "two-pointers",
+    "pattern": "simulation",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 977,
-    "leetcodeUrl": "https://leetcode.com/problems/squares-of-a-sorted-array/",
-    "companies": [
-      "Apple",
-      "Oracle"
+    "problemNumber": 66,
+    "leetcodeUrl": "https://leetcode.com/problems/plus-one/",
+    "description": "Given a large integer represented as an array of digits, increment it by one and return the resulting array.",
+    "examples": [
+      {
+        "input": "digits = [1,2,3]",
+        "output": "[1,2,4]",
+        "explanation": "123 + 1 = 124."
+      },
+      {
+        "input": "digits = [9,9,9]",
+        "output": "[1,0,0,0]",
+        "explanation": "999 + 1 = 1000."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "1 <= digits.length <= 100",
+      "0 <= digits[i] <= 9",
+      "digits does not contain leading zeros."
     ],
-    "estimatedTime": "20 min"
+    "hints": [
+      "Handle carry from the last digit.",
+      "Watch out for the all-9s edge case."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Google", "Amazon", "Apple"],
+    "tags": ["Array", "Math"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Plus One - LeetCode 66",
+        "url": "https://www.youtube.com/watch?v=jIaA8boiG1s"
+      }
+    ],
+    "relatedProblems": ["Multiply Strings", "Add Binary"],
+    "followUp": ["Handle arbitrary large digit arrays."],
+    "testCases": [
+      { "input": "[1,2,3]", "output": "[1,2,4]" },
+      { "input": "[9,9,9]", "output": "[1,0,0,0]" }
+    ],
+    "acceptanceRate": "44.1%",
+    "likes": 9100,
+    "dislikes": 6600
   },
   {
     "_id": "arr_tp_010",
-    "title": "3Sum Closest",
+    "title": "Single Number",
     "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
+    "pattern": "bit-manipulation",
+    "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 16,
-    "leetcodeUrl": "https://leetcode.com/problems/3sum-closest/",
-    "companies": [
-      "LinkedIn"
+    "problemNumber": 136,
+    "leetcodeUrl": "https://leetcode.com/problems/single-number/",
+    "description": "Given a non-empty array where every element appears twice except one, find that single element without extra memory.",
+    "examples": [
+      {
+        "input": "nums = [4,1,2,1,2]",
+        "output": "4",
+        "explanation": "4 is the only non-duplicate."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "1 <= nums.length <= 3 * 10^4",
+      "-3 * 10^4 <= nums[i] <= 3 * 10^4",
+      "Each element appears twice except one."
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "XOR of a number with itself is 0.",
+      "XOR all elements; duplicates cancel out."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Apple", "Airbnb"],
+    "tags": ["Array", "Bit Manipulation"],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Single Number - XOR Trick",
+        "url": "https://www.youtube.com/watch?v=qMPX1AOa83k"
+      }
+    ],
+    "relatedProblems": ["Single Number II", "Missing Number"],
+    "followUp": ["What if three elements appear once?"],
+    "testCases": [
+      { "input": "[4,1,2,1,2]", "output": "4" }
+    ],
+    "acceptanceRate": "72.1%",
+    "likes": 16000,
+    "dislikes": 620
   },
   {
     "_id": "arr_tp_011",
-    "title": "Validate Two Pointers for Array 11",
+    "title": "Rotate Array",
     "topic": "array",
-    "pattern": "two-pointers",
+    "pattern": "reversal",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1285,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-two-pointers-for-array-11/",
-    "companies": [
-      "Twitter"
+    "problemNumber": 189,
+    "leetcodeUrl": "https://leetcode.com/problems/rotate-array/",
+    "description": "Given an array, rotate it to the right by k steps, in-place with O(1) extra space.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,4,5,6,7], k = 3",
+        "output": "[5,6,7,1,2,3,4]",
+        "explanation": "Rotate right 3 times."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-2^31 <= nums[i] <= 2^31 - 1",
+      "0 <= k <= 10^5"
     ],
-    "estimatedTime": "20 min"
+    "hints": [
+      "Reverse the full array.",
+      "Reverse first k elements.",
+      "Reverse the rest."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Microsoft", "Amazon", "Bloomberg"],
+    "tags": ["Array", "Two Pointers", "Math"],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Rotate Array - LeetCode 189",
+        "url": "https://www.youtube.com/watch?v=BHr381Guz3Y"
+      }
+    ],
+    "relatedProblems": ["Rotate Image", "Reverse Words in a String"],
+    "followUp": ["Try all three approaches: extra array, cyclic replacements, reversal."],
+    "testCases": [
+      { "input": "[1,2,3,4,5,6,7], k=3", "output": "[5,6,7,1,2,3,4]" }
+    ],
+    "acceptanceRate": "39.4%",
+    "likes": 15000,
+    "dislikes": 1700
   },
   {
     "_id": "arr_tp_012",
-    "title": "Count of Two Pointers for Array 12",
+    "title": "Container With Most Water",
     "topic": "array",
     "pattern": "two-pointers",
-    "difficulty": "Easy",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1295,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-two-pointers-for-array-12/",
-    "companies": [
-      "Airbnb",
-      "Uber"
+    "problemNumber": 11,
+    "leetcodeUrl": "https://leetcode.com/problems/container-with-most-water/",
+    "description": "Given n non-negative integers representing the height of vertical lines, find two lines that together with the x-axis form a container that can store the maximum amount of water.",
+    "examples": [
+      {
+        "input": "height = [1,8,6,2,5,4,8,3,7]",
+        "output": "49",
+        "explanation": "The maximum area is formed by heights 8 and 7."
+      },
+      {
+        "input": "height = [1,1]",
+        "output": "1",
+        "explanation": "Only one possible container."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "2 <= height.length <= 100000",
+      "0 <= height[i] <= 10000"
     ],
-    "estimatedTime": "20 min"
+    "hints": [
+      "Brute force is O(n²).",
+      "Think about using two pointers.",
+      "Move the shorter line inward."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Google", "Meta", "Tencent"],
+    "tags": ["Array", "Two Pointers", "Greedy"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Container With Most Water Explained",
+        "url": "https://www.youtube.com/watch?v=UuiTKBwPgAo"
+      }
+    ],
+    "relatedProblems": ["Trapping Rain Water", "Two Sum II"],
+    "followUp": ["Can you solve it in O(n)?"],
+    "testCases": [
+      { "input": "[1,8,6,2,5,4,8,3,7]", "output": "49" }
+    ],
+    "acceptanceRate": "56.8%",
+    "likes": 28000,
+    "dislikes": 1700
   },
   {
     "_id": "arr_tp_013",
-    "title": "Subarray Two Pointers for Array 13",
+    "title": "3Sum",
     "topic": "array",
     "pattern": "two-pointers",
-    "difficulty": "Easy",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1522,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-array-13/",
-    "companies": [
-      "Microsoft",
-      "Meta",
-      "Salesforce"
+    "problemNumber": 15,
+    "leetcodeUrl": "https://leetcode.com/problems/3sum/",
+    "description": "Given an integer array nums, return all unique triplets [nums[i], nums[j], nums[k]] such that i != j != k and nums[i] + nums[j] + nums[k] == 0.",
+    "examples": [
+      {
+        "input": "nums = [-1,0,1,2,-1,-4]",
+        "output": "[[-1,-1,2],[-1,0,1]]",
+        "explanation": "Two unique triplets sum to zero."
+      }
     ],
-    "tags": [
-      "Array",
-      "Two Pointers"
+    "constraints": [
+      "3 <= nums.length <= 3000",
+      "-10^5 <= nums[i] <= 10^5"
     ],
-    "estimatedTime": "20 min"
+    "hints": [
+      "Sort the array first.",
+      "Fix one element, use two pointers for the rest.",
+      "Skip duplicates carefully."
+    ],
+    "expectedTimeComplexity": "O(n²)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Adobe", "Facebook", "Microsoft", "Google"],
+    "tags": ["Array", "Two Pointers", "Sorting"],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "3Sum - LeetCode 15",
+        "url": "https://www.youtube.com/watch?v=jzZsG8n2R9A"
+      }
+    ],
+    "relatedProblems": ["Two Sum", "4Sum", "3Sum Closest"],
+    "followUp": ["Can you generalize to k-sum?"],
+    "testCases": [
+      { "input": "[-1,0,1,2,-1,-4]", "output": "[[-1,-1,2],[-1,0,1]]" }
+    ],
+    "acceptanceRate": "33.4%",
+    "likes": 27000,
+    "dislikes": 2500
   },
   {
     "_id": "arr_tp_014",
-    "title": "Search Two Pointers for Array 14",
-    "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2322,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-array-14/",
-    "companies": [
-      "Tencent",
-      "Netflix"
-    ],
-    "tags": [
-      "Array",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_tp_015",
-    "title": "Minimum Cost Two Pointers for Array 15",
-    "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1769,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-array-15/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Array",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_tp_016",
-    "title": "Subarray Two Pointers for Array 16",
-    "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2863,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-array-16/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Array",
-      "Two Pointers"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_tp_017",
-    "title": "Cyclic Two Pointers for Array 17",
-    "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2711,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-two-pointers-for-array-17/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Array",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_tp_018",
-    "title": "Balanced Two Pointers for Array 18",
-    "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1517,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-two-pointers-for-array-18/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Array",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_tp_019",
-    "title": "Subarray Two Pointers for Array 19",
-    "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2615,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-array-19/",
-    "companies": [
-      "ByteDance",
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_tp_020",
-    "title": "Subsequence Two Pointers for Array 20",
-    "topic": "array",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1574,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-two-pointers-for-array-20/",
-    "companies": [
-      "Tencent",
-      "Meta",
-      "Netflix"
-    ],
-    "tags": [
-      "Array",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_sw_001",
-    "title": "Longest Substring Without Repeating Characters",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 3,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
-    "companies": [
-      "Amazon",
-      "ByteDance"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_sw_002",
-    "title": "Minimum Size Subarray Sum",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 209,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-size-subarray-sum/",
-    "companies": [
-      "Twilio",
-      "Netflix"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_sw_003",
-    "title": "Sliding Window Maximum",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 239,
-    "leetcodeUrl": "https://leetcode.com/problems/sliding-window-maximum/",
-    "companies": [
-      "ByteDance",
-      "Airbnb",
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_sw_004",
-    "title": "Longest Repeating Character Replacement",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 424,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-repeating-character-replacement/",
-    "companies": [
-      "Tencent",
-      "Amazon",
-      "Airbnb"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_sw_005",
-    "title": "Permutation in String",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 567,
-    "leetcodeUrl": "https://leetcode.com/problems/permutation-in-string/",
-    "companies": [
-      "Stripes",
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_sw_006",
-    "title": "Minimum Window Substring",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 76,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-window-substring/",
-    "companies": [
-      "Google",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_sw_007",
-    "title": "Find All Anagrams in a String",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 438,
-    "leetcodeUrl": "https://leetcode.com/problems/find-all-anagrams-in-a-string/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_sw_008",
-    "title": "Subarray Sliding Window for Array 8",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2904,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sliding-window-for-array-8/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_sw_009",
-    "title": "Longest Sliding Window for Array 9",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1273,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sliding-window-for-array-9/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_sw_010",
-    "title": "Subarray Sliding Window for Array 10",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1894,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sliding-window-for-array-10/",
-    "companies": [
-      "Netflix",
-      "Stripes",
-      "Oracle"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_sw_011",
-    "title": "Validate Sliding Window for Array 11",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1337,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sliding-window-for-array-11/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_sw_012",
-    "title": "Maximal Sliding Window for Array 12",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2667,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-array-12/",
-    "companies": [
-      "Uber",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_sw_013",
-    "title": "Optimal Sliding Window for Array 13",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1928,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sliding-window-for-array-13/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_sw_014",
-    "title": "K-th Distance Sliding Window for Array 14",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2394,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sliding-window-for-array-14/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_sw_015",
-    "title": "Subsequence Sliding Window for Array 15",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1753,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sliding-window-for-array-15/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_sw_016",
-    "title": "Search Sliding Window for Array 16",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2996,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-array-16/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_sw_017",
-    "title": "Maximal Sliding Window for Array 17",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2328,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-array-17/",
-    "companies": [
-      "Netflix",
-      "Tencent",
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_sw_018",
-    "title": "Subsequence Sliding Window for Array 18",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2508,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sliding-window-for-array-18/",
-    "companies": [
-      "Google",
-      "Airbnb",
-      "Atlassian"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_sw_019",
-    "title": "Shortest Sliding Window for Array 19",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2566,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sliding-window-for-array-19/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_sw_020",
-    "title": "Continuous Sliding Window for Array 20",
-    "topic": "array",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2551,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sliding-window-for-array-20/",
-    "companies": [
-      "Salesforce",
-      "Meta",
-      "Airbnb"
-    ],
-    "tags": [
-      "Array",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ps_001",
     "title": "Subarray Sum Equals K",
     "topic": "array",
     "pattern": "prefix-sum",
@@ -744,2630 +646,571 @@
     "platform": "LeetCode",
     "problemNumber": 560,
     "leetcodeUrl": "https://leetcode.com/problems/subarray-sum-equals-k/",
-    "companies": [
-      "Twitter"
+    "description": "Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals k.",
+    "examples": [
+      {
+        "input": "nums = [1,1,1], k = 2",
+        "output": "2",
+        "explanation": "[1,1] at indices [0,1] and [1,2]."
+      }
     ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
+    "constraints": [
+      "1 <= nums.length <= 2 * 10^4",
+      "-1000 <= nums[i] <= 1000",
+      "-10^7 <= k <= 10^7"
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "Use prefix sums.",
+      "Store prefix sum frequencies in a hash map.",
+      "Look for prefixSum - k in the map."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Facebook", "Google", "Amazon", "Goldman Sachs"],
+    "tags": ["Array", "Hash Map", "Prefix Sum"],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Subarray Sum Equals K - Prefix Sum",
+        "url": "https://www.youtube.com/watch?v=fFVZt-6sgyo"
+      }
+    ],
+    "relatedProblems": ["Maximum Size Subarray Sum Equals k", "Continuous Subarray Sum"],
+    "followUp": ["What if numbers are positive only — can you use sliding window?"],
+    "testCases": [
+      { "input": "[1,1,1], k=2", "output": "2" }
+    ],
+    "acceptanceRate": "44.2%",
+    "likes": 21000,
+    "dislikes": 600
   },
   {
-    "_id": "arr_ps_002",
-    "title": "Range Sum Query - Immutable",
+    "_id": "arr_tp_015",
+    "title": "Sort Colors",
     "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 303,
-    "leetcodeUrl": "https://leetcode.com/problems/range-sum-query-immutable/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ps_003",
-    "title": "Product of Array Except Self",
-    "topic": "array",
-    "pattern": "prefix-sum",
+    "pattern": "dutch-national-flag",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 238,
-    "leetcodeUrl": "https://leetcode.com/problems/product-of-array-except-self/",
-    "companies": [
-      "Microsoft",
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_ps_004",
-    "title": "Find Pivot Index",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 724,
-    "leetcodeUrl": "https://leetcode.com/problems/find-pivot-index/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_ps_005",
-    "title": "Contiguous Array",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 525,
-    "leetcodeUrl": "https://leetcode.com/problems/contiguous-array/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_ps_006",
-    "title": "Subsequence Prefix Sum for Array 6",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1888,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-prefix-sum-for-array-6/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_ps_007",
-    "title": "Cyclic Prefix Sum for Array 7",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1582,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-prefix-sum-for-array-7/",
-    "companies": [
-      "Bloomberg",
-      "Twilio",
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_ps_008",
-    "title": "Optimal Prefix Sum for Array 8",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1448,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-array-8/",
-    "companies": [
-      "Apple",
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_ps_009",
-    "title": "Validate Prefix Sum for Array 9",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1957,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-array-9/",
-    "companies": [
-      "Meta",
-      "Netflix"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_ps_010",
-    "title": "Count of Prefix Sum for Array 10",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2101,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-prefix-sum-for-array-10/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_ps_011",
-    "title": "Longest Prefix Sum for Array 11",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2443,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-prefix-sum-for-array-11/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_ps_012",
-    "title": "Merge Prefix Sum for Array 12",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1406,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-prefix-sum-for-array-12/",
-    "companies": [
-      "Amazon",
-      "Adobe",
-      "Stripes"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_ps_013",
-    "title": "Maximal Prefix Sum for Array 13",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2999,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-prefix-sum-for-array-13/",
-    "companies": [
-      "Netflix",
-      "Microsoft"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_ps_014",
-    "title": "Subsequence Prefix Sum for Array 14",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1447,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-prefix-sum-for-array-14/",
-    "companies": [
-      "Adobe",
-      "Stripes",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ps_015",
-    "title": "Subarray Prefix Sum for Array 15",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2767,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-prefix-sum-for-array-15/",
-    "companies": [
-      "Atlassian",
-      "Airbnb",
-      "ByteDance"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_ps_016",
-    "title": "Validate Prefix Sum for Array 16",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2124,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-array-16/",
-    "companies": [
-      "Adobe",
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ps_017",
-    "title": "K-th Distance Prefix Sum for Array 17",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1035,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-array-17/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_ps_018",
-    "title": "Merge Prefix Sum for Array 18",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1219,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-prefix-sum-for-array-18/",
-    "companies": [
-      "Oracle",
-      "Apple"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_ps_019",
-    "title": "Subarray Prefix Sum for Array 19",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2720,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-prefix-sum-for-array-19/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ps_020",
-    "title": "Optimal Prefix Sum for Array 20",
-    "topic": "array",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1977,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-array-20/",
-    "companies": [
-      "Twilio",
-      "Tencent",
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_bs_001",
-    "title": "Optimal Binary Search for Array 1",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1119,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-array-1/",
-    "companies": [
-      "Google",
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_bs_002",
-    "title": "Cyclic Binary Search for Array 2",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1603,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-array-2/",
-    "companies": [
-      "Uber",
-      "Meta",
-      "Tencent"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_bs_003",
-    "title": "Longest Binary Search for Array 3",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2219,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-binary-search-for-array-3/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_bs_004",
-    "title": "Subsequence Binary Search for Array 4",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2282,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-array-4/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_bs_005",
-    "title": "Minimum Cost Binary Search for Array 5",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2103,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-array-5/",
-    "companies": [
-      "LinkedIn",
-      "Apple",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_bs_006",
-    "title": "Merge Binary Search for Array 6",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2349,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-array-6/",
-    "companies": [
-      "Microsoft",
-      "Adobe",
-      "Oracle"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_bs_007",
-    "title": "Cyclic Binary Search for Array 7",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1040,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-array-7/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_bs_008",
-    "title": "Maximal Binary Search for Array 8",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2226,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-array-8/",
-    "companies": [
-      "Meta",
-      "Stripes"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_bs_009",
-    "title": "Count of Binary Search for Array 9",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1942,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-binary-search-for-array-9/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_bs_010",
-    "title": "Continuous Binary Search for Array 10",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2997,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-binary-search-for-array-10/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_bs_011",
-    "title": "Validate Binary Search for Array 11",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1789,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-binary-search-for-array-11/",
-    "companies": [
-      "Apple",
-      "Oracle"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_bs_012",
-    "title": "Balanced Binary Search for Array 12",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2974,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-search-for-array-12/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_bs_013",
-    "title": "Validate Binary Search for Array 13",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1253,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-binary-search-for-array-13/",
-    "companies": [
-      "Atlassian",
-      "Microsoft"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_bs_014",
-    "title": "Longest Binary Search for Array 14",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2740,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-binary-search-for-array-14/",
-    "companies": [
-      "Microsoft",
-      "Stripes"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_bs_015",
-    "title": "Minimum Cost Binary Search for Array 15",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2620,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-array-15/",
-    "companies": [
-      "Salesforce",
-      "Atlassian"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_bs_016",
-    "title": "Longest Binary Search for Array 16",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2613,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-binary-search-for-array-16/",
-    "companies": [
-      "Salesforce",
-      "Oracle"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_bs_017",
-    "title": "Maximal Binary Search for Array 17",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1893,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-array-17/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_bs_018",
-    "title": "Search Binary Search for Array 18",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1449,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-array-18/",
-    "companies": [
-      "LinkedIn",
-      "Airbnb",
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_bs_019",
-    "title": "Minimum Cost Binary Search for Array 19",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2982,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-array-19/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_bs_020",
-    "title": "Maximal Binary Search for Array 20",
-    "topic": "array",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1421,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-array-20/",
-    "companies": [
-      "Apple",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Array",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_mt_001",
-    "title": "Validate Matrix for Array 1",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2102,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-matrix-for-array-1/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_mt_002",
-    "title": "Count of Matrix for Array 2",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2258,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-matrix-for-array-2/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_mt_003",
-    "title": "Shortest Matrix for Array 3",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1193,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-array-3/",
-    "companies": [
-      "Stripes",
-      "Apple"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_mt_004",
-    "title": "Continuous Matrix for Array 4",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2354,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-matrix-for-array-4/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_mt_005",
-    "title": "Merge Matrix for Array 5",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2031,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-array-5/",
-    "companies": [
-      "Microsoft",
-      "Amazon",
-      "Netflix"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_mt_006",
-    "title": "Longest Matrix for Array 6",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1513,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-array-6/",
-    "companies": [
-      "Airbnb",
-      "ByteDance",
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_mt_007",
-    "title": "Subsequence Matrix for Array 7",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1481,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-matrix-for-array-7/",
-    "companies": [
-      "Apple",
-      "ByteDance",
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_mt_008",
-    "title": "Merge Matrix for Array 8",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1236,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-array-8/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_mt_009",
-    "title": "Balanced Matrix for Array 9",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1184,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-matrix-for-array-9/",
-    "companies": [
-      "Apple",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_mt_010",
-    "title": "Maximal Matrix for Array 10",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2601,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-matrix-for-array-10/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_mt_011",
-    "title": "Subsequence Matrix for Array 11",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2270,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-matrix-for-array-11/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_mt_012",
-    "title": "Shortest Matrix for Array 12",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1188,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-array-12/",
-    "companies": [
-      "Meta",
-      "Adobe"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_mt_013",
-    "title": "Balanced Matrix for Array 13",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2071,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-matrix-for-array-13/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_mt_014",
-    "title": "Merge Matrix for Array 14",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1904,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-array-14/",
-    "companies": [
-      "Atlassian",
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_mt_015",
-    "title": "Longest Matrix for Array 15",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2337,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-array-15/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_mt_016",
-    "title": "Continuous Matrix for Array 16",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1298,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-matrix-for-array-16/",
-    "companies": [
-      "Atlassian",
-      "Microsoft"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_mt_017",
-    "title": "Longest Matrix for Array 17",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1591,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-array-17/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_mt_018",
-    "title": "Balanced Matrix for Array 18",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2525,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-matrix-for-array-18/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_mt_019",
-    "title": "Optimal Matrix for Array 19",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1520,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-matrix-for-array-19/",
-    "companies": [
-      "Oracle",
-      "Netflix",
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_mt_020",
-    "title": "Optimal Matrix for Array 20",
-    "topic": "array",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1544,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-matrix-for-array-20/",
-    "companies": [
-      "ByteDance",
-      "Meta",
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_srt_001",
-    "title": "Count of Sorting for Array 1",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2255,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sorting-for-array-1/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_srt_002",
-    "title": "Cyclic Sorting for Array 2",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2732,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-array-2/",
-    "companies": [
-      "Apple",
-      "Airbnb"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_srt_003",
-    "title": "Maximal Sorting for Array 3",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1445,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-array-3/",
-    "companies": [
-      "Stripes",
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_srt_004",
-    "title": "Search Sorting for Array 4",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1092,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-array-4/",
-    "companies": [
-      "Atlassian",
-      "Google",
-      "Airbnb"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_srt_005",
-    "title": "Merge Sorting for Array 5",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1540,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sorting-for-array-5/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_srt_006",
-    "title": "Optimal Sorting for Array 6",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2221,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-array-6/",
-    "companies": [
-      "ByteDance",
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_srt_007",
-    "title": "Count of Sorting for Array 7",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1830,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sorting-for-array-7/",
-    "companies": [
-      "Meta",
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_srt_008",
-    "title": "Shortest Sorting for Array 8",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1886,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-array-8/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_srt_009",
-    "title": "Search Sorting for Array 9",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1415,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-array-9/",
-    "companies": [
-      "Twilio",
-      "Adobe"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_srt_010",
-    "title": "Continuous Sorting for Array 10",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2860,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sorting-for-array-10/",
-    "companies": [
-      "Stripes",
-      "Netflix"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_srt_011",
-    "title": "Cyclic Sorting for Array 11",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2843,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-array-11/",
-    "companies": [
-      "Microsoft",
-      "Apple"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_srt_012",
-    "title": "Maximal Sorting for Array 12",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2364,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-array-12/",
-    "companies": [
-      "Uber",
-      "Tencent",
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_srt_013",
-    "title": "Cyclic Sorting for Array 13",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1215,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-array-13/",
-    "companies": [
-      "Apple",
-      "Meta",
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_srt_014",
-    "title": "Minimum Cost Sorting for Array 14",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1299,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sorting-for-array-14/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_srt_015",
-    "title": "Validate Sorting for Array 15",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1461,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sorting-for-array-15/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_srt_016",
-    "title": "Minimum Cost Sorting for Array 16",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1874,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sorting-for-array-16/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_srt_017",
-    "title": "Cyclic Sorting for Array 17",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1897,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-array-17/",
-    "companies": [
-      "Salesforce",
-      "Netflix",
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_srt_018",
-    "title": "Shortest Sorting for Array 18",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2857,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-array-18/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_srt_019",
-    "title": "Minimum Cost Sorting for Array 19",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2567,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sorting-for-array-19/",
-    "companies": [
-      "Twilio",
-      "Airbnb",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_srt_020",
-    "title": "Search Sorting for Array 20",
-    "topic": "array",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2315,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-array-20/",
-    "companies": [
-      "Stripes",
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_kd_001",
-    "title": "Maximum Subarray",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 53,
-    "leetcodeUrl": "https://leetcode.com/problems/maximum-subarray/",
-    "companies": [
-      "Salesforce",
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_kd_002",
+    "problemNumber": 75,
+    "leetcodeUrl": "https://leetcode.com/problems/sort-colors/",
+    "description": "Given an array with values 0, 1, and 2 (representing red, white, blue), sort it in-place in one pass without using a sort library.",
+    "examples": [
+      {
+        "input": "nums = [2,0,2,1,1,0]",
+        "output": "[0,0,1,1,2,2]",
+        "explanation": "All 0s, then 1s, then 2s."
+      }
+    ],
+    "constraints": [
+      "n == nums.length",
+      "1 <= n <= 300",
+      "nums[i] is 0, 1, or 2."
+    ],
+    "hints": [
+      "Dutch National Flag algorithm by Dijkstra.",
+      "Use three pointers: low, mid, high.",
+      "Swap elements based on mid pointer value."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Facebook", "Microsoft", "Amazon"],
+    "tags": ["Array", "Two Pointers", "Sorting"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Sort Colors - Dutch National Flag",
+        "url": "https://www.youtube.com/watch?v=4xbWSdZR9qQ"
+      }
+    ],
+    "relatedProblems": ["Sort List", "Wiggle Sort II"],
+    "followUp": ["One-pass algorithm using constant space."],
+    "testCases": [
+      { "input": "[2,0,2,1,1,0]", "output": "[0,0,1,1,2,2]" }
+    ],
+    "acceptanceRate": "62.2%",
+    "likes": 16000,
+    "dislikes": 620
+  },
+  {
+    "_id": "arr_tp_016",
     "title": "Maximum Product Subarray",
     "topic": "array",
-    "pattern": "kadanes-algorithm",
+    "pattern": "dynamic-programming",
     "difficulty": "Medium",
     "platform": "LeetCode",
     "problemNumber": 152,
     "leetcodeUrl": "https://leetcode.com/problems/maximum-product-subarray/",
-    "companies": [
-      "Airbnb",
-      "Amazon"
+    "description": "Given an integer array nums, find the contiguous subarray that has the largest product and return that product.",
+    "examples": [
+      {
+        "input": "nums = [2,3,-2,4]",
+        "output": "6",
+        "explanation": "[2,3] has the largest product 6."
+      },
+      {
+        "input": "nums = [-2,0,-1]",
+        "output": "0",
+        "explanation": "The result cannot be 2, because [-2,-1] is not a subarray."
+      }
     ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
+    "constraints": [
+      "1 <= nums.length <= 2 * 10^4",
+      "-10 <= nums[i] <= 10",
+      "The product of any subarray fits in 32-bit integer."
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "Track both max and min products at each step.",
+      "Negative numbers flip max and min.",
+      "Reset on zero."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "LinkedIn", "Microsoft", "Apple"],
+    "tags": ["Array", "Dynamic Programming"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Maximum Product Subarray",
+        "url": "https://www.youtube.com/watch?v=lXVy6YWFcRM"
+      }
+    ],
+    "relatedProblems": ["Maximum Subarray", "House Robber", "Product of Array Except Self"],
+    "followUp": ["What if there are very large numbers?"],
+    "testCases": [
+      { "input": "[2,3,-2,4]", "output": "6" }
+    ],
+    "acceptanceRate": "34.8%",
+    "likes": 17000,
+    "dislikes": 580
   },
   {
-    "_id": "arr_kd_003",
-    "title": "Maximum Sum Circular Subarray",
+    "_id": "arr_tp_017",
+    "title": "Find Minimum in Rotated Sorted Array",
     "topic": "array",
-    "pattern": "kadanes-algorithm",
+    "pattern": "binary-search",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 918,
-    "leetcodeUrl": "https://leetcode.com/problems/maximum-sum-circular-subarray/",
-    "companies": [
-      "Twitter"
+    "problemNumber": 153,
+    "leetcodeUrl": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+    "description": "Given a rotated sorted array of unique elements, find the minimum element in O(log n) time.",
+    "examples": [
+      {
+        "input": "nums = [3,4,5,1,2]",
+        "output": "1",
+        "explanation": "The original array was [1,2,3,4,5], rotated 3 times."
+      }
     ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
+    "constraints": [
+      "n == nums.length",
+      "1 <= n <= 5000",
+      "All integers are unique.",
+      "Array is sorted and rotated between 1 and n times."
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "Use binary search.",
+      "Compare mid with right to determine which half is sorted.",
+      "Minimum is in the unsorted half."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Microsoft", "Google", "Adobe"],
+    "tags": ["Array", "Binary Search"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Find Minimum in Rotated Sorted Array",
+        "url": "https://www.youtube.com/watch?v=nIVW4P8b1VA"
+      }
+    ],
+    "relatedProblems": ["Search in Rotated Sorted Array", "Find Minimum in Rotated Sorted Array II"],
+    "followUp": ["What if duplicates are allowed?"],
+    "testCases": [
+      { "input": "[3,4,5,1,2]", "output": "1" }
+    ],
+    "acceptanceRate": "49.3%",
+    "likes": 10000,
+    "dislikes": 380
   },
   {
-    "_id": "arr_kd_004",
-    "title": "Longest Kadane’s Algorithm for Array 4",
+    "_id": "arr_tp_018",
+    "title": "Search in Rotated Sorted Array",
     "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1941,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-array-4/",
-    "companies": [
-      "Adobe",
-      "Oracle"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_kd_005",
-    "title": "Search Kadane’s Algorithm for Array 5",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1835,
-    "leetcodeUrl": "https://leetcode.com/problems/search-kadane-s-algorithm-for-array-5/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_kd_006",
-    "title": "Cyclic Kadane’s Algorithm for Array 6",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1906,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-kadane-s-algorithm-for-array-6/",
-    "companies": [
-      "LinkedIn",
-      "Microsoft",
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_kd_007",
-    "title": "Subarray Kadane’s Algorithm for Array 7",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2458,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-array-7/",
-    "companies": [
-      "Uber",
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_kd_008",
-    "title": "Subarray Kadane’s Algorithm for Array 8",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2039,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-array-8/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_kd_009",
-    "title": "Shortest Kadane’s Algorithm for Array 9",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2419,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-kadane-s-algorithm-for-array-9/",
-    "companies": [
-      "Salesforce",
-      "Oracle"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_kd_010",
-    "title": "Merge Kadane’s Algorithm for Array 10",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2620,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-kadane-s-algorithm-for-array-10/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_kd_011",
-    "title": "Minimum Cost Kadane’s Algorithm for Array 11",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1173,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-array-11/",
-    "companies": [
-      "LinkedIn",
-      "Stripes",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_kd_012",
-    "title": "Cyclic Kadane’s Algorithm for Array 12",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
+    "pattern": "binary-search",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1045,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-kadane-s-algorithm-for-array-12/",
-    "companies": [
-      "LinkedIn"
+    "problemNumber": 33,
+    "leetcodeUrl": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+    "description": "Given a rotated sorted array and a target, return the index of the target or -1 if not found, in O(log n) time.",
+    "examples": [
+      {
+        "input": "nums = [4,5,6,7,0,1,2], target = 0",
+        "output": "4",
+        "explanation": "Target 0 is at index 4."
+      }
     ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
+    "constraints": [
+      "1 <= nums.length <= 5000",
+      "All values are unique.",
+      "Array was sorted then rotated."
     ],
-    "estimatedTime": "25 min"
+    "hints": [
+      "One side of mid is always sorted.",
+      "Determine which side target falls in.",
+      "Recurse or iterate on the correct half."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Microsoft", "Facebook", "Uber"],
+    "tags": ["Array", "Binary Search"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Search in Rotated Sorted Array",
+        "url": "https://www.youtube.com/watch?v=U8XENwh8Oy8"
+      }
+    ],
+    "relatedProblems": ["Find Minimum in Rotated Sorted Array", "Search in Rotated Sorted Array II"],
+    "followUp": ["What if duplicates are allowed?"],
+    "testCases": [
+      { "input": "[4,5,6,7,0,1,2], target=0", "output": "4" }
+    ],
+    "acceptanceRate": "40.1%",
+    "likes": 18000,
+    "dislikes": 1300
   },
   {
-    "_id": "arr_kd_013",
-    "title": "Subsequence Kadane’s Algorithm for Array 13",
+    "_id": "arr_tp_019",
+    "title": "Longest Consecutive Sequence",
     "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2102,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-kadane-s-algorithm-for-array-13/",
-    "companies": [
-      "Apple",
-      "Salesforce",
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_kd_014",
-    "title": "Maximal Kadane’s Algorithm for Array 14",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2472,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-array-14/",
-    "companies": [
-      "Stripes",
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_kd_015",
-    "title": "Merge Kadane’s Algorithm for Array 15",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2946,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-kadane-s-algorithm-for-array-15/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_kd_016",
-    "title": "Search Kadane’s Algorithm for Array 16",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1070,
-    "leetcodeUrl": "https://leetcode.com/problems/search-kadane-s-algorithm-for-array-16/",
-    "companies": [
-      "Bloomberg",
-      "Adobe"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_kd_017",
-    "title": "Optimal Kadane’s Algorithm for Array 17",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1997,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-kadane-s-algorithm-for-array-17/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_kd_018",
-    "title": "Minimum Cost Kadane’s Algorithm for Array 18",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2609,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-array-18/",
-    "companies": [
-      "Bloomberg",
-      "Netflix",
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_kd_019",
-    "title": "Cyclic Kadane’s Algorithm for Array 19",
-    "topic": "array",
-    "pattern": "kadanes-algorithm",
+    "pattern": "hash-set",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2695,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-kadane-s-algorithm-for-array-19/",
-    "companies": [
-      "Tencent"
+    "problemNumber": 128,
+    "leetcodeUrl": "https://leetcode.com/problems/longest-consecutive-sequence/",
+    "description": "Given an unsorted array of integers, find the length of the longest consecutive elements sequence in O(n) time.",
+    "examples": [
+      {
+        "input": "nums = [100,4,200,1,3,2]",
+        "output": "4",
+        "explanation": "Sequence [1,2,3,4] has length 4."
+      }
     ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
+    "constraints": [
+      "0 <= nums.length <= 10^5",
+      "-10^9 <= nums[i] <= 10^9"
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "Put all numbers in a hash set.",
+      "Only start a sequence from a number with no predecessor.",
+      "Extend each sequence greedily."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Facebook"],
+    "tags": ["Array", "Hash Set", "Union Find"],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Longest Consecutive Sequence",
+        "url": "https://www.youtube.com/watch?v=P6RZZMu_maU"
+      }
+    ],
+    "relatedProblems": ["Binary Tree Longest Consecutive Sequence"],
+    "followUp": ["Can you solve it in O(n) without sorting?"],
+    "testCases": [
+      { "input": "[100,4,200,1,3,2]", "output": "4" }
+    ],
+    "acceptanceRate": "46.5%",
+    "likes": 17000,
+    "dislikes": 820
   },
   {
-    "_id": "arr_kd_020",
-    "title": "Maximal Kadane’s Algorithm for Array 20",
+    "_id": "arr_tp_020",
+    "title": "Jump Game",
     "topic": "array",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1387,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-array-20/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Array",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_hs_001",
-    "title": "Optimal Hashing for Array 1",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1277,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-array-1/",
-    "companies": [
-      "Twilio",
-      "Google",
-      "Airbnb"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_hs_002",
-    "title": "Count of Hashing for Array 2",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1986,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-array-2/",
-    "companies": [
-      "Google",
-      "Bloomberg",
-      "Adobe"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_hs_003",
-    "title": "Merge Hashing for Array 3",
-    "topic": "array",
-    "pattern": "hashing",
+    "pattern": "greedy",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1615,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-hashing-for-array-3/",
-    "companies": [
-      "Oracle"
+    "problemNumber": 55,
+    "leetcodeUrl": "https://leetcode.com/problems/jump-game/",
+    "description": "Given an array where each element is the max jump length from that position, determine if you can reach the last index.",
+    "examples": [
+      {
+        "input": "nums = [2,3,1,1,4]",
+        "output": "true",
+        "explanation": "Jump to index 1 then to the last index."
+      },
+      {
+        "input": "nums = [3,2,1,0,4]",
+        "output": "false",
+        "explanation": "Always stuck at index 3."
+      }
     ],
-    "tags": [
-      "Array",
-      "Hashing"
+    "constraints": [
+      "1 <= nums.length <= 10^4",
+      "0 <= nums[i] <= 10^5"
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "Track the farthest index reachable.",
+      "If current index exceeds max reach, return false."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Microsoft", "Bloomberg"],
+    "tags": ["Array", "Greedy", "Dynamic Programming"],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Jump Game - Greedy Solution",
+        "url": "https://www.youtube.com/watch?v=Yan0cv2cLy8"
+      }
+    ],
+    "relatedProblems": ["Jump Game II", "Jump Game III"],
+    "followUp": ["What is the minimum number of jumps?"],
+    "testCases": [
+      { "input": "[2,3,1,1,4]", "output": "true" },
+      { "input": "[3,2,1,0,4]", "output": "false" }
+    ],
+    "acceptanceRate": "38.6%",
+    "likes": 16000,
+    "dislikes": 950
   },
   {
-    "_id": "arr_hs_004",
-    "title": "Cyclic Hashing for Array 4",
+    "_id": "arr_tp_021",
+    "title": "Spiral Matrix",
     "topic": "array",
-    "pattern": "hashing",
+    "pattern": "simulation",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1790,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-hashing-for-array-4/",
-    "companies": [
-      "ByteDance",
-      "Twilio",
-      "Stripes"
+    "problemNumber": 54,
+    "leetcodeUrl": "https://leetcode.com/problems/spiral-matrix/",
+    "description": "Given an m x n matrix, return all elements of the matrix in spiral order.",
+    "examples": [
+      {
+        "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]",
+        "output": "[1,2,3,6,9,8,7,4,5]",
+        "explanation": "Traverse top-right-bottom-left inward."
+      }
     ],
-    "tags": [
-      "Array",
-      "Hashing"
+    "constraints": [
+      "m == matrix.length",
+      "n == matrix[i].length",
+      "1 <= m, n <= 10",
+      "-100 <= matrix[i][j] <= 100"
     ],
-    "estimatedTime": "30 min"
+    "hints": [
+      "Simulate direction changes with boundary variables.",
+      "Shrink top, bottom, left, right boundaries as you go."
+    ],
+    "expectedTimeComplexity": "O(m * n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Microsoft", "Amazon", "Apple", "Google"],
+    "tags": ["Array", "Matrix", "Simulation"],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Spiral Matrix - LeetCode 54",
+        "url": "https://www.youtube.com/watch?v=BJnMZNwUk1M"
+      }
+    ],
+    "relatedProblems": ["Spiral Matrix II", "Rotate Image"],
+    "followUp": ["Can you generalize to any n×m grid?"],
+    "testCases": [
+      { "input": "[[1,2,3],[4,5,6],[7,8,9]]", "output": "[1,2,3,6,9,8,7,4,5]" }
+    ],
+    "acceptanceRate": "47.3%",
+    "likes": 11000,
+    "dislikes": 1100
   },
   {
-    "_id": "arr_hs_005",
-    "title": "Balanced Hashing for Array 5",
+    "_id": "arr_tp_022",
+    "title": "Trapping Rain Water",
     "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1107,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-array-5/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_hs_006",
-    "title": "Maximal Hashing for Array 6",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1002,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-hashing-for-array-6/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_hs_007",
-    "title": "Balanced Hashing for Array 7",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2047,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-array-7/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_hs_008",
-    "title": "Optimal Hashing for Array 8",
-    "topic": "array",
-    "pattern": "hashing",
+    "pattern": "two-pointers",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 2056,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-array-8/",
-    "companies": [
-      "LinkedIn",
-      "Google"
+    "problemNumber": 42,
+    "leetcodeUrl": "https://leetcode.com/problems/trapping-rain-water/",
+    "description": "Given n non-negative integers representing an elevation map, compute how much water it can trap after raining.",
+    "examples": [
+      {
+        "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]",
+        "output": "6",
+        "explanation": "6 units of water are trapped."
+      }
     ],
-    "tags": [
-      "Array",
-      "Hashing"
+    "constraints": [
+      "n == height.length",
+      "1 <= n <= 2 * 10^4",
+      "0 <= height[i] <= 10^5"
     ],
-    "estimatedTime": "35 min"
+    "hints": [
+      "Water at each index = min(maxLeft, maxRight) - height[i].",
+      "Precompute left max and right max arrays.",
+      "Or use two pointers to avoid extra space."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Google", "Microsoft", "Facebook", "Apple"],
+    "tags": ["Array", "Two Pointers", "Stack", "Dynamic Programming"],
+    "estimatedTime": "40 min",
+    "youtubeVideos": [
+      {
+        "title": "Trapping Rain Water",
+        "url": "https://www.youtube.com/watch?v=ZI2z5pq0TqA"
+      }
+    ],
+    "relatedProblems": ["Container With Most Water", "Product of Array Except Self"],
+    "followUp": ["Can you solve it in O(1) space?"],
+    "testCases": [
+      { "input": "[0,1,0,2,1,0,1,3,2,1,2,1]", "output": "6" }
+    ],
+    "acceptanceRate": "60.2%",
+    "likes": 31000,
+    "dislikes": 470
   },
   {
-    "_id": "arr_hs_009",
-    "title": "K-th Distance Hashing for Array 9",
+    "_id": "arr_tp_023",
+    "title": "First Missing Positive",
     "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2938,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-hashing-for-array-9/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_hs_010",
-    "title": "Cyclic Hashing for Array 10",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1759,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-hashing-for-array-10/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_hs_011",
-    "title": "Balanced Hashing for Array 11",
-    "topic": "array",
-    "pattern": "hashing",
+    "pattern": "index-as-hash",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 1857,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-array-11/",
-    "companies": [
-      "Stripes"
+    "problemNumber": 41,
+    "leetcodeUrl": "https://leetcode.com/problems/first-missing-positive/",
+    "description": "Given an unsorted integer array nums, return the smallest missing positive integer. Must run in O(n) time and O(1) space.",
+    "examples": [
+      {
+        "input": "nums = [3,4,-1,1]",
+        "output": "2",
+        "explanation": "1 is present, 2 is missing."
+      },
+      {
+        "input": "nums = [7,8,9,11,12]",
+        "output": "1",
+        "explanation": "Smallest positive 1 is missing."
+      }
     ],
-    "tags": [
-      "Array",
-      "Hashing"
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-2^31 <= nums[i] <= 2^31 - 1"
     ],
-    "estimatedTime": "40 min"
+    "hints": [
+      "Ignore negatives and numbers > n.",
+      "Place each number at its correct index (nums[i] at index nums[i]-1).",
+      "Scan for the first index where nums[i] != i+1."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Microsoft", "Apple", "Google"],
+    "tags": ["Array", "Hash Table"],
+    "estimatedTime": "40 min",
+    "youtubeVideos": [
+      {
+        "title": "First Missing Positive - O(n) Solution",
+        "url": "https://www.youtube.com/watch?v=8g78yfzMlao"
+      }
+    ],
+    "relatedProblems": ["Missing Number", "Find the Duplicate Number"],
+    "followUp": ["Is it possible without modifying the array?"],
+    "testCases": [
+      { "input": "[3,4,-1,1]", "output": "2" }
+    ],
+    "acceptanceRate": "38.1%",
+    "likes": 14000,
+    "dislikes": 1200
   },
   {
-    "_id": "arr_hs_012",
-    "title": "Optimal Hashing for Array 12",
+    "_id": "arr_tp_024",
+    "title": "Sliding Window Maximum",
     "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2760,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-array-12/",
-    "companies": [
-      "Tencent",
-      "Twitter",
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_hs_013",
-    "title": "Subsequence Hashing for Array 13",
-    "topic": "array",
-    "pattern": "hashing",
+    "pattern": "monotonic-deque",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 1944,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-hashing-for-array-13/",
-    "companies": [
-      "Adobe"
+    "problemNumber": 239,
+    "leetcodeUrl": "https://leetcode.com/problems/sliding-window-maximum/",
+    "description": "Given an array nums and a sliding window of size k moving from left to right, return the max value in each window.",
+    "examples": [
+      {
+        "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+        "output": "[3,3,5,5,6,7]",
+        "explanation": "Max of each window of size 3."
+      }
     ],
-    "tags": [
-      "Array",
-      "Hashing"
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-10^4 <= nums[i] <= 10^4",
+      "1 <= k <= nums.length"
     ],
-    "estimatedTime": "40 min"
+    "hints": [
+      "Use a monotonic decreasing deque.",
+      "Remove elements outside the window from the front.",
+      "Remove smaller elements from the back before inserting."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(k)",
+    "companies": ["Amazon", "Google", "Microsoft", "Citadel"],
+    "tags": ["Array", "Queue", "Sliding Window", "Monotonic Queue"],
+    "estimatedTime": "40 min",
+    "youtubeVideos": [
+      {
+        "title": "Sliding Window Maximum - Monotonic Deque",
+        "url": "https://www.youtube.com/watch?v=DfljaUwZsOk"
+      }
+    ],
+    "relatedProblems": ["Minimum Window Substring", "Longest Substring Without Repeating Characters"],
+    "followUp": ["Can you solve it for a 2D matrix?"],
+    "testCases": [
+      { "input": "[1,3,-1,-3,5,3,6,7], k=3", "output": "[3,3,5,5,6,7]" }
+    ],
+    "acceptanceRate": "46.8%",
+    "likes": 15000,
+    "dislikes": 580
   },
   {
-    "_id": "arr_hs_014",
-    "title": "Continuous Hashing for Array 14",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2231,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-array-14/",
-    "companies": [
-      "Microsoft",
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_hs_015",
-    "title": "Maximal Hashing for Array 15",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2578,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-hashing-for-array-15/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_hs_016",
-    "title": "Optimal Hashing for Array 16",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2356,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-array-16/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_hs_017",
-    "title": "Validate Hashing for Array 17",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2246,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-hashing-for-array-17/",
-    "companies": [
-      "Salesforce",
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_hs_018",
-    "title": "Continuous Hashing for Array 18",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2694,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-array-18/",
-    "companies": [
-      "Airbnb",
-      "Netflix",
-      "Atlassian"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_hs_019",
-    "title": "Maximal Hashing for Array 19",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1186,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-hashing-for-array-19/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_hs_020",
-    "title": "Longest Hashing for Array 20",
-    "topic": "array",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2912,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-hashing-for-array-20/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Array",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ms_001",
-    "title": "Minimum Cost Monotonic Stack for Array 1",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1447,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-monotonic-stack-for-array-1/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_ms_002",
-    "title": "Longest Monotonic Stack for Array 2",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2000,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-monotonic-stack-for-array-2/",
-    "companies": [
-      "Tencent",
-      "Stripes",
-      "Google"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_ms_003",
-    "title": "K-th Distance Monotonic Stack for Array 3",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2365,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-monotonic-stack-for-array-3/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_ms_004",
-    "title": "Longest Monotonic Stack for Array 4",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2570,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-monotonic-stack-for-array-4/",
-    "companies": [
-      "Amazon",
-      "Twilio"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_ms_005",
-    "title": "Search Monotonic Stack for Array 5",
+    "_id": "arr_tp_025",
+    "title": "Largest Rectangle in Histogram",
     "topic": "array",
     "pattern": "monotonic-stack",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 1201,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-array-5/",
-    "companies": [
-      "Twitter",
-      "Twilio"
+    "problemNumber": 84,
+    "leetcodeUrl": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+    "description": "Given an array of integers heights representing the histogram's bar heights, find the area of the largest rectangle in the histogram.",
+    "examples": [
+      {
+        "input": "heights = [2,1,5,6,2,3]",
+        "output": "10",
+        "explanation": "Rectangle of width 2 and height 5 between bars 2 and 3."
+      }
     ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
+    "constraints": [
+      "1 <= heights.length <= 10^5",
+      "0 <= heights[i] <= 10^4"
     ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_ms_006",
-    "title": "K-th Distance Monotonic Stack for Array 6",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1485,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-monotonic-stack-for-array-6/",
-    "companies": [
-      "Uber",
-      "Twilio",
-      "Meta"
+    "hints": [
+      "Use a monotonic increasing stack.",
+      "When a shorter bar is found, pop and compute area.",
+      "Append a 0 at the end to flush the stack."
     ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": ["Amazon", "Google", "Facebook", "ByteDance"],
+    "tags": ["Array", "Stack", "Monotonic Stack"],
+    "estimatedTime": "45 min",
+    "youtubeVideos": [
+      {
+        "title": "Largest Rectangle in Histogram",
+        "url": "https://www.youtube.com/watch?v=zx5Sw9130L0"
+      }
     ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ms_007",
-    "title": "Minimum Cost Monotonic Stack for Array 7",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1333,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-monotonic-stack-for-array-7/",
-    "companies": [
-      "ByteDance",
-      "Salesforce",
-      "Tencent"
+    "relatedProblems": ["Maximal Rectangle", "Trapping Rain Water"],
+    "followUp": ["Can you extend this to a 2D binary matrix?"],
+    "testCases": [
+      { "input": "[2,1,5,6,2,3]", "output": "10" }
     ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_ms_008",
-    "title": "Optimal Monotonic Stack for Array 8",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2724,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-monotonic-stack-for-array-8/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_ms_009",
-    "title": "Minimum Cost Monotonic Stack for Array 9",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2364,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-monotonic-stack-for-array-9/",
-    "companies": [
-      "Bloomberg",
-      "Atlassian",
-      "Netflix"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ms_010",
-    "title": "Continuous Monotonic Stack for Array 10",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2026,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-array-10/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "arr_ms_011",
-    "title": "Optimal Monotonic Stack for Array 11",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1370,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-monotonic-stack-for-array-11/",
-    "companies": [
-      "Netflix",
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ms_012",
-    "title": "Merge Monotonic Stack for Array 12",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1584,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-array-12/",
-    "companies": [
-      "ByteDance",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "arr_ms_013",
-    "title": "Subarray Monotonic Stack for Array 13",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2582,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-array-13/",
-    "companies": [
-      "Stripes",
-      "Twitter"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ms_014",
-    "title": "Count of Monotonic Stack for Array 14",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2457,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-array-14/",
-    "companies": [
-      "Meta",
-      "Twitter",
-      "Tencent"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_ms_015",
-    "title": "K-th Distance Monotonic Stack for Array 15",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1533,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-monotonic-stack-for-array-15/",
-    "companies": [
-      "Microsoft",
-      "Salesforce"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "arr_ms_016",
-    "title": "Longest Monotonic Stack for Array 16",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2137,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-monotonic-stack-for-array-16/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "arr_ms_017",
-    "title": "Subsequence Monotonic Stack for Array 17",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1437,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-monotonic-stack-for-array-17/",
-    "companies": [
-      "Bloomberg",
-      "Twilio",
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "arr_ms_018",
-    "title": "Longest Monotonic Stack for Array 18",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1022,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-monotonic-stack-for-array-18/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_ms_019",
-    "title": "Minimum Cost Monotonic Stack for Array 19",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2246,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-monotonic-stack-for-array-19/",
-    "companies": [
-      "ByteDance",
-      "Netflix",
-      "Apple"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "arr_ms_020",
-    "title": "Shortest Monotonic Stack for Array 20",
-    "topic": "array",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2423,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-monotonic-stack-for-array-20/",
-    "companies": [
-      "Bloomberg",
-      "Stripes",
-      "Uber"
-    ],
-    "tags": [
-      "Array",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
+    "acceptanceRate": "44.7%",
+    "likes": 15000,
+    "dislikes": 270
   }
 ]

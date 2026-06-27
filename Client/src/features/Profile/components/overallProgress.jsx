@@ -16,7 +16,6 @@ function OverallProgress({ progressData, loading }) {
     useEffect(() => {
         if (!user?._id) return;
         let isMounted = true;
-        setStatsLoading(true);
 
         questionService.getRecentSolved({ all: true })
             .then(res => {
@@ -46,10 +45,10 @@ function OverallProgress({ progressData, loading }) {
         };
     }, [user?._id]);
 
-    const totalSolved = typeof user?.stats?.totalProblemsSolved === "number"
-        ? user.stats.totalProblemsSolved
-        : progressData?.totalSolved || 0;
-    const totalQuestions = progressData?.totalQuestions || 3060;
+    const totalSolved = typeof progressData?.totalSolved === "number"
+        ? progressData.totalSolved
+        : user?.stats?.totalProblemsSolved || 0;
+    const totalQuestions = progressData?.totalQuestions || 0;
     const percentage = totalQuestions > 0 ? parseFloat(((totalSolved / totalQuestions) * 100).toFixed(1)) : 0;
 
     // Level calculation matching backend formula
