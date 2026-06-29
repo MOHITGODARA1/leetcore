@@ -5,6 +5,7 @@ import {
     Network,
     Boxes
 } from "lucide-react";
+import HorizontalCarousel from "../common/HorizontalCarousel";
 
 function Dashmainnavbar() {
     const categories = [
@@ -45,54 +46,51 @@ function Dashmainnavbar() {
     };
 
     return (
-        <div className="w-full text-white p-4 sm:p-6">
-
+        <div className="w-full text-white py-4 pb-2">
             {/* Heading */}
-            <h1 className="text-xl mb-5 font-semibold tracking-wide">
+            <h1 className="text-xl mb-3 font-semibold tracking-wide px-8">
                 Categories
             </h1>
 
-            {/* Cards */}
-            <div className="flex gap-4 sm:gap-5 lc-scroll-x">
+            {/* Cards Slider */}
+            <HorizontalCarousel className="py-2 -my-2 select-none">
                 {categories.map((item, index) => (
                     <button
                         type="button"
                         onClick={() => scrollToCategory(item.targetId)}
                         key={index}
                         className="
-              min-w-[138px]
-              sm:min-w-[150px]
-              h-[136px]
-              sm:h-[140px]
-              bg-white/[0.045]
-              mt-2
-              border
-              border-white/10
-              rounded-2xl
-              flex
-              flex-col
-              items-center
-              justify-center
-              lc-interactive
-              
-              cursor-pointer
-            "
+                            min-w-[138px]
+                            sm:min-w-[150px]
+                            h-[136px]
+                            sm:h-[140px]
+                            bg-white/[0.045]
+                            border
+                            border-white/10
+                            rounded-2xl
+                            flex
+                            flex-col
+                            items-center
+                            justify-center
+                            lc-interactive
+                            cursor-pointer
+                            flex-shrink-0
+                        "
                     >
                         {/* Top Capsule */}
                         <div
                             className={`
-                ${item.bg}
-                w-[88%]
-                h-[78px]
-                sm:h-[80px]
-                rounded-2xl
-                flex
-                
-                items-center
-                justify-center
-                text-white
-                mb-2
-              `}
+                                ${item.bg}
+                                w-[88%]
+                                h-[78px]
+                                sm:h-[80px]
+                                rounded-2xl
+                                flex
+                                items-center
+                                justify-center
+                                text-white
+                                mb-2
+                            `}
                         >
                             {item.icon}
                         </div>
@@ -103,7 +101,7 @@ function Dashmainnavbar() {
                         </h2>
                     </button>
                 ))}
-            </div>
+            </HorizontalCarousel>
         </div>
     );
 }

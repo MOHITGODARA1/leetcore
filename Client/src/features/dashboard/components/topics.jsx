@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import HorizontalCarousel from "../../../components/common/HorizontalCarousel";
 
 function Topics() {
     const getTopicPath = (section, topicName) => {
@@ -171,7 +172,7 @@ function Topics() {
 
     return (
 
-        <div className="min-h-screen text-white px-4 sm:px-6 py-6 sm:py-8">
+        <div className="min-h-screen text-white py-6 sm:py-8">
 
             {/* DSA Section */}
             <section
@@ -180,22 +181,14 @@ function Topics() {
             >
 
                 <h1
-                    className="text-xl font-semibold mb-5 sm:mb-6 lc-safe-text"
+                    className="text-xl font-semibold mb-5 sm:mb-6 lc-safe-text px-8"
                 >
                     Data Structure and Algorithms <span className="text-zinc-300 font-medium">(Follow the Flow)</span>
                 </h1>
 
                 {/* Cards */}
-                <div
-                    className="
-                        flex
-                        gap-4
-                        sm:gap-5
-                        lc-scroll-x
-                        snap-x
-                        snap-proximity
-                        cursor-default
-                    "
+                <HorizontalCarousel
+                    className="cursor-default select-none"
                 >
 
                     {dsaTopics.map((topic, index) => (
@@ -233,7 +226,7 @@ function Topics() {
                                     h-[80px]
                                     rounded-full
                                     bg-white/10
-                                "
+                                    "
                             />
 
                             {/* Content */}
@@ -327,7 +320,7 @@ function Topics() {
 
                     ))}
 
-                </div>
+                </HorizontalCarousel>
 
             </section>
 
@@ -342,21 +335,14 @@ function Topics() {
 
                     {/* Title */}
                     <h2
-                        className="text-xl font-semibold mb-5 sm:mb-6 lc-safe-text"
+                        className="text-xl font-semibold mb-5 sm:mb-6 lc-safe-text px-8"
                     >
                         {section.title}
                     </h2>
 
                     {/* Cards */}
-                    <div
-                        className="
-                            flex
-                            gap-4
-                            sm:gap-5
-                            lc-scroll-x
-                            snap-x
-                            snap-proximity
-                        "
+                    <HorizontalCarousel
+                        className="select-none"
                     >
 
                         {[1, 2, 3, 4, 5, 6].map((item) => (
@@ -524,7 +510,7 @@ function Topics() {
 
                         ))}
 
-                    </div>
+                    </HorizontalCarousel>
 
                 </section>
 
