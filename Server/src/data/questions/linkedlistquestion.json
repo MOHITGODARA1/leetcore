@@ -1,3408 +1,1836 @@
 [
   {
-    "_id": "ll_tp_001",
-    "title": "K-th Distance Two Pointers for Linked List 1",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
+    "_id": "ll_easy_001",
+    "title": "Reverse Linked List",
+    "topic": "linked-lists",
+    "pattern": "iterative-reversal",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1701,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-two-pointers-for-linked-list-1/",
+    "problemNumber": 206,
+    "leetcodeUrl": "https://leetcode.com/problems/reverse-linked-list/",
+    "description": "Imagine a train moving forward — you need to make it move backward without lifting any compartment off the track. That is the essence of reversing a linked list. You are given a chain of nodes where each node points to the next. Your job is to flip all those arrows so the last node becomes the first. The trick lies in using three variables — previous, current, and next — to carefully rewire each pointer without losing track of the rest of the chain. At every step, you save the next node, point the current node backward, then slide both pointers forward. When current becomes null, previous is your new head. Beginners often try to collect values and rebuild — resist that urge. Pointer rewiring is the soul of this problem. Recursively, you trust the rest of the list is already reversed and just fix the last link. This problem is the backbone of at least five harder problems you will encounter in interviews.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,4,5]",
+        "output": "[5,4,3,2,1]",
+        "explanation": "All pointers are reversed so the last node becomes the head."
+      },
+      {
+        "input": "head = [1,2]",
+        "output": "[2,1]",
+        "explanation": "Two-node list reversed."
+      },
+      {
+        "input": "head = []",
+        "output": "[]",
+        "explanation": "Empty list remains empty."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [0, 5000].",
+      "-5000 <= Node.val <= 5000"
+    ],
+    "hints": [
+      "Use three pointers: prev, curr, and next.",
+      "At each step: save next, flip the pointer, advance both prev and curr.",
+      "When curr is null, prev is the new head."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Meta",
-      "Tencent"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_tp_002",
-    "title": "Cyclic Two Pointers for Linked List 2",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1046,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-two-pointers-for-linked-list-2/",
-    "companies": [
-      "Microsoft",
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_tp_003",
-    "title": "Optimal Two Pointers for Linked List 3",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2558,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-two-pointers-for-linked-list-3/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_tp_004",
-    "title": "Longest Two Pointers for Linked List 4",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2101,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-two-pointers-for-linked-list-4/",
-    "companies": [
-      "LinkedIn",
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_tp_005",
-    "title": "Minimum Cost Two Pointers for Linked List 5",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1072,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-linked-list-5/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_tp_006",
-    "title": "Minimum Cost Two Pointers for Linked List 6",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2482,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-linked-list-6/",
-    "companies": [
-      "Meta",
+      "Amazon",
       "Apple",
-      "Atlassian"
+      "Adobe",
+      "Meta"
     ],
     "tags": [
       "Linked List",
-      "Two Pointers"
+      "Recursion"
     ],
-    "estimatedTime": "40 min"
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Reverse Linked List - NeetCode",
+        "url": "https://youtube.com/watch?v=G0_I-ZF0S38"
+      }
+    ],
+    "relatedProblems": [
+      "Reverse Linked List II",
+      "Reverse Nodes in k-Group",
+      "Palindrome Linked List"
+    ],
+    "followUp": [
+      "Can you solve it both iteratively and recursively?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,4,5]",
+        "output": "[5,4,3,2,1]"
+      },
+      {
+        "input": "[1,2]",
+        "output": "[2,1]"
+      },
+      {
+        "input": "[]",
+        "output": "[]"
+      }
+    ],
+    "acceptanceRate": "74.6%",
+    "likes": 20000,
+    "dislikes": 420
   },
   {
-    "_id": "ll_tp_007",
-    "title": "K-th Distance Two Pointers for Linked List 7",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2225,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-two-pointers-for-linked-list-7/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_tp_008",
-    "title": "Shortest Two Pointers for Linked List 8",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2267,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-two-pointers-for-linked-list-8/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_tp_009",
-    "title": "Maximal Two Pointers for Linked List 9",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2744,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-two-pointers-for-linked-list-9/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_tp_010",
-    "title": "K-th Distance Two Pointers for Linked List 10",
-    "topic": "linkedlist",
+    "_id": "ll_easy_002",
+    "title": "Merge Two Sorted Lists",
+    "topic": "linked-lists",
     "pattern": "two-pointers",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1413,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-two-pointers-for-linked-list-10/",
+    "problemNumber": 21,
+    "leetcodeUrl": "https://leetcode.com/problems/merge-two-sorted-lists/",
+    "description": "Think of two sorted queues of people waiting to board a bus — you need to merge them into one sorted queue without making anyone jump out of line. You have two linked lists, both individually sorted, and your task is to weave them into a single sorted list. The key insight is to always pick the smaller head from the two lists and attach it to your result chain. A dummy node at the start of your result saves you from painful head-initialization logic. Two pointers walk down each list simultaneously, and whichever has the smaller value gets attached first. When one list is exhausted, the remaining portion of the other is directly appended — no need to traverse it node by node since it is already sorted. The recursive version is elegant: the problem reduces to merging two shorter lists after choosing the smaller head. This problem is not just a standalone exercise — it is the merge step in Merge Sort for linked lists and the building block for merging k sorted lists.",
+    "examples": [
+      {
+        "input": "list1 = [1,2,4], list2 = [1,3,4]",
+        "output": "[1,1,2,3,4,4]",
+        "explanation": "Both lists are merged in sorted order."
+      },
+      {
+        "input": "list1 = [], list2 = []",
+        "output": "[]",
+        "explanation": "Two empty lists produce an empty list."
+      },
+      {
+        "input": "list1 = [], list2 = [0]",
+        "output": "[0]",
+        "explanation": "One empty list returns the other."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in both lists is in the range [0, 50].",
+      "-100 <= Node.val <= 100",
+      "Both list1 and list2 are sorted in non-decreasing order."
+    ],
+    "hints": [
+      "Use a dummy head node to avoid special-casing the result head.",
+      "Always attach the node with the smaller value to the result chain.",
+      "After one list is exhausted, append the remainder of the other directly."
+    ],
+    "expectedTimeComplexity": "O(n + m)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
+      "Amazon",
       "Microsoft",
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_tp_011",
-    "title": "Search Two Pointers for Linked List 11",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1553,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-linked-list-11/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_tp_012",
-    "title": "Search Two Pointers for Linked List 12",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1316,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-linked-list-12/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "ll_tp_013",
-    "title": "Count of Two Pointers for Linked List 13",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2620,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-two-pointers-for-linked-list-13/",
-    "companies": [
-      "Oracle",
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_tp_014",
-    "title": "Subsequence Two Pointers for Linked List 14",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2529,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-two-pointers-for-linked-list-14/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_tp_015",
-    "title": "Merge Two Pointers for Linked List 15",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1484,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-two-pointers-for-linked-list-15/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_tp_016",
-    "title": "Validate Two Pointers for Linked List 16",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1399,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-two-pointers-for-linked-list-16/",
-    "companies": [
       "Apple",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_tp_017",
-    "title": "Shortest Two Pointers for Linked List 17",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2651,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-two-pointers-for-linked-list-17/",
-    "companies": [
-      "Atlassian",
-      "Apple"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_tp_018",
-    "title": "Balanced Two Pointers for Linked List 18",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1157,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-two-pointers-for-linked-list-18/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "ll_tp_019",
-    "title": "Cyclic Two Pointers for Linked List 19",
-    "topic": "linkedlist",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1183,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-two-pointers-for-linked-list-19/",
-    "companies": [
       "Bloomberg"
     ],
     "tags": [
       "Linked List",
-      "Two Pointers"
+      "Recursion"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Merge Two Sorted Lists - NeetCode",
+        "url": "https://youtube.com/watch?v=XIdigk956u0"
+      }
+    ],
+    "relatedProblems": [
+      "Merge k Sorted Lists",
+      "Sort List",
+      "Merge Sorted Array"
+    ],
+    "followUp": [
+      "Can you solve it recursively in addition to iteratively?"
+    ],
+    "testCases": [
+      {
+        "input": "list1=[1,2,4], list2=[1,3,4]",
+        "output": "[1,1,2,3,4,4]"
+      },
+      {
+        "input": "list1=[], list2=[0]",
+        "output": "[0]"
+      }
+    ],
+    "acceptanceRate": "63.2%",
+    "likes": 21000,
+    "dislikes": 2100
   },
   {
-    "_id": "ll_tp_020",
-    "title": "Subarray Two Pointers for Linked List 20",
-    "topic": "linkedlist",
+    "_id": "ll_easy_003",
+    "title": "Linked List Cycle",
+    "topic": "linked-lists",
+    "pattern": "fast-slow-pointers",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 141,
+    "leetcodeUrl": "https://leetcode.com/problems/linked-list-cycle/",
+    "description": "Picture two runners on a circular track — one slow, one fast. If the track loops, the fast runner will eventually lap the slow one and they will meet. If the track is a straight line, the fast runner just reaches the end first and they never meet. That is Floyd's Cycle Detection algorithm applied to linked lists. You set two pointers at the head: slow moves one step at a time, fast moves two. If they ever point to the same node, a cycle exists. If fast or fast.next becomes null, the list has a definitive end and no cycle. The naive approach uses a HashSet to record every visited node — if you visit the same node twice, there is a cycle. But that costs O(n) space. Floyd's algorithm is the interview-expected solution because it uses O(1) space and O(n) time. Understanding why the two pointers always meet inside a cycle (and not just pass each other) requires thinking about modular arithmetic — the fast pointer gains one step per round relative to the slow pointer in the cycle.",
+    "examples": [
+      {
+        "input": "head = [3,2,0,-4], pos = 1",
+        "output": "true",
+        "explanation": "There is a cycle where the tail connects back to index 1."
+      },
+      {
+        "input": "head = [1,2], pos = 0",
+        "output": "true",
+        "explanation": "Cycle exists connecting tail to index 0."
+      },
+      {
+        "input": "head = [1], pos = -1",
+        "output": "false",
+        "explanation": "Single node with no cycle."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [0, 10^4].",
+      "-10^5 <= Node.val <= 10^5",
+      "pos is -1 or a valid index in the linked list."
+    ],
+    "hints": [
+      "Use slow and fast pointers (Floyd's algorithm).",
+      "If fast or fast.next is null, there is no cycle.",
+      "If slow == fast at any point, a cycle exists."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
+      "Microsoft",
+      "Google",
+      "Yahoo"
+    ],
+    "tags": [
+      "Linked List",
+      "Hash Table",
+      "Two Pointers"
+    ],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Linked List Cycle - NeetCode",
+        "url": "https://youtube.com/watch?v=gBTe7lFR3vc"
+      }
+    ],
+    "relatedProblems": [
+      "Linked List Cycle II",
+      "Happy Number",
+      "Find the Duplicate Number"
+    ],
+    "followUp": [
+      "Can you solve it using O(1) memory instead of a HashSet?"
+    ],
+    "testCases": [
+      {
+        "input": "[3,2,0,-4], pos=1",
+        "output": "true"
+      },
+      {
+        "input": "[1], pos=-1",
+        "output": "false"
+      }
+    ],
+    "acceptanceRate": "49.4%",
+    "likes": 14000,
+    "dislikes": 1200
+  },
+  {
+    "_id": "ll_easy_004",
+    "title": "Palindrome Linked List",
+    "topic": "linked-lists",
+    "pattern": "fast-slow-pointers",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 234,
+    "leetcodeUrl": "https://leetcode.com/problems/palindrome-linked-list/",
+    "description": "A palindrome reads the same from both ends — like 'racecar' or '1 2 3 2 1'. In an array, checking this is trivial with two pointers at both ends. In a linked list, you cannot move backward, which makes it deceptively harder. The O(1) space solution is a beautiful composition of three separate techniques. First, locate the middle of the list using the fast-slow pointer trick. Second, reverse everything from the middle to the end — now you have two sub-lists that should mirror each other if the original was a palindrome. Third, compare both halves node by node. If all values match, it is a palindrome. A common mistake is forgetting to handle odd-length lists where the middle node does not need to match anything. Another subtle point: after comparison, a good implementation restores the second half to its original order — leaving the input list unmodified is considered clean engineering practice in interviews. Using a stack is simpler but costs O(n) space.",
+    "examples": [
+      {
+        "input": "head = [1,2,2,1]",
+        "output": "true",
+        "explanation": "The list reads the same forward and backward."
+      },
+      {
+        "input": "head = [1,2]",
+        "output": "false",
+        "explanation": "1,2 is not the same as 2,1."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [1, 10^5].",
+      "0 <= Node.val <= 9"
+    ],
+    "hints": [
+      "Find the middle using fast and slow pointers.",
+      "Reverse the second half in-place.",
+      "Compare both halves node by node."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
+      "Meta",
+      "Adobe",
+      "Apple"
+    ],
+    "tags": [
+      "Linked List",
+      "Two Pointers",
+      "Stack",
+      "Recursion"
+    ],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Palindrome Linked List - NeetCode",
+        "url": "https://youtube.com/watch?v=yOzXms1J6Nw"
+      }
+    ],
+    "relatedProblems": [
+      "Palindrome Number",
+      "Valid Palindrome",
+      "Reverse Linked List"
+    ],
+    "followUp": [
+      "Could you do it in O(n) time and O(1) space?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,2,1]",
+        "output": "true"
+      },
+      {
+        "input": "[1,2]",
+        "output": "false"
+      }
+    ],
+    "acceptanceRate": "53.7%",
+    "likes": 16000,
+    "dislikes": 900
+  },
+  {
+    "_id": "ll_easy_005",
+    "title": "Middle of the Linked List",
+    "topic": "linked-lists",
+    "pattern": "fast-slow-pointers",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 876,
+    "leetcodeUrl": "https://leetcode.com/problems/middle-of-the-linked-list/",
+    "description": "Finding the middle of a linked list seems like it should require two passes — one to count the length, one to walk to the midpoint. But there is a smarter one-pass approach using two pointers moving at different speeds. Start both at head. Move slow by one step and fast by two steps each iteration. When fast reaches the last node or falls off the end, slow is sitting exactly at the middle. For even-length lists, slow lands on the second of the two middle nodes, which is usually what problems expect. This technique is deceptively simple but underpins an entire family of linked list problems. It appears as a sub-step in Palindrome Linked List, Sort List, Reorder List, and several tree-to-list conversion problems. Interviewers value candidates who immediately reach for this pattern rather than computing the length first — it signals familiarity with linked list idioms.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,4,5]",
+        "output": "[3,4,5]",
+        "explanation": "The middle node is 3; return the node and the rest."
+      },
+      {
+        "input": "head = [1,2,3,4,5,6]",
+        "output": "[4,5,6]",
+        "explanation": "For even-length lists, return the second middle node."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [1, 100].",
+      "1 <= Node.val <= 100"
+    ],
+    "hints": [
+      "Use slow and fast pointers both starting at head.",
+      "Move slow one step and fast two steps each iteration.",
+      "When fast reaches the end, slow is at the middle."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
+      "Microsoft",
+      "Google"
+    ],
+    "tags": [
+      "Linked List",
+      "Two Pointers"
+    ],
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Middle of the Linked List - LeetCode 876",
+        "url": "https://youtube.com/watch?v=A2_ldqM4QcY"
+      }
+    ],
+    "relatedProblems": [
+      "Palindrome Linked List",
+      "Reorder List",
+      "Sort List"
+    ],
+    "followUp": [
+      "What changes if you need the first middle node instead of the second for even-length lists?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,4,5]",
+        "output": "[3,4,5]"
+      },
+      {
+        "input": "[1,2,3,4,5,6]",
+        "output": "[4,5,6]"
+      }
+    ],
+    "acceptanceRate": "76.4%",
+    "likes": 10000,
+    "dislikes": 310
+  },
+  {
+    "_id": "ll_easy_006",
+    "title": "Remove Linked List Elements",
+    "topic": "linked-lists",
+    "pattern": "sentinel-node",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 203,
+    "leetcodeUrl": "https://leetcode.com/problems/remove-linked-list-elements/",
+    "description": "Deleting specific nodes from a linked list is conceptually simple — skip over any node whose value matches the target. But the implementation trips up beginners because of one awkward case: what if the node to be removed is the head itself? You cannot apply the usual trick of using a predecessor pointer because the head has none. The elegant fix is a sentinel node — a fake dummy node inserted before the real head. Now every node in the list (including the original head) has a predecessor, and deletion logic becomes uniform throughout. Walk with a current pointer: whenever current.next has the target value, skip it by setting current.next = current.next.next. Otherwise advance current. At the end, return sentinel.next as the new head. The recursive approach is clean too: the problem on a smaller list is the same problem — remove matching nodes from the tail, then decide whether to keep or skip the head. Practice this problem to internalize the sentinel pattern before tackling harder deletion problems.",
+    "examples": [
+      {
+        "input": "head = [1,2,6,3,4,5,6], val = 6",
+        "output": "[1,2,3,4,5]",
+        "explanation": "All nodes with value 6 are removed."
+      },
+      {
+        "input": "head = [], val = 1",
+        "output": "[]",
+        "explanation": "Empty list stays empty."
+      },
+      {
+        "input": "head = [7,7,7,7], val = 7",
+        "output": "[]",
+        "explanation": "All nodes removed when all values match."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [0, 10^4].",
+      "1 <= Node.val <= 50",
+      "0 <= val <= 50"
+    ],
+    "hints": [
+      "Use a dummy sentinel node before the head to handle head deletion uniformly.",
+      "Walk with curr: if curr.next.val == val, skip it; otherwise advance curr.",
+      "Return sentinel.next as the new head."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
+      "Apple",
+      "Bloomberg"
+    ],
+    "tags": [
+      "Linked List",
+      "Recursion"
+    ],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Remove Linked List Elements - LeetCode 203",
+        "url": "https://youtube.com/watch?v=JI71sxtHTng"
+      }
+    ],
+    "relatedProblems": [
+      "Remove Duplicates from Sorted List",
+      "Delete Node in a Linked List"
+    ],
+    "followUp": [
+      "Can you solve it recursively?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,6,3,4,5,6], val=6",
+        "output": "[1,2,3,4,5]"
+      },
+      {
+        "input": "[7,7,7,7], val=7",
+        "output": "[]"
+      }
+    ],
+    "acceptanceRate": "47.8%",
+    "likes": 7200,
+    "dislikes": 210
+  },
+  {
+    "_id": "ll_easy_007",
+    "title": "Intersection of Two Linked Lists",
+    "topic": "linked-lists",
     "pattern": "two-pointers",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1640,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-linked-list-20/",
+    "problemNumber": 160,
+    "leetcodeUrl": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+    "description": "Two roads diverge and then converge — if two linked lists share a common tail, there exists exactly one node where they merge and never separate again. Your task is to find that node. The naive HashSet approach stores all nodes of list A, then walks list B until it finds a node already in the set — clean but O(n) space. The elegant O(1) space solution exploits a beautiful symmetry: if pointer A walks list A then list B, and pointer B walks list B then list A, they both travel the same total distance (len(A) + len(B)). If an intersection exists, they will land on it simultaneously. If not, they both reach null at the same time. No length calculation required, no extra memory, no complex logic. The insight that makes this work is that the extra distance each pointer travels to cover the other list exactly cancels out the length difference. This is the kind of solution interviewers remember.",
+    "examples": [
+      {
+        "input": "listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], intersectVal = 8",
+        "output": "Intersected at node with value 8",
+        "explanation": "The two lists share the tail starting from node with value 8."
+      },
+      {
+        "input": "listA = [2,6,4], listB = [1,5], intersectVal = 0",
+        "output": "No intersection",
+        "explanation": "The two lists do not intersect."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in listA is in the range [1, 3 * 10^4].",
+      "The number of nodes in listB is in the range [1, 3 * 10^4].",
+      "-10^5 <= Node.val <= 10^5",
+      "There are no cycles in either list."
+    ],
+    "hints": [
+      "Use two pointers: one starting at headA and one at headB.",
+      "When a pointer reaches the end, redirect it to the other list's head.",
+      "If an intersection exists, they will meet at the intersection node."
+    ],
+    "expectedTimeComplexity": "O(n + m)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Amazon"
+      "Amazon",
+      "Microsoft",
+      "Bloomberg",
+      "Adobe"
     ],
     "tags": [
       "Linked List",
+      "Hash Table",
       "Two Pointers"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Intersection of Two Linked Lists - NeetCode",
+        "url": "https://youtube.com/watch?v=D0X0BONOQhI"
+      }
+    ],
+    "relatedProblems": [
+      "Linked List Cycle II",
+      "Minimum Index Sum of Two Lists"
+    ],
+    "followUp": [
+      "Can you solve it in O(1) space without modifying the lists?"
+    ],
+    "testCases": [
+      {
+        "input": "listA=[4,1,8,4,5], listB=[5,6,1,8,4,5], skipA=2, skipB=3",
+        "output": "8"
+      },
+      {
+        "input": "listA=[2,6,4], listB=[1,5], skipA=3, skipB=2",
+        "output": "null"
+      }
+    ],
+    "acceptanceRate": "55.9%",
+    "likes": 13000,
+    "dislikes": 1200
   },
   {
-    "_id": "ll_sw_001",
-    "title": "Balanced Sliding Window for Linked List 1",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
+    "_id": "ll_easy_008",
+    "title": "Delete Node in a Linked List",
+    "topic": "linked-lists",
+    "pattern": "simulation",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 2899,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sliding-window-for-linked-list-1/",
+    "problemNumber": 237,
+    "leetcodeUrl": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
+    "description": "This problem breaks the usual contract of deletion problems — you are not given the head of the list, only the node to be deleted. No access to the previous node means the usual technique of relinking predecessors is off the table. The creative solution exploits a simple observation: instead of physically removing the target node, impersonate its successor. Copy the next node's value into the current node, then delete the next node (which you do have predecessor access to, since the current node is its predecessor). It is like a magic trick — the node that was supposed to disappear instead takes on someone else's identity, and the original victim quietly vanishes. This works because the problem guarantees the node is not the tail. The key interview insight here is lateral thinking — when a standard approach is blocked, look for an equivalent transformation that achieves the same visible result.",
+    "examples": [
+      {
+        "input": "head = [4,5,1,9], node = 5",
+        "output": "[4,1,9]",
+        "explanation": "Node with value 5 is deleted by copying successor values forward."
+      },
+      {
+        "input": "head = [4,5,1,9], node = 1",
+        "output": "[4,5,9]",
+        "explanation": "Node with value 1 is deleted."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [2, 1000].",
+      "-1000 <= Node.val <= 1000",
+      "The node to delete is guaranteed to not be the tail node.",
+      "All node values in the list are unique."
+    ],
+    "hints": [
+      "You cannot access the previous node, so you cannot unlink the current node directly.",
+      "Copy the value from node.next into node, then delete node.next."
+    ],
+    "expectedTimeComplexity": "O(1)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Bloomberg",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_sw_002",
-    "title": "Maximal Sliding Window for Linked List 2",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1246,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-linked-list-2/",
-    "companies": [
-      "Twilio",
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_sw_003",
-    "title": "Shortest Sliding Window for Linked List 3",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1645,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sliding-window-for-linked-list-3/",
-    "companies": [
-      "Salesforce",
-      "Airbnb",
-      "Oracle"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_sw_004",
-    "title": "K-th Distance Sliding Window for Linked List 4",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2440,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sliding-window-for-linked-list-4/",
-    "companies": [
-      "Tencent",
-      "LinkedIn",
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_sw_005",
-    "title": "K-th Distance Sliding Window for Linked List 5",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1173,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sliding-window-for-linked-list-5/",
-    "companies": [
-      "Bloomberg",
-      "Amazon"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "ll_sw_006",
-    "title": "Optimal Sliding Window for Linked List 6",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1574,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sliding-window-for-linked-list-6/",
-    "companies": [
-      "Atlassian",
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_sw_007",
-    "title": "Maximal Sliding Window for Linked List 7",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1251,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-linked-list-7/",
-    "companies": [
-      "Amazon",
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_sw_008",
-    "title": "Balanced Sliding Window for Linked List 8",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2765,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sliding-window-for-linked-list-8/",
-    "companies": [
-      "LinkedIn",
-      "Meta",
-      "Amazon"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_sw_009",
-    "title": "Search Sliding Window for Linked List 9",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2508,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-linked-list-9/",
-    "companies": [
-      "Atlassian",
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_sw_010",
-    "title": "Balanced Sliding Window for Linked List 10",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2907,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sliding-window-for-linked-list-10/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_sw_011",
-    "title": "Subarray Sliding Window for Linked List 11",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2067,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sliding-window-for-linked-list-11/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_sw_012",
-    "title": "Search Sliding Window for Linked List 12",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2238,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-linked-list-12/",
-    "companies": [
-      "ByteDance",
-      "Stripes"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_sw_013",
-    "title": "Merge Sliding Window for Linked List 13",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2168,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sliding-window-for-linked-list-13/",
-    "companies": [
-      "Salesforce",
-      "Adobe",
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_sw_014",
-    "title": "Search Sliding Window for Linked List 14",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1551,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-linked-list-14/",
-    "companies": [
-      "ByteDance",
-      "Atlassian",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_sw_015",
-    "title": "Cyclic Sliding Window for Linked List 15",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2491,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sliding-window-for-linked-list-15/",
-    "companies": [
-      "Tencent",
       "Microsoft",
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_sw_016",
-    "title": "Balanced Sliding Window for Linked List 16",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2096,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sliding-window-for-linked-list-16/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_sw_017",
-    "title": "Continuous Sliding Window for Linked List 17",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1824,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sliding-window-for-linked-list-17/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_sw_018",
-    "title": "Minimum Cost Sliding Window for Linked List 18",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2561,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sliding-window-for-linked-list-18/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_sw_019",
-    "title": "Maximal Sliding Window for Linked List 19",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1043,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-linked-list-19/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "ll_sw_020",
-    "title": "Optimal Sliding Window for Linked List 20",
-    "topic": "linkedlist",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2039,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sliding-window-for-linked-list-20/",
-    "companies": [
-      "Google",
-      "ByteDance",
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_ps_001",
-    "title": "Minimum Cost Prefix Sum for Linked List 1",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1992,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-prefix-sum-for-linked-list-1/",
-    "companies": [
-      "Uber",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_ps_002",
-    "title": "Balanced Prefix Sum for Linked List 2",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2137,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-prefix-sum-for-linked-list-2/",
-    "companies": [
-      "Airbnb",
+      "Adobe",
       "Bloomberg"
     ],
     "tags": [
-      "Linked List",
-      "Prefix Sum"
+      "Linked List"
     ],
-    "estimatedTime": "15 min"
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Delete Node in a Linked List - LeetCode 237",
+        "url": "https://youtube.com/watch?v=icVkFkRJcro"
+      }
+    ],
+    "relatedProblems": [
+      "Remove Linked List Elements",
+      "Remove Nth Node From End of List"
+    ],
+    "followUp": [
+      "What would you do if the node could be the tail?"
+    ],
+    "testCases": [
+      {
+        "input": "[4,5,1,9], node=5",
+        "output": "[4,1,9]"
+      },
+      {
+        "input": "[4,5,1,9], node=1",
+        "output": "[4,5,9]"
+      }
+    ],
+    "acceptanceRate": "77.3%",
+    "likes": 6400,
+    "dislikes": 1700
   },
   {
-    "_id": "ll_ps_003",
-    "title": "Subsequence Prefix Sum for Linked List 3",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
+    "_id": "ll_easy_009",
+    "title": "Convert Binary Number in a Linked List to Integer",
+    "topic": "linked-lists",
+    "pattern": "simulation",
     "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2807,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-prefix-sum-for-linked-list-3/",
-    "companies": [
-      "Twilio",
-      "Atlassian",
-      "Apple"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_ps_004",
-    "title": "Minimum Cost Prefix Sum for Linked List 4",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1315,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-prefix-sum-for-linked-list-4/",
-    "companies": [
-      "Netflix",
-      "Meta",
-      "Amazon"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_ps_005",
-    "title": "Cyclic Prefix Sum for Linked List 5",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2462,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-prefix-sum-for-linked-list-5/",
-    "companies": [
-      "Uber",
-      "Twilio",
-      "Stripes"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_ps_006",
-    "title": "Shortest Prefix Sum for Linked List 6",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1047,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-prefix-sum-for-linked-list-6/",
-    "companies": [
-      "Stripes",
-      "Oracle"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_ps_007",
-    "title": "Optimal Prefix Sum for Linked List 7",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2424,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-linked-list-7/",
-    "companies": [
-      "Adobe",
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_ps_008",
-    "title": "Maximal Prefix Sum for Linked List 8",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2293,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-prefix-sum-for-linked-list-8/",
-    "companies": [
-      "Microsoft",
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_ps_009",
-    "title": "Minimum Cost Prefix Sum for Linked List 9",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2227,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-prefix-sum-for-linked-list-9/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_ps_010",
-    "title": "Subarray Prefix Sum for Linked List 10",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1882,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-prefix-sum-for-linked-list-10/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_ps_011",
-    "title": "Search Prefix Sum for Linked List 11",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2242,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-linked-list-11/",
-    "companies": [
-      "Oracle",
-      "Salesforce",
-      "Atlassian"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_ps_012",
-    "title": "Maximal Prefix Sum for Linked List 12",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2720,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-prefix-sum-for-linked-list-12/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_ps_013",
-    "title": "Maximal Prefix Sum for Linked List 13",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2917,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-prefix-sum-for-linked-list-13/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_ps_014",
-    "title": "K-th Distance Prefix Sum for Linked List 14",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1554,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-linked-list-14/",
-    "companies": [
-      "ByteDance",
-      "Tencent",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_ps_015",
-    "title": "Shortest Prefix Sum for Linked List 15",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1865,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-prefix-sum-for-linked-list-15/",
-    "companies": [
-      "Bloomberg",
-      "Oracle"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_ps_016",
-    "title": "Shortest Prefix Sum for Linked List 16",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1872,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-prefix-sum-for-linked-list-16/",
-    "companies": [
-      "Atlassian",
-      "Twilio"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "ll_ps_017",
-    "title": "Longest Prefix Sum for Linked List 17",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1463,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-prefix-sum-for-linked-list-17/",
-    "companies": [
-      "Twilio",
-      "Adobe",
-      "Netflix"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_ps_018",
-    "title": "K-th Distance Prefix Sum for Linked List 18",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2771,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-linked-list-18/",
-    "companies": [
-      "LinkedIn",
-      "Amazon",
-      "Atlassian"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_ps_019",
-    "title": "Cyclic Prefix Sum for Linked List 19",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1058,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-prefix-sum-for-linked-list-19/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_ps_020",
-    "title": "Longest Prefix Sum for Linked List 20",
-    "topic": "linkedlist",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1240,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-prefix-sum-for-linked-list-20/",
-    "companies": [
-      "Adobe",
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_bs_001",
-    "title": "Merge Binary Search for Linked List 1",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2655,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-linked-list-1/",
-    "companies": [
-      "Adobe",
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_bs_002",
-    "title": "Optimal Binary Search for Linked List 2",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2550,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-linked-list-2/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_bs_003",
-    "title": "Continuous Binary Search for Linked List 3",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2742,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-binary-search-for-linked-list-3/",
-    "companies": [
-      "Netflix",
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_004",
-    "title": "Subsequence Binary Search for Linked List 4",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2052,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-linked-list-4/",
-    "companies": [
-      "Oracle",
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_005",
-    "title": "Count of Binary Search for Linked List 5",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1678,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-binary-search-for-linked-list-5/",
-    "companies": [
-      "Uber",
-      "Twilio"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_006",
-    "title": "Subarray Binary Search for Linked List 6",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1147,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-binary-search-for-linked-list-6/",
-    "companies": [
-      "Atlassian",
-      "Amazon",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_007",
-    "title": "Merge Binary Search for Linked List 7",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1051,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-linked-list-7/",
-    "companies": [
-      "Adobe",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_008",
-    "title": "Optimal Binary Search for Linked List 8",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1633,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-linked-list-8/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_009",
-    "title": "Merge Binary Search for Linked List 9",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1750,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-linked-list-9/",
-    "companies": [
-      "Uber",
-      "Oracle",
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_010",
-    "title": "Balanced Binary Search for Linked List 10",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1971,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-search-for-linked-list-10/",
-    "companies": [
-      "Salesforce",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_011",
-    "title": "Maximal Binary Search for Linked List 11",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2295,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-linked-list-11/",
-    "companies": [
-      "Stripes",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_bs_012",
-    "title": "Continuous Binary Search for Linked List 12",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2332,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-binary-search-for-linked-list-12/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_bs_013",
-    "title": "Subsequence Binary Search for Linked List 13",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1257,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-linked-list-13/",
-    "companies": [
-      "Microsoft",
-      "Stripes"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_014",
-    "title": "Optimal Binary Search for Linked List 14",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1653,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-linked-list-14/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_bs_015",
-    "title": "Longest Binary Search for Linked List 15",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1936,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-binary-search-for-linked-list-15/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_bs_016",
-    "title": "Count of Binary Search for Linked List 16",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2589,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-binary-search-for-linked-list-16/",
-    "companies": [
-      "Amazon",
-      "Google",
-      "Stripes"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_017",
-    "title": "Shortest Binary Search for Linked List 17",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1538,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-binary-search-for-linked-list-17/",
-    "companies": [
-      "Salesforce",
-      "ByteDance",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_bs_018",
-    "title": "Balanced Binary Search for Linked List 18",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2390,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-search-for-linked-list-18/",
-    "companies": [
-      "ByteDance",
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_bs_019",
-    "title": "Count of Binary Search for Linked List 19",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2201,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-binary-search-for-linked-list-19/",
-    "companies": [
-      "Apple",
-      "ByteDance"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_bs_020",
-    "title": "K-th Distance Binary Search for Linked List 20",
-    "topic": "linkedlist",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1711,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-binary-search-for-linked-list-20/",
-    "companies": [
-      "Meta",
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_mt_001",
-    "title": "Minimum Cost Matrix for Linked List 1",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2300,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-matrix-for-linked-list-1/",
-    "companies": [
-      "Uber",
-      "Adobe",
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_mt_002",
-    "title": "Subarray Matrix for Linked List 2",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1766,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-linked-list-2/",
-    "companies": [
-      "Twilio",
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_mt_003",
-    "title": "K-th Distance Matrix for Linked List 3",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2506,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-linked-list-3/",
-    "companies": [
-      "Bloomberg",
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_mt_004",
-    "title": "Subarray Matrix for Linked List 4",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2893,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-linked-list-4/",
-    "companies": [
-      "Google",
-      "Stripes",
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_mt_005",
-    "title": "Balanced Matrix for Linked List 5",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2912,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-matrix-for-linked-list-5/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_mt_006",
-    "title": "Subarray Matrix for Linked List 6",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2713,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-linked-list-6/",
-    "companies": [
-      "Adobe",
-      "Apple"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_mt_007",
-    "title": "Maximal Matrix for Linked List 7",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2763,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-matrix-for-linked-list-7/",
-    "companies": [
-      "ByteDance",
-      "Tencent"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_mt_008",
-    "title": "Maximal Matrix for Linked List 8",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2248,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-matrix-for-linked-list-8/",
-    "companies": [
-      "Salesforce",
-      "LinkedIn",
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_mt_009",
-    "title": "Subsequence Matrix for Linked List 9",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1111,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-matrix-for-linked-list-9/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_mt_010",
-    "title": "Balanced Matrix for Linked List 10",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1692,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-matrix-for-linked-list-10/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_mt_011",
-    "title": "Count of Matrix for Linked List 11",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2818,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-matrix-for-linked-list-11/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_mt_012",
-    "title": "Subarray Matrix for Linked List 12",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2457,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-linked-list-12/",
-    "companies": [
-      "Apple",
-      "Google",
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_mt_013",
-    "title": "Count of Matrix for Linked List 13",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1192,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-matrix-for-linked-list-13/",
-    "companies": [
-      "Google",
-      "LinkedIn",
-      "Stripes"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_mt_014",
-    "title": "Longest Matrix for Linked List 14",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2934,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-linked-list-14/",
-    "companies": [
-      "Microsoft",
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_mt_015",
-    "title": "Validate Matrix for Linked List 15",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1737,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-matrix-for-linked-list-15/",
-    "companies": [
-      "Salesforce",
-      "Uber",
-      "Atlassian"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_mt_016",
-    "title": "Validate Matrix for Linked List 16",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2314,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-matrix-for-linked-list-16/",
-    "companies": [
-      "Apple",
-      "Twitter",
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_mt_017",
-    "title": "Subarray Matrix for Linked List 17",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2842,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-linked-list-17/",
-    "companies": [
-      "Tencent",
-      "Oracle",
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_mt_018",
-    "title": "Search Matrix for Linked List 18",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1827,
-    "leetcodeUrl": "https://leetcode.com/problems/search-matrix-for-linked-list-18/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_mt_019",
-    "title": "Subarray Matrix for Linked List 19",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1146,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-linked-list-19/",
-    "companies": [
-      "Atlassian",
-      "Twilio"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_mt_020",
-    "title": "Shortest Matrix for Linked List 20",
-    "topic": "linkedlist",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2378,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-linked-list-20/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Linked List",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_srt_001",
-    "title": "K-th Distance Sorting for Linked List 1",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2111,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-linked-list-1/",
-    "companies": [
-      "Bloomberg",
-      "Stripes",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_srt_002",
-    "title": "Balanced Sorting for Linked List 2",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1182,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sorting-for-linked-list-2/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_srt_003",
-    "title": "Subarray Sorting for Linked List 3",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2016,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sorting-for-linked-list-3/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_srt_004",
-    "title": "Maximal Sorting for Linked List 4",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1072,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-linked-list-4/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_srt_005",
-    "title": "Balanced Sorting for Linked List 5",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2446,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sorting-for-linked-list-5/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_srt_006",
-    "title": "Count of Sorting for Linked List 6",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2722,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sorting-for-linked-list-6/",
-    "companies": [
-      "Oracle",
-      "Google",
-      "Netflix"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_srt_007",
-    "title": "Continuous Sorting for Linked List 7",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1511,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sorting-for-linked-list-7/",
-    "companies": [
-      "Oracle",
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_srt_008",
-    "title": "Optimal Sorting for Linked List 8",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2376,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-linked-list-8/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_srt_009",
-    "title": "Subsequence Sorting for Linked List 9",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2232,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sorting-for-linked-list-9/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_srt_010",
-    "title": "Maximal Sorting for Linked List 10",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2421,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-linked-list-10/",
-    "companies": [
-      "Tencent",
-      "Microsoft",
-      "Atlassian"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_srt_011",
-    "title": "Longest Sorting for Linked List 11",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2839,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sorting-for-linked-list-11/",
-    "companies": [
-      "Netflix",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_srt_012",
-    "title": "Subsequence Sorting for Linked List 12",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2614,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sorting-for-linked-list-12/",
-    "companies": [
-      "Apple",
-      "Amazon",
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_srt_013",
-    "title": "K-th Distance Sorting for Linked List 13",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1434,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-linked-list-13/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_srt_014",
-    "title": "Balanced Sorting for Linked List 14",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1732,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sorting-for-linked-list-14/",
-    "companies": [
-      "Oracle",
-      "Stripes"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_srt_015",
-    "title": "Minimum Cost Sorting for Linked List 15",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2090,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sorting-for-linked-list-15/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_srt_016",
-    "title": "Shortest Sorting for Linked List 16",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2515,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-linked-list-16/",
-    "companies": [
-      "Netflix",
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_srt_017",
-    "title": "Shortest Sorting for Linked List 17",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1733,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-linked-list-17/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_srt_018",
-    "title": "Optimal Sorting for Linked List 18",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1882,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-linked-list-18/",
-    "companies": [
-      "Amazon",
-      "Twilio",
-      "Oracle"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_srt_019",
-    "title": "Subsequence Sorting for Linked List 19",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2320,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sorting-for-linked-list-19/",
-    "companies": [
-      "Salesforce",
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "ll_srt_020",
-    "title": "Subsequence Sorting for Linked List 20",
-    "topic": "linkedlist",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2994,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sorting-for-linked-list-20/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Linked List",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_kd_001",
-    "title": "Maximal Kadane’s Algorithm for Linked List 1",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1465,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-linked-list-1/",
-    "companies": [
-      "Google",
-      "Oracle",
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_kd_002",
-    "title": "Merge Kadane’s Algorithm for Linked List 2",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2008,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-kadane-s-algorithm-for-linked-list-2/",
-    "companies": [
-      "Adobe",
-      "Atlassian",
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_kd_003",
-    "title": "Subsequence Kadane’s Algorithm for Linked List 3",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2494,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-kadane-s-algorithm-for-linked-list-3/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_kd_004",
-    "title": "Maximal Kadane’s Algorithm for Linked List 4",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1590,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-linked-list-4/",
-    "companies": [
-      "Airbnb",
-      "Netflix",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_kd_005",
-    "title": "Minimum Cost Kadane’s Algorithm for Linked List 5",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1291,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-linked-list-5/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_kd_006",
-    "title": "Minimum Cost Kadane’s Algorithm for Linked List 6",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1902,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-linked-list-6/",
-    "companies": [
-      "Bloomberg",
-      "Amazon"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_kd_007",
-    "title": "Continuous Kadane’s Algorithm for Linked List 7",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1230,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-kadane-s-algorithm-for-linked-list-7/",
-    "companies": [
-      "Salesforce",
-      "Apple",
-      "Tencent"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "ll_kd_008",
-    "title": "Balanced Kadane’s Algorithm for Linked List 8",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
     "platform": "LeetCode",
     "problemNumber": 1290,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-kadane-s-algorithm-for-linked-list-8/",
+    "leetcodeUrl": "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/",
+    "description": "Binary numbers are read left to right — the leftmost bit is the most significant. The linked list conveniently stores them in the same order, head to tail. As you traverse from head to tail, each new bit you encounter shifts the accumulated result one position left (multiply by 2) and adds the new bit's value. In bit manipulation terms: result = (result << 1) | node.val. By the time you reach the tail, result holds the complete decimal equivalent. The simplicity of this problem makes it a good warm-up, but it tests whether you understand binary-to-decimal conversion and can apply bit shifting. A candidate who loops through, collects values into an array, then converts — versus one who does it in a single pass using the shift-and-OR trick — signals a notable difference in low-level thinking.",
+    "examples": [
+      {
+        "input": "head = [1,0,1]",
+        "output": "5",
+        "explanation": "Binary 101 = 4 + 0 + 1 = 5."
+      },
+      {
+        "input": "head = [0]",
+        "output": "0",
+        "explanation": "Binary 0 = 0."
+      }
+    ],
+    "constraints": [
+      "The Linked List is not empty.",
+      "Number of nodes will not exceed 30.",
+      "Each node's value is either 0 or 1."
+    ],
+    "hints": [
+      "Traverse from head to tail.",
+      "At each step: result = (result << 1) | node.val.",
+      "The final result after the full traversal is the decimal value."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Uber",
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "ll_kd_009",
-    "title": "Balanced Kadane’s Algorithm for Linked List 9",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2469,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-kadane-s-algorithm-for-linked-list-9/",
-    "companies": [
-      "Atlassian",
-      "Amazon"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_kd_010",
-    "title": "Search Kadane’s Algorithm for Linked List 10",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1542,
-    "leetcodeUrl": "https://leetcode.com/problems/search-kadane-s-algorithm-for-linked-list-10/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_kd_011",
-    "title": "Balanced Kadane’s Algorithm for Linked List 11",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1139,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-kadane-s-algorithm-for-linked-list-11/",
-    "companies": [
-      "Netflix",
-      "Oracle",
-      "ByteDance"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_kd_012",
-    "title": "Maximal Kadane’s Algorithm for Linked List 12",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2528,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-linked-list-12/",
-    "companies": [
-      "Google",
       "Amazon",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_kd_013",
-    "title": "Count of Kadane’s Algorithm for Linked List 13",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2780,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-kadane-s-algorithm-for-linked-list-13/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_kd_014",
-    "title": "K-th Distance Kadane’s Algorithm for Linked List 14",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1760,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-kadane-s-algorithm-for-linked-list-14/",
-    "companies": [
-      "Oracle",
-      "Salesforce",
       "Google"
     ],
     "tags": [
       "Linked List",
-      "Kadane’s Algorithm"
+      "Math"
     ],
-    "estimatedTime": "40 min"
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Convert Binary Number in a Linked List to Integer - LeetCode 1290",
+        "url": "https://youtube.com/watch?v=oMK5gHpO5o4"
+      }
+    ],
+    "relatedProblems": [
+      "Reverse Linked List",
+      "Number of 1 Bits"
+    ],
+    "followUp": [
+      "Can you solve it without using the bit-shift operator?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,0,1]",
+        "output": "5"
+      },
+      {
+        "input": "[0]",
+        "output": "0"
+      }
+    ],
+    "acceptanceRate": "82.7%",
+    "likes": 3800,
+    "dislikes": 210
   },
   {
-    "_id": "ll_kd_015",
-    "title": "Shortest Kadane’s Algorithm for Linked List 15",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
+    "_id": "ll_easy_010",
+    "title": "Remove Duplicates from Sorted List",
+    "topic": "linked-lists",
+    "pattern": "sentinel-node",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 2731,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-kadane-s-algorithm-for-linked-list-15/",
+    "problemNumber": 83,
+    "leetcodeUrl": "https://leetcode.com/problems/remove-duplicates-from-sorted-list/",
+    "description": "When a list is sorted, all duplicates of any value are guaranteed to be adjacent — they cluster together. This makes the problem straightforward: walk the list, and whenever a node's value equals its successor's value, skip the successor. Since the list is sorted, once the value changes you know all duplicates of the previous value have been handled. The key pointer move is: current.next = current.next.next when a duplicate is found, and advance current only when the value genuinely changes. A common bug is advancing current too eagerly — if you have three consecutive equal nodes, you must keep checking current.next before moving forward. This is the easier sibling of problem 82, where all occurrences of duplicated values must be removed entirely. Mastering 83 first makes 82 significantly easier to reason about.",
+    "examples": [
+      {
+        "input": "head = [1,1,2]",
+        "output": "[1,2]",
+        "explanation": "The duplicate 1 is removed."
+      },
+      {
+        "input": "head = [1,1,2,3,3]",
+        "output": "[1,2,3]",
+        "explanation": "Both duplicate 1 and duplicate 3 are removed."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [0, 300].",
+      "-100 <= Node.val <= 100",
+      "The list is guaranteed to be sorted in ascending order."
+    ],
+    "hints": [
+      "Since the list is sorted, duplicates are always adjacent.",
+      "If curr.val == curr.next.val, skip curr.next; otherwise advance curr.",
+      "Do not advance curr when skipping a duplicate — check again first."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "LinkedIn"
+      "Microsoft",
+      "Bloomberg",
+      "Apple"
     ],
     "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
+      "Linked List"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Remove Duplicates from Sorted List - LeetCode 83",
+        "url": "https://youtube.com/watch?v=p10f-VpWGbE"
+      }
+    ],
+    "relatedProblems": [
+      "Remove Duplicates from Sorted List II",
+      "Remove Duplicates from Sorted Array"
+    ],
+    "followUp": [
+      "What if you need to remove ALL occurrences of duplicated values (see problem 82)?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,1,2]",
+        "output": "[1,2]"
+      },
+      {
+        "input": "[1,1,2,3,3]",
+        "output": "[1,2,3]"
+      }
+    ],
+    "acceptanceRate": "51.4%",
+    "likes": 8100,
+    "dislikes": 270
   },
   {
-    "_id": "ll_kd_016",
-    "title": "Subarray Kadane’s Algorithm for Linked List 16",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2728,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-linked-list-16/",
-    "companies": [
-      "Atlassian",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_kd_017",
-    "title": "Longest Kadane’s Algorithm for Linked List 17",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
+    "_id": "ll_easy_011",
+    "title": "Merge In Between Linked Lists",
+    "topic": "linked-lists",
+    "pattern": "simulation",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1902,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-linked-list-17/",
-    "companies": [
-      "Stripes"
+    "problemNumber": 1669,
+    "leetcodeUrl": "https://leetcode.com/problems/merge-in-between-linked-lists/",
+    "description": "Think of list1 as a sentence and list2 as a clause you need to splice in between two words. You are given indices a and b, and your task is to cut out everything between position a and position b (inclusive) from list1, then stitch list2 in that gap. The mechanics: walk list1 to find the node just before position a — call it nodeA. Walk further to find the node just after position b — call it nodeB. Then connect nodeA.next to list2's head, traverse list2 all the way to its tail, and connect that tail to nodeB. Three pointer assignments total. The difficulty is careful index counting — off-by-one errors are the main trap. This problem tests whether you can mentally visualize the before-and-after state of a list and translate that visualization into clean pointer manipulation code.",
+    "examples": [
+      {
+        "input": "list1 = [0,1,2,3,4,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]",
+        "output": "[0,1,2,1000000,1000001,1000002,5]",
+        "explanation": "Nodes at indices 3 and 4 are replaced by list2."
+      },
+      {
+        "input": "list1 = [0,1,2,3,4,5,6], a = 2, b = 5, list2 = [1000000,1000001,1000002]",
+        "output": "[0,1,1000000,1000001,1000002,6]",
+        "explanation": "Nodes at indices 2 through 5 are replaced by list2."
+      }
     ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
+    "constraints": [
+      "3 <= list1.length <= 10^4",
+      "1 <= a <= b < list1.length - 1",
+      "1 <= list2.length <= 10^4"
     ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_kd_018",
-    "title": "Longest Kadane’s Algorithm for Linked List 18",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1296,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-linked-list-18/",
-    "companies": [
-      "Uber",
-      "Netflix",
-      "Bloomberg"
+    "hints": [
+      "Find the node just before index a (call it nodeA) and just after index b (call it nodeB).",
+      "Connect nodeA.next to list2's head.",
+      "Traverse list2 to its tail, then connect the tail to nodeB."
     ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_kd_019",
-    "title": "K-th Distance Kadane’s Algorithm for Linked List 19",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1844,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-kadane-s-algorithm-for-linked-list-19/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_kd_020",
-    "title": "Subsequence Kadane’s Algorithm for Linked List 20",
-    "topic": "linkedlist",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2972,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-kadane-s-algorithm-for-linked-list-20/",
+    "expectedTimeComplexity": "O(n + m)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
-      "Uber"
+      "Google",
+      "Adobe"
     ],
     "tags": [
-      "Linked List",
-      "Kadane’s Algorithm"
+      "Linked List"
     ],
-    "estimatedTime": "40 min"
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Merge In Between Linked Lists - LeetCode 1669",
+        "url": "https://youtube.com/watch?v=MxKPsHjMqbo"
+      }
+    ],
+    "relatedProblems": [
+      "Merge Two Sorted Lists",
+      "Remove Nth Node From End of List"
+    ],
+    "followUp": [
+      "What if you needed to insert list2 multiple times at different ranges?"
+    ],
+    "testCases": [
+      {
+        "input": "list1=[0,1,2,3,4,5], a=3, b=4, list2=[1000000,1000001,1000002]",
+        "output": "[0,1,2,1000000,1000001,1000002,5]"
+      }
+    ],
+    "acceptanceRate": "79.2%",
+    "likes": 2100,
+    "dislikes": 130
   },
   {
-    "_id": "ll_hs_001",
-    "title": "K-th Distance Hashing for Linked List 1",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1140,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-hashing-for-linked-list-1/",
-    "companies": [
-      "ByteDance",
-      "Atlassian",
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_hs_002",
-    "title": "Count of Hashing for Linked List 2",
-    "topic": "linkedlist",
-    "pattern": "hashing",
+    "_id": "ll_med_001",
+    "title": "Add Two Numbers",
+    "topic": "linked-lists",
+    "pattern": "simulation",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1026,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-linked-list-2/",
-    "companies": [
-      "ByteDance",
-      "Oracle"
+    "problemNumber": 2,
+    "leetcodeUrl": "https://leetcode.com/problems/add-two-numbers/",
+    "description": "You have two numbers stored digit by digit in linked lists — crucially, in reverse order (least significant digit at the head). This reverse storage is actually a gift: it means you can traverse both lists from head to tail and perform addition exactly as you would on paper, starting from the least significant digit and propagating the carry leftward (which in this case means toward the tail). At each step, sum the current digits from both lists plus any carry from the previous step. The new node's value is sum % 10, and the new carry is sum / 10. When one list runs out before the other, treat missing digits as zero. After exhausting both lists, if carry is still 1, append a final node with value 1. The medium difficulty comes from juggling the carry logic cleanly across lists of unequal length and not forgetting the trailing carry. This is the linked list analog of the grade-school addition algorithm.",
+    "examples": [
+      {
+        "input": "l1 = [2,4,3], l2 = [5,6,4]",
+        "output": "[7,0,8]",
+        "explanation": "342 + 465 = 807, stored in reverse order."
+      },
+      {
+        "input": "l1 = [0], l2 = [0]",
+        "output": "[0]",
+        "explanation": "0 + 0 = 0."
+      },
+      {
+        "input": "l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]",
+        "output": "[8,9,9,9,0,0,0,1]",
+        "explanation": "9999999 + 9999 = 10009998, reversed."
+      }
     ],
-    "tags": [
-      "Linked List",
-      "Hashing"
+    "constraints": [
+      "The number of nodes in each linked list is in the range [1, 100].",
+      "0 <= Node.val <= 9",
+      "It is guaranteed that the list represents a number that does not have leading zeros."
     ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_hs_003",
-    "title": "Minimum Cost Hashing for Linked List 3",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1116,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-hashing-for-linked-list-3/",
-    "companies": [
-      "Uber",
-      "Meta"
+    "hints": [
+      "Traverse both lists simultaneously, summing digits plus carry.",
+      "New node value = (sum) % 10; new carry = (sum) / 10.",
+      "If carry is 1 after both lists are exhausted, append a final node."
     ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_hs_004",
-    "title": "Validate Hashing for Linked List 4",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1133,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-hashing-for-linked-list-4/",
-    "companies": [
-      "Tencent",
-      "Salesforce"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_hs_005",
-    "title": "Optimal Hashing for Linked List 5",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2538,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-linked-list-5/",
-    "companies": [
-      "Stripes",
-      "Twitter"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_hs_006",
-    "title": "Count of Hashing for Linked List 6",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2409,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-linked-list-6/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_hs_007",
-    "title": "Subsequence Hashing for Linked List 7",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2580,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-hashing-for-linked-list-7/",
-    "companies": [
-      "Tencent",
-      "Adobe",
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_hs_008",
-    "title": "Cyclic Hashing for Linked List 8",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2196,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-hashing-for-linked-list-8/",
+    "expectedTimeComplexity": "O(max(n, m))",
+    "expectedSpaceComplexity": "O(max(n, m))",
     "companies": [
       "Amazon",
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_hs_009",
-    "title": "Minimum Cost Hashing for Linked List 9",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1509,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-hashing-for-linked-list-9/",
-    "companies": [
-      "ByteDance",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_hs_010",
-    "title": "Subsequence Hashing for Linked List 10",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2156,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-hashing-for-linked-list-10/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_hs_011",
-    "title": "Shortest Hashing for Linked List 11",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1972,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-hashing-for-linked-list-11/",
-    "companies": [
-      "Twitter",
-      "Netflix",
+      "Microsoft",
+      "Bloomberg",
       "Adobe"
     ],
     "tags": [
       "Linked List",
-      "Hashing"
+      "Math",
+      "Recursion"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Add Two Numbers - NeetCode",
+        "url": "https://youtube.com/watch?v=wgFPrzTjm7s"
+      }
+    ],
+    "relatedProblems": [
+      "Multiply Strings",
+      "Add Binary",
+      "Sum of Two Integers",
+      "Add Two Numbers II"
+    ],
+    "followUp": [
+      "What if the digits are stored in forward order instead of reverse?"
+    ],
+    "testCases": [
+      {
+        "input": "l1=[2,4,3], l2=[5,6,4]",
+        "output": "[7,0,8]"
+      },
+      {
+        "input": "l1=[9,9,9,9,9,9,9], l2=[9,9,9,9]",
+        "output": "[8,9,9,9,0,0,0,1]"
+      }
+    ],
+    "acceptanceRate": "42.3%",
+    "likes": 28000,
+    "dislikes": 5700
   },
   {
-    "_id": "ll_hs_012",
-    "title": "Merge Hashing for Linked List 12",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Hard",
+    "_id": "ll_med_002",
+    "title": "Remove Nth Node From End of List",
+    "topic": "linked-lists",
+    "pattern": "fast-slow-pointers",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1720,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-hashing-for-linked-list-12/",
+    "problemNumber": 19,
+    "leetcodeUrl": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+    "description": "You need to remove the nth node from the end — but you cannot know where the end is until you get there, and a linked list does not support backward traversal. The naive solution traverses the list once to find the length, then again to reach the target. The one-pass trick uses two pointers separated by a gap of n. Advance the fast pointer n steps ahead of slow (both start at the dummy head). Then move both together until fast reaches the last node. At this moment, slow is pointing to the node just before the one to be deleted — execute slow.next = slow.next.next. The dummy node before the head is critical: without it, removing the very first node of the list would require special casing. With it, the deletion logic works uniformly. The gap of n is the key insight — maintaining a fixed distance between two pointers is a reusable technique that appears across string, array, and linked list problems.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,4,5], n = 2",
+        "output": "[1,2,3,5]",
+        "explanation": "The 2nd node from the end (value 4) is removed."
+      },
+      {
+        "input": "head = [1], n = 1",
+        "output": "[]",
+        "explanation": "Only node removed."
+      },
+      {
+        "input": "head = [1,2], n = 1",
+        "output": "[1]",
+        "explanation": "Last node removed."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is sz.",
+      "1 <= sz <= 30",
+      "0 <= Node.val <= 100",
+      "1 <= n <= sz"
+    ],
+    "hints": [
+      "Use a dummy node before head to uniformly handle head deletion.",
+      "Advance fast pointer n steps ahead of slow.",
+      "Move both until fast reaches the last node; then delete slow.next."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Twilio"
+      "Amazon",
+      "Apple",
+      "Bloomberg",
+      "Microsoft"
     ],
     "tags": [
       "Linked List",
-      "Hashing"
+      "Two Pointers"
     ],
-    "estimatedTime": "40 min"
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Remove Nth Node From End of List - NeetCode",
+        "url": "https://youtube.com/watch?v=XVuQxVej6y8"
+      }
+    ],
+    "relatedProblems": [
+      "Swapping Nodes in a Linked List",
+      "Delete N Nodes After M Nodes of a Linked List"
+    ],
+    "followUp": [
+      "Could you do this in one pass?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,4,5], n=2",
+        "output": "[1,2,3,5]"
+      },
+      {
+        "input": "[1], n=1",
+        "output": "[]"
+      }
+    ],
+    "acceptanceRate": "43.9%",
+    "likes": 18000,
+    "dislikes": 790
   },
   {
-    "_id": "ll_hs_013",
-    "title": "Cyclic Hashing for Linked List 13",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Easy",
+    "_id": "ll_med_003",
+    "title": "Linked List Cycle II",
+    "topic": "linked-lists",
+    "pattern": "fast-slow-pointers",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2898,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-hashing-for-linked-list-13/",
+    "problemNumber": 142,
+    "leetcodeUrl": "https://leetcode.com/problems/linked-list-cycle-ii/",
+    "description": "Detecting a cycle is one thing — pinpointing exactly where it begins is another. This problem requires the second, harder skill. After Floyd's fast-slow pointers meet inside the cycle, a non-obvious mathematical property kicks in: the distance from the meeting point to the cycle entrance equals the distance from the head to the cycle entrance. So reset one pointer to head, keep the other at the meeting point, and advance both one step at a time. They will collide precisely at the cycle's entry node. Understanding why this works requires working through the algebra: if F is the distance from head to cycle start, C is the cycle length, and the meeting point is k steps into the cycle, then F = C - k (mod C). This is not something to memorize — it is something to derive once on paper so you truly own it. The HashSet approach is the fallback but costs O(n) space. Interviewers expect the O(1) space Floyd's extension.",
+    "examples": [
+      {
+        "input": "head = [3,2,0,-4], pos = 1",
+        "output": "tail connects to node index 1",
+        "explanation": "Cycle begins at node with value 2."
+      },
+      {
+        "input": "head = [1,2], pos = 0",
+        "output": "tail connects to node index 0",
+        "explanation": "Cycle begins at node with value 1."
+      },
+      {
+        "input": "head = [1], pos = -1",
+        "output": "no cycle",
+        "explanation": "No cycle exists."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [0, 10^4].",
+      "-10^5 <= Node.val <= 10^5",
+      "pos is -1 or a valid index in the linked list."
+    ],
+    "hints": [
+      "First detect the meeting point using Floyd's fast-slow algorithm.",
+      "Reset one pointer to head and keep the other at the meeting point.",
+      "Advance both one step at a time — they meet at the cycle entrance."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Airbnb",
+      "Amazon",
+      "Microsoft",
+      "Google"
+    ],
+    "tags": [
+      "Linked List",
+      "Hash Table",
+      "Two Pointers"
+    ],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Linked List Cycle II - NeetCode",
+        "url": "https://youtube.com/watch?v=wjYnzkAhcNk"
+      }
+    ],
+    "relatedProblems": [
+      "Linked List Cycle",
+      "Find the Duplicate Number"
+    ],
+    "followUp": [
+      "Can you solve it without using extra space?"
+    ],
+    "testCases": [
+      {
+        "input": "[3,2,0,-4], pos=1",
+        "output": "node at index 1 (value 2)"
+      },
+      {
+        "input": "[1], pos=-1",
+        "output": "null"
+      }
+    ],
+    "acceptanceRate": "50.8%",
+    "likes": 12000,
+    "dislikes": 840
+  },
+  {
+    "_id": "ll_med_004",
+    "title": "Reorder List",
+    "topic": "linked-lists",
+    "pattern": "fast-slow-pointers",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "problemNumber": 143,
+    "leetcodeUrl": "https://leetcode.com/problems/reorder-list/",
+    "description": "The target pattern is L0 -> Ln -> L1 -> Ln-1 -> L2 -> Ln-2 and so on. You are interleaving the front half of the list with the reversed back half. This problem is essentially three linked list problems glued together. Step one: find the middle using fast and slow pointers. Step two: reverse the second half of the list in-place. Step three: merge the two halves by alternating nodes — take one from the front half, then one from the reversed back half, repeat until one is exhausted. Each of these steps is independently a problem you should already know. The challenge is executing all three in sequence without losing pointers. Careful null-checking during the merge phase is critical — the first half may be one node longer than the second for odd-length lists. Storing all values in an array and rebuilding is easy but misses the point of the problem entirely.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,4]",
+        "output": "[1,4,2,3]",
+        "explanation": "Interleave front and reversed back halves."
+      },
+      {
+        "input": "head = [1,2,3,4,5]",
+        "output": "[1,5,2,4,3]",
+        "explanation": "Middle node stays in place; halves are interleaved."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [1, 5 * 10^4].",
+      "1 <= Node.val <= 1000"
+    ],
+    "hints": [
+      "Step 1: Find the middle using fast/slow pointers.",
+      "Step 2: Reverse the second half in-place.",
+      "Step 3: Merge the two halves by alternating nodes."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
+      "Bloomberg",
+      "Google"
+    ],
+    "tags": [
+      "Linked List",
+      "Two Pointers",
+      "Stack",
+      "Recursion"
+    ],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Reorder List - NeetCode",
+        "url": "https://youtube.com/watch?v=S5bfdSM9cB0"
+      }
+    ],
+    "relatedProblems": [
+      "Palindrome Linked List",
+      "Middle of the Linked List",
+      "Reverse Linked List"
+    ],
+    "followUp": [
+      "Can you solve it without using extra space for a stack or array?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,4]",
+        "output": "[1,4,2,3]"
+      },
+      {
+        "input": "[1,2,3,4,5]",
+        "output": "[1,5,2,4,3]"
+      }
+    ],
+    "acceptanceRate": "57.3%",
+    "likes": 11000,
+    "dislikes": 410
+  },
+  {
+    "_id": "ll_med_005",
+    "title": "Swap Nodes in Pairs",
+    "topic": "linked-lists",
+    "pattern": "iterative-reversal",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "problemNumber": 24,
+    "leetcodeUrl": "https://leetcode.com/problems/swap-nodes-in-pairs/",
+    "description": "You must physically swap adjacent node pairs — not just their values — which means rewiring pointers carefully. A dummy node before the head gives every pair a predecessor to attach to. For each pair: let first = dummy.next, second = first.next. You need dummy.next to point to second, second.next to point to first, and first.next to point to whatever came after second. The order in which you make these assignments matters enormously — changing one pointer before saving the next will sever your list. After the swap, advance dummy to first (which is now second in the ordering) to process the next pair. The recursive version is more readable: swap the first two nodes, then recursively handle the rest of the list and attach the result to the first swapped node. Treat this as your training ground before tackling Reverse Nodes in k-Group, where you generalize this swap to groups of k instead of pairs.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,4]",
+        "output": "[2,1,4,3]",
+        "explanation": "Pairs (1,2) and (3,4) are each swapped."
+      },
+      {
+        "input": "head = []",
+        "output": "[]",
+        "explanation": "Empty list remains empty."
+      },
+      {
+        "input": "head = [1]",
+        "output": "[1]",
+        "explanation": "Single node has no pair to swap."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [0, 100].",
+      "0 <= Node.val <= 100"
+    ],
+    "hints": [
+      "Use a dummy node before head to give every pair a predecessor.",
+      "Save pointers before reassigning to avoid severing the list.",
+      "After each swap, advance dummy to the node that is now second."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
+      "Bloomberg",
+      "Microsoft"
+    ],
+    "tags": [
+      "Linked List",
+      "Recursion"
+    ],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Swap Nodes in Pairs - NeetCode",
+        "url": "https://youtube.com/watch?v=o811TZLAWOo"
+      }
+    ],
+    "relatedProblems": [
+      "Reverse Nodes in k-Group",
+      "Reverse Linked List"
+    ],
+    "followUp": [
+      "Can you solve it both iteratively and recursively?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,4]",
+        "output": "[2,1,4,3]"
+      },
+      {
+        "input": "[1]",
+        "output": "[1]"
+      }
+    ],
+    "acceptanceRate": "62.8%",
+    "likes": 11000,
+    "dislikes": 410
+  },
+  {
+    "_id": "ll_med_006",
+    "title": "Odd Even Linked List",
+    "topic": "linked-lists",
+    "pattern": "simulation",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "problemNumber": 328,
+    "leetcodeUrl": "https://leetcode.com/problems/odd-even-linked-list/",
+    "description": "The goal is to rearrange a linked list so all nodes at odd positions (1st, 3rd, 5th...) come first, followed by all nodes at even positions (2nd, 4th, 6th...). Node values do not matter — only positional indices. The trick is to maintain two separate chains simultaneously: one threading through the odd-indexed nodes, one through the even-indexed nodes. Use odd and even pointers, starting at head and head.next respectively. Also save the evenHead (the original second node) because you will reconnect the odd chain's tail to it at the end. On each step, odd.next skips to the next odd node (which is even.next), and even.next skips to the next even node. Advance both. When even or even.next is null, you have processed everything — connect odd.next to evenHead. This must be done in O(1) extra space, ruling out any auxiliary list or array approach.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,4,5]",
+        "output": "[1,3,5,2,4]",
+        "explanation": "Odd-indexed nodes first, then even-indexed."
+      },
+      {
+        "input": "head = [2,1,3,5,6,4,7]",
+        "output": "[2,3,6,7,1,5,4]",
+        "explanation": "Odd positions grouped, then even positions."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the linked list is in the range [0, 10^4].",
+      "-10^6 <= Node.val <= 10^6"
+    ],
+    "hints": [
+      "Maintain two chains: one for odd-indexed nodes, one for even-indexed nodes.",
+      "Save evenHead at the start to reconnect later.",
+      "Connect the tail of the odd chain to evenHead at the end."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
+      "Apple",
+      "LinkedIn"
+    ],
+    "tags": [
+      "Linked List"
+    ],
+    "estimatedTime": "20 min",
+    "youtubeVideos": [
+      {
+        "title": "Odd Even Linked List - LeetCode 328",
+        "url": "https://youtube.com/watch?v=C_LA6SOwVSM"
+      }
+    ],
+    "relatedProblems": [
+      "Split Linked List in Parts"
+    ],
+    "followUp": [
+      "Can you solve it without saving the evenHead pointer separately?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,4,5]",
+        "output": "[1,3,5,2,4]"
+      },
+      {
+        "input": "[2,1,3,5,6,4,7]",
+        "output": "[2,3,6,7,1,5,4]"
+      }
+    ],
+    "acceptanceRate": "60.6%",
+    "likes": 8000,
+    "dislikes": 510
+  },
+  {
+    "_id": "ll_med_007",
+    "title": "Sort List",
+    "topic": "linked-lists",
+    "pattern": "merge-sort",
+    "difficulty": "Medium",
+    "platform": "LeetCode",
+    "problemNumber": 148,
+    "leetcodeUrl": "https://leetcode.com/problems/sort-list/",
+    "description": "Sorting a linked list in O(n log n) time is the challenge here. Quick sort is impractical (no random access, poor pivot selection). Heap sort requires converting to an array. Merge sort, however, maps beautifully onto linked lists. The top-down recursive approach finds the middle using fast-slow pointers, splits the list in two, recursively sorts each half, and merges them using the merge-two-sorted-lists technique. It runs in O(n log n) time but uses O(log n) stack space for recursion. The follow-up asks for O(1) space — this requires bottom-up iterative merge sort: start by merging pairs of size 1, then pairs of size 2, then 4, then 8, until the sublist size exceeds the list length. Each pass requires careful splitting by count and reconnecting tails. The bottom-up version is significantly harder to implement cleanly — getting the tail connections right at each merge boundary is where most implementations break.",
+    "examples": [
+      {
+        "input": "head = [4,2,1,3]",
+        "output": "[1,2,3,4]",
+        "explanation": "List sorted in ascending order."
+      },
+      {
+        "input": "head = [-1,5,3,4,0]",
+        "output": "[-1,0,3,4,5]",
+        "explanation": "Negative values handled correctly."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [0, 5 * 10^4].",
+      "-10^5 <= Node.val <= 10^5"
+    ],
+    "hints": [
+      "Use merge sort: find the middle, split, sort each half, then merge.",
+      "Find the middle using fast/slow pointers.",
+      "For O(1) space, use bottom-up iterative merge sort with doubling sublist sizes."
+    ],
+    "expectedTimeComplexity": "O(n log n)",
+    "expectedSpaceComplexity": "O(log n)",
+    "companies": [
+      "Amazon",
       "Adobe",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_hs_014",
-    "title": "Validate Hashing for Linked List 14",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1383,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-hashing-for-linked-list-14/",
-    "companies": [
       "Google",
-      "Netflix",
-      "Twilio"
+      "Microsoft"
     ],
     "tags": [
       "Linked List",
-      "Hashing"
+      "Divide and Conquer",
+      "Sorting",
+      "Merge Sort"
     ],
-    "estimatedTime": "30 min"
+    "estimatedTime": "35 min",
+    "youtubeVideos": [
+      {
+        "title": "Sort List - NeetCode",
+        "url": "https://youtube.com/watch?v=TGveA1oFglI"
+      }
+    ],
+    "relatedProblems": [
+      "Merge Two Sorted Lists",
+      "Sort Colors",
+      "Insertion Sort List"
+    ],
+    "followUp": [
+      "Can you sort the list in O(n log n) time and O(1) memory (i.e. constant space)?"
+    ],
+    "testCases": [
+      {
+        "input": "[4,2,1,3]",
+        "output": "[1,2,3,4]"
+      },
+      {
+        "input": "[-1,5,3,4,0]",
+        "output": "[-1,0,3,4,5]"
+      }
+    ],
+    "acceptanceRate": "56.3%",
+    "likes": 11000,
+    "dislikes": 350
   },
   {
-    "_id": "ll_hs_015",
-    "title": "Subsequence Hashing for Linked List 15",
-    "topic": "linkedlist",
-    "pattern": "hashing",
+    "_id": "ll_med_008",
+    "title": "Copy List with Random Pointer",
+    "topic": "linked-lists",
+    "pattern": "hash-map",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2590,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-hashing-for-linked-list-15/",
-    "companies": [
-      "LinkedIn",
-      "Uber",
-      "Netflix"
+    "problemNumber": 138,
+    "leetcodeUrl": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+    "description": "Each node has a next pointer and a random pointer that can point to any node in the list or to null. A shallow copy is straightforward — a deep copy where random pointers in the clone point to clone nodes (not original nodes) is the real challenge. The HashMap approach is intuitive: first pass creates all clone nodes and maps original to clone. Second pass sets next and random on each clone using the map to translate original references to clone references. The O(1) space approach is ingenious: interleave each clone node directly after its original in the same list (so list becomes A -> A' -> B -> B' -> ...). Now clone.random = original.random.next (since the clone of any node is always its next). Finally, separate the interleaved list back into two independent lists. Both approaches are interview-valid — the O(1) version signals deeper problem-solving ability.",
+    "examples": [
+      {
+        "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]",
+        "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]",
+        "explanation": "Deep copy with all next and random pointers correctly replicated."
+      },
+      {
+        "input": "head = [[1,1],[2,1]]",
+        "output": "[[1,1],[2,1]]",
+        "explanation": "All nodes deep copied with random pointers to clone nodes."
+      }
     ],
-    "tags": [
-      "Linked List",
-      "Hashing"
+    "constraints": [
+      "0 <= n <= 1000",
+      "-10^4 <= Node.val <= 10^4",
+      "Node.random is null or points to some node in the linked list."
     ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_hs_016",
-    "title": "Continuous Hashing for Linked List 16",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1708,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-linked-list-16/",
+    "hints": [
+      "Use a HashMap: original node -> clone node.",
+      "First pass: create all clones. Second pass: set next and random using the map.",
+      "For O(1) space, interleave clone nodes after their originals, then separate."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
     "companies": [
+      "Amazon",
+      "Bloomberg",
+      "Microsoft",
       "Meta"
     ],
     "tags": [
       "Linked List",
-      "Hashing"
+      "Hash Table"
     ],
-    "estimatedTime": "15 min"
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Copy List with Random Pointer - NeetCode",
+        "url": "https://youtube.com/watch?v=5Y2EiZST97Y"
+      }
+    ],
+    "relatedProblems": [
+      "Clone Graph",
+      "Clone Binary Tree With Random Pointer"
+    ],
+    "followUp": [
+      "Can you solve it in O(1) space by interleaving the copy nodes?"
+    ],
+    "testCases": [
+      {
+        "input": "[[7,null],[13,0],[11,4],[10,2],[1,0]]",
+        "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]"
+      }
+    ],
+    "acceptanceRate": "56.4%",
+    "likes": 13000,
+    "dislikes": 1400
   },
   {
-    "_id": "ll_hs_017",
-    "title": "Balanced Hashing for Linked List 17",
-    "topic": "linkedlist",
-    "pattern": "hashing",
+    "_id": "ll_med_009",
+    "title": "Rotate List",
+    "topic": "linked-lists",
+    "pattern": "two-pointers",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1859,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-linked-list-17/",
+    "problemNumber": 61,
+    "leetcodeUrl": "https://leetcode.com/problems/rotate-list/",
+    "description": "Rotating a list k positions to the right means the last k nodes move to the front. If k equals the list length, the list is unchanged — so always work with k mod length to avoid unnecessary rotations. The cleanest approach: find the length while reaching the tail, then form a circle by connecting tail to head. Now you have a ring. The new tail is at position (length - k % length - 1) counting from the original head. Break the circle there: new_head = new_tail.next, new_tail.next = null. What trips people up is computing the correct break point — drawing a small example first always helps. Edge cases include k = 0, k = length (no change), and single-node lists. The circular approach avoids two-pointer complexity and handles all cases cleanly with just length computation and one circular traversal.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,4,5], k = 2",
+        "output": "[4,5,1,2,3]",
+        "explanation": "Last 2 nodes rotate to the front."
+      },
+      {
+        "input": "head = [0,1,2], k = 4",
+        "output": "[2,0,1]",
+        "explanation": "k mod length = 1, so last 1 node rotates to the front."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [0, 500].",
+      "-100 <= Node.val <= 100",
+      "0 <= k <= 2 * 10^9"
+    ],
+    "hints": [
+      "Use k mod length to handle large k values.",
+      "Form a circular list, then break at the correct new tail position.",
+      "The new tail is at position (length - k % length - 1) from the original head."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
+      "Amazon",
+      "Microsoft",
+      "Bloomberg"
+    ],
+    "tags": [
+      "Linked List",
+      "Two Pointers"
+    ],
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Rotate List - NeetCode",
+        "url": "https://youtube.com/watch?v=UcGtPs2LE_c"
+      }
+    ],
+    "relatedProblems": [
+      "Rotate Array",
+      "Split Linked List in Parts"
+    ],
+    "followUp": [
+      "What if k could be negative (rotate left)?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,4,5], k=2",
+        "output": "[4,5,1,2,3]"
+      },
+      {
+        "input": "[0,1,2], k=4",
+        "output": "[2,0,1]"
+      }
+    ],
+    "acceptanceRate": "36.9%",
+    "likes": 9300,
+    "dislikes": 1400
+  },
+  {
+    "_id": "ll_hard_001",
+    "title": "Reverse Nodes in k-Group",
+    "topic": "linked-lists",
+    "pattern": "iterative-reversal",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "problemNumber": 25,
+    "leetcodeUrl": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+    "description": "This is the generalization of Swap Nodes in Pairs (where k=2) and represents one of the most complex pure pointer manipulation problems you will encounter. The algorithm must reverse every consecutive group of k nodes, leaving any remaining nodes (fewer than k) untouched at the end. For each group: first verify that k nodes exist starting from the current position — if not, stop. Then reverse those k nodes in place using the standard three-pointer reversal technique, tracking the head and tail of each reversed group. After reversal, the previous group's tail must connect to the new group's head (the original k-th node), and the new group's tail (the original first node) must connect to the start of the next group. Maintaining four pointers — prevGroupTail, groupStart, groupEnd, nextGroupStart — without confusion is the real test. The recursive version is cleaner to read but harder to space-optimize. This problem genuinely separates candidates who have internalized linked list pointers from those who are still guessing.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,4,5], k = 2",
+        "output": "[2,1,4,3,5]",
+        "explanation": "Pairs reversed: (2,1), (4,3), with 5 left as-is."
+      },
+      {
+        "input": "head = [1,2,3,4,5], k = 3",
+        "output": "[3,2,1,4,5]",
+        "explanation": "First group of 3 reversed; remaining 2 nodes left as-is."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is n.",
+      "1 <= k <= n <= 5000",
+      "0 <= Node.val <= 1000"
+    ],
+    "hints": [
+      "First check that k nodes exist before reversing each group.",
+      "Track prevGroupTail, groupStart, groupEnd, and nextGroupStart.",
+      "After reversal, connect prevGroupTail to the new head, and new tail to nextGroupStart."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
+      "Microsoft",
       "Meta",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_hs_018",
-    "title": "Count of Hashing for Linked List 18",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1195,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-linked-list-18/",
-    "companies": [
-      "Salesforce",
-      "Uber",
-      "Netflix"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_hs_019",
-    "title": "Validate Hashing for Linked List 19",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1284,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-hashing-for-linked-list-19/",
-    "companies": [
-      "ByteDance",
-      "Amazon",
-      "Netflix"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_hs_020",
-    "title": "Continuous Hashing for Linked List 20",
-    "topic": "linkedlist",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2208,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-linked-list-20/",
-    "companies": [
-      "Adobe",
-      "Google",
-      "Stripes"
-    ],
-    "tags": [
-      "Linked List",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "ll_ms_001",
-    "title": "Search Monotonic Stack for Linked List 1",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1271,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-linked-list-1/",
-    "companies": [
-      "ByteDance",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_ms_002",
-    "title": "Count of Monotonic Stack for Linked List 2",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2439,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-linked-list-2/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_ms_003",
-    "title": "Cyclic Monotonic Stack for Linked List 3",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1162,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-monotonic-stack-for-linked-list-3/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_ms_004",
-    "title": "Continuous Monotonic Stack for Linked List 4",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2678,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-linked-list-4/",
-    "companies": [
-      "Netflix",
-      "Twilio",
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "ll_ms_005",
-    "title": "Minimum Cost Monotonic Stack for Linked List 5",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1153,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-monotonic-stack-for-linked-list-5/",
-    "companies": [
-      "Bloomberg",
-      "Airbnb"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_ms_006",
-    "title": "Merge Monotonic Stack for Linked List 6",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1729,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-linked-list-6/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "ll_ms_007",
-    "title": "Continuous Monotonic Stack for Linked List 7",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1478,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-linked-list-7/",
-    "companies": [
-      "Twilio",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_ms_008",
-    "title": "Optimal Monotonic Stack for Linked List 8",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2361,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-monotonic-stack-for-linked-list-8/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_ms_009",
-    "title": "K-th Distance Monotonic Stack for Linked List 9",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1718,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-monotonic-stack-for-linked-list-9/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_ms_010",
-    "title": "Longest Monotonic Stack for Linked List 10",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2927,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-monotonic-stack-for-linked-list-10/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "ll_ms_011",
-    "title": "Count of Monotonic Stack for Linked List 11",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1500,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-linked-list-11/",
-    "companies": [
-      "Atlassian",
-      "Oracle"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "ll_ms_012",
-    "title": "Subarray Monotonic Stack for Linked List 12",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1903,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-linked-list-12/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_ms_013",
-    "title": "Search Monotonic Stack for Linked List 13",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2160,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-linked-list-13/",
-    "companies": [
-      "Uber",
-      "Amazon"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_ms_014",
-    "title": "Count of Monotonic Stack for Linked List 14",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2623,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-linked-list-14/",
-    "companies": [
       "Google"
     ],
     "tags": [
       "Linked List",
-      "Monotonic Stack"
+      "Recursion"
     ],
-    "estimatedTime": "15 min"
+    "estimatedTime": "45 min",
+    "youtubeVideos": [
+      {
+        "title": "Reverse Nodes in k-Group - NeetCode",
+        "url": "https://youtube.com/watch?v=1UOPsfP85V4"
+      }
+    ],
+    "relatedProblems": [
+      "Swap Nodes in Pairs",
+      "Reverse Linked List II"
+    ],
+    "followUp": [
+      "Can you solve it using O(1) extra space?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,4,5], k=2",
+        "output": "[2,1,4,3,5]"
+      },
+      {
+        "input": "[1,2,3,4,5], k=3",
+        "output": "[3,2,1,4,5]"
+      }
+    ],
+    "acceptanceRate": "58.2%",
+    "likes": 12000,
+    "dislikes": 540
   },
   {
-    "_id": "ll_ms_015",
-    "title": "Minimum Cost Monotonic Stack for Linked List 15",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
+    "_id": "ll_hard_002",
+    "title": "Merge k Sorted Lists",
+    "topic": "linked-lists",
+    "pattern": "merge-sort",
+    "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 1274,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-monotonic-stack-for-linked-list-15/",
+    "problemNumber": 23,
+    "leetcodeUrl": "https://leetcode.com/problems/merge-k-sorted-lists/",
+    "description": "You have k sorted linked lists and need to merge them all into one sorted list. The brute force — collect all values, sort, rebuild — works but misses the point. The optimal approach uses a Min-Heap of size k: initialize it with the head node of each non-empty list. At each step, extract the minimum node, append it to the result, and push that node's next into the heap. The heap always has at most k entries, so each insertion and extraction is O(log k). Total time is O(N log k) where N is the total number of nodes across all lists. The divide-and-conquer alternative repeatedly merges pairs of lists: in the first round you merge lists [0,1], [2,3], [4,5]... halving the number of lists each round. This runs in O(N log k) time too, with O(log k) recursion depth. Both approaches are valid — the heap is more intuitive, the divide-and-conquer is a natural extension of the merge sort mindset. The problem tests whether you can reason about complexity with multiple input dimensions.",
+    "examples": [
+      {
+        "input": "lists = [[1,4,5],[1,3,4],[2,6]]",
+        "output": "[1,1,2,3,4,4,5,6]",
+        "explanation": "All three sorted lists merged into one sorted list."
+      },
+      {
+        "input": "lists = []",
+        "output": "[]",
+        "explanation": "Empty input returns empty list."
+      },
+      {
+        "input": "lists = [[]]",
+        "output": "[]",
+        "explanation": "Single empty list returns empty list."
+      }
+    ],
+    "constraints": [
+      "k == lists.length",
+      "0 <= k <= 10^4",
+      "0 <= lists[i].length <= 500",
+      "-10^4 <= lists[i][j] <= 10^4",
+      "lists[i] is sorted in ascending order.",
+      "The sum of lists[i].length will not exceed 10^4."
+    ],
+    "hints": [
+      "Use a min-heap initialized with the head of each non-empty list.",
+      "Extract the min node, append to result, push its next into the heap.",
+      "Alternatively, use divide-and-conquer: repeatedly merge pairs of lists."
+    ],
+    "expectedTimeComplexity": "O(N log k)",
+    "expectedSpaceComplexity": "O(k)",
     "companies": [
       "Amazon",
-      "Adobe"
+      "Google",
+      "Meta",
+      "Uber"
     ],
     "tags": [
       "Linked List",
-      "Monotonic Stack"
+      "Divide and Conquer",
+      "Heap",
+      "Merge Sort"
     ],
-    "estimatedTime": "15 min"
+    "estimatedTime": "45 min",
+    "youtubeVideos": [
+      {
+        "title": "Merge k Sorted Lists - NeetCode",
+        "url": "https://youtube.com/watch?v=q5a5OiGbT6Q"
+      }
+    ],
+    "relatedProblems": [
+      "Merge Two Sorted Lists",
+      "Ugly Number II",
+      "Sort List"
+    ],
+    "followUp": [
+      "Can you solve it without a heap using divide and conquer?"
+    ],
+    "testCases": [
+      {
+        "input": "[[1,4,5],[1,3,4],[2,6]]",
+        "output": "[1,1,2,3,4,4,5,6]"
+      },
+      {
+        "input": "[]",
+        "output": "[]"
+      }
+    ],
+    "acceptanceRate": "51.8%",
+    "likes": 19000,
+    "dislikes": 740
   },
   {
-    "_id": "ll_ms_016",
-    "title": "Balanced Monotonic Stack for Linked List 16",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2174,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-monotonic-stack-for-linked-list-16/",
-    "companies": [
-      "Bloomberg",
-      "Twitter",
-      "Apple"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_ms_017",
-    "title": "Search Monotonic Stack for Linked List 17",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1814,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-linked-list-17/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "ll_ms_018",
-    "title": "Subsequence Monotonic Stack for Linked List 18",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
+    "_id": "ll_hard_003",
+    "title": "LRU Cache",
+    "topic": "linked-lists",
+    "pattern": "hash-map",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 2468,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-monotonic-stack-for-linked-list-18/",
+    "problemNumber": 146,
+    "leetcodeUrl": "https://leetcode.com/problems/lru-cache/",
+    "description": "A Least Recently Used cache evicts the item that was accessed least recently when it runs out of space. The challenge is implementing both get and put in O(1) time. A HashMap alone gives O(1) lookup but cannot efficiently track access order. A doubly linked list alone tracks order but offers O(n) lookup. Together, they solve the problem perfectly: the HashMap maps keys to node references, and the doubly linked list maintains access order — most recently used at the front (head), least recently used at the back (tail). On every get or put, the accessed node is moved to the front. On every put that exceeds capacity, the tail node is evicted. Two sentinel nodes (a dummy head and dummy tail) make insertion and deletion at both ends O(1) without any null-checking. This is one of the most commonly asked design problems at top-tier companies — not because it is tricky algorithmically, but because clean implementation under pressure separates prepared candidates from everyone else.",
+    "examples": [
+      {
+        "input": "LRUCache(2), put(1,1), put(2,2), get(1), put(3,3), get(2), put(4,4), get(1), get(3), get(4)",
+        "output": "[null,null,null,1,null,-1,null,1,3,4]",
+        "explanation": "Cache evicts LRU item when capacity is exceeded."
+      }
+    ],
+    "constraints": [
+      "1 <= capacity <= 3000",
+      "0 <= key <= 10^4",
+      "0 <= value <= 10^5",
+      "At most 2 * 10^5 calls will be made to get and put."
+    ],
+    "hints": [
+      "Combine a HashMap with a doubly linked list.",
+      "HashMap gives O(1) lookup; doubly linked list gives O(1) move-to-front and eviction.",
+      "Use dummy head and tail sentinels to avoid null-checking."
+    ],
+    "expectedTimeComplexity": "O(1)",
+    "expectedSpaceComplexity": "O(capacity)",
     "companies": [
-      "Netflix",
+      "Amazon",
+      "Google",
+      "Microsoft",
       "Bloomberg",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_ms_019",
-    "title": "Cyclic Monotonic Stack for Linked List 19",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1229,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-monotonic-stack-for-linked-list-19/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Linked List",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "ll_ms_020",
-    "title": "Count of Monotonic Stack for Linked List 20",
-    "topic": "linkedlist",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2207,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-linked-list-20/",
-    "companies": [
       "Meta"
     ],
     "tags": [
       "Linked List",
-      "Monotonic Stack"
+      "Hash Table",
+      "Design",
+      "Doubly-Linked List"
     ],
-    "estimatedTime": "15 min"
+    "estimatedTime": "45 min",
+    "youtubeVideos": [
+      {
+        "title": "LRU Cache - NeetCode",
+        "url": "https://youtube.com/watch?v=7ABFKPK2hD4"
+      }
+    ],
+    "relatedProblems": [
+      "LFU Cache",
+      "Design In-Memory File System",
+      "Design Most Recently Used Queue"
+    ],
+    "followUp": [
+      "How would you implement an LFU cache?"
+    ],
+    "testCases": [
+      {
+        "input": "capacity=2, put(1,1), put(2,2), get(1), put(3,3), get(2)",
+        "output": "-1"
+      }
+    ],
+    "acceptanceRate": "42.8%",
+    "likes": 21000,
+    "dislikes": 890
+  },
+  {
+    "_id": "ll_hard_004",
+    "title": "Remove Duplicates from Sorted List II",
+    "topic": "linked-lists",
+    "pattern": "sentinel-node",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "problemNumber": 82,
+    "leetcodeUrl": "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/",
+    "description": "Unlike its easier cousin (problem 83) which keeps one copy of each duplicated value, this problem demands total elimination — if a value appears more than once anywhere in the list, every node with that value must be removed. A sentinel dummy node is non-negotiable: the head itself might need deletion, and the sentinel gives it a predecessor. Maintain a prev pointer that always points to the last confirmed unique node. Walk forward with curr: if curr and curr.next have the same value, you have found a duplicate cluster — keep advancing curr while duplicates continue, then connect prev.next to curr.next, skipping the entire cluster. If no duplicate is found at curr, safely advance prev to curr. The tricky part is never advancing prev into the duplicate zone — prev must remain anchored at the last clean node until the coast is clear. This problem is rated hard not for complexity but for the precision required in pointer updates.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,3,4,4,5]",
+        "output": "[1,2,5]",
+        "explanation": "All nodes with values 3 and 4 are removed entirely."
+      },
+      {
+        "input": "head = [1,1,1,2,3]",
+        "output": "[2,3]",
+        "explanation": "All nodes with value 1 are removed."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [0, 300].",
+      "-100 <= Node.val <= 100",
+      "The list is guaranteed to be sorted in ascending order."
+    ],
+    "hints": [
+      "Use a dummy sentinel node so the head can be deleted uniformly.",
+      "Keep prev anchored at the last confirmed unique node.",
+      "When a duplicate cluster is found, skip the entire cluster before advancing prev."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
+      "Bloomberg",
+      "Google"
+    ],
+    "tags": [
+      "Linked List",
+      "Two Pointers"
+    ],
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Remove Duplicates from Sorted List II - NeetCode",
+        "url": "https://youtube.com/watch?v=3Qm23f-CiGk"
+      }
+    ],
+    "relatedProblems": [
+      "Remove Duplicates from Sorted List",
+      "Remove Duplicates from Sorted Array II"
+    ],
+    "followUp": [
+      "What if the list is not sorted — how would your approach change?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,3,4,4,5]",
+        "output": "[1,2,5]"
+      },
+      {
+        "input": "[1,1,1,2,3]",
+        "output": "[2,3]"
+      }
+    ],
+    "acceptanceRate": "46.8%",
+    "likes": 8900,
+    "dislikes": 230
+  },
+  {
+    "_id": "ll_hard_005",
+    "title": "Design Linked List",
+    "topic": "linked-lists",
+    "pattern": "simulation",
+    "difficulty": "Hard",
+    "platform": "LeetCode",
+    "problemNumber": 707,
+    "leetcodeUrl": "https://leetcode.com/problems/design-linked-list/",
+    "description": "Building a linked list from scratch forces you to implement every operation you have been taking for granted: get by index, insert at head, insert at tail, insert at arbitrary index, and delete by index. You must handle all edge cases — empty list, single node, out-of-bounds index, inserting at head versus tail versus middle. A sentinel dummy head node simplifies everything: all insertions become 'insert after some predecessor' and there is always a predecessor. Track the size at all times to validate indices and to efficiently decide whether to insert at head or tail. For doubly linked list implementation, add a sentinel tail too and maintain prev pointers — this makes deletion O(1) since you have direct access to neighbors. The reason this is listed as hard is not algorithmic complexity but implementation correctness across all edge cases simultaneously. It is the ultimate test of whether you actually understand how linked lists work rather than just memorizing patterns.",
+    "examples": [
+      {
+        "input": "MyLinkedList(), addAtHead(1), addAtTail(3), addAtIndex(1,2), get(1), deleteAtIndex(1), get(1)",
+        "output": "[null,null,null,null,2,null,3]",
+        "explanation": "List becomes [1,2,3]; get(1) returns 2; after delete, get(1) returns 3."
+      }
+    ],
+    "constraints": [
+      "0 <= index, val <= 1000",
+      "Please do not use the built-in LinkedList library.",
+      "At most 2000 calls will be made to get, addAtHead, addAtTail, addAtIndex and deleteAtIndex."
+    ],
+    "hints": [
+      "Use a sentinel dummy head so all insertions are 'insert after predecessor'.",
+      "Track the list size to validate indices and avoid out-of-bounds errors.",
+      "For doubly linked list, add a dummy tail as well to simplify deletion."
+    ],
+    "expectedTimeComplexity": "O(n) per operation",
+    "expectedSpaceComplexity": "O(n)",
+    "companies": [
+      "Amazon",
+      "Microsoft",
+      "Adobe"
+    ],
+    "tags": [
+      "Linked List",
+      "Design"
+    ],
+    "estimatedTime": "40 min",
+    "youtubeVideos": [
+      {
+        "title": "Design Linked List - LeetCode 707",
+        "url": "https://youtube.com/watch?v=Wf4QhpdVFQo"
+      }
+    ],
+    "relatedProblems": [
+      "Design HashMap",
+      "Design HashSet",
+      "LRU Cache"
+    ],
+    "followUp": [
+      "Can you implement it as a doubly linked list for O(1) deletion?"
+    ],
+    "testCases": [
+      {
+        "input": "addAtHead(1), addAtTail(3), addAtIndex(1,2), get(1)",
+        "output": "2"
+      },
+      {
+        "input": "addAtHead(1), deleteAtIndex(0), get(0)",
+        "output": "-1"
+      }
+    ],
+    "acceptanceRate": "27.3%",
+    "likes": 3900,
+    "dislikes": 2800
   }
 ]

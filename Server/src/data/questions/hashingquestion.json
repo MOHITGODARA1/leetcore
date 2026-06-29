@@ -1,3423 +1,1649 @@
 [
-  {
-    "_id": "hash_tp_001",
-    "title": "Minimum Cost Two Pointers for Hashing 1",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2838,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-hashing-1/",
-    "companies": [
-      "Twitter",
-      "ByteDance"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_tp_002",
-    "title": "K-th Distance Two Pointers for Hashing 2",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2017,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-two-pointers-for-hashing-2/",
-    "companies": [
-      "Bloomberg",
-      "Adobe"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_tp_003",
-    "title": "Optimal Two Pointers for Hashing 3",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2606,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-two-pointers-for-hashing-3/",
-    "companies": [
-      "Twitter",
-      "Uber",
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_tp_004",
-    "title": "Minimum Cost Two Pointers for Hashing 4",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1583,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-hashing-4/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_tp_005",
-    "title": "Optimal Two Pointers for Hashing 5",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2237,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-two-pointers-for-hashing-5/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_tp_006",
-    "title": "Cyclic Two Pointers for Hashing 6",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1777,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-two-pointers-for-hashing-6/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_tp_007",
-    "title": "Subarray Two Pointers for Hashing 7",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1556,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-hashing-7/",
-    "companies": [
-      "Stripes",
-      "Atlassian",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_tp_008",
-    "title": "K-th Distance Two Pointers for Hashing 8",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2668,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-two-pointers-for-hashing-8/",
-    "companies": [
-      "Bloomberg",
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_tp_009",
-    "title": "Optimal Two Pointers for Hashing 9",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1628,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-two-pointers-for-hashing-9/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_tp_010",
-    "title": "Longest Two Pointers for Hashing 10",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2272,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-two-pointers-for-hashing-10/",
-    "companies": [
-      "Meta",
-      "Stripes",
-      "ByteDance"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_tp_011",
-    "title": "Minimum Cost Two Pointers for Hashing 11",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2170,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-hashing-11/",
-    "companies": [
-      "Meta",
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_tp_012",
-    "title": "K-th Distance Two Pointers for Hashing 12",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2779,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-two-pointers-for-hashing-12/",
-    "companies": [
-      "Amazon",
-      "Salesforce",
-      "Uber"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_tp_013",
-    "title": "Optimal Two Pointers for Hashing 13",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2892,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-two-pointers-for-hashing-13/",
-    "companies": [
-      "Stripes",
-      "Google",
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_tp_014",
-    "title": "Shortest Two Pointers for Hashing 14",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2830,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-two-pointers-for-hashing-14/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_tp_015",
-    "title": "Count of Two Pointers for Hashing 15",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1742,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-two-pointers-for-hashing-15/",
-    "companies": [
-      "Salesforce",
-      "Google",
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_tp_016",
-    "title": "Subsequence Two Pointers for Hashing 16",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1291,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-two-pointers-for-hashing-16/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_tp_017",
-    "title": "Count of Two Pointers for Hashing 17",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2592,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-two-pointers-for-hashing-17/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_tp_018",
-    "title": "Merge Two Pointers for Hashing 18",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1433,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-two-pointers-for-hashing-18/",
-    "companies": [
-      "Stripes",
-      "Salesforce",
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_tp_019",
-    "title": "Maximal Two Pointers for Hashing 19",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2237,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-two-pointers-for-hashing-19/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_tp_020",
-    "title": "Subsequence Two Pointers for Hashing 20",
-    "topic": "hashing",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2571,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-two-pointers-for-hashing-20/",
-    "companies": [
-      "LinkedIn",
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_sw_001",
-    "title": "Search Sliding Window for Hashing 1",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1003,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-hashing-1/",
-    "companies": [
-      "Adobe",
-      "Atlassian",
-      "Meta"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_sw_002",
-    "title": "Subsequence Sliding Window for Hashing 2",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2190,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sliding-window-for-hashing-2/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_sw_003",
-    "title": "Merge Sliding Window for Hashing 3",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2203,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sliding-window-for-hashing-3/",
-    "companies": [
-      "Atlassian",
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_sw_004",
-    "title": "Shortest Sliding Window for Hashing 4",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2570,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sliding-window-for-hashing-4/",
-    "companies": [
-      "Apple",
-      "Tencent"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_sw_005",
-    "title": "Validate Sliding Window for Hashing 5",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2785,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sliding-window-for-hashing-5/",
-    "companies": [
-      "Oracle",
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_sw_006",
-    "title": "Shortest Sliding Window for Hashing 6",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2256,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sliding-window-for-hashing-6/",
-    "companies": [
-      "Amazon",
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_sw_007",
-    "title": "K-th Distance Sliding Window for Hashing 7",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2899,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sliding-window-for-hashing-7/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_sw_008",
-    "title": "Validate Sliding Window for Hashing 8",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2957,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sliding-window-for-hashing-8/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_sw_009",
-    "title": "Merge Sliding Window for Hashing 9",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1017,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sliding-window-for-hashing-9/",
-    "companies": [
-      "Stripes",
-      "Apple",
-      "Salesforce"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_sw_010",
-    "title": "Maximal Sliding Window for Hashing 10",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1227,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-hashing-10/",
-    "companies": [
-      "Microsoft",
-      "Atlassian",
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_sw_011",
-    "title": "Maximal Sliding Window for Hashing 11",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1347,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-hashing-11/",
-    "companies": [
-      "Bloomberg",
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_sw_012",
-    "title": "Maximal Sliding Window for Hashing 12",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1998,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-hashing-12/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_sw_013",
-    "title": "Cyclic Sliding Window for Hashing 13",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2482,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sliding-window-for-hashing-13/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_sw_014",
-    "title": "Shortest Sliding Window for Hashing 14",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2196,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sliding-window-for-hashing-14/",
-    "companies": [
-      "Stripes",
-      "Uber",
-      "Salesforce"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_sw_015",
-    "title": "Minimum Cost Sliding Window for Hashing 15",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2372,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sliding-window-for-hashing-15/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_sw_016",
-    "title": "K-th Distance Sliding Window for Hashing 16",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2657,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sliding-window-for-hashing-16/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_sw_017",
-    "title": "Count of Sliding Window for Hashing 17",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2437,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-hashing-17/",
-    "companies": [
-      "Bloomberg",
-      "Amazon",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_sw_018",
-    "title": "Cyclic Sliding Window for Hashing 18",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1417,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sliding-window-for-hashing-18/",
-    "companies": [
-      "Meta",
-      "Bloomberg",
-      "Uber"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_sw_019",
-    "title": "Search Sliding Window for Hashing 19",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1247,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-hashing-19/",
-    "companies": [
-      "Meta",
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_sw_020",
-    "title": "Balanced Sliding Window for Hashing 20",
-    "topic": "hashing",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2900,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sliding-window-for-hashing-20/",
-    "companies": [
-      "Netflix",
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_ps_001",
-    "title": "Balanced Prefix Sum for Hashing 1",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2920,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-prefix-sum-for-hashing-1/",
-    "companies": [
-      "Google",
-      "Tencent",
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_ps_002",
-    "title": "Shortest Prefix Sum for Hashing 2",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2557,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-prefix-sum-for-hashing-2/",
-    "companies": [
-      "Salesforce",
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ps_003",
-    "title": "Cyclic Prefix Sum for Hashing 3",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1446,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-prefix-sum-for-hashing-3/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_ps_004",
-    "title": "Validate Prefix Sum for Hashing 4",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2080,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-hashing-4/",
-    "companies": [
-      "Twilio",
-      "Meta",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ps_005",
-    "title": "Search Prefix Sum for Hashing 5",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1482,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-hashing-5/",
-    "companies": [
-      "Adobe",
-      "Microsoft",
-      "Salesforce"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_ps_006",
-    "title": "K-th Distance Prefix Sum for Hashing 6",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2243,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-hashing-6/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ps_007",
-    "title": "Search Prefix Sum for Hashing 7",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1231,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-hashing-7/",
-    "companies": [
-      "Twitter",
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_ps_008",
-    "title": "Optimal Prefix Sum for Hashing 8",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2182,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-hashing-8/",
-    "companies": [
-      "Meta",
-      "Apple",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_ps_009",
-    "title": "Subarray Prefix Sum for Hashing 9",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2960,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-prefix-sum-for-hashing-9/",
-    "companies": [
-      "Microsoft",
-      "Meta"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ps_010",
-    "title": "Search Prefix Sum for Hashing 10",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1310,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-hashing-10/",
-    "companies": [
-      "Google",
-      "Twilio"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ps_011",
-    "title": "Subsequence Prefix Sum for Hashing 11",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2941,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-prefix-sum-for-hashing-11/",
-    "companies": [
-      "Apple",
-      "Tencent"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_ps_012",
-    "title": "Optimal Prefix Sum for Hashing 12",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1245,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-hashing-12/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ps_013",
-    "title": "Merge Prefix Sum for Hashing 13",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2188,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-prefix-sum-for-hashing-13/",
-    "companies": [
-      "Tencent",
-      "Airbnb",
-      "ByteDance"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_ps_014",
-    "title": "K-th Distance Prefix Sum for Hashing 14",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1412,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-hashing-14/",
-    "companies": [
-      "Bloomberg",
-      "Twilio"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_ps_015",
-    "title": "Count of Prefix Sum for Hashing 15",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2664,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-prefix-sum-for-hashing-15/",
-    "companies": [
-      "Adobe",
-      "Stripes",
-      "Uber"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_ps_016",
-    "title": "Optimal Prefix Sum for Hashing 16",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2101,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-hashing-16/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_ps_017",
-    "title": "Merge Prefix Sum for Hashing 17",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1708,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-prefix-sum-for-hashing-17/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_ps_018",
-    "title": "Optimal Prefix Sum for Hashing 18",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1531,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-hashing-18/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_ps_019",
-    "title": "Optimal Prefix Sum for Hashing 19",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2323,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-hashing-19/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_ps_020",
-    "title": "Search Prefix Sum for Hashing 20",
-    "topic": "hashing",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1246,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-hashing-20/",
-    "companies": [
-      "Microsoft",
-      "Oracle",
-      "Amazon"
-    ],
-    "tags": [
-      "Hashing",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_bs_001",
-    "title": "Continuous Binary Search for Hashing 1",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1480,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-binary-search-for-hashing-1/",
-    "companies": [
-      "Stripes",
-      "Twitter"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_bs_002",
-    "title": "Optimal Binary Search for Hashing 2",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2501,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-hashing-2/",
-    "companies": [
-      "Atlassian",
-      "Google"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_bs_003",
-    "title": "K-th Distance Binary Search for Hashing 3",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2573,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-binary-search-for-hashing-3/",
-    "companies": [
-      "Airbnb",
-      "ByteDance"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_bs_004",
-    "title": "Maximal Binary Search for Hashing 4",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1837,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-hashing-4/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_bs_005",
-    "title": "Minimum Cost Binary Search for Hashing 5",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2016,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-hashing-5/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_bs_006",
-    "title": "Subsequence Binary Search for Hashing 6",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2433,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-hashing-6/",
-    "companies": [
-      "Stripes",
-      "Amazon"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_bs_007",
-    "title": "Validate Binary Search for Hashing 7",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2072,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-binary-search-for-hashing-7/",
-    "companies": [
-      "Meta",
-      "Microsoft",
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_bs_008",
-    "title": "Optimal Binary Search for Hashing 8",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1026,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-hashing-8/",
-    "companies": [
-      "Bloomberg",
-      "Amazon",
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_bs_009",
-    "title": "Subsequence Binary Search for Hashing 9",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1769,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-hashing-9/",
-    "companies": [
-      "Apple",
-      "Meta",
-      "Tencent"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_bs_010",
-    "title": "Subsequence Binary Search for Hashing 10",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1161,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-hashing-10/",
-    "companies": [
-      "Adobe",
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_bs_011",
-    "title": "Merge Binary Search for Hashing 11",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1946,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-hashing-11/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_bs_012",
-    "title": "Search Binary Search for Hashing 12",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2775,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-hashing-12/",
-    "companies": [
-      "Airbnb",
-      "Twilio",
-      "Amazon"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_bs_013",
-    "title": "Optimal Binary Search for Hashing 13",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2029,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-hashing-13/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_bs_014",
-    "title": "Longest Binary Search for Hashing 14",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1329,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-binary-search-for-hashing-14/",
-    "companies": [
-      "Amazon",
-      "Meta",
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_bs_015",
-    "title": "Continuous Binary Search for Hashing 15",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2364,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-binary-search-for-hashing-15/",
-    "companies": [
-      "Microsoft",
-      "Salesforce",
-      "Uber"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_bs_016",
-    "title": "Merge Binary Search for Hashing 16",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2706,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-hashing-16/",
-    "companies": [
-      "Twitter",
-      "Google"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_bs_017",
-    "title": "Cyclic Binary Search for Hashing 17",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2998,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-hashing-17/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_bs_018",
-    "title": "Minimum Cost Binary Search for Hashing 18",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2737,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-hashing-18/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_bs_019",
-    "title": "K-th Distance Binary Search for Hashing 19",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1194,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-binary-search-for-hashing-19/",
-    "companies": [
-      "LinkedIn",
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_bs_020",
-    "title": "Maximal Binary Search for Hashing 20",
-    "topic": "hashing",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2982,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-hashing-20/",
-    "companies": [
-      "Meta",
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_mt_001",
-    "title": "Merge Matrix for Hashing 1",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2890,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-hashing-1/",
-    "companies": [
-      "Amazon",
-      "ByteDance",
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_mt_002",
-    "title": "Minimum Cost Matrix for Hashing 2",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2106,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-matrix-for-hashing-2/",
-    "companies": [
-      "Tencent",
-      "Meta",
-      "Salesforce"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_mt_003",
-    "title": "K-th Distance Matrix for Hashing 3",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1662,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-hashing-3/",
-    "companies": [
-      "Microsoft",
-      "Oracle",
-      "Amazon"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_mt_004",
-    "title": "Minimum Cost Matrix for Hashing 4",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1577,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-matrix-for-hashing-4/",
-    "companies": [
-      "Meta",
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_mt_005",
-    "title": "Longest Matrix for Hashing 5",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2380,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-hashing-5/",
-    "companies": [
-      "Adobe",
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_mt_006",
-    "title": "Merge Matrix for Hashing 6",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1851,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-hashing-6/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_mt_007",
-    "title": "K-th Distance Matrix for Hashing 7",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1639,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-hashing-7/",
-    "companies": [
-      "Airbnb",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_mt_008",
-    "title": "Minimum Cost Matrix for Hashing 8",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2550,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-matrix-for-hashing-8/",
-    "companies": [
-      "Stripes",
-      "Bloomberg",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_mt_009",
-    "title": "Search Matrix for Hashing 9",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2889,
-    "leetcodeUrl": "https://leetcode.com/problems/search-matrix-for-hashing-9/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_mt_010",
-    "title": "Shortest Matrix for Hashing 10",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2746,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-hashing-10/",
-    "companies": [
-      "Twitter",
-      "Salesforce"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_mt_011",
-    "title": "Merge Matrix for Hashing 11",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1446,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-hashing-11/",
-    "companies": [
-      "Microsoft",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_mt_012",
-    "title": "Optimal Matrix for Hashing 12",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1434,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-matrix-for-hashing-12/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_mt_013",
-    "title": "Search Matrix for Hashing 13",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1387,
-    "leetcodeUrl": "https://leetcode.com/problems/search-matrix-for-hashing-13/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_mt_014",
-    "title": "Balanced Matrix for Hashing 14",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2616,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-matrix-for-hashing-14/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_mt_015",
-    "title": "Search Matrix for Hashing 15",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2160,
-    "leetcodeUrl": "https://leetcode.com/problems/search-matrix-for-hashing-15/",
-    "companies": [
-      "Oracle",
-      "Salesforce"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_mt_016",
-    "title": "Optimal Matrix for Hashing 16",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2036,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-matrix-for-hashing-16/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_mt_017",
-    "title": "Validate Matrix for Hashing 17",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1675,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-matrix-for-hashing-17/",
-    "companies": [
-      "Amazon",
-      "Salesforce",
-      "ByteDance"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_mt_018",
-    "title": "Count of Matrix for Hashing 18",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1313,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-matrix-for-hashing-18/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_mt_019",
-    "title": "Shortest Matrix for Hashing 19",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2877,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-hashing-19/",
-    "companies": [
-      "ByteDance",
-      "Adobe"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_mt_020",
-    "title": "Count of Matrix for Hashing 20",
-    "topic": "hashing",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2252,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-matrix-for-hashing-20/",
-    "companies": [
-      "Meta",
-      "Adobe"
-    ],
-    "tags": [
-      "Hashing",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_srt_001",
-    "title": "Minimum Cost Sorting for Hashing 1",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2385,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sorting-for-hashing-1/",
-    "companies": [
-      "Google",
-      "ByteDance",
-      "Twitter"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_srt_002",
-    "title": "Count of Sorting for Hashing 2",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2009,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sorting-for-hashing-2/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_srt_003",
-    "title": "Minimum Cost Sorting for Hashing 3",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2324,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sorting-for-hashing-3/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_srt_004",
-    "title": "Count of Sorting for Hashing 4",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2843,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sorting-for-hashing-4/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_srt_005",
-    "title": "Shortest Sorting for Hashing 5",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1194,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-hashing-5/",
-    "companies": [
-      "Twitter",
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_srt_006",
-    "title": "Minimum Cost Sorting for Hashing 6",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2365,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sorting-for-hashing-6/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_srt_007",
-    "title": "Search Sorting for Hashing 7",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2616,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-hashing-7/",
-    "companies": [
-      "Oracle",
-      "Netflix",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_srt_008",
-    "title": "Cyclic Sorting for Hashing 8",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1318,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-hashing-8/",
-    "companies": [
-      "Netflix",
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_srt_009",
-    "title": "Count of Sorting for Hashing 9",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1645,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sorting-for-hashing-9/",
-    "companies": [
-      "Twilio",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_srt_010",
-    "title": "Shortest Sorting for Hashing 10",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2390,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-hashing-10/",
-    "companies": [
-      "Microsoft",
-      "LinkedIn",
-      "ByteDance"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_srt_011",
-    "title": "Count of Sorting for Hashing 11",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2729,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sorting-for-hashing-11/",
-    "companies": [
-      "LinkedIn",
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_srt_012",
-    "title": "Validate Sorting for Hashing 12",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1627,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sorting-for-hashing-12/",
-    "companies": [
-      "Tencent",
-      "Twilio"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_srt_013",
-    "title": "Continuous Sorting for Hashing 13",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1463,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sorting-for-hashing-13/",
-    "companies": [
-      "LinkedIn",
-      "Apple",
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_srt_014",
-    "title": "Merge Sorting for Hashing 14",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2377,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sorting-for-hashing-14/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_srt_015",
-    "title": "Continuous Sorting for Hashing 15",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1743,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sorting-for-hashing-15/",
-    "companies": [
-      "Apple",
-      "ByteDance",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_srt_016",
-    "title": "Optimal Sorting for Hashing 16",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1795,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-hashing-16/",
-    "companies": [
-      "Uber",
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_srt_017",
-    "title": "Optimal Sorting for Hashing 17",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1507,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-hashing-17/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_srt_018",
-    "title": "Continuous Sorting for Hashing 18",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2424,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sorting-for-hashing-18/",
-    "companies": [
-      "Twilio",
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_srt_019",
-    "title": "Subarray Sorting for Hashing 19",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1719,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sorting-for-hashing-19/",
-    "companies": [
-      "Salesforce",
-      "Twitter"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_srt_020",
-    "title": "Continuous Sorting for Hashing 20",
-    "topic": "hashing",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1114,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sorting-for-hashing-20/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_kd_001",
-    "title": "Merge Kadane’s Algorithm for Hashing 1",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2485,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-kadane-s-algorithm-for-hashing-1/",
-    "companies": [
-      "Google",
-      "Salesforce"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_kd_002",
-    "title": "Count of Kadane’s Algorithm for Hashing 2",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1808,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-kadane-s-algorithm-for-hashing-2/",
-    "companies": [
-      "Meta",
-      "Tencent"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_kd_003",
-    "title": "Minimum Cost Kadane’s Algorithm for Hashing 3",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2050,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-hashing-3/",
-    "companies": [
-      "Twitter",
-      "ByteDance",
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_kd_004",
-    "title": "K-th Distance Kadane’s Algorithm for Hashing 4",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2968,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-kadane-s-algorithm-for-hashing-4/",
-    "companies": [
-      "Microsoft",
-      "Atlassian",
-      "Meta"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_kd_005",
-    "title": "Longest Kadane’s Algorithm for Hashing 5",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2323,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-hashing-5/",
-    "companies": [
-      "ByteDance",
-      "Amazon"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_kd_006",
-    "title": "Search Kadane’s Algorithm for Hashing 6",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2892,
-    "leetcodeUrl": "https://leetcode.com/problems/search-kadane-s-algorithm-for-hashing-6/",
-    "companies": [
-      "Netflix",
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_kd_007",
-    "title": "Subarray Kadane’s Algorithm for Hashing 7",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2797,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-hashing-7/",
-    "companies": [
-      "LinkedIn",
-      "Atlassian",
-      "Salesforce"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_kd_008",
-    "title": "Count of Kadane’s Algorithm for Hashing 8",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2674,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-kadane-s-algorithm-for-hashing-8/",
-    "companies": [
-      "LinkedIn",
-      "Adobe"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_kd_009",
-    "title": "K-th Distance Kadane’s Algorithm for Hashing 9",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1055,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-kadane-s-algorithm-for-hashing-9/",
-    "companies": [
-      "ByteDance",
-      "Adobe",
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_kd_010",
-    "title": "Subarray Kadane’s Algorithm for Hashing 10",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2422,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-hashing-10/",
-    "companies": [
-      "Tencent",
-      "Bloomberg",
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_kd_011",
-    "title": "Count of Kadane’s Algorithm for Hashing 11",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2690,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-kadane-s-algorithm-for-hashing-11/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_kd_012",
-    "title": "Maximal Kadane’s Algorithm for Hashing 12",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2195,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-hashing-12/",
-    "companies": [
-      "ByteDance",
-      "Meta",
-      "Tencent"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_kd_013",
-    "title": "K-th Distance Kadane’s Algorithm for Hashing 13",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2958,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-kadane-s-algorithm-for-hashing-13/",
-    "companies": [
-      "Adobe",
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_kd_014",
-    "title": "Optimal Kadane’s Algorithm for Hashing 14",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2823,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-kadane-s-algorithm-for-hashing-14/",
-    "companies": [
-      "LinkedIn",
-      "Stripes",
-      "Amazon"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_kd_015",
-    "title": "Cyclic Kadane’s Algorithm for Hashing 15",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2725,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-kadane-s-algorithm-for-hashing-15/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_kd_016",
-    "title": "Continuous Kadane’s Algorithm for Hashing 16",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1249,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-kadane-s-algorithm-for-hashing-16/",
-    "companies": [
-      "Adobe",
-      "Microsoft"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_kd_017",
-    "title": "Subsequence Kadane’s Algorithm for Hashing 17",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1372,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-kadane-s-algorithm-for-hashing-17/",
-    "companies": [
-      "Salesforce",
-      "Uber",
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_kd_018",
-    "title": "Longest Kadane’s Algorithm for Hashing 18",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1444,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-hashing-18/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_kd_019",
-    "title": "Shortest Kadane’s Algorithm for Hashing 19",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2022,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-kadane-s-algorithm-for-hashing-19/",
-    "companies": [
-      "Twilio",
-      "Bloomberg",
-      "Amazon"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_kd_020",
-    "title": "Maximal Kadane’s Algorithm for Hashing 20",
-    "topic": "hashing",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1117,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-hashing-20/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Hashing",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_hs_001",
-    "title": "Longest Hashing for Hashing 1",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2414,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-hashing-for-hashing-1/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_hs_002",
-    "title": "Continuous Hashing for Hashing 2",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1430,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-hashing-2/",
-    "companies": [
-      "Tencent",
-      "Uber",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_hs_003",
-    "title": "Merge Hashing for Hashing 3",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2198,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-hashing-for-hashing-3/",
-    "companies": [
-      "Microsoft",
-      "Meta"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_hs_004",
-    "title": "K-th Distance Hashing for Hashing 4",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1325,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-hashing-for-hashing-4/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_hs_005",
-    "title": "Balanced Hashing for Hashing 5",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2113,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-hashing-5/",
-    "companies": [
-      "Uber",
-      "Airbnb",
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_hs_006",
-    "title": "Validate Hashing for Hashing 6",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1436,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-hashing-for-hashing-6/",
-    "companies": [
-      "Tencent",
-      "Amazon",
-      "Google"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_hs_007",
-    "title": "Continuous Hashing for Hashing 7",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1665,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-hashing-7/",
-    "companies": [
-      "Apple",
-      "Twitter",
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_hs_008",
-    "title": "Count of Hashing for Hashing 8",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2145,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-hashing-8/",
-    "companies": [
-      "Adobe",
-      "Airbnb",
-      "Uber"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_hs_009",
-    "title": "Longest Hashing for Hashing 9",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1526,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-hashing-for-hashing-9/",
-    "companies": [
-      "Google",
-      "LinkedIn",
-      "Uber"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_hs_010",
-    "title": "Search Hashing for Hashing 10",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2178,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-hashing-10/",
-    "companies": [
-      "Atlassian",
-      "Stripes",
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_hs_011",
-    "title": "Minimum Cost Hashing for Hashing 11",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2262,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-hashing-for-hashing-11/",
-    "companies": [
-      "Microsoft",
-      "ByteDance",
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_hs_012",
-    "title": "Merge Hashing for Hashing 12",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2664,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-hashing-for-hashing-12/",
-    "companies": [
-      "Netflix",
-      "Adobe"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_hs_013",
-    "title": "Maximal Hashing for Hashing 13",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1303,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-hashing-for-hashing-13/",
-    "companies": [
-      "Twilio",
-      "Google"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_hs_014",
-    "title": "K-th Distance Hashing for Hashing 14",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2853,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-hashing-for-hashing-14/",
-    "companies": [
-      "Meta",
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_hs_015",
-    "title": "Continuous Hashing for Hashing 15",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2656,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-hashing-15/",
-    "companies": [
-      "Microsoft",
-      "Meta",
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_hs_016",
-    "title": "Validate Hashing for Hashing 16",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2517,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-hashing-for-hashing-16/",
-    "companies": [
-      "Netflix",
-      "Uber",
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_hs_017",
-    "title": "Count of Hashing for Hashing 17",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2366,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-hashing-17/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_hs_018",
-    "title": "Search Hashing for Hashing 18",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1676,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-hashing-18/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_hs_019",
-    "title": "Shortest Hashing for Hashing 19",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2359,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-hashing-for-hashing-19/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_hs_020",
-    "title": "Subarray Hashing for Hashing 20",
-    "topic": "hashing",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2859,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-hashing-for-hashing-20/",
-    "companies": [
-      "Google",
-      "Oracle",
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_ms_001",
-    "title": "Count of Monotonic Stack for Hashing 1",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1855,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-hashing-1/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_ms_002",
-    "title": "Minimum Cost Monotonic Stack for Hashing 2",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2768,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-monotonic-stack-for-hashing-2/",
-    "companies": [
-      "Meta",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_ms_003",
-    "title": "Shortest Monotonic Stack for Hashing 3",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2962,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-monotonic-stack-for-hashing-3/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_ms_004",
-    "title": "Cyclic Monotonic Stack for Hashing 4",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2950,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-monotonic-stack-for-hashing-4/",
-    "companies": [
-      "Uber",
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_ms_005",
-    "title": "Count of Monotonic Stack for Hashing 5",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2644,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-hashing-5/",
-    "companies": [
-      "Stripes",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_ms_006",
-    "title": "Subarray Monotonic Stack for Hashing 6",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2196,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-hashing-6/",
-    "companies": [
-      "Stripes",
-      "Bloomberg",
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ms_007",
-    "title": "Subarray Monotonic Stack for Hashing 7",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1423,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-hashing-7/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "hash_ms_008",
-    "title": "Balanced Monotonic Stack for Hashing 8",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1645,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-monotonic-stack-for-hashing-8/",
-    "companies": [
-      "Adobe",
-      "ByteDance",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_ms_009",
-    "title": "Shortest Monotonic Stack for Hashing 9",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1895,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-monotonic-stack-for-hashing-9/",
-    "companies": [
-      "Apple",
-      "Tencent"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "hash_ms_010",
-    "title": "Maximal Monotonic Stack for Hashing 10",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1786,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-monotonic-stack-for-hashing-10/",
-    "companies": [
-      "Salesforce",
-      "LinkedIn",
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "hash_ms_011",
-    "title": "Optimal Monotonic Stack for Hashing 11",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2551,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-monotonic-stack-for-hashing-11/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ms_012",
-    "title": "Shortest Monotonic Stack for Hashing 12",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1189,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-monotonic-stack-for-hashing-12/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_ms_013",
-    "title": "Cyclic Monotonic Stack for Hashing 13",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1182,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-monotonic-stack-for-hashing-13/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_ms_014",
-    "title": "Merge Monotonic Stack for Hashing 14",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2942,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-hashing-14/",
-    "companies": [
-      "LinkedIn",
-      "Adobe",
-      "Airbnb"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ms_015",
-    "title": "Continuous Monotonic Stack for Hashing 15",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2199,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-hashing-15/",
-    "companies": [
-      "Bloomberg",
-      "Tencent",
-      "Atlassian"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ms_016",
-    "title": "Continuous Monotonic Stack for Hashing 16",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2518,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-hashing-16/",
-    "companies": [
-      "Twilio",
-      "Meta"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "hash_ms_017",
-    "title": "Subsequence Monotonic Stack for Hashing 17",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2848,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-monotonic-stack-for-hashing-17/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ms_018",
-    "title": "Balanced Monotonic Stack for Hashing 18",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2205,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-monotonic-stack-for-hashing-18/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "hash_ms_019",
-    "title": "Maximal Monotonic Stack for Hashing 19",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1997,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-monotonic-stack-for-hashing-19/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "hash_ms_020",
-    "title": "Balanced Monotonic Stack for Hashing 20",
-    "topic": "hashing",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2364,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-monotonic-stack-for-hashing-20/",
-    "companies": [
-      "Tencent",
-      "Uber"
-    ],
-    "tags": [
-      "Hashing",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  }
+{
+  "_id": "hash_easy_001",
+  "title": "Contains Duplicate",
+  "topic": "hashing",
+  "pattern": "hashset",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 217,
+  "leetcodeUrl": "https://leetcode.com/problems/contains-duplicate/",
+  "description": "Given an integer array nums, your task is to determine whether any value appears at least twice in the array. If any duplicate value exists, return true. If every element in the array is completely distinct (i.e., no two elements are equal), return false. This is one of the most fundamental hashing problems because it directly demonstrates the core use case of a HashSet: O(1) average-time membership lookup. A naive brute-force approach compares every pair of elements in O(n^2), but using a HashSet allows you to check duplicates in a single O(n) pass. As you iterate, you ask: have I seen this number before? If yes, it's a duplicate. If no, add it to the set and move on.",
+  "examples": [
+    {
+      "input": "nums = [1,2,3,1]",
+      "output": "true",
+      "explanation": "1 appears twice."
+    },
+    {
+      "input": "nums = [1,2,3,4]",
+      "output": "false",
+      "explanation": "All values are distinct."
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 100000",
+    "-10^9 <= nums[i] <= 10^9"
+  ],
+  "hints": [
+    "Use a HashSet to track seen elements.",
+    "If you try to insert a duplicate, return true."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Apple",
+    "Adobe"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Sorting"
+  ],
+  "estimatedTime": "10 min",
+  "youtubeVideos": [
+    {
+      "title": "Contains Duplicate - NeetCode",
+      "url": "https://youtube.com/watch?v=3OamzN90kPg"
+    }
+  ],
+  "relatedProblems": [
+    "Contains Duplicate II",
+    "Contains Duplicate III"
+  ],
+  "followUp": [
+    "Can you solve it without extra space using sorting?"
+  ],
+  "testCases": [
+    {
+      "input": "[1,2,3,1]",
+      "output": "true"
+    },
+    {
+      "input": "[1,2,3,4]",
+      "output": "false"
+    }
+  ],
+  "acceptanceRate": "61.5%",
+  "likes": 14000,
+  "dislikes": 1400
+},
+{
+  "_id": "hash_easy_002",
+  "title": "Two Sum",
+  "topic": "hashing",
+  "pattern": "hashmap-complement",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 1,
+  "leetcodeUrl": "https://leetcode.com/problems/two-sum/",
+  "description": "Given an array of integers nums and an integer target, return the indices of the two numbers that add up to target. You may assume that each input has exactly one solution, and you may not use the same element twice. This is arguably the most famous hashing problem. The brute force checks every pair in O(n^2), but a HashMap reduces it to O(n). The key insight is: for each number x at index i, you don't need to scan the rest of the array. Instead, compute the complement (target - x) and check if that complement was already stored in the map. If it was, you found your pair immediately. If not, store x with its index and continue. This complement-lookup pattern is the backbone of many harder hashing problems like 4Sum II and Subarray Sum Equals K.",
+  "examples": [
+    {
+      "input": "nums = [2,7,11,15], target = 9",
+      "output": "[0,1]",
+      "explanation": "nums[0] + nums[1] = 9."
+    },
+    {
+      "input": "nums = [3,2,4], target = 6",
+      "output": "[1,2]",
+      "explanation": "nums[1] + nums[2] = 6."
+    }
+  ],
+  "constraints": [
+    "2 <= nums.length <= 10^4",
+    "-10^9 <= nums[i] <= 10^9",
+    "Only one valid answer exists."
+  ],
+  "hints": [
+    "Store each number and its index in a HashMap.",
+    "For each element, check if target - element exists in the map."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Meta",
+    "Microsoft",
+    "Apple"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table"
+  ],
+  "estimatedTime": "15 min",
+  "youtubeVideos": [
+    {
+      "title": "Two Sum - NeetCode",
+      "url": "https://youtube.com/watch?v=KLlXCFG5TnA"
+    }
+  ],
+  "relatedProblems": [
+    "Two Sum II",
+    "3Sum",
+    "4Sum"
+  ],
+  "followUp": [
+    "What if the array is sorted?"
+  ],
+  "testCases": [
+    {
+      "input": "[2,7,11,15], target=9",
+      "output": "[0,1]"
+    }
+  ],
+  "acceptanceRate": "52.3%",
+  "likes": 55000,
+  "dislikes": 1800
+},
+{
+  "_id": "hash_easy_003",
+  "title": "Valid Anagram",
+  "topic": "hashing",
+  "pattern": "frequency-count",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 242,
+  "leetcodeUrl": "https://leetcode.com/problems/valid-anagram/",
+  "description": "Given two strings s and t, return true if t is an anagram of s, and false otherwise. An anagram is a word formed by rearranging the letters of another word using all original letters exactly once. For example, 'listen' and 'silent' are anagrams. The hashing approach uses a frequency count map: count how many times each character appears in s, then subtract counts for each character in t. If the map is all zeros at the end, the strings are anagrams. Alternatively, you can use two separate frequency maps and compare them. This problem teaches the frequency-count pattern which is reused in Group Anagrams, Find All Anagrams in a String, and Minimum Window Substring.",
+  "examples": [
+    {
+      "input": "s = \"anagram\", t = \"nagaram\"",
+      "output": "true",
+      "explanation": "Both strings have the same character frequencies."
+    },
+    {
+      "input": "s = \"rat\", t = \"car\"",
+      "output": "false",
+      "explanation": "Different character sets."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length, t.length <= 5 * 10^4",
+    "s and t consist of lowercase English letters."
+  ],
+  "hints": [
+    "Count character frequencies using a HashMap.",
+    "Compare both frequency maps."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Amazon",
+    "Microsoft",
+    "Bloomberg"
+  ],
+  "tags": [
+    "Hash Table",
+    "String",
+    "Sorting"
+  ],
+  "estimatedTime": "10 min",
+  "youtubeVideos": [
+    {
+      "title": "Valid Anagram - NeetCode",
+      "url": "https://youtube.com/watch?v=9UtInBqnCgA"
+    }
+  ],
+  "relatedProblems": [
+    "Group Anagrams",
+    "Find All Anagrams in a String"
+  ],
+  "followUp": [
+    "What if inputs contain Unicode characters?"
+  ],
+  "testCases": [
+    {
+      "input": "s=\"anagram\", t=\"nagaram\"",
+      "output": "true"
+    }
+  ],
+  "acceptanceRate": "64.2%",
+  "likes": 12000,
+  "dislikes": 430
+},
+{
+  "_id": "hash_easy_004",
+  "title": "Design HashMap",
+  "topic": "hashing",
+  "pattern": "design-hashmap",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 706,
+  "leetcodeUrl": "https://leetcode.com/problems/design-hashmap/",
+  "description": "Design a HashMap from scratch without using any built-in hash table libraries. You must implement the MyHashMap class supporting three operations: put(key, value) which inserts or updates a key-value pair, get(key) which returns the value for a key or -1 if not found, and remove(key) which deletes the key-value pair if it exists. This problem forces you to understand what actually happens under the hood of every HashMap you use. You must choose a hash function (typically key % tableSize), handle collisions using separate chaining (array of linked lists) or open addressing, and manage edge cases like updating existing keys. Building this from scratch is the best way to truly internalize why hash tables give O(1) average performance and what causes worst-case O(n) behavior.",
+  "examples": [
+    {
+      "input": "put(1,1), put(2,2), get(1), get(3), put(2,1), get(2), remove(2), get(2)",
+      "output": "[null,null,1,-1,null,1,null,-1]",
+      "explanation": "Standard HashMap operations."
+    }
+  ],
+  "constraints": [
+    "0 <= key, value <= 10^6",
+    "At most 10^4 calls to put, get, and remove."
+  ],
+  "hints": [
+    "Use an array of linked lists (chaining).",
+    "Hash function: key % tableSize."
+  ],
+  "expectedTimeComplexity": "O(1) average",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Bloomberg"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Linked List",
+    "Design"
+  ],
+  "estimatedTime": "20 min",
+  "youtubeVideos": [
+    {
+      "title": "Design HashMap - LeetCode 706",
+      "url": "https://youtube.com/watch?v=cNWsgbKwwoU"
+    }
+  ],
+  "relatedProblems": [
+    "Design HashSet",
+    "Design Linked List"
+  ],
+  "followUp": [
+    "How would you handle resizing?"
+  ],
+  "testCases": [
+    {
+      "input": "put(1,1), get(1)",
+      "output": "1"
+    }
+  ],
+  "acceptanceRate": "66.3%",
+  "likes": 3200,
+  "dislikes": 290
+},
+{
+  "_id": "hash_easy_005",
+  "title": "Design HashSet",
+  "topic": "hashing",
+  "pattern": "design-hashset",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 705,
+  "leetcodeUrl": "https://leetcode.com/problems/design-hashset/",
+  "description": "Design a HashSet from scratch without using any built-in hash set libraries. You must implement the MyHashSet class supporting three operations: add(key) which inserts the key if not already present, contains(key) which returns true if the key exists, and remove(key) which removes the key if it exists. Similar to Design HashMap but simpler since you only store keys without values. This problem is the gateway to understanding the internal mechanics of sets. You will implement a hash function, choose a collision resolution strategy, and reason about load factor. The typical implementation uses an array of buckets where each bucket is a linked list, giving O(1) average case for all three operations.",
+  "examples": [
+    {
+      "input": "add(1), add(2), contains(1), contains(3), add(2), contains(2), remove(2), contains(2)",
+      "output": "[null,null,true,false,null,true,null,false]",
+      "explanation": "Standard HashSet operations."
+    }
+  ],
+  "constraints": [
+    "0 <= key <= 10^6",
+    "At most 10^4 calls to add, remove, and contains."
+  ],
+  "hints": [
+    "Use an array of buckets with linked lists.",
+    "Use modulo as the hash function."
+  ],
+  "expectedTimeComplexity": "O(1) average",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Amazon",
+    "Google"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Linked List",
+    "Design"
+  ],
+  "estimatedTime": "15 min",
+  "youtubeVideos": [
+    {
+      "title": "Design HashSet - LeetCode 705",
+      "url": "https://youtube.com/watch?v=VymjPQUXjL8"
+    }
+  ],
+  "relatedProblems": [
+    "Design HashMap",
+    "Design Linked List"
+  ],
+  "followUp": [
+    "Compare your design with Java's HashSet implementation."
+  ],
+  "testCases": [
+    {
+      "input": "add(1), contains(1)",
+      "output": "true"
+    }
+  ],
+  "acceptanceRate": "68.1%",
+  "likes": 2900,
+  "dislikes": 250
+},
+{
+  "_id": "hash_easy_006",
+  "title": "Jewels and Stones",
+  "topic": "hashing",
+  "pattern": "hashset-lookup",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 771,
+  "leetcodeUrl": "https://leetcode.com/problems/jewels-and-stones/",
+  "description": "You are given two strings: jewels, which represents the types of stones that are jewels, and stones, which represents the stones you have. Each character in stones represents a stone you own, and you want to know how many of your stones are also jewels. Letters are case-sensitive, so 'a' is a different type from 'A'. This is one of the simplest practical applications of a HashSet. Instead of doing a nested loop (O(j * s)), you insert all jewel types into a HashSet in O(j) time, then iterate through each stone and check membership in O(1) per lookup. The total time is O(j + s). While simple, this problem is a perfect first example of trading space for time using hashing.",
+  "examples": [
+    {
+      "input": "jewels = \"aA\", stones = \"aAAbbbb\"",
+      "output": "3",
+      "explanation": "a, A, A are jewels in stones."
+    },
+    {
+      "input": "jewels = \"z\", stones = \"ZZ\"",
+      "output": "0",
+      "explanation": "Case-sensitive, no match."
+    }
+  ],
+  "constraints": [
+    "1 <= jewels.length, stones.length <= 50",
+    "All characters are English letters (case-sensitive)."
+  ],
+  "hints": [
+    "Store jewels in a HashSet.",
+    "Count how many stones are in the set."
+  ],
+  "expectedTimeComplexity": "O(j + s)",
+  "expectedSpaceComplexity": "O(j)",
+  "companies": [
+    "Amazon",
+    "Google"
+  ],
+  "tags": [
+    "Hash Table",
+    "String"
+  ],
+  "estimatedTime": "5 min",
+  "youtubeVideos": [
+    {
+      "title": "Jewels and Stones - LeetCode 771",
+      "url": "https://youtube.com/watch?v=rNlm9dGzVeI"
+    }
+  ],
+  "relatedProblems": [
+    "Intersection of Two Arrays"
+  ],
+  "followUp": [
+    "What if the input is a stream?"
+  ],
+  "testCases": [
+    {
+      "input": "jewels=\"aA\", stones=\"aAAbbbb\"",
+      "output": "3"
+    }
+  ],
+  "acceptanceRate": "88.2%",
+  "likes": 4100,
+  "dislikes": 1200
+},
+{
+  "_id": "hash_easy_007",
+  "title": "Maximum Number of Balloons",
+  "topic": "hashing",
+  "pattern": "frequency-count",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 1189,
+  "leetcodeUrl": "https://leetcode.com/problems/maximum-number-of-balloons/",
+  "description": "Given a string text, you need to find the maximum number of times you can form the word 'balloon' using the characters from text. Each character from text can be used at most once. The word 'balloon' requires: 1x 'b', 1x 'a', 2x 'l', 2x 'o', 1x 'n'. This problem is a direct application of the frequency-count hashing pattern. Count the occurrences of each required letter in text using a HashMap, then divide the counts appropriately (divide by 2 for 'l' and 'o' since they appear twice in 'balloon'), and return the minimum across all required characters. This teaches you how to generalize frequency matching for any target word.",
+  "examples": [
+    {
+      "input": "text = \"nlaebolko\"",
+      "output": "1",
+      "explanation": "One 'balloon' can be formed."
+    },
+    {
+      "input": "text = \"loonbalxballpoon\"",
+      "output": "2",
+      "explanation": "Two 'balloon' instances."
+    }
+  ],
+  "constraints": [
+    "1 <= text.length <= 10^4",
+    "text consists of lower case English letters only."
+  ],
+  "hints": [
+    "Count frequency of b, a, l, o, n in text.",
+    "l and o need to appear twice per balloon."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Amazon",
+    "Google"
+  ],
+  "tags": [
+    "Hash Table",
+    "String",
+    "Counting"
+  ],
+  "estimatedTime": "10 min",
+  "youtubeVideos": [
+    {
+      "title": "Maximum Number of Balloons - LeetCode 1189",
+      "url": "https://youtube.com/watch?v=_QBiEPHsTbs"
+    }
+  ],
+  "relatedProblems": [
+    "Ransom Note",
+    "Find All Anagrams in a String"
+  ],
+  "followUp": [
+    "Can you generalize for any target word?"
+  ],
+  "testCases": [
+    {
+      "input": "\"nlaebolko\"",
+      "output": "1"
+    }
+  ],
+  "acceptanceRate": "67.4%",
+  "likes": 2300,
+  "dislikes": 110
+},
+{
+  "_id": "hash_easy_008",
+  "title": "Word Pattern",
+  "topic": "hashing",
+  "pattern": "bijection-mapping",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 290,
+  "leetcodeUrl": "https://leetcode.com/problems/word-pattern/",
+  "description": "Given a pattern string (e.g., 'abba') and a string s containing space-separated words, determine if s follows the same pattern. This means there must be a bijection (one-to-one and onto mapping) between each character in pattern and each word in s. For example, if 'a' maps to 'dog', every 'a' must map to 'dog' and no other letter maps to 'dog'. This problem requires checking a bijection in both directions simultaneously. Use two HashMaps: one from pattern character to word, and another from word to pattern character. At each position, if the current character already maps to a different word (or vice versa), return false. This bidirectional mapping technique also appears in Isomorphic Strings and is critical in any encoding/decoding problem.",
+  "examples": [
+    {
+      "input": "pattern = \"abba\", s = \"dog cat cat dog\"",
+      "output": "true",
+      "explanation": "a->dog, b->cat."
+    },
+    {
+      "input": "pattern = \"abba\", s = \"dog cat cat fish\"",
+      "output": "false",
+      "explanation": "Pattern breaks at end."
+    }
+  ],
+  "constraints": [
+    "1 <= pattern.length <= 300",
+    "s contains only lowercase English words separated by a single space."
+  ],
+  "hints": [
+    "Use two HashMaps: one for pattern->word and one for word->pattern.",
+    "Check bijection in both directions."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Dropbox",
+    "Google"
+  ],
+  "tags": [
+    "Hash Table",
+    "String"
+  ],
+  "estimatedTime": "15 min",
+  "youtubeVideos": [
+    {
+      "title": "Word Pattern - LeetCode 290",
+      "url": "https://youtube.com/watch?v=W_akoecmCbM"
+    }
+  ],
+  "relatedProblems": [
+    "Isomorphic Strings",
+    "Find the Difference"
+  ],
+  "followUp": [
+    "What about Word Pattern II?"
+  ],
+  "testCases": [
+    {
+      "input": "pattern=\"abba\", s=\"dog cat cat dog\"",
+      "output": "true"
+    }
+  ],
+  "acceptanceRate": "42.3%",
+  "likes": 6400,
+  "dislikes": 820
+},
+{
+  "_id": "hash_easy_009",
+  "title": "Isomorphic Strings",
+  "topic": "hashing",
+  "pattern": "bijection-mapping",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 205,
+  "leetcodeUrl": "https://leetcode.com/problems/isomorphic-strings/",
+  "description": "Given two strings s and t, determine if they are isomorphic. Two strings are isomorphic if the characters in s can be replaced to get t, with a consistent one-to-one mapping where no two characters map to the same character but each character maps to exactly one character. For example, 'egg' and 'add' are isomorphic because 'e' maps to 'a' and 'g' maps to 'd'. But 'foo' and 'bar' are not, because 'o' would need to map to both 'a' and 'r'. The solution uses two HashMaps for bidirectional verification at every character position. This is structurally identical to Word Pattern but operates at the character level instead of the word level. Mastering this teaches you the general bijection-check template.",
+  "examples": [
+    {
+      "input": "s = \"egg\", t = \"add\"",
+      "output": "true",
+      "explanation": "e->a, g->d."
+    },
+    {
+      "input": "s = \"foo\", t = \"bar\"",
+      "output": "false",
+      "explanation": "o maps to both a and r."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 5 * 10^4",
+    "t.length == s.length"
+  ],
+  "hints": [
+    "Use two HashMaps for bidirectional mapping.",
+    "Check for consistency at each character pair."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Amazon",
+    "LinkedIn"
+  ],
+  "tags": [
+    "Hash Table",
+    "String"
+  ],
+  "estimatedTime": "15 min",
+  "youtubeVideos": [
+    {
+      "title": "Isomorphic Strings - LeetCode 205",
+      "url": "https://youtube.com/watch?v=7yF-U1hLEqQ"
+    }
+  ],
+  "relatedProblems": [
+    "Word Pattern",
+    "Bijection Check"
+  ],
+  "followUp": [
+    "Can you solve using only one map?"
+  ],
+  "testCases": [
+    {
+      "input": "s=\"egg\", t=\"add\"",
+      "output": "true"
+    }
+  ],
+  "acceptanceRate": "44.1%",
+  "likes": 7300,
+  "dislikes": 1700
+},
+{
+  "_id": "hash_easy_010",
+  "title": "Ransom Note",
+  "topic": "hashing",
+  "pattern": "frequency-count",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 383,
+  "leetcodeUrl": "https://leetcode.com/problems/ransom-note/",
+  "description": "Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine. Each letter in magazine can only be used once. Imagine cutting letters from a magazine to form a ransom note — you need enough copies of each letter available. The solution is a direct application of frequency-count hashing: build a frequency map of all characters in magazine, then for each character in ransomNote, decrement its count. If any count drops below zero, the magazine doesn't have enough of that letter, so return false. This problem reinforces the idea that a HashMap can represent a multiset (a set allowing duplicate entries), which is a fundamental data structure pattern.",
+  "examples": [
+    {
+      "input": "ransomNote = \"a\", magazine = \"b\"",
+      "output": "false",
+      "explanation": "a is not in magazine."
+    },
+    {
+      "input": "ransomNote = \"aa\", magazine = \"aab\"",
+      "output": "true",
+      "explanation": "Two a's available."
+    }
+  ],
+  "constraints": [
+    "1 <= ransomNote.length, magazine.length <= 10^5",
+    "Consists of lowercase English letters."
+  ],
+  "hints": [
+    "Count letter frequencies in magazine.",
+    "Check if ransomNote can be satisfied by those counts."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Amazon",
+    "Apple",
+    "Google"
+  ],
+  "tags": [
+    "Hash Table",
+    "String",
+    "Counting"
+  ],
+  "estimatedTime": "10 min",
+  "youtubeVideos": [
+    {
+      "title": "Ransom Note - LeetCode 383",
+      "url": "https://youtube.com/watch?v=sOHMbGVpDSw"
+    }
+  ],
+  "relatedProblems": [
+    "Valid Anagram",
+    "Maximum Number of Balloons"
+  ],
+  "followUp": [
+    "What if each letter can only be used once?"
+  ],
+  "testCases": [
+    {
+      "input": "ransomNote=\"aa\", magazine=\"aab\"",
+      "output": "true"
+    }
+  ],
+  "acceptanceRate": "59.2%",
+  "likes": 5400,
+  "dislikes": 680
+},
+{
+  "_id": "hash_easy_011",
+  "title": "Intersection of Two Arrays",
+  "topic": "hashing",
+  "pattern": "hashset-intersection",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 349,
+  "leetcodeUrl": "https://leetcode.com/problems/intersection-of-two-arrays/",
+  "description": "Given two integer arrays nums1 and nums2, return an array of their intersection — the elements that appear in both arrays. Each element in the result must be unique (even if it appears multiple times in both arrays). This problem illustrates set intersection using hashing. Insert all elements of nums1 into a HashSet. Then iterate through nums2, and for each element that exists in the HashSet, add it to the result set (using another set ensures uniqueness). The result set becomes your answer. This is a clean O(n + m) solution compared to the O(n * m) naive approach. The intersection pattern appears in many harder problems involving two data sources.",
+  "examples": [
+    {
+      "input": "nums1 = [1,2,2,1], nums2 = [2,2]",
+      "output": "[2]",
+      "explanation": "2 is common and appears once."
+    },
+    {
+      "input": "nums1 = [4,9,5], nums2 = [9,4,9,8,4]",
+      "output": "[9,4]",
+      "explanation": "4 and 9 are common."
+    }
+  ],
+  "constraints": [
+    "1 <= nums1.length, nums2.length <= 1000",
+    "0 <= nums1[i], nums2[i] <= 1000"
+  ],
+  "hints": [
+    "Convert nums1 to a HashSet.",
+    "Check each element in nums2 against the set."
+  ],
+  "expectedTimeComplexity": "O(n + m)",
+  "expectedSpaceComplexity": "O(min(n,m))",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Facebook"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Two Pointers",
+    "Binary Search",
+    "Sorting"
+  ],
+  "estimatedTime": "10 min",
+  "youtubeVideos": [
+    {
+      "title": "Intersection of Two Arrays - LeetCode 349",
+      "url": "https://youtube.com/watch?v=OzBj8E3Rkbs"
+    }
+  ],
+  "relatedProblems": [
+    "Intersection of Two Arrays II",
+    "Intersection of Three Sorted Arrays"
+  ],
+  "followUp": [
+    "What if the given array is already sorted?"
+  ],
+  "testCases": [
+    {
+      "input": "[1,2,2,1], [2,2]",
+      "output": "[2]"
+    }
+  ],
+  "acceptanceRate": "72.1%",
+  "likes": 6800,
+  "dislikes": 760
+},
+{
+  "_id": "hash_med_001",
+  "title": "Group Anagrams",
+  "topic": "hashing",
+  "pattern": "hashmap-grouping",
+  "difficulty": "Medium",
+  "platform": "LeetCode",
+  "problemNumber": 49,
+  "leetcodeUrl": "https://leetcode.com/problems/group-anagrams/",
+  "description": "Given an array of strings strs, group all strings that are anagrams of each other together and return the groups in any order. Two strings are anagrams if one can be formed by rearranging the letters of the other. The key insight is finding a canonical key that all anagrams share. The most common approach is to sort each string alphabetically — all anagrams produce the same sorted string (e.g., 'eat', 'tea', 'ate' all sort to 'aet'). Use a HashMap where the key is the sorted string and the value is the list of original strings that hash to it. An alternative O(n*k) key (avoiding sorting) uses a tuple of 26 character counts as the key. This problem teaches you how to design smart hash keys to group related items.",
+  "examples": [
+    {
+      "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+      "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
+      "explanation": "Anagrams grouped together."
+    },
+    {
+      "input": "strs = [\"\"]",
+      "output": "[[\"\"]]",
+      "explanation": "Single empty string."
+    }
+  ],
+  "constraints": [
+    "1 <= strs.length <= 10^4",
+    "0 <= strs[i].length <= 100",
+    "Lowercase English letters only."
+  ],
+  "hints": [
+    "Sort each string to create a canonical key.",
+    "Use a HashMap with sorted string as key and list of anagrams as value."
+  ],
+  "expectedTimeComplexity": "O(n * k log k)",
+  "expectedSpaceComplexity": "O(n * k)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Meta",
+    "Microsoft",
+    "Uber"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table",
+    "String",
+    "Sorting"
+  ],
+  "estimatedTime": "20 min",
+  "youtubeVideos": [
+    {
+      "title": "Group Anagrams - NeetCode",
+      "url": "https://youtube.com/watch?v=vzdNOK2oB2E"
+    }
+  ],
+  "relatedProblems": [
+    "Valid Anagram",
+    "Find All Anagrams in a String"
+  ],
+  "followUp": [
+    "Can you use character frequency as the key instead of sorting?"
+  ],
+  "testCases": [
+    {
+      "input": "[\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+      "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]"
+    }
+  ],
+  "acceptanceRate": "68.1%",
+  "likes": 19000,
+  "dislikes": 610
+},
+{
+  "_id": "hash_med_002",
+  "title": "Top K Frequent Elements",
+  "topic": "hashing",
+  "pattern": "frequency-count-heap",
+  "difficulty": "Medium",
+  "platform": "LeetCode",
+  "problemNumber": 347,
+  "leetcodeUrl": "https://leetcode.com/problems/top-k-frequent-elements/",
+  "description": "Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order. The guaranteed constraint is that the answer is unique. Step one is always the same: build a frequency HashMap by counting occurrences of each element. Step two is where the interesting choices happen. Option A (O(n log k)): use a min-heap of size k; iterate through the frequency map and maintain only the top k elements. Option B (O(n)) — bucket sort: create an array of n+1 buckets where bucket[i] holds all elements that appear exactly i times, then scan from the end to collect the top k. The bucket sort approach is optimal and demonstrates how hashing can completely replace comparison-based sorting in specific scenarios.",
+  "examples": [
+    {
+      "input": "nums = [1,1,1,2,2,3], k = 2",
+      "output": "[1,2]",
+      "explanation": "1 appears 3 times, 2 appears 2 times."
+    },
+    {
+      "input": "nums = [1], k = 1",
+      "output": "[1]",
+      "explanation": "Only one element."
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "k is in the range [1, number of unique elements]"
+  ],
+  "hints": [
+    "Count frequency with a HashMap.",
+    "Use a min-heap of size k or bucket sort by frequency."
+  ],
+  "expectedTimeComplexity": "O(n log k)",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Meta",
+    "Microsoft",
+    "Yahoo"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Divide and Conquer",
+    "Sorting",
+    "Heap",
+    "Bucket Sort"
+  ],
+  "estimatedTime": "25 min",
+  "youtubeVideos": [
+    {
+      "title": "Top K Frequent Elements - NeetCode",
+      "url": "https://youtube.com/watch?v=YPTqKIgVk-k"
+    }
+  ],
+  "relatedProblems": [
+    "Word Frequency",
+    "Kth Largest Element in an Array",
+    "Sort Characters By Frequency"
+  ],
+  "followUp": [
+    "Can you solve it in O(n) time using bucket sort?"
+  ],
+  "testCases": [
+    {
+      "input": "[1,1,1,2,2,3], k=2",
+      "output": "[1,2]"
+    }
+  ],
+  "acceptanceRate": "64.7%",
+  "likes": 17000,
+  "dislikes": 590
+},
+{
+  "_id": "hash_med_003",
+  "title": "Longest Consecutive Sequence",
+  "topic": "hashing",
+  "pattern": "hashset-sequence",
+  "difficulty": "Medium",
+  "platform": "LeetCode",
+  "problemNumber": 128,
+  "leetcodeUrl": "https://leetcode.com/problems/longest-consecutive-sequence/",
+  "description": "Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence (e.g., [1,2,3,4]). The algorithm must run in O(n) time, which rules out sorting. The HashSet-based solution is elegant: insert all numbers into a HashSet for O(1) lookups, then for each number n, check if n-1 exists in the set. If it does NOT, then n is the start of a new sequence. From that start, keep incrementing and checking (n+1, n+2, ...) until the next number isn't in the set, counting the length. By only starting sequences at their true beginning, every number is visited at most twice total across all sequences, guaranteeing O(n). This problem shows how a HashSet can replace sorting when you only need membership queries.",
+  "examples": [
+    {
+      "input": "nums = [100,4,200,1,3,2]",
+      "output": "4",
+      "explanation": "[1,2,3,4] is the longest consecutive sequence."
+    },
+    {
+      "input": "nums = [0,3,7,2,5,8,4,6,0,1]",
+      "output": "9",
+      "explanation": "[0,1,2,3,4,5,6,7,8]."
+    }
+  ],
+  "constraints": [
+    "0 <= nums.length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9"
+  ],
+  "hints": [
+    "Store all numbers in a HashSet.",
+    "Only start counting from a number if num-1 is NOT in the set."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Google",
+    "Amazon",
+    "Meta",
+    "Microsoft"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Union Find"
+  ],
+  "estimatedTime": "30 min",
+  "youtubeVideos": [
+    {
+      "title": "Longest Consecutive Sequence - NeetCode",
+      "url": "https://youtube.com/watch?v=P6RZZMu_maU"
+    }
+  ],
+  "relatedProblems": [
+    "Binary Tree Longest Consecutive Sequence"
+  ],
+  "followUp": [
+    "What if the array is already sorted?"
+  ],
+  "testCases": [
+    {
+      "input": "[100,4,200,1,3,2]",
+      "output": "4"
+    }
+  ],
+  "acceptanceRate": "47.8%",
+  "likes": 20000,
+  "dislikes": 1000
+},
+{
+  "_id": "hash_med_004",
+  "title": "Longest Substring Without Repeating Characters",
+  "topic": "hashing",
+  "pattern": "sliding-window-hashmap",
+  "difficulty": "Medium",
+  "platform": "LeetCode",
+  "problemNumber": 3,
+  "leetcodeUrl": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+  "description": "Given a string s, find the length of the longest substring that contains no repeating characters. A substring is a contiguous sequence of characters within the string. This is the classic sliding window + hashing problem. Maintain a window with two pointers (left and right) and a HashSet (or HashMap) tracking the characters currently inside the window. Expand the right pointer to include new characters. When a duplicate is detected, shrink the window from the left until the duplicate is removed. The HashMap variant (storing character -> last seen index) allows jumping the left pointer directly to the position after the last occurrence of the duplicate, making the inner loop implicit. At each step, update the maximum window size. This problem is foundational for all sliding window problems.",
+  "examples": [
+    {
+      "input": "s = \"abcabcbb\"",
+      "output": "3",
+      "explanation": "\"abc\" is the longest substring."
+    },
+    {
+      "input": "s = \"bbbbb\"",
+      "output": "1",
+      "explanation": "\"b\" is the longest substring."
+    }
+  ],
+  "constraints": [
+    "0 <= s.length <= 5 * 10^4",
+    "s consists of English letters, digits, symbols and spaces."
+  ],
+  "hints": [
+    "Use a sliding window with a HashSet.",
+    "Move the left pointer when a duplicate is found."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(min(n, m))",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Meta",
+    "Microsoft",
+    "Bloomberg"
+  ],
+  "tags": [
+    "Hash Table",
+    "String",
+    "Sliding Window"
+  ],
+  "estimatedTime": "25 min",
+  "youtubeVideos": [
+    {
+      "title": "Longest Substring Without Repeating Characters - NeetCode",
+      "url": "https://youtube.com/watch?v=wiGpQwVHdE0"
+    }
+  ],
+  "relatedProblems": [
+    "Longest Substring with At Most Two Distinct Characters",
+    "Minimum Window Substring"
+  ],
+  "followUp": [
+    "Can you use a HashMap storing indices to optimize the left pointer movement?"
+  ],
+  "testCases": [
+    {
+      "input": "\"abcabcbb\"",
+      "output": "3"
+    }
+  ],
+  "acceptanceRate": "34.2%",
+  "likes": 40000,
+  "dislikes": 1800
+},
+{
+  "_id": "hash_med_005",
+  "title": "4Sum II",
+  "topic": "hashing",
+  "pattern": "hashmap-sum-pairs",
+  "difficulty": "Medium",
+  "platform": "LeetCode",
+  "problemNumber": 454,
+  "leetcodeUrl": "https://leetcode.com/problems/4sum-ii/",
+  "description": "Given four integer arrays nums1, nums2, nums3, and nums4, each of length n, count the number of tuples (i, j, k, l) such that nums1[i] + nums2[j] + nums3[k] + nums4[l] equals zero. The brute force is O(n^4), but hashing brings it to O(n^2). The trick is 'divide and conquer on pairs': compute every possible sum of nums1[i] + nums2[j] and store each sum along with how many times it occurs in a HashMap. Then iterate over every pair from nums3 and nums4, and for each sum S = nums3[k] + nums4[l], check if (-S) exists in the HashMap. If it does, add its count to the result. This problem elegantly demonstrates how to reduce a 4-variable problem to two 2-variable problems using a HashMap as a lookup bridge.",
+  "examples": [
+    {
+      "input": "nums1=[1,2], nums2=[-2,-1], nums3=[-1,2], nums4=[0,2]",
+      "output": "2",
+      "explanation": "Two tuples sum to zero."
+    }
+  ],
+  "constraints": [
+    "n == nums1.length == nums2.length == nums3.length == nums4.length",
+    "1 <= n <= 200"
+  ],
+  "hints": [
+    "Split into two pairs: count all sums of (nums1[i]+nums2[j]) in a HashMap.",
+    "For each sum in (nums3+nums4), check if its negation exists in the map."
+  ],
+  "expectedTimeComplexity": "O(n^2)",
+  "expectedSpaceComplexity": "O(n^2)",
+  "companies": [
+    "Amazon",
+    "Google"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table"
+  ],
+  "estimatedTime": "20 min",
+  "youtubeVideos": [
+    {
+      "title": "4Sum II - LeetCode 454",
+      "url": "https://youtube.com/watch?v=SzQ55MvNIIM"
+    }
+  ],
+  "relatedProblems": [
+    "Two Sum",
+    "4Sum"
+  ],
+  "followUp": [
+    "How would you extend this to k arrays?"
+  ],
+  "testCases": [
+    {
+      "input": "[1,2],[-2,-1],[-1,2],[0,2]",
+      "output": "2"
+    }
+  ],
+  "acceptanceRate": "57.3%",
+  "likes": 5800,
+  "dislikes": 200
+},
+{
+  "_id": "hash_med_006",
+  "title": "Find All Anagrams in a String",
+  "topic": "hashing",
+  "pattern": "sliding-window-frequency",
+  "difficulty": "Medium",
+  "platform": "LeetCode",
+  "problemNumber": 438,
+  "leetcodeUrl": "https://leetcode.com/problems/find-all-anagrams-in-a-string/",
+  "description": "Given two strings s and p, return a list of all the starting indices in s where a substring of length p.length() is an anagram of p. The order of results does not matter. This combines two concepts: the sliding window (fixed-size window of length p) and frequency-count hashing. Maintain a frequency map for p and a running frequency map for the current window in s. Slide the window one character at a time: add the new right character and remove the leftmost character. After each slide, compare the two maps — if they are equal, the current window is an anagram. To avoid comparing full maps at every step (which is O(26) but still adds up), you can maintain a counter of how many characters are 'satisfied', updating it only when a count crosses the threshold.",
+  "examples": [
+    {
+      "input": "s = \"cbaebabacd\", p = \"abc\"",
+      "output": "[0,6]",
+      "explanation": "Anagrams at index 0 (\"cba\") and 6 (\"bac\")."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length, p.length <= 3 * 10^4",
+    "s and p consist of lowercase English letters."
+  ],
+  "hints": [
+    "Use a fixed-size sliding window of length p.",
+    "Compare character frequency maps."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Meta",
+    "Uber"
+  ],
+  "tags": [
+    "Hash Table",
+    "String",
+    "Sliding Window"
+  ],
+  "estimatedTime": "25 min",
+  "youtubeVideos": [
+    {
+      "title": "Find All Anagrams in a String - NeetCode",
+      "url": "https://youtube.com/watch?v=G8xtZy0fDKg"
+    }
+  ],
+  "relatedProblems": [
+    "Valid Anagram",
+    "Permutation in String"
+  ],
+  "followUp": [
+    "Can you use a difference counter to avoid comparing two maps?"
+  ],
+  "testCases": [
+    {
+      "input": "s=\"cbaebabacd\", p=\"abc\"",
+      "output": "[0,6]"
+    }
+  ],
+  "acceptanceRate": "49.8%",
+  "likes": 10000,
+  "dislikes": 330
+},
+{
+  "_id": "hash_med_007",
+  "title": "Subarray Sum Equals K",
+  "topic": "hashing",
+  "pattern": "prefix-sum-hashmap",
+  "difficulty": "Medium",
+  "platform": "LeetCode",
+  "problemNumber": 560,
+  "leetcodeUrl": "https://leetcode.com/problems/subarray-sum-equals-k/",
+  "description": "Given an array of integers nums (which may include negative numbers) and an integer k, return the total number of contiguous subarrays whose sum equals k. This problem cannot use a sliding window because the array may contain negative numbers (shrinking the window doesn't guarantee decreasing the sum). Instead, use prefix sums with a HashMap. Define prefixSum[i] as the sum of nums[0..i]. A subarray nums[j..i] has sum k if and only if prefixSum[i] - prefixSum[j-1] = k, i.e., prefixSum[j-1] = prefixSum[i] - k. As you iterate and compute prefix sums, store each prefix sum's frequency in a HashMap. For each new prefix sum S, look up how many times S-k has appeared before — each occurrence corresponds to a valid subarray ending here. Initialize the map with {0: 1} to handle subarrays starting from index 0.",
+  "examples": [
+    {
+      "input": "nums = [1,1,1], k = 2",
+      "output": "2",
+      "explanation": "Two subarrays [1,1] sum to 2."
+    },
+    {
+      "input": "nums = [1,2,3], k = 3",
+      "output": "2",
+      "explanation": "[1,2] and [3] sum to 3."
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 2 * 10^4",
+    "-1000 <= nums[i] <= 1000",
+    "-10^7 <= k <= 10^7"
+  ],
+  "hints": [
+    "Use prefix sum. For each prefix sum S, check if S-k was seen before.",
+    "Store prefix sum frequencies in a HashMap."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Facebook",
+    "Oracle"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table",
+    "Prefix Sum"
+  ],
+  "estimatedTime": "30 min",
+  "youtubeVideos": [
+    {
+      "title": "Subarray Sum Equals K - NeetCode",
+      "url": "https://youtube.com/watch?v=fFVZt-6sgyo"
+    }
+  ],
+  "relatedProblems": [
+    "Two Sum",
+    "Continuous Subarray Sum",
+    "Path Sum III"
+  ],
+  "followUp": [
+    "What if all numbers are positive? Can you use sliding window?"
+  ],
+  "testCases": [
+    {
+      "input": "[1,1,1], k=2",
+      "output": "2"
+    }
+  ],
+  "acceptanceRate": "44.5%",
+  "likes": 20000,
+  "dislikes": 560
+},
+{
+  "_id": "hash_med_008",
+  "title": "Daily Temperatures",
+  "topic": "hashing",
+  "pattern": "monotonic-stack",
+  "difficulty": "Medium",
+  "platform": "LeetCode",
+  "problemNumber": 739,
+  "leetcodeUrl": "https://leetcode.com/problems/daily-temperatures/",
+  "description": "Given an array of daily temperatures, for each day return the number of days you need to wait until a warmer temperature. If there is no future day with a higher temperature, return 0 for that day. While not a pure hashing problem, it uses a HashMap-like index lookup via a monotonic stack. Maintain a stack of indices representing days with 'unresolved' (not yet found a warmer day) temperatures in decreasing order of temperature. For each new day, while the stack is non-empty and the current temperature is greater than the temperature at the top-of-stack index, pop the stack, compute the difference in indices (that's the wait), and store it in the answer array. Push the current index onto the stack. The key insight: the stack acts as a hash-like structure that immediately resolves waiting queries in O(1) amortized per element.",
+  "examples": [
+    {
+      "input": "temperatures = [73,74,75,71,69,72,76,73]",
+      "output": "[1,1,4,2,1,1,0,0]",
+      "explanation": "Days until next warmer temperature."
+    }
+  ],
+  "constraints": [
+    "1 <= temperatures.length <= 10^5",
+    "30 <= temperatures[i] <= 100"
+  ],
+  "hints": [
+    "Use a monotonic decreasing stack storing indices.",
+    "When a warmer temperature is found, pop and compute the difference."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Microsoft"
+  ],
+  "tags": [
+    "Array",
+    "Stack",
+    "Monotonic Stack"
+  ],
+  "estimatedTime": "20 min",
+  "youtubeVideos": [
+    {
+      "title": "Daily Temperatures - NeetCode",
+      "url": "https://youtube.com/watch?v=cTBiBSnjO3c"
+    }
+  ],
+  "relatedProblems": [
+    "Next Greater Element I",
+    "Next Greater Element II"
+  ],
+  "followUp": [
+    "What if temperatures can be negative?"
+  ],
+  "testCases": [
+    {
+      "input": "[73,74,75,71,69,72,76,73]",
+      "output": "[1,1,4,2,1,1,0,0]"
+    }
+  ],
+  "acceptanceRate": "67.8%",
+  "likes": 14000,
+  "dislikes": 320
+},
+{
+  "_id": "hash_med_009",
+  "title": "Copy List with Random Pointer",
+  "topic": "hashing",
+  "pattern": "hashmap-node-mapping",
+  "difficulty": "Medium",
+  "platform": "LeetCode",
+  "problemNumber": 138,
+  "leetcodeUrl": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+  "description": "A special linked list is given where each node has a next pointer and a random pointer that can point to any node in the list or null. Your task is to create a completely independent deep copy of this list — a new list where modifying the copy does not affect the original. The challenge is the random pointer: when copying a node, you may not have created the node it randomly points to yet. A HashMap elegantly solves this in two passes. First pass: iterate the original list and create a new copy node for each original node, storing the mapping (original node -> copy node) in a HashMap. Second pass: iterate again, and for each original node, set copy.next = map[original.next] and copy.random = map[original.random], using the HashMap as a translation layer between original and copy nodes.",
+  "examples": [
+    {
+      "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]",
+      "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]",
+      "explanation": "Deep copy preserving all pointers."
+    }
+  ],
+  "constraints": [
+    "0 <= n <= 1000",
+    "-10^4 <= Node.val <= 10^4",
+    "Node.random is null or points to some node in the list."
+  ],
+  "hints": [
+    "Use a HashMap to map original nodes to their copies.",
+    "First pass: create all copies. Second pass: assign next and random pointers."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Amazon",
+    "Microsoft",
+    "Bloomberg",
+    "Meta"
+  ],
+  "tags": [
+    "Hash Table",
+    "Linked List"
+  ],
+  "estimatedTime": "30 min",
+  "youtubeVideos": [
+    {
+      "title": "Copy List with Random Pointer - NeetCode",
+      "url": "https://youtube.com/watch?v=5Y2EiZST97Y"
+    }
+  ],
+  "relatedProblems": [
+    "Clone Graph",
+    "Clone Binary Tree With Random Pointer"
+  ],
+  "followUp": [
+    "Can you solve it in O(1) space by interleaving the copy nodes?"
+  ],
+  "testCases": [
+    {
+      "input": "[[7,null],[13,0]]",
+      "output": "[[7,null],[13,0]]"
+    }
+  ],
+  "acceptanceRate": "56.4%",
+  "likes": 13000,
+  "dislikes": 1400
+},
+{
+  "_id": "hash_hard_001",
+  "title": "LRU Cache",
+  "topic": "hashing",
+  "pattern": "hashmap-doubly-linked-list",
+  "difficulty": "Hard",
+  "platform": "LeetCode",
+  "problemNumber": 146,
+  "leetcodeUrl": "https://leetcode.com/problems/lru-cache/",
+  "description": "Design a data structure that implements a Least Recently Used (LRU) cache with a given capacity. It must support two operations: get(key) which returns the value of the key if it exists, otherwise -1, and put(key, value) which inserts or updates the key. When the cache reaches capacity, it must evict the least recently used item before inserting a new one. Both operations must run in O(1) average time. The canonical solution combines two data structures: a HashMap for O(1) key lookup, and a doubly linked list for O(1) insertion and deletion of any node. The list maintains order of use — most recently used at the front, least recently used at the tail. Every get or put moves the accessed node to the front. When eviction is needed, remove the tail node. This problem is a masterclass in combining multiple data structures to meet strict complexity requirements.",
+  "examples": [
+    {
+      "input": "LRUCache(2), put(1,1), put(2,2), get(1), put(3,3), get(2), put(4,4), get(1), get(3), get(4)",
+      "output": "[null,null,null,1,null,-1,null,1,3,4]",
+      "explanation": "Cache of capacity 2 with LRU eviction."
+    }
+  ],
+  "constraints": [
+    "1 <= capacity <= 3000",
+    "0 <= key <= 10^4",
+    "0 <= value <= 10^5",
+    "At most 2 * 10^5 calls to get and put."
+  ],
+  "hints": [
+    "Combine a HashMap with a doubly linked list.",
+    "HashMap gives O(1) lookup; linked list gives O(1) insertion/deletion.",
+    "Maintain a dummy head and tail to simplify boundary cases."
+  ],
+  "expectedTimeComplexity": "O(1)",
+  "expectedSpaceComplexity": "O(capacity)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Meta",
+    "Microsoft",
+    "Bloomberg"
+  ],
+  "tags": [
+    "Hash Table",
+    "Linked List",
+    "Design",
+    "Doubly-Linked List"
+  ],
+  "estimatedTime": "45 min",
+  "youtubeVideos": [
+    {
+      "title": "LRU Cache - NeetCode",
+      "url": "https://youtube.com/watch?v=7ABFKPK2hD4"
+    }
+  ],
+  "relatedProblems": [
+    "LFU Cache",
+    "Design In-Memory File System"
+  ],
+  "followUp": [
+    "How would you implement LFU cache?"
+  ],
+  "testCases": [
+    {
+      "input": "capacity=2, put(1,1), put(2,2), get(1), put(3,3), get(2)",
+      "output": "-1"
+    }
+  ],
+  "acceptanceRate": "42.8%",
+  "likes": 21000,
+  "dislikes": 890
+},
+{
+  "_id": "hash_hard_002",
+  "title": "Minimum Window Substring",
+  "topic": "hashing",
+  "pattern": "sliding-window-hashmap",
+  "difficulty": "Hard",
+  "platform": "LeetCode",
+  "problemNumber": 76,
+  "leetcodeUrl": "https://leetcode.com/problems/minimum-window-substring/",
+  "description": "Given two strings s and t, return the minimum length substring of s that contains every character in t (including duplicates) at least the required number of times. If no such substring exists, return an empty string. This is one of the hardest sliding window problems and is the ultimate test of the frequency-hashmap pattern. Maintain a need map (frequency of each character in t) and a window map (frequency of each character in the current window). Also maintain a 'formed' counter tracking how many unique characters in t have their required count satisfied in the window. Expand the right pointer to add characters, incrementing 'formed' when a character's window count meets its needed count. Once all characters are satisfied (formed == required), shrink the left pointer to minimize the window, updating the answer whenever a smaller valid window is found.",
+  "examples": [
+    {
+      "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+      "output": "\"BANC\"",
+      "explanation": "Minimum window containing A, B, C."
+    },
+    {
+      "input": "s = \"a\", t = \"a\"",
+      "output": "\"a\"",
+      "explanation": "Entire string is the window."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length, t.length <= 10^5",
+    "s and t consist of uppercase and lowercase English letters."
+  ],
+  "hints": [
+    "Use a sliding window with two frequency maps.",
+    "Track how many characters are fully satisfied (have count).",
+    "Shrink the left pointer when all characters are satisfied."
+  ],
+  "expectedTimeComplexity": "O(|s| + |t|)",
+  "expectedSpaceComplexity": "O(|s| + |t|)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Meta",
+    "Microsoft",
+    "LinkedIn"
+  ],
+  "tags": [
+    "Hash Table",
+    "String",
+    "Sliding Window"
+  ],
+  "estimatedTime": "45 min",
+  "youtubeVideos": [
+    {
+      "title": "Minimum Window Substring - NeetCode",
+      "url": "https://youtube.com/watch?v=jSto0O4AJbM"
+    }
+  ],
+  "relatedProblems": [
+    "Substring with Concatenation of All Words",
+    "Smallest Range Covering Elements from K Lists"
+  ],
+  "followUp": [
+    "What if you need all minimum windows (not just one)?"
+  ],
+  "testCases": [
+    {
+      "input": "s=\"ADOBECODEBANC\", t=\"ABC\"",
+      "output": "\"BANC\""
+    }
+  ],
+  "acceptanceRate": "42.2%",
+  "likes": 17000,
+  "dislikes": 760
+},
+{
+  "_id": "hash_hard_003",
+  "title": "First Missing Positive",
+  "topic": "hashing",
+  "pattern": "index-as-hashmap",
+  "difficulty": "Hard",
+  "platform": "LeetCode",
+  "problemNumber": 41,
+  "leetcodeUrl": "https://leetcode.com/problems/first-missing-positive/",
+  "description": "Given an unsorted integer array nums, find the smallest missing positive integer. The solution must run in O(n) time and use O(1) extra space — which means you cannot use a separate hash table. This constraint forces you to use the array itself as an implicit hash map, making it one of the most creative hashing problems. The key observation is: the answer must lie in the range [1, n+1], where n is the length of the array. So use the array indices as positions. In the first pass, for each value v where 1 <= v <= n, place v at index v-1 by swapping. After rearranging, scan the array: the first index i where nums[i] != i+1 means i+1 is the missing positive. If all positions match, return n+1. This technique — using the array itself as a hash map — is called index hashing and appears in several other problems.",
+  "examples": [
+    {
+      "input": "nums = [1,2,0]",
+      "output": "3",
+      "explanation": "1 and 2 are present, 3 is missing."
+    },
+    {
+      "input": "nums = [3,4,-1,1]",
+      "output": "2",
+      "explanation": "2 is the smallest missing positive."
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-2^31 <= nums[i] <= 2^31 - 1"
+  ],
+  "hints": [
+    "The answer is in range [1, n+1].",
+    "Use the array itself as a hash map: place nums[i] at index nums[i]-1.",
+    "Scan for the first index i where nums[i] != i+1."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Microsoft",
+    "Bloomberg"
+  ],
+  "tags": [
+    "Array",
+    "Hash Table"
+  ],
+  "estimatedTime": "40 min",
+  "youtubeVideos": [
+    {
+      "title": "First Missing Positive - NeetCode",
+      "url": "https://youtube.com/watch?v=8g78yfzMlao"
+    }
+  ],
+  "relatedProblems": [
+    "Missing Number",
+    "Find the Duplicate Number",
+    "Find All Numbers Disappeared in an Array"
+  ],
+  "followUp": [
+    "What would change if you could use O(n) extra space?"
+  ],
+  "testCases": [
+    {
+      "input": "[1,2,0]",
+      "output": "3"
+    },
+    {
+      "input": "[3,4,-1,1]",
+      "output": "2"
+    }
+  ],
+  "acceptanceRate": "38.9%",
+  "likes": 15000,
+  "dislikes": 1200
+},
+{
+  "_id": "hash_hard_004",
+  "title": "LFU Cache",
+  "topic": "hashing",
+  "pattern": "hashmap-frequency-list",
+  "difficulty": "Hard",
+  "platform": "LeetCode",
+  "problemNumber": 460,
+  "leetcodeUrl": "https://leetcode.com/problems/lfu-cache/",
+  "description": "Design a data structure for a Least Frequently Used (LFU) cache. It must support get(key) which returns the value or -1, and put(key, value) which inserts or updates. When the cache is full, evict the least frequently used key. If there is a tie in frequency, evict the least recently used among those. Both operations must be O(1). This is harder than LRU because you must track both frequency and recency simultaneously. The O(1) solution requires three HashMaps: (1) key -> value, (2) key -> frequency, and (3) frequency -> ordered set of keys (a LinkedHashSet to preserve insertion order for tie-breaking). Also maintain a minFreq variable tracking the current minimum frequency. On get or put, update the key's frequency: remove it from its current frequency bucket and add it to the next. On eviction, remove the least recently used key from the minFreq bucket.",
+  "examples": [
+    {
+      "input": "LFUCache(2), put(1,1), put(2,2), get(1), put(3,3), get(2), get(3), put(4,4), get(1), get(3), get(4)",
+      "output": "[null,null,null,1,null,-1,3,null,1,3,4]",
+      "explanation": "LFU eviction based on access frequency."
+    }
+  ],
+  "constraints": [
+    "0 <= capacity <= 10^4",
+    "0 <= key <= 10^5",
+    "0 <= value <= 10^9",
+    "At most 2 * 10^5 calls to get and put."
+  ],
+  "hints": [
+    "Use a HashMap<key, value>, HashMap<key, frequency>, and HashMap<frequency, LinkedHashSet<key>>.",
+    "Track minFrequency to find the LFU key in O(1)."
+  ],
+  "expectedTimeComplexity": "O(1)",
+  "expectedSpaceComplexity": "O(capacity)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Meta"
+  ],
+  "tags": [
+    "Hash Table",
+    "Linked List",
+    "Design",
+    "Doubly-Linked List"
+  ],
+  "estimatedTime": "60 min",
+  "youtubeVideos": [
+    {
+      "title": "LFU Cache - LeetCode 460",
+      "url": "https://youtube.com/watch?v=0PSB9y8ehbk"
+    }
+  ],
+  "relatedProblems": [
+    "LRU Cache",
+    "Design In-Memory File System"
+  ],
+  "followUp": [
+    "How does LFU differ from LRU in real cache performance?"
+  ],
+  "testCases": [
+    {
+      "input": "capacity=2, put(1,1), put(2,2), get(1), put(3,3), get(2)",
+      "output": "-1"
+    }
+  ],
+  "acceptanceRate": "44.2%",
+  "likes": 5800,
+  "dislikes": 360
+},
+{
+  "_id": "hash_hard_005",
+  "title": "Substring with Concatenation of All Words",
+  "topic": "hashing",
+  "pattern": "sliding-window-word-hashmap",
+  "difficulty": "Hard",
+  "platform": "LeetCode",
+  "problemNumber": 30,
+  "leetcodeUrl": "https://leetcode.com/problems/substring-with-concatenation-of-all-words/",
+  "description": "Given a string s and an array of strings words where all words have equal length, find all starting indices in s where a substring is a concatenation of all words in words in any order (each word used exactly once). For example, if words = ['foo','bar'], valid substrings are 'foobar' and 'barfoo'. The window size is always fixed: words.length * wordLen. The solution uses a word-frequency HashMap for the target words and a sliding window that steps by wordLen (not by 1 character). For each possible starting offset (0 to wordLen-1), slide the window across s in word-sized steps, maintaining a current window word-count map. When the window has the right total words, compare maps. If they match, record the start index. Remove the leftmost word when the window is full or when an invalid word is encountered. The key challenge is thinking at word granularity instead of character granularity.",
+  "examples": [
+    {
+      "input": "s = \"barfoothefoobarman\", words = [\"foo\",\"bar\"]",
+      "output": "[0,9]",
+      "explanation": "\"barfoo\" at 0 and \"foobar\" at 9."
+    },
+    {
+      "input": "s = \"wordgoodgoodgoodbestword\", words = [\"word\",\"good\",\"best\",\"word\"]",
+      "output": "[]",
+      "explanation": "No valid concatenation found."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 10^4",
+    "1 <= words.length <= 5000",
+    "1 <= words[i].length <= 30"
+  ],
+  "hints": [
+    "Use a word frequency HashMap for words.",
+    "Slide a window of size (words.length * wordLen) using steps of wordLen.",
+    "Compare the current window's word counts against the target map."
+  ],
+  "expectedTimeComplexity": "O(n * m * k)",
+  "expectedSpaceComplexity": "O(m * k)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Bloomberg"
+  ],
+  "tags": [
+    "Hash Table",
+    "String",
+    "Sliding Window"
+  ],
+  "estimatedTime": "50 min",
+  "youtubeVideos": [
+    {
+      "title": "Substring with Concatenation of All Words - LeetCode 30",
+      "url": "https://youtube.com/watch?v=rg9QHNd5Gxs"
+    }
+  ],
+  "relatedProblems": [
+    "Minimum Window Substring"
+  ],
+  "followUp": [
+    "Can you optimize to O(n) using an optimized sliding window per starting offset?"
+  ],
+  "testCases": [
+    {
+      "input": "\"barfoothefoobarman\", [\"foo\",\"bar\"]",
+      "output": "[0,9]"
+    }
+  ],
+  "acceptanceRate": "31.4%",
+  "likes": 4800,
+  "dislikes": 1500
+}
 ]

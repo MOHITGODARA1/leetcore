@@ -1,3427 +1,1679 @@
 [
-  {
-    "_id": "str_tp_001",
-    "title": "Maximal Two Pointers for String 1",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1674,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-two-pointers-for-string-1/",
-    "companies": [
-      "ByteDance",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_tp_002",
-    "title": "Validate Two Pointers for String 2",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1402,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-two-pointers-for-string-2/",
-    "companies": [
-      "LinkedIn",
-      "Uber",
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_tp_003",
-    "title": "Minimum Cost Two Pointers for String 3",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2858,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-string-3/",
-    "companies": [
-      "Oracle",
-      "Adobe",
-      "Microsoft"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_tp_004",
-    "title": "Longest Two Pointers for String 4",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2926,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-two-pointers-for-string-4/",
-    "companies": [
-      "Tencent",
-      "Uber",
-      "Apple"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_tp_005",
-    "title": "Longest Two Pointers for String 5",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2655,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-two-pointers-for-string-5/",
-    "companies": [
-      "Atlassian",
-      "Stripes",
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_tp_006",
-    "title": "Balanced Two Pointers for String 6",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2645,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-two-pointers-for-string-6/",
-    "companies": [
-      "Stripes",
-      "Google"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_tp_007",
-    "title": "Minimum Cost Two Pointers for String 7",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1819,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-string-7/",
-    "companies": [
-      "ByteDance",
-      "Meta",
-      "Apple"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_tp_008",
-    "title": "Longest Two Pointers for String 8",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1268,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-two-pointers-for-string-8/",
-    "companies": [
-      "Adobe",
-      "Netflix"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_tp_009",
-    "title": "Shortest Two Pointers for String 9",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2256,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-two-pointers-for-string-9/",
-    "companies": [
-      "Apple",
-      "Adobe",
-      "Netflix"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_tp_010",
-    "title": "Merge Two Pointers for String 10",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1251,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-two-pointers-for-string-10/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_tp_011",
-    "title": "Subarray Two Pointers for String 11",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1110,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-string-11/",
-    "companies": [
-      "Twitter",
-      "Tencent",
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_tp_012",
-    "title": "Longest Two Pointers for String 12",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2762,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-two-pointers-for-string-12/",
-    "companies": [
-      "Meta",
-      "ByteDance",
-      "Stripes"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_tp_013",
-    "title": "Subarray Two Pointers for String 13",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1363,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-two-pointers-for-string-13/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_tp_014",
-    "title": "Count of Two Pointers for String 14",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2480,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-two-pointers-for-string-14/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_tp_015",
-    "title": "Balanced Two Pointers for String 15",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1142,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-two-pointers-for-string-15/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_tp_016",
-    "title": "K-th Distance Two Pointers for String 16",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1618,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-two-pointers-for-string-16/",
-    "companies": [
-      "Amazon",
-      "LinkedIn",
-      "Uber"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_tp_017",
-    "title": "Minimum Cost Two Pointers for String 17",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1852,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-string-17/",
-    "companies": [
-      "Oracle",
-      "Stripes"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_tp_018",
-    "title": "Continuous Two Pointers for String 18",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1697,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-two-pointers-for-string-18/",
-    "companies": [
-      "Microsoft",
-      "Amazon",
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_tp_019",
-    "title": "Longest Two Pointers for String 19",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1664,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-two-pointers-for-string-19/",
-    "companies": [
-      "Airbnb",
-      "Bloomberg",
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_tp_020",
-    "title": "Search Two Pointers for String 20",
-    "topic": "string",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2961,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-string-20/",
-    "companies": [
-      "LinkedIn",
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_sw_001",
-    "title": "Subarray Sliding Window for String 1",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1140,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sliding-window-for-string-1/",
-    "companies": [
-      "Bloomberg",
-      "Amazon",
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_sw_002",
-    "title": "Longest Sliding Window for String 2",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1819,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sliding-window-for-string-2/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_sw_003",
-    "title": "Count of Sliding Window for String 3",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2600,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-string-3/",
-    "companies": [
-      "Uber",
-      "Twilio",
-      "Apple"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_sw_004",
-    "title": "Maximal Sliding Window for String 4",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1960,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-string-4/",
-    "companies": [
-      "Google",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_sw_005",
-    "title": "Merge Sliding Window for String 5",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1006,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sliding-window-for-string-5/",
-    "companies": [
-      "Stripes",
-      "Apple"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_sw_006",
-    "title": "Subarray Sliding Window for String 6",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2890,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sliding-window-for-string-6/",
-    "companies": [
-      "Meta",
-      "Adobe",
-      "Twilio"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_sw_007",
-    "title": "Validate Sliding Window for String 7",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2563,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sliding-window-for-string-7/",
-    "companies": [
-      "LinkedIn",
-      "Twitter",
-      "Oracle"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_sw_008",
-    "title": "Search Sliding Window for String 8",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2445,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-string-8/",
-    "companies": [
-      "Stripes",
-      "Twitter"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_sw_009",
-    "title": "Minimum Cost Sliding Window for String 9",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2162,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sliding-window-for-string-9/",
-    "companies": [
-      "Atlassian"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_sw_010",
-    "title": "Validate Sliding Window for String 10",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1837,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sliding-window-for-string-10/",
-    "companies": [
-      "Tencent",
-      "Stripes"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_sw_011",
-    "title": "K-th Distance Sliding Window for String 11",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1948,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sliding-window-for-string-11/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_sw_012",
-    "title": "Longest Sliding Window for String 12",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1705,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sliding-window-for-string-12/",
-    "companies": [
-      "Microsoft",
-      "Tencent"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_sw_013",
-    "title": "Balanced Sliding Window for String 13",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1569,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sliding-window-for-string-13/",
-    "companies": [
-      "Amazon",
-      "Bloomberg",
-      "Meta"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_sw_014",
-    "title": "Shortest Sliding Window for String 14",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2784,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sliding-window-for-string-14/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_sw_015",
-    "title": "Longest Sliding Window for String 15",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2302,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sliding-window-for-string-15/",
-    "companies": [
-      "ByteDance",
-      "Microsoft"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_sw_016",
-    "title": "Search Sliding Window for String 16",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2587,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-string-16/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_sw_017",
-    "title": "Count of Sliding Window for String 17",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2482,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-string-17/",
-    "companies": [
-      "Atlassian",
-      "Apple",
-      "Tencent"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_sw_018",
-    "title": "Count of Sliding Window for String 18",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2188,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-string-18/",
-    "companies": [
-      "Tencent",
-      "Airbnb",
-      "Microsoft"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_sw_019",
-    "title": "Cyclic Sliding Window for String 19",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2360,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sliding-window-for-string-19/",
-    "companies": [
-      "Atlassian",
-      "Uber",
-      "Oracle"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_sw_020",
-    "title": "Optimal Sliding Window for String 20",
-    "topic": "string",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2246,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sliding-window-for-string-20/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "String",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_ps_001",
-    "title": "Minimum Cost Prefix Sum for String 1",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2863,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-prefix-sum-for-string-1/",
-    "companies": [
-      "ByteDance",
-      "Bloomberg",
-      "Microsoft"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_ps_002",
-    "title": "Optimal Prefix Sum for String 2",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1379,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-string-2/",
-    "companies": [
-      "Twilio",
-      "Oracle",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_ps_003",
-    "title": "Balanced Prefix Sum for String 3",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1160,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-prefix-sum-for-string-3/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ps_004",
-    "title": "Balanced Prefix Sum for String 4",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1328,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-prefix-sum-for-string-4/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_ps_005",
-    "title": "Optimal Prefix Sum for String 5",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1782,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-string-5/",
-    "companies": [
-      "LinkedIn",
-      "Twilio",
-      "Oracle"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_ps_006",
-    "title": "Optimal Prefix Sum for String 6",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2297,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-string-6/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ps_007",
-    "title": "Cyclic Prefix Sum for String 7",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1383,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-prefix-sum-for-string-7/",
-    "companies": [
-      "ByteDance",
-      "LinkedIn",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_ps_008",
-    "title": "Search Prefix Sum for String 8",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2621,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-string-8/",
-    "companies": [
-      "Oracle",
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ps_009",
-    "title": "K-th Distance Prefix Sum for String 9",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1832,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-string-9/",
-    "companies": [
-      "LinkedIn",
-      "Oracle",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_ps_010",
-    "title": "Validate Prefix Sum for String 10",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2692,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-string-10/",
-    "companies": [
-      "Amazon",
-      "Adobe",
-      "Twilio"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ps_011",
-    "title": "Maximal Prefix Sum for String 11",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2537,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-prefix-sum-for-string-11/",
-    "companies": [
-      "Meta",
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_ps_012",
-    "title": "Minimum Cost Prefix Sum for String 12",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1136,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-prefix-sum-for-string-12/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ps_013",
-    "title": "Search Prefix Sum for String 13",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2519,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-string-13/",
-    "companies": [
-      "Tencent",
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_ps_014",
-    "title": "Balanced Prefix Sum for String 14",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2136,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-prefix-sum-for-string-14/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_ps_015",
-    "title": "Validate Prefix Sum for String 15",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1779,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-string-15/",
-    "companies": [
-      "Twilio",
-      "Uber",
-      "Twitter"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ps_016",
-    "title": "Subsequence Prefix Sum for String 16",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2051,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-prefix-sum-for-string-16/",
-    "companies": [
-      "Salesforce",
-      "Tencent"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_ps_017",
-    "title": "K-th Distance Prefix Sum for String 17",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2803,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-string-17/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ps_018",
-    "title": "Shortest Prefix Sum for String 18",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1580,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-prefix-sum-for-string-18/",
-    "companies": [
-      "Amazon",
-      "Bloomberg",
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ps_019",
-    "title": "Longest Prefix Sum for String 19",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2493,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-prefix-sum-for-string-19/",
-    "companies": [
-      "Uber",
-      "Stripes"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_ps_020",
-    "title": "Balanced Prefix Sum for String 20",
-    "topic": "string",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2091,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-prefix-sum-for-string-20/",
-    "companies": [
-      "Adobe",
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_bs_001",
-    "title": "Search Binary Search for String 1",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1537,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-string-1/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_bs_002",
-    "title": "Longest Binary Search for String 2",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2082,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-binary-search-for-string-2/",
-    "companies": [
-      "Stripes",
-      "Uber"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_bs_003",
-    "title": "Cyclic Binary Search for String 3",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1926,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-string-3/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_bs_004",
-    "title": "Optimal Binary Search for String 4",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1122,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-string-4/",
-    "companies": [
-      "Amazon",
-      "Apple",
-      "Atlassian"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_bs_005",
-    "title": "Cyclic Binary Search for String 5",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2207,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-string-5/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_bs_006",
-    "title": "Merge Binary Search for String 6",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2571,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-string-6/",
-    "companies": [
-      "ByteDance",
-      "Microsoft"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_bs_007",
-    "title": "K-th Distance Binary Search for String 7",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2394,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-binary-search-for-string-7/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_bs_008",
-    "title": "Subsequence Binary Search for String 8",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1573,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-string-8/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_bs_009",
-    "title": "Subsequence Binary Search for String 9",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1193,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-string-9/",
-    "companies": [
-      "Twilio",
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_bs_010",
-    "title": "Cyclic Binary Search for String 10",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1619,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-string-10/",
-    "companies": [
-      "Bloomberg",
-      "Meta",
-      "Google"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_bs_011",
-    "title": "Subsequence Binary Search for String 11",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1804,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-string-11/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_bs_012",
-    "title": "Search Binary Search for String 12",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2949,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-string-12/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_bs_013",
-    "title": "Maximal Binary Search for String 13",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2361,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-string-13/",
-    "companies": [
-      "Netflix",
-      "Bloomberg",
-      "Salesforce"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_bs_014",
-    "title": "Subsequence Binary Search for String 14",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2469,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-string-14/",
-    "companies": [
-      "Google",
-      "Airbnb",
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_bs_015",
-    "title": "Continuous Binary Search for String 15",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2016,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-binary-search-for-string-15/",
-    "companies": [
-      "Meta",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_bs_016",
-    "title": "Continuous Binary Search for String 16",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2600,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-binary-search-for-string-16/",
-    "companies": [
-      "Salesforce",
-      "Meta",
-      "Airbnb"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_bs_017",
-    "title": "Balanced Binary Search for String 17",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2588,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-search-for-string-17/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_bs_018",
-    "title": "Optimal Binary Search for String 18",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2177,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-string-18/",
-    "companies": [
-      "Stripes",
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_bs_019",
-    "title": "Continuous Binary Search for String 19",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1061,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-binary-search-for-string-19/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_bs_020",
-    "title": "Search Binary Search for String 20",
-    "topic": "string",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1173,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-string-20/",
-    "companies": [
-      "Airbnb",
-      "Google",
-      "Meta"
-    ],
-    "tags": [
-      "String",
-      "Binary Search"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_mt_001",
-    "title": "K-th Distance Matrix for String 1",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2674,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-string-1/",
-    "companies": [
-      "Netflix",
-      "Twitter"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_mt_002",
-    "title": "Merge Matrix for String 2",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2352,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-string-2/",
-    "companies": [
-      "Netflix",
-      "Apple",
-      "Uber"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_mt_003",
-    "title": "Longest Matrix for String 3",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1857,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-string-3/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_mt_004",
-    "title": "Subsequence Matrix for String 4",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1631,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-matrix-for-string-4/",
-    "companies": [
-      "Stripes",
-      "Atlassian",
-      "Twilio"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_mt_005",
-    "title": "Minimum Cost Matrix for String 5",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1421,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-matrix-for-string-5/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_mt_006",
-    "title": "Continuous Matrix for String 6",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1756,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-matrix-for-string-6/",
-    "companies": [
-      "Amazon",
-      "Atlassian",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_mt_007",
-    "title": "Optimal Matrix for String 7",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2767,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-matrix-for-string-7/",
-    "companies": [
-      "Netflix",
-      "Meta"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_mt_008",
-    "title": "Search Matrix for String 8",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2642,
-    "leetcodeUrl": "https://leetcode.com/problems/search-matrix-for-string-8/",
-    "companies": [
-      "Twitter",
-      "Adobe",
-      "Salesforce"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_mt_009",
-    "title": "Optimal Matrix for String 9",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1918,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-matrix-for-string-9/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_mt_010",
-    "title": "Subarray Matrix for String 10",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2849,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-string-10/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_mt_011",
-    "title": "Cyclic Matrix for String 11",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2901,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-matrix-for-string-11/",
-    "companies": [
-      "Google",
-      "Microsoft",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_mt_012",
-    "title": "Validate Matrix for String 12",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1030,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-matrix-for-string-12/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_mt_013",
-    "title": "Subarray Matrix for String 13",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1533,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-string-13/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_mt_014",
-    "title": "K-th Distance Matrix for String 14",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1959,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-string-14/",
-    "companies": [
-      "Oracle",
-      "Airbnb",
-      "Salesforce"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_mt_015",
-    "title": "Balanced Matrix for String 15",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2458,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-matrix-for-string-15/",
-    "companies": [
-      "Airbnb",
-      "Meta"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_mt_016",
-    "title": "Merge Matrix for String 16",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1502,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-string-16/",
-    "companies": [
-      "Meta",
-      "Atlassian",
-      "Uber"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_mt_017",
-    "title": "K-th Distance Matrix for String 17",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1493,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-string-17/",
-    "companies": [
-      "LinkedIn",
-      "Microsoft"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_mt_018",
-    "title": "Subarray Matrix for String 18",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1382,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-matrix-for-string-18/",
-    "companies": [
-      "Tencent",
-      "Netflix",
-      "Apple"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_mt_019",
-    "title": "Subsequence Matrix for String 19",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1607,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-matrix-for-string-19/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_mt_020",
-    "title": "Longest Matrix for String 20",
-    "topic": "string",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1693,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-string-20/",
-    "companies": [
-      "Amazon",
-      "Stripes",
-      "Airbnb"
-    ],
-    "tags": [
-      "String",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_srt_001",
-    "title": "Balanced Sorting for String 1",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2739,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sorting-for-string-1/",
-    "companies": [
-      "Microsoft",
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_srt_002",
-    "title": "Shortest Sorting for String 2",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2855,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-string-2/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_srt_003",
-    "title": "Subsequence Sorting for String 3",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1814,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-sorting-for-string-3/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_srt_004",
-    "title": "Maximal Sorting for String 4",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1559,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-string-4/",
-    "companies": [
-      "Twitter",
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_srt_005",
-    "title": "Subarray Sorting for String 5",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2517,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sorting-for-string-5/",
-    "companies": [
-      "Twilio",
-      "Netflix",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_srt_006",
-    "title": "Search Sorting for String 6",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2167,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-string-6/",
-    "companies": [
-      "Meta"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_srt_007",
-    "title": "Subarray Sorting for String 7",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2752,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sorting-for-string-7/",
-    "companies": [
-      "Stripes",
-      "Netflix",
-      "Adobe"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_srt_008",
-    "title": "K-th Distance Sorting for String 8",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2689,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-string-8/",
-    "companies": [
-      "Twilio",
-      "Twitter",
-      "Airbnb"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_srt_009",
-    "title": "Shortest Sorting for String 9",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1005,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-string-9/",
-    "companies": [
-      "ByteDance",
-      "Atlassian",
-      "Apple"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_srt_010",
-    "title": "Search Sorting for String 10",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2135,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-string-10/",
-    "companies": [
-      "Adobe",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_srt_011",
-    "title": "Validate Sorting for String 11",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2436,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sorting-for-string-11/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_srt_012",
-    "title": "Optimal Sorting for String 12",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2986,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-string-12/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_srt_013",
-    "title": "Minimum Cost Sorting for String 13",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2314,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sorting-for-string-13/",
-    "companies": [
-      "Tencent",
-      "Google"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_srt_014",
-    "title": "Maximal Sorting for String 14",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1443,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-string-14/",
-    "companies": [
-      "Adobe",
-      "Tencent"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_srt_015",
-    "title": "Optimal Sorting for String 15",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1285,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-string-15/",
-    "companies": [
-      "Oracle",
-      "Bloomberg",
-      "Salesforce"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_srt_016",
-    "title": "Longest Sorting for String 16",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1028,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sorting-for-string-16/",
-    "companies": [
-      "Oracle",
-      "ByteDance",
-      "Tencent"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_srt_017",
-    "title": "Count of Sorting for String 17",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2942,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sorting-for-string-17/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_srt_018",
-    "title": "Count of Sorting for String 18",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2329,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sorting-for-string-18/",
-    "companies": [
-      "Stripes",
-      "Meta",
-      "Oracle"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_srt_019",
-    "title": "Search Sorting for String 19",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1041,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-string-19/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_srt_020",
-    "title": "Optimal Sorting for String 20",
-    "topic": "string",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1909,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-string-20/",
-    "companies": [
-      "Adobe",
-      "Google"
-    ],
-    "tags": [
-      "String",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_kd_001",
-    "title": "Longest Kadane’s Algorithm for String 1",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2210,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-string-1/",
-    "companies": [
-      "Amazon",
-      "Tencent",
-      "Salesforce"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_kd_002",
-    "title": "K-th Distance Kadane’s Algorithm for String 2",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1886,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-kadane-s-algorithm-for-string-2/",
-    "companies": [
-      "Tencent",
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_kd_003",
-    "title": "Subarray Kadane’s Algorithm for String 3",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1805,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-string-3/",
-    "companies": [
-      "Oracle",
-      "Airbnb"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_kd_004",
-    "title": "Cyclic Kadane’s Algorithm for String 4",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1126,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-kadane-s-algorithm-for-string-4/",
-    "companies": [
-      "Twilio",
-      "Adobe",
-      "Uber"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_kd_005",
-    "title": "Shortest Kadane’s Algorithm for String 5",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2357,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-kadane-s-algorithm-for-string-5/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_kd_006",
-    "title": "Cyclic Kadane’s Algorithm for String 6",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2918,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-kadane-s-algorithm-for-string-6/",
-    "companies": [
-      "Apple",
-      "Atlassian",
-      "Airbnb"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_kd_007",
-    "title": "Longest Kadane’s Algorithm for String 7",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2469,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-string-7/",
-    "companies": [
-      "Stripes",
-      "Apple"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_kd_008",
-    "title": "Continuous Kadane’s Algorithm for String 8",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1108,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-kadane-s-algorithm-for-string-8/",
-    "companies": [
-      "ByteDance",
-      "Atlassian"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_kd_009",
-    "title": "Validate Kadane’s Algorithm for String 9",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1345,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-kadane-s-algorithm-for-string-9/",
-    "companies": [
-      "Tencent",
-      "Meta",
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_kd_010",
-    "title": "Optimal Kadane’s Algorithm for String 10",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1086,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-kadane-s-algorithm-for-string-10/",
-    "companies": [
-      "Twilio",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_kd_011",
-    "title": "Optimal Kadane’s Algorithm for String 11",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2863,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-kadane-s-algorithm-for-string-11/",
-    "companies": [
-      "Google",
-      "ByteDance"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_kd_012",
-    "title": "Count of Kadane’s Algorithm for String 12",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2117,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-kadane-s-algorithm-for-string-12/",
-    "companies": [
-      "Google",
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_kd_013",
-    "title": "Optimal Kadane’s Algorithm for String 13",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2973,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-kadane-s-algorithm-for-string-13/",
-    "companies": [
-      "Salesforce",
-      "Twilio",
-      "Stripes"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_kd_014",
-    "title": "Shortest Kadane’s Algorithm for String 14",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2594,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-kadane-s-algorithm-for-string-14/",
-    "companies": [
-      "Meta",
-      "Salesforce"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_kd_015",
-    "title": "Balanced Kadane’s Algorithm for String 15",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2215,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-kadane-s-algorithm-for-string-15/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_kd_016",
-    "title": "Subarray Kadane’s Algorithm for String 16",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1420,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-string-16/",
-    "companies": [
-      "Oracle",
-      "Adobe",
-      "Airbnb"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_kd_017",
-    "title": "Subsequence Kadane’s Algorithm for String 17",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2805,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-kadane-s-algorithm-for-string-17/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_kd_018",
-    "title": "Count of Kadane’s Algorithm for String 18",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2847,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-kadane-s-algorithm-for-string-18/",
-    "companies": [
-      "Oracle",
-      "Tencent"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_kd_019",
-    "title": "Search Kadane’s Algorithm for String 19",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2388,
-    "leetcodeUrl": "https://leetcode.com/problems/search-kadane-s-algorithm-for-string-19/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_kd_020",
-    "title": "Balanced Kadane’s Algorithm for String 20",
-    "topic": "string",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2075,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-kadane-s-algorithm-for-string-20/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "String",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_hs_001",
-    "title": "Shortest Hashing for String 1",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1410,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-hashing-for-string-1/",
-    "companies": [
-      "Oracle",
-      "Twitter"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_hs_002",
-    "title": "Cyclic Hashing for String 2",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2158,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-hashing-for-string-2/",
-    "companies": [
-      "Oracle",
-      "Google",
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_hs_003",
-    "title": "Search Hashing for String 3",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1582,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-string-3/",
-    "companies": [
-      "Microsoft",
-      "Airbnb",
-      "Meta"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_hs_004",
-    "title": "K-th Distance Hashing for String 4",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1211,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-hashing-for-string-4/",
-    "companies": [
-      "Adobe",
-      "Bloomberg",
-      "Stripes"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_hs_005",
-    "title": "Merge Hashing for String 5",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2772,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-hashing-for-string-5/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_hs_006",
-    "title": "Cyclic Hashing for String 6",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1129,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-hashing-for-string-6/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_hs_007",
-    "title": "Subarray Hashing for String 7",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2357,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-hashing-for-string-7/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_hs_008",
-    "title": "Optimal Hashing for String 8",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1453,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-string-8/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_hs_009",
-    "title": "Subsequence Hashing for String 9",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2130,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-hashing-for-string-9/",
-    "companies": [
-      "Stripes",
-      "Microsoft",
-      "Adobe"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_hs_010",
-    "title": "Minimum Cost Hashing for String 10",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2990,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-hashing-for-string-10/",
-    "companies": [
-      "Uber",
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_hs_011",
-    "title": "Subsequence Hashing for String 11",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1495,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-hashing-for-string-11/",
-    "companies": [
-      "Oracle",
-      "Meta",
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_hs_012",
-    "title": "Search Hashing for String 12",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2738,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-string-12/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_hs_013",
-    "title": "K-th Distance Hashing for String 13",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2728,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-hashing-for-string-13/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_hs_014",
-    "title": "Longest Hashing for String 14",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1596,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-hashing-for-string-14/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_hs_015",
-    "title": "Search Hashing for String 15",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1372,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-string-15/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_hs_016",
-    "title": "Validate Hashing for String 16",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1618,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-hashing-for-string-16/",
-    "companies": [
-      "Netflix",
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_hs_017",
-    "title": "K-th Distance Hashing for String 17",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2281,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-hashing-for-string-17/",
-    "companies": [
-      "Airbnb",
-      "ByteDance",
-      "Meta"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_hs_018",
-    "title": "Continuous Hashing for String 18",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1441,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-hashing-for-string-18/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_hs_019",
-    "title": "Balanced Hashing for String 19",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1716,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-string-19/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_hs_020",
-    "title": "Optimal Hashing for String 20",
-    "topic": "string",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2989,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-string-20/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "String",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ms_001",
-    "title": "Shortest Monotonic Stack for String 1",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1838,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-monotonic-stack-for-string-1/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_ms_002",
-    "title": "Shortest Monotonic Stack for String 2",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1383,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-monotonic-stack-for-string-2/",
-    "companies": [
-      "Microsoft",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_ms_003",
-    "title": "Continuous Monotonic Stack for String 3",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2674,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-string-3/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_ms_004",
-    "title": "Shortest Monotonic Stack for String 4",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2432,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-monotonic-stack-for-string-4/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_ms_005",
-    "title": "Search Monotonic Stack for String 5",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2096,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-string-5/",
-    "companies": [
-      "Netflix",
-      "Bloomberg",
-      "Google"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_ms_006",
-    "title": "Merge Monotonic Stack for String 6",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2609,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-string-6/",
-    "companies": [
-      "Twitter",
-      "Oracle"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_ms_007",
-    "title": "Validate Monotonic Stack for String 7",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2564,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-monotonic-stack-for-string-7/",
-    "companies": [
-      "Netflix",
-      "Oracle"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_ms_008",
-    "title": "Count of Monotonic Stack for String 8",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2821,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-string-8/",
-    "companies": [
-      "Stripes",
-      "Amazon",
-      "Netflix"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_ms_009",
-    "title": "Search Monotonic Stack for String 9",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2155,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-string-9/",
-    "companies": [
-      "LinkedIn",
-      "Salesforce",
-      "Twilio"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_ms_010",
-    "title": "Optimal Monotonic Stack for String 10",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1633,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-monotonic-stack-for-string-10/",
-    "companies": [
-      "Stripes",
-      "Oracle",
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ms_011",
-    "title": "Balanced Monotonic Stack for String 11",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1263,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-monotonic-stack-for-string-11/",
-    "companies": [
-      "Twitter",
-      "Atlassian"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "str_ms_012",
-    "title": "Maximal Monotonic Stack for String 12",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1743,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-monotonic-stack-for-string-12/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "str_ms_013",
-    "title": "Search Monotonic Stack for String 13",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2975,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-string-13/",
-    "companies": [
-      "Google",
-      "Tencent",
-      "Meta"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "str_ms_014",
-    "title": "Subsequence Monotonic Stack for String 14",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2764,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-monotonic-stack-for-string-14/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "str_ms_015",
-    "title": "Search Monotonic Stack for String 15",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1029,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-string-15/",
-    "companies": [
-      "Stripes",
-      "Meta",
-      "Netflix"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_ms_016",
-    "title": "Validate Monotonic Stack for String 16",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2043,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-monotonic-stack-for-string-16/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_ms_017",
-    "title": "Validate Monotonic Stack for String 17",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1092,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-monotonic-stack-for-string-17/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_ms_018",
-    "title": "Search Monotonic Stack for String 18",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2017,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-string-18/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "str_ms_019",
-    "title": "Search Monotonic Stack for String 19",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1043,
-    "leetcodeUrl": "https://leetcode.com/problems/search-monotonic-stack-for-string-19/",
-    "companies": [
-      "Bloomberg",
-      "Apple"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "str_ms_020",
-    "title": "Shortest Monotonic Stack for String 20",
-    "topic": "string",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1957,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-monotonic-stack-for-string-20/",
-    "companies": [
-      "Oracle",
-      "Atlassian",
-      "LinkedIn"
-    ],
-    "tags": [
-      "String",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  }
+{
+  "_id": "str_easy_001",
+  "title": "Valid Anagram",
+  "topic": "strings",
+  "pattern": "frequency-count",
+  "difficulty": "Easy",
+  "platform": "LeetCode",
+  "problemNumber": 242,
+  "leetcodeUrl": "https://leetcode.com/problems/valid-anagram/",
+  "description": "Given two strings s and t, determine if t is an anagram of s — meaning t uses exactly the same letters as s, just rearranged. This is the gateway drug to every 'compare two strings by content, not order' problem you'll ever see. The trick is realizing you never actually need to generate permutations or sort-and-compare (though sorting works at O(n log n)). Instead, keep a 26-slot frequency array (or a hash map for Unicode): walk through s incrementing counts, walk through t decrementing counts, and if every slot lands back at zero, the strings are anagrams. This single counting array becomes the backbone for Group Anagrams, Find All Anagrams in a String, and Permutation in String — once you see the 'signature array' trick here, you'll recognize it everywhere.",
+  "examples": [
+    {
+      "input": "s = \"anagram\", t = \"nagaram\"",
+      "output": "true",
+      "explanation": "Same letters, same counts, different order."
+    },
+    {
+      "input": "s = \"rat\", t = \"car\"",
+      "output": "false",
+      "explanation": "'rat' has no 'c' — the frequency arrays don't match."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length, t.length <= 50000",
+    "s and t consist of lowercase English letters"
+  ],
+  "hints": [
+    "If the lengths differ, you can return false immediately — save yourself the work.",
+    "A 26-length integer array indexed by (char - 'a') is faster than a hash map for lowercase-only inputs."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1) — fixed 26-slot array",
+  "companies": [
+    "Amazon",
+    "Bloomberg",
+    "Uber",
+    "Yelp"
+  ],
+  "tags": [
+    "String",
+    "Hash Table",
+    "Sorting"
+  ],
+  "estimatedTime": "10 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Valid Anagram NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Group Anagrams",
+    "Find All Anagrams in a String",
+    "Permutation in String"
+  ],
+  "followUp": [
+    "What changes if the inputs contain Unicode characters instead of just lowercase letters?"
+  ],
+  "testCases": [
+    {
+      "input": "\"anagram\", \"nagaram\"",
+      "output": "true"
+    },
+    {
+      "input": "\"rat\", \"car\"",
+      "output": "false"
+    }
+  ],
+  "acceptanceRate": "~65%",
+  "likes": "~13.5k",
+  "dislikes": "~430"
+},
+{
+  "_id": "str_easy_002",
+  "title": "Valid Palindrome",
+  "topic": "strings",
+  "pattern": "two-pointer",
+  "difficulty": "Easy",
+  "problemNumber": 125,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/valid-palindrome/",
+  "description": "After converting all uppercase letters to lowercase and removing all non-alphanumeric characters, determine if the string reads the same forward and backward. The real skill being tested isn't palindrome-checking — it's filtering 'on the fly' instead of building a cleaned-up copy first. Place one pointer at the start and one at the end; advance each pointer past any character that isn't alphanumeric, then compare. If they ever mismatch, you can stop instantly and return false. This 'two pointers closing in from both ends' shape is the single most reused pattern in all of string algorithms — you'll see its DNA in Reverse String, Valid Palindrome II, and even non-string problems like Container With Most Water.",
+  "examples": [
+    {
+      "input": "s = \"A man, a plan, a canal: Panama\"",
+      "output": "true",
+      "explanation": "Ignoring punctuation/case, it reads 'amanaplanacanalpanama' both ways."
+    },
+    {
+      "input": "s = \"race a car\"",
+      "output": "false",
+      "explanation": "Cleaned to 'raceacar', which isn't a palindrome."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 200000",
+    "s consists only of printable ASCII characters"
+  ],
+  "hints": [
+    "Don't build a new cleaned string — skip invalid characters in-place with the pointers themselves.",
+    "Lowercase a character with a simple ASCII offset instead of calling a library function in a hot loop."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Facebook",
+    "Microsoft",
+    "LinkedIn"
+  ],
+  "tags": [
+    "String",
+    "Two Pointers"
+  ],
+  "estimatedTime": "12 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Valid Palindrome NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Valid Palindrome II",
+    "Palindrome Linked List"
+  ],
+  "followUp": [
+    "Can you solve Valid Palindrome II, where exactly one deletion is allowed?"
+  ],
+  "testCases": [
+    {
+      "input": "\"A man, a plan, a canal: Panama\"",
+      "output": "true"
+    },
+    {
+      "input": "\"race a car\"",
+      "output": "false"
+    }
+  ],
+  "acceptanceRate": "~46%",
+  "likes": "~8.9k",
+  "dislikes": "~8.1k"
+},
+{
+  "_id": "str_easy_003",
+  "title": "Reverse String",
+  "topic": "strings",
+  "pattern": "two-pointer-in-place",
+  "difficulty": "Easy",
+  "problemNumber": 344,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/reverse-string/",
+  "description": "Reverse a character array in-place, without allocating a second array. It looks almost insultingly simple, and that's exactly the point — this problem exists to force you to internalize the 'swap-and-converge' two-pointer shape before you meet it in disguise everywhere else. Put a pointer at index 0 and one at index n-1, swap the characters they point to, then move both pointers toward the middle and repeat until they cross. No recursion, no extra memory, no library reverse() call. Once this motion is muscle memory, problems like Reverse Words in a String III and Rotate Array stop looking new and start looking like the same trick wearing a different costume.",
+  "examples": [
+    {
+      "input": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"]",
+      "output": "[\"o\",\"l\",\"l\",\"e\",\"h\"]",
+      "explanation": "Swap outer pairs and move inward."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 100000",
+    "s[i] is a printable ASCII character"
+  ],
+  "hints": [
+    "You must modify the input array in place with O(1) extra memory.",
+    "Stop the pointers when left >= right, not just left == right (handles even-length arrays)."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Apple",
+    "Adobe",
+    "VMware"
+  ],
+  "tags": [
+    "String",
+    "Two Pointers",
+    "Recursion"
+  ],
+  "estimatedTime": "5 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Reverse String NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Reverse Words in a String III",
+    "Reverse Vowels of a String"
+  ],
+  "followUp": [
+    "Can you reverse it recursively without using the call stack as 'extra space' for the analysis?"
+  ],
+  "testCases": [
+    {
+      "input": "[\"h\",\"e\",\"l\",\"l\",\"o\"]",
+      "output": "[\"o\",\"l\",\"l\",\"e\",\"h\"]"
+    }
+  ],
+  "acceptanceRate": "~80%",
+  "likes": "~8.5k",
+  "dislikes": "~2.6k"
+},
+{
+  "_id": "str_easy_004",
+  "title": "Longest Common Prefix",
+  "topic": "strings",
+  "pattern": "vertical-scanning",
+  "difficulty": "Easy",
+  "problemNumber": 14,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/longest-common-prefix/",
+  "description": "Given an array of strings, find the longest prefix shared by every single one of them. The naive instinct is to compare strings pairwise, but the elegant approach is 'vertical scanning': fix a column index, walk down every string at that column, and the moment any string runs out of characters or disagrees with the first string's character, you've found exactly where the common prefix ends. This column-by-column mindset — checking position 0 across all words, then position 1, and so on — is the same mental model behind building a Trie, which is precisely why this innocent-looking easy problem is the unofficial prerequisite for prefix-trees and autocomplete systems later on.",
+  "examples": [
+    {
+      "input": "strs = [\"flower\",\"flow\",\"flight\"]",
+      "output": "\"fl\"",
+      "explanation": "All three agree only on 'f' and 'l'."
+    },
+    {
+      "input": "strs = [\"dog\",\"racecar\",\"car\"]",
+      "output": "\"\"",
+      "explanation": "No character is shared at position 0 across all words."
+    }
+  ],
+  "constraints": [
+    "1 <= strs.length <= 200",
+    "0 <= strs[i].length <= 200"
+  ],
+  "hints": [
+    "Use the first string as your 'reference' and shrink the candidate prefix as you scan the rest.",
+    "The moment the candidate prefix becomes empty, you can short-circuit and return immediately."
+  ],
+  "expectedTimeComplexity": "O(S) where S is the sum of all character counts",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Google",
+    "Amazon",
+    "Yahoo"
+  ],
+  "tags": [
+    "String",
+    "Trie"
+  ],
+  "estimatedTime": "10 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Longest Common Prefix NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Implement Trie (Prefix Tree)",
+    "Longest Common Subsequence"
+  ],
+  "followUp": [
+    "How would you re-solve this efficiently if the array is queried thousands of times, suggesting a Trie?"
+  ],
+  "testCases": [
+    {
+      "input": "[\"flower\",\"flow\",\"flight\"]",
+      "output": "\"fl\""
+    },
+    {
+      "input": "[\"dog\",\"racecar\",\"car\"]",
+      "output": "\"\""
+    }
+  ],
+  "acceptanceRate": "~44%",
+  "likes": "~17k",
+  "dislikes": "~4k"
+},
+{
+  "_id": "str_easy_005",
+  "title": "Find the Index of the First Occurrence in a String",
+  "topic": "strings",
+  "pattern": "substring-search",
+  "difficulty": "Easy",
+  "problemNumber": 28,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/",
+  "description": "Given a haystack and a needle, return the index of the first occurrence of needle in haystack, or -1 if it doesn't exist — in other words, reimplement strStr() from scratch. This is your first real brush with 'substring search', the problem family that eventually leads to KMP, Rabin-Karp, and Z-arrays. The brute-force solution (slide the needle across every starting position in the haystack and compare character by character) is O(n·m) but perfectly acceptable here, and walking through it carefully — including the early-exit the moment a mismatch is found — builds the exact intuition you'll need when Repeated Substring Pattern and Shortest Palindrome ask you to be cleverer about it.",
+  "examples": [
+    {
+      "input": "haystack = \"sadbutsad\", needle = \"sad\"",
+      "output": "0",
+      "explanation": "The first match starts at index 0."
+    },
+    {
+      "input": "haystack = \"leetcode\", needle = \"leeto\"",
+      "output": "-1",
+      "explanation": "'leeto' never appears as a contiguous substring."
+    }
+  ],
+  "constraints": [
+    "1 <= haystack.length, needle.length <= 10000"
+  ],
+  "hints": [
+    "Only positions where there's enough room left for the full needle need to be checked.",
+    "Try implementing this without using a built-in indexOf/find call, purely with nested loops, to feel the brute force."
+  ],
+  "expectedTimeComplexity": "O(n·m) brute force, O(n+m) with KMP",
+  "expectedSpaceComplexity": "O(1) brute force",
+  "companies": [
+    "Microsoft",
+    "Facebook",
+    "Pocket Gems"
+  ],
+  "tags": [
+    "String",
+    "String Matching"
+  ],
+  "estimatedTime": "10 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Implement strStr NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Repeated Substring Pattern",
+    "Shortest Palindrome"
+  ],
+  "followUp": [
+    "Can you implement the KMP algorithm to get this down to linear time?"
+  ],
+  "testCases": [
+    {
+      "input": "\"sadbutsad\", \"sad\"",
+      "output": "0"
+    },
+    {
+      "input": "\"leetcode\", \"leeto\"",
+      "output": "-1"
+    }
+  ],
+  "acceptanceRate": "~38%",
+  "likes": "~5.7k",
+  "dislikes": "~13k"
+},
+{
+  "_id": "str_easy_006",
+  "title": "Length of Last Word",
+  "topic": "strings",
+  "pattern": "reverse-traversal",
+  "difficulty": "Easy",
+  "problemNumber": 58,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/length-of-last-word/",
+  "description": "Given a string of words separated by spaces, return the length of the last word — but the string might have trailing spaces, multiple spaces between words, or both, and you need to handle every messy variant gracefully. The cleanest approach walks from the back of the string rather than the front: first skip any trailing spaces, then count characters until you hit either another space or the start of the string. It's a small problem, but it quietly teaches you to stop assuming input is 'clean' — a habit that pays off massively in real-world string parsing and in trickier problems like Reverse Words in a String, where whitespace handling is the entire challenge.",
+  "examples": [
+    {
+      "input": "s = \"   fly me   to   the moon  \"",
+      "output": "4",
+      "explanation": "The last word is 'moon', after skipping trailing spaces."
+    },
+    {
+      "input": "s = \"luffy is still joyboy\"",
+      "output": "6",
+      "explanation": "'joyboy' has 6 characters."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 10000",
+    "s consists of English letters, digits, and spaces"
+  ],
+  "hints": [
+    "Process the string from the right end backward instead of splitting on spaces.",
+    "Two phases: first skip trailing spaces, then measure the word until the next space."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Microsoft"
+  ],
+  "tags": [
+    "String"
+  ],
+  "estimatedTime": "8 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Length of Last Word' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Reverse Words in a String"
+  ],
+  "followUp": [
+    "Can you solve it without using a built-in split() or trim() function?"
+  ],
+  "testCases": [
+    {
+      "input": "\"   fly me   to   the moon  \"",
+      "output": "4"
+    },
+    {
+      "input": "\"luffy is still joyboy\"",
+      "output": "6"
+    }
+  ],
+  "acceptanceRate": "~57%",
+  "likes": "~3.2k",
+  "dislikes": "~3.7k"
+},
+{
+  "_id": "str_easy_007",
+  "title": "Valid Parentheses",
+  "topic": "strings",
+  "pattern": "stack-matching",
+  "difficulty": "Easy",
+  "problemNumber": 20,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/valid-parentheses/",
+  "description": "Given a string containing only '(', ')', '{', '}', '[' and ']', determine if every bracket is properly opened and closed in the right order. This is the problem that introduces strings as more than 'a sequence of characters to scan' — here, order and nesting matter, and that's exactly what a stack was invented for. Push every opening bracket onto a stack; whenever you see a closing bracket, it must match whatever is currently on top of the stack, or the string is invalid. If the stack is empty at the very end, every bracket found its partner. This 'most-recent-unmatched-thing' mental model recurs in Decode String, Basic Calculator, and any problem involving nested structure — recognizing 'this smells like a stack problem' is half the battle in interviews.",
+  "examples": [
+    {
+      "input": "s = \"()[]{}\"",
+      "output": "true",
+      "explanation": "Every bracket closes in the correct nested order."
+    },
+    {
+      "input": "s = \"(]\"",
+      "output": "false",
+      "explanation": "'(' is closed by ']', which doesn't match."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 10000",
+    "s consists only of bracket characters"
+  ],
+  "hints": [
+    "Map each closing bracket to its matching opening bracket using a hash map for O(1) lookups.",
+    "An empty stack at the end is required — a string like '(' alone must return false."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Amazon",
+    "Google",
+    "Bloomberg",
+    "Facebook"
+  ],
+  "tags": [
+    "String",
+    "Stack"
+  ],
+  "estimatedTime": "10 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Valid Parentheses NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Generate Parentheses",
+    "Decode String",
+    "Basic Calculator"
+  ],
+  "followUp": [
+    "How would you also return the index of the first invalid character, instead of just true/false?"
+  ],
+  "testCases": [
+    {
+      "input": "\"()[]{}\"",
+      "output": "true"
+    },
+    {
+      "input": "\"(]\"",
+      "output": "false"
+    }
+  ],
+  "acceptanceRate": "~41%",
+  "likes": "~25k",
+  "dislikes": "~1.7k"
+},
+{
+  "_id": "str_easy_008",
+  "title": "First Unique Character in a String",
+  "topic": "strings",
+  "pattern": "frequency-count",
+  "difficulty": "Easy",
+  "problemNumber": 387,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/first-unique-character-in-a-string/",
+  "description": "Given a string, find the index of its first character that doesn't repeat anywhere else in the string; return -1 if no such character exists. The shape of the solution is 'count first, then decide': a single pass builds a frequency map of every character, and a second pass walks the string in original order, returning the first index whose count equals exactly one. The reason this matters beyond the problem itself is the two-pass pattern — count everything, then make decisions using those counts — which is the same skeleton used in Sort Characters By Frequency, Top K Frequent Elements, and a huge chunk of 'first/most/least frequent X' problems across the entire string and array universe.",
+  "examples": [
+    {
+      "input": "s = \"leetcode\"",
+      "output": "0",
+      "explanation": "'l' never appears again in the string."
+    },
+    {
+      "input": "s = \"aabb\"",
+      "output": "-1",
+      "explanation": "Every character repeats at least once."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 100000",
+    "s consists of only lowercase English letters"
+  ],
+  "hints": [
+    "A 26-slot count array is sufficient since the alphabet is fixed and small.",
+    "The second pass must go in the original left-to-right order — counting alone doesn't tell you position."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Amazon",
+    "Bloomberg",
+    "Microsoft"
+  ],
+  "tags": [
+    "String",
+    "Hash Table",
+    "Queue"
+  ],
+  "estimatedTime": "8 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'First Unique Character NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Sort Characters By Frequency",
+    "Top K Frequent Elements"
+  ],
+  "followUp": [
+    "What if characters were streamed one at a time and you needed the answer after every insertion?"
+  ],
+  "testCases": [
+    {
+      "input": "\"leetcode\"",
+      "output": "0"
+    },
+    {
+      "input": "\"aabb\"",
+      "output": "-1"
+    }
+  ],
+  "acceptanceRate": "~62%",
+  "likes": "~7.6k",
+  "dislikes": "~470"
+},
+{
+  "_id": "str_easy_009",
+  "title": "Add Strings",
+  "topic": "strings",
+  "pattern": "string-as-number-simulation",
+  "difficulty": "Easy",
+  "problemNumber": 415,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/add-strings/",
+  "description": "Given two non-negative integers represented entirely as strings, return their sum, also as a string — without converting either input to a native integer type. This forces you to simulate the elementary-school addition algorithm by hand: start from the rightmost digit of each string, add corresponding digits plus any carry, append the result digit, and move one position to the left, padding with zero once one string runs out. It feels almost like cheating to solve it this way, but that's exactly the muscle being trained — this 'process digits right-to-left with a carry' pattern is identical to Multiply Strings and Plus One, and it's the foundation of how real big-integer libraries work under the hood.",
+  "examples": [
+    {
+      "input": "num1 = \"11\", num2 = \"123\"",
+      "output": "\"134\"",
+      "explanation": "11 + 123 = 134, computed digit by digit with carries."
+    },
+    {
+      "input": "num1 = \"456\", num2 = \"77\"",
+      "output": "\"533\"",
+      "explanation": "6+7=13 (carry 1), 5+7+1=13 (carry 1), 4+0+1=5."
+    }
+  ],
+  "constraints": [
+    "1 <= num1.length, num2.length <= 10000",
+    "Both strings contain only digits and have no leading zero, except the number 0 itself"
+  ],
+  "hints": [
+    "Use two pointers starting at the end of each string and move leftward simultaneously.",
+    "Don't forget to append a final '1' if there's a leftover carry once both strings are exhausted."
+  ],
+  "expectedTimeComplexity": "O(max(n, m))",
+  "expectedSpaceComplexity": "O(max(n, m))",
+  "companies": [
+    "Facebook",
+    "Amazon",
+    "Akuna Capital"
+  ],
+  "tags": [
+    "String",
+    "Math",
+    "Simulation"
+  ],
+  "estimatedTime": "12 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Add Strings NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Multiply Strings",
+    "Plus One",
+    "Add Binary"
+  ],
+  "followUp": [
+    "Can you adapt the same digit-by-digit carry logic to implement Multiply Strings?"
+  ],
+  "testCases": [
+    {
+      "input": "\"11\", \"123\"",
+      "output": "\"134\""
+    },
+    {
+      "input": "\"456\", \"77\"",
+      "output": "\"533\""
+    }
+  ],
+  "acceptanceRate": "~52%",
+  "likes": "~4.1k",
+  "dislikes": "~580"
+},
+{
+  "_id": "str_easy_010",
+  "title": "Repeated Substring Pattern",
+  "topic": "strings",
+  "pattern": "self-concatenation-trick",
+  "difficulty": "Easy",
+  "problemNumber": 459,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/repeated-substring-pattern/",
+  "description": "Given a string, determine if it can be built entirely by repeating some shorter substring multiple times (like 'abab' being 'ab' repeated twice). The brute-force angle is to try every divisor length of the string as a candidate block and check if repeating it reconstructs the original — perfectly fine at this string length. But the genuinely delightful trick, once you've earned the brute force, is this: a string s has this repeating property if and only if s is a substring of (s + s) with the first and last characters removed. That one-line insight is a great example of how string problems often hide a clever 'reframe the question' shortcut behind a much heavier-looking brute-force wall, a theme that returns hard in Shortest Palindrome and KMP-based matching.",
+  "examples": [
+    {
+      "input": "s = \"abab\"",
+      "output": "true",
+      "explanation": "'ab' repeated twice reconstructs the string."
+    },
+    {
+      "input": "s = \"aba\"",
+      "output": "false",
+      "explanation": "No shorter substring repeats to form 'aba'."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 10000",
+    "s consists of lowercase English letters"
+  ],
+  "hints": [
+    "Only substring lengths that evenly divide the total length need to be tested.",
+    "Try the (s+s) substring trick after solving the brute force — it's a great 'aha' moment."
+  ],
+  "expectedTimeComplexity": "O(n^2) brute force, O(n) with the (s+s) trick / KMP",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Bloomberg",
+    "Adobe"
+  ],
+  "tags": [
+    "String",
+    "String Matching"
+  ],
+  "estimatedTime": "15 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Repeated Substring Pattern NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Find the Index of the First Occurrence in a String",
+    "Shortest Palindrome"
+  ],
+  "followUp": [
+    "Can you prove why the (s+s) substring trick is mathematically valid?"
+  ],
+  "testCases": [
+    {
+      "input": "\"abab\"",
+      "output": "true"
+    },
+    {
+      "input": "\"aba\"",
+      "output": "false"
+    }
+  ],
+  "acceptanceRate": "~45%",
+  "likes": "~7.1k",
+  "dislikes": "~830"
+},
+{
+  "_id": "str_easy_011",
+  "title": "Detect Capital",
+  "topic": "strings",
+  "pattern": "case-classification",
+  "difficulty": "Easy",
+  "problemNumber": 520,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/detect-capital/",
+  "description": "Given a word, determine whether its capitalization is 'correct' according to one of three allowed patterns: every letter is uppercase (USA), every letter is lowercase (leetcode), or only the first letter is uppercase and the rest are lowercase (Google). It's a deceptively wordy problem statement that collapses into a handful of straightforward boolean checks once you classify the word by counting how many of its letters are uppercase and checking where they sit. This problem is a useful reminder that not every string problem needs a clever algorithm — sometimes the real skill is translating a fuzzy English specification into precise, exhaustive conditional logic without missing an edge case, which is exactly what real-world input validation demands.",
+  "examples": [
+    {
+      "input": "word = \"USA\"",
+      "output": "true",
+      "explanation": "All letters are uppercase."
+    },
+    {
+      "input": "word = \"FlaG\"",
+      "output": "false",
+      "explanation": "Mixed case that matches none of the three valid patterns."
+    }
+  ],
+  "constraints": [
+    "1 <= word.length <= 100",
+    "word consists of lowercase and uppercase English letters"
+  ],
+  "hints": [
+    "Count uppercase letters: the count must be 0, 1 (and at position 0), or the full length.",
+    "Handle single-letter words carefully — they trivially satisfy all three rules."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Tencent"
+  ],
+  "tags": [
+    "String"
+  ],
+  "estimatedTime": "7 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Detect Capital' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Goat Latin",
+    "To Lower Case"
+  ],
+  "followUp": [
+    "How would the logic change if numbers and symbols could also appear in the word?"
+  ],
+  "testCases": [
+    {
+      "input": "\"USA\"",
+      "output": "true"
+    },
+    {
+      "input": "\"FlaG\"",
+      "output": "false"
+    }
+  ],
+  "acceptanceRate": "~55%",
+  "likes": "~2.2k",
+  "dislikes": "~2.4k"
+},
+{
+  "_id": "str_med_001",
+  "title": "Longest Substring Without Repeating Characters",
+  "topic": "strings",
+  "pattern": "sliding-window",
+  "difficulty": "Medium",
+  "problemNumber": 3,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+  "description": "Find the length of the longest contiguous substring that contains no repeated characters. This is the problem that turns 'sliding window' from a buzzword into something you can actually feel: maintain a window [left, right] and a set of characters currently inside it; expand right one step at a time, and whenever the new character is already in the window, shrink from the left until the duplicate is gone. The window never shrinks more than it needs to, which is why the whole thing runs in O(n) instead of the O(n^2) you'd get from checking every substring directly. Once this 'expand right, shrink left on violation' rhythm clicks, an enormous swath of medium/hard string problems — Minimum Window Substring, Longest Repeating Character Replacement, Permutation in String — all start to feel like variations on a single theme.",
+  "examples": [
+    {
+      "input": "s = \"abcabcbb\"",
+      "output": "3",
+      "explanation": "'abc' is the longest substring without repeats."
+    },
+    {
+      "input": "s = \"bbbbb\"",
+      "output": "1",
+      "explanation": "Every window beyond a single 'b' contains a repeat."
+    }
+  ],
+  "constraints": [
+    "0 <= s.length <= 50000",
+    "s consists of English letters, digits, symbols, and spaces"
+  ],
+  "hints": [
+    "Use a hash set or hash map of character -> last seen index to decide how far to jump the left pointer.",
+    "You don't need to shrink one character at a time — jump left directly past the duplicate's last position."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(min(n, charsetSize))",
+  "companies": [
+    "Amazon",
+    "Adobe",
+    "Bloomberg",
+    "Yelp"
+  ],
+  "tags": [
+    "String",
+    "Hash Table",
+    "Sliding Window"
+  ],
+  "estimatedTime": "20 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Longest Substring Without Repeating Characters NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Minimum Window Substring",
+    "Longest Repeating Character Replacement",
+    "Permutation in String"
+  ],
+  "followUp": [
+    "What if you needed the actual substring, not just its length?"
+  ],
+  "testCases": [
+    {
+      "input": "\"abcabcbb\"",
+      "output": "3"
+    },
+    {
+      "input": "\"bbbbb\"",
+      "output": "1"
+    }
+  ],
+  "acceptanceRate": "~36%",
+  "likes": "~38k",
+  "dislikes": "~1.6k"
+},
+{
+  "_id": "str_med_002",
+  "title": "Longest Palindromic Substring",
+  "topic": "strings",
+  "pattern": "expand-around-center",
+  "difficulty": "Medium",
+  "problemNumber": 5,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/longest-palindromic-substring/",
+  "description": "Given a string, return its longest substring that is itself a palindrome. The key realization is that every palindrome has either one center (odd length, like 'aba') or two centers (even length, like 'abba'), so instead of checking all O(n^2) substrings for palindrome-ness from scratch, you can iterate over every possible center — there are 2n-1 of them — and 'expand outward' from each one while both sides keep matching, tracking the widest successful expansion. This 'expand around center' technique turns an O(n^3) brute force into a clean O(n^2), and it's the conceptual stepping stone to Manacher's algorithm (true O(n)) as well as to DP-based palindrome problems like Palindrome Partitioning.",
+  "examples": [
+    {
+      "input": "s = \"babad\"",
+      "output": "\"bab\"",
+      "explanation": "'aba' is also valid — multiple longest palindromes can exist."
+    },
+    {
+      "input": "s = \"cbbd\"",
+      "output": "\"bb\"",
+      "explanation": "'bb' is the longest palindromic substring."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 1000",
+    "s consists of digits and English letters"
+  ],
+  "hints": [
+    "Write one helper that expands outward from a given (left, right) pair and returns the palindrome length.",
+    "Call that helper twice per index: once treating index i as a single-character center, once treating (i, i+1) as a two-character center."
+  ],
+  "expectedTimeComplexity": "O(n^2) with expand-around-center, O(n) with Manacher's algorithm",
+  "expectedSpaceComplexity": "O(1) extra (excluding the output)",
+  "companies": [
+    "Amazon",
+    "Microsoft",
+    "Bloomberg"
+  ],
+  "tags": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "estimatedTime": "25 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Longest Palindromic Substring NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Palindromic Substrings",
+    "Palindrome Partitioning",
+    "Shortest Palindrome"
+  ],
+  "followUp": [
+    "Can you push this down to true O(n) using Manacher's algorithm?"
+  ],
+  "testCases": [
+    {
+      "input": "\"babad\"",
+      "output": "\"bab\" (or \"aba\")"
+    },
+    {
+      "input": "\"cbbd\"",
+      "output": "\"bb\""
+    }
+  ],
+  "acceptanceRate": "~35%",
+  "likes": "~28k",
+  "dislikes": "~2.6k"
+},
+{
+  "_id": "str_med_003",
+  "title": "Zigzag Conversion",
+  "topic": "strings",
+  "pattern": "index-simulation",
+  "difficulty": "Medium",
+  "problemNumber": 6,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/zigzag-conversion/",
+  "description": "Write a string in a zigzag pattern across a given number of rows, then read it back out row by row, left to right, and return the resulting string. There's no clever algorithmic insight here so much as careful simulation: the character at each position bounces between row 0 and row (numRows-1), so you can track 'which row am I currently on' and 'am I currently moving down or moving up' as you walk through the original string, appending each character into a list of row-buffers, then concatenating the buffers at the end. This problem is a great test of whether you can faithfully translate a visual/spatial description into precise index bookkeeping without getting tangled — a skill that matters far more in real engineering than it gets credit for.",
+  "examples": [
+    {
+      "input": "s = \"PAYPALISHIRING\", numRows = 3",
+      "output": "\"PAHNAPLSIIGYIR\"",
+      "explanation": "Characters zigzag across 3 rows, then rows are concatenated top to bottom."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 1000",
+    "1 <= numRows <= 1000"
+  ],
+  "hints": [
+    "Keep an array of numRows string buffers and just append the current character to the current row's buffer.",
+    "Flip your 'direction' flag whenever you hit row 0 or row numRows-1."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(n)",
+  "companies": [
+    "Apple",
+    "Pinterest"
+  ],
+  "tags": [
+    "String",
+    "Simulation"
+  ],
+  "estimatedTime": "20 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Zigzag Conversion NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Spiral Matrix"
+  ],
+  "followUp": [
+    "Can you compute the final character positions with a direct formula, avoiding row buffers entirely?"
+  ],
+  "testCases": [
+    {
+      "input": "\"PAYPALISHIRING\", 3",
+      "output": "\"PAHNAPLSIIGYIR\""
+    }
+  ],
+  "acceptanceRate": "~49%",
+  "likes": "~8.9k",
+  "dislikes": "~12k"
+},
+{
+  "_id": "str_med_004",
+  "title": "String to Integer (atoi)",
+  "topic": "strings",
+  "pattern": "careful-parsing",
+  "difficulty": "Medium",
+  "problemNumber": 8,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/string-to-integer-atoi/",
+  "description": "Implement the atoi function: convert a string to a 32-bit signed integer, following a specific set of parsing rules — skip leading whitespace, read an optional sign, read as many digits as possible, ignore anything after the digits, and clamp the result to the 32-bit integer range if it overflows. This problem doesn't test your algorithmic chops at all; it tests whether you can read a precise specification and implement every single rule without silently skipping the annoying ones (overflow clamping and 'stop at the first non-digit' are where most people lose points). It's the string-problem equivalent of a 'do you actually read the requirements' interview, and that discipline transfers directly to real input-validation and parser-writing work.",
+  "examples": [
+    {
+      "input": "s = \"42\"",
+      "output": "42",
+      "explanation": "A clean integer with no surrounding noise."
+    },
+    {
+      "input": "s = \"   -042\"",
+      "output": "-42",
+      "explanation": "Leading whitespace and a sign are handled, leading zero is just a normal digit."
+    },
+    {
+      "input": "s = \"1337c0d3\"",
+      "output": "1337",
+      "explanation": "Parsing stops at the first non-digit character 'c'."
+    }
+  ],
+  "constraints": [
+    "0 <= s.length <= 200",
+    "s consists of English letters, digits, ' ', '+', '-', and '.'"
+  ],
+  "hints": [
+    "Clamp against INT_MAX / INT_MIN as you build the number, not after — to avoid actual overflow in languages where it matters.",
+    "Once you've consumed the optional sign and started reading digits, any non-digit character ends parsing immediately."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1)",
+  "companies": [
+    "Amazon",
+    "Microsoft",
+    "Bloomberg",
+    "Apple"
+  ],
+  "tags": [
+    "String"
+  ],
+  "estimatedTime": "25 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'String to Integer atoi NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Reverse Integer",
+    "Valid Number"
+  ],
+  "followUp": [
+    "How would your parser change if scientific notation like '1e10' also had to be supported?"
+  ],
+  "testCases": [
+    {
+      "input": "\"42\"",
+      "output": "42"
+    },
+    {
+      "input": "\"   -042\"",
+      "output": "-42"
+    },
+    {
+      "input": "\"1337c0d3\"",
+      "output": "1337"
+    }
+  ],
+  "acceptanceRate": "~17%",
+  "likes": "~4.3k",
+  "dislikes": "~13k"
+},
+{
+  "_id": "str_med_005",
+  "title": "Group Anagrams",
+  "topic": "strings",
+  "pattern": "hash-signature",
+  "difficulty": "Medium",
+  "problemNumber": 49,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/group-anagrams/",
+  "description": "Given an array of strings, group all the anagrams together. This is Valid Anagram's natural sequel: instead of comparing two strings at a time, you need a way to bucket potentially thousands of strings so that anagrams land in the same bucket automatically. The trick is choosing a canonical 'signature' for each string — either its sorted characters (so 'eat' and 'tea' both become 'aet') or a 26-length character-count tuple — and using that signature as a hash map key, appending each original string to the list stored under its signature. Choosing the right signature representation (sorted string vs. count tuple) is a recurring decision in hashing problems, trading a bit of computation for cleaner, collision-free grouping.",
+  "examples": [
+    {
+      "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+      "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
+      "explanation": "Strings with identical sorted letters are grouped together."
+    }
+  ],
+  "constraints": [
+    "1 <= strs.length <= 10000",
+    "0 <= strs[i].length <= 100",
+    "strs[i] consists of lowercase English letters"
+  ],
+  "hints": [
+    "Sorting each string gives an easy canonical key, but a character-count array as the key avoids the sort cost entirely.",
+    "Use the canonical key as a hash map key mapped to a list of original (unsorted) strings."
+  ],
+  "expectedTimeComplexity": "O(n·k log k) with sorting keys, O(n·k) with count-tuple keys (k = max string length)",
+  "expectedSpaceComplexity": "O(n·k)",
+  "companies": [
+    "Amazon",
+    "Uber",
+    "Yelp",
+    "Facebook"
+  ],
+  "tags": [
+    "String",
+    "Hash Table",
+    "Sorting"
+  ],
+  "estimatedTime": "18 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Group Anagrams NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Valid Anagram",
+    "Find All Anagrams in a String"
+  ],
+  "followUp": [
+    "Can you build the signature key without sorting, to shave off the log k factor?"
+  ],
+  "testCases": [
+    {
+      "input": "[\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+      "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]"
+    }
+  ],
+  "acceptanceRate": "~68%",
+  "likes": "~16k",
+  "dislikes": "~570"
+},
+{
+  "_id": "str_med_006",
+  "title": "Multiply Strings",
+  "topic": "strings",
+  "pattern": "digit-by-digit-simulation",
+  "difficulty": "Medium",
+  "problemNumber": 43,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/multiply-strings/",
+  "description": "Multiply two non-negative integers represented as strings and return the product, also as a string, without converting either input to a native integer (since they may be far too large to fit). This is Add Strings turned up several notches: instead of one carry chain, you simulate the grade-school 'multiply each digit pair, shift, and sum' process directly into a result array sized exactly len(num1) + len(num2). The crucial insight is that when you multiply the digit at position i in num1 by the digit at position j in num2, the product always lands at positions i+j and i+j+1 in the result array — once you encode that index relationship, the rest is just careful carry propagation, the same big-integer mechanics that underpin cryptography libraries.",
+  "examples": [
+    {
+      "input": "num1 = \"2\", num2 = \"3\"",
+      "output": "\"6\"",
+      "explanation": "A trivial single-digit case to sanity-check the simulation."
+    },
+    {
+      "input": "num1 = \"123\", num2 = \"456\"",
+      "output": "\"56088\"",
+      "explanation": "Each digit pair contributes to positions i+j and i+j+1 in the result array."
+    }
+  ],
+  "constraints": [
+    "1 <= num1.length, num2.length <= 200",
+    "Both consist of digits only and have no leading zero, unless the number itself is 0"
+  ],
+  "hints": [
+    "Allocate a result array of size len(num1)+len(num2) up front, filled with zeros.",
+    "For every pair (i, j), add the digit product into result[i+j+1] and let any overflow ripple left into result[i+j]."
+  ],
+  "expectedTimeComplexity": "O(n·m)",
+  "expectedSpaceComplexity": "O(n+m)",
+  "companies": [
+    "Facebook",
+    "LinkedIn"
+  ],
+  "tags": [
+    "String",
+    "Math",
+    "Simulation"
+  ],
+  "estimatedTime": "30 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Multiply Strings NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Add Strings",
+    "Plus One"
+  ],
+  "followUp": [
+    "How would you strip the leading zeros that can appear in the raw result array?"
+  ],
+  "testCases": [
+    {
+      "input": "\"2\", \"3\"",
+      "output": "\"6\""
+    },
+    {
+      "input": "\"123\", \"456\"",
+      "output": "\"56088\""
+    }
+  ],
+  "acceptanceRate": "~41%",
+  "likes": "~8.4k",
+  "dislikes": "~1.2k"
+},
+{
+  "_id": "str_med_007",
+  "title": "Decode Ways",
+  "topic": "strings",
+  "pattern": "dp-on-strings",
+  "difficulty": "Medium",
+  "problemNumber": 91,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/decode-ways/",
+  "description": "A message of digits can be decoded back into letters using the mapping 'A' -> '1', 'B' -> '2', ..., 'Z' -> '26'. Given the encoded digit string, count how many distinct ways it can be decoded. The reason this lands in the string category despite being pure DP is that the recurrence is driven entirely by character-pair validity checks: at each position, you can either decode the current single digit alone (if it's not '0') or combine it with the previous digit into a two-digit number (if that two-digit number falls between 10 and 26). dp[i] = dp[i-1] (if valid single) + dp[i-2] (if valid pair) — and getting the edge cases right ('0' can never stand alone, '06' is not a valid two-digit code) is what separates a working solution from a buggy one.",
+  "examples": [
+    {
+      "input": "s = \"12\"",
+      "output": "2",
+      "explanation": "Either 'AB' (1,2) or 'L' (12)."
+    },
+    {
+      "input": "s = \"226\"",
+      "output": "3",
+      "explanation": "'BZ' (2,26), 'VF' (22,6), or 'BBF' (2,2,6)."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 100",
+    "s consists only of digits and may contain leading zeros"
+  ],
+  "hints": [
+    "A standalone '0' digit can never be decoded on its own — it invalidates that branch entirely.",
+    "Use rolling variables instead of a full array to bring the space complexity down to O(1)."
+  ],
+  "expectedTimeComplexity": "O(n)",
+  "expectedSpaceComplexity": "O(1) with rolling variables, O(n) with a full DP array",
+  "companies": [
+    "Facebook",
+    "Microsoft",
+    "Uber"
+  ],
+  "tags": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "estimatedTime": "25 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Decode Ways NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Climbing Stairs",
+    "Decode Ways II"
+  ],
+  "followUp": [
+    "What changes if a '*' wildcard digit could represent any value from 1-9, as in Decode Ways II?"
+  ],
+  "testCases": [
+    {
+      "input": "\"12\"",
+      "output": "2"
+    },
+    {
+      "input": "\"226\"",
+      "output": "3"
+    }
+  ],
+  "acceptanceRate": "~35%",
+  "likes": "~9.7k",
+  "dislikes": "~870"
+},
+{
+  "_id": "str_med_008",
+  "title": "Generate Parentheses",
+  "topic": "strings",
+  "pattern": "backtracking",
+  "difficulty": "Medium",
+  "problemNumber": 22,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/generate-parentheses/",
+  "description": "Given n pairs of parentheses, generate every possible string of well-formed (balanced) combinations. This is the natural 'build, don't validate' counterpart to Valid Parentheses: instead of checking whether a given string is balanced, you construct every balanced string from scratch using backtracking. At each recursive step, you track how many '(' and ')' you've placed so far, and you're only ever allowed to add '(' if you haven't used all n yet, and only allowed to add ')' if doing so wouldn't outnumber the open parentheses already placed. That single constraint — never let closes exceed opens — is what prunes the search space down from exponential nonsense to exactly the Catalan number of valid strings, making this a textbook introduction to constrained backtracking on strings.",
+  "examples": [
+    {
+      "input": "n = 3",
+      "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]",
+      "explanation": "All 5 balanced combinations of 3 pairs (the 3rd Catalan number)."
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 8"
+  ],
+  "hints": [
+    "Track (openCount, closeCount) in your recursion and only recurse into a branch if the constraints stay satisfiable.",
+    "A string is complete and valid exactly when openCount == closeCount == n."
+  ],
+  "expectedTimeComplexity": "O(4^n / sqrt(n)) — bounded by the nth Catalan number",
+  "expectedSpaceComplexity": "O(n) recursion depth, excluding output storage",
+  "companies": [
+    "Google",
+    "Uber",
+    "Facebook",
+    "Microsoft"
+  ],
+  "tags": [
+    "String",
+    "Dynamic Programming",
+    "Backtracking"
+  ],
+  "estimatedTime": "20 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Generate Parentheses NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Valid Parentheses",
+    "Letter Combinations of a Phone Number"
+  ],
+  "followUp": [
+    "Can you also solve it with dynamic programming, building solutions for n from solutions for smaller values?"
+  ],
+  "testCases": [
+    {
+      "input": "3",
+      "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]"
+    }
+  ],
+  "acceptanceRate": "~75%",
+  "likes": "~21k",
+  "dislikes": "~830"
+},
+{
+  "_id": "str_med_009",
+  "title": "Compare Version Numbers",
+  "topic": "strings",
+  "pattern": "tokenized-comparison",
+  "difficulty": "Medium",
+  "problemNumber": 165,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/compare-version-numbers/",
+  "description": "Given two version strings like '1.2' and '1.10', compare them the way a package manager would — split each version on its '.' separators into numeric revision levels, compare those levels left to right as integers (not as strings, since '10' > '2' numerically even though it isn't lexicographically), and treat any missing trailing revision as zero. The whole problem is really about tokenizing correctly and comparing the right data type at each token: a naive character-by-character string comparison would wrongly conclude '1.10' < '1.2', and catching that exact trap is the entire point of this exercise. It's a small but very real simulation of how software versioning actually has to be parsed in the wild.",
+  "examples": [
+    {
+      "input": "version1 = \"1.01\", version2 = \"1.001\"",
+      "output": "0",
+      "explanation": "Leading zeros don't matter once each revision is parsed as an integer."
+    },
+    {
+      "input": "version1 = \"1.0\", version2 = \"1.0.0\"",
+      "output": "0",
+      "explanation": "Missing trailing revisions are treated as 0."
+    }
+  ],
+  "constraints": [
+    "1 <= version1.length, version2.length <= 500",
+    "Versions contain digits and '.' separators, with no leading zeros within a revision unless the revision itself is 0"
+  ],
+  "hints": [
+    "Split both versions on '.' and compare revision-by-revision as parsed integers, not as raw substrings.",
+    "If one version has fewer revisions than the other, pad the missing ones with 0 instead of stopping early."
+  ],
+  "expectedTimeComplexity": "O(n+m)",
+  "expectedSpaceComplexity": "O(n+m)",
+  "companies": [
+    "Facebook",
+    "Google"
+  ],
+  "tags": [
+    "String"
+  ],
+  "estimatedTime": "15 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Compare Version Numbers' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Fraction to Recurring Decimal"
+  ],
+  "followUp": [
+    "Can you solve it with two pointers in O(1) extra space, avoiding the split() call entirely?"
+  ],
+  "testCases": [
+    {
+      "input": "\"1.01\", \"1.001\"",
+      "output": "0"
+    },
+    {
+      "input": "\"1.0\", \"1.0.0\"",
+      "output": "0"
+    }
+  ],
+  "acceptanceRate": "~37%",
+  "likes": "~3.6k",
+  "dislikes": "~2.7k"
+},
+{
+  "_id": "str_hard_001",
+  "title": "Regular Expression Matching",
+  "topic": "strings",
+  "pattern": "dp-two-pointer-recursion",
+  "difficulty": "Hard",
+  "problemNumber": 10,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/regular-expression-matching/",
+  "description": "Implement regular expression matching supporting '.' (matches any single character) and '*' (matches zero or more of the preceding element) against a full string — not a substring search. The brutal part is that '*' creates branching choices: at any point you can either 'use' the star to match zero occurrences (skip the preceding char+star pair entirely) or consume one matching character and stay on the same star, recursively. This is most cleanly modeled as a 2D DP table dp[i][j] meaning 'does s[0..i) match p[0..j)', where the '*' case explicitly checks both the zero-occurrence and one-or-more-occurrence transitions. It's widely considered one of the hardest 'easy-to-state, brutal-to-implement-correctly' string problems on the entire platform, and a working solution here is a strong signal of real DP fluency.",
+  "examples": [
+    {
+      "input": "s = \"aa\", p = \"a*\"",
+      "output": "true",
+      "explanation": "'*' lets 'a' repeat to match both characters."
+    },
+    {
+      "input": "s = \"ab\", p = \".*\"",
+      "output": "true",
+      "explanation": "'.' matches any character and '*' lets it repeat freely."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 20",
+    "1 <= p.length <= 20",
+    "p contains only lowercase letters, '.', and '*', and every '*' is preceded by a valid element"
+  ],
+  "hints": [
+    "Define dp[i][j] as whether s[0..i) matches p[0..j), with dp[0][0] = true as the base case.",
+    "When p[j-1] is '*', dp[i][j] is true if dp[i][j-2] is true (zero occurrences) OR (the current characters are compatible AND dp[i-1][j] is true, meaning one more occurrence)."
+  ],
+  "expectedTimeComplexity": "O(n·m)",
+  "expectedSpaceComplexity": "O(n·m)",
+  "companies": [
+    "Google",
+    "Facebook",
+    "Uber",
+    "Microsoft"
+  ],
+  "tags": [
+    "String",
+    "Dynamic Programming",
+    "Recursion"
+  ],
+  "estimatedTime": "45 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Regular Expression Matching NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Wildcard Matching",
+    "Valid Number"
+  ],
+  "followUp": [
+    "How does the DP transition change for Wildcard Matching, where '*' means something different?"
+  ],
+  "testCases": [
+    {
+      "input": "\"aa\", \"a*\"",
+      "output": "true"
+    },
+    {
+      "input": "\"ab\", \".*\"",
+      "output": "true"
+    }
+  ],
+  "acceptanceRate": "~28%",
+  "likes": "~13k",
+  "dislikes": "~2.6k"
+},
+{
+  "_id": "str_hard_002",
+  "title": "Wildcard Matching",
+  "topic": "strings",
+  "pattern": "dp-greedy-two-pointer",
+  "difficulty": "Hard",
+  "problemNumber": 44,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/wildcard-matching/",
+  "description": "Implement wildcard pattern matching supporting '?' (matches exactly one character) and '*' (matches any sequence of characters, including the empty sequence) against a full string. It looks like a cousin of Regular Expression Matching, but '*' behaves very differently here — it isn't tied to 'the preceding element', it independently swallows any run of characters — which actually makes a DP formulation dp[i][j] just as natural but with a simpler '*' transition: dp[i][j] = dp[i-1][j] (use the star to absorb one more character of s) OR dp[i][j-1] (use the star to match nothing more). There's also a beautiful O(n+m) greedy two-pointer solution using a 'backtrack to the last star' technique, making this problem a great way to compare DP elegance versus greedy cleverness on the exact same underlying task.",
+  "examples": [
+    {
+      "input": "s = \"adceb\", p = \"*a*b\"",
+      "output": "true",
+      "explanation": "The leading '*' matches the empty prefix, and the second '*' absorbs 'dce'."
+    },
+    {
+      "input": "s = \"cb\", p = \"?a\"",
+      "output": "false",
+      "explanation": "'?' matches 'c', but the literal 'a' doesn't match 'b'."
+    }
+  ],
+  "constraints": [
+    "0 <= s.length, p.length <= 2000",
+    "p contains only lowercase letters, '?' and '*'"
+  ],
+  "hints": [
+    "DP transition: dp[i][j] = dp[i-1][j] || dp[i][j-1] when p[j-1] == '*', representing 'consume one more s-char under the star' vs 'the star matches nothing'.",
+    "For the greedy two-pointer version, remember the position of the last '*' seen so you can backtrack and retry with a wider match whenever a mismatch occurs."
+  ],
+  "expectedTimeComplexity": "O(n·m) DP, O(n+m) amortized with the greedy two-pointer approach",
+  "expectedSpaceComplexity": "O(n·m) DP, O(1) greedy",
+  "companies": [
+    "Google",
+    "Facebook",
+    "Snapchat"
+  ],
+  "tags": [
+    "String",
+    "Dynamic Programming",
+    "Greedy",
+    "Recursion"
+  ],
+  "estimatedTime": "45 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Wildcard Matching NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Regular Expression Matching"
+  ],
+  "followUp": [
+    "Can you implement the O(n+m) greedy two-pointer solution after solving the DP version?"
+  ],
+  "testCases": [
+    {
+      "input": "\"adceb\", \"*a*b\"",
+      "output": "true"
+    },
+    {
+      "input": "\"cb\", \"?a\"",
+      "output": "false"
+    }
+  ],
+  "acceptanceRate": "~28%",
+  "likes": "~9.7k",
+  "dislikes": "~590"
+},
+{
+  "_id": "str_hard_003",
+  "title": "Minimum Window Substring",
+  "topic": "strings",
+  "pattern": "sliding-window-with-counter",
+  "difficulty": "Hard",
+  "problemNumber": 76,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/minimum-window-substring/",
+  "description": "Given strings s and t, find the smallest substring of s that contains every character of t, including duplicates (e.g. if t has two 'a's, the window needs at least two 'a's too). This is the sliding window pattern at its most demanding: you expand the right edge while tracking how many of t's required characters are currently 'satisfied' inside the window, and the instant the window fully covers t, you start shrinking from the left, recording the smallest valid window seen so far and continuing to shrink until the window breaks coverage again. The bookkeeping — a 'required count' map for t, a 'have' counter for satisfied character types, and careful increment/decrement logic on every pointer move — is genuinely fiddly to get exactly right, which is precisely why this problem is a rite of passage for sliding-window mastery.",
+  "examples": [
+    {
+      "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+      "output": "\"BANC\"",
+      "explanation": "'BANC' is the shortest window in s containing all of A, B, and C."
+    },
+    {
+      "input": "s = \"a\", t = \"aa\"",
+      "output": "\"\"",
+      "explanation": "s never contains two 'a's, so no valid window exists."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length, t.length <= 100000",
+    "s and t consist of uppercase and lowercase English letters"
+  ],
+  "hints": [
+    "Track a 'required' frequency map built from t, and a running 'formed' counter of how many distinct characters currently meet their required count inside the window.",
+    "Only attempt to shrink the window from the left once 'formed' equals the number of distinct characters required by t."
+  ],
+  "expectedTimeComplexity": "O(n+m)",
+  "expectedSpaceComplexity": "O(charsetSize)",
+  "companies": [
+    "Facebook",
+    "Amazon",
+    "Uber",
+    "LinkedIn"
+  ],
+  "tags": [
+    "String",
+    "Hash Table",
+    "Sliding Window"
+  ],
+  "estimatedTime": "40 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Minimum Window Substring NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Longest Substring Without Repeating Characters",
+    "Permutation in String",
+    "Sliding Window Maximum"
+  ],
+  "followUp": [
+    "Can you optimize further using a 'filtered s' approach that skips characters not present in t at all?"
+  ],
+  "testCases": [
+    {
+      "input": "\"ADOBECODEBANC\", \"ABC\"",
+      "output": "\"BANC\""
+    },
+    {
+      "input": "\"a\", \"aa\"",
+      "output": "\"\""
+    }
+  ],
+  "acceptanceRate": "~43%",
+  "likes": "~19k",
+  "dislikes": "~700"
+},
+{
+  "_id": "str_hard_004",
+  "title": "Edit Distance",
+  "topic": "strings",
+  "pattern": "dp-two-strings",
+  "difficulty": "Hard",
+  "problemNumber": 72,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/edit-distance/",
+  "description": "Given two strings word1 and word2, find the minimum number of single-character insert, delete, or replace operations needed to transform word1 into word2 — this is the famous Levenshtein distance. The DP formulation builds a grid dp[i][j] representing the edit distance between the first i characters of word1 and the first j characters of word2: if the current characters match, you inherit dp[i-1][j-1] for free; if they don't, you take 1 plus the best of three neighboring cells, representing a replace, a delete, or an insert respectively. This problem is the canonical 'two-string DP' template — the exact same grid-and-three-neighbor-minimum shape reappears in Longest Common Subsequence, Distinct Subsequences, and Delete Operation for Two Strings, making it one of the highest-leverage patterns to truly understand rather than memorize.",
+  "examples": [
+    {
+      "input": "word1 = \"horse\", word2 = \"ros\"",
+      "output": "3",
+      "explanation": "horse -> rorse (replace h with r) -> rose (delete r) -> ros (delete e)."
+    },
+    {
+      "input": "word1 = \"intention\", word2 = \"execution\"",
+      "output": "5",
+      "explanation": "Five operations transform one word into the other."
+    }
+  ],
+  "constraints": [
+    "0 <= word1.length, word2.length <= 500",
+    "word1 and word2 consist of lowercase English letters"
+  ],
+  "hints": [
+    "The first row and first column of the DP grid represent transforming from/to an empty string — they should be filled with 0,1,2,3... before the main loop.",
+    "When characters match, dp[i][j] = dp[i-1][j-1] with zero added cost — don't take a minimum in this case, just inherit directly."
+  ],
+  "expectedTimeComplexity": "O(n·m)",
+  "expectedSpaceComplexity": "O(n·m), reducible to O(min(n,m)) with rolling rows",
+  "companies": [
+    "Google",
+    "Amazon",
+    "Microsoft",
+    "Adobe"
+  ],
+  "tags": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "estimatedTime": "35 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Edit Distance NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Longest Common Subsequence",
+    "Distinct Subsequences",
+    "Delete Operation for Two Strings"
+  ],
+  "followUp": [
+    "Can you reduce the space complexity from O(n·m) to O(min(n,m)) using two rolling rows?"
+  ],
+  "testCases": [
+    {
+      "input": "\"horse\", \"ros\"",
+      "output": "3"
+    },
+    {
+      "input": "\"intention\", \"execution\"",
+      "output": "5"
+    }
+  ],
+  "acceptanceRate": "~57%",
+  "likes": "~14k",
+  "dislikes": "~250"
+},
+{
+  "_id": "str_hard_005",
+  "title": "Text Justification",
+  "topic": "strings",
+  "pattern": "greedy-line-packing",
+  "difficulty": "Hard",
+  "problemNumber": 68,
+  "platform": "LeetCode",
+  "leetcodeUrl": "https://leetcode.com/problems/text-justification/",
+  "description": "Given an array of words and a maximum line width, format the text into fully left-and-right justified lines (the way a word processor does), except the last line, which is left-justified only with single spaces. There's no DP and no sliding window here — it's pure, careful greedy simulation with surprisingly many fiddly edge cases: greedily pack as many words as fit on each line, then distribute the leftover space as evenly as possible between words (with extra slack going to the leftmost gaps first), and special-case both the final line and any line containing only a single word, which must be left-justified rather than stretched into awkward, uneven gaps. It's less about algorithms and more about disciplined, exhaustive case-handling — a genuinely good simulator for what 'production string-formatting code' actually feels like to write.",
+  "examples": [
+    {
+      "input": "words = [\"This\",\"is\",\"an\",\"example\",\"of\",\"text\",\"justification.\"], maxWidth = 16",
+      "output": "[\"This    is    an\",\"example  of text\",\"justification.  \"]",
+      "explanation": "Each line is padded to exactly 16 characters, with spaces spread as evenly as possible."
+    }
+  ],
+  "constraints": [
+    "1 <= words.length <= 300",
+    "1 <= words[i].length <= 20",
+    "1 <= maxWidth <= 100",
+    "words[i] consists of only English letters and symbols"
+  ],
+  "hints": [
+    "Greedily determine which words fit on a line first (sum of word lengths plus minimum one space between each), before worrying about justification.",
+    "When distributing extra spaces among gaps, give the leftover (remainder) slots to the leftmost gaps first."
+  ],
+  "expectedTimeComplexity": "O(total characters across all words)",
+  "expectedSpaceComplexity": "O(total characters across all words)",
+  "companies": [
+    "Google",
+    "Airbnb",
+    "Facebook"
+  ],
+  "tags": [
+    "String",
+    "Simulation"
+  ],
+  "estimatedTime": "40 min",
+  "youtubeVideos": [
+    {
+      "title": "Search: 'Text Justification NeetCode' on YouTube"
+    }
+  ],
+  "relatedProblems": [
+    "Rearrange Spaces Between Words"
+  ],
+  "followUp": [
+    "How would you handle a line that contains exactly one word, which can't be evenly stretched between multiple gaps?"
+  ],
+  "testCases": [
+    {
+      "input": "[\"This\",\"is\",\"an\",\"example\",\"of\",\"text\",\"justification.\"], 16",
+      "output": "[\"This    is    an\",\"example  of text\",\"justification.  \"]"
+    }
+  ],
+  "acceptanceRate": "~46%",
+  "likes": "~4.9k",
+  "dislikes": "~1.5k"
+}
 ]

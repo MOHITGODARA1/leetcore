@@ -1,3425 +1,1705 @@
 [
   {
-    "_id": "bs_tp_001",
-    "title": "Search Two Pointers for Binary Search 1",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
+    "_id": "bs_easy_001",
+    "title": "Binary Search",
+    "topic": "binary-search",
+    "pattern": "classic-binary-search",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1865,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-binary-search-1/",
-    "companies": [
-      "Twilio",
-      "Salesforce",
-      "Oracle"
+    "problemNumber": 704,
+    "leetcodeUrl": "https://leetcode.com/problems/binary-search/",
+    "description": "The foundational binary search problem — given a sorted array and a target, return the index of the target or -1 if not found. The algorithm works by repeatedly halving the search space: compare the target to the middle element, then eliminate the left or right half depending on whether the target is smaller or larger. The devil is entirely in the details: should you use left < right or left <= right? Should mid be (left + right) / 2 or left + (right - left) / 2? The latter avoids integer overflow in languages with fixed-width integers. When the loop ends, are you guaranteed to have found the target or do you need a final check? Internalizing these boundary conditions is the entire point of this problem. Every binary search variant you will ever write is a modification of this template. Do not dismiss this as trivial — code it from scratch five times until your fingers write it correctly without thinking.",
+    "examples": [
+      {
+        "input": "nums = [-1,0,3,5,9,12], target = 9",
+        "output": "4",
+        "explanation": "9 exists in nums and its index is 4."
+      },
+      {
+        "input": "nums = [-1,0,3,5,9,12], target = 2",
+        "output": "-1",
+        "explanation": "2 does not exist in nums so return -1."
+      }
     ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
+    "constraints": [
+      "1 <= nums.length <= 10^4",
+      "-10^4 < nums[i], target < 10^4",
+      "All the integers in nums are unique.",
+      "nums is sorted in ascending order."
     ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_tp_002",
-    "title": "Shortest Two Pointers for Binary Search 2",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2637,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-two-pointers-for-binary-search-2/",
-    "companies": [
-      "Tencent",
-      "Oracle",
-      "Twitter"
+    "hints": [
+      "Use two pointers, left and right, to track the search boundaries.",
+      "Compute mid as left + (right - left) / 2 to avoid overflow."
     ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_tp_003",
-    "title": "Merge Two Pointers for Binary Search 3",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1012,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-two-pointers-for-binary-search-3/",
-    "companies": [
-      "Tencent",
-      "Adobe",
-      "Netflix"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_tp_004",
-    "title": "Validate Two Pointers for Binary Search 4",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2002,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-two-pointers-for-binary-search-4/",
-    "companies": [
-      "Bloomberg",
-      "Twitter",
-      "Meta"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_tp_005",
-    "title": "Continuous Two Pointers for Binary Search 5",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2866,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-two-pointers-for-binary-search-5/",
-    "companies": [
-      "ByteDance",
-      "Adobe",
-      "Airbnb"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_tp_006",
-    "title": "Minimum Cost Two Pointers for Binary Search 6",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1774,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-binary-search-6/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_tp_007",
-    "title": "Cyclic Two Pointers for Binary Search 7",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2921,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-two-pointers-for-binary-search-7/",
-    "companies": [
-      "Uber",
-      "Oracle",
-      "Google"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "bs_tp_008",
-    "title": "Search Two Pointers for Binary Search 8",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2430,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-binary-search-8/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_tp_009",
-    "title": "Balanced Two Pointers for Binary Search 9",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2923,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-two-pointers-for-binary-search-9/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_tp_010",
-    "title": "Minimum Cost Two Pointers for Binary Search 10",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1200,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-binary-search-10/",
-    "companies": [
-      "Google",
-      "Tencent",
-      "Uber"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_tp_011",
-    "title": "Cyclic Two Pointers for Binary Search 11",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2220,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-two-pointers-for-binary-search-11/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_tp_012",
-    "title": "Merge Two Pointers for Binary Search 12",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1514,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-two-pointers-for-binary-search-12/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_tp_013",
-    "title": "Search Two Pointers for Binary Search 13",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1276,
-    "leetcodeUrl": "https://leetcode.com/problems/search-two-pointers-for-binary-search-13/",
-    "companies": [
-      "Netflix",
-      "Atlassian"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_tp_014",
-    "title": "Validate Two Pointers for Binary Search 14",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1084,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-two-pointers-for-binary-search-14/",
-    "companies": [
-      "Atlassian",
-      "Netflix"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_tp_015",
-    "title": "Minimum Cost Two Pointers for Binary Search 15",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2751,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-two-pointers-for-binary-search-15/",
-    "companies": [
-      "LinkedIn",
-      "Uber"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_tp_016",
-    "title": "Count of Two Pointers for Binary Search 16",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2800,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-two-pointers-for-binary-search-16/",
-    "companies": [
-      "Meta",
-      "Salesforce"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_tp_017",
-    "title": "Merge Two Pointers for Binary Search 17",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2360,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-two-pointers-for-binary-search-17/",
-    "companies": [
-      "Adobe",
-      "Meta"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_tp_018",
-    "title": "Subsequence Two Pointers for Binary Search 18",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2664,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-two-pointers-for-binary-search-18/",
-    "companies": [
-      "Meta",
-      "Amazon",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_tp_019",
-    "title": "Merge Two Pointers for Binary Search 19",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2115,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-two-pointers-for-binary-search-19/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_tp_020",
-    "title": "Optimal Two Pointers for Binary Search 20",
-    "topic": "binarysearch",
-    "pattern": "two-pointers",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1868,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-two-pointers-for-binary-search-20/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Two Pointers"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_sw_001",
-    "title": "Count of Sliding Window for Binary Search 1",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1486,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-binary-search-1/",
-    "companies": [
-      "ByteDance",
-      "Oracle",
-      "Microsoft"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_sw_002",
-    "title": "Continuous Sliding Window for Binary Search 2",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2286,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sliding-window-for-binary-search-2/",
-    "companies": [
-      "Apple",
-      "Meta",
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_sw_003",
-    "title": "Search Sliding Window for Binary Search 3",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2955,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-binary-search-3/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_sw_004",
-    "title": "Validate Sliding Window for Binary Search 4",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2684,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-sliding-window-for-binary-search-4/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_sw_005",
-    "title": "Continuous Sliding Window for Binary Search 5",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1462,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sliding-window-for-binary-search-5/",
-    "companies": [
-      "Tencent",
-      "Twitter",
-      "Amazon"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_sw_006",
-    "title": "Search Sliding Window for Binary Search 6",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2371,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-binary-search-6/",
-    "companies": [
-      "Twitter"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_sw_007",
-    "title": "Merge Sliding Window for Binary Search 7",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1099,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-sliding-window-for-binary-search-7/",
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
-      "Salesforce",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_sw_008",
-    "title": "Cyclic Sliding Window for Binary Search 8",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1785,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sliding-window-for-binary-search-8/",
-    "companies": [
-      "Oracle",
       "Microsoft",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_sw_009",
-    "title": "Count of Sliding Window for Binary Search 9",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2317,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-binary-search-9/",
-    "companies": [
-      "LinkedIn",
-      "Twitter"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_sw_010",
-    "title": "Maximal Sliding Window for Binary Search 10",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1398,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-binary-search-10/",
-    "companies": [
-      "Twitter",
-      "Netflix",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_sw_011",
-    "title": "Minimum Cost Sliding Window for Binary Search 11",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2336,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sliding-window-for-binary-search-11/",
-    "companies": [
-      "Amazon",
-      "Microsoft"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_sw_012",
-    "title": "Maximal Sliding Window for Binary Search 12",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2742,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sliding-window-for-binary-search-12/",
-    "companies": [
-      "Salesforce",
-      "Bloomberg",
-      "ByteDance"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_sw_013",
-    "title": "Cyclic Sliding Window for Binary Search 13",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1467,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sliding-window-for-binary-search-13/",
-    "companies": [
-      "Airbnb",
-      "Twitter"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_sw_014",
-    "title": "Continuous Sliding Window for Binary Search 14",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2684,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sliding-window-for-binary-search-14/",
-    "companies": [
-      "Stripes",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "bs_sw_015",
-    "title": "Cyclic Sliding Window for Binary Search 15",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2193,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sliding-window-for-binary-search-15/",
-    "companies": [
-      "ByteDance",
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_sw_016",
-    "title": "Search Sliding Window for Binary Search 16",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1408,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sliding-window-for-binary-search-16/",
-    "companies": [
-      "Netflix",
-      "Apple",
-      "Twitter"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_sw_017",
-    "title": "Minimum Cost Sliding Window for Binary Search 17",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2239,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-sliding-window-for-binary-search-17/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_sw_018",
-    "title": "Shortest Sliding Window for Binary Search 18",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1135,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sliding-window-for-binary-search-18/",
-    "companies": [
-      "Bloomberg",
-      "Meta",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_sw_019",
-    "title": "Optimal Sliding Window for Binary Search 19",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1619,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sliding-window-for-binary-search-19/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_sw_020",
-    "title": "Count of Sliding Window for Binary Search 20",
-    "topic": "binarysearch",
-    "pattern": "sliding-window",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1394,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-sliding-window-for-binary-search-20/",
-    "companies": [
-      "Airbnb",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sliding Window"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_ps_001",
-    "title": "Continuous Prefix Sum for Binary Search 1",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2592,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-prefix-sum-for-binary-search-1/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_ps_002",
-    "title": "Cyclic Prefix Sum for Binary Search 2",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1220,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-prefix-sum-for-binary-search-2/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_ps_003",
-    "title": "Shortest Prefix Sum for Binary Search 3",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1190,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-prefix-sum-for-binary-search-3/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_ps_004",
-    "title": "Count of Prefix Sum for Binary Search 4",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1301,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-prefix-sum-for-binary-search-4/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_ps_005",
-    "title": "Search Prefix Sum for Binary Search 5",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2552,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-binary-search-5/",
-    "companies": [
-      "Salesforce",
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_ps_006",
-    "title": "Optimal Prefix Sum for Binary Search 6",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2904,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-binary-search-6/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_ps_007",
-    "title": "Count of Prefix Sum for Binary Search 7",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2020,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-prefix-sum-for-binary-search-7/",
-    "companies": [
-      "Amazon",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "bs_ps_008",
-    "title": "Search Prefix Sum for Binary Search 8",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2350,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-binary-search-8/",
-    "companies": [
-      "Stripes"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_ps_009",
-    "title": "Cyclic Prefix Sum for Binary Search 9",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1040,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-prefix-sum-for-binary-search-9/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_ps_010",
-    "title": "Subarray Prefix Sum for Binary Search 10",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2213,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-prefix-sum-for-binary-search-10/",
-    "companies": [
-      "Twilio",
-      "Bloomberg",
-      "Meta"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_ps_011",
-    "title": "Merge Prefix Sum for Binary Search 11",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2554,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-prefix-sum-for-binary-search-11/",
-    "companies": [
-      "Oracle",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_ps_012",
-    "title": "Count of Prefix Sum for Binary Search 12",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2592,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-prefix-sum-for-binary-search-12/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_ps_013",
-    "title": "Search Prefix Sum for Binary Search 13",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2331,
-    "leetcodeUrl": "https://leetcode.com/problems/search-prefix-sum-for-binary-search-13/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_ps_014",
-    "title": "Optimal Prefix Sum for Binary Search 14",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1073,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-prefix-sum-for-binary-search-14/",
-    "companies": [
-      "Stripes",
-      "Bloomberg",
-      "Uber"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_ps_015",
-    "title": "Validate Prefix Sum for Binary Search 15",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1389,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-prefix-sum-for-binary-search-15/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_ps_016",
-    "title": "Maximal Prefix Sum for Binary Search 16",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1821,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-prefix-sum-for-binary-search-16/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_ps_017",
-    "title": "K-th Distance Prefix Sum for Binary Search 17",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2204,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-prefix-sum-for-binary-search-17/",
-    "companies": [
-      "Atlassian",
-      "Google"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_ps_018",
-    "title": "Count of Prefix Sum for Binary Search 18",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1785,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-prefix-sum-for-binary-search-18/",
-    "companies": [
+      "Google",
       "Apple"
     ],
     "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_ps_019",
-    "title": "Merge Prefix Sum for Binary Search 19",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2250,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-prefix-sum-for-binary-search-19/",
-    "companies": [
-      "Meta",
-      "LinkedIn",
-      "Twilio"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_ps_020",
-    "title": "Subsequence Prefix Sum for Binary Search 20",
-    "topic": "binarysearch",
-    "pattern": "prefix-sum",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1961,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-prefix-sum-for-binary-search-20/",
-    "companies": [
-      "Uber",
-      "Tencent",
-      "Atlassian"
-    ],
-    "tags": [
-      "Binary Search",
-      "Prefix Sum"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_bs_001",
-    "title": "Balanced Binary Search for Binary Search 1",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1697,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-search-for-binary-search-1/",
-    "companies": [
-      "Airbnb",
-      "Atlassian"
-    ],
-    "tags": [
-      "Binary Search",
+      "Array",
       "Binary Search"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Binary Search - NeetCode",
+        "url": "https://youtube.com/watch?v=s4DPM8ct1pI"
+      }
+    ],
+    "relatedProblems": [
+      "Search Insert Position",
+      "First Bad Version"
+    ],
+    "followUp": [
+      "Can you write both the iterative and recursive versions?"
+    ],
+    "testCases": [
+      {
+        "input": "[-1,0,3,5,9,12], target=9",
+        "output": "4"
+      },
+      {
+        "input": "[-1,0,3,5,9,12], target=2",
+        "output": "-1"
+      }
+    ],
+    "acceptanceRate": "56.4%",
+    "likes": 12000,
+    "dislikes": 2700
   },
   {
-    "_id": "bs_bs_002",
-    "title": "Shortest Binary Search for Binary Search 2",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
+    "_id": "bs_easy_002",
+    "title": "Search Insert Position",
+    "topic": "binary-search",
+    "pattern": "classic-binary-search",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1739,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-binary-search-for-binary-search-2/",
+    "problemNumber": 35,
+    "leetcodeUrl": "https://leetcode.com/problems/search-insert-position/",
+    "description": "Given a sorted array and a target, return the index where the target is found, or the index where it would be inserted to keep the array sorted. This problem teaches the deeper meaning of binary search termination: when the loop ends with left > right, left is pointing to the exact position where the target would slot in. You do not need any special logic to handle the not-found case — left is already the answer. This is the classic lower_bound behavior from C++ STL. Understanding why left ends up at the insertion point requires tracing through what happens when target is smaller than all elements (left stays 0), larger than all elements (left ends at n), or sits between two values. This insight generalizes to dozens of harder problems where you are searching for the leftmost position satisfying some condition rather than an exact match.",
+    "examples": [
+      {
+        "input": "nums = [1,3,5,6], target = 5",
+        "output": "2",
+        "explanation": "5 is found at index 2."
+      },
+      {
+        "input": "nums = [1,3,5,6], target = 2",
+        "output": "1",
+        "explanation": "2 would be inserted at index 1."
+      },
+      {
+        "input": "nums = [1,3,5,6], target = 7",
+        "output": "4",
+        "explanation": "7 would be inserted at the end."
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 10^4",
+      "-10^4 <= nums[i] <= 10^4",
+      "nums contains distinct values sorted in ascending order.",
+      "-10^4 <= target <= 10^4"
+    ],
+    "hints": [
+      "Use binary search with left <= right.",
+      "When the loop ends, left is the correct insertion index."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Netflix",
+      "Amazon",
       "Bloomberg",
-      "Adobe"
+      "Apple"
     ],
     "tags": [
-      "Binary Search",
+      "Array",
       "Binary Search"
     ],
-    "estimatedTime": "15 min"
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Search Insert Position - NeetCode",
+        "url": "https://youtube.com/watch?v=K-RYzDZkzCI"
+      }
+    ],
+    "relatedProblems": [
+      "Binary Search",
+      "First Bad Version"
+    ],
+    "followUp": [
+      "Can you generalize this to find lower_bound and upper_bound separately?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,3,5,6], target=5",
+        "output": "2"
+      },
+      {
+        "input": "[1,3,5,6], target=2",
+        "output": "1"
+      }
+    ],
+    "acceptanceRate": "44.6%",
+    "likes": 9700,
+    "dislikes": 670
   },
   {
-    "_id": "bs_bs_003",
-    "title": "Count of Binary Search for Binary Search 3",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
+    "_id": "bs_easy_003",
+    "title": "Guess Number Higher or Lower",
+    "topic": "binary-search",
+    "pattern": "classic-binary-search",
+    "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1213,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-binary-search-for-binary-search-3/",
+    "problemNumber": 374,
+    "leetcodeUrl": "https://leetcode.com/problems/guess-number-higher-or-lower/",
+    "description": "A game where you guess a number between 1 and n and an API tells you if it is higher, lower, or correct. The optimal strategy is pure binary search: always guess the midpoint of the remaining range, then halve based on feedback. This problem exists to make binary search intuitive through narrative framing. Interestingly, it also appears in more complex variants — Guess Number Higher or Lower II turns this into a minimax DP problem where you must minimize your worst-case cost. The interactive API pattern (where you query an oracle rather than access an array directly) is a template you will see in several medium and hard problems. If you understand why binary search guarantees finding the answer in O(log n) guesses, you understand the algorithm at its core.",
+    "examples": [
+      {
+        "input": "n = 10, pick = 6",
+        "output": "6",
+        "explanation": "guess(6) returns 0 (correct)."
+      },
+      {
+        "input": "n = 1, pick = 1",
+        "output": "1",
+        "explanation": "Only one possible number."
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 2^31 - 1",
+      "1 <= pick <= n"
+    ],
+    "hints": [
+      "Binary search the range [1, n] using the guess() API feedback.",
+      "Narrow the range based on whether the guess() result is higher or lower."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Apple",
-      "Stripes",
+      "Amazon",
       "Google"
     ],
     "tags": [
       "Binary Search",
-      "Binary Search"
+      "Interactive"
     ],
-    "estimatedTime": "25 min"
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Guess Number Higher or Lower - LeetCode 374",
+        "url": "https://youtube.com/watch?v=PaC5tx7TfRQ"
+      }
+    ],
+    "relatedProblems": [
+      "Guess Number Higher or Lower II",
+      "First Bad Version"
+    ],
+    "followUp": [
+      "How would you solve Guess Number Higher or Lower II, where you must minimize worst-case cost?"
+    ],
+    "testCases": [
+      {
+        "input": "n=10, pick=6",
+        "output": "6"
+      }
+    ],
+    "acceptanceRate": "51.7%",
+    "likes": 1700,
+    "dislikes": 3600
   },
   {
-    "_id": "bs_bs_004",
-    "title": "Balanced Binary Search for Binary Search 4",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2360,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-search-for-binary-search-4/",
-    "companies": [
-      "Google",
-      "ByteDance"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_bs_005",
-    "title": "Subsequence Binary Search for Binary Search 5",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2494,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-binary-search-for-binary-search-5/",
-    "companies": [
-      "Airbnb",
-      "Adobe",
-      "Amazon"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_bs_006",
-    "title": "Minimum Cost Binary Search for Binary Search 6",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
+    "_id": "bs_easy_004",
+    "title": "First Bad Version",
+    "topic": "binary-search",
+    "pattern": "boundary-finding",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 2419,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-binary-search-6/",
+    "problemNumber": 278,
+    "leetcodeUrl": "https://leetcode.com/problems/first-bad-version/",
+    "description": "You have n software versions where all versions after some point are bad. An isBadVersion API tells you if a given version is bad. Find the first bad version using the minimum number of API calls. This is the binary search for leftmost true in a boolean sequence — once something turns bad, everything after stays bad, giving you a monotone predicate. The key insight is that when you find a bad version, it might be the first — so record it and keep searching left rather than stopping. When you find a good version, the first bad must be to the right. The boundary condition is critical: use left <= right and update right = mid - 1 when bad is found, left = mid + 1 when good is found. At termination, left is the answer. This leftmost-true pattern is the most important binary search variant — it underlies every problem where you search for a threshold.",
+    "examples": [
+      {
+        "input": "n = 5, bad = 4",
+        "output": "4",
+        "explanation": "Versions 4 and 5 are bad; version 4 is the first."
+      },
+      {
+        "input": "n = 1, bad = 1",
+        "output": "1",
+        "explanation": "Only one version, and it is bad."
+      }
+    ],
+    "constraints": [
+      "1 <= bad <= n <= 2^31 - 1"
+    ],
+    "hints": [
+      "Use binary search for the leftmost position where isBadVersion returns true.",
+      "When bad is found, keep searching left in case an earlier version is also bad."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
+      "Amazon",
       "Meta",
-      "Uber",
-      "Adobe"
+      "Bloomberg",
+      "Microsoft"
     ],
     "tags": [
       "Binary Search",
-      "Binary Search"
+      "Interactive"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "First Bad Version - NeetCode",
+        "url": "https://youtube.com/watch?v=xkr8sFKjvg4"
+      }
+    ],
+    "relatedProblems": [
+      "Binary Search",
+      "Search Insert Position"
+    ],
+    "followUp": [
+      "How would this change if isBadVersion calls were extremely expensive?"
+    ],
+    "testCases": [
+      {
+        "input": "n=5, bad=4",
+        "output": "4"
+      }
+    ],
+    "acceptanceRate": "45.1%",
+    "likes": 4900,
+    "dislikes": 730
   },
   {
-    "_id": "bs_bs_007",
-    "title": "Shortest Binary Search for Binary Search 7",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
+    "_id": "bs_easy_005",
+    "title": "Sqrt(x)",
+    "topic": "binary-search",
+    "pattern": "boundary-finding",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1754,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-binary-search-for-binary-search-7/",
+    "problemNumber": 69,
+    "leetcodeUrl": "https://leetcode.com/problems/sqrtx/",
+    "description": "Compute the integer square root of x — the largest integer k such that k * k <= x — without using any built-in power or square root functions. This is binary search for the rightmost value satisfying a condition: search in range [0, x], and for each mid check if mid * mid <= x. If true, record mid as a candidate and search right for a potentially larger valid value. If mid * mid > x, search left. At termination, the last recorded candidate is the answer. Watch out for integer overflow when computing mid * mid — for large x, mid can be up to 46340 on 32-bit systems before squaring overflows. Use long multiplication or cast appropriately. This problem cleanly illustrates the rightmost-true binary search template, which is the mirror of the leftmost-true pattern from First Bad Version.",
+    "examples": [
+      {
+        "input": "x = 4",
+        "output": "2",
+        "explanation": "2 * 2 = 4."
+      },
+      {
+        "input": "x = 8",
+        "output": "2",
+        "explanation": "The square root of 8 is 2.828..., truncated to 2."
+      }
+    ],
+    "constraints": [
+      "0 <= x <= 2^31 - 1"
+    ],
+    "hints": [
+      "Binary search in range [0, x] for the largest mid where mid*mid <= x.",
+      "Use long arithmetic to avoid overflow when squaring mid."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Adobe",
-      "Stripes",
-      "Atlassian"
+      "Amazon",
+      "Apple",
+      "Bloomberg",
+      "Google"
     ],
     "tags": [
-      "Binary Search",
+      "Math",
       "Binary Search"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Sqrt(x) - LeetCode 69",
+        "url": "https://youtube.com/watch?v=zdMhGxRWutQ"
+      }
+    ],
+    "relatedProblems": [
+      "Valid Perfect Square",
+      "Pow(x, n)"
+    ],
+    "followUp": [
+      "Can you achieve higher precision using Newton's method instead?"
+    ],
+    "testCases": [
+      {
+        "input": "4",
+        "output": "2"
+      },
+      {
+        "input": "8",
+        "output": "2"
+      }
+    ],
+    "acceptanceRate": "38.2%",
+    "likes": 5700,
+    "dislikes": 4200
   },
   {
-    "_id": "bs_bs_008",
-    "title": "Cyclic Binary Search for Binary Search 8",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1046,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-binary-search-8/",
-    "companies": [
-      "ByteDance",
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_bs_009",
-    "title": "K-th Distance Binary Search for Binary Search 9",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
+    "_id": "bs_easy_006",
+    "title": "Count Negative Numbers in a Sorted Matrix",
+    "topic": "binary-search",
+    "pattern": "classic-binary-search",
+    "difficulty": "Easy",
     "platform": "LeetCode",
     "problemNumber": 1351,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-binary-search-for-binary-search-9/",
+    "leetcodeUrl": "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/",
+    "description": "Given a matrix sorted in non-increasing order both row-wise and column-wise, count all negative numbers. The brute force scans every cell in O(m * n). Binary search improves this: for each row, binary search for the first negative number — all elements from that index to the row's end are negative. This brings the time to O(m log n). Even smarter is the O(m + n) staircase approach: start at the top-right corner and use the sorted structure to navigate without binary search at all. But the binary-search solution is the intended one for this problem's placement. It exercises the concept of finding the leftmost index satisfying a condition within a row, reinforcing the same boundary-search template used in Search Insert Position and First Bad Version.",
+    "examples": [
+      {
+        "input": "grid = [[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]",
+        "output": "8",
+        "explanation": "There are 8 negative numbers in the matrix."
+      },
+      {
+        "input": "grid = [[3,2],[1,0]]",
+        "output": "0",
+        "explanation": "There are no negative numbers."
+      }
+    ],
+    "constraints": [
+      "m == grid.length",
+      "n == grid[i].length",
+      "1 <= m, n <= 100",
+      "-100 <= grid[i][j] <= 100"
+    ],
+    "hints": [
+      "For each row, binary search the first index where the value becomes negative.",
+      "Sum (row length - first negative index) across all rows."
+    ],
+    "expectedTimeComplexity": "O(m log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_bs_010",
-    "title": "Subarray Binary Search for Binary Search 10",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1519,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-binary-search-for-binary-search-10/",
-    "companies": [
-      "Microsoft",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_bs_011",
-    "title": "Balanced Binary Search for Binary Search 11",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1412,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-search-for-binary-search-11/",
-    "companies": [
-      "Uber",
-      "Adobe",
-      "ByteDance"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_bs_012",
-    "title": "K-th Distance Binary Search for Binary Search 12",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2248,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-binary-search-for-binary-search-12/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_bs_013",
-    "title": "Maximal Binary Search for Binary Search 13",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1645,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-binary-search-for-binary-search-13/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_bs_014",
-    "title": "Cyclic Binary Search for Binary Search 14",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2355,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-binary-search-for-binary-search-14/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_bs_015",
-    "title": "Subarray Binary Search for Binary Search 15",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1206,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-binary-search-for-binary-search-15/",
-    "companies": [
-      "Tencent",
-      "Oracle",
-      "Meta"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_bs_016",
-    "title": "Optimal Binary Search for Binary Search 16",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2405,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-binary-search-for-binary-search-16/",
-    "companies": [
-      "Netflix",
-      "ByteDance",
-      "Amazon"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_bs_017",
-    "title": "Search Binary Search for Binary Search 17",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2697,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-binary-search-17/",
-    "companies": [
-      "Atlassian",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_bs_018",
-    "title": "Minimum Cost Binary Search for Binary Search 18",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1616,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-binary-search-for-binary-search-18/",
-    "companies": [
-      "Salesforce",
       "Amazon",
-      "Twilio"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_bs_019",
-    "title": "Merge Binary Search for Binary Search 19",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2074,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-binary-search-for-binary-search-19/",
-    "companies": [
-      "Microsoft"
-    ],
-    "tags": [
-      "Binary Search",
-      "Binary Search"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_bs_020",
-    "title": "Search Binary Search for Binary Search 20",
-    "topic": "binarysearch",
-    "pattern": "binary-search",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1863,
-    "leetcodeUrl": "https://leetcode.com/problems/search-binary-search-for-binary-search-20/",
-    "companies": [
       "Google",
+      "Microsoft"
+    ],
+    "tags": [
+      "Array",
+      "Binary Search",
+      "Matrix"
+    ],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Count Negative Numbers in a Sorted Matrix - LeetCode 1351",
+        "url": "https://youtube.com/watch?v=txnLcUcLY9Q"
+      }
+    ],
+    "relatedProblems": [
+      "Search a 2D Matrix",
+      "Search a 2D Matrix II"
+    ],
+    "followUp": [
+      "Can you solve it in O(m + n) using a staircase walk?"
+    ],
+    "testCases": [
+      {
+        "input": "[[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]",
+        "output": "8"
+      }
+    ],
+    "acceptanceRate": "75.7%",
+    "likes": 2900,
+    "dislikes": 140
+  },
+  {
+    "_id": "bs_easy_007",
+    "title": "Check If N and Its Double Exist",
+    "topic": "binary-search",
+    "pattern": "classic-binary-search",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 1346,
+    "leetcodeUrl": "https://leetcode.com/problems/check-if-n-and-its-double-exist/",
+    "description": "Given an array, check if there exist two indices i and j such that i != j, arr[i] == 2 * arr[j]. The HashSet solution is O(n) and straightforward: for each element, check if its double or its half already exists in the set. The binary search solution sorts the array first, then for each element binary-searches for its double. The trick with zeros: two zeros satisfy the condition (0 == 2 * 0), but you must ensure i != j — so check if there are at least two zeros separately. This problem is a gentle introduction to using binary search as a lookup tool within an algorithm rather than as the algorithm itself — a pattern that recurs frequently when binary search is combined with sorting as a preprocessing step.",
+    "examples": [
+      {
+        "input": "arr = [10,2,5,3]",
+        "output": "true",
+        "explanation": "2 * 5 = 10."
+      },
+      {
+        "input": "arr = [3,1,7,11]",
+        "output": "false",
+        "explanation": "No element is double another."
+      }
+    ],
+    "constraints": [
+      "2 <= arr.length <= 500",
+      "-10^3 <= arr[i] <= 10^3"
+    ],
+    "hints": [
+      "Sort the array, then binary search for double or half of each element.",
+      "Handle the zero case separately since 0 == 2 * 0."
+    ],
+    "expectedTimeComplexity": "O(n log n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
       "Bloomberg"
     ],
     "tags": [
+      "Array",
+      "Hash Table",
       "Binary Search",
+      "Sorting"
+    ],
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Check If N and Its Double Exist - LeetCode 1346",
+        "url": "https://youtube.com/watch?v=qmGwZbgaBKA"
+      }
+    ],
+    "relatedProblems": [
+      "Two Sum",
+      "Contains Duplicate"
+    ],
+    "followUp": [
+      "Can you solve it in O(n) using a HashSet instead?"
+    ],
+    "testCases": [
+      {
+        "input": "[10,2,5,3]",
+        "output": "true"
+      },
+      {
+        "input": "[3,1,7,11]",
+        "output": "false"
+      }
+    ],
+    "acceptanceRate": "36.0%",
+    "likes": 1700,
+    "dislikes": 2700
+  },
+  {
+    "_id": "bs_easy_008",
+    "title": "Peak Index in a Mountain Array",
+    "topic": "binary-search",
+    "pattern": "boundary-finding",
+    "difficulty": "Easy",
+    "platform": "LeetCode",
+    "problemNumber": 852,
+    "leetcodeUrl": "https://leetcode.com/problems/peak-index-in-a-mountain-array/",
+    "description": "A mountain array rises to a peak and then falls. Find the peak index. The linear scan is O(n) but binary search achieves O(log n). The insight is that at any midpoint, you can determine which side of the peak you are on by comparing arr[mid] with arr[mid + 1]. If arr[mid] < arr[mid + 1], the peak is to the right (you are on the ascending slope). If arr[mid] > arr[mid + 1], the peak is at mid or to the left (you are on the descending slope or at the peak). This is an example of using local gradient information to direct the search — a technique that reappears in Find Peak Element and Find in Mountain Array. The array is not globally sorted, yet binary search still works because the structure provides enough local information to eliminate half the search space at each step.",
+    "examples": [
+      {
+        "input": "arr = [0,1,0]",
+        "output": "1",
+        "explanation": "Index 1 holds the peak value 1."
+      },
+      {
+        "input": "arr = [0,2,1,0]",
+        "output": "1",
+        "explanation": "Index 1 holds the peak value 2."
+      }
+    ],
+    "constraints": [
+      "3 <= arr.length <= 10^5",
+      "0 <= arr[i] <= 10^6",
+      "arr is guaranteed to be a mountain array."
+    ],
+    "hints": [
+      "Compare arr[mid] with arr[mid+1] to decide which half contains the peak.",
+      "You never need to check arr[mid] against arr[mid-1] separately."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
+    "companies": [
+      "Amazon",
+      "Google",
+      "Facebook"
+    ],
+    "tags": [
+      "Array",
       "Binary Search"
     ],
-    "estimatedTime": "35 min"
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Peak Index in a Mountain Array - NeetCode",
+        "url": "https://youtube.com/watch?v=GMQUOUSnE6w"
+      }
+    ],
+    "relatedProblems": [
+      "Find Peak Element",
+      "Find in Mountain Array"
+    ],
+    "followUp": [
+      "What if the array could have multiple equal peaks?"
+    ],
+    "testCases": [
+      {
+        "input": "[0,1,0]",
+        "output": "1"
+      }
+    ],
+    "acceptanceRate": "71.4%",
+    "likes": 4500,
+    "dislikes": 340
   },
   {
-    "_id": "bs_mt_001",
-    "title": "Cyclic Matrix for Binary Search 1",
-    "topic": "binarysearch",
-    "pattern": "matrix",
+    "_id": "bs_easy_009",
+    "title": "Two Sum II - Input Array Is Sorted",
+    "topic": "binary-search",
+    "pattern": "classic-binary-search",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 2463,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-matrix-for-binary-search-1/",
+    "problemNumber": 167,
+    "leetcodeUrl": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
+    "description": "Given a sorted array, find two numbers that sum to a target. The two-pointer approach is O(n) and optimal for this problem. The binary search approach is O(n log n): for each element, binary search for its complement in the remaining portion of the array. While two pointers win here, the binary search solution reinforces the habit of applying search within a loop — a pattern that appears in problems like 3Sum and 4Sum where you fix outer elements and search for the remainder. Knowing both solutions matters: interviewers sometimes explicitly ask for the binary search version to test whether you can apply it as a subroutine. The guaranteed exactly-one-solution constraint also removes the need for duplicate handling, keeping the focus on the core technique.",
+    "examples": [
+      {
+        "input": "numbers = [2,7,11,15], target = 9",
+        "output": "[1,2]",
+        "explanation": "numbers[0] + numbers[1] = 9, returned as 1-indexed."
+      },
+      {
+        "input": "numbers = [2,3,4], target = 6",
+        "output": "[1,3]",
+        "explanation": "numbers[0] + numbers[2] = 6."
+      }
+    ],
+    "constraints": [
+      "2 <= numbers.length <= 3 * 10^4",
+      "-1000 <= numbers[i] <= 1000",
+      "numbers is sorted in non-decreasing order.",
+      "-1000 <= target <= 1000",
+      "Exactly one valid answer exists."
+    ],
+    "hints": [
+      "Use two pointers from both ends, or binary search for the complement of each element.",
+      "Return 1-indexed positions."
+    ],
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Stripes",
-      "Microsoft"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_mt_002",
-    "title": "K-th Distance Matrix for Binary Search 2",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1020,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-binary-search-2/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_mt_003",
-    "title": "K-th Distance Matrix for Binary Search 3",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1768,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-matrix-for-binary-search-3/",
-    "companies": [
-      "Meta",
-      "Twitter"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "bs_mt_004",
-    "title": "Merge Matrix for Binary Search 4",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1040,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-matrix-for-binary-search-4/",
-    "companies": [
-      "Microsoft",
-      "Twitter"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_mt_005",
-    "title": "Longest Matrix for Binary Search 5",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2599,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-binary-search-5/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_mt_006",
-    "title": "Search Matrix for Binary Search 6",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2768,
-    "leetcodeUrl": "https://leetcode.com/problems/search-matrix-for-binary-search-6/",
-    "companies": [
-      "Meta",
-      "LinkedIn",
-      "Atlassian"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_mt_007",
-    "title": "Continuous Matrix for Binary Search 7",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2643,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-matrix-for-binary-search-7/",
-    "companies": [
-      "Airbnb",
-      "Oracle",
-      "Atlassian"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_mt_008",
-    "title": "Continuous Matrix for Binary Search 8",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1733,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-matrix-for-binary-search-8/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "bs_mt_009",
-    "title": "Search Matrix for Binary Search 9",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1964,
-    "leetcodeUrl": "https://leetcode.com/problems/search-matrix-for-binary-search-9/",
-    "companies": [
-      "ByteDance"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_mt_010",
-    "title": "Subsequence Matrix for Binary Search 10",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1157,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-matrix-for-binary-search-10/",
-    "companies": [
-      "Airbnb",
-      "Google"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_mt_011",
-    "title": "Optimal Matrix for Binary Search 11",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1268,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-matrix-for-binary-search-11/",
-    "companies": [
+      "Amazon",
       "Adobe",
-      "Stripes"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_mt_012",
-    "title": "Maximal Matrix for Binary Search 12",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2392,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-matrix-for-binary-search-12/",
-    "companies": [
-      "ByteDance",
-      "Microsoft"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_mt_013",
-    "title": "Maximal Matrix for Binary Search 13",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2399,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-matrix-for-binary-search-13/",
-    "companies": [
-      "Oracle",
-      "LinkedIn",
-      "Airbnb"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_mt_014",
-    "title": "Minimum Cost Matrix for Binary Search 14",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2407,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-matrix-for-binary-search-14/",
-    "companies": [
-      "Uber",
-      "ByteDance",
-      "Oracle"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_mt_015",
-    "title": "Shortest Matrix for Binary Search 15",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1501,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-matrix-for-binary-search-15/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "bs_mt_016",
-    "title": "Search Matrix for Binary Search 16",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2433,
-    "leetcodeUrl": "https://leetcode.com/problems/search-matrix-for-binary-search-16/",
-    "companies": [
-      "Google",
       "Bloomberg"
     ],
     "tags": [
-      "Binary Search",
-      "Matrix"
+      "Array",
+      "Two Pointers",
+      "Binary Search"
     ],
-    "estimatedTime": "40 min"
+    "estimatedTime": "15 min",
+    "youtubeVideos": [
+      {
+        "title": "Two Sum II - NeetCode",
+        "url": "https://youtube.com/watch?v=cQ1Oz4ckceM"
+      }
+    ],
+    "relatedProblems": [
+      "Two Sum",
+      "3Sum"
+    ],
+    "followUp": [
+      "Can you do it with binary search per element instead of two pointers?"
+    ],
+    "testCases": [
+      {
+        "input": "[2,7,11,15], target=9",
+        "output": "[1,2]"
+      }
+    ],
+    "acceptanceRate": "61.5%",
+    "likes": 8400,
+    "dislikes": 1100
   },
   {
-    "_id": "bs_mt_017",
-    "title": "Validate Matrix for Binary Search 17",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1479,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-matrix-for-binary-search-17/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_mt_018",
-    "title": "Longest Matrix for Binary Search 18",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1518,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-binary-search-18/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_mt_019",
-    "title": "Longest Matrix for Binary Search 19",
-    "topic": "binarysearch",
-    "pattern": "matrix",
+    "_id": "bs_easy_010",
+    "title": "Find Smallest Letter Greater Than Target",
+    "topic": "binary-search",
+    "pattern": "boundary-finding",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 2068,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-matrix-for-binary-search-19/",
-    "companies": [
-      "Meta",
-      "Oracle",
-      "Twitter"
+    "problemNumber": 744,
+    "leetcodeUrl": "https://leetcode.com/problems/find-smallest-letter-greater-than-target/",
+    "description": "Given a sorted list of characters (with wrap-around) and a target character, find the smallest character strictly greater than the target. If all characters are smaller, wrap around and return the first. This is the classic upper_bound binary search: find the leftmost element strictly greater than the target. The search range is [0, n - 1] and you keep left as your candidate when arr[mid] > target, otherwise search right. At the end, use left % n to handle the wrap-around case. This problem is valuable because it sharpens the distinction between lower_bound (first element >= target) and upper_bound (first element > target) — two subtly different templates that beginners often confuse. Mastering both gives you clean tools for dozens of boundary-finding problems.",
+    "examples": [
+      {
+        "input": "letters = [\"c\",\"f\",\"j\"], target = \"a\"",
+        "output": "\"c\"",
+        "explanation": "The smallest letter greater than 'a' is 'c'."
+      },
+      {
+        "input": "letters = [\"c\",\"f\",\"j\"], target = \"j\"",
+        "output": "\"c\"",
+        "explanation": "No letter is greater than 'j', so it wraps around to 'c'."
+      }
     ],
-    "tags": [
-      "Binary Search",
-      "Matrix"
+    "constraints": [
+      "2 <= letters.length <= 10^4",
+      "letters[i] is a lowercase English letter.",
+      "letters is sorted in non-decreasing order.",
+      "letters contains at least two different characters.",
+      "target is a lowercase English letter."
     ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_mt_020",
-    "title": "Count of Matrix for Binary Search 20",
-    "topic": "binarysearch",
-    "pattern": "matrix",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1909,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-matrix-for-binary-search-20/",
+    "hints": [
+      "Use upper_bound binary search to find the first letter strictly greater than target.",
+      "Use left % n to handle the wrap-around case."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
-      "Meta",
-      "Twilio"
+      "Microsoft"
     ],
     "tags": [
-      "Binary Search",
-      "Matrix"
+      "Array",
+      "Binary Search"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Find Smallest Letter Greater Than Target - LeetCode 744",
+        "url": "https://youtube.com/watch?v=N3jOpyzqxgo"
+      }
+    ],
+    "relatedProblems": [
+      "Search Insert Position",
+      "Find Right Interval"
+    ],
+    "followUp": [
+      "How would you adapt this for finding the largest letter smaller than target?"
+    ],
+    "testCases": [
+      {
+        "input": "[\"c\",\"f\",\"j\"], target=\"a\"",
+        "output": "\"c\""
+      }
+    ],
+    "acceptanceRate": "49.5%",
+    "likes": 2200,
+    "dislikes": 540
   },
   {
-    "_id": "bs_srt_001",
-    "title": "Subarray Sorting for Binary Search 1",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2400,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-sorting-for-binary-search-1/",
-    "companies": [
-      "Twilio",
-      "Oracle",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_srt_002",
-    "title": "Longest Sorting for Binary Search 2",
-    "topic": "binarysearch",
-    "pattern": "sorting",
+    "_id": "bs_easy_011",
+    "title": "Valid Perfect Square",
+    "topic": "binary-search",
+    "pattern": "classic-binary-search",
     "difficulty": "Easy",
     "platform": "LeetCode",
-    "problemNumber": 1395,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-sorting-for-binary-search-2/",
+    "problemNumber": 367,
+    "leetcodeUrl": "https://leetcode.com/problems/valid-perfect-square/",
+    "description": "Given a positive integer, determine if it is a perfect square without using built-in square root functions. Binary search in range [1, num]: for each mid, compute mid * mid. If it equals num, return true. If less, search right; if greater, search left. If the loop ends without a match, return false. This is nearly identical to Sqrt(x) — the difference is you need an exact match rather than a floor. Use long arithmetic to avoid overflow when squaring mid. The problem is a clean rep of the standard binary search template and pairs well with Sqrt(x) as a study pair. Together they illustrate how exact-match and floor-match binary search differ by only a few characters in implementation but require clearly distinct mental models.",
+    "examples": [
+      {
+        "input": "num = 16",
+        "output": "true",
+        "explanation": "4 * 4 = 16."
+      },
+      {
+        "input": "num = 14",
+        "output": "false",
+        "explanation": "14 is not a perfect square."
+      }
+    ],
+    "constraints": [
+      "1 <= num <= 2^31 - 1"
+    ],
+    "hints": [
+      "Binary search in range [1, num] for an exact match of mid*mid.",
+      "Use long arithmetic to avoid overflow."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Twilio",
-      "Stripes"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_srt_003",
-    "title": "K-th Distance Sorting for Binary Search 3",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1779,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-binary-search-3/",
-    "companies": [
-      "Amazon"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_srt_004",
-    "title": "Optimal Sorting for Binary Search 4",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1407,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-binary-search-4/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_srt_005",
-    "title": "Maximal Sorting for Binary Search 5",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2615,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-binary-search-5/",
-    "companies": [
-      "ByteDance",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_srt_006",
-    "title": "Search Sorting for Binary Search 6",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1689,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-binary-search-6/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "bs_srt_007",
-    "title": "Maximal Sorting for Binary Search 7",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2689,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-binary-search-7/",
-    "companies": [
-      "Twitter",
-      "Oracle"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_srt_008",
-    "title": "K-th Distance Sorting for Binary Search 8",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2245,
-    "leetcodeUrl": "https://leetcode.com/problems/k-th-distance-sorting-for-binary-search-8/",
-    "companies": [
-      "ByteDance",
-      "Netflix",
-      "Meta"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_srt_009",
-    "title": "Shortest Sorting for Binary Search 9",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1418,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-sorting-for-binary-search-9/",
-    "companies": [
-      "Twitter",
-      "Salesforce"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_srt_010",
-    "title": "Search Sorting for Binary Search 10",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2249,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-binary-search-10/",
-    "companies": [
-      "Oracle",
-      "Salesforce",
-      "Uber"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_srt_011",
-    "title": "Optimal Sorting for Binary Search 11",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2453,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-sorting-for-binary-search-11/",
-    "companies": [
-      "LinkedIn",
-      "Netflix"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_srt_012",
-    "title": "Maximal Sorting for Binary Search 12",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1209,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-binary-search-12/",
-    "companies": [
-      "Twilio",
-      "Airbnb"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_srt_013",
-    "title": "Continuous Sorting for Binary Search 13",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2273,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-sorting-for-binary-search-13/",
-    "companies": [
-      "Bloomberg"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_srt_014",
-    "title": "Search Sorting for Binary Search 14",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2930,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-binary-search-14/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_srt_015",
-    "title": "Cyclic Sorting for Binary Search 15",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2127,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-binary-search-15/",
-    "companies": [
-      "Microsoft",
-      "Oracle",
-      "Uber"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_srt_016",
-    "title": "Cyclic Sorting for Binary Search 16",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2201,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-binary-search-16/",
-    "companies": [
-      "Adobe",
-      "Airbnb",
-      "Meta"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "bs_srt_017",
-    "title": "Maximal Sorting for Binary Search 17",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1114,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-sorting-for-binary-search-17/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_srt_018",
-    "title": "Cyclic Sorting for Binary Search 18",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1555,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-sorting-for-binary-search-18/",
-    "companies": [
-      "Oracle"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_srt_019",
-    "title": "Search Sorting for Binary Search 19",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2537,
-    "leetcodeUrl": "https://leetcode.com/problems/search-sorting-for-binary-search-19/",
-    "companies": [
-      "Adobe",
-      "Uber"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_srt_020",
-    "title": "Balanced Sorting for Binary Search 20",
-    "topic": "binarysearch",
-    "pattern": "sorting",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2830,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-sorting-for-binary-search-20/",
-    "companies": [
-      "Stripes",
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Sorting"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_kd_001",
-    "title": "Shortest Kadane’s Algorithm for Binary Search 1",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2001,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-kadane-s-algorithm-for-binary-search-1/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_kd_002",
-    "title": "Merge Kadane’s Algorithm for Binary Search 2",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2089,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-kadane-s-algorithm-for-binary-search-2/",
-    "companies": [
-      "LinkedIn",
       "Amazon",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_kd_003",
-    "title": "Minimum Cost Kadane’s Algorithm for Binary Search 3",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1087,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-binary-search-3/",
-    "companies": [
-      "Adobe",
-      "Bloomberg",
-      "Amazon"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_kd_004",
-    "title": "Longest Kadane’s Algorithm for Binary Search 4",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2384,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-kadane-s-algorithm-for-binary-search-4/",
-    "companies": [
-      "Adobe",
-      "Meta",
-      "Airbnb"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_kd_005",
-    "title": "Shortest Kadane’s Algorithm for Binary Search 5",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1839,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-kadane-s-algorithm-for-binary-search-5/",
-    "companies": [
-      "Microsoft",
-      "Twitter"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_kd_006",
-    "title": "Balanced Kadane’s Algorithm for Binary Search 6",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1582,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-kadane-s-algorithm-for-binary-search-6/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_kd_007",
-    "title": "Subarray Kadane’s Algorithm for Binary Search 7",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1169,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-binary-search-7/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_kd_008",
-    "title": "Minimum Cost Kadane’s Algorithm for Binary Search 8",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1544,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-binary-search-8/",
-    "companies": [
-      "Twilio"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_kd_009",
-    "title": "Subarray Kadane’s Algorithm for Binary Search 9",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2391,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-binary-search-9/",
-    "companies": [
-      "Adobe",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_kd_010",
-    "title": "Optimal Kadane’s Algorithm for Binary Search 10",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1853,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-kadane-s-algorithm-for-binary-search-10/",
-    "companies": [
-      "Twitter",
-      "Tencent",
-      "Twilio"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_kd_011",
-    "title": "Continuous Kadane’s Algorithm for Binary Search 11",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2021,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-kadane-s-algorithm-for-binary-search-11/",
-    "companies": [
-      "Microsoft",
-      "Meta"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_kd_012",
-    "title": "Merge Kadane’s Algorithm for Binary Search 12",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2207,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-kadane-s-algorithm-for-binary-search-12/",
-    "companies": [
-      "ByteDance",
       "Apple",
-      "Tencent"
+      "LinkedIn"
     ],
     "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
+      "Math",
+      "Binary Search"
     ],
-    "estimatedTime": "40 min"
+    "estimatedTime": "10 min",
+    "youtubeVideos": [
+      {
+        "title": "Valid Perfect Square - LeetCode 367",
+        "url": "https://youtube.com/watch?v=cN5DcM9XSGc"
+      }
+    ],
+    "relatedProblems": [
+      "Sqrt(x)",
+      "Pow(x, n)"
+    ],
+    "followUp": [
+      "Can you solve it without using multiplication, only addition?"
+    ],
+    "testCases": [
+      {
+        "input": "16",
+        "output": "true"
+      },
+      {
+        "input": "14",
+        "output": "false"
+      }
+    ],
+    "acceptanceRate": "43.6%",
+    "likes": 3300,
+    "dislikes": 380
   },
   {
-    "_id": "bs_kd_013",
-    "title": "Subsequence Kadane’s Algorithm for Binary Search 13",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2662,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-kadane-s-algorithm-for-binary-search-13/",
-    "companies": [
-      "Airbnb",
-      "Oracle"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_kd_014",
-    "title": "Subarray Kadane’s Algorithm for Binary Search 14",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
+    "_id": "bs_med_001",
+    "title": "Find Minimum in Rotated Sorted Array",
+    "topic": "binary-search",
+    "pattern": "rotated-array",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1065,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-binary-search-14/",
+    "problemNumber": 153,
+    "leetcodeUrl": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+    "description": "A sorted array was rotated at some unknown pivot. Find the minimum element in O(log n) time. The key insight is comparing arr[mid] with arr[right]: if arr[mid] > arr[right], the minimum is in the right half (the rotation happened in the right portion). If arr[mid] <= arr[right], the minimum is in the left half including mid. This works because in a rotation, exactly one of the two halves is always properly sorted — and you can determine which half contains the minimum by comparing the midpoint to the right boundary. Unlike classic binary search, your condition is not about the target value but about the structural property of the subarray. This problem is the prerequisite for Search in Rotated Sorted Array and should be fully understood before attempting that variant.",
+    "examples": [
+      {
+        "input": "nums = [3,4,5,1,2]",
+        "output": "1",
+        "explanation": "The original array was [1,2,3,4,5] rotated 3 times."
+      },
+      {
+        "input": "nums = [4,5,6,7,0,1,2]",
+        "output": "0",
+        "explanation": "The minimum element is 0."
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 5000",
+      "-5000 <= nums[i] <= 5000",
+      "All the integers of nums are unique.",
+      "nums is sorted and rotated between 1 and n times."
+    ],
+    "hints": [
+      "Compare nums[mid] with nums[right] to decide which half contains the minimum.",
+      "If nums[mid] > nums[right], the minimum is to the right of mid."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Apple"
+      "Amazon",
+      "Microsoft",
+      "Google",
+      "Meta"
     ],
     "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
+      "Array",
+      "Binary Search"
     ],
-    "estimatedTime": "25 min"
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Find Minimum in Rotated Sorted Array - NeetCode",
+        "url": "https://youtube.com/watch?v=nIVW4P8b1VA"
+      }
+    ],
+    "relatedProblems": [
+      "Search in Rotated Sorted Array",
+      "Find Minimum in Rotated Sorted Array II"
+    ],
+    "followUp": [
+      "What changes if the array can contain duplicates?"
+    ],
+    "testCases": [
+      {
+        "input": "[3,4,5,1,2]",
+        "output": "1"
+      }
+    ],
+    "acceptanceRate": "49.0%",
+    "likes": 11000,
+    "dislikes": 480
   },
   {
-    "_id": "bs_kd_015",
-    "title": "Count of Kadane’s Algorithm for Binary Search 15",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
+    "_id": "bs_med_002",
+    "title": "Search in Rotated Sorted Array",
+    "topic": "binary-search",
+    "pattern": "rotated-array",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1271,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-kadane-s-algorithm-for-binary-search-15/",
+    "problemNumber": 33,
+    "leetcodeUrl": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+    "description": "A sorted array was rotated at some unknown pivot — search for a target in O(log n) time. At every midpoint, one of the two halves is guaranteed to be sorted. Determine which half is sorted by comparing nums[left] with nums[mid]. If the left half is sorted, check if the target falls within [nums[left], nums[mid]) — if so, search left; otherwise search right. Apply the same logic symmetrically for the right half. This is the hardest pure binary search on arrays you will encounter at the medium level because the standard template does not apply directly — you have to reason about two conditions simultaneously: which half is sorted and where the target might be. Drawing examples with different rotation positions before coding is essential. Master this and you own rotated array problems.",
+    "examples": [
+      {
+        "input": "nums = [4,5,6,7,0,1,2], target = 0",
+        "output": "4",
+        "explanation": "0 is found at index 4."
+      },
+      {
+        "input": "nums = [4,5,6,7,0,1,2], target = 3",
+        "output": "-1",
+        "explanation": "3 does not exist in nums."
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 5000",
+      "-10^4 <= nums[i] <= 10^4",
+      "All values of nums are unique.",
+      "nums is an ascending array that is possibly rotated.",
+      "-10^4 <= target <= 10^4"
+    ],
+    "hints": [
+      "At each mid, determine which half is sorted by comparing nums[left] and nums[mid].",
+      "Check if target lies within the sorted half's range before deciding which way to search."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
+      "Amazon",
+      "Microsoft",
+      "Apple",
       "Bloomberg",
       "Meta"
     ],
     "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
+      "Array",
+      "Binary Search"
     ],
-    "estimatedTime": "35 min"
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Search in Rotated Sorted Array - NeetCode",
+        "url": "https://youtube.com/watch?v=U8XENwh8Oy8"
+      }
+    ],
+    "relatedProblems": [
+      "Find Minimum in Rotated Sorted Array",
+      "Search in Rotated Sorted Array II"
+    ],
+    "followUp": [
+      "What if the array contains duplicate values?"
+    ],
+    "testCases": [
+      {
+        "input": "[4,5,6,7,0,1,2], target=0",
+        "output": "4"
+      }
+    ],
+    "acceptanceRate": "41.0%",
+    "likes": 21000,
+    "dislikes": 1400
   },
   {
-    "_id": "bs_kd_016",
-    "title": "Subsequence Kadane’s Algorithm for Binary Search 16",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
+    "_id": "bs_med_003",
+    "title": "Find Peak Element",
+    "topic": "binary-search",
+    "pattern": "boundary-finding",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2915,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-kadane-s-algorithm-for-binary-search-16/",
+    "problemNumber": 162,
+    "leetcodeUrl": "https://leetcode.com/problems/find-peak-element/",
+    "description": "A peak element is greater than its neighbors. Given an array where adjacent elements are never equal, find any peak in O(log n) time. The array can have multiple peaks — you just need to return any one. The approach: compare arr[mid] with arr[mid + 1]. If arr[mid] < arr[mid + 1], there must be a peak in the right half (the ascending slope guarantees something higher exists to the right). If arr[mid] > arr[mid + 1], there must be a peak at mid or in the left half. This is binary search without a global sorted order — it works purely because of the local gradient. The problem generalizes to 2D in Find Peak Element in a 2D Grid. The key lesson is that binary search can work on any structure where you can consistently eliminate half the search space at each step, not just sorted arrays.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1]",
+        "output": "2",
+        "explanation": "3 is a peak element."
+      },
+      {
+        "input": "nums = [1,2,1,3,5,6,4]",
+        "output": "5",
+        "explanation": "Index 1 (value 2) or index 5 (value 6) are both valid peaks."
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 1000",
+      "-2^31 <= nums[i] <= 2^31 - 1",
+      "nums[i] != nums[i+1] for all valid i."
+    ],
+    "hints": [
+      "Compare nums[mid] with nums[mid+1] to decide which side has a guaranteed peak.",
+      "Treat indices outside the array as negative infinity for boundary cases."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Salesforce",
-      "Apple",
-      "Stripes"
+      "Amazon",
+      "Google",
+      "Meta",
+      "Microsoft"
     ],
     "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
+      "Array",
+      "Binary Search"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Find Peak Element - NeetCode",
+        "url": "https://youtube.com/watch?v=GMQUOUSnE6w"
+      }
+    ],
+    "relatedProblems": [
+      "Peak Index in a Mountain Array",
+      "Find Peak Element II"
+    ],
+    "followUp": [
+      "Can you extend this approach to a 2D grid?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,1]",
+        "output": "2"
+      }
+    ],
+    "acceptanceRate": "46.7%",
+    "likes": 9700,
+    "dislikes": 4900
   },
   {
-    "_id": "bs_kd_017",
-    "title": "Subarray Kadane’s Algorithm for Binary Search 17",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
+    "_id": "bs_med_004",
+    "title": "Time-Based Key-Value Store",
+    "topic": "binary-search",
+    "pattern": "classic-binary-search",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2561,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-kadane-s-algorithm-for-binary-search-17/",
+    "problemNumber": 981,
+    "leetcodeUrl": "https://leetcode.com/problems/time-based-key-value-store/",
+    "description": "Design a data structure that stores values associated with a key and a timestamp, and retrieves the value with the largest timestamp less than or equal to a given timestamp. The storage is a HashMap from key to a list of (timestamp, value) pairs. Since set operations come in increasing timestamp order, the list is always sorted by timestamp — enabling binary search on get. For each get(key, timestamp), find the rightmost entry whose timestamp is <= the query timestamp. This is the upper_bound search shifted left by one: find the first timestamp strictly greater than the query, then take the entry just before it. This problem is a practical design application of binary search — it tests whether you can identify when binary search is the right tool in a non-obvious context and integrate it correctly with a dictionary.",
+    "examples": [
+      {
+        "input": "set(\"foo\",\"bar\",1), get(\"foo\",1), get(\"foo\",3), set(\"foo\",\"bar2\",4), get(\"foo\",4), get(\"foo\",5)",
+        "output": "[null,\"bar\",\"bar\",null,\"bar2\",\"bar2\"]",
+        "explanation": "get returns the value with the largest timestamp <= the query."
+      }
+    ],
+    "constraints": [
+      "1 <= key.length, value.length <= 100",
+      "key, value consist of lowercase English letters and digits.",
+      "1 <= timestamp <= 10^7",
+      "All timestamps set for the same key are strictly increasing.",
+      "At most 2 * 10^5 calls to set and get."
+    ],
+    "hints": [
+      "Store a list of (timestamp, value) pairs per key, in insertion order.",
+      "Binary search the list for the largest timestamp <= the query timestamp."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(n)",
     "companies": [
+      "Amazon",
+      "Google",
+      "Uber",
       "Meta"
     ],
     "tags": [
+      "Hash Table",
+      "String",
       "Binary Search",
-      "Kadane’s Algorithm"
+      "Design"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Time Based Key-Value Store - NeetCode",
+        "url": "https://youtube.com/watch?v=avsehDTJN1Y"
+      }
+    ],
+    "relatedProblems": [
+      "Find Right Interval",
+      "LRU Cache"
+    ],
+    "followUp": [
+      "How would you support deleting old timestamps to save memory?"
+    ],
+    "testCases": [
+      {
+        "input": "set(\"foo\",\"bar\",1), get(\"foo\",1)",
+        "output": "\"bar\""
+      }
+    ],
+    "acceptanceRate": "63.4%",
+    "likes": 5200,
+    "dislikes": 550
   },
   {
-    "_id": "bs_kd_018",
-    "title": "Minimum Cost Kadane’s Algorithm for Binary Search 18",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2887,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-kadane-s-algorithm-for-binary-search-18/",
-    "companies": [
-      "Twitter",
-      "Oracle",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_kd_019",
-    "title": "Maximal Kadane’s Algorithm for Binary Search 19",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1564,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-binary-search-19/",
-    "companies": [
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_kd_020",
-    "title": "Maximal Kadane’s Algorithm for Binary Search 20",
-    "topic": "binarysearch",
-    "pattern": "kadanes-algorithm",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1079,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-kadane-s-algorithm-for-binary-search-20/",
-    "companies": [
-      "Uber"
-    ],
-    "tags": [
-      "Binary Search",
-      "Kadane’s Algorithm"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_hs_001",
-    "title": "Validate Hashing for Binary Search 1",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2206,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-hashing-for-binary-search-1/",
-    "companies": [
-      "Microsoft",
-      "Amazon"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_hs_002",
-    "title": "Cyclic Hashing for Binary Search 2",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2624,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-hashing-for-binary-search-2/",
-    "companies": [
-      "Oracle",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_hs_003",
-    "title": "Maximal Hashing for Binary Search 3",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1671,
-    "leetcodeUrl": "https://leetcode.com/problems/maximal-hashing-for-binary-search-3/",
-    "companies": [
-      "Adobe",
-      "Uber",
-      "Oracle"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_hs_004",
-    "title": "Balanced Hashing for Binary Search 4",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1772,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-binary-search-4/",
-    "companies": [
-      "Atlassian",
-      "Netflix"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_hs_005",
-    "title": "Count of Hashing for Binary Search 5",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2771,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-binary-search-5/",
-    "companies": [
-      "Microsoft",
-      "Oracle"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_hs_006",
-    "title": "Subsequence Hashing for Binary Search 6",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1783,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-hashing-for-binary-search-6/",
-    "companies": [
-      "LinkedIn"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_hs_007",
-    "title": "Count of Hashing for Binary Search 7",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1109,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-hashing-for-binary-search-7/",
-    "companies": [
-      "Google"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_hs_008",
-    "title": "Search Hashing for Binary Search 8",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1344,
-    "leetcodeUrl": "https://leetcode.com/problems/search-hashing-for-binary-search-8/",
-    "companies": [
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_hs_009",
-    "title": "Balanced Hashing for Binary Search 9",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1274,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-hashing-for-binary-search-9/",
-    "companies": [
-      "Salesforce",
-      "Twitter",
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_hs_010",
-    "title": "Minimum Cost Hashing for Binary Search 10",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1987,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-hashing-for-binary-search-10/",
-    "companies": [
-      "Microsoft",
-      "Atlassian",
-      "Stripes"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_hs_011",
-    "title": "Longest Hashing for Binary Search 11",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1954,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-hashing-for-binary-search-11/",
-    "companies": [
-      "Tencent",
-      "Microsoft",
-      "Salesforce"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_hs_012",
-    "title": "Optimal Hashing for Binary Search 12",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1182,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-binary-search-12/",
-    "companies": [
-      "Twitter",
-      "Meta",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_hs_013",
-    "title": "Optimal Hashing for Binary Search 13",
-    "topic": "binarysearch",
-    "pattern": "hashing",
+    "_id": "bs_med_005",
+    "title": "Koko Eating Bananas",
+    "topic": "binary-search",
+    "pattern": "binary-search-on-answer",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1828,
-    "leetcodeUrl": "https://leetcode.com/problems/optimal-hashing-for-binary-search-13/",
+    "problemNumber": 875,
+    "leetcodeUrl": "https://leetcode.com/problems/koko-eating-bananas/",
+    "description": "Koko can eat k bananas per hour. Given piles of bananas and h hours, find the minimum k that allows eating all bananas within h hours. This introduces binary search on the answer — one of the most powerful and frequently tested patterns. Instead of searching the input array, you search the space of possible answers: k ranges from 1 to max(piles). For each candidate k, compute the total hours needed (sum of ceil(pile / k) for each pile). If the total hours exceed h, k is too slow — search right. Otherwise, k might work but a smaller k could too — record this candidate and search left. This problem is the entry point to a family of problems (Capacity to Ship, Minimum Days to Make m Bouquets, Split Array Largest Sum) all sharing the same template: feasibility check on answer, binary search the answer space.",
+    "examples": [
+      {
+        "input": "piles = [3,6,7,11], h = 8",
+        "output": "4",
+        "explanation": "Eating 4 bananas per hour finishes within 8 hours."
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 5",
+        "output": "30",
+        "explanation": "With only 5 hours, Koko must eat at the fastest pace."
+      }
+    ],
+    "constraints": [
+      "1 <= piles.length <= 10^4",
+      "piles.length <= h <= 10^9",
+      "1 <= piles[i] <= 10^9"
+    ],
+    "hints": [
+      "Binary search k in range [1, max(piles)].",
+      "For each candidate k, compute total hours as the sum of ceil(pile / k)."
+    ],
+    "expectedTimeComplexity": "O(n log m)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Atlassian",
       "Amazon",
-      "Microsoft"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_hs_014",
-    "title": "Merge Hashing for Binary Search 14",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2046,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-hashing-for-binary-search-14/",
-    "companies": [
-      "Atlassian",
-      "Google"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_hs_015",
-    "title": "Longest Hashing for Binary Search 15",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1538,
-    "leetcodeUrl": "https://leetcode.com/problems/longest-hashing-for-binary-search-15/",
-    "companies": [
-      "Airbnb",
-      "Tencent",
-      "Amazon"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_hs_016",
-    "title": "Cyclic Hashing for Binary Search 16",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1561,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-hashing-for-binary-search-16/",
-    "companies": [
-      "Airbnb"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_hs_017",
-    "title": "Subarray Hashing for Binary Search 17",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 2432,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-hashing-for-binary-search-17/",
-    "companies": [
-      "Microsoft",
-      "ByteDance",
-      "Google"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "40 min"
-  },
-  {
-    "_id": "bs_hs_018",
-    "title": "Cyclic Hashing for Binary Search 18",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 1074,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-hashing-for-binary-search-18/",
-    "companies": [
-      "Twitter",
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_hs_019",
-    "title": "Shortest Hashing for Binary Search 19",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1424,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-hashing-for-binary-search-19/",
-    "companies": [
-      "ByteDance",
-      "Oracle",
-      "Uber"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_hs_020",
-    "title": "Subarray Hashing for Binary Search 20",
-    "topic": "binarysearch",
-    "pattern": "hashing",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2618,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-hashing-for-binary-search-20/",
-    "companies": [
-      "Apple",
-      "Microsoft"
-    ],
-    "tags": [
-      "Binary Search",
-      "Hashing"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_ms_001",
-    "title": "Subarray Monotonic Stack for Binary Search 1",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2863,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-binary-search-1/",
-    "companies": [
-      "Apple",
-      "Netflix"
-    ],
-    "tags": [
-      "Binary Search",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "25 min"
-  },
-  {
-    "_id": "bs_ms_002",
-    "title": "Merge Monotonic Stack for Binary Search 2",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1666,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-binary-search-2/",
-    "companies": [
-      "Salesforce"
-    ],
-    "tags": [
-      "Binary Search",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_ms_003",
-    "title": "Continuous Monotonic Stack for Binary Search 3",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2882,
-    "leetcodeUrl": "https://leetcode.com/problems/continuous-monotonic-stack-for-binary-search-3/",
-    "companies": [
       "Google",
-      "Oracle",
-      "LinkedIn"
+      "Meta",
+      "Bloomberg"
     ],
     "tags": [
-      "Binary Search",
-      "Monotonic Stack"
+      "Array",
+      "Binary Search"
     ],
-    "estimatedTime": "20 min"
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Koko Eating Bananas - NeetCode",
+        "url": "https://youtube.com/watch?v=U2SozAs9RzA"
+      }
+    ],
+    "relatedProblems": [
+      "Capacity to Ship Packages Within D Days",
+      "Minimum Speed to Arrive on Time"
+    ],
+    "followUp": [
+      "Can you generalize the feasibility check into a reusable template?"
+    ],
+    "testCases": [
+      {
+        "input": "[3,6,7,11], h=8",
+        "output": "4"
+      }
+    ],
+    "acceptanceRate": "49.4%",
+    "likes": 9200,
+    "dislikes": 330
   },
   {
-    "_id": "bs_ms_004",
-    "title": "Subsequence Monotonic Stack for Binary Search 4",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
+    "_id": "bs_med_006",
+    "title": "Capacity to Ship Packages Within D Days",
+    "topic": "binary-search",
+    "pattern": "binary-search-on-answer",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 2175,
-    "leetcodeUrl": "https://leetcode.com/problems/subsequence-monotonic-stack-for-binary-search-4/",
+    "problemNumber": 1011,
+    "leetcodeUrl": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/",
+    "description": "Given package weights and a deadline of d days, find the minimum ship capacity to ship all packages in order within d days. Binary search on the answer: capacity ranges from max(weights) (minimum possible — must fit each package) to sum(weights) (maximum possible — ship everything in one day). For each candidate capacity, greedily simulate how many days are needed: accumulate weights until adding the next would exceed capacity, then start a new day. If days needed <= d, this capacity works — search left for something smaller. Otherwise search right. This is the second problem in the binary-search-on-answer series. The monotone property is clear: higher capacity requires fewer or equal days. Once you internalize this template, Koko Eating Bananas, this problem, and most variants become structurally identical — only the feasibility check changes.",
+    "examples": [
+      {
+        "input": "weights = [1,2,3,4,5,6,7,8,9,10], days = 5",
+        "output": "15",
+        "explanation": "A capacity of 15 lets you ship within 5 days."
+      },
+      {
+        "input": "weights = [3,2,2,4,1,4], days = 3",
+        "output": "6",
+        "explanation": "A capacity of 6 lets you ship within 3 days."
+      }
+    ],
+    "constraints": [
+      "1 <= days <= weights.length <= 5 * 10^4",
+      "1 <= weights[i] <= 500"
+    ],
+    "hints": [
+      "Binary search capacity between max(weights) and sum(weights).",
+      "Greedily simulate days needed for each candidate capacity."
+    ],
+    "expectedTimeComplexity": "O(n log(sum))",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Tencent",
-      "Microsoft",
+      "Amazon",
+      "Google",
       "Apple"
     ],
     "tags": [
-      "Binary Search",
-      "Monotonic Stack"
+      "Array",
+      "Binary Search"
     ],
-    "estimatedTime": "15 min"
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Capacity to Ship Packages Within D Days - NeetCode",
+        "url": "https://youtube.com/watch?v=eWl65RKDde0"
+      }
+    ],
+    "relatedProblems": [
+      "Koko Eating Bananas",
+      "Split Array Largest Sum"
+    ],
+    "followUp": [
+      "What changes if packages could be reordered before shipping?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,4,5,6,7,8,9,10], days=5",
+        "output": "15"
+      }
+    ],
+    "acceptanceRate": "68.1%",
+    "likes": 7900,
+    "dislikes": 230
   },
   {
-    "_id": "bs_ms_005",
-    "title": "Cyclic Monotonic Stack for Binary Search 5",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
+    "_id": "bs_med_007",
+    "title": "Find Right Interval",
+    "topic": "binary-search",
+    "pattern": "classic-binary-search",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1374,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-monotonic-stack-for-binary-search-5/",
-    "companies": [
-      "LinkedIn"
+    "problemNumber": 436,
+    "leetcodeUrl": "https://leetcode.com/problems/find-right-interval/",
+    "description": "Given a list of intervals, for each interval find the interval with the smallest start point greater than or equal to its end point. Sort start points and apply binary search: for each interval's end point, search for the leftmost start point >= end. This is a direct application of lower_bound — find the first value satisfying a condition in a sorted structure. The implementation sorts start points while preserving their original indices (using a sorted map or sorting index pairs), then for each query does a binary search and returns the mapped original index. This problem is a clean exercise in applying binary search as a lookup tool within a larger algorithm. It also exercises the mental separation of input preparation (sorting) from search application.",
+    "examples": [
+      {
+        "input": "intervals = [[3,4],[2,3],[1,2]]",
+        "output": "[-1,0,1]",
+        "explanation": "For each interval, the right interval index is found by start-point lookup."
+      },
+      {
+        "input": "intervals = [[1,4],[2,3],[3,4]]",
+        "output": "[-1,2,-1]",
+        "explanation": "Only the second interval has a valid right interval."
+      }
     ],
-    "tags": [
-      "Binary Search",
-      "Monotonic Stack"
+    "constraints": [
+      "1 <= intervals.length <= 2 * 10^4",
+      "intervals[i].length == 2",
+      "-10^6 <= starti <= endi <= 10^6",
+      "The start point of each interval is unique."
     ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_ms_006",
-    "title": "Balanced Monotonic Stack for Binary Search 6",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
-    "platform": "LeetCode",
-    "problemNumber": 1037,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-monotonic-stack-for-binary-search-6/",
+    "hints": [
+      "Sort start points while keeping track of their original indices.",
+      "For each interval's end point, binary search for the leftmost start >= end."
+    ],
+    "expectedTimeComplexity": "O(n log n)",
+    "expectedSpaceComplexity": "O(n)",
     "companies": [
       "Amazon",
       "Bloomberg"
     ],
     "tags": [
+      "Array",
       "Binary Search",
-      "Monotonic Stack"
+      "Sorting"
     ],
-    "estimatedTime": "35 min"
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Find Right Interval - LeetCode 436",
+        "url": "https://youtube.com/watch?v=8Iei-pjjpiE"
+      }
+    ],
+    "relatedProblems": [
+      "Find Smallest Letter Greater Than Target",
+      "Merge Intervals"
+    ],
+    "followUp": [
+      "Could you solve this using a TreeMap / sorted structure instead of an array?"
+    ],
+    "testCases": [
+      {
+        "input": "[[3,4],[2,3],[1,2]]",
+        "output": "[-1,0,1]"
+      }
+    ],
+    "acceptanceRate": "49.6%",
+    "likes": 1900,
+    "dislikes": 730
   },
   {
-    "_id": "bs_ms_007",
-    "title": "Subarray Monotonic Stack for Binary Search 7",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
+    "_id": "bs_med_008",
+    "title": "Search a 2D Matrix",
+    "topic": "binary-search",
+    "pattern": "classic-binary-search",
     "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1077,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-binary-search-7/",
+    "problemNumber": 74,
+    "leetcodeUrl": "https://leetcode.com/problems/search-a-2d-matrix/",
+    "description": "Given an m x n matrix where each row is sorted and the first element of each row is greater than the last element of the previous row, search for a target in O(log(m * n)) time. The entire matrix is conceptually a sorted 1D array. Treat the matrix as a flattened array of length m * n and binary search on this virtual array. Convert a mid index to 2D coordinates: row = mid / n, col = mid % n. This index mapping is the key insight — instead of two nested binary searches or special 2D logic, you get clean O(log(m * n)) single-pass binary search. Compare to Search a 2D Matrix II (problem 240) where the matrix is sorted differently and binary search alone is insufficient — knowing the distinction between the two matrix structures is a common interview follow-up.",
+    "examples": [
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3",
+        "output": "true",
+        "explanation": "3 exists in the matrix."
+      },
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13",
+        "output": "false",
+        "explanation": "13 does not exist in the matrix."
+      }
+    ],
+    "constraints": [
+      "m == matrix.length",
+      "n == matrix[i].length",
+      "1 <= m, n <= 100",
+      "-10^4 <= matrix[i][j], target <= 10^4"
+    ],
+    "hints": [
+      "Treat the 2D matrix as a flattened sorted 1D array.",
+      "Convert a mid index to row/col using row = mid / n, col = mid % n."
+    ],
+    "expectedTimeComplexity": "O(log(m*n))",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Apple"
+      "Amazon",
+      "Apple",
+      "Bloomberg",
+      "Microsoft"
     ],
     "tags": [
+      "Array",
       "Binary Search",
-      "Monotonic Stack"
+      "Matrix"
     ],
-    "estimatedTime": "30 min"
+    "estimatedTime": "25 min",
+    "youtubeVideos": [
+      {
+        "title": "Search a 2D Matrix - NeetCode",
+        "url": "https://youtube.com/watch?v=Ber2pi2C0j0"
+      }
+    ],
+    "relatedProblems": [
+      "Search a 2D Matrix II",
+      "Count Negative Numbers in a Sorted Matrix"
+    ],
+    "followUp": [
+      "How would your approach change if the matrix were sorted like in Search a 2D Matrix II instead?"
+    ],
+    "testCases": [
+      {
+        "input": "[[1,3,5,7],[10,11,16,20],[23,30,34,60]], target=3",
+        "output": "true"
+      }
+    ],
+    "acceptanceRate": "49.5%",
+    "likes": 11000,
+    "dislikes": 380
   },
   {
-    "_id": "bs_ms_008",
-    "title": "Subarray Monotonic Stack for Binary Search 8",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Hard",
+    "_id": "bs_med_009",
+    "title": "Minimum Speed to Arrive on Time",
+    "topic": "binary-search",
+    "pattern": "binary-search-on-answer",
+    "difficulty": "Medium",
     "platform": "LeetCode",
-    "problemNumber": 1046,
-    "leetcodeUrl": "https://leetcode.com/problems/subarray-monotonic-stack-for-binary-search-8/",
-    "companies": [
-      "Apple"
+    "problemNumber": 1870,
+    "leetcodeUrl": "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/",
+    "description": "Given train distances and a deadline hour, find the minimum integer speed to make all trips on time. Each trip except the last rounds up to the next integer hour. Binary search on speed from 1 to 10^7 (the constraint). For each candidate speed, compute total time: sum of ceil(dist / speed) for all but the last trip, plus last_dist / speed (exact, no ceiling). If total time <= hour, this speed works — record and search left. Otherwise search right. The ceiling arithmetic and floating-point precision for the last trip are the careful implementation details. This is the third problem in the binary-search-on-answer family — same template, different feasibility check. Recognizing this pattern quickly in an interview is what separates binary search beginners from practitioners.",
+    "examples": [
+      {
+        "input": "dist = [1,3,2], hour = 6",
+        "output": "1",
+        "explanation": "At speed 1, total time is exactly 6 hours."
+      },
+      {
+        "input": "dist = [1,3,2], hour = 2.7",
+        "output": "3",
+        "explanation": "A higher speed is required to finish within 2.7 hours."
+      }
     ],
-    "tags": [
-      "Binary Search",
-      "Monotonic Stack"
+    "constraints": [
+      "n == dist.length",
+      "1 <= n <= 10^5",
+      "1 <= dist[i] <= 10^5",
+      "1 <= hour <= 10^9",
+      "There will be at most two digits after the decimal point in hour."
     ],
-    "estimatedTime": "35 min"
-  },
-  {
-    "_id": "bs_ms_009",
-    "title": "Count of Monotonic Stack for Binary Search 9",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 2967,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-binary-search-9/",
+    "hints": [
+      "Binary search speed in range [1, 10^7].",
+      "For all trips but the last, round up the time; for the last trip use exact division."
+    ],
+    "expectedTimeComplexity": "O(n log m)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
+      "Amazon",
+      "Google",
       "Uber"
     ],
     "tags": [
-      "Binary Search",
-      "Monotonic Stack"
+      "Array",
+      "Binary Search"
     ],
-    "estimatedTime": "15 min"
+    "estimatedTime": "30 min",
+    "youtubeVideos": [
+      {
+        "title": "Minimum Speed to Arrive on Time - LeetCode 1870",
+        "url": "https://youtube.com/watch?v=hkk-aevixZ4"
+      }
+    ],
+    "relatedProblems": [
+      "Koko Eating Bananas",
+      "Capacity to Ship Packages Within D Days"
+    ],
+    "followUp": [
+      "What if speeds did not have to be integers?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,3,2], hour=6",
+        "output": "1"
+      }
+    ],
+    "acceptanceRate": "39.9%",
+    "likes": 1100,
+    "dislikes": 710
   },
   {
-    "_id": "bs_ms_010",
-    "title": "Count of Monotonic Stack for Binary Search 10",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
+    "_id": "bs_hard_001",
+    "title": "Find Minimum in Rotated Sorted Array II",
+    "topic": "binary-search",
+    "pattern": "rotated-array",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 2190,
-    "leetcodeUrl": "https://leetcode.com/problems/count-of-monotonic-stack-for-binary-search-10/",
+    "problemNumber": 154,
+    "leetcodeUrl": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/",
+    "description": "Like Find Minimum in Rotated Sorted Array, but the array may contain duplicates. Duplicates destroy the clean O(log n) guarantee: when arr[mid] == arr[right], you cannot determine which half contains the minimum — both remain possible. The only safe move is to decrement right by one, shrinking the search space by just one element rather than half. In the worst case (all elements equal), this degrades to O(n). The key insight is understanding why duplicates break the original algorithm and what the minimal safe fallback is. This problem tests whether you understand your assumptions: binary search works because you can always eliminate half the space. When you cannot, you fall back to linear elimination of one element. This worst-case analysis is exactly the kind of reasoning interviewers probe at the hard level.",
+    "examples": [
+      {
+        "input": "nums = [1,3,5]",
+        "output": "1",
+        "explanation": "The array is not actually rotated."
+      },
+      {
+        "input": "nums = [2,2,2,0,1]",
+        "output": "0",
+        "explanation": "The minimum is 0, despite the duplicate 2's creating ambiguity."
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 5000",
+      "-5000 <= nums[i] <= 5000",
+      "nums is sorted and rotated between 1 and n times.",
+      "nums may contain duplicates."
+    ],
+    "hints": [
+      "When nums[mid] == nums[right], you cannot determine which half holds the minimum.",
+      "In that ambiguous case, simply decrement right by one and continue."
+    ],
+    "expectedTimeComplexity": "O(log n) average, O(n) worst case",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Oracle",
-      "Apple",
-      "Salesforce"
+      "Amazon",
+      "Microsoft",
+      "Google"
     ],
     "tags": [
-      "Binary Search",
-      "Monotonic Stack"
+      "Array",
+      "Binary Search"
     ],
-    "estimatedTime": "40 min"
+    "estimatedTime": "35 min",
+    "youtubeVideos": [
+      {
+        "title": "Find Minimum in Rotated Sorted Array II - NeetCode",
+        "url": "https://youtube.com/watch?v=tA3LBeMqcuM"
+      }
+    ],
+    "relatedProblems": [
+      "Find Minimum in Rotated Sorted Array",
+      "Search in Rotated Sorted Array II"
+    ],
+    "followUp": [
+      "Can you construct a worst-case input that forces O(n) behavior?"
+    ],
+    "testCases": [
+      {
+        "input": "[2,2,2,0,1]",
+        "output": "0"
+      }
+    ],
+    "acceptanceRate": "44.0%",
+    "likes": 6700,
+    "dislikes": 610
   },
   {
-    "_id": "bs_ms_011",
-    "title": "Cyclic Monotonic Stack for Binary Search 11",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
+    "_id": "bs_hard_002",
+    "title": "Search in Rotated Sorted Array II",
+    "topic": "binary-search",
+    "pattern": "rotated-array",
+    "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 1003,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-monotonic-stack-for-binary-search-11/",
+    "problemNumber": 81,
+    "leetcodeUrl": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/",
+    "description": "Search in a rotated sorted array that may contain duplicates. The standard approach from problem 33 breaks when arr[left] == arr[mid] — you cannot determine which half is sorted. The fix is to increment left (and decrement right) when this ambiguity arises, linearly shrinking the window by one from each side. This degrades worst case to O(n) when all elements are equal. The algorithm otherwise follows the same logic as problem 33: determine which half is sorted, check if the target falls within the sorted half, and recurse accordingly. This is the hardest rotated array variant. Solving it cleanly requires fully owning the logic from problems 33 and 153, then understanding precisely which additional case breaks the algorithm and why incrementing left resolves the ambiguity safely.",
+    "examples": [
+      {
+        "input": "nums = [2,5,6,0,0,1,2], target = 0",
+        "output": "true",
+        "explanation": "0 exists in nums."
+      },
+      {
+        "input": "nums = [2,5,6,0,0,1,2], target = 3",
+        "output": "false",
+        "explanation": "3 does not exist in nums."
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 5000",
+      "-10^4 <= nums[i] <= 10^4",
+      "nums is guaranteed to be rotated at some pivot.",
+      "-10^4 <= target <= 10^4"
+    ],
+    "hints": [
+      "When nums[left] == nums[mid], increment left to break the ambiguity.",
+      "Otherwise apply the same sorted-half logic as Search in Rotated Sorted Array."
+    ],
+    "expectedTimeComplexity": "O(log n) average, O(n) worst case",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "LinkedIn",
-      "Netflix",
-      "Adobe"
-    ],
-    "tags": [
-      "Binary Search",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_ms_012",
-    "title": "Validate Monotonic Stack for Binary Search 12",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Medium",
-    "platform": "LeetCode",
-    "problemNumber": 2641,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-monotonic-stack-for-binary-search-12/",
-    "companies": [
-      "Apple"
-    ],
-    "tags": [
-      "Binary Search",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "30 min"
-  },
-  {
-    "_id": "bs_ms_013",
-    "title": "Cyclic Monotonic Stack for Binary Search 13",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1908,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-monotonic-stack-for-binary-search-13/",
-    "companies": [
-      "Netflix"
-    ],
-    "tags": [
-      "Binary Search",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_ms_014",
-    "title": "Balanced Monotonic Stack for Binary Search 14",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1684,
-    "leetcodeUrl": "https://leetcode.com/problems/balanced-monotonic-stack-for-binary-search-14/",
-    "companies": [
-      "Netflix",
-      "LinkedIn",
+      "Amazon",
+      "Microsoft",
       "Bloomberg"
     ],
     "tags": [
-      "Binary Search",
-      "Monotonic Stack"
+      "Array",
+      "Binary Search"
     ],
-    "estimatedTime": "15 min"
+    "estimatedTime": "35 min",
+    "youtubeVideos": [
+      {
+        "title": "Search in Rotated Sorted Array II - LeetCode 81",
+        "url": "https://youtube.com/watch?v=oGS1tIcjuLg"
+      }
+    ],
+    "relatedProblems": [
+      "Search in Rotated Sorted Array",
+      "Find Minimum in Rotated Sorted Array II"
+    ],
+    "followUp": [
+      "Can you construct an input where this degrades to O(n)?"
+    ],
+    "testCases": [
+      {
+        "input": "[2,5,6,0,0,1,2], target=0",
+        "output": "true"
+      }
+    ],
+    "acceptanceRate": "37.4%",
+    "likes": 8400,
+    "dislikes": 980
   },
   {
-    "_id": "bs_ms_015",
-    "title": "Cyclic Monotonic Stack for Binary Search 15",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1147,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-monotonic-stack-for-binary-search-15/",
-    "companies": [
-      "Bloomberg",
-      "Oracle",
-      "Stripes"
-    ],
-    "tags": [
-      "Binary Search",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "15 min"
-  },
-  {
-    "_id": "bs_ms_016",
-    "title": "Cyclic Monotonic Stack for Binary Search 16",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
+    "_id": "bs_hard_003",
+    "title": "Split Array Largest Sum",
+    "topic": "binary-search",
+    "pattern": "binary-search-on-answer",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 1205,
-    "leetcodeUrl": "https://leetcode.com/problems/cyclic-monotonic-stack-for-binary-search-16/",
+    "problemNumber": 410,
+    "leetcodeUrl": "https://leetcode.com/problems/split-array-largest-sum/",
+    "description": "Given an array and an integer k, split the array into k non-empty contiguous subarrays to minimize the largest subarray sum. Binary search on the answer: the answer lies between max(nums) (minimum possible largest sum — k = n) and sum(nums) (maximum possible — k = 1). For a candidate maximum sum, greedily check the minimum number of splits needed: accumulate elements until adding the next would exceed the candidate, then start a new subarray. If the number of subarrays needed <= k, this candidate is feasible — search left. Otherwise search right. This is the flagship hard-level binary-search-on-answer problem. It has a DP solution too but the binary search approach is cleaner and faster. It also appears in disguise as Minimize the Maximum Difference of Adjacent Elements and similar problems. Owning this template at the hard level signals real binary search mastery.",
+    "examples": [
+      {
+        "input": "nums = [7,2,5,10,8], k = 2",
+        "output": "18",
+        "explanation": "Splitting into [7,2,5] and [10,8] gives a largest sum of 18."
+      },
+      {
+        "input": "nums = [1,2,3,4,5], k = 2",
+        "output": "9",
+        "explanation": "Splitting into [1,2,3] and [4,5] gives a largest sum of 9."
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 1000",
+      "0 <= nums[i] <= 10^6",
+      "1 <= k <= min(50, nums.length)"
+    ],
+    "hints": [
+      "Binary search the answer between max(nums) and sum(nums).",
+      "For each candidate sum, greedily count how many subarrays are needed."
+    ],
+    "expectedTimeComplexity": "O(n log(sum))",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Twilio",
-      "Oracle"
+      "Amazon",
+      "Google",
+      "Meta",
+      "LinkedIn"
     ],
     "tags": [
+      "Array",
       "Binary Search",
-      "Monotonic Stack"
+      "Dynamic Programming",
+      "Greedy"
     ],
-    "estimatedTime": "35 min"
+    "estimatedTime": "45 min",
+    "youtubeVideos": [
+      {
+        "title": "Split Array Largest Sum - NeetCode",
+        "url": "https://youtube.com/watch?v=YUF3_eBdzfI"
+      }
+    ],
+    "relatedProblems": [
+      "Capacity to Ship Packages Within D Days",
+      "Koko Eating Bananas"
+    ],
+    "followUp": [
+      "Can you also solve this with dynamic programming, and how do the complexities compare?"
+    ],
+    "testCases": [
+      {
+        "input": "[7,2,5,10,8], k=2",
+        "output": "18"
+      }
+    ],
+    "acceptanceRate": "55.8%",
+    "likes": 9100,
+    "dislikes": 230
   },
   {
-    "_id": "bs_ms_017",
-    "title": "Minimum Cost Monotonic Stack for Binary Search 17",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1889,
-    "leetcodeUrl": "https://leetcode.com/problems/minimum-cost-monotonic-stack-for-binary-search-17/",
-    "companies": [
-      "ByteDance",
-      "Microsoft",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_ms_018",
-    "title": "Merge Monotonic Stack for Binary Search 18",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
-    "difficulty": "Easy",
-    "platform": "LeetCode",
-    "problemNumber": 1308,
-    "leetcodeUrl": "https://leetcode.com/problems/merge-monotonic-stack-for-binary-search-18/",
-    "companies": [
-      "Netflix",
-      "Microsoft",
-      "Tencent"
-    ],
-    "tags": [
-      "Binary Search",
-      "Monotonic Stack"
-    ],
-    "estimatedTime": "20 min"
-  },
-  {
-    "_id": "bs_ms_019",
-    "title": "Shortest Monotonic Stack for Binary Search 19",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
+    "_id": "bs_hard_004",
+    "title": "Median of Two Sorted Arrays",
+    "topic": "binary-search",
+    "pattern": "binary-search-on-answer",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 2514,
-    "leetcodeUrl": "https://leetcode.com/problems/shortest-monotonic-stack-for-binary-search-19/",
+    "problemNumber": 4,
+    "leetcodeUrl": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+    "description": "Find the median of two sorted arrays in O(log(min(m, n))) time — one of the most famous hard problems in existence. The insight is to binary search for the correct partition point in the smaller array. Partition both arrays such that the left halves together contain exactly (m + n) / 2 elements. The median candidates are the maximum of the two left-half maxima and the minimum of the two right-half minima. Adjust the partition by comparing cross-boundary elements: if nums1[partitionX - 1] > nums2[partitionY], move the partition left in nums1; otherwise move it right. Handle the odd/even total length distinction and edge cases where partitions hit the boundaries of an array. This is one of the few problems where truly understanding the solution requires working through the math rigorously. Most candidates who claim to know it are actually relying on memory. Derive it from scratch.",
+    "examples": [
+      {
+        "input": "nums1 = [1,3], nums2 = [2]",
+        "output": "2.00000",
+        "explanation": "The merged array is [1,2,3], whose median is 2."
+      },
+      {
+        "input": "nums1 = [1,2], nums2 = [3,4]",
+        "output": "2.50000",
+        "explanation": "The merged array is [1,2,3,4], whose median is (2 + 3) / 2 = 2.5."
+      }
+    ],
+    "constraints": [
+      "nums1.length == m",
+      "nums2.length == n",
+      "0 <= m <= 1000",
+      "0 <= n <= 1000",
+      "1 <= m + n <= 2000",
+      "-10^6 <= nums1[i], nums2[i] <= 10^6"
+    ],
+    "hints": [
+      "Binary search the partition point in the smaller array.",
+      "Compare cross-boundary elements (maxLeft, minRight) to validate the partition."
+    ],
+    "expectedTimeComplexity": "O(log(min(m,n)))",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Oracle",
+      "Amazon",
+      "Google",
+      "Microsoft",
+      "Meta",
       "Apple"
     ],
     "tags": [
+      "Array",
       "Binary Search",
-      "Monotonic Stack"
+      "Divide and Conquer"
     ],
-    "estimatedTime": "35 min"
+    "estimatedTime": "50 min",
+    "youtubeVideos": [
+      {
+        "title": "Median of Two Sorted Arrays - NeetCode",
+        "url": "https://youtube.com/watch?v=q6IEA26hvXc"
+      }
+    ],
+    "relatedProblems": [
+      "Kth Smallest Element in a Sorted Matrix",
+      "Find K-th Smallest Pair Distance"
+    ],
+    "followUp": [
+      "Can you extend this approach to find the median of k sorted arrays?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,3], [2]",
+        "output": "2.00000"
+      }
+    ],
+    "acceptanceRate": "43.0%",
+    "likes": 24000,
+    "dislikes": 2700
   },
   {
-    "_id": "bs_ms_020",
-    "title": "Validate Monotonic Stack for Binary Search 20",
-    "topic": "binarysearch",
-    "pattern": "monotonic-stack",
+    "_id": "bs_hard_005",
+    "title": "Find in Mountain Array",
+    "topic": "binary-search",
+    "pattern": "boundary-finding",
     "difficulty": "Hard",
     "platform": "LeetCode",
-    "problemNumber": 2095,
-    "leetcodeUrl": "https://leetcode.com/problems/validate-monotonic-stack-for-binary-search-20/",
+    "problemNumber": 1095,
+    "leetcodeUrl": "https://leetcode.com/problems/find-in-mountain-array/",
+    "description": "A mountain array (sorted ascending then descending) is hidden behind an interactive API that costs per query. Find the smallest index of a target value using the minimum number of queries. The strategy requires three binary searches. First, find the peak index — binary search using local gradient (mountainArr.get(mid) vs mid + 1 determines ascending or descending slope). Second, binary search the ascending half for the target — standard ascending binary search. Third, if not found, binary search the descending half — standard descending binary search (reverse the comparison logic). Using the smallest index means you always prefer the ascending half result over the descending half. The interactive constraint makes it hard: each query costs, so you cannot scan linearly. This problem is a synthesis of three binary search techniques and tests whether you can compose them correctly under the interactive constraint. It is the ultimate binary search exam.",
+    "examples": [
+      {
+        "input": "array = [1,2,3,4,5,3,1], target = 3",
+        "output": "2",
+        "explanation": "The smallest index where 3 appears is 2 (on the ascending slope)."
+      },
+      {
+        "input": "array = [0,1,2,4,2,1], target = 3",
+        "output": "-1",
+        "explanation": "3 does not appear in the array."
+      }
+    ],
+    "constraints": [
+      "3 <= mountain_arr.length() <= 10^4",
+      "0 <= target <= 10^9",
+      "0 <= mountain_arr.get(index) <= 10^9"
+    ],
+    "hints": [
+      "First binary search for the peak index using local gradient comparisons.",
+      "Then binary search the ascending half, and if not found, the descending half."
+    ],
+    "expectedTimeComplexity": "O(log n)",
+    "expectedSpaceComplexity": "O(1)",
     "companies": [
-      "Salesforce",
-      "Uber"
+      "Amazon",
+      "Google",
+      "Bloomberg"
     ],
     "tags": [
+      "Array",
       "Binary Search",
-      "Monotonic Stack"
+      "Interactive"
     ],
-    "estimatedTime": "35 min"
+    "estimatedTime": "45 min",
+    "youtubeVideos": [
+      {
+        "title": "Find in Mountain Array - LeetCode 1095",
+        "url": "https://youtube.com/watch?v=VbT5kFFG7r4"
+      }
+    ],
+    "relatedProblems": [
+      "Peak Index in a Mountain Array",
+      "Find Peak Element"
+    ],
+    "followUp": [
+      "How would you minimize the total number of API queries across all three binary searches?"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,4,5,3,1], target=3",
+        "output": "2"
+      }
+    ],
+    "acceptanceRate": "42.0%",
+    "likes": 1700,
+    "dislikes": 870
   }
 ]
