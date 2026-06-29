@@ -103,7 +103,7 @@
   "title": "Visualization",
   "type": "visualization",
   "initialArray": [10, 20, 30, 40, 50],
-  "operations": ["push_back()", "pop_back()", "insert()", "erase()"],
+  "operations": ["push_back(value)", "pop_back()", "insert(index, value)", "erase(index)", "empty()", "size()"],
   "controls": {
     "operationLabel": "Operation",
     "valueLabel": "Value",
@@ -586,7 +586,9 @@
           "push_back(char)",
           "pop_back()",
           "insert(index, char)",
-          "erase(index)"
+          "erase(index)",
+          "length()",
+          "empty()"
         ],
         "controls": {
           "operationLabel": "Operation",
@@ -1302,18 +1304,20 @@
         "title": "Interactive Visualization",
         "type": "visualization",
         "initialArray": [
-          10,
-          20,
-          30,
-          40,
-          50
+          "apple",
+          "banana",
+          "apple",
+          "cherry"
         ],
         "operations": [
-          "freq[key]++"
+          "freq[key]++",
+          "erase(key)",
+          "empty()",
+          "size()"
         ],
         "controls": {
           "operationLabel": "Operation",
-          "valueLabel": "Value",
+          "valueLabel": "Key",
           "indexLabel": "Index",
           "buttonLabel": "Run Visualization"
         },
@@ -1321,7 +1325,7 @@
           "before": "Before Operation",
           "after": "After Operation",
           "index": "Index",
-          "value": "Value"
+          "value": "Key"
         }
       },
       {
@@ -2061,8 +2065,10 @@
           72
         ],
         "operations": [
-          "insert()",
-          "erase()"
+          "insert(value)",
+          "erase(index)",
+          "empty()",
+          "size()"
         ],
         "controls": {
           "operationLabel": "Operation",
@@ -2873,8 +2879,14 @@
           30
         ],
         "operations": [
-          "insert(index, value)",
-          "erase(index)"
+          "insertAtHead(value)",
+          "insertAtTail(value)",
+          "deleteHead()",
+          "deleteTail()",
+          "deleteNode(value)",
+          "reverse()",
+          "search(value)",
+          "length()"
         ],
         "controls": {
           "operationLabel": "Operation",
@@ -3606,10 +3618,11 @@
           25
         ],
         "operations": [
-          "Push",
-          "Pop",
-          "Empty",
-          "Top"
+          "push(value)",
+          "pop()",
+          "top()",
+          "empty()",
+          "size()"
         ],
         "controls": {
           "operationLabel": "Operation",
@@ -4252,10 +4265,12 @@
           35
         ],
         "operations": [
-          "push_back()",
-          "pop_back()",
-          "insert()",
-          "erase()"
+          "push(value)",
+          "pop()",
+          "front()",
+          "back()",
+          "empty()",
+          "size()"
         ],
         "controls": {
           "operationLabel": "Operation",
