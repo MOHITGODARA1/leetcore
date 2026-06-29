@@ -359,12 +359,12 @@
   "string": {
     "topic": "Strings",
     "title": "Let's Master Strings",
-    "subtitle": "Learn character traversal, pattern matching and text manipulation",
+    "subtitle": "Learn how computers store text, access characters using indexes, and manipulate words efficiently",
     "hero": {
       "id": "hero",
       "eyebrow": "DSA Documentation",
       "title": "Let's Master Strings",
-      "subtitle": "Learn character traversal, pattern matching and text manipulation",
+      "subtitle": "Learn how computers store text, access characters using indexes, and manipulate words efficiently",
       "accent": "Build confidence with character indexes, substrings and pattern logic",
       "stats": [
         {
@@ -403,14 +403,15 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "Strings are ordered sequences of characters used to represent text, tokens, identifiers, and encoded information.",
-          "Most string problems are solved by combining indexing, frequency tracking, two pointers, sliding windows, and careful boundary handling."
+          "Strings ek linear data structure hote hain jo characters ko sequential order mein store karte hain. Inmein har character ek index ke through access kiya ja sakta hai. C++ mein string usually \\0 (null character) se end hoti hai (especially char arrays mein). String class (std::string) ek dynamic, mutable container hai jo internally apna size manage karta hai aur automatically resize ho jaata hai jab content change hota hai.",
+          "Computer asal mein letters nahi samajhta — wo sirf numbers samajhta hai. Har character ka apna fixed ASCII value hota hai.",
+          "ASCII (American Standard Code for Information Interchange) ek tarah ka translator hai. Computers sirf numbers (0 aur 1) samajhte hain letters nahi. Isliye, har letter, number, ya symbol (jaise 'A' ya '@') ko computer memory mein ek unique number (value) assign kiya gaya hai, jise ASCII value kehte hain."
         ],
         "highlights": [
-          "Core topic",
-          "Interview ready",
-          "Pattern based",
-          "Demo docs"
+          "Core DSA Topic",
+          "Interview Ready",
+          "Contiguous Memory",
+          "Text Processing"
         ]
       },
       {
@@ -447,41 +448,25 @@
       {
         "id": "definition",
         "title": "One Line Definition",
-        "type": "callout",
-        "content": "A string is a linear sequence of characters where each character can be accessed by position and processed using traversal or pattern techniques."
+        "type": "dual_callout",
+        "leftTitle": "Char Array (C-style String)",
+        "rightTitle": "String (C++ STL)",
+        "left": "A fixed-size sequence of characters stored in contiguous memory, terminated by a null character (\\0).",
+        "right": "A dynamic, mutable sequence of characters provided by STL that automatically resizes when modified."
       },
       {
         "id": "real-life-example",
         "title": "Real Life Example",
-        "type": "example",
-        "content": [
-          "Think of a string like letters written on a row of name tags.",
-          "Each character has a position, so you can inspect, compare, or build new text from indexes."
-        ],
-        "visual": {
-          "title": "Name tag characters",
-          "items": [
-            {
-              "label": "0",
-              "color": "#f04438"
-            },
-            {
-              "label": "1",
-              "color": "#2563eb"
-            },
-            {
-              "label": "2",
-              "color": "#6b7280"
-            },
-            {
-              "label": "3",
-              "color": "#f8fafc"
-            },
-            {
-              "label": "4",
-              "color": "#16a34a"
-            }
-          ]
+        "type": "comparison",
+        "left": {
+          "title": "Char Array — Roll Number Box on Exam Sheet",
+          "description": "Socho exam ya admit card mein roll number likhne ke liye exactly 6 boxes diye hote hain — ek box mein ek digit. Agar tumhara roll number sirf 4 digit ka hai, to baaki 2 boxes khaali reh jaate hain (waste). Aur agar tumhara roll number 7 digit ka hai, to wo us tray mein fit hi nahi hoga — kahin extra likhna padega, jo allowed nahi hai.",
+          "diagram": "['2']['3']['1']['9']['\\0'][ ] ← 1 box khaali, waste ho gaya\n\nChar array mein characters fixed boxes mein store hote hain — agar string chhoti hai to space waste hoti hai, agar bada hai to overflow ho jaata."
+        },
+        "right": {
+          "title": "String (STL) — WhatsApp Message Box",
+          "description": "WhatsApp pe message likhte waqt text box apne aap badhta jaata hai jaise tum type karte ho. Koi fixed limit nahi — jitna likho, box utna grow karta hai.",
+          "diagram": "\"Hi\"\n↓ (typing more...)\n\"Hi there\"\n↓ (typing more...)\n\"Hi there, how are you?\""
         }
       },
       {
@@ -491,23 +476,23 @@
         "items": [
           {
             "icon": "Sparkles",
-            "title": "Interview Relevance",
-            "description": "String questions test index control, edge cases, and pattern recognition very quickly."
+            "title": "Interview relevance",
+            "description": "Used in almost every coding interview (Anagram, Palindrome, Substring problems) and is the foundation of pattern matching."
           },
           {
             "icon": "Trophy",
-            "title": "Competitive Programming",
-            "description": "Text parsing, hashing, and window techniques appear frequently in contests."
+            "title": "Memory understanding",
+            "description": "Helps understand how memory stores character data, handling null terminators, and the difference between stack and heap strings."
           },
           {
             "icon": "Workflow",
-            "title": "Real World Applications",
-            "description": "Search bars, URLs, logs, usernames, validation, and parsers all depend on strings."
+            "title": "Advanced Patterns",
+            "description": "Required for Sliding Window, Two Pointers, KMP Algorithm, and Trie implementations."
           },
           {
             "icon": "Brain",
-            "title": "Problem Solving Foundation",
-            "description": "String mastery improves two pointer, hashing, recursion, and dynamic programming skills."
+            "title": "Real World Systems",
+            "description": "Most real-world software (search engines, parsing, validation, log analyzers) relies heavily on text and string handling."
           }
         ]
       },
@@ -589,17 +574,19 @@
         "title": "Interactive Visualization",
         "type": "visualization",
         "initialArray": [
-          10,
-          20,
-          30,
-          40,
-          50
+          "H",
+          "E",
+          "L",
+          "L",
+          "O"
         ],
         "operations": [
-          "push_back()",
+          "toUpperCase(index)",
+          "toLowerCase(index)",
+          "push_back(char)",
           "pop_back()",
-          "insert()",
-          "erase()"
+          "insert(index, char)",
+          "erase(index)"
         ],
         "controls": {
           "operationLabel": "Operation",
@@ -611,7 +598,7 @@
           "before": "Before Operation",
           "after": "After Operation",
           "index": "Index",
-          "value": "Value"
+          "value": "Char"
         }
       },
       {
@@ -624,56 +611,58 @@
             1,
             2,
             3,
-            4
+            4,
+            5
+          ],
+          "char": [
+            "H",
+            "e",
+            "l",
+            "l",
+            "o",
+            "\\0"
+          ],
+          "ASCII": [
+            72,
+            101,
+            108,
+            108,
+            111,
+            0
           ],
           "address": [
-            1000,
-            1004,
-            1008,
-            1012,
-            1016
-          ],
-          "value": [
-            10,
-            20,
-            30,
-            40,
-            50
+            2000,
+            2001,
+            2002,
+            2003,
+            2004,
+            2005
           ]
         },
         "explanation": [
-          "This demo section shows how the topic can explain its internal model visually.",
-          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+          "Char Array is stored in contiguous memory locations, terminated by a null character (\\0).",
+          "String (STL) — Dynamic Growth: Capacity generally doubles when full, just like vector.",
+          "Exact reallocation and growth behavior depends on the STL library implementation."
         ],
         "formula": {
-          "label": "position = base + step * index",
-          "example": "1000 + 4 * 4 = 1016"
+          "label": "charAddress = base + index * sizeof(char)",
+          "example": "2000 + 4 * 1 = 2004"
         }
       },
       {
         "id": "syntax",
-        "title": "Syntax",
+        "title": "Syntax & Declaration",
         "type": "syntax",
         "tabs": [
           {
-            "label": "C++",
+            "label": "Char Array (C-Style)",
             "language": "cpp",
-            "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    string s = \"leetcore\";\n    cout << s[0];\n    cout << s.substr(0, 4);\n}"
+            "code": "// Fixed size array (reserve space for null terminator)\nchar arr[6] = \"Hello\";\n\n// Character list initialization\nchar arr2[] = {'H', 'i', '\\0'};"
           },
           {
-            "label": "Java",
-            "language": "java",
-            "code": "String s = \"leetcore\";\nSystem.out.println(s.charAt(0));\nSystem.out.println(s.substring(0, 4));"
-          },
-          {
-            "label": "Python",
-            "language": "python",
-            "code": "s = \"leetcore\"\nprint(s[0])\nprint(s[:4])\nfor ch in s:\n    print(ch)"
-          },
-          {
-            "label": "STL",
+            "label": "String (STL)",
             "language": "cpp",
-            "code": "string s = \"leetcore\";\ns.push_back('s');\nint pos = s.find(\"core\");\ns.erase(0, 4);"
+            "code": "// Standard initialization\nstring s = \"Hello\";\n\n// Fill constructor (5 characters of 'a')\nstring s2(5, 'a'); // creates \"aaaaa\"\n\n// Concatenation\nstring s3 = s + \" World\"; // creates \"Hello World\""
           }
         ]
       },
@@ -798,20 +787,51 @@
         "type": "mistakes",
         "items": [
           {
-            "title": "Ignoring edge cases",
+            "title": "Char Array Overflow",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
-            "wrong": "// assumes input is always valid\nsolve(data);",
-            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
-            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
+            "wrong": "char arr[5] = \"Hello\"; // size is 5\ncout << arr;",
+            "correct": "char arr[6] = \"Hello\"; // size is 6 (5 letters + \\0)\ncout << arr;",
+            "explanation": "\"Hello\" needs 6 bytes including the null terminator, but the array size is only 5. This causes buffer overflow or undefined behavior."
           },
           {
-            "title": "Using brute force when a pattern exists",
+            "title": "Comparing Strings with == in C-style Arrays",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
-            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
-            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
-            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
+            "wrong": "char a[] = \"cat\";\nchar b[] = \"cat\";\nif (a == b) cout << \"Equal\";",
+            "correct": "char a[] = \"cat\";\nchar b[] = \"cat\";\nif (strcmp(a, b) == 0) cout << \"Equal\";",
+            "explanation": "Using == compares the memory addresses of the arrays, not their character content. Use strcmp() instead."
+          },
+          {
+            "title": "Modifying a String Literal",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "char* s = \"Hello\";\ns[0] = 'h'; // runtime crash!",
+            "correct": "char s[] = \"Hello\"; // writable array\ns[0] = 'h'; // safe",
+            "explanation": "String literals are stored in read-only memory. Modifying them directly leads to segmentation fault or crash."
+          }
+        ]
+      },
+      {
+        "id": "when-not-to-use",
+        "title": "When Not To Use Char Array or String",
+        "type": "table",
+        "rows": [
+          {
+            "situation": "Frequent insertions or deletions in the middle",
+            "choice": "Rope / Linked List"
+          },
+          {
+            "situation": "Frequent prefix search or autocomplete features",
+            "choice": "Trie"
+          },
+          {
+            "situation": "Large scale substring pattern search",
+            "choice": "Suffix Array / KMP"
+          },
+          {
+            "situation": "Repeated modification or concatenation in a loop",
+            "choice": "stringstream / string builder"
           }
         ]
       },
@@ -982,8 +1002,61 @@
                 "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
               }
             ]
+          },
+          {
+            "name": "Conceptual Questions",
+            "questions": [
+              {
+                "name": "Difference between Char Array and String (STL)?",
+                "platform": "Theoretical",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=difference+between+char+array+and+string+stl+cpp"
+              },
+              {
+                "name": "Why are strings immutable in languages like Python/Java but mutable in C++?",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=why+strings+are+immutable+in+python+java+but+mutable+in+cpp"
+              },
+              {
+                "name": "How does substr() work internally — does it create a copy?",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=how+does+string+substr+work+internally+cpp"
+              },
+              {
+                "name": "What is the time complexity of string concatenation in a loop, and why is it costly?",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=string+concatenation+in+loop+time+complexity"
+              },
+              {
+                "name": "How would you check if two strings are anagrams?",
+                "platform": "Theoretical",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=how+to+check+if+two+strings+are+anagrams"
+              },
+              {
+                "name": "How does the null terminator ( \\0 ) work in C-style strings?",
+                "platform": "Theoretical",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=how+does+null+terminator+work+in+c+style+strings"
+              }
+            ]
           }
         ]
+      },
+      {
+        "id": "quick-revision",
+        "title": "Interview Rule",
+        "type": "callout",
+        "content": "If working with raw character-level memory or legacy C-style code, use Char Array.\n\nIf you need flexibility, built-in functions, and safety, use String (STL).\n\nIf you need fast prefix matching or dictionary-style word storage, consider a Trie or Hash Map instead."
       },
       {
         "id": "practice-roadmap",
@@ -1027,25 +1100,25 @@
   "hashing": {
     "topic": "Hashing",
     "title": "Let's Master Hashing",
-    "subtitle": "Learn maps, sets, frequency tables and constant-time lookup patterns",
+    "subtitle": "Learn how hash functions map keys to values, enable O(1) lookups, and power real-world data structures",
     "hero": {
       "id": "hero",
       "eyebrow": "DSA Documentation",
       "title": "Let's Master Hashing",
-      "subtitle": "Learn maps, sets, frequency tables and constant-time lookup patterns",
+      "subtitle": "Learn how hash functions map keys to values, enable O(1) lookups, and power real-world data structures",
       "accent": "Use keys and frequencies to reduce repeated scanning",
       "stats": [
         {
-          "label": "Patterns",
-          "value": "4+"
+          "label": "Complexity",
+          "value": "O(1) Avg"
         },
         {
-          "label": "Core ops",
-          "value": "8"
+          "label": "Core Types",
+          "value": "Map / Set"
         },
         {
           "label": "Problems",
-          "value": "18"
+          "value": "20+"
         }
       ],
       "visual": {
@@ -1071,14 +1144,16 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "Hashing stores data using keys so lookup, insertion, and deletion are usually very fast.",
-          "In DSA, hashing is commonly used for frequency counting, duplicate detection, pair lookup, grouping, and prefix-state tracking."
+          "Hashing ek technique hai jo data ko fixed-size values (hash codes) mein convert karti hai, taaki koi bhi element O(1) average time mein find, insert, aur delete kiya ja sake.",
+          "Hash Table ek data structure hai jo key-value pairs store karta hai aur internally ek array use karta hai jisme hash function keys ko array indices mein map karta hai.",
+          "Computer asal mein array index samajhta hai — wo sirf numbers samajhta hai. Har key ka ek hash value hota hai.",
+          "Hash Function ek tarah ka calculator hai. Computers direct strings ko index nahi bana sakte. Isliye, har string, number, ya object ko hash function ek unique number mein convert karta hai, jise hash value kehte hain."
         ],
         "highlights": [
-          "Core topic",
-          "Interview ready",
-          "Pattern based",
-          "Demo docs"
+          "Core DSA Topic",
+          "Interview Ready",
+          "O(1) Average Lookup",
+          "Key-Value Storage"
         ]
       },
       {
@@ -1115,41 +1190,25 @@
       {
         "id": "definition",
         "title": "One Line Definition",
-        "type": "callout",
-        "content": "Hashing maps keys to buckets using a hash function so values can be inserted, searched, and deleted efficiently on average."
+        "type": "dual_callout",
+        "leftTitle": "Hash Map / unordered_map",
+        "rightTitle": "Hash Set / unordered_set",
+        "left": "A key-value store where a hash function maps keys to array indices for O(1) average-time insert, lookup, and delete.",
+        "right": "A collection of unique keys backed by a hash table — no duplicates, O(1) average lookup, no ordering."
       },
       {
         "id": "real-life-example",
         "title": "Real Life Example",
-        "type": "example",
-        "content": [
-          "Think of hashing like looking up a book using its unique catalog code.",
-          "Instead of scanning every book, the code guides you directly to a likely location."
-        ],
-        "visual": {
-          "title": "Library lookup card",
-          "items": [
-            {
-              "label": "0",
-              "color": "#f04438"
-            },
-            {
-              "label": "1",
-              "color": "#2563eb"
-            },
-            {
-              "label": "2",
-              "color": "#6b7280"
-            },
-            {
-              "label": "3",
-              "color": "#f8fafc"
-            },
-            {
-              "label": "4",
-              "color": "#16a34a"
-            }
-          ]
+        "type": "comparison",
+        "left": {
+          "title": "Hash Map — Library Card Catalog",
+          "description": "Socho ek library mein laakhon books hain. Agar tum book ka naam leke dete ho, librarian turant uski shelf location bata deta hai — poori library scan kiye bina. Exactly wahi kaam Hash Map karta hai: key (book name) se value (location) seedha milta hai.",
+          "diagram": "\"Harry Potter\" → Shelf A-12, Row 3\n\"Clean Code\" → Shelf B-07, Row 1\n\"DSA Bible\" → Shelf C-22, Row 5\n\nBas waise hi Hash Map mein keys (book names) fixed slots mein store hote hain — agar key exist karti hai to O(1) mein milti hai, agar nahi to bhi O(1) mein pata chal jaata hai."
+        },
+        "right": {
+          "title": "Hash Set — Attendance Register",
+          "description": "Ek teacher ke paas students ki attendance track karni hai — koi duplicate entry nahi chahiye. Hash Set exactly yahi karta hai: ek unique names ka collection jahan check karna instant hai.",
+          "diagram": "\"Alice\"  : present\n\"Bob\"    : present\n\"Alice\"  : already marked (no duplicate)"
         }
       },
       {
@@ -1159,98 +1218,83 @@
         "items": [
           {
             "icon": "Sparkles",
-            "title": "Interview Relevance",
-            "description": "Hash maps are a common optimization for pair, frequency, and duplicate problems."
+            "title": "Interview Core",
+            "description": "Used in almost every coding interview (Two Sum, Anagram, Subarray problems) and forms the foundation of lookup optimizations."
           },
           {
             "icon": "Trophy",
-            "title": "Competitive Programming",
-            "description": "Hashing helps convert nested loops into direct lookups."
+            "title": "O(1) Efficiency",
+            "description": "Eliminates O(n) scan/search and gives O(1) average time complexity for most storage operations."
           },
           {
             "icon": "Workflow",
-            "title": "Real World Applications",
-            "description": "Caches, indexes, dictionaries, session stores, and database lookup layers use hashing ideas."
+            "title": "Topic Integration",
+            "description": "Required for visited tracking in Graphs, Sliding Window states, and Two Pointer optimizations."
           },
           {
             "icon": "Brain",
-            "title": "Problem Solving Foundation",
-            "description": "Hashing supports prefix sums, grouping, graph visited sets, and memoization."
+            "title": "Real World Systems",
+            "description": "Most software systems, search engines, databases, caches, and indexing mechanisms rely heavily on hashing."
           }
         ]
       },
       {
         "id": "basic-operations",
-        "title": "Basic Operations",
+        "title": "Basic Operations & Time Complexity",
         "type": "operations",
         "columns": [
           "Operation",
-          "Description",
-          "STL Function",
-          "Time Complexity"
+          "Unordered Map (Avg)",
+          "Unordered Map (Worst)"
         ],
         "rows": [
           {
             "operation": "Insert",
-            "description": "Store key or key-value pair",
-            "stl": "insert()",
-            "complexity": "O(1) avg"
+            "description": "O(1) amortized",
+            "stl": "O(n)"
           },
           {
-            "operation": "Search",
-            "description": "Check if key exists",
-            "stl": "find()",
-            "complexity": "O(1) avg"
+            "operation": "Lookup / find",
+            "description": "O(1) average",
+            "stl": "O(n)"
           },
           {
-            "operation": "Update",
-            "description": "Change value for key",
-            "stl": "mp[key] = value",
-            "complexity": "O(1) avg"
+            "operation": "Delete / erase",
+            "description": "O(1) average",
+            "stl": "O(n)"
           },
           {
-            "operation": "Delete",
-            "description": "Remove key",
-            "stl": "erase()",
-            "complexity": "O(1) avg"
+            "operation": "Iteration",
+            "description": "O(n)",
+            "stl": "O(n)"
           },
           {
-            "operation": "Count",
-            "description": "Get frequency/existence",
-            "stl": "count()",
-            "complexity": "O(1) avg"
+            "operation": "Count occurrences",
+            "description": "O(n) total",
+            "stl": "—"
           },
           {
-            "operation": "Size",
-            "description": "Number of keys",
-            "stl": "size()",
-            "complexity": "O(1)"
+            "operation": "Check existence",
+            "description": "O(1) average",
+            "stl": "O(n)"
           },
           {
-            "operation": "Clear",
-            "description": "Remove all keys",
-            "stl": "clear()",
-            "complexity": "O(n)"
-          },
-          {
-            "operation": "Traverse",
-            "description": "Iterate over entries",
-            "stl": "begin(), end()",
-            "complexity": "O(n)"
+            "operation": "Clear all",
+            "description": "O(n)",
+            "stl": "O(n)"
           }
         ],
-        "panelTitle": "Functions Covered",
+        "panelTitle": "Important Functions",
         "functions": [
-          "unordered_map",
-          "unordered_set",
-          "insert()",
-          "find()",
-          "erase()",
-          "count()",
-          "size()",
-          "clear()",
-          "begin()",
-          "end()"
+          "mp[key] - Access/insert value by key",
+          "mp.find(key) - Returns iterator; mp.end() if not found",
+          "mp.count(key) - 1 if exists, 0 if not (for map)",
+          "mp.insert({k,v}) - Insert key-value pair",
+          "mp.erase(key) - Remove key-value pair",
+          "mp.size() - Number of entries",
+          "mp.empty() - True if no entries",
+          "mp.clear() - Remove all entries",
+          "mp.begin()/end() - Iterators for range-for"
         ]
       },
       {
@@ -1265,10 +1309,7 @@
           50
         ],
         "operations": [
-          "push_back()",
-          "pop_back()",
-          "insert()",
-          "erase()"
+          "freq[key]++"
         ],
         "controls": {
           "operationLabel": "Operation",
@@ -1293,56 +1334,50 @@
             1,
             2,
             3,
-            4
+            4,
+            5
           ],
           "address": [
-            1000,
-            1004,
-            1008,
-            1012,
-            1016
+            "hash(\"apple\")%6=0",
+            "hash(\"cherry\")%6=1",
+            "—",
+            "hash(\"banana\")%6=3",
+            "—",
+            "—"
           ],
           "value": [
-            10,
-            20,
-            30,
-            40,
-            50
+            "apple (val: 3)",
+            "cherry (val: 1)",
+            "null",
+            "banana (val: 2)",
+            "null",
+            "null"
           ]
         },
         "explanation": [
-          "This demo section shows how the topic can explain its internal model visually.",
-          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+          "Hash Map holds a contiguous array of buckets.",
+          "Hash Set (STL) — Dynamic Growth: Capacity generally doubles when load factor exceeds threshold (usually 1.0).",
+          "Rehashing copies all elements to a new, larger array. Exact behavior depends on STL implementation."
         ],
         "formula": {
-          "label": "position = base + step * index",
-          "example": "1000 + 4 * 4 = 1016"
+          "label": "bucketIndex = hash(key) % capacity",
+          "example": "hash(\"banana\") % 6 = 3"
         }
       },
       {
         "id": "syntax",
-        "title": "Syntax",
+        "title": "Syntax & Declaration",
         "type": "syntax",
         "tabs": [
           {
-            "label": "C++",
+            "label": "Hash Map",
             "language": "cpp",
-            "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    unordered_map<int, int> freq;\n    vector<int> nums = {1, 2, 2, 3};\n    for (int x : nums) freq[x]++;\n}"
+            "code": "// Basic Declaration\nunordered_map<string, int> freq;\n\n// Initialization\nunordered_map<int, int> mp = {{1, 10}, {2, 20}};\n\n// Custom Type Mapping\nunordered_map<string, vector<int>> adj;"
           },
           {
-            "label": "Java",
-            "language": "java",
-            "code": "Map<Integer, Integer> freq = new HashMap<>();\nint[] nums = {1, 2, 2, 3};\nfor (int x : nums) {\n    freq.put(x, freq.getOrDefault(x, 0) + 1);\n}"
-          },
-          {
-            "label": "Python",
-            "language": "python",
-            "code": "from collections import Counter\nnums = [1, 2, 2, 3]\nfreq = Counter(nums)\nprint(freq[2])"
-          },
-          {
-            "label": "STL",
+            "label": "Hash Set",
             "language": "cpp",
-            "code": "unordered_map<int, int> mp;\nmp[10] = 1;\nif (mp.find(10) != mp.end()) mp.erase(10);"
+            "code": "// Basic Declaration\nunordered_set<string> seen;\n\n// Initialization\nunordered_set<int> s = {1, 2, 3};\n\n// Custom Type Mapping\nunordered_set<string> words;"
           }
         ]
       },
@@ -1352,60 +1387,49 @@
         "type": "complexity",
         "columns": [
           "Operation",
-          "Best Case",
-          "Average Case",
-          "Worst Case",
-          "Space Complexity"
+          "Unordered Map (Avg)",
+          "Unordered Map (Worst)"
+        ],
+        "keys": [
+          "operation",
+          "avg",
+          "worst"
         ],
         "rows": [
           {
             "operation": "Insert",
-            "best": "O(1) avg",
-            "average": "O(1) avg",
-            "worst": "O(n)",
-            "space": "O(1)"
+            "avg": "O(1) amortized",
+            "worst": "O(n)"
           },
           {
-            "operation": "Search",
-            "best": "O(1) avg",
-            "average": "O(1) avg",
-            "worst": "O(n)",
-            "space": "O(1)"
+            "operation": "Lookup / find",
+            "avg": "O(1) average",
+            "worst": "O(n)"
           },
           {
-            "operation": "Update",
-            "best": "O(1) avg",
-            "average": "O(1) avg",
-            "worst": "O(n)",
-            "space": "O(1)"
+            "operation": "Delete / erase",
+            "avg": "O(1) average",
+            "worst": "O(n)"
           },
           {
-            "operation": "Delete",
-            "best": "O(1) avg",
-            "average": "O(1) avg",
-            "worst": "O(n)",
-            "space": "O(1)"
+            "operation": "Iteration",
+            "avg": "O(n)",
+            "worst": "O(n)"
           },
           {
-            "operation": "Count",
-            "best": "O(1) avg",
-            "average": "O(1) avg",
-            "worst": "O(n)",
-            "space": "O(1)"
+            "operation": "Count occurrences",
+            "avg": "O(n) total",
+            "worst": "—"
           },
           {
-            "operation": "Size",
-            "best": "O(1)",
-            "average": "O(1)",
-            "worst": "O(1)",
-            "space": "O(1)"
+            "operation": "Check existence",
+            "avg": "O(1) average",
+            "worst": "O(n)"
           },
           {
-            "operation": "Clear",
-            "best": "O(n)",
-            "average": "O(n)",
-            "worst": "O(n)",
-            "space": "O(1)"
+            "operation": "Clear all",
+            "avg": "O(n)",
+            "worst": "O(n)"
           }
         ]
       },
@@ -1467,20 +1491,59 @@
         "type": "mistakes",
         "items": [
           {
-            "title": "Ignoring edge cases",
+            "title": "Accidental Key Creation with [ ]",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
-            "wrong": "// assumes input is always valid\nsolve(data);",
-            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
-            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
+            "wrong": "if (mp[\"key\"] == 0) // creates \"key\" with default value!",
+            "correct": "if (mp.find(\"key\") != mp.end() && mp[\"key\"] == 0) // safe check",
+            "explanation": "Accessing mp[\"key\"] automatically inserts it with default value 0 if not present — use mp.find() or mp.count() to check existence."
           },
           {
-            "title": "Using brute force when a pattern exists",
+            "title": "Iterating While Modifying",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
-            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
-            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
-            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
+            "wrong": "for (auto& [k, v] : mp) {\n    mp.erase(k); // undefined behavior!\n}",
+            "correct": "vector<string> keysToDelete;\nfor (auto& [k, v] : mp) {\n    keysToDelete.push_back(k);\n}\nfor (string k : keysToDelete) {\n    mp.erase(k);\n}",
+            "explanation": "Erasing elements during iteration corrupts the iterator. Collect keys to delete first, then erase them separately."
+          },
+          {
+            "title": "Using Custom Objects as Keys Without Hash Function",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "unordered_map<pair<int,int>, int> mp; // compile error!",
+            "correct": "map<pair<int,int>, int> mp; // ordered map has default comparison logic",
+            "explanation": "unordered_map needs a hash function for the key type. For custom types, define a custom hasher or use map (ordered) instead."
+          }
+        ]
+      },
+      {
+        "id": "when-not-to-use",
+        "title": "When Not To Use Hash Map or Hash Set",
+        "type": "table",
+        "rows": [
+          {
+            "situation": "Need sorted order of keys",
+            "choice": "map / set (BST-based)"
+          },
+          {
+            "situation": "Need range queries (keys between A and B)",
+            "choice": "map / set"
+          },
+          {
+            "situation": "Frequent prefix search (autocomplete)",
+            "choice": "Trie"
+          },
+          {
+            "situation": "Need fast substring/pattern search at scale",
+            "choice": "Suffix Array / KMP"
+          },
+          {
+            "situation": "Memory is very tight (avoid rehashing overhead)",
+            "choice": "Sorted array + binary search"
+          },
+          {
+            "situation": "Binary/raw data storage (not key-value pairs)",
+            "choice": "Array / Vector"
           }
         ]
       },
@@ -1651,8 +1714,61 @@
                 "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
               }
             ]
+          },
+          {
+            "name": "Conceptual Questions",
+            "questions": [
+              {
+                "name": "What is the difference between map and unordered_map in C++?",
+                "platform": "Theoretical",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=difference+between+map+and+unordered_map+in+cpp"
+              },
+              {
+                "name": "Why is the worst-case time complexity of unordered_map O(n)?",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=worst+case+time+complexity+of+unordered_map+is+o(n)"
+              },
+              {
+                "name": "How does a hash function work internally?",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=how+does+hash+function+work+internally"
+              },
+              {
+                "name": "What is a collision and how is it handled (chaining vs open addressing)?",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=what+is+hash+collision+and+how+is+it+handled"
+              },
+              {
+                "name": "How would you find the first non-repeating character in a string?",
+                "platform": "Theoretical",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=find+first+non+repeating+character+in+a+string"
+              },
+              {
+                "name": "How does the load factor affect hash table performance?",
+                "platform": "Theoretical",
+                "difficulty": "Hard",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=how+does+load+factor+affect+hash+table+performance"
+              }
+            ]
           }
         ]
+      },
+      {
+        "id": "quick-revision",
+        "title": "Interview Rule",
+        "type": "callout",
+        "content": "If you need O(1) average lookup, insert, or delete — use unordered_map or unordered_set.\n\nIf you need sorted order or range queries — use map or set instead.\n\nIf you need fast prefix matching or dictionary-style word storage — consider a Trie or Hash Map instead."
       },
       {
         "id": "practice-roadmap",
@@ -1696,25 +1812,25 @@
   "binarysearch": {
     "topic": "Binary Search",
     "title": "Let's Master Binary Search",
-    "subtitle": "Learn sorted search, answer-space search and boundary handling",
+    "subtitle": "Learn how divide-and-conquer eliminates half the search space every step — powering O(log n) lookups in sorted data",
     "hero": {
       "id": "hero",
       "eyebrow": "DSA Documentation",
       "title": "Let's Master Binary Search",
-      "subtitle": "Learn sorted search, answer-space search and boundary handling",
+      "subtitle": "Learn how divide-and-conquer eliminates half the search space every step — powering O(log n) lookups in sorted data",
       "accent": "Cut the search space in half with every decision",
       "stats": [
         {
-          "label": "Patterns",
-          "value": "4+"
+          "label": "Complexity",
+          "value": "O(log n)"
         },
         {
-          "label": "Core ops",
-          "value": "8"
+          "label": "Operations",
+          "value": "10+"
         },
         {
           "label": "Problems",
-          "value": "18"
+          "value": "200+"
         }
       ],
       "visual": {
@@ -1723,14 +1839,24 @@
           5,
           8,
           12,
-          18
+          16,
+          23,
+          38,
+          45,
+          56,
+          72
         ],
         "labels": [
           "0",
           "1",
           "2",
           "3",
-          "4"
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
         ]
       }
     },
@@ -1740,14 +1866,15 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "Binary search is a searching technique used when the answer space is ordered or monotonic.",
-          "It repeatedly compares the middle candidate and discards the half that cannot contain the answer."
+          "Binary Search ek searching algorithm hai jo sirf sorted arrays ya collections par kaam karta hai. Har step par woh middle element dekh ke decide karta hai ki target left half mein hai ya right half mein — aur doosra half eliminate kar deta hai.",
+          "Iska sabse bada fayda yeh hai ki har iteration mein search space aadha ho jaata hai — isliye even 1 billion elements mein sirf ~30 comparisons lagte hain.",
+          "Computer sirf comparisons samajhta hai — Binary Search is principle ko use karke unnecessary elements skip karta hai bina dekhein."
         ],
         "highlights": [
-          "Core topic",
-          "Interview ready",
-          "Pattern based",
-          "Demo docs"
+          "Core DSA Topic",
+          "Interview Ready",
+          "O(log n) Search",
+          "Divide & Conquer"
         ]
       },
       {
@@ -1784,41 +1911,40 @@
       {
         "id": "definition",
         "title": "One Line Definition",
-        "type": "callout",
-        "content": "Binary search is an algorithm that finds a target or boundary by repeatedly halving a sorted or monotonic search space."
+        "type": "dual_callout",
+        "cards": [
+          {
+            "title": "Iterative Binary Search",
+            "content": "A search algorithm on a sorted array that repeatedly halves the search space by comparing the target with the middle element — achieving O(log n) time with O(1) space."
+          },
+          {
+            "title": "Recursive Binary Search",
+            "content": "Same divide-and-conquer logic implemented via recursive function calls — achieving O(log n) time with O(log n) call-stack space."
+          },
+          {
+            "title": "Binary Search on Answer (Parametric Search)",
+            "content": "A powerful variant where Binary Search is applied not on an array index, but on a range of possible answers — used when the answer has a monotonic feasibility condition (true...true...false...false or vice versa)."
+          }
+        ]
       },
       {
         "id": "real-life-example",
         "title": "Real Life Example",
-        "type": "example",
-        "content": [
-          "Binary search is like opening a dictionary near the middle and deciding whether to go left or right.",
-          "Every step removes a large part of the remaining possibilities."
-        ],
-        "visual": {
-          "title": "Finding a page in a dictionary",
-          "items": [
-            {
-              "label": "0",
-              "color": "#f04438"
-            },
-            {
-              "label": "1",
-              "color": "#2563eb"
-            },
-            {
-              "label": "2",
-              "color": "#6b7280"
-            },
-            {
-              "label": "3",
-              "color": "#f8fafc"
-            },
-            {
-              "label": "4",
-              "color": "#16a34a"
-            }
-          ]
+        "type": "comparison",
+        "left": {
+          "title": "Iterative — Dictionary Lookup",
+          "description": "Socho tum ek physical dictionary mein word 'Mango' dhundh rahe ho. Kya tum page 1 se start karoge? Nahi! Tum middle open karoge, check karoge — M pehle hai ya baad mein — aur accordingly aadha dictionary ignore kar doge. Exactly yahi Binary Search karta hai.",
+          "diagram": "Step 1: Open middle of dict\nStep 2: M comes after? → search right half\nStep 3: Open new middle → word found!"
+        },
+        "center": {
+          "title": "Recursive — Guess the Number",
+          "description": "1 to 100 ke beech koi number guess karo. Agar tum 50 bolte ho aur jawab aata hai 'zyada hai' — tum turant 1–50 eliminate kar dete ho aur recursively baaki half (51-100) mein guess karna continue karte ho.",
+          "diagram": "Target: 73\nGuess 50 → 'Greater' → search [51..100]\nGuess 75 → 'Smaller' → search [51..74]\nGuess 62 → 'Greater' → search [63..74]"
+        },
+        "right": {
+          "title": "Parametric — Eating Bananas",
+          "description": "Jab tum pooch rahe ho: 'minimum speed kya ho ki Koko k hours mein sab bananas kha sake?' — yeh ek monotonic condition hai (feasible for speed x implies feasible for any speed > x). Binary Search on the answer range karo.",
+          "diagram": "Feasibility condition:\nSpeed:  1     2     3     4     5     6\nStatus: False False True  True  True  True\nTarget: Find the first True value (3)"
         }
       },
       {
@@ -1828,97 +1954,94 @@
         "items": [
           {
             "icon": "Sparkles",
-            "title": "Interview Relevance",
-            "description": "Boundary bugs in binary search reveal how carefully you reason about invariants."
+            "title": "Interview Core",
+            "description": "Used in almost every coding interview — LeetCode has 200+ Binary Search problems, including Aggressive Cows and Book Allocation."
           },
           {
             "icon": "Trophy",
-            "title": "Competitive Programming",
-            "description": "Answer-space binary search is a core contest technique."
+            "title": "O(log n) Efficiency",
+            "description": "Eliminates brute-force O(n) searches, making it critical for large-scale systems (even 1 billion elements require just ~30 steps)."
           },
           {
             "icon": "Workflow",
-            "title": "Real World Applications",
-            "description": "Search, ranking, pagination, thresholds, and scheduling systems often rely on sorted lookup."
+            "title": "Real World Systems",
+            "description": "Used in databases (B-Trees), OS (page tables), game engines (collision detection), and internal math library functions like sqrt() and pow()."
           },
           {
             "icon": "Brain",
-            "title": "Problem Solving Foundation",
-            "description": "Binary search strengthens monotonic thinking and invariant design."
+            "title": "Parametric Search",
+            "description": "Forms the core of Binary Search on Answer, solving complex 'minimum/maximum feasible value' problems efficiently."
           }
         ]
       },
       {
         "id": "basic-operations",
-        "title": "Basic Operations",
+        "title": "Binary Search Operations",
         "type": "operations",
         "columns": [
           "Operation",
           "Description",
-          "STL Function",
-          "Time Complexity"
+          "Logic / Action"
         ],
         "rows": [
           {
-            "operation": "Search",
-            "description": "Find exact target",
-            "stl": "binary_search()",
-            "complexity": "O(log n)"
-          },
-          {
-            "operation": "Lower Bound",
-            "description": "First value not less than x",
-            "stl": "lower_bound()",
-            "complexity": "O(log n)"
-          },
-          {
-            "operation": "Upper Bound",
-            "description": "First value greater than x",
-            "stl": "upper_bound()",
-            "complexity": "O(log n)"
-          },
-          {
-            "operation": "Insert Pos",
-            "description": "Find sorted insert index",
-            "stl": "lower_bound()",
-            "complexity": "O(log n)"
+            "operation": "Standard BS",
+            "description": "Find exact target in sorted array",
+            "stl": "Return mid when arr[mid] == target"
           },
           {
             "operation": "First Occurrence",
-            "description": "Leftmost target",
-            "stl": "custom search",
-            "complexity": "O(log n)"
+            "description": "Find leftmost index of target",
+            "stl": "On match: ans = mid; high = mid - 1"
           },
           {
             "operation": "Last Occurrence",
-            "description": "Rightmost target",
-            "stl": "custom search",
-            "complexity": "O(log n)"
+            "description": "Find rightmost index of target",
+            "stl": "On match: ans = mid; low = mid + 1"
           },
           {
-            "operation": "Answer Search",
-            "description": "Find feasible boundary",
-            "stl": "predicate()",
-            "complexity": "O(log range)"
+            "operation": "lower_bound()",
+            "description": "First index where arr[i] >= target",
+            "stl": "ans = mid; high = mid - 1 when >= target"
           },
           {
-            "operation": "Traverse Check",
-            "description": "Predicate validation",
-            "stl": "check(mid)",
-            "complexity": "O(n log range)"
+            "operation": "upper_bound()",
+            "description": "First index where arr[i] > target",
+            "stl": "ans = mid; high = mid - 1 when > target"
+          },
+          {
+            "operation": "Count occurrences",
+            "description": "Get total count of duplicates",
+            "stl": "upper_bound - lower_bound (two searches)"
+          },
+          {
+            "operation": "Search in Rotated Array",
+            "description": "Search sorted but rotated array",
+            "stl": "Check which half is sorted, then divide"
+          },
+          {
+            "operation": "BS on Answer",
+            "description": "Search monotonic answer range",
+            "stl": "Write feasibility function check(mid)"
+          },
+          {
+            "operation": "Floor / Ceil",
+            "description": "Largest <= target / Smallest >= target",
+            "stl": "Track best answer while boundary moves"
+          },
+          {
+            "operation": "Sqrt(n) floor",
+            "description": "Find floor of square root",
+            "stl": "Range 1..n; check mid * mid <= n"
           }
         ],
-        "panelTitle": "Functions Covered",
+        "panelTitle": "Functions & Helpers Covered",
         "functions": [
           "binary_search()",
           "lower_bound()",
           "upper_bound()",
-          "sort()",
-          "begin()",
-          "end()",
-          "mid",
-          "check()",
-          "predicate()"
+          "isFeasible() / check()",
+          "low + (high - low) / 2"
         ]
       },
       {
@@ -1930,11 +2053,14 @@
           5,
           8,
           12,
-          18
+          16,
+          23,
+          38,
+          45,
+          56,
+          72
         ],
         "operations": [
-          "push_back()",
-          "pop_back()",
           "insert()",
           "erase()"
         ],
@@ -1956,61 +2082,62 @@
         "title": "Internal Working",
         "type": "internal",
         "memory": {
-          "index": [
-            0,
-            1,
-            2,
-            3,
-            4
+          "Step": [
+            "Init",
+            "Loop",
+            "Mid",
+            "Found",
+            "Go Right",
+            "Go Left",
+            "Not Found"
           ],
-          "address": [
-            1000,
-            1004,
-            1008,
-            1012,
-            1016
+          "Operation": [
+            "low = 0, high = n-1",
+            "while (low <= high)",
+            "mid = low + (high-low)/2",
+            "arr[mid] == target",
+            "arr[mid] < target",
+            "arr[mid] > target",
+            "low > high"
           ],
-          "value": [
-            2,
-            5,
-            8,
-            12,
-            18
+          "Detail": [
+            "Set search boundaries to full array",
+            "Continue while valid search range exists",
+            "Safe mid formula — avoids integer overflow",
+            "Return mid index — element found",
+            "low = mid + 1 — eliminate left half",
+            "high = mid - 1 — eliminate right half",
+            "Loop ends — return -1"
           ]
         },
         "explanation": [
-          "This demo section shows how the topic can explain its internal model visually.",
-          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+          "Binary Search operates on a step-by-step division of the search space.",
+          "Why mid = low + (high-low)/2 and NOT (low+high)/2?: Agar low = 2,000,000,000 aur high = 2,000,000,001 ho toh (low+high) integer overflow kar jaata hai C++/Java mein. low + (high-low)/2 always safe rehta hai."
         ],
         "formula": {
-          "label": "position = base + step * index",
-          "example": "1000 + 4 * 4 = 1016"
+          "label": "Safe Mid Calculation",
+          "example": "low + (high - low) / 2"
         }
       },
       {
         "id": "syntax",
-        "title": "Syntax",
+        "title": "Syntax & Implementations",
         "type": "syntax",
         "tabs": [
           {
-            "label": "C++",
+            "label": "Iterative (C++)",
             "language": "cpp",
-            "code": "int lo = 0, hi = n - 1;\nwhile (lo <= hi) {\n    int mid = lo + (hi - lo) / 2;\n    if (a[mid] == target) return mid;\n    if (a[mid] < target) lo = mid + 1;\n    else hi = mid - 1;\n}"
+            "code": "int binarySearch(vector<int>& arr, int target) {\n    int low = 0, high = arr.size() - 1;\n    while (low <= high) {\n        int mid = low + (high - low) / 2;\n        if (arr[mid] == target) return mid;\n        else if (arr[mid] < target) low = mid + 1;\n        else high = mid - 1;\n    }\n    return -1;  // Not found\n}"
           },
           {
-            "label": "Java",
-            "language": "java",
-            "code": "int lo = 0, hi = nums.length - 1;\nwhile (lo <= hi) {\n    int mid = lo + (hi - lo) / 2;\n    if (nums[mid] == target) return mid;\n    if (nums[mid] < target) lo = mid + 1;\n    else hi = mid - 1;\n}"
-          },
-          {
-            "label": "Python",
-            "language": "python",
-            "code": "lo, hi = 0, len(nums) - 1\nwhile lo <= hi:\n    mid = (lo + hi) // 2\n    if nums[mid] == target:\n        return mid\n    if nums[mid] < target:\n        lo = mid + 1\n    else:\n        hi = mid - 1"
-          },
-          {
-            "label": "STL",
+            "label": "Recursive (C++)",
             "language": "cpp",
-            "code": "bool ok = binary_search(v.begin(), v.end(), x);\nauto it = lower_bound(v.begin(), v.end(), x);\nint index = it - v.begin();"
+            "code": "int binarySearch(vector<int>& arr, int low, int high, int target) {\n    if (low > high) return -1;\n    int mid = low + (high - low) / 2;\n    if (arr[mid] == target) return mid;\n    if (arr[mid] < target)\n        return binarySearch(arr, mid + 1, high, target);\n    return binarySearch(arr, low, mid - 1, target);\n}"
+          },
+          {
+            "label": "lower_bound()",
+            "language": "cpp",
+            "code": "int lowerBound(vector<int>& arr, int target) {\n    int low = 0, high = arr.size() - 1, ans = arr.size();\n    while (low <= high) {\n        int mid = low + (high - low) / 2;\n        if (arr[mid] >= target) { ans = mid; high = mid - 1; }\n        else low = mid + 1;\n    }\n    return ans;\n}"
           }
         ]
       },
@@ -2020,60 +2147,70 @@
         "type": "complexity",
         "columns": [
           "Operation",
-          "Best Case",
-          "Average Case",
-          "Worst Case",
-          "Space Complexity"
+          "Time Complexity",
+          "Space (Iterative)",
+          "Space (Recursive)"
+        ],
+        "keys": [
+          "operation",
+          "time",
+          "spaceIterative",
+          "spaceRecursive"
         ],
         "rows": [
           {
-            "operation": "Search",
-            "best": "O(log n)",
-            "average": "O(log n)",
-            "worst": "O(log n)",
-            "space": "O(1)"
+            "operation": "Search — found",
+            "time": "O(log n)",
+            "spaceIterative": "O(1)",
+            "spaceRecursive": "O(log n)"
           },
           {
-            "operation": "Lower Bound",
-            "best": "O(log n)",
-            "average": "O(log n)",
-            "worst": "O(log n)",
-            "space": "O(1)"
+            "operation": "Search — not found",
+            "time": "O(log n)",
+            "spaceIterative": "O(1)",
+            "spaceRecursive": "O(log n)"
           },
           {
-            "operation": "Upper Bound",
-            "best": "O(log n)",
-            "average": "O(log n)",
-            "worst": "O(log n)",
-            "space": "O(1)"
+            "operation": "Best case (mid = target)",
+            "time": "O(1)",
+            "spaceIterative": "O(1)",
+            "spaceRecursive": "O(1)"
           },
           {
-            "operation": "Insert Pos",
-            "best": "O(log n)",
-            "average": "O(log n)",
-            "worst": "O(log n)",
-            "space": "O(1)"
+            "operation": "Worst case",
+            "time": "O(log n)",
+            "spaceIterative": "O(1)",
+            "spaceRecursive": "O(log n)"
           },
           {
-            "operation": "First Occurrence",
-            "best": "O(log n)",
-            "average": "O(log n)",
-            "worst": "O(log n)",
-            "space": "O(1)"
+            "operation": "lower_bound()",
+            "time": "O(log n)",
+            "spaceIterative": "O(1)",
+            "spaceRecursive": "O(log n)"
           },
           {
-            "operation": "Last Occurrence",
-            "best": "O(log n)",
-            "average": "O(log n)",
-            "worst": "O(log n)",
-            "space": "O(1)"
+            "operation": "upper_bound()",
+            "time": "O(log n)",
+            "spaceIterative": "O(1)",
+            "spaceRecursive": "O(log n)"
           },
           {
-            "operation": "Answer Search",
-            "best": "O(log range)",
-            "average": "O(log range)",
-            "worst": "O(log range)",
-            "space": "O(1)"
+            "operation": "First occurrence",
+            "time": "O(log n)",
+            "spaceIterative": "O(1)",
+            "spaceRecursive": "O(log n)"
+          },
+          {
+            "operation": "Last occurrence",
+            "time": "O(log n)",
+            "spaceIterative": "O(1)",
+            "spaceRecursive": "O(log n)"
+          },
+          {
+            "operation": "Count occurrences",
+            "time": "O(log n)",
+            "spaceIterative": "O(1)",
+            "spaceRecursive": "O(log n)"
           }
         ]
       },
@@ -2135,20 +2272,83 @@
         "type": "mistakes",
         "items": [
           {
-            "title": "Ignoring edge cases",
-            "wrongLabel": "Wrong Code",
-            "correctLabel": "Correct Code",
-            "wrong": "// assumes input is always valid\nsolve(data);",
-            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
-            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
+            "title": "Not Handling Sorted Precondition",
+            "wrongLabel": "Wrong Usage",
+            "correctLabel": "Correct Usage",
+            "wrong": "// Applying Binary Search directly\nbinary_search(unsortedArr.begin(), unsortedArr.end(), target);",
+            "correct": "// Sort first, then Binary Search\nsort(arr.begin(), arr.end());\nbinary_search(arr.begin(), arr.end(), target);",
+            "explanation": "Applying Binary Search on an unsorted array gives wrong results with no error. Always verify or sort the array first."
           },
           {
-            "title": "Using brute force when a pattern exists",
+            "title": "Using (low + high) / 2 — Integer Overflow",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
-            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
-            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
-            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
+            "wrong": "int mid = (low + high) / 2; // overflow risk!",
+            "correct": "int mid = low + (high - low) / 2; // overflow safe",
+            "explanation": "If low and high are very large, their sum can exceed the maximum integer limit. The subtraction-based calculation prevents this."
+          },
+          {
+            "title": "Wrong Loop Condition — Misses Last Element",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "while (low < high) { // misses when low == high\n    // ...\n}",
+            "correct": "while (low <= high) {\n    // check when search space is 1 element\n}",
+            "explanation": "Using strictly less than (<) skips checking when the search space reduces to a single element where low == high."
+          },
+          {
+            "title": "Wrong Boundary Update — Causes Infinite Loop",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "low = mid; // never moves past mid\nhigh = mid;",
+            "correct": "low = mid + 1; // always makes progress\nhigh = mid - 1;",
+            "explanation": "Setting boundaries directly to mid without shifting by 1 can result in low and high getting stuck, causing infinite loops."
+          },
+          {
+            "title": "Forgetting to Track Answer in First/Last Occurrence",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "if (arr[mid] == target) return mid; // returns any occurrence",
+            "correct": "if (arr[mid] == target) {\n    ans = mid;\n    high = mid - 1; // keep looking left for first occurrence\n}",
+            "explanation": "Simply returning mid on a match returns any occurrence. Save the matched index in a separate variable, then adjust boundaries to check the rest of the half."
+          }
+        ]
+      },
+      {
+        "id": "when-not-to-use",
+        "title": "When Not To Use Binary Search",
+        "type": "table",
+        "rows": [
+          {
+            "situation": "Array is unsorted and sorting cost is too high",
+            "choice": "Linear Search O(n)"
+          },
+          {
+            "situation": "Need O(1) average lookup by key",
+            "choice": "Hash Map"
+          },
+          {
+            "situation": "Searching in a Linked List (no random access)",
+            "choice": "Linear Search"
+          },
+          {
+            "situation": "Small dataset (< 20 elements)",
+            "choice": "Linear Search (simpler, cache-friendly)"
+          },
+          {
+            "situation": "Need all positions of duplicates efficiently",
+            "choice": "HashMap + list of indices"
+          },
+          {
+            "situation": "Dynamic data with frequent insertions/deletions",
+            "choice": "Balanced BST / Ordered Set"
+          },
+          {
+            "situation": "String prefix search / autocomplete",
+            "choice": "Trie"
+          },
+          {
+            "situation": "2D matrix with complex ordering",
+            "choice": "Custom row + column search"
           }
         ]
       },
@@ -2319,8 +2519,89 @@
                 "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
               }
             ]
+          },
+          {
+            "name": "Conceptual Questions",
+            "questions": [
+              {
+                "name": "What is the prerequisite for Binary Search? Why does it require sorted input?",
+                "platform": "Theoretical",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=why+does+binary+search+require+sorted+input"
+              },
+              {
+                "name": "Why do we use mid = low + (high-low)/2 instead of (low+high)/2?",
+                "platform": "Theoretical",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=why+mid+low+high+low+2+instead+of+low+high+2"
+              },
+              {
+                "name": "How do you find the first and last occurrence of a target in a sorted array?",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=first+and+last+occurrence+of+target+in+sorted+array"
+              },
+              {
+                "name": "How does Binary Search work on a rotated sorted array? (LeetCode 33)",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+              },
+              {
+                "name": "What is Binary Search on Answer? Give a real problem example.",
+                "platform": "Theoretical",
+                "difficulty": "Hard",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=binary+search+on+answer+range+dsa"
+              },
+              {
+                "name": "How would you implement sqrt(n) using Binary Search?",
+                "platform": "LeetCode",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://leetcode.com/problems/sqrtx/"
+              },
+              {
+                "name": "What is the time and space complexity difference between iterative and recursive Binary Search?",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=iterative+vs+recursive+binary+search+complexity"
+              },
+              {
+                "name": "How do lower_bound() and upper_bound() work internally?",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=lower_bound+and+upper_bound+internal+implementation"
+              },
+              {
+                "name": "Can Binary Search work on floating-point ranges? How?",
+                "platform": "Theoretical",
+                "difficulty": "Hard",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=binary+search+on+floating+point+ranges"
+              },
+              {
+                "name": "How do you count occurrences of a target in a sorted array in O(log n)?",
+                "platform": "Theoretical",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=count+occurrences+of+target+in+sorted+array+in+o(log+n)"
+              }
+            ]
           }
         ]
+      },
+      {
+        "id": "quick-revision",
+        "title": "Interview Rule",
+        "type": "callout",
+        "content": "If you need O(log n) search in sorted data — use Binary Search.\n\nIf you need O(1) average lookup by key — use Hash Map instead.\n\nIf you see 'minimum/maximum feasible value' or a monotonic condition — think Binary Search on Answer (Parametric Search)."
       },
       {
         "id": "practice-roadmap",
@@ -2364,25 +2645,25 @@
   "linkedlist": {
     "topic": "Linked List",
     "title": "Let's Master Linked Lists",
-    "subtitle": "Learn nodes, pointers, traversal and fast-slow patterns",
+    "subtitle": "Learn how nodes chain together with pointers, enable dynamic memory, and power real-world data structures",
     "hero": {
       "id": "hero",
       "eyebrow": "DSA Documentation",
       "title": "Let's Master Linked Lists",
-      "subtitle": "Learn nodes, pointers, traversal and fast-slow patterns",
+      "subtitle": "Learn how nodes chain together with pointers, enable dynamic memory, and power real-world data structures",
       "accent": "Think in references instead of indexes",
       "stats": [
         {
-          "label": "Patterns",
-          "value": "4+"
+          "label": "Complexity",
+          "value": "O(1) Head"
         },
         {
-          "label": "Core ops",
-          "value": "8"
+          "label": "Core Types",
+          "value": "Singly / Doubly"
         },
         {
           "label": "Problems",
-          "value": "18"
+          "value": "18+"
         }
       ],
       "visual": {
@@ -2408,14 +2689,15 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "A linked list stores elements as nodes where each node points to the next node in the sequence.",
-          "Unlike arrays, linked lists do not require contiguous memory, but direct index access is not constant time."
+          "Linked List ek linear data structure hai jo nodes ki chain hoti hai. Har node mein do cheezein hoti hain: ek data (value) aur ek pointer jo next node ka address store karta hai. Array ki tarah contiguous memory mein store nahi hoti — har node memory mein kahin bhi ho sakti hai.",
+          "Computer asal mein memory addresses samajhta hai — wo sirf numbers samajhta hai. Har node ka apna memory address hota hai.",
+          "Pointer ek tarah ka address book hai. Computer directly data dhundhta nahi — isliye, har node apne andar next node ka address (pointer) rakhti hai, jise hum link kehte hain."
         ],
         "highlights": [
-          "Core topic",
-          "Interview ready",
-          "Pattern based",
-          "Demo docs"
+          "Core DSA Topic",
+          "Interview Ready",
+          "Dynamic Memory",
+          "Pointer-Based Structure"
         ]
       },
       {
@@ -2452,41 +2734,40 @@
       {
         "id": "definition",
         "title": "One Line Definition",
-        "type": "callout",
-        "content": "A linked list is a linear data structure made of nodes where each node stores data and a reference to the next node."
+        "type": "dual_callout",
+        "cards": [
+          {
+            "title": "Singly Linked List",
+            "content": "A linear chain of nodes where each node holds data and a pointer to the next node — enabling dynamic, non-contiguous memory allocation with O(1) insert/delete at head."
+          },
+          {
+            "title": "Doubly Linked List",
+            "content": "A linked list where each node holds data, a pointer to the next node, AND a pointer to the previous node — enabling O(1) insert/delete at both head and tail, and bidirectional traversal."
+          },
+          {
+            "title": "Circular Linked List",
+            "content": "A singly or doubly linked list where the last node's next pointer points back to the head — enabling continuous circular traversal without a null terminator."
+          }
+        ]
       },
       {
         "id": "real-life-example",
         "title": "Real Life Example",
-        "type": "example",
-        "content": [
-          "Think of a linked list as clues where each clue points to the next location.",
-          "You cannot jump to the fifth clue directly unless you follow the chain from the head."
-        ],
-        "visual": {
-          "title": "Treasure map chain",
-          "items": [
-            {
-              "label": "0",
-              "color": "#f04438"
-            },
-            {
-              "label": "1",
-              "color": "#2563eb"
-            },
-            {
-              "label": "2",
-              "color": "#6b7280"
-            },
-            {
-              "label": "3",
-              "color": "#f8fafc"
-            },
-            {
-              "label": "4",
-              "color": "#16a34a"
-            }
-          ]
+        "type": "comparison",
+        "left": {
+          "title": "Singly LL — Train Bogies",
+          "description": "Socho ek train hai jisme bogies (compartments) ek dusre se judi hain. Har bogie ke andar passengers hain (data), aur har bogie ko pata hai ki aage kaun si bogie hai (next pointer). Lekin peechhe kaun si thi? Woh nahi pata — sirf aage dekhti hai.",
+          "diagram": "[Engine] → [Bogie A] → [Bogie B] → [Bogie C] → NULL\n\nSingly Linked List mein har node sirf next node ko jaanti hai. Peeche jaana possible nahi bina poori list traverse kiye."
+        },
+        "center": {
+          "title": "Doubly LL — Browser History",
+          "description": "Browser tab mein Back aur Forward dono kaam karte hain. Har page ko pata hai ki pehle kaun sa tha aur agle mein kaun aayega — exactly Doubly Linked List ki tarah, prev aur next references ke saath.",
+          "diagram": "NULL ← [Google] ⇔ [YouTube] ⇔ [GitHub] → NULL"
+        },
+        "right": {
+          "title": "Circular LL — Music Playlist Loop",
+          "description": "Jab playlist repeat mode on hota hai — last song khatam hone ke baad pehla song phir se chalta hai. Circular Linked List exactly yahi karta hai: last node ka next pointer head ko point karta hai.",
+          "diagram": "[Song 1] → [Song 2] → [Song 3] → [Song 1] (loops back)"
         }
       },
       {
@@ -2496,97 +2777,90 @@
         "items": [
           {
             "icon": "Sparkles",
-            "title": "Interview Relevance",
-            "description": "Linked lists test pointer clarity and mutation discipline."
+            "title": "Pointer Manipulation",
+            "description": "Helps build deep pointer clarity, dynamic memory reallocation, and structural link modifications."
           },
           {
             "icon": "Trophy",
-            "title": "Competitive Programming",
-            "description": "They appear in cycle, merge, reverse, and simulation problems."
+            "title": "Interview Standards",
+            "description": "Used in almost every coding interview (Reverse List, Detect Cycle, Merge Lists, and Floyd's Cycle detection)."
           },
           {
             "icon": "Workflow",
-            "title": "Real World Applications",
-            "description": "Linked structures influence queues, adjacency lists, memory allocators, and undo stacks."
+            "title": "Core Foundations",
+            "description": "Forms the foundation of Stacks, Queues, Deques, Graph adjacency lists, LRU Cache, and Memory Allocators."
           },
           {
             "icon": "Brain",
-            "title": "Problem Solving Foundation",
-            "description": "They improve reference handling and edge-case thinking."
+            "title": "Dynamic Growth",
+            "description": "Eliminates the fixed-size constraints of arrays, allowing the structure to dynamically shrink and grow."
           }
         ]
       },
       {
         "id": "basic-operations",
-        "title": "Basic Operations",
+        "title": "Linked List Operations",
         "type": "operations",
         "columns": [
           "Operation",
           "Description",
-          "STL Function",
-          "Time Complexity"
+          "Details"
         ],
         "rows": [
           {
-            "operation": "Access Head",
-            "description": "Read first node",
-            "stl": "head",
-            "complexity": "O(1)"
+            "operation": "insertAtHead(val)",
+            "description": "Add node before current head",
+            "stl": "Updates head pointer to new node"
           },
           {
-            "operation": "Traverse",
-            "description": "Visit each node",
-            "stl": "while(curr)",
-            "complexity": "O(n)"
+            "operation": "insertAtTail(val)",
+            "description": "Add node after last node",
+            "stl": "Traverses to end (or uses tail ptr) and links"
           },
           {
-            "operation": "Search",
-            "description": "Find a value",
-            "stl": "loop",
-            "complexity": "O(n)"
+            "operation": "deleteHead()",
+            "description": "Remove and return head node",
+            "stl": "Bypasses first node and frees memory"
           },
           {
-            "operation": "Insert Front",
-            "description": "Add before head",
-            "stl": "newNode->next",
-            "complexity": "O(1)"
+            "operation": "deleteTail()",
+            "description": "Remove last node",
+            "stl": "O(n) for Singly LL; O(1) for Doubly LL with tail ptr"
           },
           {
-            "operation": "Insert Middle",
-            "description": "Reconnect links",
-            "stl": "next pointers",
-            "complexity": "O(n)"
+            "operation": "deleteNode(val)",
+            "description": "Find and remove node by value",
+            "stl": "Bypasses targeted node by connecting prev to next"
           },
           {
-            "operation": "Delete Front",
-            "description": "Move head",
-            "stl": "head = head->next",
-            "complexity": "O(1)"
+            "operation": "search(val)",
+            "description": "Search node by value",
+            "stl": "Returns node pointer or nullptr if not found"
           },
           {
-            "operation": "Delete Middle",
-            "description": "Bypass node",
-            "stl": "prev->next",
-            "complexity": "O(n)"
+            "operation": "reverse()",
+            "description": "Reverse the list in-place",
+            "stl": "Iterative prev/curr/next pointer rewiring (O(n))"
           },
           {
-            "operation": "Reverse",
-            "description": "Reverse links",
-            "stl": "prev/curr/next",
-            "complexity": "O(n)"
+            "operation": "length()",
+            "description": "Count all nodes",
+            "stl": "O(n) linear scan traversal count"
+          },
+          {
+            "operation": "print()",
+            "description": "Traverse and print all data",
+            "stl": "Sequential iteration printing node values"
           }
         ],
-        "panelTitle": "Functions Covered",
+        "panelTitle": "Helpers Covered",
         "functions": [
-          "ListNode",
           "head",
+          "tail",
           "next",
-          "new",
-          "delete",
           "prev",
           "curr",
-          "slow",
-          "fast"
+          "ListNode"
         ]
       },
       {
@@ -2596,15 +2870,11 @@
         "initialArray": [
           10,
           20,
-          30,
-          40,
-          50
+          30
         ],
         "operations": [
-          "push_back()",
-          "pop_back()",
-          "insert()",
-          "erase()"
+          "insert(index, value)",
+          "erase(index)"
         ],
         "controls": {
           "operationLabel": "Operation",
@@ -2624,124 +2894,112 @@
         "title": "Internal Working",
         "type": "internal",
         "memory": {
-          "index": [
-            0,
-            1,
-            2,
-            3,
-            4
+          "Address": [
+            "1000",
+            "2200",
+            "3100"
           ],
-          "address": [
-            1000,
-            1004,
-            1008,
-            1012,
-            1016
+          "Data (Content)": [
+            "10",
+            "20",
+            "30"
           ],
-          "value": [
-            10,
-            20,
-            30,
-            40,
-            50
+          "Next Address": [
+            "2200",
+            "3100",
+            "NULL"
+          ],
+          "Role": [
+            "Node 1 (head)",
+            "Node 2",
+            "Node 3 (tail)"
           ]
         },
         "explanation": [
-          "This demo section shows how the topic can explain its internal model visually.",
-          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+          "Linked List nodes are stored in non-contiguous memory locations (e.g. 1000, 2200, 3100), linked together via pointer addresses.",
+          "Doubly Linked List: Each node contains three fields: prev pointer | data | next pointer. This doubles pointer memory overhead but enables O(1) bidirectional scans and direct node deletions."
         ],
         "formula": {
-          "label": "position = base + step * index",
-          "example": "1000 + 4 * 4 = 1016"
+          "label": "Memory Layout",
+          "example": "Non-contiguous heap-allocated nodes connected via memory address references"
         }
       },
       {
         "id": "syntax",
-        "title": "Syntax",
+        "title": "Syntax & Node Declarations",
         "type": "syntax",
         "tabs": [
           {
-            "label": "C++",
+            "label": "Singly Linked List",
             "language": "cpp",
-            "code": "struct ListNode {\n    int val;\n    ListNode* next;\n    ListNode(int x) : val(x), next(nullptr) {}\n};"
+            "code": "// Singly Node representation\nstruct Node {\n    int data;\n    Node* next;\n    Node(int d) : data(d), next(nullptr) {}\n};\n\n// Singly LinkedList class\nclass LinkedList {\n    Node* head;\npublic:\n    LinkedList() : head(nullptr) {}\n    void insertAtHead(int val);\n};"
           },
           {
-            "label": "Java",
-            "language": "java",
-            "code": "class ListNode {\n    int val;\n    ListNode next;\n    ListNode(int val) {\n        this.val = val;\n    }\n}"
-          },
-          {
-            "label": "Python",
-            "language": "python",
-            "code": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next"
-          },
-          {
-            "label": "STL",
+            "label": "Doubly Linked List",
             "language": "cpp",
-            "code": "list<int> ls;\nls.push_back(10);\nls.push_front(5);\nls.pop_back();\nls.erase(ls.begin());"
+            "code": "// Doubly Node representation\nstruct Node {\n    int data;\n    Node* prev;\n    Node* next;\n    Node(int d) : data(d), prev(nullptr), next(nullptr) {}\n};\n\n// Doubly DLL class\nclass DLL {\n    Node* head;\n    Node* tail;\npublic:\n    DLL() : head(nullptr), tail(nullptr) {}\n    void insertAtTail(int val);\n};"
           }
         ]
       },
       {
         "id": "complexity",
-        "title": "Time and Space Complexity",
+        "title": "Complexity Matrix",
         "type": "complexity",
         "columns": [
           "Operation",
-          "Best Case",
-          "Average Case",
-          "Worst Case",
-          "Space Complexity"
+          "Singly Linked List",
+          "Doubly Linked List"
+        ],
+        "keys": [
+          "operation",
+          "singly",
+          "doubly"
         ],
         "rows": [
           {
-            "operation": "Access Head",
-            "best": "O(1)",
-            "average": "O(1)",
-            "worst": "O(1)",
-            "space": "O(1)"
+            "operation": "Insert at Head",
+            "singly": "O(1)",
+            "doubly": "O(1)"
           },
           {
-            "operation": "Traverse",
-            "best": "O(n)",
-            "average": "O(n)",
-            "worst": "O(n)",
-            "space": "O(1)"
+            "operation": "Insert at Tail",
+            "singly": "O(n)",
+            "doubly": "O(1) (with tail pointer)"
           },
           {
-            "operation": "Search",
-            "best": "O(n)",
-            "average": "O(n)",
-            "worst": "O(n)",
-            "space": "O(1)"
+            "operation": "Delete at Head",
+            "singly": "O(1)",
+            "doubly": "O(1)"
           },
           {
-            "operation": "Insert Front",
-            "best": "O(1)",
-            "average": "O(1)",
-            "worst": "O(1)",
-            "space": "O(1)"
+            "operation": "Delete at Tail",
+            "singly": "O(n)",
+            "doubly": "O(1) (with tail pointer)"
           },
           {
-            "operation": "Insert Middle",
-            "best": "O(n)",
-            "average": "O(n)",
-            "worst": "O(n)",
-            "space": "O(1)"
+            "operation": "Search by value",
+            "singly": "O(n)",
+            "doubly": "O(n)"
           },
           {
-            "operation": "Delete Front",
-            "best": "O(1)",
-            "average": "O(1)",
-            "worst": "O(1)",
-            "space": "O(1)"
+            "operation": "Access by index",
+            "singly": "O(n)",
+            "doubly": "O(n)"
           },
           {
-            "operation": "Delete Middle",
-            "best": "O(n)",
-            "average": "O(n)",
-            "worst": "O(n)",
-            "space": "O(1)"
+            "operation": "Insert at middle",
+            "singly": "O(n)",
+            "doubly": "O(n)"
+          },
+          {
+            "operation": "Delete given node*",
+            "singly": "O(n) (to find predecessor)",
+            "doubly": "O(1) (direct relinking)"
+          },
+          {
+            "operation": "Reverse traversal",
+            "singly": "Not possible",
+            "doubly": "O(n)"
           }
         ]
       },
@@ -2803,20 +3061,59 @@
         "type": "mistakes",
         "items": [
           {
-            "title": "Ignoring edge cases",
+            "title": "Not Handling Empty List (nullptr Dereference)",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
-            "wrong": "// assumes input is always valid\nsolve(data);",
-            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
-            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
+            "wrong": "void deleteHead() {\n    head = head->next; // crashes if head is null!\n}",
+            "correct": "void deleteHead() {\n    if (head == nullptr) return;\n    Node* temp = head;\n    head = head->next;\n    delete temp;\n}",
+            "explanation": "Attempting to access head->next when head is nullptr triggers a segmentation fault or undefined behavior. Always assert if head is valid first."
           },
           {
-            "title": "Using brute force when a pattern exists",
+            "title": "Losing Node Reference (Memory Leak)",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
-            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
-            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
-            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
+            "wrong": "void deleteHead() {\n    head = head->next; // old head is now lost in heap memory!\n}",
+            "correct": "void deleteHead() {\n    if (head == nullptr) return;\n    Node* temp = head;\n    head = head->next;\n    delete temp; // safely deallocated\n}",
+            "explanation": "Advancing the head pointer directly before saving it leaves the original head node dangling in heap memory, causing a leak."
+          },
+          {
+            "title": "Forgetting to Update Tail Pointer in Doubly LL",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "void insertAtTail(int val) {\n    Node* newNode = new Node(val);\n    // ... (if empty, forgot to set tail = newNode)\n}",
+            "correct": "void insertAtTail(int val) {\n    Node* newNode = new Node(val);\n    if (head == nullptr) {\n        head = newNode;\n        tail = newNode; // set both head and tail\n        return;\n    }\n    tail->next = newNode;\n    newNode->prev = tail;\n    tail = newNode;\n}",
+            "explanation": "When inserting the very first node into a Doubly Linked List, both head AND tail must point to it. Forgetting to set the tail pointer leaves it null and breaks tail updates."
+          }
+        ]
+      },
+      {
+        "id": "when-not-to-use",
+        "title": "When Not To Use Linked List",
+        "type": "table",
+        "rows": [
+          {
+            "situation": "Need O(1) random access by index",
+            "choice": "Array / Vector"
+          },
+          {
+            "situation": "Cache-friendly sequential scanning required",
+            "choice": "Array / Vector (better spatial locality)"
+          },
+          {
+            "situation": "Frequent prefix search / autocomplete options",
+            "choice": "Trie"
+          },
+          {
+            "situation": "Need fast key-value lookups",
+            "choice": "Hash Map"
+          },
+          {
+            "situation": "Need sorted ordering + range queries",
+            "choice": "BST / Set / Map"
+          },
+          {
+            "situation": "Memory constraints (pointers introduce 8-byte overhead)",
+            "choice": "Array or Bit Array"
           }
         ]
       },
@@ -2987,8 +3284,61 @@
                 "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
               }
             ]
+          },
+          {
+            "name": "Conceptual Questions",
+            "questions": [
+              {
+                "name": "What is the difference between Singly and Doubly Linked List?",
+                "platform": "Theoretical",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=difference+between+singly+and+doubly+linked+list"
+              },
+              {
+                "name": "How do you detect a cycle in a linked list? (Floyd's Algorithm)",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=detect+cycle+in+linked+list+floyd+algorithm"
+              },
+              {
+                "name": "How do you reverse a linked list in-place?",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://leetcode.com/problems/reverse-linked-list/"
+              },
+              {
+                "name": "What is the time complexity of inserting at the middle of a linked list?",
+                "platform": "Theoretical",
+                "difficulty": "Medium",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=time+complexity+of+inserting+at+middle+of+linked+list"
+              },
+              {
+                "name": "How would you find the middle node of a linked list in one pass?",
+                "platform": "LeetCode",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://leetcode.com/problems/middle-of-the-linked-list/"
+              },
+              {
+                "name": "How does a linked list differ from an array in terms of memory layout?",
+                "platform": "Theoretical",
+                "difficulty": "Easy",
+                "pattern": "Conceptual",
+                "link": "https://www.google.com/search?q=linked+list+vs+array+memory+layout"
+              }
+            ]
           }
         ]
+      },
+      {
+        "id": "quick-revision",
+        "title": "Interview Rule",
+        "type": "callout",
+        "content": "If you need O(1) insert/delete at head or tail — use Linked List.\n\nIf you need O(1) random access by index — use Array or Vector instead.\n\nIf you need bidirectional traversal or O(1) deletion given a node pointer — use Doubly Linked List."
       },
       {
         "id": "practice-roadmap",
@@ -3076,14 +3426,16 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "A stack is a linear data structure where the last inserted element is removed first.",
-          "Stacks are useful when you need to reverse order, track open states, evaluate expressions, or maintain monotonic candidates."
+          "Stack ek linear data structure hai jo LIFO (Last In First Out) principle follow karta hai.",
+          "Iska matlab hai ki jo element sabse last mein insert (Push) kiya gaya hoga, wahi sabse pehle remove (Pop) hoga.",
+          "Stack mein insertion aur deletion dono operations sirf ek hi end se perform hote hain, jise Top kaha jata hai.",
+          "Jab koi naya element add kiya jata hai to woh Top par add hota hai aur jab koi element remove kiya jata hai to woh bhi Top se hi remove hota hai."
         ],
         "highlights": [
-          "Core topic",
-          "Interview ready",
-          "Pattern based",
-          "Demo docs"
+          "LIFO Principle",
+          "Single End (Top)",
+          "Push & Pop Operations",
+          "Linear Data Structure"
         ]
       },
       {
@@ -3121,15 +3473,18 @@
         "id": "definition",
         "title": "One Line Definition",
         "type": "callout",
-        "content": "A stack follows LIFO order, meaning the most recently pushed element is the first one popped."
+        "content": "Stack ek aisa data structure hai jisme insertion aur deletion sirf ek side se hoti hai, jise Top kehte hain."
       },
       {
         "id": "real-life-example",
         "title": "Real Life Example",
         "type": "example",
         "content": [
-          "A stack behaves like plates placed on top of each other.",
-          "You add a plate to the top and remove the top plate first."
+          "Socho tumhare paas plates ka stack hai.",
+          "Nayi plate hamesha upar rakhi jaati hai.",
+          "Plate hamesha upar se hi nikali jaati hai.",
+          "Jo plate sabse last me rakhi gayi thi, wahi sabse pehle niklegi.",
+          "Yahi Stack ka concept hai."
         ],
         "visual": {
           "title": "Stack of plates",
@@ -3164,23 +3519,23 @@
         "items": [
           {
             "icon": "Sparkles",
-            "title": "Interview Relevance",
-            "description": "Stack questions test ordering, matching, and deferred processing."
+            "title": "Why Stack?",
+            "description": "Programming me kai situations aisi hoti hain jahan hume sabse recently added item ko pehle access karna hota hai. Normal array ya queue is behavior ko efficiently provide nahi karte."
           },
           {
             "icon": "Trophy",
-            "title": "Competitive Programming",
-            "description": "Monotonic stack is essential for nearest greater/smaller problems."
+            "title": "Core Benefits",
+            "description": "Stack hume data ko organized way me store karne, recent operations ko quick access dene, aur recursion/function calls manage karne me help karta hai."
           },
           {
             "icon": "Workflow",
-            "title": "Real World Applications",
-            "description": "Function calls, undo history, parsing, and browser navigation use stack-like behavior."
+            "title": "Where We Use Stack",
+            "description": "Undo / Redo Feature, Browser History maintenance, Function Calls management, Recursion, Parentheses Matching, DFS Traversal, Next Greater Element, and Monotonic Stack Problems."
           },
           {
             "icon": "Brain",
-            "title": "Problem Solving Foundation",
-            "description": "Stacks build intuition for recursion, DFS, and state rollback."
+            "title": "Real Applications",
+            "description": "Function Calls & Recursion, Browser History, Undo / Redo Feature, Expression Evaluation, Parentheses Matching, DFS Traversal, and Backtracking Algorithms."
           }
         ]
       },
@@ -3196,52 +3551,34 @@
         ],
         "rows": [
           {
-            "operation": "Push",
-            "description": "Insert on top",
+            "operation": "push(x)",
+            "description": "Top par element insert karta hai",
             "stl": "push()",
             "complexity": "O(1)"
           },
           {
-            "operation": "Pop",
-            "description": "Remove top",
+            "operation": "pop()",
+            "description": "Top element remove karta hai",
             "stl": "pop()",
             "complexity": "O(1)"
           },
           {
-            "operation": "Top",
-            "description": "Read top value",
+            "operation": "top()",
+            "description": "Top element return karta hai",
             "stl": "top()",
             "complexity": "O(1)"
           },
           {
-            "operation": "Empty",
-            "description": "Check if stack is empty",
+            "operation": "empty()",
+            "description": "Stack empty hai ya nahi check karta hai",
             "stl": "empty()",
             "complexity": "O(1)"
           },
           {
-            "operation": "Size",
-            "description": "Count values",
+            "operation": "size()",
+            "description": "Total elements count karta hai",
             "stl": "size()",
             "complexity": "O(1)"
-          },
-          {
-            "operation": "Clear",
-            "description": "Remove all values",
-            "stl": "loop pop",
-            "complexity": "O(n)"
-          },
-          {
-            "operation": "Traverse",
-            "description": "Use auxiliary copy",
-            "stl": "copy stack",
-            "complexity": "O(n)"
-          },
-          {
-            "operation": "Monotonic Push",
-            "description": "Maintain order",
-            "stl": "while + pop",
-            "complexity": "O(n) total"
           }
         ],
         "panelTitle": "Functions Covered",
@@ -3269,10 +3606,10 @@
           25
         ],
         "operations": [
-          "push_back()",
-          "pop_back()",
-          "insert()",
-          "erase()"
+          "Push",
+          "Pop",
+          "Empty",
+          "Top"
         ],
         "controls": {
           "operationLabel": "Operation",
@@ -3295,32 +3632,28 @@
           "index": [
             0,
             1,
-            2,
-            3,
-            4
+            2
           ],
           "address": [
             1000,
             1004,
-            1008,
-            1012,
-            1016
+            1008
           ],
           "value": [
-            5,
             10,
-            15,
             20,
-            25
+            30
           ]
         },
         "explanation": [
-          "This demo section shows how the topic can explain its internal model visually.",
-          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+          "Stack initialization: Stack <int> name; creates empty indexes.",
+          "name.push(10) pushes 10 at Index 0.",
+          "name.push(20) pushes 20 at Index 1.",
+          "Elements memory me continuously store hote hain (Address 1000, 1004, 1008)."
         ],
         "formula": {
           "label": "position = base + step * index",
-          "example": "1000 + 4 * 4 = 1016"
+          "example": "1000 + 4 * index"
         }
       },
       {
@@ -3331,22 +3664,17 @@
           {
             "label": "C++",
             "language": "cpp",
-            "code": "#include <stack>\nstack<int> st;\nst.push(10);\nst.push(20);\ncout << st.top();\nst.pop();"
+            "code": "stack<int> st;\n\nst.push(10); // insert the element\nst.pop(); // remove the top element\ncout << st.top(); //return the top element"
           },
           {
             "label": "Java",
             "language": "java",
-            "code": "Deque<Integer> st = new ArrayDeque<>();\nst.push(10);\nst.push(20);\nSystem.out.println(st.peek());\nst.pop();"
+            "code": "Stack<Integer> st = new Stack<>();\n\nst.push(10); // insert the element\nst.pop(); // remove the top element\nSystem.out.println(st.peek()); //return the top element"
           },
           {
             "label": "Python",
             "language": "python",
-            "code": "st = []\nst.append(10)\nst.append(20)\nprint(st[-1])\nst.pop()"
-          },
-          {
-            "label": "STL",
-            "language": "cpp",
-            "code": "stack<int> st;\nst.push(10);\nst.pop();\nif (!st.empty()) cout << st.top();"
+            "code": "st = []\n\nst.append(10) # insert the element\nst.pop() # remove the top element\nprint(st[-1]) #return the top element"
           }
         ]
       },
@@ -3395,20 +3723,6 @@
             "best": "O(1)",
             "average": "O(1)",
             "worst": "O(1)",
-            "space": "O(1)"
-          },
-          {
-            "operation": "Clear",
-            "best": "O(n)",
-            "average": "O(n)",
-            "worst": "O(n)",
-            "space": "O(1)"
-          },
-          {
-            "operation": "Traverse",
-            "best": "O(n)",
-            "average": "O(n)",
-            "worst": "O(n)",
             "space": "O(1)"
           }
         ]

@@ -3,16 +3,26 @@ import SectionFrame from "./SectionFrame";
 
 function RealLifeExampleSection({ section }) {
   if (section.type === "comparison") {
+    const keys = [];
+    if (section.left) keys.push("left");
+    if (section.center) keys.push("center");
+    if (section.right) keys.push("right");
+    if (keys.length === 0) {
+      if (section.array) keys.push("array");
+      if (section.vector) keys.push("vector");
+    }
+    const gridColsClass = keys.length === 3 ? "md:grid-cols-3" : keys.length === 2 ? "md:grid-cols-2" : "grid-cols-1";
     return (
       <SectionFrame section={section}>
-        <div className="grid gap-6 md:grid-cols-2">
-          {["array", "vector"].map((key) => {
+        <div className={`grid gap-6 ${gridColsClass}`}>
+          {keys.map((key) => {
             const data = section[key];
             if (!data) return null;
+            const displayTitle = key === "left" || key === "center" || key === "right" ? data.title || key : `${key}: ${data.title}`;
             return (
               <div key={key} className="rounded-lg border border-white/10 bg-black/24 p-5">
                 <h4 className="text-sm font-semibold uppercase tracking-wider text-white capitalize">
-                  {key}: {data.title}
+                  {displayTitle}
                 </h4>
                 <p className="mt-3 text-sm leading-6 text-white/66">{data.description}</p>
                 {data.diagram && (

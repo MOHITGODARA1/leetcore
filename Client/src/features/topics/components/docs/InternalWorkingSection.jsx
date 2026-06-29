@@ -80,18 +80,22 @@ function InternalWorkingSection({ section }) {
     <SectionFrame section={section}>
       <div className="grid gap-5 lg:grid-cols-[1fr_0.7fr]">
         <div className="overflow-x-auto rounded-lg border border-white/10 bg-black/24 p-4">
-          {section.memory && Object.entries(section.memory).map(([key, values]) => (
-            <div key={key} className="grid min-w-[520px] grid-cols-[86px_1fr] border-b border-white/8 py-3 last:border-b-0">
-              <span className="capitalize text-white/56">{key}</span>
-              <div className="grid grid-cols-5 gap-2">
-                {values.map((value) => (
-                  <span key={`${key}-${value}`} className="rounded-md border border-white/8 bg-white/[0.035] px-2 py-2 text-center font-mono text-sm text-white/80">
-                    {value}
-                  </span>
-                ))}
+          {section.memory && Object.entries(section.memory).map(([key, values]) => {
+            const colWidth = 140; // px width per cell to prevent overlap
+            const minRowWidth = 86 + values.length * colWidth;
+            return (
+              <div key={key} className="grid border-b border-white/8 py-3 last:border-b-0" style={{ gridTemplateColumns: "86px 1fr", minWidth: `${minRowWidth}px` }}>
+                <span className="capitalize text-white/56 self-center">{key}</span>
+                <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${values.length}, minmax(${colWidth}px, 1fr))` }}>
+                  {values.map((value, vIdx) => (
+                    <span key={`${key}-${value}-${vIdx}`} className="flex items-center justify-center rounded-md border border-white/8 bg-white/[0.035] px-2 py-2 text-center font-mono text-xs text-white/80 overflow-x-auto whitespace-nowrap scrollbar-none">
+                      {value}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className=" p-4">
           <div className="space-y-3 text-sm leading-6 text-white/64">

@@ -4,13 +4,28 @@ import { Play } from "lucide-react";
 import SectionFrame from "./SectionFrame";
 
 function applyOperation(array, operation, value, index) {
-  const next = [...array];
+  const isStringArray = array.some(x => typeof x === "string");
+  const next = isStringArray ? [...array].map(x => String(x)) : [...array];
+  
   const normalizedIndex = Number.isNaN(index) ? 0 : Math.max(0, Math.min(index, next.length));
+  const safeIndex = Math.min(normalizedIndex, Math.max(next.length - 1, 0));
 
-  if (operation === "push_back()") next.push(value);
-  if (operation === "pop_back()") next.pop();
-  if (operation === "insert()") next.splice(normalizedIndex, 0, value);
-  if (operation === "erase()") next.splice(Math.min(normalizedIndex, Math.max(next.length - 1, 0)), 1);
+  if (operation.startsWith("push_back") || operation === "Push") next.push(value);
+  if (operation.startsWith("pop_back") || operation === "Pop") next.pop();
+  if (operation.startsWith("insert") || operation === "Insert") next.splice(normalizedIndex, 0, value);
+  if (operation.startsWith("erase") || operation === "Erase") next.splice(safeIndex, 1);
+  
+  // String specific operations
+  if (operation.startsWith("toUpperCase")) {
+    if (next[safeIndex] !== undefined) {
+      next[safeIndex] = String(next[safeIndex]).toUpperCase();
+    }
+  }
+  if (operation.startsWith("toLowerCase")) {
+    if (next[safeIndex] !== undefined) {
+      next[safeIndex] = String(next[safeIndex]).toLowerCase();
+    }
+  }
 
   return next;
 }
@@ -62,21 +77,33 @@ function VisualizationSection({ section }) {
     value: "Value"
   };
 
+  const isStringArray = useMemo(() => initialArray.some(x => typeof x === "string"), [initialArray]);
+
   const [before, setBefore] = useState(initialArray);
   const [after, setAfter] = useState(initialArray);
   const [operation, setOperation] = useState(operations[0] || "");
-  const [value, setValue] = useState(60);
+  const [value, setValue] = useState(isStringArray ? "A" : 60);
   const [index, setIndex] = useState(2);
 
-  const preview = useMemo(
-    () => applyOperation(before, operation, Number(value), Number(index)),
-    [before, index, operation, value],
-  );
+  const preview = useMemo(() => {
+    const parsedValue = isStringArray ? String(value) : (Number.isNaN(Number(value)) ? value : Number(value));
+    return applyOperation(before, operation, parsedValue, Number(index));
+  }, [before, index, operation, value, isStringArray]);
 
   function runVisualization() {
     setAfter(preview);
     setBefore(preview);
   }
+
+  // Determine if index input is needed for selected operation
+  const needsIndex = useMemo(() => {
+    return operation.includes("index") || operation.includes("insert") || operation.includes("erase") || operation.includes("Pop") || operation.includes("pop");
+  }, [operation]);
+
+  // Determine if value input is needed for selected operation
+  const needsValue = useMemo(() => {
+    return operation.includes("push") || operation.includes("insert") || operation.includes("Push") || operation.includes("char");
+  }, [operation]);
 
   return (
     <SectionFrame section={section}>
@@ -97,24 +124,37 @@ function VisualizationSection({ section }) {
             ))}
           </select>
           <div className="mt-4 grid grid-cols-2 gap-3">
-            <label className="text-xs font-semibold uppercase tracking-[0.14em] text-white/48">
-              {controls.valueLabel}
-              <input
-                value={value}
-                onChange={(event) => setValue(event.target.value)}
-                type="number"
-                className="mt-2 w-full rounded-md border border-white/10 bg-[#141416] px-3 py-2 text-sm normal-case text-white"
-              />
-            </label>
-            <label className="text-xs font-semibold uppercase tracking-[0.14em] text-white/48">
-              {controls.indexLabel}
-              <input
-                value={index}
-                onChange={(event) => setIndex(event.target.value)}
-                type="number"
-                className="mt-2 w-full rounded-md border border-white/10 bg-[#141416] px-3 py-2 text-sm normal-case text-white"
-              />
-            </label>
+            {needsValue ? (
+              <label className="text-xs font-semibold uppercase tracking-[0.14em] text-white/48">
+                {controls.valueLabel}
+                <input
+                  value={value}
+                  onChange={(event) => setValue(event.target.value)}
+                  type={isStringArray ? "text" : "number"}
+                  maxLength={isStringArray ? 1 : undefined}
+                  className="mt-2 w-full rounded-md border border-white/10 bg-[#141416] px-3 py-2 text-sm normal-case text-white"
+                />
+              </label>
+            ) : (
+              <div className="flex flex-col justify-end text-xs text-white/30 italic pb-2">
+                No value needed
+              </div>
+            )}
+            {needsIndex ? (
+              <label className="text-xs font-semibold uppercase tracking-[0.14em] text-white/48">
+                {controls.indexLabel}
+                <input
+                  value={index}
+                  onChange={(event) => setIndex(event.target.value)}
+                  type="number"
+                  className="mt-2 w-full rounded-md border border-white/10 bg-[#141416] px-3 py-2 text-sm normal-case text-white"
+                />
+              </label>
+            ) : (
+              <div className="flex flex-col justify-end text-xs text-white/30 italic pb-2">
+                No index needed
+              </div>
+            )}
           </div>
           <button
             type="button"

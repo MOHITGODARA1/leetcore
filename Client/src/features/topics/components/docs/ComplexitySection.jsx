@@ -38,6 +38,12 @@ function ComplexitySection({ section }) {
                     <td className="px-4 py-3 font-mono">{row.array}</td>
                     <td className="px-4 py-3 font-mono">{row.vector}</td>
                   </>
+                ) : section.keys ? (
+                  section.keys.map((key, kIdx) => (
+                    <td key={kIdx} className={`px-4 py-3 ${kIdx === 0 ? "font-semibold text-white" : "font-mono"}`}>
+                      {row[key]}
+                    </td>
+                  ))
                 ) : (
                   <>
                     <td className="px-4 py-3 font-semibold text-white">{row.operation}</td>
