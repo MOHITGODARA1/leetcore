@@ -3,7 +3,7 @@ import LandingNavbar from "../features/landing/landingnavbar";
 import HeroSection from "../features/landing/herosection";
 import Features from "../features/landing/feature";
 import Feedback from "../features/landing/feedback";
-import AboutCreator from "../features/landing/aboutcreator";
+import TeamSection from "../features/landing/aboutcreator";
 import Footer from "../features/landing/footer";
 import Login from "../auth/Login";
 
@@ -24,8 +24,8 @@ function LandingPage() {
                 <Features />
                 {/* Feedback */}
                 <Feedback />
-                {/* About Creator */}
-                <AboutCreator />
+                {/* Team Section */}
+                <TeamSection />
                 {/* Footer */}
                 <Footer />
             </div>

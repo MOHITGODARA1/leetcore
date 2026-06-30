@@ -1,324 +1,192 @@
-// AboutCreator.jsx
+// TeamSection.jsx
 
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
-function AboutCreator() {
+const team = [
+    {
+        name: "Mohit Godara",
+        role: "Founder & Full Stack Developer",
+        quote: "Building things that actually help people learn.",
+        img: "./mohit.png", // replace with real image path
+    },
+    {
+        name: "Isha Yadav",
+        role: "Co-Founder ",
+        quote: "Pixels with purpose, every single time.",
+        img: "./isha.png",
+    },
+    {
+        name: "Khushi Sharma",
+        role: "Content Strategist",
+        quote: "If it scales quietly, I did my job right.",
+        img: "./khushi.jpeg",
+    },
+    {
+        name: "Sakshi Sinha",
+        role: "UI/UX Designer",
+        quote: "Good design is invisible until it's gone.",
+        img: "./sakshi.png",
+    },
+    {
+        name: "Aditya Singh",
+        role: "Backend Developer",
+        quote: "I debug in production",
+        img: "./aditya.png",
+    },
+];
+
+// duplicate so the loop wraps seamlessly
+const loopedTeam = [...team, ...team, ...team];
+
+// how often the carousel advances (ms) — increase to slow it down further
+const STEP_INTERVAL = 3000;
+// how long the glide animation takes (ms) — increase for a slower, smoother glide
+const SCROLL_DURATION = 1200;
+
+function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+
+function TeamSection() {
+    const trackRef = useRef(null);
+    const cardRefs = useRef([]);
+    const [activeIndex, setActiveIndex] = useState(team.length); // start in the middle copy
+
+    // advance one card forward on a timer
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => prev + 1);
+        }, STEP_INTERVAL);
+        return () => clearInterval(interval);
+    }, []);
+
+    // smoothly glide the track so the active card's CENTER aligns with
+    // the track's center, then silently reset once we pass through the
+    // duplicated copies so the loop never visibly jumps
+    useEffect(() => {
+        const track = trackRef.current;
+        const card = cardRefs.current[activeIndex];
+        if (!track || !card) return;
+
+        const getCenterTarget = (targetCard) => {
+            const trackRect = track.getBoundingClientRect();
+            const cardRect = targetCard.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const trackCenter = trackRect.left + trackRect.width / 2;
+            return track.scrollLeft + (cardCenter - trackCenter);
+        };
+
+        const target = getCenterTarget(card);
+        const start = track.scrollLeft;
+        const distance = target - start;
+        let startTime = null;
+        let frameId;
+
+        const animateScroll = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / SCROLL_DURATION, 1);
+            track.scrollLeft = start + distance * easeInOutQuad(progress);
+            if (progress < 1) {
+                frameId = requestAnimationFrame(animateScroll);
+            }
+        };
+
+        frameId = requestAnimationFrame(animateScroll);
+
+        let resetTimeout;
+        if (activeIndex >= team.length * 2) {
+            const resetIndex = activeIndex - team.length;
+            resetTimeout = setTimeout(() => {
+                const resetCard = cardRefs.current[resetIndex];
+                if (resetCard) {
+                    track.scrollLeft = getCenterTarget(resetCard);
+                }
+                setActiveIndex(resetIndex);
+            }, SCROLL_DURATION + 50);
+        }
+
+        return () => {
+            cancelAnimationFrame(frameId);
+            clearTimeout(resetTimeout);
+        };
+    }, [activeIndex]);
+
     return (
         <section className="w-full bg-transparent py-20 sm:py-28 lg:py-32 overflow-hidden relative">
 
-            {/* Background Glow */}
-            <div className="absolute right-0 top-40 w-[400px] h-[400px] bg-[#F46717]/10 blur-[120px] rounded-full" />
-
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+                <h2 className="text-[2.1rem] sm:text-4xl md:text-5xl text-center mb-14">
+                    <span className="text-white">Meet The </span>
+                    <span className="text-[#F46717]">Team</span>
+                </h2>
+            </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-
-                    {/* LEFT CONTENT */}
-                    <div>
-
-                        {/* Heading */}
-                        <h1
-                            className="
-                text-[2.35rem]
-                sm:text-4xl
-                md:text-5xl
-               
-                leading-[1]
-                tracking-normal
-              "
-                        >
-                            <span className="text-[#F46717]">
-                                A Developer,
-                            </span>
-
-                            <br />
-
-                            <span className="text-white">
-                                Not Just
-                            </span>
-
-                            <br />
-
-                            <span className="text-white">
-                                Another Creator.
-                            </span>
-                        </h1>
-
-                        {/* About Text */}
+            {/* Track is outside the padded wrapper so its true center
+                lines up with the viewport center for accurate focusing */}
+            <div
+                ref={trackRef}
+                className="flex gap-6 overflow-x-hidden py-6 px-6"
+                style={{ scrollbarWidth: "none" }}
+            >
+                {loopedTeam.map((member, i) => {
+                    const isActive = i === activeIndex;
+                    return (
                         <div
-                            className="
-                mt-9
-                sm:mt-12
-                space-y-8
-                text-[#b7b7c2]
-                text-base
-                sm:text-md
-                leading-[1.65]
-                font-light
-                max-w-3xl
-              "
+                            key={i}
+                            ref={(el) => (cardRefs.current[i] = el)}
+                            className={`
+                                relative
+                                flex-shrink-0
+                                w-[260px] sm:w-[300px]
+                                h-[360px] sm:h-[400px]
+                                rounded-2xl
+                                overflow-hidden
+                                border border-white/10
+                                transition-all duration-500 ease-out
+                                ${
+                                    isActive
+                                        ? "scale-110 border-[#F46717]/50  z-10"
+                                        : "scale-90 opacity-60"
+                                }
+                            `}
                         >
-                            <p>
-                                Hey, I’m Mohit — a full stack developer and a student
-                                deeply passionate about building products that actually
-                                help developers learn better.
-                                <br />
-                                <br />
-                                During my own preparation journey, I realized that most
-                                students struggle not because they are incapable,
-                                but because learning core CS subjects often feels
-                                confusing, unstructured, and overwhelming.
-                                <br />
-                                <br />
-                                That’s why I started building LeetCore —
-                                a platform focused on making Operating Systems,
-                                DBMS, Computer Networks, and coding fundamentals
-                                easier to understand through structured learning,
-                                practical explanations, and relatable teaching.
-                                <br />
-                                <br />
-
-
-                                I genuinely believe students don’t need more
-                                complicated content.
-                                They need clarity, direction, consistency,
-                                and someone who explains concepts like a mentor,
-                                not a textbook.
-                                <br />
-                                <br />
-
-                                Let’s build strong fundamentals,
-                                one topic at a time.
-                                <br />
-                                <br />
-                            </p>
-                        </div>
-
-                        {/* CTA */}
-                        {/* <button
-                            className="
-                mt-8
-                bg-[#F46717]
-                text-white
-                px-10
-                py-4
-                rounded-full
-                text-md
-                font-semibold
-
-                hover:scale-105
-                hover:shadow-[0px_0px_40px_rgba(244,103,23,0.4)]
-
-                transition-all
-                duration-300
-              "
-                        >
-                            Explore LeetCore →
-                        </button> */}
-
-                        {/* Social Cards */}
-                        <div className="mt-10 space-y-5">
-
-
-                            <Link to="https://github.com/MOHITGODARA1" target="_blank" className="
-                  w-full
-                  max-w-lg
-                  bg-white/[0.035]
-                  border border-white/10
-                  backdrop-blur-2xl
-                  rounded-2xl
-                  px-6
-                  py-3
-                  flex
-                  items-center
-                  gap-5
-                  
-                  transition
-                  duration-300
-                ">
-                                <div
-                                    className="
-                    w-12
-                    h-12
-                    rounded-full
-                    bg-[#111113]
-                    border border-white/10
-                    flex
-                    items-center
-                    justify-center
-                    text-white
-                    text-xl
-                    
-                  "
-                                >
-                                    ▶
+                            {/* Full-bleed developer photo */}
+                            {member.img ? (
+                                <img
+                                    src={member.img}
+                                    alt={member.name}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+                            ) : (
+                                <div className="absolute inset-0 w-full h-full bg-[#111113] flex items-center justify-center">
+                                    <span className="text-gray-600 text-sm">
+                                        Photo
+                                    </span>
                                 </div>
+                            )}
 
-                                <div>
-                                    <h3 className="text-white text-md font-semibold">
-                                        @leetcore
-                                    </h3>
+                            {/* Black gradient overlay at bottom */}
+                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
-                                    <p className="text-gray-400 text-sm mt-1">
-                                        Learning Core CS The Modern Way
-                                    </p>
-                                </div>
-                            </Link>
-
-
-
-
-                            <Link to="https://www.linkedin.com/in/mohit-godara816/" target="_blank" className="
-                  w-full
-                  max-w-lg
-                  bg-white/[0.035]
-                  border border-white/10
-                  backdrop-blur-2xl
-                  rounded-2xl
-                  px-6
-                  py-3
-                  flex
-                  items-center
-                  gap-5
-                  
-                  transition
-                  duration-300
-                ">
-                                <div
-                                    className="
-                                            w-12
-                                            h-12
-                                            rounded-full
-                                            bg-[#111113]
-                                            border border-white/10
-                                            flex
-                                            items-center
-                                            justify-center
-                                            text-white
-                                            text-md
-                                            font-semibold
-                                        "
-                                >
-                                    in
-                                </div>
-
-                                <div>
-                                    <h3 className="text-white text-md font-semibold">
-                                        Mohit Godara
-                                    </h3>
-
-                                    <p className="text-gray-400 text-sm mt-1">
-                                        Building LeetCore & developer-focused products
-                                    </p>
-                                </div>
-                            </Link>
-
-                        </div>
-                    </div>
-
-                    {/* RIGHT IMAGE SECTION */}
-                    <div className="relative flex items-center justify-center">
-
-
-
-                        {/* Image Placeholder */}
-                        <div
-                            className="
-                relative
-                w-full
-                max-w-[520px]
-                min-h-[520px]
-                sm:min-h-[640px]
-                rounded-[32px]
-                flex
-                items-center
-                justify-center
-
-
-
-
-                
-              "
-                        >
-                            {/* ADD YOUR IMAGE HERE */}
-                            <span className="text-gray-600 text-2xl">
-                                <img src="/profile.png" alt="profile" className="w-full max-w-[430px] rounded-full border border-white/10 shadow-[0_30px_90px_rgba(0,0,0,0.35)]" />
-                            </span>
-
-                            {/* Floating Labels */}
-                            <div
-                                className="
-                  absolute
-                  top-8
-                  left-0
-                  sm:left-[-24px]
-                  bg-[#101011]/90
-                  border border-[#F46717]/30
-                  backdrop-blur-xl
-
-                  px-6
-                  py-3
-                  rounded-full
-
-                  text-white
-                  text-md
-                  font-medium
-                "
-                            >
-                                Full Stack Developer
-                            </div>
-
-                            <div
-                                className="
-                  absolute
-                  bottom-16
-                  right-0
-                  sm:right-[-20px]
-
-                  bg-[#101011]/90
-                  border border-[#F46717]/30
-                  backdrop-blur-xl
-
-                  px-6
-                  py-3
-                  rounded-full
-
-                  text-white
-                  text-md
-                  font-medium
-                "
-                            >
-                                Building LeetCore
-                            </div>
-
-                            <div
-                                className="
-                  absolute
-                  top-[45%]
-                  right-0
-                  sm:right-[-30px]
-
-                  bg-[#101011]/90
-                  border border-[#F46717]/30
-                  backdrop-blur-xl
-
-                  px-6
-                  py-3
-                  rounded-full
-
-                  text-white
-                  text-md
-                  font-medium
-                "
-                            >
-                                CS Learning Simplified
+                            {/* Name, role, quote — sitting on the gradient */}
+                            <div className="absolute bottom-0 left-0 right-0 px-5 py-5 text-left">
+                                <h3 className="text-white text-md font-semibold">
+                                    {member.name}
+                                </h3>
+                                <p className="text-[#F46717] text-sm font-medium mt-1">
+                                    {member.role}
+                                </p>
+                                <p className="text-gray-300 text-xs mt-2 leading-relaxed italic">
+                                    "{member.quote}"
+                                </p>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    );
+                })}
             </div>
         </section>
     );
 }
 
-export default AboutCreator;
+export default TeamSection;
