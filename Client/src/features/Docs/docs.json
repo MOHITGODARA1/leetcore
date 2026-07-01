@@ -365,20 +365,20 @@
   "type": "videos",
   "items": [
     {
-      "title": "Arrays & Vectors in C++ (CodeHelp)",
+      "title": "Introduction to Arrays in C++",
       "channel": "Love Babbar",
       "duration": "48:15",
-      "url": "https://www.youtube.com/watch?v=D3B_W4X_1QI",
+      "url": "https://youtu.be/sNrLlmOIn-c?si=LBPeJxKTW9OrJNDC",
       "thumbnail": {
         "kind": "array-cubes",
         "values": [5, 10, 15, 20]
       }
     },
     {
-      "title": "Introduction to Arrays in Java (Apna College)",
-      "channel": "Shradha Khapra",
+      "title": "Introduction to Arrays in Java",
+      "channel": "Anuj Kumar Sharma",
       "duration": "32:40",
-      "url": "https://www.youtube.com/watch?v=nQ7-t68z_p0",
+      "url": "https://youtu.be/qqRDHzPli3o?si=izzMRKjARNCjSG7W",
       "thumbnail": {
         "kind": "array-cubes",
         "values": [1, 2, 3, 4]
@@ -785,20 +785,20 @@
         "type": "videos",
         "items": [
           {
-            "title": "Strings in C++ — Core Concepts & Algorithms",
+            "title": "Char Arrays, Strings & Solving Leetcode Questions (C++)",
             "channel": "Love Babbar",
             "duration": "45:30",
-            "url": "https://www.youtube.com/watch?v=n-WzAlCVsXY",
+            "url": "https://youtu.be/Wdjr6uoZ0e0?si=Sc4l-mP9HMznFzJ-",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [12, 24, 36, 48]
             }
           },
           {
-            "title": "Strings in Java — Complete Guide (Apna College)",
-            "channel": "Shradha Khapra",
+            "title": "Strings in Java || DSA Series by Babbar",
+            "channel": "Love Babbar",
             "duration": "38:12",
-            "url": "https://www.youtube.com/watch?v=kYJ40243O5s",
+            "url": "https://youtu.be/_hvBbiMRoo0?si=os8ghnRZg8y_-wgg",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [10, 20, 30, 40]
@@ -1250,20 +1250,20 @@
         "type": "videos",
         "items": [
           {
-            "title": "Hashmaps & Tries in C++ — CodeHelp",
-            "channel": "Love Babbar",
+            "title": "Introduction to Hashing, Maps & Collisions (C++)",
+            "channel": "takeUforward",
             "duration": "58:20",
-            "url": "https://www.youtube.com/watch?v=RTzfHgUch3R",
+            "url": "https://youtu.be/KEs5UyBJ39g?si=lp2G3nF7eecPNam_",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [15, 30, 45, 60]
             }
           },
           {
-            "title": "Hashing & Frequency Maps in Java (Apna College)",
-            "channel": "Shradha Khapra",
+            "title": "Introduction to HashMap & HashTable in Java",
+            "channel": "Kunal Kushwaha",
             "duration": "42:15",
-            "url": "https://www.youtube.com/watch?v=kU8nS-13O44",
+            "url": "https://youtu.be/XLbvmMz8Fr8?si=md93np98yeEEjtxS",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [8, 16, 24, 32]
@@ -1792,20 +1792,20 @@
         "type": "videos",
         "items": [
           {
-            "title": "Binary Search Placement Series — CodeHelp",
+            "title": "Binary Search Explained in 1 Video [Theory + Code] (C++)",
             "channel": "Love Babbar",
             "duration": "51:40",
-            "url": "https://www.youtube.com/watch?v=yW2P-V7yY4E",
+            "url": "https://youtu.be/YJeoQBevNVo?si=fktxlrfBZrJCGswF",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [4, 8, 16, 32]
             }
           },
           {
-            "title": "Binary Search Algorithm & Questions (Apna College)",
-            "channel": "Shradha Khapra",
+            "title": "Binary Search Algorithm in Java",
+            "channel": "Kunal Kushwaha",
             "duration": "40:50",
-            "url": "https://www.youtube.com/watch?v=kMffqQXYs2A",
+            "url": "https://youtu.be/p_MZraK3w2s?si=Lk-xsZcIV7pHSieD",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [2, 4, 6, 8]
@@ -2334,20 +2334,20 @@
         "type": "videos",
         "items": [
           {
-            "title": "Linked List in C++ — Core to Advanced",
+            "title": "Linked List & its Types in C++",
             "channel": "Love Babbar",
             "duration": "1:15:30",
-            "url": "https://www.youtube.com/watch?v=R9KrxSe1W-k",
+            "url": "https://youtu.be/LyuuqCVkP5I?si=nK0jkb1NH3I1yhp5",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [3, 6, 9, 12]
             }
           },
           {
-            "title": "Linked List in Java — Complete Tutorial (Apna College)",
-            "channel": "Shradha Khapra",
+            "title": "Introduction to Linked List in Java",
+            "channel": "Apna College",
             "duration": "49:20",
-            "url": "https://www.youtube.com/watch?v=515aPikjo0s",
+            "url": "https://youtu.be/oAja8-Ulz6o?si=qf0vJAj2Qt1EQD5k",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [1, 2, 4, 8]
@@ -2818,20 +2818,20 @@
         "type": "videos",
         "items": [
           {
-            "title": "Stack in C++ — Implementation & Interview Prep",
+            "title": "Introduction to Stacks [Theory + Implementation] (C++)",
             "channel": "Love Babbar",
             "duration": "54:10",
-            "url": "https://www.youtube.com/watch?v=J5a9qD-0B28",
+            "url": "https://youtu.be/_6COl6V6mng?si=iVcbAovsiMeIUDOD",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [6, 12, 18, 24]
             }
           },
           {
-            "title": "Stack in Java — Standard & Monotonic (Apna College)",
-            "channel": "Shradha Khapra",
+            "title": "Stack Data Structure in Java",
+            "channel": "Apna College",
             "duration": "44:35",
-            "url": "https://www.youtube.com/watch?v=F0VMPTtFCw0",
+            "url": "https://youtu.be/7m1DMYAbdiY?si=nWgtRsDkvihKzwzW",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [5, 10, 15, 20]
@@ -3304,20 +3304,20 @@
         "type": "videos",
         "items": [
           {
-            "title": "Queue & Deque in C++ — Complete Guide",
+            "title": "Queues in C++ [STL + Implementation + Types]",
             "channel": "Love Babbar",
             "duration": "48:50",
-            "url": "https://www.youtube.com/watch?v=kG1He909Q24",
+            "url": "https://youtu.be/W7uB9-TKfTg?si=0X-VvOwf5Rdybzlx",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [8, 16, 24, 32]
             }
           },
           {
-            "title": "Queue in Java — BFS & Implementation (Apna College)",
-            "channel": "Shradha Khapra",
+            "title": "Complete Queue Data Structure in Java",
+            "channel": "Apna College",
             "duration": "39:15",
-            "url": "https://www.youtube.com/watch?v=m7H5b8k3xHw",
+            "url": "https://youtu.be/va_6RmSrKCg?si=xpQy6kcCYcPp5aap",
             "thumbnail": {
               "kind": "array-cubes",
               "values": [4, 8, 12, 16]
