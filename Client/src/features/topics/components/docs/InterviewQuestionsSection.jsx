@@ -1,49 +1,61 @@
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 import SectionFrame from "./SectionFrame";
-import { difficultyClass } from "./difficulty";
 
 function InterviewQuestionsSection({ section }) {
+  const [openIndexes, setOpenIndexes] = useState({});
+
+  const toggleIndex = (index) => {
+    setOpenIndexes((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
+  const questions = section.questions || [];
+
   return (
     <SectionFrame section={section}>
-      <div className="space-y-5">
-        {section.categories.map((category) => (
-          <div key={category.name} className="overflow-hidden rounded-lg border border-white/10">
-            <div className="flex items-center justify-between bg-white/[0.055] px-4 py-3">
-              <h3 className="font-semibold text-white">{category.name}</h3>
-              <span className="text-xs text-white/46">{category.questions.length}</span>
+      <div className="mt-4 space-y-3">
+        {questions.map((item, index) => {
+          const isOpen = !!openIndexes[index];
+
+          return (
+            <div
+              key={index}
+              className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.015] backdrop-blur-md transition-all duration-300 hover:border-orange-500/30 hover:bg-white/[0.03]"
+            >
+              <button
+                onClick={() => toggleIndex(index)}
+                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white/90 transition hover:text-white"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-orange-400">
+                    <HelpCircle size={17} />
+                  </div>
+                  <span className="text-sm sm:text-base">{item.question}</span>
+                </div>
+                <ChevronDown
+                  size={18}
+                  className={`text-white/40 transition-transform duration-300 ${
+                    isOpen ? "rotate-180 text-orange-400" : ""
+                  }`}
+                />
+              </button>
+              <div
+                className={`transition-all duration-300 ease-in-out ${
+                  isOpen
+                    ? "max-h-[1000px] border-t border-white/5 opacity-100 py-4"
+                    : "max-h-0 opacity-0 overflow-hidden"
+                }`}
+              >
+                <div className="px-5 pl-16 text-sm leading-relaxed text-white/70 whitespace-pre-line">
+                  {item.answer}
+                </div>
+              </div>
             </div>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[820px] text-left text-sm">
-                <thead className="bg-black/24 text-xs uppercase tracking-[0.12em] text-white/42">
-                  <tr>
-                    {section.columns.map((column) => (
-                      <th key={column} className="px-4 py-3 font-semibold">{column}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/8 bg-black/16 text-white/68">
-                  {category.questions.map((question) => (
-                    <tr key={`${category.name}-${question.name}`} className="transition hover:bg-orange-500/[0.06]">
-                      <td className="px-4 py-3 font-semibold text-white">{question.name}</td>
-                      <td className="px-4 py-3">{question.platform}</td>
-                      <td className="px-4 py-3">
-                        <span className={`rounded-full border px-2.5 py-1 text-xs font-semibold ${difficultyClass(question.difficulty)}`}>
-                          {question.difficulty}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3">{question.pattern}</td>
-                      <td className="px-4 py-3">
-                        <a href={question.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-orange-200 hover:text-orange-100">
-                          Open <ArrowUpRight size={14} />
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </SectionFrame>
   );

@@ -335,15 +335,63 @@
 {
   "id": "interview-questions",
   "title": "Interview Questions",
-  "type": "list",
-
-  "items": [
-    "When to Use a Vector?",
-    "When Not to Use Arrays or Vectors?",
-    "Difference Between Array and Vector?",
-    "What is Capacity in Vector?",
-    "Why does Vector resize?"
+  "type": "questions",
+  "questions": [
+    {
+      "question": "When to Use a Vector?",
+      "answer": "Use a Vector when the size of the array is not known beforehand, you need automatic resizing, or you need to dynamically insert/delete elements at the end in amortized O(1) time."
+    },
+    {
+      "question": "When Not to Use Arrays or Vectors?",
+      "answer": "Avoid them when insertions or deletions in the middle are frequent (use Linked List/BST), when O(1) search by key is needed (use Hash Map), or when memory layout needs to be non-contiguous."
+    },
+    {
+      "question": "Difference Between Array and Vector?",
+      "answer": "An Array has a static/fixed size determined at compile-time and is allocated on the stack (or heap manually). A Vector has a dynamic size that grows at runtime, manages memory automatically, and is allocated on the heap."
+    },
+    {
+      "question": "What is Capacity in Vector?",
+      "answer": "Capacity is the total amount of memory allocated for the vector (maximum elements it can hold without reallocation), whereas Size is the number of actual elements currently stored."
+    },
+    {
+      "question": "Why does Vector resize?",
+      "answer": "A Vector resizes to allow adding more elements when its size reaches its capacity. It automatically allocates a new, larger memory block (usually double the size), copies/moves existing elements there, and deletes the old memory."
+    }
   ]
+},
+{
+  "id": "videos",
+  "title": "Recommended Videos",
+  "type": "videos",
+  "items": [
+    {
+      "title": "Introduction to Arrays in C++",
+      "channel": "Love Babbar",
+      "duration": "48:15",
+      "url": "https://youtu.be/sNrLlmOIn-c?si=LBPeJxKTW9OrJNDC",
+      "thumbnail": {
+        "kind": "array-cubes",
+        "values": [5, 10, 15, 20]
+      }
+    },
+    {
+      "title": "Introduction to Arrays in Java",
+      "channel": "Anuj Kumar Sharma",
+      "duration": "32:40",
+      "url": "https://youtu.be/qqRDHzPli3o?si=izzMRKjARNCjSG7W",
+      "thumbnail": {
+        "kind": "array-cubes",
+        "values": [1, 2, 3, 4]
+      }
+    }
+  ]
+},
+{
+  "id": "practice-roadmap",
+  "title": "Practice Roadmap",
+  "type": "roadmap",
+  "nextTopic": "String",
+  "nextTitle": "Strings"
 },
 
 {
@@ -737,48 +785,23 @@
         "type": "videos",
         "items": [
           {
-            "title": "String Basics for Interviews",
-            "channel": "LeetCore Academy",
-            "duration": "12:41",
-            "url": "https://www.youtube.com/results?search_query=String%20Basics%20for%20Interviews%20dsa",
+            "title": "Char Arrays, Strings & Solving Leetcode Questions (C++)",
+            "channel": "Love Babbar",
+            "duration": "45:30",
+            "url": "https://youtu.be/Wdjr6uoZ0e0?si=Sc4l-mP9HMznFzJ-",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                10,
-                20,
-                30,
-                40
-              ]
+              "values": [12, 24, 36, 48]
             }
           },
           {
-            "title": "Sliding Window on Strings",
-            "channel": "LeetCore Academy",
-            "duration": "14:08",
-            "url": "https://www.youtube.com/results?search_query=Sliding%20Window%20on%20Strings%20dsa",
+            "title": "Strings in Java || DSA Series by Babbar",
+            "channel": "Love Babbar",
+            "duration": "38:12",
+            "url": "https://youtu.be/_hvBbiMRoo0?si=os8ghnRZg8y_-wgg",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                10,
-                20,
-                30,
-                40
-              ]
-            }
-          },
-          {
-            "title": "Palindrome and Anagram Patterns",
-            "channel": "LeetCore Academy",
-            "duration": "15:22",
-            "url": "https://www.youtube.com/results?search_query=Palindrome%20and%20Anagram%20Patterns%20dsa",
-            "thumbnail": {
-              "kind": "array-cubes",
-              "values": [
-                10,
-                20,
-                30,
-                40
-              ]
+              "values": [10, 20, 30, 40]
             }
           }
         ]
@@ -841,216 +864,30 @@
         "id": "interview-questions",
         "title": "Interview Questions",
         "type": "questions",
-        "columns": [
-          "Problem Name",
-          "Platform",
-          "Difficulty",
-          "Pattern",
-          "Link"
-        ],
-        "categories": [
+        "questions": [
           {
-            "name": "Basics",
-            "questions": [
-              {
-                "name": "Valid Anagram",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
-              },
-              {
-                "name": "Valid Palindrome",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
-              },
-              {
-                "name": "Longest Substring Without Repeating Characters",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
-              }
-            ]
+            "question": "Difference between Char Array and String (STL)?",
+            "answer": "A Char Array is a fixed-size array of characters terminated by a null character \\0 (C-style). A String (std::string) is an object wrapper in C++ STL that manages memory dynamically, resizes automatically, and provides high-level methods like .length(), .substr(), .find(), etc."
           },
           {
-            "name": "Two Pointer",
-            "questions": [
-              {
-                "name": "Valid Anagram",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
-              },
-              {
-                "name": "Valid Palindrome",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
-              },
-              {
-                "name": "Longest Substring Without Repeating Characters",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
-              }
-            ]
+            "question": "Why are strings immutable in languages like Python/Java but mutable in C++?",
+            "answer": "In languages like Java/Python, strings are immutable for memory optimization (String Pool), security (network/file parameters), and thread safety. C++ prioritizes performance and direct memory access, allowing strings to be modified in-place to avoid copy overhead."
           },
           {
-            "name": "Sliding Window",
-            "questions": [
-              {
-                "name": "Valid Anagram",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
-              },
-              {
-                "name": "Valid Palindrome",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
-              },
-              {
-                "name": "Longest Substring Without Repeating Characters",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
-              }
-            ]
+            "question": "How does substr() work internally — does it create a copy?",
+            "answer": "In standard C++ STL, .substr(pos, len) creates a brand-new string object and copies the characters from the original string. This is an O(N) operation. However, modern C++ (C++17) introduces std::string_view which acts as a non-owning read-only view of a string segment without copying."
           },
           {
-            "name": "Prefix Sum",
-            "questions": [
-              {
-                "name": "Valid Anagram",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
-              },
-              {
-                "name": "Valid Palindrome",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
-              },
-              {
-                "name": "Longest Substring Without Repeating Characters",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
-              }
-            ]
+            "question": "What is the time complexity of string concatenation in a loop, and why is it costly?",
+            "answer": "In languages with immutable strings (Java/Python) or standard + operator in loops, concatenating strings of length L inside a loop of size N takes O(N * L) or O(N^2) time because a new string is allocated and copied on each iteration. In C++, using += or stringstream optimizes this by appending in-place."
           },
           {
-            "name": "Binary Search",
-            "questions": [
-              {
-                "name": "Valid Anagram",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
-              },
-              {
-                "name": "Valid Palindrome",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
-              },
-              {
-                "name": "Longest Substring Without Repeating Characters",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
-              }
-            ]
+            "question": "How would you check if two strings are anagrams?",
+            "answer": "You can check if two strings are anagrams in O(N) time and O(1) auxiliary space by using a frequency array of size 26 (or 256 for ASCII) to count character occurrences. Increment for the first string, decrement for the second, and check if all frequencies are zero."
           },
           {
-            "name": "Advanced",
-            "questions": [
-              {
-                "name": "Valid Anagram",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Anagram"
-              },
-              {
-                "name": "Valid Palindrome",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Palindrome"
-              },
-              {
-                "name": "Longest Substring Without Repeating Characters",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Longest%20Substring%20Without%20Repeating%20Characters"
-              }
-            ]
-          },
-          {
-            "name": "Conceptual Questions",
-            "questions": [
-              {
-                "name": "Difference between Char Array and String (STL)?",
-                "platform": "Theoretical",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=difference+between+char+array+and+string+stl+cpp"
-              },
-              {
-                "name": "Why are strings immutable in languages like Python/Java but mutable in C++?",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=why+strings+are+immutable+in+python+java+but+mutable+in+cpp"
-              },
-              {
-                "name": "How does substr() work internally — does it create a copy?",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=how+does+string+substr+work+internally+cpp"
-              },
-              {
-                "name": "What is the time complexity of string concatenation in a loop, and why is it costly?",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=string+concatenation+in+loop+time+complexity"
-              },
-              {
-                "name": "How would you check if two strings are anagrams?",
-                "platform": "Theoretical",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=how+to+check+if+two+strings+are+anagrams"
-              },
-              {
-                "name": "How does the null terminator ( \\0 ) work in C-style strings?",
-                "platform": "Theoretical",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=how+does+null+terminator+work+in+c+style+strings"
-              }
-            ]
+            "question": "How does the null terminator ( \\0 ) work in C-style strings?",
+            "answer": "In C-style strings, the null terminator \\0 (ASCII value 0) is stored at the end of the character array to signal the end of the string. Functions like strlen() or printf() read memory sequentially until they encounter \\0. If it's missing, they will read out of bounds, causing a crash or garbage output."
           }
         ]
       },
@@ -1064,38 +901,8 @@
         "id": "practice-roadmap",
         "title": "Practice Roadmap",
         "type": "roadmap",
-        "groups": [
-          {
-            "level": "Beginner",
-            "count": 3,
-            "progress": 72,
-            "questions": [
-              "Reverse String",
-              "Valid Palindrome",
-              "Valid Anagram"
-            ]
-          },
-          {
-            "level": "Intermediate",
-            "count": 3,
-            "progress": 48,
-            "questions": [
-              "Group Anagrams",
-              "Longest Substring Without Repeating Characters",
-              "Minimum Window Substring"
-            ]
-          },
-          {
-            "level": "Advanced",
-            "count": 3,
-            "progress": 26,
-            "questions": [
-              "Rabin Karp",
-              "KMP Prefix Function",
-              "Longest Palindromic Substring"
-            ]
-          }
-        ]
+        "nextTopic": "Hashing",
+        "nextTitle": "Hashing"
       }
     ]
   },
@@ -1443,48 +1250,23 @@
         "type": "videos",
         "items": [
           {
-            "title": "Hashing and Frequency Maps",
-            "channel": "LeetCore Academy",
-            "duration": "12:41",
-            "url": "https://www.youtube.com/results?search_query=Hashing%20and%20Frequency%20Maps%20dsa",
+            "title": "Introduction to Hashing, Maps & Collisions (C++)",
+            "channel": "takeUforward",
+            "duration": "58:20",
+            "url": "https://youtu.be/KEs5UyBJ39g?si=lp2G3nF7eecPNam_",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                10,
-                20,
-                30,
-                40
-              ]
+              "values": [15, 30, 45, 60]
             }
           },
           {
-            "title": "Two Sum with HashMap",
-            "channel": "LeetCore Academy",
-            "duration": "14:08",
-            "url": "https://www.youtube.com/results?search_query=Two%20Sum%20with%20HashMap%20dsa",
+            "title": "Introduction to HashMap & HashTable in Java",
+            "channel": "Kunal Kushwaha",
+            "duration": "42:15",
+            "url": "https://youtu.be/XLbvmMz8Fr8?si=md93np98yeEEjtxS",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                10,
-                20,
-                30,
-                40
-              ]
-            }
-          },
-          {
-            "title": "Sets and Duplicate Detection",
-            "channel": "LeetCore Academy",
-            "duration": "15:22",
-            "url": "https://www.youtube.com/results?search_query=Sets%20and%20Duplicate%20Detection%20dsa",
-            "thumbnail": {
-              "kind": "array-cubes",
-              "values": [
-                10,
-                20,
-                30,
-                40
-              ]
+              "values": [8, 16, 24, 32]
             }
           }
         ]
@@ -1555,216 +1337,30 @@
         "id": "interview-questions",
         "title": "Interview Questions",
         "type": "questions",
-        "columns": [
-          "Problem Name",
-          "Platform",
-          "Difficulty",
-          "Pattern",
-          "Link"
-        ],
-        "categories": [
+        "questions": [
           {
-            "name": "Basics",
-            "questions": [
-              {
-                "name": "Two Sum",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
-              },
-              {
-                "name": "Contains Duplicate",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
-              },
-              {
-                "name": "Group Anagrams",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
-              }
-            ]
+            "question": "What is the difference between map and unordered_map in C++?",
+            "answer": "std::map is implemented as a Red-Black Tree (Balanced BST), keeping keys sorted with O(log N) lookup/insert/delete time. std::unordered_map is implemented as a Hash Table, offering O(1) average lookup/insert/delete time (but O(N) worst-case) with unsorted keys."
           },
           {
-            "name": "Two Pointer",
-            "questions": [
-              {
-                "name": "Two Sum",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
-              },
-              {
-                "name": "Contains Duplicate",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
-              },
-              {
-                "name": "Group Anagrams",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
-              }
-            ]
+            "question": "Why is the worst-case time complexity of unordered_map O(n)?",
+            "answer": "The worst-case lookup is O(N) if many keys hash to the same bucket (high hash collisions), causing the hash map to search through long chains or open-addressed slots linearly. Good hash functions and rehashing mitigate this."
           },
           {
-            "name": "Sliding Window",
-            "questions": [
-              {
-                "name": "Two Sum",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
-              },
-              {
-                "name": "Contains Duplicate",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
-              },
-              {
-                "name": "Group Anagrams",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
-              }
-            ]
+            "question": "How does a hash function work internally?",
+            "answer": "A hash function takes an input key (like a string or integer) and applies mathematical operations (e.g., polynomial rolling hash) to generate a numeric index within the hash table's range. It must be deterministic, fast, and distribute keys uniformly."
           },
           {
-            "name": "Prefix Sum",
-            "questions": [
-              {
-                "name": "Two Sum",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
-              },
-              {
-                "name": "Contains Duplicate",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
-              },
-              {
-                "name": "Group Anagrams",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
-              }
-            ]
+            "question": "What is a collision and how is it handled (chaining vs open addressing)?",
+            "answer": "A collision occurs when two different keys generate the same hash index. Chaining handles it by storing collided elements in a linked list or bucket at that index. Open addressing searches for the next available slot in the table (using Linear/Quadratic probing or Double Hashing)."
           },
           {
-            "name": "Binary Search",
-            "questions": [
-              {
-                "name": "Two Sum",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
-              },
-              {
-                "name": "Contains Duplicate",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
-              },
-              {
-                "name": "Group Anagrams",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
-              }
-            ]
+            "question": "How would you find the first non-repeating character in a string?",
+            "answer": "In a single pass, build a frequency map of characters. In a second pass, iterate through the string and return the first character with a frequency count of 1. Total time complexity is O(N) with O(min(N, 256)) space."
           },
           {
-            "name": "Advanced",
-            "questions": [
-              {
-                "name": "Two Sum",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Two%20Sum"
-              },
-              {
-                "name": "Contains Duplicate",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Contains%20Duplicate"
-              },
-              {
-                "name": "Group Anagrams",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Group%20Anagrams"
-              }
-            ]
-          },
-          {
-            "name": "Conceptual Questions",
-            "questions": [
-              {
-                "name": "What is the difference between map and unordered_map in C++?",
-                "platform": "Theoretical",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=difference+between+map+and+unordered_map+in+cpp"
-              },
-              {
-                "name": "Why is the worst-case time complexity of unordered_map O(n)?",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=worst+case+time+complexity+of+unordered_map+is+o(n)"
-              },
-              {
-                "name": "How does a hash function work internally?",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=how+does+hash+function+work+internally"
-              },
-              {
-                "name": "What is a collision and how is it handled (chaining vs open addressing)?",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=what+is+hash+collision+and+how+is+it+handled"
-              },
-              {
-                "name": "How would you find the first non-repeating character in a string?",
-                "platform": "Theoretical",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=find+first+non+repeating+character+in+a+string"
-              },
-              {
-                "name": "How does the load factor affect hash table performance?",
-                "platform": "Theoretical",
-                "difficulty": "Hard",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=how+does+load+factor+affect+hash+table+performance"
-              }
-            ]
+            "question": "How does the load factor affect hash table performance?",
+            "answer": "The load factor is the ratio of elements stored to total hash table size (n/m). As it approaches 1, collisions increase, degrading lookup performance. When it exceeds a threshold (typically 0.75), the table rehashes (doubles bucket count and re-inserts elements) to maintain O(1) complexity."
           }
         ]
       },
@@ -1778,38 +1374,8 @@
         "id": "practice-roadmap",
         "title": "Practice Roadmap",
         "type": "roadmap",
-        "groups": [
-          {
-            "level": "Beginner",
-            "count": 3,
-            "progress": 72,
-            "questions": [
-              "Contains Duplicate",
-              "Valid Anagram",
-              "Two Sum"
-            ]
-          },
-          {
-            "level": "Intermediate",
-            "count": 3,
-            "progress": 48,
-            "questions": [
-              "Group Anagrams",
-              "Subarray Sum Equals K",
-              "Longest Consecutive Sequence"
-            ]
-          },
-          {
-            "level": "Advanced",
-            "count": 3,
-            "progress": 26,
-            "questions": [
-              "Minimum Window Substring",
-              "LRU Cache",
-              "Randomized Set"
-            ]
-          }
-        ]
+        "nextTopic": "Binary Search",
+        "nextTitle": "Binary Search"
       }
     ]
   },
@@ -2226,48 +1792,23 @@
         "type": "videos",
         "items": [
           {
-            "title": "Binary Search Template",
-            "channel": "LeetCore Academy",
-            "duration": "12:41",
-            "url": "https://www.youtube.com/results?search_query=Binary%20Search%20Template%20dsa",
+            "title": "Binary Search Explained in 1 Video [Theory + Code] (C++)",
+            "channel": "Love Babbar",
+            "duration": "51:40",
+            "url": "https://youtu.be/YJeoQBevNVo?si=fktxlrfBZrJCGswF",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                2,
-                5,
-                8,
-                12
-              ]
+              "values": [4, 8, 16, 32]
             }
           },
           {
-            "title": "Lower Bound and Upper Bound",
-            "channel": "LeetCore Academy",
-            "duration": "14:08",
-            "url": "https://www.youtube.com/results?search_query=Lower%20Bound%20and%20Upper%20Bound%20dsa",
+            "title": "Binary Search Algorithm in Java",
+            "channel": "Kunal Kushwaha",
+            "duration": "40:50",
+            "url": "https://youtu.be/p_MZraK3w2s?si=Lk-xsZcIV7pHSieD",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                2,
-                5,
-                8,
-                12
-              ]
-            }
-          },
-          {
-            "title": "Binary Search on Answer",
-            "channel": "LeetCore Academy",
-            "duration": "15:22",
-            "url": "https://www.youtube.com/results?search_query=Binary%20Search%20on%20Answer%20dsa",
-            "thumbnail": {
-              "kind": "array-cubes",
-              "values": [
-                2,
-                5,
-                8,
-                12
-              ]
+              "values": [2, 4, 6, 8]
             }
           }
         ]
@@ -2362,244 +1903,46 @@
         "id": "interview-questions",
         "title": "Interview Questions",
         "type": "questions",
-        "columns": [
-          "Problem Name",
-          "Platform",
-          "Difficulty",
-          "Pattern",
-          "Link"
-        ],
-        "categories": [
+        "questions": [
           {
-            "name": "Basics",
-            "questions": [
-              {
-                "name": "Binary Search",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
-              },
-              {
-                "name": "Search Insert Position",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
-              },
-              {
-                "name": "Koko Eating Bananas",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
-              }
-            ]
+            "question": "What is the prerequisite for Binary Search? Why does it require sorted input?",
+            "answer": "The prerequisite is that the search space must be monotonic (sorted). It requires sorted input because it decides whether to search the left or right half based on whether the middle element is smaller or larger than the target."
           },
           {
-            "name": "Two Pointer",
-            "questions": [
-              {
-                "name": "Binary Search",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
-              },
-              {
-                "name": "Search Insert Position",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
-              },
-              {
-                "name": "Koko Eating Bananas",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
-              }
-            ]
+            "question": "Why do we use mid = low + (high-low)/2 instead of (low+high)/2?",
+            "answer": "Using low + (high - low)/2 prevents integer overflow. If low and high are very large positive integers, low + high can exceed the maximum limit of a 32-bit signed integer, causing overflow and an incorrect negative result."
           },
           {
-            "name": "Sliding Window",
-            "questions": [
-              {
-                "name": "Binary Search",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
-              },
-              {
-                "name": "Search Insert Position",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
-              },
-              {
-                "name": "Koko Eating Bananas",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
-              }
-            ]
+            "question": "How do you find the first and last occurrence of a target in a sorted array?",
+            "answer": "Perform two separate binary searches. When arr[mid] == target, instead of returning immediately, save the index as a candidate. To find the first occurrence, search the left half (high = mid - 1). To find the last, search the right half (low = mid + 1)."
           },
           {
-            "name": "Prefix Sum",
-            "questions": [
-              {
-                "name": "Binary Search",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
-              },
-              {
-                "name": "Search Insert Position",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
-              },
-              {
-                "name": "Koko Eating Bananas",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
-              }
-            ]
+            "question": "How does Binary Search work on a rotated sorted array?",
+            "answer": "Find mid. At least one half (left or right) of the array must be sorted. Identify which half is sorted. If the target lies within the sorted half's range, search there. Otherwise, search the other half. Repeat recursively."
           },
           {
-            "name": "Binary Search",
-            "questions": [
-              {
-                "name": "Binary Search",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
-              },
-              {
-                "name": "Search Insert Position",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
-              },
-              {
-                "name": "Koko Eating Bananas",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
-              }
-            ]
+            "question": "What is Binary Search on Answer? Give a real problem example.",
+            "answer": "It is a technique where the target value is searched in a defined range of answers, and a helper function checks if a candidate answer is feasible. Example: 'Aggressive Cows' or 'Book Allocation' where we binary search the minimum/maximum distance or page count."
           },
           {
-            "name": "Advanced",
-            "questions": [
-              {
-                "name": "Binary Search",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Search"
-              },
-              {
-                "name": "Search Insert Position",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Search%20Insert%20Position"
-              },
-              {
-                "name": "Koko Eating Bananas",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Koko%20Eating%20Bananas"
-              }
-            ]
+            "question": "How would you implement sqrt(n) using Binary Search?",
+            "answer": "Binary search in the range [1, n]. Let mid be the candidate square root. If mid * mid == n, return mid. If mid * mid < n, search the right half and save mid as a candidate floor root. Otherwise, search the left half."
           },
           {
-            "name": "Conceptual Questions",
-            "questions": [
-              {
-                "name": "What is the prerequisite for Binary Search? Why does it require sorted input?",
-                "platform": "Theoretical",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=why+does+binary+search+require+sorted+input"
-              },
-              {
-                "name": "Why do we use mid = low + (high-low)/2 instead of (low+high)/2?",
-                "platform": "Theoretical",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=why+mid+low+high+low+2+instead+of+low+high+2"
-              },
-              {
-                "name": "How do you find the first and last occurrence of a target in a sorted array?",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=first+and+last+occurrence+of+target+in+sorted+array"
-              },
-              {
-                "name": "How does Binary Search work on a rotated sorted array? (LeetCode 33)",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-              },
-              {
-                "name": "What is Binary Search on Answer? Give a real problem example.",
-                "platform": "Theoretical",
-                "difficulty": "Hard",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=binary+search+on+answer+range+dsa"
-              },
-              {
-                "name": "How would you implement sqrt(n) using Binary Search?",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://leetcode.com/problems/sqrtx/"
-              },
-              {
-                "name": "What is the time and space complexity difference between iterative and recursive Binary Search?",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=iterative+vs+recursive+binary+search+complexity"
-              },
-              {
-                "name": "How do lower_bound() and upper_bound() work internally?",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=lower_bound+and+upper_bound+internal+implementation"
-              },
-              {
-                "name": "Can Binary Search work on floating-point ranges? How?",
-                "platform": "Theoretical",
-                "difficulty": "Hard",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=binary+search+on+floating+point+ranges"
-              },
-              {
-                "name": "How do you count occurrences of a target in a sorted array in O(log n)?",
-                "platform": "Theoretical",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=count+occurrences+of+target+in+sorted+array+in+o(log+n)"
-              }
-            ]
+            "question": "What is the time and space complexity difference between iterative and recursive Binary Search?",
+            "answer": "Both have O(log N) time complexity. Iterative uses O(1) auxiliary space. Recursive uses O(log N) space due to recursion call stack frames, making the iterative approach more memory efficient."
+          },
+          {
+            "question": "How do lower_bound() and upper_bound() work internally?",
+            "answer": "lower_bound returns an iterator to the first element >= target. upper_bound returns an iterator to the first element > target. Both run binary search, updating candidates when the condition is met and narrowing down the search."
+          },
+          {
+            "question": "Can Binary Search work on floating-point ranges? How?",
+            "answer": "Yes. Instead of low <= high, use a precision limit like high - low > 1e-7 or a fixed loop iteration limit (like 100 iterations) to binary search continuous real values accurately."
+          },
+          {
+            "question": "How do you count occurrences of a target in a sorted array in O(log n)?",
+            "answer": "Find the first occurrence index first and the last occurrence index last using Binary Search. If the target is present, the count is last - first + 1. Otherwise, return 0."
           }
         ]
       },
@@ -2613,38 +1956,8 @@
         "id": "practice-roadmap",
         "title": "Practice Roadmap",
         "type": "roadmap",
-        "groups": [
-          {
-            "level": "Beginner",
-            "count": 3,
-            "progress": 72,
-            "questions": [
-              "Binary Search",
-              "Search Insert Position",
-              "First Bad Version"
-            ]
-          },
-          {
-            "level": "Intermediate",
-            "count": 3,
-            "progress": 48,
-            "questions": [
-              "Find First and Last Position",
-              "Search in Rotated Sorted Array",
-              "Koko Eating Bananas"
-            ]
-          },
-          {
-            "level": "Advanced",
-            "count": 3,
-            "progress": 26,
-            "questions": [
-              "Median of Two Sorted Arrays",
-              "Split Array Largest Sum",
-              "Aggressive Cows"
-            ]
-          }
-        ]
+        "nextTopic": "Linked List",
+        "nextTitle": "Linked List"
       }
     ]
   },
@@ -3021,48 +2334,23 @@
         "type": "videos",
         "items": [
           {
-            "title": "Linked List Basics",
-            "channel": "LeetCore Academy",
-            "duration": "12:41",
-            "url": "https://www.youtube.com/results?search_query=Linked%20List%20Basics%20dsa",
+            "title": "Linked List & its Types in C++",
+            "channel": "Love Babbar",
+            "duration": "1:15:30",
+            "url": "https://youtu.be/LyuuqCVkP5I?si=nK0jkb1NH3I1yhp5",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                10,
-                20,
-                30,
-                40
-              ]
+              "values": [3, 6, 9, 12]
             }
           },
           {
-            "title": "Reverse a Linked List",
-            "channel": "LeetCore Academy",
-            "duration": "14:08",
-            "url": "https://www.youtube.com/results?search_query=Reverse%20a%20Linked%20List%20dsa",
+            "title": "Introduction to Linked List in Java",
+            "channel": "Apna College",
+            "duration": "49:20",
+            "url": "https://youtu.be/oAja8-Ulz6o?si=qf0vJAj2Qt1EQD5k",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                10,
-                20,
-                30,
-                40
-              ]
-            }
-          },
-          {
-            "title": "Fast and Slow Pointer Pattern",
-            "channel": "LeetCore Academy",
-            "duration": "15:22",
-            "url": "https://www.youtube.com/results?search_query=Fast%20and%20Slow%20Pointer%20Pattern%20dsa",
-            "thumbnail": {
-              "kind": "array-cubes",
-              "values": [
-                10,
-                20,
-                30,
-                40
-              ]
+              "values": [1, 2, 4, 8]
             }
           }
         ]
@@ -3133,216 +2421,30 @@
         "id": "interview-questions",
         "title": "Interview Questions",
         "type": "questions",
-        "columns": [
-          "Problem Name",
-          "Platform",
-          "Difficulty",
-          "Pattern",
-          "Link"
-        ],
-        "categories": [
+        "questions": [
           {
-            "name": "Basics",
-            "questions": [
-              {
-                "name": "Reverse Linked List",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
-              },
-              {
-                "name": "Linked List Cycle",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
-              },
-              {
-                "name": "Merge Two Sorted Lists",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
-              }
-            ]
+            "question": "What is the difference between Singly and Doubly Linked List?",
+            "answer": "A Singly Linked List node has a data field and a single next pointer. A Doubly Linked List node has both next and prev pointers, allowing bi-directional traversal at the cost of extra memory per node."
           },
           {
-            "name": "Two Pointer",
-            "questions": [
-              {
-                "name": "Reverse Linked List",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
-              },
-              {
-                "name": "Linked List Cycle",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
-              },
-              {
-                "name": "Merge Two Sorted Lists",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
-              }
-            ]
+            "question": "How do you detect a cycle in a linked list? (Floyd's Algorithm)",
+            "answer": "Use two pointers: a slow pointer moving 1 step at a time, and a fast pointer moving 2 steps. If there is a cycle, the fast pointer will eventually catch up and meet the slow pointer. If the fast pointer reaches the end (null), there is no cycle."
           },
           {
-            "name": "Sliding Window",
-            "questions": [
-              {
-                "name": "Reverse Linked List",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
-              },
-              {
-                "name": "Linked List Cycle",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
-              },
-              {
-                "name": "Merge Two Sorted Lists",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
-              }
-            ]
+            "question": "How do you reverse a linked list in-place?",
+            "answer": "Use three pointers: prev (null), curr (head), and next (null). In a loop, store curr->next in next, point curr->next to prev, update prev to curr, and move curr to next. Repeat until curr becomes null. Return prev as the new head."
           },
           {
-            "name": "Prefix Sum",
-            "questions": [
-              {
-                "name": "Reverse Linked List",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
-              },
-              {
-                "name": "Linked List Cycle",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
-              },
-              {
-                "name": "Merge Two Sorted Lists",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
-              }
-            ]
+            "question": "What is the time complexity of inserting at the middle of a linked list?",
+            "answer": "The time complexity is O(N) because you must traverse the list from the head to find the middle node. The actual insertion operation (rewiring pointers) takes O(1) time once the node is reached."
           },
           {
-            "name": "Binary Search",
-            "questions": [
-              {
-                "name": "Reverse Linked List",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
-              },
-              {
-                "name": "Linked List Cycle",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
-              },
-              {
-                "name": "Merge Two Sorted Lists",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
-              }
-            ]
+            "question": "How would you find the middle node of a linked list in one pass?",
+            "answer": "Use a slow and fast pointer, both starting at the head. Move the slow pointer 1 step and the fast pointer 2 steps per iteration. When the fast pointer reaches the end (null or fast->next == null), the slow pointer will be at the middle."
           },
           {
-            "name": "Advanced",
-            "questions": [
-              {
-                "name": "Reverse Linked List",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Reverse%20Linked%20List"
-              },
-              {
-                "name": "Linked List Cycle",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Linked%20List%20Cycle"
-              },
-              {
-                "name": "Merge Two Sorted Lists",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Merge%20Two%20Sorted%20Lists"
-              }
-            ]
-          },
-          {
-            "name": "Conceptual Questions",
-            "questions": [
-              {
-                "name": "What is the difference between Singly and Doubly Linked List?",
-                "platform": "Theoretical",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=difference+between+singly+and+doubly+linked+list"
-              },
-              {
-                "name": "How do you detect a cycle in a linked list? (Floyd's Algorithm)",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=detect+cycle+in+linked+list+floyd+algorithm"
-              },
-              {
-                "name": "How do you reverse a linked list in-place?",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://leetcode.com/problems/reverse-linked-list/"
-              },
-              {
-                "name": "What is the time complexity of inserting at the middle of a linked list?",
-                "platform": "Theoretical",
-                "difficulty": "Medium",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=time+complexity+of+inserting+at+middle+of+linked+list"
-              },
-              {
-                "name": "How would you find the middle node of a linked list in one pass?",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://leetcode.com/problems/middle-of-the-linked-list/"
-              },
-              {
-                "name": "How does a linked list differ from an array in terms of memory layout?",
-                "platform": "Theoretical",
-                "difficulty": "Easy",
-                "pattern": "Conceptual",
-                "link": "https://www.google.com/search?q=linked+list+vs+array+memory+layout"
-              }
-            ]
+            "question": "How does a linked list differ from an array in terms of memory layout?",
+            "answer": "Arrays store elements in contiguous memory slots, allowing O(1) index-based access. Linked Lists allocate nodes dynamically in scattered memory, connected by pointers. Traversal is O(N), but insertion/deletion is O(1) once pointers are located."
           }
         ]
       },
@@ -3356,38 +2458,8 @@
         "id": "practice-roadmap",
         "title": "Practice Roadmap",
         "type": "roadmap",
-        "groups": [
-          {
-            "level": "Beginner",
-            "count": 3,
-            "progress": 72,
-            "questions": [
-              "Reverse Linked List",
-              "Middle of the Linked List",
-              "Merge Two Sorted Lists"
-            ]
-          },
-          {
-            "level": "Intermediate",
-            "count": 3,
-            "progress": 48,
-            "questions": [
-              "Remove Nth Node From End",
-              "Linked List Cycle II",
-              "Add Two Numbers"
-            ]
-          },
-          {
-            "level": "Advanced",
-            "count": 3,
-            "progress": 26,
-            "questions": [
-              "Reverse Nodes in K Group",
-              "Copy List with Random Pointer",
-              "LRU Cache"
-            ]
-          }
-        ]
+        "nextTopic": "Stack",
+        "nextTitle": "Stack"
       }
     ]
   },
@@ -3746,48 +2818,23 @@
         "type": "videos",
         "items": [
           {
-            "title": "Stack Basics",
-            "channel": "LeetCore Academy",
-            "duration": "12:41",
-            "url": "https://www.youtube.com/results?search_query=Stack%20Basics%20dsa",
+            "title": "Introduction to Stacks [Theory + Implementation] (C++)",
+            "channel": "Love Babbar",
+            "duration": "54:10",
+            "url": "https://youtu.be/_6COl6V6mng?si=iVcbAovsiMeIUDOD",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                5,
-                10,
-                15,
-                20
-              ]
+              "values": [6, 12, 18, 24]
             }
           },
           {
-            "title": "Valid Parentheses Explained",
-            "channel": "LeetCore Academy",
-            "duration": "14:08",
-            "url": "https://www.youtube.com/results?search_query=Valid%20Parentheses%20Explained%20dsa",
+            "title": "Stack Data Structure in Java",
+            "channel": "Apna College",
+            "duration": "44:35",
+            "url": "https://youtu.be/7m1DMYAbdiY?si=nWgtRsDkvihKzwzW",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                5,
-                10,
-                15,
-                20
-              ]
-            }
-          },
-          {
-            "title": "Monotonic Stack Pattern",
-            "channel": "LeetCore Academy",
-            "duration": "15:22",
-            "url": "https://www.youtube.com/results?search_query=Monotonic%20Stack%20Pattern%20dsa",
-            "thumbnail": {
-              "kind": "array-cubes",
-              "values": [
-                5,
-                10,
-                15,
-                20
-              ]
+              "values": [5, 10, 15, 20]
             }
           }
         ]
@@ -3819,169 +2866,30 @@
         "id": "interview-questions",
         "title": "Interview Questions",
         "type": "questions",
-        "columns": [
-          "Problem Name",
-          "Platform",
-          "Difficulty",
-          "Pattern",
-          "Link"
-        ],
-        "categories": [
+        "questions": [
           {
-            "name": "Basics",
-            "questions": [
-              {
-                "name": "Valid Parentheses",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
-              },
-              {
-                "name": "Min Stack",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
-              },
-              {
-                "name": "Daily Temperatures",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
-              }
-            ]
+            "question": "What is the LIFO principle and where is it used in computer systems?",
+            "answer": "LIFO (Last In First Out) means the element inserted last is the first to be removed. It is used in call stack management (function calls/recursion), undo/redo mechanisms, syntax parsing, and browser history navigation."
           },
           {
-            "name": "Two Pointer",
-            "questions": [
-              {
-                "name": "Valid Parentheses",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
-              },
-              {
-                "name": "Min Stack",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
-              },
-              {
-                "name": "Daily Temperatures",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
-              }
-            ]
+            "question": "How do you implement a stack using queues?",
+            "answer": "You can implement a stack using two queues. To keep push O(1), make pop O(N) by shifting all elements but one from the active queue to the helper queue, removing the last one, and swapping roles. Alternatively, make push O(N) by reversing order on insertion."
           },
           {
-            "name": "Sliding Window",
-            "questions": [
-              {
-                "name": "Valid Parentheses",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
-              },
-              {
-                "name": "Min Stack",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
-              },
-              {
-                "name": "Daily Temperatures",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
-              }
-            ]
+            "question": "What is a monotonic stack and when should you use it?",
+            "answer": "A monotonic stack is a stack that maintains its elements in a strictly increasing or decreasing order. Use it to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in linear O(N) time."
           },
           {
-            "name": "Prefix Sum",
-            "questions": [
-              {
-                "name": "Valid Parentheses",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
-              },
-              {
-                "name": "Min Stack",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
-              },
-              {
-                "name": "Daily Temperatures",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
-              }
-            ]
+            "question": "How is a stack used in expression evaluation (Infix, Prefix, Postfix)?",
+            "answer": "Stacks store operators or operands. In Postfix evaluation, scan left to right: push operands; pop two, evaluate, and push result when encountering an operator. In Infix parsing (Shunting-yard), stacks manage operator precedence."
           },
           {
-            "name": "Binary Search",
-            "questions": [
-              {
-                "name": "Valid Parentheses",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
-              },
-              {
-                "name": "Min Stack",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
-              },
-              {
-                "name": "Daily Temperatures",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
-              }
-            ]
+            "question": "What is the difference between Stack Overflow and Stack Underflow?",
+            "answer": "Stack Overflow occurs when the stack grows beyond its allocated memory limit (common in deep recursion). Stack Underflow occurs when you attempt to pop or peek from an empty stack."
           },
           {
-            "name": "Advanced",
-            "questions": [
-              {
-                "name": "Valid Parentheses",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Valid%20Parentheses"
-              },
-              {
-                "name": "Min Stack",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Min%20Stack"
-              },
-              {
-                "name": "Daily Temperatures",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Daily%20Temperatures"
-              }
-            ]
+            "question": "What is the time complexity of push, pop, and peek operations on a stack?",
+            "answer": "All three operations (push, pop, peek) have O(1) time complexity because they only interact with the top of the stack and do not require traversing the rest of the elements."
           }
         ]
       },
@@ -3989,38 +2897,8 @@
         "id": "practice-roadmap",
         "title": "Practice Roadmap",
         "type": "roadmap",
-        "groups": [
-          {
-            "level": "Beginner",
-            "count": 3,
-            "progress": 72,
-            "questions": [
-              "Valid Parentheses",
-              "Implement Stack using Queues",
-              "Baseball Game"
-            ]
-          },
-          {
-            "level": "Intermediate",
-            "count": 3,
-            "progress": 48,
-            "questions": [
-              "Min Stack",
-              "Daily Temperatures",
-              "Next Greater Element"
-            ]
-          },
-          {
-            "level": "Advanced",
-            "count": 3,
-            "progress": 26,
-            "questions": [
-              "Largest Rectangle in Histogram",
-              "Trapping Rain Water",
-              "Basic Calculator"
-            ]
-          }
-        ]
+        "nextTopic": "Queue",
+        "nextTitle": "Queue"
       }
     ]
   },
@@ -4071,14 +2949,16 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "A queue is a linear data structure where the first inserted element is removed first.",
-          "Queues are used for scheduling, buffering, breadth-first search, and level-order traversal."
+          "Queue ek linear data structure hai jo FIFO (First In First Out) principle follow karta hai.",
+          "Iska matlab hai ki jo element sabse pehle insert (Enqueue) kiya gaya hoga, wahi sabse pehle remove (Dequeue) hoga.",
+          "Queue mein insertion ek end se hoti hai jise Rear (Back) kaha jata hai, aur deletion doosre end se hoti hai jise Front kaha jata hai.",
+          "Jab koi naya element add kiya jata hai to woh Rear par add hota hai aur jab koi element remove kiya jata hai to woh Front se remove hota hai."
         ],
         "highlights": [
-          "Core topic",
-          "Interview ready",
-          "Pattern based",
-          "Demo docs"
+          "FIFO Principle",
+          "Two Ends (Front & Rear)",
+          "Enqueue & Dequeue Operations",
+          "Linear Data Structure"
         ]
       },
       {
@@ -4116,15 +2996,18 @@
         "id": "definition",
         "title": "One Line Definition",
         "type": "callout",
-        "content": "A queue follows FIFO order, meaning the earliest pushed element is the first one removed."
+        "content": "Queue ek aisa data structure hai jisme insertion Rear se aur deletion Front se hoti hai — jo pehle aaya, wahi pehle jayega."
       },
       {
         "id": "real-life-example",
         "title": "Real Life Example",
         "type": "example",
         "content": [
-          "A queue behaves like people waiting for a service counter.",
-          "The person who joined first gets served first."
+          "Socho tum ek bank mein ho aur counter pe line lagi hai.",
+          "Jo insaan pehle line mein aaya, woh pehle serve hoga.",
+          "Naaya aadmi hamesha line ke end (Rear) mein lagta hai.",
+          "Service hamesha line ke shuruaat (Front) se hoti hai.",
+          "Yahi Queue ka concept hai — First Come, First Served!"
         ],
         "visual": {
           "title": "People waiting in line",
@@ -4159,29 +3042,29 @@
         "items": [
           {
             "icon": "Sparkles",
-            "title": "Interview Relevance",
-            "description": "Queue problems test process ordering and simulation."
+            "title": "Kyun Seekhein Queue?",
+            "description": "Programming mein kai situations aisi hoti hain jahan hume pehle aaye element ko pehle process karna hota hai. Normal array is behavior ko efficiently provide nahi karta. Isi problem ko solve karne ke liye Queue use kiya jata hai."
           },
           {
             "icon": "Trophy",
-            "title": "Competitive Programming",
-            "description": "BFS, shortest path in unweighted graphs, and sliding window deque patterns are common."
+            "title": "Core Benefits",
+            "description": "Queue hume data ko organized way mein store karne, pehle aaye element ko quickly access karne, aur BFS / Level Order Traversal problems efficiently solve karne mein help karta hai."
           },
           {
             "icon": "Workflow",
-            "title": "Real World Applications",
-            "description": "Task schedulers, message brokers, print queues, and buffers use queue behavior."
+            "title": "Where We Use Queue",
+            "description": "BFS Traversal, Level Order Tree Traversal, CPU Scheduling, Printer Queue management, Sliding Window problems, Message Brokers, aur Real-time Streaming mein use hota hai."
           },
           {
             "icon": "Brain",
-            "title": "Problem Solving Foundation",
-            "description": "Queues make level-order traversal and state expansion easier to reason about."
+            "title": "Real Applications",
+            "description": "Operating Systems mein Process Scheduling, Networking mein Packet Handling, Web Servers mein Request Handling, aur Game Engines mein Event Processing ke liye Queue use hota hai."
           }
         ]
       },
       {
         "id": "basic-operations",
-        "title": "Basic Operations",
+        "title": "Operations Used in Queue",
         "type": "operations",
         "columns": [
           "Operation",
@@ -4191,50 +3074,50 @@
         ],
         "rows": [
           {
-            "operation": "Push",
-            "description": "Insert at back",
+            "operation": "push(x)",
+            "description": "Rear par element insert karta hai",
             "stl": "push()",
             "complexity": "O(1)"
           },
           {
-            "operation": "Pop",
-            "description": "Remove from front",
+            "operation": "pop()",
+            "description": "Front element remove karta hai",
             "stl": "pop()",
             "complexity": "O(1)"
           },
           {
-            "operation": "Front",
-            "description": "Read first value",
+            "operation": "front()",
+            "description": "Front element return karta hai (remove nahi)",
             "stl": "front()",
             "complexity": "O(1)"
           },
           {
-            "operation": "Back",
-            "description": "Read last value",
+            "operation": "back()",
+            "description": "Rear element return karta hai (remove nahi)",
             "stl": "back()",
             "complexity": "O(1)"
           },
           {
-            "operation": "Empty",
-            "description": "Check if queue is empty",
+            "operation": "empty()",
+            "description": "Queue empty hai ya nahi check karta hai",
             "stl": "empty()",
             "complexity": "O(1)"
           },
           {
-            "operation": "Size",
-            "description": "Count values",
+            "operation": "size()",
+            "description": "Total elements count karta hai",
             "stl": "size()",
             "complexity": "O(1)"
           },
           {
-            "operation": "Clear",
-            "description": "Remove all values",
+            "operation": "clear()",
+            "description": "Saare elements remove kar deta hai",
             "stl": "loop pop",
             "complexity": "O(n)"
           },
           {
             "operation": "Deque Pop",
-            "description": "Remove from both ends",
+            "description": "Dono ends se remove karne deta hai",
             "stl": "pop_front/back()",
             "complexity": "O(1)"
           }
@@ -4313,8 +3196,12 @@
           ]
         },
         "explanation": [
-          "This demo section shows how the topic can explain its internal model visually.",
-          "You can replace this placeholder with exact memory, pointer, bucket, or processing details for this topic."
+          "Queue initialization: queue<int> name; creates empty queue with Front aur Rear dono null.",
+          "name.push(10) karne par 10 Address 1000 par store hota hai — yahi Front banta hai.",
+          "name.push(20) karne par 20 Address 1004 par store hota hai — yahi Rear ban jata hai.",
+          "name.push(30) karne par 30 Address 1008 par store hota hai, Rear aage move karta hai.",
+          "Elements memory mein continuously store hote hain (Address 1000, 1004, 1008).",
+          "pop() karne par Front wala element remove hota hai aur Front pointer next address pe move ho jata hai."
         ],
         "formula": {
           "label": "position = base + step * index",
@@ -4417,48 +3304,23 @@
         "type": "videos",
         "items": [
           {
-            "title": "Queue Basics",
-            "channel": "LeetCore Academy",
-            "duration": "12:41",
-            "url": "https://www.youtube.com/results?search_query=Queue%20Basics%20dsa",
+            "title": "Queues in C++ [STL + Implementation + Types]",
+            "channel": "Love Babbar",
+            "duration": "48:50",
+            "url": "https://youtu.be/W7uB9-TKfTg?si=0X-VvOwf5Rdybzlx",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                7,
-                14,
-                21,
-                28
-              ]
+              "values": [8, 16, 24, 32]
             }
           },
           {
-            "title": "BFS with Queue",
-            "channel": "LeetCore Academy",
-            "duration": "14:08",
-            "url": "https://www.youtube.com/results?search_query=BFS%20with%20Queue%20dsa",
+            "title": "Complete Queue Data Structure in Java",
+            "channel": "Apna College",
+            "duration": "39:15",
+            "url": "https://youtu.be/va_6RmSrKCg?si=xpQy6kcCYcPp5aap",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [
-                7,
-                14,
-                21,
-                28
-              ]
-            }
-          },
-          {
-            "title": "Deque and Sliding Window Maximum",
-            "channel": "LeetCore Academy",
-            "duration": "15:22",
-            "url": "https://www.youtube.com/results?search_query=Deque%20and%20Sliding%20Window%20Maximum%20dsa",
-            "thumbnail": {
-              "kind": "array-cubes",
-              "values": [
-                7,
-                14,
-                21,
-                28
-              ]
+              "values": [4, 8, 12, 16]
             }
           }
         ]
@@ -4469,20 +3331,28 @@
         "type": "mistakes",
         "items": [
           {
-            "title": "Ignoring edge cases",
+            "title": "Empty Queue pe front() ya pop() call karna",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
-            "wrong": "// assumes input is always valid\nsolve(data);",
-            "correct": "if (data.empty()) return baseCase;\nsolve(data);",
-            "explanation": "Empty input, one element input, duplicates, and boundary positions should be checked before finalizing a solution."
+            "wrong": "queue<int> q;\ncout << q.front(); // Crash! Queue is empty",
+            "correct": "queue<int> q;\nif (!q.empty()) {\n    cout << q.front(); // Safe access\n}",
+            "explanation": "Agar queue empty ho aur tum front() ya pop() call kar do, toh undefined behavior ya runtime crash ho sakta hai. Hamesha pehle empty() check karo."
           },
           {
-            "title": "Using brute force when a pattern exists",
+            "title": "Queue ko Stack ki tarah use karna",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
-            "wrong": "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n        check(i, j);\n    }\n}",
-            "correct": "// choose the right pattern\n// two pointer, hashing, stack, queue, or binary search\noptimizedCheck(data);",
-            "explanation": "The demo docs intentionally show where you can replace generic advice with topic-specific mistakes."
+            "wrong": "// Queue mein LIFO chahiye tha\nqueue<int> q;\nq.push(10);\nq.push(20);\ncout << q.back(); // Galat approach",
+            "correct": "// LIFO ke liye Stack use karo\nstack<int> st;\nst.push(10);\nst.push(20);\ncout << st.top(); // Correct!",
+            "explanation": "Queue FIFO follow karta hai. Agar tumhe Last In First Out behavior chahiye, toh Queue ki jagah Stack use karo. Dono ko confuse mat karo."
+          },
+          {
+            "title": "BFS mein Queue ki jagah Stack use karna",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "// BFS ke liye Stack use kiya — yeh DFS ban jaata hai\nstack<int> st;\nst.push(start);\nwhile (!st.empty()) {\n    int node = st.top(); st.pop();\n    // process neighbors...\n}",
+            "correct": "// BFS ke liye hamesha Queue use karo\nqueue<int> q;\nq.push(start);\nwhile (!q.empty()) {\n    int node = q.front(); q.pop();\n    // process neighbors...\n}",
+            "explanation": "BFS (Breadth First Search) ke liye Queue zaroori hai kyunki yeh level-by-level traverse karta hai. Stack use karne par DFS ho jata hai jo galat result deta hai."
           }
         ]
       },
@@ -4490,206 +3360,30 @@
         "id": "interview-questions",
         "title": "Interview Questions",
         "type": "questions",
-        "columns": [
-          "Problem Name",
-          "Platform",
-          "Difficulty",
-          "Pattern",
-          "Link"
-        ],
-        "categories": [
+        "questions": [
           {
-            "name": "Basics",
-            "questions": [
-              {
-                "name": "Implement Queue using Stacks",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
-              },
-              {
-                "name": "Number of Recent Calls",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
-              },
-              {
-                "name": "Binary Tree Level Order Traversal",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Basics",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
-              }
-            ]
+            "question": "What is the FIFO principle and how does it differ from LIFO?",
+            "answer": "FIFO (First In First Out) means the first element inserted is the first to be removed. It differs from LIFO (where the last element goes out first). It represents a standard waiting line where service is sequential."
           },
           {
-            "name": "Two Pointer",
-            "questions": [
-              {
-                "name": "Implement Queue using Stacks",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
-              },
-              {
-                "name": "Number of Recent Calls",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
-              },
-              {
-                "name": "Binary Tree Level Order Traversal",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Two Pointer",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
-              }
-            ]
+            "question": "How do you implement a queue using stacks?",
+            "answer": "Use two stacks: input and output. Push elements to input. For pop/peek, if output is empty, pop all elements from input and push them to output (reversing order). Then, pop/peek from output. This achieves O(1) amortized cost."
           },
           {
-            "name": "Sliding Window",
-            "questions": [
-              {
-                "name": "Implement Queue using Stacks",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
-              },
-              {
-                "name": "Number of Recent Calls",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
-              },
-              {
-                "name": "Binary Tree Level Order Traversal",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Sliding Window",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
-              }
-            ]
+            "question": "What is a Deque (Double-ended Queue) and when is it useful?",
+            "answer": "A Deque is a sequence container that supports fast O(1) insertion and deletion at both its front and back. It is useful in sliding window maximum problems, custom buffers, and job stealing algorithms."
           },
           {
-            "name": "Prefix Sum",
-            "questions": [
-              {
-                "name": "Implement Queue using Stacks",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
-              },
-              {
-                "name": "Number of Recent Calls",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
-              },
-              {
-                "name": "Binary Tree Level Order Traversal",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Prefix Sum",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
-              }
-            ]
+            "question": "Why is Queue preferred over Stack for BFS traversal?",
+            "answer": "BFS traverses level-by-level, exploring all nodes at distance D before distance D+1. A Queue preserves this order (FIFO). A Stack would reverse it (LIFO), resulting in a Depth-First Search (DFS) behavior."
           },
           {
-            "name": "Binary Search",
-            "questions": [
-              {
-                "name": "Implement Queue using Stacks",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
-              },
-              {
-                "name": "Number of Recent Calls",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
-              },
-              {
-                "name": "Binary Tree Level Order Traversal",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Binary Search",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
-              }
-            ]
+            "question": "What is a Circular Queue and what problem does it solve?",
+            "answer": "A Circular Queue is a linear queue where the last position is connected back to the first. It solves the memory wastage problem of a standard array-based queue, where dequeued spaces cannot be reused because the rear pointer reaches the end."
           },
           {
-            "name": "Advanced",
-            "questions": [
-              {
-                "name": "Implement Queue using Stacks",
-                "platform": "LeetCode",
-                "difficulty": "Easy",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Implement%20Queue%20using%20Stacks"
-              },
-              {
-                "name": "Number of Recent Calls",
-                "platform": "LeetCode",
-                "difficulty": "Medium",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Number%20of%20Recent%20Calls"
-              },
-              {
-                "name": "Binary Tree Level Order Traversal",
-                "platform": "LeetCode",
-                "difficulty": "Hard",
-                "pattern": "Advanced",
-                "link": "https://leetcode.com/problemset/?search=Binary%20Tree%20Level%20Order%20Traversal"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "practice-roadmap",
-        "title": "Practice Roadmap",
-        "type": "roadmap",
-        "groups": [
-          {
-            "level": "Beginner",
-            "count": 3,
-            "progress": 72,
-            "questions": [
-              "Implement Queue using Stacks",
-              "Number of Recent Calls",
-              "First Unique Character"
-            ]
-          },
-          {
-            "level": "Intermediate",
-            "count": 3,
-            "progress": 48,
-            "questions": [
-              "Rotting Oranges",
-              "Binary Tree Level Order Traversal",
-              "Open the Lock"
-            ]
-          },
-          {
-            "level": "Advanced",
-            "count": 3,
-            "progress": 26,
-            "questions": [
-              "Sliding Window Maximum",
-              "Shortest Path in Binary Matrix",
-              "Design Circular Deque"
-            ]
+            "question": "What is a Priority Queue and how is it implemented internally?",
+            "answer": "A Priority Queue is an abstract data type where each element has a priority, and elements are served based on priority. It is typically implemented internally using a Binary Heap (Max-Heap or Min-Heap) supporting O(log N) push/pop."
           }
         ]
       }

@@ -9,6 +9,7 @@ import { useAuth } from "../../../context/AuthContext";
 import BadgeModal from "../../gamification/components/BadgeModal";
 import { createPortal } from "react-dom";
 import { useDashboardStats } from "../../gamification/hooks/useDashboardStats";
+import { BadgeIcon } from "./BadgeIcon";
 
 // 19 Local Predefined Badges with Unique Icons and Gradients
 const PREDEFINED_ACHIEVEMENTS = [
@@ -236,8 +237,54 @@ function Milestone({ progressData, loading: progressLoading }) {
 
     if (progressLoading) {
         return (
-            <div className="w-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 text-white flex flex-col items-center justify-center min-h-[140px] shadow-lg animate-pulse">
-                <Loader2 className="w-5 h-5 text-orange-500 animate-spin" />
+            <div className="w-full h-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 text-white shadow-lg backdrop-blur-md relative overflow-hidden flex flex-col justify-between">
+                <style>{`
+                    @keyframes lc-shimmer {
+                        0% { background-position: -200% 0; }
+                        100% { background-position: 200% 0; }
+                    }
+                    .lc-skeleton-bg {
+                        background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+                        background-size: 200% 100%;
+                        animation: lc-shimmer 1.6s infinite linear;
+                    }
+                `}</style>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/[0.02] rounded-full blur-2xl pointer-events-none" />
+                
+                {/* Header */}
+                <div className="flex justify-between items-start mb-4">
+                    <div>
+                        <div className="h-3.5 w-24 rounded lc-skeleton-bg" />
+                        <div className="h-2.5 w-16 rounded mt-1.5 lc-skeleton-bg" />
+                    </div>
+                    <div className="h-4 w-4 rounded lc-skeleton-bg" />
+                </div>
+
+                <div className="space-y-4">
+                    {/* Featured Badges */}
+                    <div className="grid grid-cols-3 gap-3">
+                        {Array.from({ length: 3 }).map((_, idx) => (
+                            <div key={idx} className="flex flex-col items-center">
+                                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center">
+                                    <div className="w-8 h-8 rounded-full lc-skeleton-bg opacity-30" />
+                                </div>
+                                <div className="h-2.5 w-14 rounded mt-2 lc-skeleton-bg" />
+                                <div className="h-2 w-10 rounded mt-1 lc-skeleton-bg" />
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="h-px bg-white/[0.03]" />
+
+                    {/* Secondary Badges */}
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                        {Array.from({ length: 6 }).map((_, idx) => (
+                            <div key={idx} className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center">
+                                <div className="w-4 h-4 rounded-full lc-skeleton-bg opacity-30" />
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         );
     }
@@ -304,12 +351,12 @@ function Milestone({ progressData, loading: progressLoading }) {
                     }
                 `}
             >
-                {/* Left: Icon Comp with Lock overlay */}
-                <div className="relative flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-full bg-black/40 border border-white/5 text-current">
-                    <IconComp size={22} className="transition-transform duration-300 group-hover:scale-105" />
+                {/* Left: BadgeIcon with Lock overlay */}
+                <div className="relative flex-shrink-0 flex items-center justify-center w-11 h-11">
+                    <BadgeIcon slug={badge.slug} size={44} unlocked={badge.unlocked} className="transition-transform duration-300 group-hover:scale-105" />
                     {!badge.unlocked && (
-                        <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50">
-                            <Lock size={11} className="text-white/60" />
+                        <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/60 backdrop-blur-[0.5px]">
+                            <Lock size={12} className="text-white/80" />
                         </div>
                     )}
                 </div>
@@ -341,13 +388,41 @@ function Milestone({ progressData, loading: progressLoading }) {
         );
     };
 
-    // First 3 badges are featured (Noticeably Larger)
-    const featuredBadges = finalBadgeCollection.slice(0, 3);
+    // Sort all unlocked badges by earnedAt descending (most recent first)
+    const unlockedBadges = finalBadgeCollection
+        .filter(b => b.unlocked)
+        .sort((a, b) => new Date(b.earnedAt) - new Date(a.earnedAt));
+
+    const lockedBadges = finalBadgeCollection.filter(b => !b.unlocked);
+
+    // Combine them, putting the most recent earned badges first
+    const displayCollection = [...unlockedBadges, ...lockedBadges];
+
+    // First 3 are featured (Noticeably Larger)
+    const featuredBadges = displayCollection.slice(0, 3);
+
     // Next 6 badges are secondary (Smaller)
-    const secondaryBadges = finalBadgeCollection.slice(3, 9);
+    const secondaryBadges = displayCollection.slice(3, 9);
 
     return (
-        <div className="w-full h-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 text-white shadow-lg backdrop-blur-md relative overflow-hidden transition-all duration-300 flex flex-col justify-between">
+        <div className="w-full h-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 text-white shadow-lg backdrop-blur-md relative overflow-hidden transition-all duration-300 flex flex-col justify-between lc-animate-fade-up">
+            <style>{`
+                @keyframes lc-fade-up {
+                    from { opacity: 0; transform: translateY(8px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                .lc-animate-fade-up {
+                    animation: lc-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+                }
+                @keyframes lc-badge-fade-in-up {
+                    from { opacity: 0; transform: translateY(6px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                .lc-badge-stagger {
+                    opacity: 0;
+                    animation: lc-badge-fade-in-up 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+                }
+            `}</style>
             <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/[0.02] rounded-full blur-2xl pointer-events-none" />
             
             {/* Header */}
@@ -358,9 +433,9 @@ function Milestone({ progressData, loading: progressLoading }) {
                 </div>
                 <button
                     onClick={() => setShowGallery(true)}
-                    className="text-xs font-bold text-neutral-300 transition-colors flex-shrink-0 cursor-pointer"
+                    className="text-neutral-400 hover:text-white transition-colors flex-shrink-0 cursor-pointer text-sm font-bold"
                 >
-                    View All →
+                    →
                 </button>
             </div>
 
@@ -372,25 +447,17 @@ function Milestone({ progressData, loading: progressLoading }) {
                     {featuredBadges.map((badge, idx) => {
                         const IconComp = badge.icon || AwardIcon;
                         return (
-                            <div key={idx} className="flex flex-col items-center text-center">
+                            <div key={idx} className="flex flex-col items-center text-center lc-badge-stagger" style={{ animationDelay: `${idx * 0.08}s` }}>
                                 <button
                                     type="button"
                                     onClick={() => setSelectedBadge(badge)}
                                     title={`${badge.name}: ${badge.description}`}
-                                    className={`
-                                        group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full border transition-all duration-300 cursor-pointer
-                                        ${badge.unlocked ? `${badge.gradient} hover:scale-110` : "border-white/5 bg-white/[0.02] text-neutral-600 grayscale opacity-25"}
-                                    `}
+                                    className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 transition-all duration-300 cursor-pointer"
                                 >
-                                    <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8">
-                                        <IconComp
-                                            size={26}
-                                            className="transition-transform duration-300 group-hover:scale-105"
-                                        />
-                                    </div>
+                                    <BadgeIcon slug={badge.slug} size={64} unlocked={badge.unlocked} className="transition-transform duration-300 group-hover:scale-110" />
                                     {!badge.unlocked && (
-                                        <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/30">
-                                            <Lock size={12} className="text-white/60" />
+                                        <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-[0.5px]">
+                                            <Lock size={14} className="text-white/80" />
                                         </div>
                                     )}
                                 </button>
@@ -418,20 +485,13 @@ function Milestone({ progressData, loading: progressLoading }) {
                                 type="button"
                                 onClick={() => setSelectedBadge(badge)}
                                 title={`${badge.name}: ${badge.description}`}
-                                className={`
-                                    group relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full border transition-all duration-300 cursor-pointer
-                                    ${badge.unlocked ? `${badge.gradient} hover:scale-110` : "border-white/5 bg-white/[0.02] text-neutral-600 grayscale opacity-25"}
-                                `}
+                                className="group relative flex items-center justify-center w-9 h-9 transition-all duration-300 cursor-pointer lc-badge-stagger"
+                                style={{ animationDelay: `${(idx + 3) * 0.05}s` }}
                             >
-                                <div className="flex items-center justify-center w-4 h-4 text-current">
-                                    <IconComp
-                                        size={14}
-                                        className="transition-transform duration-300 group-hover:scale-105"
-                                    />
-                                </div>
+                                <BadgeIcon slug={badge.slug} size={36} unlocked={badge.unlocked} className="transition-transform duration-300 group-hover:scale-110" />
                                 {!badge.unlocked && (
-                                    <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/30">
-                                        <Lock size={8} className="text-white/60" />
+                                    <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-[0.5px]">
+                                        <Lock size={10} className="text-white/80" />
                                     </div>
                                 )}
                             </button>
