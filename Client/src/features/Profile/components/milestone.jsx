@@ -334,8 +334,8 @@ function Milestone({ progressData, loading: progressLoading }) {
                 className={`
                     group relative flex items-start gap-3.5 p-3.5 rounded-xl border transition-all duration-300 cursor-pointer
                     ${badge.unlocked 
-                        ? `${badge.gradient} hover:scale-[1.02] hover:shadow-[0_0_12px_rgba(249,115,22,0.12)]` 
-                        : "border-white/[0.03] bg-white/[0.01] text-neutral-600 grayscale opacity-40 hover:opacity-55"
+                        ? "border-white/[0.06] bg-[#121214]/90 text-neutral-200 hover:scale-[1.01] hover:border-white/[0.15] hover:bg-[#161619] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)]" 
+                        : "border-white/[0.03] bg-white/[0.01] text-neutral-600 grayscale opacity-45 hover:opacity-55"
                     }
                 `}
             >
