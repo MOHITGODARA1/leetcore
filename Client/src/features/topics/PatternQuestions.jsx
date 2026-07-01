@@ -35,6 +35,17 @@ const sortQuestionsByDifficulty = (items = []) =>
     return (Number(a.problemNumber) || 0) - (Number(b.problemNumber) || 0);
   });
 
+const NEXT_TOPIC_MAPPING = {
+  array: { slug: "string", name: "Strings" },
+  string: { slug: "hashing", name: "Hashing" },
+  strings: { slug: "hashing", name: "Hashing" },
+  hashing: { slug: "binarysearch", name: "Binary Search" },
+  binarysearch: { slug: "linkedlist", name: "Linked List" },
+  linkedlist: { slug: "stack", name: "Stack" },
+  stack: { slug: "queue", name: "Queue" },
+  queue: { slug: "array", name: "Arrays & Vectors" }
+};
+
 function QuestionListContent({ topicNameOverride }) {
   const { topic, pattern } = useParams();
   const topicName = topicNameOverride || decodeURIComponent(topic || "");
@@ -228,28 +239,45 @@ function QuestionListContent({ topicNameOverride }) {
         </div>
       )}
 
-      {/* Navigation Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-white/50 font-medium">
-        <Link to="/dashboard" className="hover:text-orange-400 transition-colors">
-          Dashboard
-        </Link>
-        <ChevronRight size={12} />
-        {patternName ? (
-          <Link
-            to={`/dashboard/dsa/Practice/${encodeURIComponent(topicName)}`}
-            className="hover:text-orange-400 transition-colors"
-          >
-            {topicName}
+      {/* Navigation Breadcrumb & Next Topic Button */}
+      <div className="flex justify-between items-center w-full text-xs font-medium">
+        <div className="flex items-center gap-2 text-white/50">
+          <Link to="/dashboard" className="hover:text-orange-400 transition-colors">
+            Dashboard
           </Link>
-        ) : (
-          <span className="text-orange-300">{topicName}</span>
-        )}
-        {patternName && (
-          <>
-            <ChevronRight size={12} />
-            <span className="text-orange-200">{formatPattern(patternName)}</span>
-          </>
-        )}
+          <ChevronRight size={12} />
+          {patternName ? (
+            <Link
+              to={`/dashboard/dsa/Practice/${encodeURIComponent(topicName)}`}
+              className="hover:text-orange-400 transition-colors"
+            >
+              {topicName}
+            </Link>
+          ) : (
+            <span className="text-orange-300">{topicName}</span>
+          )}
+          {patternName && (
+            <>
+              <ChevronRight size={12} />
+              <span className="text-orange-200">{formatPattern(patternName)}</span>
+            </>
+          )}
+        </div>
+
+        {(() => {
+          const topicKeyClean = topicName.toLowerCase().replace(/[^a-z0-9]/g, "");
+          const nextTopicInfo = NEXT_TOPIC_MAPPING[topicKeyClean];
+          if (!nextTopicInfo) return null;
+          return (
+            <Link
+              to={`/dashboard/dsa/Practice/${encodeURIComponent(nextTopicInfo.slug)}`}
+              className="group flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-orange-500/30 text-white/90 transition-all duration-300 font-bold"
+            >
+              <span>Next: {nextTopicInfo.name}</span>
+              <ChevronRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
+          );
+        })()}
       </div>
 
       {/* Header Block */}
@@ -461,6 +489,24 @@ function QuestionListContent({ topicNameOverride }) {
           </table>
         </div>
       )}
+
+      {/* Bottom Next Topic Button */}
+      {(() => {
+        const topicKeyClean = topicName.toLowerCase().replace(/[^a-z0-9]/g, "");
+        const nextTopicInfo = NEXT_TOPIC_MAPPING[topicKeyClean];
+        if (!nextTopicInfo) return null;
+        return (
+          <div className="flex justify-end mt-4">
+            <Link
+              to={`/dashboard/dsa/Practice/${encodeURIComponent(nextTopicInfo.slug)}`}
+              className="group flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white transition-all duration-300 shadow-[0_0_20px_rgba(244,103,23,0.15)] hover:shadow-[0_0_30px_rgba(244,103,23,0.35)] font-bold text-sm cursor-pointer"
+            >
+              <span>Next Practice: {nextTopicInfo.name}</span>
+              <ChevronRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        );
+      })()}
     </div>
   );
 }
