@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import {
-    Award as AwardIcon, Lock, Loader2, X, ArrowLeft,
+    Award as AwardIcon, Lock, X, ArrowLeft,
     Target, Compass, Map, Activity, ShieldCheck, Crown,
     Flame, Zap, Gem, Dumbbell, Trophy,
     Code, Type, Link as LinkIcon, Layers, ListCollapse, GitFork, Network
 } from "lucide-react";
+import { motion as Motion } from "framer-motion";
 import { useAuth } from "../../../context/AuthContext";
 import BadgeModal from "../../gamification/components/BadgeModal";
 import { createPortal } from "react-dom";
@@ -237,51 +238,38 @@ function Milestone({ progressData, loading: progressLoading }) {
 
     if (progressLoading) {
         return (
-            <div className="w-full h-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 text-white shadow-lg backdrop-blur-md relative overflow-hidden flex flex-col justify-between">
-                <style>{`
-                    @keyframes lc-shimmer {
-                        0% { background-position: -200% 0; }
-                        100% { background-position: 200% 0; }
-                    }
-                    .lc-skeleton-bg {
-                        background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
-                        background-size: 200% 100%;
-                        animation: lc-shimmer 1.6s infinite linear;
-                    }
-                `}</style>
+            <div className="w-full h-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 text-white shadow-lg backdrop-blur-md relative overflow-hidden flex flex-col justify-between min-h-[200px] sm:min-h-[238px]">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/[0.02] rounded-full blur-2xl pointer-events-none" />
                 
-                {/* Header */}
+                {/* Header Skeleton */}
                 <div className="flex justify-between items-start mb-4">
-                    <div>
-                        <div className="h-3.5 w-24 rounded lc-skeleton-bg" />
-                        <div className="h-2.5 w-16 rounded mt-1.5 lc-skeleton-bg" />
+                    <div className="space-y-1.5">
+                        <div className="w-[110px] h-[16px] rounded bg-white/[0.03] shimmer-skeleton" />
+                        <div className="w-[80px] h-[12px] rounded bg-white/[0.03] shimmer-skeleton mt-1" />
                     </div>
-                    <div className="h-4 w-4 rounded lc-skeleton-bg" />
+                    <div className="w-[20px] h-[20px] rounded bg-white/[0.03] shimmer-skeleton" />
                 </div>
 
-                <div className="space-y-4">
-                    {/* Featured Badges */}
+                {/* Badges Layout Area Skeleton */}
+                <div className="space-y-4 my-auto">
+                    {/* 1. First Three Badges Grid */}
                     <div className="grid grid-cols-3 gap-3">
                         {Array.from({ length: 3 }).map((_, idx) => (
-                            <div key={idx} className="flex flex-col items-center">
-                                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center">
-                                    <div className="w-8 h-8 rounded-full lc-skeleton-bg opacity-30" />
-                                </div>
-                                <div className="h-2.5 w-14 rounded mt-2 lc-skeleton-bg" />
-                                <div className="h-2 w-10 rounded mt-1 lc-skeleton-bg" />
+                            <div key={idx} className="flex flex-col items-center text-center space-y-2">
+                                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/[0.03] shimmer-skeleton" />
+                                <div className="w-[70px] h-[12px] rounded bg-white/[0.03] shimmer-skeleton" />
+                                <div className="w-[45px] h-[10px] rounded bg-white/[0.03] shimmer-skeleton" />
                             </div>
                         ))}
                     </div>
 
+                    {/* Divider */}
                     <div className="h-px bg-white/[0.03]" />
 
-                    {/* Secondary Badges */}
+                    {/* 2. Secondary Badges list */}
                     <div className="flex flex-wrap items-center justify-center gap-2">
                         {Array.from({ length: 6 }).map((_, idx) => (
-                            <div key={idx} className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center">
-                                <div className="w-4 h-4 rounded-full lc-skeleton-bg opacity-30" />
-                            </div>
+                            <div key={idx} className="w-9 h-9 rounded-full bg-white/[0.03] shimmer-skeleton" />
                         ))}
                     </div>
                 </div>
@@ -405,101 +393,99 @@ function Milestone({ progressData, loading: progressLoading }) {
     const secondaryBadges = displayCollection.slice(3, 9);
 
     return (
-        <div className="w-full h-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 text-white shadow-lg backdrop-blur-md relative overflow-hidden transition-all duration-300 flex flex-col justify-between lc-animate-fade-up">
-            <style>{`
-                @keyframes lc-fade-up {
-                    from { opacity: 0; transform: translateY(8px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                .lc-animate-fade-up {
-                    animation: lc-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-                }
-                @keyframes lc-badge-fade-in-up {
-                    from { opacity: 0; transform: translateY(6px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                .lc-badge-stagger {
-                    opacity: 0;
-                    animation: lc-badge-fade-in-up 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-                }
-            `}</style>
+        <div className="w-full h-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 text-white shadow-lg backdrop-blur-md relative overflow-hidden transition-all duration-300 flex flex-col justify-between">
             <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/[0.02] rounded-full blur-2xl pointer-events-none" />
             
-            {/* Header */}
-            <div className="flex justify-between items-start mb-4">
-                <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-400">Badges Earned</h3>
-                    <p className="text-[10px] text-neutral-500 mt-0.5">Unlocked {unlockedCount} / {totalCount}</p>
+            <Motion.div 
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="flex flex-col justify-between h-full w-full"
+            >
+                {/* Header */}
+                <div className="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-400">Badges Earned</h3>
+                        <p className="text-[10px] text-neutral-500 mt-0.5">Unlocked {unlockedCount} / {totalCount}</p>
+                    </div>
+                    <button
+                        onClick={() => setShowGallery(true)}
+                        className="text-base font-bold text-neutral-400 hover:text-white transition-colors flex-shrink-0 cursor-pointer"
+                    >
+                        →
+                    </button>
                 </div>
-                <button
-                    onClick={() => setShowGallery(true)}
-                    className="text-neutral-400 hover:text-white transition-colors flex-shrink-0 cursor-pointer text-sm font-bold"
-                >
-                    →
-                </button>
-            </div>
 
-            {/* Badges Layout Area */}
-            <div className="space-y-4">
-                
-                {/* 1. First Three Badges (Featured & 30-40% Larger) */}
-                <div className="grid grid-cols-3 gap-3">
-                    {featuredBadges.map((badge, idx) => {
-                        const IconComp = badge.icon || AwardIcon;
-                        return (
-                            <div key={idx} className="flex flex-col items-center text-center lc-badge-stagger" style={{ animationDelay: `${idx * 0.08}s` }}>
-                                <button
+                {/* Badges Layout Area */}
+                <div className="space-y-4">
+                    
+                    {/* 1. First Three Badges (Featured & 30-40% Larger) */}
+                    <div className="grid grid-cols-3 gap-3">
+                        {featuredBadges.map((badge, idx) => {
+                            const IconComp = badge.icon || AwardIcon;
+                            return (
+                                <Motion.div 
+                                    key={idx} 
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.4, delay: idx * 0.08, ease: "easeOut" }}
+                                    className="flex flex-col items-center text-center"
+                                >
+                                    <button
+                                        type="button"
+                                        onClick={() => setSelectedBadge(badge)}
+                                        title={`${badge.name}: ${badge.description}`}
+                                        className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 transition-all duration-300 cursor-pointer"
+                                    >
+                                        <BadgeIcon slug={badge.slug} size={64} unlocked={badge.unlocked} className="transition-transform duration-300 group-hover:scale-110" />
+                                        {!badge.unlocked && (
+                                            <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-[0.5px]">
+                                                <Lock size={14} className="text-white/80" />
+                                            </div>
+                                        )}
+                                    </button>
+                                    <span className="text-[10px] font-bold text-neutral-300 mt-1.5 truncate max-w-full leading-tight">
+                                        {badge.name}
+                                    </span>
+                                     <span className={`text-[8px] font-bold uppercase tracking-wider mt-0.5 ${badge.unlocked ? "text-orange-500/90" : "text-neutral-600"}`}>
+                                         {badge.unlocked ? "Unlocked" : "Locked"}
+                                     </span>
+                                </Motion.div>
+                            );
+                        })}
+                    </div>
+
+                    {/* Divider line */}
+                    <div className="h-px bg-white/[0.03]" />
+
+                    {/* 2. Secondary Badges (Smaller) */}
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                        {secondaryBadges.map((badge, idx) => {
+                            const IconComp = badge.icon || AwardIcon;
+                            return (
+                                <Motion.button
+                                    key={idx}
                                     type="button"
                                     onClick={() => setSelectedBadge(badge)}
                                     title={`${badge.name}: ${badge.description}`}
-                                    className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 transition-all duration-300 cursor-pointer"
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.3, delay: 0.2 + idx * 0.05, ease: "easeOut" }}
+                                    className="group relative flex items-center justify-center w-9 h-9 transition-all duration-300 cursor-pointer"
                                 >
-                                    <BadgeIcon slug={badge.slug} size={64} unlocked={badge.unlocked} className="transition-transform duration-300 group-hover:scale-110" />
+                                    <BadgeIcon slug={badge.slug} size={36} unlocked={badge.unlocked} className="transition-transform duration-300 group-hover:scale-110" />
                                     {!badge.unlocked && (
                                         <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-[0.5px]">
-                                            <Lock size={14} className="text-white/80" />
+                                            <Lock size={10} className="text-white/80" />
                                         </div>
                                     )}
-                                </button>
-                                <span className="text-[10px] font-bold text-neutral-300 mt-1.5 truncate max-w-full leading-tight">
-                                    {badge.name}
-                                </span>
-                                 <span className={`text-[8px] font-bold uppercase tracking-wider mt-0.5 ${badge.unlocked ? "text-orange-500/90" : "text-neutral-600"}`}>
-                                     {badge.unlocked ? "Unlocked" : "Locked"}
-                                 </span>
-                            </div>
-                        );
-                    })}
+                                </Motion.button>
+                            );
+                        })}
+                    </div>
+
                 </div>
-
-                {/* Divider line */}
-                <div className="h-px bg-white/[0.03]" />
-
-                {/* 2. Secondary Badges (Smaller) */}
-                <div className="flex flex-wrap items-center justify-center gap-2">
-                    {secondaryBadges.map((badge, idx) => {
-                        const IconComp = badge.icon || AwardIcon;
-                        return (
-                            <button
-                                key={idx}
-                                type="button"
-                                onClick={() => setSelectedBadge(badge)}
-                                title={`${badge.name}: ${badge.description}`}
-                                className="group relative flex items-center justify-center w-9 h-9 transition-all duration-300 cursor-pointer lc-badge-stagger"
-                                style={{ animationDelay: `${(idx + 3) * 0.05}s` }}
-                            >
-                                <BadgeIcon slug={badge.slug} size={36} unlocked={badge.unlocked} className="transition-transform duration-300 group-hover:scale-110" />
-                                {!badge.unlocked && (
-                                    <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-[0.5px]">
-                                        <Lock size={10} className="text-white/80" />
-                                    </div>
-                                )}
-                            </button>
-                        );
-                    })}
-                </div>
-
-            </div>
+            </Motion.div>
 
             {/* Gallery Modal Overlay */}
             {showGallery && createPortal(
