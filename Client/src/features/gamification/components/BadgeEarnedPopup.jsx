@@ -44,20 +44,20 @@ function BadgeEarnedPopup({ badge, onClose }) {
         className="relative w-full max-w-sm rounded-2xl border border-white/[0.08] bg-[#0c0c0e]/95 p-6 text-white shadow-2xl text-center overflow-hidden animate-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Soft swirling glow background (non-blinking) */}
+        {/* Soft swirling glow background (extremely subtle) */}
         <div 
-          className={`absolute left-1/2 top-[120px] -translate-x-1/2 w-48 h-48 rounded-full bg-gradient-to-tr ${glowColorClass} blur-3xl opacity-20 animate-spin pointer-events-none`} 
+          className={`absolute left-1/2 top-[120px] -translate-x-1/2 w-48 h-48 rounded-full bg-gradient-to-tr ${glowColorClass} blur-3xl opacity-[0.06] animate-spin pointer-events-none`} 
           style={{ animationDuration: "15s" }}
         />
 
-        {/* Floating background particles */}
+        {/* Floating background particles (non-blinking) */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="80" r="1.5" fill="#FFE066" className="opacity-30 animate-ping" />
-          <circle cx="320" cy="110" r="2.5" fill="#FFF" className="opacity-50 animate-bounce" style={{ animationDuration: "4s" }} />
-          <circle cx="70" cy="200" r="2" fill="#4DABF7" className="opacity-40 animate-bounce" style={{ animationDuration: "3s" }} />
-          <circle cx="280" cy="260" r="1.5" fill="#38D9A9" className="opacity-30 animate-ping" style={{ animationDuration: "5s" }} />
-          <path d="M 280 60 L 282 63 L 285 63 L 283 65 L 284 68 L 280 66 L 276 68 L 277 65 L 275 63 L 278 63 Z" fill="#FFE066" className="opacity-40 animate-pulse" />
-          <path d="M 60 270 L 62 273 L 65 273 L 63 275 L 64 278 L 60 276 L 56 278 L 57 275 L 55 273 L 58 273 Z" fill="#FF8787" className="opacity-50 animate-pulse" style={{ animationDuration: "2.5s" }} />
+          <circle cx="40" cy="80" r="1.5" fill="#FFE066" className="opacity-20" />
+          <circle cx="320" cy="110" r="2.5" fill="#FFF" className="opacity-30 animate-bounce" style={{ animationDuration: "6s" }} />
+          <circle cx="70" cy="200" r="2" fill="#4DABF7" className="opacity-30 animate-bounce" style={{ animationDuration: "5s" }} />
+          <circle cx="280" cy="260" r="1.5" fill="#38D9A9" className="opacity-20" />
+          <path d="M 280 60 L 282 63 L 285 63 L 283 65 L 284 68 L 280 66 L 276 68 L 277 65 L 275 63 L 278 63 Z" fill="#FFE066" className="opacity-20" />
+          <path d="M 60 270 L 62 273 L 65 273 L 63 275 L 64 278 L 60 276 L 56 278 L 57 275 L 55 273 L 58 273 Z" fill="#FF8787" className="opacity-30 animate-bounce" style={{ animationDuration: "7s" }} />
         </svg>
 
         {/* Close Button */}
