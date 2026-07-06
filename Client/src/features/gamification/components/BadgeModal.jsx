@@ -58,9 +58,9 @@ function BadgeModal({ badge, onClose }) {
         className="relative w-full max-w-sm rounded-2xl border border-white/[0.08] bg-[#0c0c0e]/95 p-6 text-white shadow-2xl overflow-hidden animate-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Soft swirling glow background (non-blinking) */}
+        {/* Soft swirling glow background (extremely subtle) */}
         <div 
-          className={`absolute left-1/2 top-[120px] -translate-x-1/2 w-48 h-48 rounded-full bg-gradient-to-tr ${glowColorClass} blur-3xl opacity-20 animate-spin pointer-events-none`} 
+          className={`absolute left-1/2 top-[120px] -translate-x-1/2 w-48 h-48 rounded-full bg-gradient-to-tr ${glowColorClass} blur-3xl opacity-[0.06] animate-spin pointer-events-none`} 
           style={{ animationDuration: "15s" }}
         />
 

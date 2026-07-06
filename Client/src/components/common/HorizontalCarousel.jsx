@@ -51,27 +51,7 @@ export default function HorizontalCarousel({
     };
 
     return (
-        <div className="relative group/carousel w-full">
-            {/* Left Edge Gradient Fade */}
-            <div 
-                className={`
-                    absolute left-0 top-0 bottom-0 w-10 sm:w-14 
-                    bg-gradient-to-r ${gradientColor} via-transparent to-transparent 
-                    pointer-events-none z-10 transition-opacity duration-300 
-                    ${showLeftArrow ? "opacity-100" : "opacity-0"}
-                `} 
-            />
-
-            {/* Right Edge Gradient Fade */}
-            <div 
-                className={`
-                    absolute right-0 top-0 bottom-0 w-10 sm:w-14 
-                    bg-gradient-to-l ${gradientColor} via-transparent to-transparent 
-                    pointer-events-none z-10 transition-opacity duration-300 
-                    ${showRightArrow ? "opacity-100" : "opacity-0"}
-                `} 
-            />
-
+        <div className="relative group/carousel w-full overflow-hidden py-4 -my-4 px-1 -mx-1 rounded-2xl">
             {/* Left Arrow Button */}
             <button
                 type="button"
