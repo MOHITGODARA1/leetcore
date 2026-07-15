@@ -8,28 +8,28 @@
     "platform": "LeetCode",
     "problemNumber": 704,
     "leetcodeUrl": "https://leetcode.com/problems/binary-search/",
-    "description": "The foundational binary search problem — given a sorted array and a target, return the index of the target or -1 if not found. The algorithm works by repeatedly halving the search space: compare the target to the middle element, then eliminate the left or right half depending on whether the target is smaller or larger. The devil is entirely in the details: should you use left < right or left <= right? Should mid be (left + right) / 2 or left + (right - left) / 2? The latter avoids integer overflow in languages with fixed-width integers. When the loop ends, are you guaranteed to have found the target or do you need a final check? Internalizing these boundary conditions is the entire point of this problem. Every binary search variant you will ever write is a modification of this template. Do not dismiss this as trivial — code it from scratch five times until your fingers write it correctly without thinking.",
+    "description": "You are given a list of numbers that is already sorted from smallest to largest, and one 'target' number to find. Your job is to return the position (index) of that number in the list. If the number is not in the list, return -1.",
     "examples": [
       {
-        "input": "nums = [-1,0,3,5,9,12], target = 9",
+        "input": "nums = [-1, 0, 3, 5, 9, 12], target = 9",
         "output": "4",
-        "explanation": "9 exists in nums and its index is 4."
+        "explanation": "Start checking the middle of the list. Since 9 is bigger than the middle values, keep narrowing to the right side. Eventually you land on index 4, where the value is 9."
       },
       {
-        "input": "nums = [-1,0,3,5,9,12], target = 2",
+        "input": "nums = [-1, 0, 3, 5, 9, 12], target = 2",
         "output": "-1",
-        "explanation": "2 does not exist in nums so return -1."
+        "explanation": "As you narrow the search, you will notice 2 falls between 0 and 3, but 2 itself is not present anywhere in the list. So the answer is -1."
       }
     ],
     "constraints": [
-      "1 <= nums.length <= 10^4",
-      "-10^4 < nums[i], target < 10^4",
-      "All the integers in nums are unique.",
-      "nums is sorted in ascending order."
+      "1 <= nums.length <= 10^4 (the list can have from 1 up to 10,000 numbers)",
+      "-10^4 < nums[i], target < 10^4 (all numbers, including the target, are between -10,000 and 10,000)",
+      "All the numbers in nums are unique (no duplicates)",
+      "nums is already sorted from smallest to largest"
     ],
     "hints": [
-      "Use two pointers, left and right, to track the search boundaries.",
-      "Compute mid as left + (right - left) / 2 to avoid overflow."
+      "Keep two pointers, left and right, marking the current search area.",
+      "Calculate mid as left + (right - left) / 2 instead of (left + right) / 2, so the numbers never get too large and cause overflow errors."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
@@ -37,7 +37,11 @@
       "Amazon",
       "Microsoft",
       "Google",
-      "Apple"
+      "Apple",
+      "Meta",
+      "Adobe",
+      "Flipkart",
+      "TCS"
     ],
     "tags": [
       "Array",
@@ -55,16 +59,33 @@
       "First Bad Version"
     ],
     "followUp": [
-      "Can you write both the iterative and recursive versions?"
+      "Can you write both an iterative version (using a loop) and a recursive version (using function calls)?"
     ],
     "testCases": [
       {
-        "input": "[-1,0,3,5,9,12], target=9",
-        "output": "4"
+        "input": "nums = [-1,0,3,5,9,12], target = 9",
+        "output": "4",
+        "note": "Normal case - target exists in the middle-ish of the list."
       },
       {
-        "input": "[-1,0,3,5,9,12], target=2",
-        "output": "-1"
+        "input": "nums = [-1,0,3,5,9,12], target = 2",
+        "output": "-1",
+        "note": "Target does not exist anywhere in the list."
+      },
+      {
+        "input": "nums = [5], target = 5",
+        "output": "0",
+        "note": "Edge case - list has only one element, and it matches the target."
+      },
+      {
+        "input": "nums = [5], target = -5",
+        "output": "-1",
+        "note": "Edge case - list has only one element, and it does NOT match the target."
+      },
+      {
+        "input": "nums = [1,3,5,7,9,11], target = 1",
+        "output": "0",
+        "note": "Edge case - target is the very first element of the list."
       }
     ],
     "acceptanceRate": "56.4%",
@@ -80,40 +101,39 @@
     "platform": "LeetCode",
     "problemNumber": 35,
     "leetcodeUrl": "https://leetcode.com/problems/search-insert-position/",
-    "description": "Given a sorted array and a target, return the index where the target is found, or the index where it would be inserted to keep the array sorted. This problem teaches the deeper meaning of binary search termination: when the loop ends with left > right, left is pointing to the exact position where the target would slot in. You do not need any special logic to handle the not-found case — left is already the answer. This is the classic lower_bound behavior from C++ STL. Understanding why left ends up at the insertion point requires tracing through what happens when target is smaller than all elements (left stays 0), larger than all elements (left ends at n), or sits between two values. This insight generalizes to dozens of harder problems where you are searching for the leftmost position satisfying some condition rather than an exact match.",
+    "description": "You are given a sorted list of numbers and a target number. If the target already exists in the list, return its index (position). If it does not exist, imagine inserting it into the list so the list stays sorted, and return the index where it would go.",
     "examples": [
       {
-        "input": "nums = [1,3,5,6], target = 5",
+        "input": "nums = [1, 3, 5, 6], target = 5",
         "output": "2",
-        "explanation": "5 is found at index 2."
+        "explanation": "5 is already present in the list at index 2, so we simply return that index."
       },
       {
-        "input": "nums = [1,3,5,6], target = 2",
+        "input": "nums = [1, 3, 5, 6], target = 2",
         "output": "1",
-        "explanation": "2 would be inserted at index 1."
-      },
-      {
-        "input": "nums = [1,3,5,6], target = 7",
-        "output": "4",
-        "explanation": "7 would be inserted at the end."
+        "explanation": "2 is not in the list, but if we inserted it, it would fit right between 1 and 3, which is index 1."
       }
     ],
     "constraints": [
-      "1 <= nums.length <= 10^4",
-      "-10^4 <= nums[i] <= 10^4",
-      "nums contains distinct values sorted in ascending order.",
-      "-10^4 <= target <= 10^4"
+      "1 <= nums.length <= 10^4 (list has 1 to 10,000 numbers)",
+      "-10^4 <= nums[i] <= 10^4 (all numbers in the list fit in this range)",
+      "All numbers in nums are different from each other and already sorted",
+      "-10^4 <= target <= 10^4 (target is also in this range)"
     ],
     "hints": [
-      "Use binary search with left <= right.",
-      "When the loop ends, left is the correct insertion index."
+      "Run a normal binary search using left <= right as your loop condition.",
+      "When the loop finishes, the value of 'left' is automatically the correct answer, whether the target was found or not."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
       "Bloomberg",
-      "Apple"
+      "Apple",
+      "Microsoft",
+      "Google",
+      "Zoho",
+      "Infosys"
     ],
     "tags": [
       "Array",
@@ -131,16 +151,33 @@
       "First Bad Version"
     ],
     "followUp": [
-      "Can you generalize this to find lower_bound and upper_bound separately?"
+      "Can you extend this idea to find both the first and last position a number could be inserted (called lower_bound and upper_bound)?"
     ],
     "testCases": [
       {
-        "input": "[1,3,5,6], target=5",
-        "output": "2"
+        "input": "nums = [1,3,5,6], target = 5",
+        "output": "2",
+        "note": "Normal case - target already exists in the list."
       },
       {
-        "input": "[1,3,5,6], target=2",
-        "output": "1"
+        "input": "nums = [1,3,5,6], target = 2",
+        "output": "1",
+        "note": "Normal case - target needs to be inserted in the middle."
+      },
+      {
+        "input": "nums = [1,3,5,6], target = 7",
+        "output": "4",
+        "note": "Edge case - target is bigger than every number, so it goes at the very end."
+      },
+      {
+        "input": "nums = [1,3,5,6], target = 0",
+        "output": "0",
+        "note": "Edge case - target is smaller than every number, so it goes at the very start."
+      },
+      {
+        "input": "nums = [], target = 3",
+        "output": "0",
+        "note": "Edge case - the list is empty, so the target must be inserted at index 0."
       }
     ],
     "acceptanceRate": "44.6%",
@@ -156,32 +193,34 @@
     "platform": "LeetCode",
     "problemNumber": 374,
     "leetcodeUrl": "https://leetcode.com/problems/guess-number-higher-or-lower/",
-    "description": "A game where you guess a number between 1 and n and an API tells you if it is higher, lower, or correct. The optimal strategy is pure binary search: always guess the midpoint of the remaining range, then halve based on feedback. This problem exists to make binary search intuitive through narrative framing. Interestingly, it also appears in more complex variants — Guess Number Higher or Lower II turns this into a minimax DP problem where you must minimize your worst-case cost. The interactive API pattern (where you query an oracle rather than access an array directly) is a template you will see in several medium and hard problems. If you understand why binary search guarantees finding the answer in O(log n) guesses, you understand the algorithm at its core.",
+    "description": "Imagine playing a number guessing game: a number between 1 and n has been secretly picked, and you need to figure out what it is. Every time you guess, you get told 'too high', 'too low', or 'correct!' through a special guess() function. Find the number that was picked.",
     "examples": [
       {
-        "input": "n = 10, pick = 6",
+        "input": "n = 10, the secretly picked number is 6",
         "output": "6",
-        "explanation": "guess(6) returns 0 (correct)."
+        "explanation": "We start guessing around the middle of 1 to 10. Each guess tells us to go higher or lower, and we narrow down until we correctly guess 6."
       },
       {
-        "input": "n = 1, pick = 1",
+        "input": "n = 1, the secretly picked number is 1",
         "output": "1",
-        "explanation": "Only one possible number."
+        "explanation": "There is only one possible number to pick from, so it must be 1 - no guessing needed."
       }
     ],
     "constraints": [
-      "1 <= n <= 2^31 - 1",
-      "1 <= pick <= n"
+      "1 <= n <= 2^31 - 1 (n can be a very large number, up to about 2.1 billion)",
+      "1 <= pick <= n (the secret number is always somewhere inside the valid range)"
     ],
     "hints": [
-      "Binary search the range [1, n] using the guess() API feedback.",
-      "Narrow the range based on whether the guess() result is higher or lower."
+      "Keep a range from 1 to n, and always guess the middle of the current range.",
+      "Shrink the range to the left or right half depending on whether guess() says 'too high' or 'too low'."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
-      "Google"
+      "Google",
+      "Microsoft",
+      "Adobe"
     ],
     "tags": [
       "Binary Search",
@@ -199,12 +238,33 @@
       "First Bad Version"
     ],
     "followUp": [
-      "How would you solve Guess Number Higher or Lower II, where you must minimize worst-case cost?"
+      "How would you solve the harder version, Guess Number Higher or Lower II, where you must minimize how much money you'd lose in the worst case?"
     ],
     "testCases": [
       {
-        "input": "n=10, pick=6",
-        "output": "6"
+        "input": "n = 10, pick = 6",
+        "output": "6",
+        "note": "Normal case - number is somewhere in the middle of the range."
+      },
+      {
+        "input": "n = 1, pick = 1",
+        "output": "1",
+        "note": "Edge case - only one possible number exists, so no real guessing is needed."
+      },
+      {
+        "input": "n = 100, pick = 1",
+        "output": "1",
+        "note": "Edge case - the picked number is at the very start of the range."
+      },
+      {
+        "input": "n = 100, pick = 100",
+        "output": "100",
+        "note": "Edge case - the picked number is at the very end of the range."
+      },
+      {
+        "input": "n = 2147483647, pick = 2147483647",
+        "output": "2147483647",
+        "note": "Edge case - n is at its maximum allowed value, testing that your code handles very large numbers correctly."
       }
     ],
     "acceptanceRate": "51.7%",
@@ -220,25 +280,25 @@
     "platform": "LeetCode",
     "problemNumber": 278,
     "leetcodeUrl": "https://leetcode.com/problems/first-bad-version/",
-    "description": "You have n software versions where all versions after some point are bad. An isBadVersion API tells you if a given version is bad. Find the first bad version using the minimum number of API calls. This is the binary search for leftmost true in a boolean sequence — once something turns bad, everything after stays bad, giving you a monotone predicate. The key insight is that when you find a bad version, it might be the first — so record it and keep searching left rather than stopping. When you find a good version, the first bad must be to the right. The boundary condition is critical: use left <= right and update right = mid - 1 when bad is found, left = mid + 1 when good is found. At termination, left is the answer. This leftmost-true pattern is the most important binary search variant — it underlies every problem where you search for a threshold.",
+    "description": "Imagine your company released versions 1, 2, 3, ... n of a product one after another. At some point, a bug was introduced, and every version released after that point is 'bad'. You are given a function isBadVersion(version) that tells you if a version is bad or not, but calling it too many times is expensive, so you want to find the very first bad version using as few checks as possible.",
     "examples": [
       {
-        "input": "n = 5, bad = 4",
+        "input": "n = 5, and versions 4 and 5 are known to be bad",
         "output": "4",
-        "explanation": "Versions 4 and 5 are bad; version 4 is the first."
+        "explanation": "Versions 1, 2, and 3 are good, but starting from version 4 everything is bad. So the first bad version is 4."
       },
       {
-        "input": "n = 1, bad = 1",
+        "input": "n = 1, and version 1 is bad",
         "output": "1",
-        "explanation": "Only one version, and it is bad."
+        "explanation": "There's only one version total, and it happens to be bad, so it must be the first bad one."
       }
     ],
     "constraints": [
-      "1 <= bad <= n <= 2^31 - 1"
+      "1 <= bad <= n <= 2^31 - 1 (n can be a very large number of versions)"
     ],
     "hints": [
-      "Use binary search for the leftmost position where isBadVersion returns true.",
-      "When bad is found, keep searching left in case an earlier version is also bad."
+      "Binary search for the leftmost (first) position where isBadVersion returns true.",
+      "Even after finding a bad version, keep checking to the left in case an earlier version is also bad."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
@@ -246,7 +306,9 @@
       "Amazon",
       "Meta",
       "Bloomberg",
-      "Microsoft"
+      "Microsoft",
+      "Facebook",
+      "Uber"
     ],
     "tags": [
       "Binary Search",
@@ -264,12 +326,33 @@
       "Search Insert Position"
     ],
     "followUp": [
-      "How would this change if isBadVersion calls were extremely expensive?"
+      "How would your approach change if every call to isBadVersion() was extremely slow or costly?"
     ],
     "testCases": [
       {
-        "input": "n=5, bad=4",
-        "output": "4"
+        "input": "n = 5, bad = 4",
+        "output": "4",
+        "note": "Normal case - the bad version is somewhere in the middle-to-end range."
+      },
+      {
+        "input": "n = 1, bad = 1",
+        "output": "1",
+        "note": "Edge case - only one version exists, and it is the bad one."
+      },
+      {
+        "input": "n = 10, bad = 1",
+        "output": "1",
+        "note": "Edge case - the very first version is already bad, meaning nothing is good."
+      },
+      {
+        "input": "n = 10, bad = 10",
+        "output": "10",
+        "note": "Edge case - only the very last version is bad, all others are good."
+      },
+      {
+        "input": "n = 2147483647, bad = 2147483647",
+        "output": "2147483647",
+        "note": "Edge case - n is extremely large, testing that your search stays efficient (O(log n)) even at max scale."
       }
     ],
     "acceptanceRate": "45.1%",
@@ -285,25 +368,25 @@
     "platform": "LeetCode",
     "problemNumber": 69,
     "leetcodeUrl": "https://leetcode.com/problems/sqrtx/",
-    "description": "Compute the integer square root of x — the largest integer k such that k * k <= x — without using any built-in power or square root functions. This is binary search for the rightmost value satisfying a condition: search in range [0, x], and for each mid check if mid * mid <= x. If true, record mid as a candidate and search right for a potentially larger valid value. If mid * mid > x, search left. At termination, the last recorded candidate is the answer. Watch out for integer overflow when computing mid * mid — for large x, mid can be up to 46340 on 32-bit systems before squaring overflows. Use long multiplication or cast appropriately. This problem cleanly illustrates the rightmost-true binary search template, which is the mirror of the leftmost-true pattern from First Bad Version.",
+    "description": "You are given a non-negative whole number x, and you need to find its square root, but rounded down to the nearest whole number. You are not allowed to use any built-in sqrt() or power functions - you must calculate it yourself.",
     "examples": [
       {
         "input": "x = 4",
         "output": "2",
-        "explanation": "2 * 2 = 4."
+        "explanation": "2 multiplied by itself equals exactly 4, so the square root is exactly 2."
       },
       {
         "input": "x = 8",
         "output": "2",
-        "explanation": "The square root of 8 is 2.828..., truncated to 2."
+        "explanation": "The real square root of 8 is about 2.83, but since we round down to a whole number, the answer is 2."
       }
     ],
     "constraints": [
-      "0 <= x <= 2^31 - 1"
+      "0 <= x <= 2^31 - 1 (x can be 0 up to a very large number, about 2.1 billion)"
     ],
     "hints": [
-      "Binary search in range [0, x] for the largest mid where mid*mid <= x.",
-      "Use long arithmetic to avoid overflow when squaring mid."
+      "Binary search in the range from 0 to x, checking if mid * mid <= x.",
+      "Watch out for very large numbers - use a data type like 'long' when squaring mid so it doesn't overflow."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
@@ -311,7 +394,8 @@
       "Amazon",
       "Apple",
       "Bloomberg",
-      "Google"
+      "Google",
+      "Microsoft"
     ],
     "tags": [
       "Math",
@@ -329,16 +413,33 @@
       "Pow(x, n)"
     ],
     "followUp": [
-      "Can you achieve higher precision using Newton's method instead?"
+      "Can you get a more precise (decimal) answer using Newton's Method instead of binary search?"
     ],
     "testCases": [
       {
-        "input": "4",
-        "output": "2"
+        "input": "x = 4",
+        "output": "2",
+        "note": "Normal case - x is a perfect square."
       },
       {
-        "input": "8",
-        "output": "2"
+        "input": "x = 8",
+        "output": "2",
+        "note": "Normal case - x is not a perfect square, so the result gets rounded down."
+      },
+      {
+        "input": "x = 0",
+        "output": "0",
+        "note": "Edge case - smallest possible input, square root of 0 is 0."
+      },
+      {
+        "input": "x = 1",
+        "output": "1",
+        "note": "Edge case - square root of 1 is 1."
+      },
+      {
+        "input": "x = 2147483647",
+        "output": "46340",
+        "note": "Edge case - x is at the maximum allowed value, testing that your multiplication does not overflow."
       }
     ],
     "acceptanceRate": "38.2%",
@@ -354,35 +455,36 @@
     "platform": "LeetCode",
     "problemNumber": 1351,
     "leetcodeUrl": "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/",
-    "description": "Given a matrix sorted in non-increasing order both row-wise and column-wise, count all negative numbers. The brute force scans every cell in O(m * n). Binary search improves this: for each row, binary search for the first negative number — all elements from that index to the row's end are negative. This brings the time to O(m log n). Even smarter is the O(m + n) staircase approach: start at the top-right corner and use the sorted structure to navigate without binary search at all. But the binary-search solution is the intended one for this problem's placement. It exercises the concept of finding the leftmost index satisfying a condition within a row, reinforcing the same boundary-search template used in Search Insert Position and First Bad Version.",
+    "description": "You are given a grid (matrix) of numbers where each row is sorted from largest to smallest (left to right), and each column is also sorted from largest to smallest (top to bottom). Your task is to count how many numbers in the entire grid are negative.",
     "examples": [
       {
         "input": "grid = [[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]",
         "output": "8",
-        "explanation": "There are 8 negative numbers in the matrix."
+        "explanation": "Counting every negative number across all four rows gives a total of 8 negative numbers."
       },
       {
         "input": "grid = [[3,2],[1,0]]",
         "output": "0",
-        "explanation": "There are no negative numbers."
+        "explanation": "There isn't a single negative number anywhere in this small grid, so the count is 0."
       }
     ],
     "constraints": [
-      "m == grid.length",
-      "n == grid[i].length",
-      "1 <= m, n <= 100",
-      "-100 <= grid[i][j] <= 100"
+      "m == grid.length (number of rows)",
+      "n == grid[i].length (number of columns)",
+      "1 <= m, n <= 100 (the grid can be up to 100 rows and 100 columns)",
+      "-100 <= grid[i][j] <= 100 (every value in the grid is between -100 and 100)"
     ],
     "hints": [
-      "For each row, binary search the first index where the value becomes negative.",
-      "Sum (row length - first negative index) across all rows."
+      "For each row, binary search for the first index where the numbers turn negative.",
+      "Add up (row length minus that index) for every row to get the total count."
     ],
-    "expectedTimeComplexity": "O(m log n)",
+    "expectedTimeComplexity": "O(m + n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
       "Google",
-      "Microsoft"
+      "Microsoft",
+      "Oracle"
     ],
     "tags": [
       "Array",
@@ -401,12 +503,33 @@
       "Search a 2D Matrix II"
     ],
     "followUp": [
-      "Can you solve it in O(m + n) using a staircase walk?"
+      "Can you solve this even faster, in O(m + n) time, by starting from a corner of the grid and walking like a staircase?"
     ],
     "testCases": [
       {
-        "input": "[[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]",
-        "output": "8"
+        "input": "grid = [[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]",
+        "output": "8",
+        "note": "Normal case - a mix of positive and negative numbers spread across the grid."
+      },
+      {
+        "input": "grid = [[3,2],[1,0]]",
+        "output": "0",
+        "note": "Edge case - no negative numbers at all."
+      },
+      {
+        "input": "grid = [[-1,-2],[-3,-4]]",
+        "output": "4",
+        "note": "Edge case - every single number in the grid is negative."
+      },
+      {
+        "input": "grid = [[5]]",
+        "output": "0",
+        "note": "Edge case - grid has only a single cell, and it's positive."
+      },
+      {
+        "input": "grid = [[-5]]",
+        "output": "1",
+        "note": "Edge case - grid has only a single cell, and it's negative."
       }
     ],
     "acceptanceRate": "75.7%",
@@ -422,32 +545,34 @@
     "platform": "LeetCode",
     "problemNumber": 1346,
     "leetcodeUrl": "https://leetcode.com/problems/check-if-n-and-its-double-exist/",
-    "description": "Given an array, check if there exist two indices i and j such that i != j, arr[i] == 2 * arr[j]. The HashSet solution is O(n) and straightforward: for each element, check if its double or its half already exists in the set. The binary search solution sorts the array first, then for each element binary-searches for its double. The trick with zeros: two zeros satisfy the condition (0 == 2 * 0), but you must ensure i != j — so check if there are at least two zeros separately. This problem is a gentle introduction to using binary search as a lookup tool within an algorithm rather than as the algorithm itself — a pattern that recurs frequently when binary search is combined with sorting as a preprocessing step.",
+    "description": "You are given an array of numbers, and you need to figure out if there are two different positions i and j (not the same position) where one number is exactly double the other - meaning arr[i] equals 2 times arr[j].",
     "examples": [
       {
-        "input": "arr = [10,2,5,3]",
+        "input": "arr = [10, 2, 5, 3]",
         "output": "true",
-        "explanation": "2 * 5 = 10."
+        "explanation": "5 is at one position and 10 is at another, and 10 equals 2 times 5, so the condition is satisfied."
       },
       {
-        "input": "arr = [3,1,7,11]",
+        "input": "arr = [3, 1, 7, 11]",
         "output": "false",
-        "explanation": "No element is double another."
+        "explanation": "No number in this array is exactly double another number, so the answer is false."
       }
     ],
     "constraints": [
-      "2 <= arr.length <= 500",
-      "-10^3 <= arr[i] <= 10^3"
+      "2 <= arr.length <= 500 (the array has between 2 and 500 numbers)",
+      "-1000 <= arr[i] <= 1000 (every number is between -1000 and 1000)"
     ],
     "hints": [
-      "Sort the array, then binary search for double or half of each element.",
-      "Handle the zero case separately since 0 == 2 * 0."
+      "Sort the array first, then binary search for either double or half of each element.",
+      "Handle the zero case separately: you need at least two zeros in the array for it to count."
     ],
-    "expectedTimeComplexity": "O(n log n)",
-    "expectedSpaceComplexity": "O(1)",
+    "expectedTimeComplexity": "O(n)",
+    "expectedSpaceComplexity": "O(n)",
     "companies": [
       "Amazon",
-      "Bloomberg"
+      "Bloomberg",
+      "Cisco",
+      "Yahoo"
     ],
     "tags": [
       "Array",
@@ -467,16 +592,33 @@
       "Contains Duplicate"
     ],
     "followUp": [
-      "Can you solve it in O(n) using a HashSet instead?"
+      "Can you solve this in a single O(n) pass using a HashSet instead of sorting?"
     ],
     "testCases": [
       {
-        "input": "[10,2,5,3]",
-        "output": "true"
+        "input": "arr = [10,2,5,3]",
+        "output": "true",
+        "note": "Normal case - 10 is double of 5."
       },
       {
-        "input": "[3,1,7,11]",
-        "output": "false"
+        "input": "arr = [3,1,7,11]",
+        "output": "false",
+        "note": "Normal case - no pair satisfies the double condition."
+      },
+      {
+        "input": "arr = [0,0]",
+        "output": "true",
+        "note": "Edge case - two zeros count as valid since 2 * 0 = 0."
+      },
+      {
+        "input": "arr = [0,1]",
+        "output": "false",
+        "note": "Edge case - a single zero has no valid partner, so this is false."
+      },
+      {
+        "input": "arr = [-10,12,-20,-8]",
+        "output": "true",
+        "note": "Edge case - negative numbers are also valid; -20 is double of -10."
       }
     ],
     "acceptanceRate": "36.0%",
@@ -492,34 +634,35 @@
     "platform": "LeetCode",
     "problemNumber": 852,
     "leetcodeUrl": "https://leetcode.com/problems/peak-index-in-a-mountain-array/",
-    "description": "A mountain array rises to a peak and then falls. Find the peak index. The linear scan is O(n) but binary search achieves O(log n). The insight is that at any midpoint, you can determine which side of the peak you are on by comparing arr[mid] with arr[mid + 1]. If arr[mid] < arr[mid + 1], the peak is to the right (you are on the ascending slope). If arr[mid] > arr[mid + 1], the peak is at mid or to the left (you are on the descending slope or at the peak). This is an example of using local gradient information to direct the search — a technique that reappears in Find Peak Element and Find in Mountain Array. The array is not globally sorted, yet binary search still works because the structure provides enough local information to eliminate half the search space at each step.",
+    "description": "A 'mountain array' is a list of numbers that first keeps increasing, reaches one highest point (the peak), and then keeps decreasing - just like walking up and then down a mountain. Your task is to find the index of that peak (highest point).",
     "examples": [
       {
-        "input": "arr = [0,1,0]",
+        "input": "arr = [0, 1, 0]",
         "output": "1",
-        "explanation": "Index 1 holds the peak value 1."
+        "explanation": "The array rises from 0 to 1 and then falls back to 0, so the peak (highest point) is at index 1, where the value is 1."
       },
       {
-        "input": "arr = [0,2,1,0]",
+        "input": "arr = [0, 2, 1, 0]",
         "output": "1",
-        "explanation": "Index 1 holds the peak value 2."
+        "explanation": "The values rise from 0 up to 2 and then fall down to 1 and then 0, so the peak is at index 1, where the value is 2."
       }
     ],
     "constraints": [
-      "3 <= arr.length <= 10^5",
-      "0 <= arr[i] <= 10^6",
-      "arr is guaranteed to be a mountain array."
+      "3 <= arr.length <= 10^5 (the array has at least 3 numbers, since a mountain needs an up-slope, a peak, and a down-slope)",
+      "0 <= arr[i] <= 10^6 (every value is between 0 and 1,000,000)",
+      "The array is guaranteed to always be a valid mountain shape"
     ],
     "hints": [
-      "Compare arr[mid] with arr[mid+1] to decide which half contains the peak.",
-      "You never need to check arr[mid] against arr[mid-1] separately."
+      "Compare arr[mid] with arr[mid + 1] to figure out if you are on the rising side or the falling side of the mountain.",
+      "You never need to compare arr[mid] with arr[mid - 1] separately."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
       "Google",
-      "Facebook"
+      "Facebook",
+      "Meta"
     ],
     "tags": [
       "Array",
@@ -537,12 +680,33 @@
       "Find in Mountain Array"
     ],
     "followUp": [
-      "What if the array could have multiple equal peaks?"
+      "What would you need to change if the mountain could have multiple equally-high peaks?"
     ],
     "testCases": [
       {
-        "input": "[0,1,0]",
-        "output": "1"
+        "input": "arr = [0,1,0]",
+        "output": "1",
+        "note": "Edge case - smallest possible mountain array with just 3 elements."
+      },
+      {
+        "input": "arr = [0,2,1,0]",
+        "output": "1",
+        "note": "Normal case - peak is close to the start of the array."
+      },
+      {
+        "input": "arr = [0,1,2,3,4,5,4,3,2,1]",
+        "output": "5",
+        "note": "Normal case - peak is roughly in the middle of a longer array."
+      },
+      {
+        "input": "arr = [1,2,3,4,5]",
+        "output": "4",
+        "note": "Edge case - peak is at the very last index (mountain only rises, then drops off at the end)."
+      },
+      {
+        "input": "arr = [5,4,3,2,1]",
+        "output": "0",
+        "note": "Edge case - peak is at the very first index (mountain starts at its highest point)."
       }
     ],
     "acceptanceRate": "71.4%",
@@ -558,36 +722,37 @@
     "platform": "LeetCode",
     "problemNumber": 167,
     "leetcodeUrl": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
-    "description": "Given a sorted array, find two numbers that sum to a target. The two-pointer approach is O(n) and optimal for this problem. The binary search approach is O(n log n): for each element, binary search for its complement in the remaining portion of the array. While two pointers win here, the binary search solution reinforces the habit of applying search within a loop — a pattern that appears in problems like 3Sum and 4Sum where you fix outer elements and search for the remainder. Knowing both solutions matters: interviewers sometimes explicitly ask for the binary search version to test whether you can apply it as a subroutine. The guaranteed exactly-one-solution constraint also removes the need for duplicate handling, keeping the focus on the core technique.",
+    "description": "You are given a list of numbers already sorted from smallest to largest, along with a target sum. Find two different numbers in the list that add up exactly to the target, and return their positions (1-indexed, meaning the first position is numbered 1, not 0).",
     "examples": [
       {
-        "input": "numbers = [2,7,11,15], target = 9",
-        "output": "[1,2]",
-        "explanation": "numbers[0] + numbers[1] = 9, returned as 1-indexed."
+        "input": "numbers = [2, 7, 11, 15], target = 9",
+        "output": "[1, 2]",
+        "explanation": "The numbers at positions 1 and 2 (values 2 and 7) add up to 9, so we return their 1-indexed positions."
       },
       {
-        "input": "numbers = [2,3,4], target = 6",
-        "output": "[1,3]",
-        "explanation": "numbers[0] + numbers[2] = 6."
+        "input": "numbers = [2, 3, 4], target = 6",
+        "output": "[1, 3]",
+        "explanation": "The numbers at positions 1 and 3 (values 2 and 4) add up to 6."
       }
     ],
     "constraints": [
-      "2 <= numbers.length <= 3 * 10^4",
-      "-1000 <= numbers[i] <= 1000",
-      "numbers is sorted in non-decreasing order.",
+      "2 <= numbers.length <= 3 * 10^4 (the list has between 2 and 30,000 numbers)",
+      "-1000 <= numbers[i] <= 1000 (every number is between -1000 and 1000)",
+      "numbers is already sorted from smallest to largest",
       "-1000 <= target <= 1000",
-      "Exactly one valid answer exists."
+      "There is guaranteed to be exactly one valid pair of numbers that works"
     ],
     "hints": [
-      "Use two pointers from both ends, or binary search for the complement of each element.",
-      "Return 1-indexed positions."
+      "Use two pointers starting from both ends of the array and move them inward based on the current sum.",
+      "Alternatively, for each number, binary search for its needed partner (target minus that number)."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
       "Adobe",
-      "Bloomberg"
+      "Bloomberg",
+      "Microsoft"
     ],
     "tags": [
       "Array",
@@ -606,12 +771,33 @@
       "3Sum"
     ],
     "followUp": [
-      "Can you do it with binary search per element instead of two pointers?"
+      "Can you solve it using binary search for each element instead of the two-pointer technique?"
     ],
     "testCases": [
       {
-        "input": "[2,7,11,15], target=9",
-        "output": "[1,2]"
+        "input": "numbers = [2,7,11,15], target = 9",
+        "output": "[1,2]",
+        "note": "Normal case - the two matching numbers are next to each other."
+      },
+      {
+        "input": "numbers = [2,3,4], target = 6",
+        "output": "[1,3]",
+        "note": "Normal case - the two matching numbers are at opposite ends."
+      },
+      {
+        "input": "numbers = [-1,0], target = -1",
+        "output": "[1,2]",
+        "note": "Edge case - smallest possible array (only 2 elements), and it includes negative numbers."
+      },
+      {
+        "input": "numbers = [-3,-1,0,2,4,5], target = 1",
+        "output": "[2,4]",
+        "note": "Edge case - matching pair includes a negative number and a positive number."
+      },
+      {
+        "input": "numbers = [1,2,3,4,4,9,56,90], target = 8",
+        "output": "[4,5]",
+        "note": "Edge case - the array contains duplicate values (two 4's), testing that you still return the correct pair."
       }
     ],
     "acceptanceRate": "61.5%",
@@ -627,35 +813,36 @@
     "platform": "LeetCode",
     "problemNumber": 744,
     "leetcodeUrl": "https://leetcode.com/problems/find-smallest-letter-greater-than-target/",
-    "description": "Given a sorted list of characters (with wrap-around) and a target character, find the smallest character strictly greater than the target. If all characters are smaller, wrap around and return the first. This is the classic upper_bound binary search: find the leftmost element strictly greater than the target. The search range is [0, n - 1] and you keep left as your candidate when arr[mid] > target, otherwise search right. At the end, use left % n to handle the wrap-around case. This problem is valuable because it sharpens the distinction between lower_bound (first element >= target) and upper_bound (first element > target) — two subtly different templates that beginners often confuse. Mastering both gives you clean tools for dozens of boundary-finding problems.",
+    "description": "You are given a sorted list of lowercase letters and one target letter. You need to find the smallest letter in the list that comes strictly after the target letter alphabetically. If every letter in the list is smaller than or equal to the target, you 'wrap around' back to the beginning and return the very first letter instead.",
     "examples": [
       {
-        "input": "letters = [\"c\",\"f\",\"j\"], target = \"a\"",
-        "output": "\"c\"",
-        "explanation": "The smallest letter greater than 'a' is 'c'."
+        "input": "letters = ['c', 'f', 'j'], target = 'a'",
+        "output": "'c'",
+        "explanation": "Since 'a' comes before every letter in the list, the smallest letter that is still greater than 'a' is 'c', the very first letter."
       },
       {
-        "input": "letters = [\"c\",\"f\",\"j\"], target = \"j\"",
-        "output": "\"c\"",
-        "explanation": "No letter is greater than 'j', so it wraps around to 'c'."
+        "input": "letters = ['c', 'f', 'j'], target = 'j'",
+        "output": "'c'",
+        "explanation": "No letter in the list is greater than 'j' (it's the biggest one there), so we wrap around and return the first letter, 'c'."
       }
     ],
     "constraints": [
-      "2 <= letters.length <= 10^4",
-      "letters[i] is a lowercase English letter.",
-      "letters is sorted in non-decreasing order.",
-      "letters contains at least two different characters.",
-      "target is a lowercase English letter."
+      "2 <= letters.length <= 10^4 (list has between 2 and 10,000 letters)",
+      "Every letter is a lowercase English letter (a-z)",
+      "letters is sorted from smallest to largest",
+      "letters contains at least two different letters (not all the same)",
+      "target is a single lowercase English letter"
     ],
     "hints": [
-      "Use upper_bound binary search to find the first letter strictly greater than target.",
-      "Use left % n to handle the wrap-around case."
+      "Use binary search to find the first letter strictly greater than the target (this is called 'upper_bound').",
+      "If your final answer index reaches past the end of the list, use index % length to wrap back to the start."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
-      "Microsoft"
+      "Microsoft",
+      "Google"
     ],
     "tags": [
       "Array",
@@ -673,12 +860,33 @@
       "Find Right Interval"
     ],
     "followUp": [
-      "How would you adapt this for finding the largest letter smaller than target?"
+      "How would you adapt this same logic to instead find the largest letter smaller than the target?"
     ],
     "testCases": [
       {
-        "input": "[\"c\",\"f\",\"j\"], target=\"a\"",
-        "output": "\"c\""
+        "input": "letters = ['c','f','j'], target = 'a'",
+        "output": "'c'",
+        "note": "Edge case - target is smaller than every letter in the list."
+      },
+      {
+        "input": "letters = ['c','f','j'], target = 'j'",
+        "output": "'c'",
+        "note": "Edge case - target equals the largest letter, so the answer wraps around to the first letter."
+      },
+      {
+        "input": "letters = ['c','f','j'], target = 'd'",
+        "output": "'f'",
+        "note": "Normal case - target falls in between two letters in the list."
+      },
+      {
+        "input": "letters = ['e','e','e','e','e','e','n','n','n','n'], target = 'e'",
+        "output": "'n'",
+        "note": "Edge case - list has many repeated letters equal to the target; answer must skip past all of them."
+      },
+      {
+        "input": "letters = ['a','b'], target = 'z'",
+        "output": "'a'",
+        "note": "Edge case - target is larger than every letter, wraps all the way back to the first letter."
       }
     ],
     "acceptanceRate": "49.5%",
@@ -694,32 +902,33 @@
     "platform": "LeetCode",
     "problemNumber": 367,
     "leetcodeUrl": "https://leetcode.com/problems/valid-perfect-square/",
-    "description": "Given a positive integer, determine if it is a perfect square without using built-in square root functions. Binary search in range [1, num]: for each mid, compute mid * mid. If it equals num, return true. If less, search right; if greater, search left. If the loop ends without a match, return false. This is nearly identical to Sqrt(x) — the difference is you need an exact match rather than a floor. Use long arithmetic to avoid overflow when squaring mid. The problem is a clean rep of the standard binary search template and pairs well with Sqrt(x) as a study pair. Together they illustrate how exact-match and floor-match binary search differ by only a few characters in implementation but require clearly distinct mental models.",
+    "description": "You are given a positive whole number, and you need to determine whether it is a 'perfect square'. You cannot use any built-in square root function.",
     "examples": [
       {
         "input": "num = 16",
         "output": "true",
-        "explanation": "4 * 4 = 16."
+        "explanation": "4 multiplied by itself equals exactly 16, so 16 is a perfect square."
       },
       {
         "input": "num = 14",
         "output": "false",
-        "explanation": "14 is not a perfect square."
+        "explanation": "There is no whole number that, when multiplied by itself, equals exactly 14, so it is not a perfect square."
       }
     ],
     "constraints": [
-      "1 <= num <= 2^31 - 1"
+      "1 <= num <= 2^31 - 1 (num can be as large as about 2.1 billion)"
     ],
     "hints": [
-      "Binary search in range [1, num] for an exact match of mid*mid.",
-      "Use long arithmetic to avoid overflow."
+      "Binary search in the range from 1 to num, looking for a mid value where mid * mid exactly equals num.",
+      "Use a data type like 'long' when squaring mid, to avoid overflow issues with very large numbers."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
       "Apple",
-      "LinkedIn"
+      "LinkedIn",
+      "Microsoft"
     ],
     "tags": [
       "Math",
@@ -737,16 +946,33 @@
       "Pow(x, n)"
     ],
     "followUp": [
-      "Can you solve it without using multiplication, only addition?"
+      "Can you solve this using only repeated addition, without any multiplication at all?"
     ],
     "testCases": [
       {
-        "input": "16",
-        "output": "true"
+        "input": "num = 16",
+        "output": "true",
+        "note": "Normal case - a clear perfect square."
       },
       {
-        "input": "14",
-        "output": "false"
+        "input": "num = 14",
+        "output": "false",
+        "note": "Normal case - a number that is not a perfect square."
+      },
+      {
+        "input": "num = 1",
+        "output": "true",
+        "note": "Edge case - smallest possible input; 1 x 1 = 1, so it's a perfect square."
+      },
+      {
+        "input": "num = 2147395600",
+        "output": "true",
+        "note": "Edge case - a very large perfect square (46340 x 46340), testing that your code avoids overflow."
+      },
+      {
+        "input": "num = 2147483647",
+        "output": "false",
+        "note": "Edge case - the maximum allowed value, which is not a perfect square, testing boundary handling."
       }
     ],
     "acceptanceRate": "43.6%",
@@ -762,28 +988,28 @@
     "platform": "LeetCode",
     "problemNumber": 153,
     "leetcodeUrl": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
-    "description": "A sorted array was rotated at some unknown pivot. Find the minimum element in O(log n) time. The key insight is comparing arr[mid] with arr[right]: if arr[mid] > arr[right], the minimum is in the right half (the rotation happened in the right portion). If arr[mid] <= arr[right], the minimum is in the left half including mid. This works because in a rotation, exactly one of the two halves is always properly sorted — and you can determine which half contains the minimum by comparing the midpoint to the right boundary. Unlike classic binary search, your condition is not about the target value but about the structural property of the subarray. This problem is the prerequisite for Search in Rotated Sorted Array and should be fully understood before attempting that variant.",
+    "description": "Imagine you had a sorted list of numbers, but then someone picked a random spot and 'rotated' it, moving the front chunk to the back (for example, [1,2,3,4,5] rotated becomes something like [3,4,5,1,2]). Your job is to find the smallest number in this rotated list.",
     "examples": [
       {
-        "input": "nums = [3,4,5,1,2]",
+        "input": "nums = [3, 4, 5, 1, 2]",
         "output": "1",
-        "explanation": "The original array was [1,2,3,4,5] rotated 3 times."
+        "explanation": "This array is the original [1,2,3,4,5] rotated so that [3,4,5] moved to the front. The smallest value is 1."
       },
       {
-        "input": "nums = [4,5,6,7,0,1,2]",
+        "input": "nums = [4, 5, 6, 7, 0, 1, 2]",
         "output": "0",
-        "explanation": "The minimum element is 0."
+        "explanation": "The array was rotated, but the smallest value is still easy to spot once you scan: it's 0."
       }
     ],
     "constraints": [
-      "1 <= nums.length <= 5000",
+      "1 <= nums.length <= 5000 (list has 1 to 5000 numbers)",
       "-5000 <= nums[i] <= 5000",
-      "All the integers of nums are unique.",
-      "nums is sorted and rotated between 1 and n times."
+      "All numbers in nums are different (no duplicates)",
+      "nums is a sorted array that has been rotated between 1 and n times"
     ],
     "hints": [
-      "Compare nums[mid] with nums[right] to decide which half contains the minimum.",
-      "If nums[mid] > nums[right], the minimum is to the right of mid."
+      "Compare nums[mid] with nums[right] to decide which half definitely contains the minimum.",
+      "If nums[mid] is greater than nums[right], the minimum must be to the right of mid."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
@@ -791,7 +1017,9 @@
       "Amazon",
       "Microsoft",
       "Google",
-      "Meta"
+      "Meta",
+      "Facebook",
+      "Adobe"
     ],
     "tags": [
       "Array",
@@ -809,12 +1037,33 @@
       "Find Minimum in Rotated Sorted Array II"
     ],
     "followUp": [
-      "What changes if the array can contain duplicates?"
+      "What would change in your solution if the array could contain duplicate numbers?"
     ],
     "testCases": [
       {
-        "input": "[3,4,5,1,2]",
-        "output": "1"
+        "input": "nums = [3,4,5,1,2]",
+        "output": "1",
+        "note": "Normal case - array rotated somewhere in the middle."
+      },
+      {
+        "input": "nums = [4,5,6,7,0,1,2]",
+        "output": "0",
+        "note": "Normal case - larger array with the minimum near the middle."
+      },
+      {
+        "input": "nums = [11,13,15,17]",
+        "output": "11",
+        "note": "Edge case - array was 'rotated' 0 times, so it's still fully sorted."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1",
+        "note": "Edge case - only one number in the array, so it's automatically the minimum."
+      },
+      {
+        "input": "nums = [2,1]",
+        "output": "1",
+        "note": "Edge case - smallest possible rotated array with 2 elements."
       }
     ],
     "acceptanceRate": "49.0%",
@@ -830,29 +1079,29 @@
     "platform": "LeetCode",
     "problemNumber": 33,
     "leetcodeUrl": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
-    "description": "A sorted array was rotated at some unknown pivot — search for a target in O(log n) time. At every midpoint, one of the two halves is guaranteed to be sorted. Determine which half is sorted by comparing nums[left] with nums[mid]. If the left half is sorted, check if the target falls within [nums[left], nums[mid]) — if so, search left; otherwise search right. Apply the same logic symmetrically for the right half. This is the hardest pure binary search on arrays you will encounter at the medium level because the standard template does not apply directly — you have to reason about two conditions simultaneously: which half is sorted and where the target might be. Drawing examples with different rotation positions before coding is essential. Master this and you own rotated array problems.",
+    "description": "You are given a sorted array that has been 'rotated' at some unknown point (a chunk from the front was moved to the back), and you need to find the index of a target value. Return -1 if it's not found.",
     "examples": [
       {
-        "input": "nums = [4,5,6,7,0,1,2], target = 0",
+        "input": "nums = [4, 5, 6, 7, 0, 1, 2], target = 0",
         "output": "4",
-        "explanation": "0 is found at index 4."
+        "explanation": "Even though the array is rotated, we can still binary search it. The value 0 is found at index 4."
       },
       {
-        "input": "nums = [4,5,6,7,0,1,2], target = 3",
+        "input": "nums = [4, 5, 6, 7, 0, 1, 2], target = 3",
         "output": "-1",
-        "explanation": "3 does not exist in nums."
+        "explanation": "3 simply does not exist anywhere in this array, so we return -1."
       }
     ],
     "constraints": [
-      "1 <= nums.length <= 5000",
+      "1 <= nums.length <= 5000 (list has 1 to 5000 numbers)",
       "-10^4 <= nums[i] <= 10^4",
-      "All values of nums are unique.",
-      "nums is an ascending array that is possibly rotated.",
+      "All values in nums are different from each other",
+      "nums was originally sorted in ascending order, then possibly rotated",
       "-10^4 <= target <= 10^4"
     ],
     "hints": [
-      "At each mid, determine which half is sorted by comparing nums[left] and nums[mid].",
-      "Check if target lies within the sorted half's range before deciding which way to search."
+      "At each middle point, determine which half (left or right) is still properly sorted.",
+      "Check whether the target falls within that sorted half's value range before deciding which side to search next."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
@@ -861,7 +1110,8 @@
       "Microsoft",
       "Apple",
       "Bloomberg",
-      "Meta"
+      "Meta",
+      "Facebook"
     ],
     "tags": [
       "Array",
@@ -879,12 +1129,33 @@
       "Search in Rotated Sorted Array II"
     ],
     "followUp": [
-      "What if the array contains duplicate values?"
+      "How would your solution need to change if the array contained duplicate values?"
     ],
     "testCases": [
       {
-        "input": "[4,5,6,7,0,1,2], target=0",
-        "output": "4"
+        "input": "nums = [4,5,6,7,0,1,2], target = 0",
+        "output": "4",
+        "note": "Normal case - target exists in the rotated portion of the array."
+      },
+      {
+        "input": "nums = [4,5,6,7,0,1,2], target = 3",
+        "output": "-1",
+        "note": "Normal case - target does not exist anywhere."
+      },
+      {
+        "input": "nums = [1], target = 1",
+        "output": "0",
+        "note": "Edge case - array has only a single element that matches the target."
+      },
+      {
+        "input": "nums = [1], target = 5",
+        "output": "-1",
+        "note": "Edge case - array has only a single element that does not match the target."
+      },
+      {
+        "input": "nums = [5,1,3], target = 5",
+        "output": "0",
+        "note": "Edge case - small rotated array, target is the very first element."
       }
     ],
     "acceptanceRate": "41.0%",
@@ -900,27 +1171,27 @@
     "platform": "LeetCode",
     "problemNumber": 162,
     "leetcodeUrl": "https://leetcode.com/problems/find-peak-element/",
-    "description": "A peak element is greater than its neighbors. Given an array where adjacent elements are never equal, find any peak in O(log n) time. The array can have multiple peaks — you just need to return any one. The approach: compare arr[mid] with arr[mid + 1]. If arr[mid] < arr[mid + 1], there must be a peak in the right half (the ascending slope guarantees something higher exists to the right). If arr[mid] > arr[mid + 1], there must be a peak at mid or in the left half. This is binary search without a global sorted order — it works purely because of the local gradient. The problem generalizes to 2D in Find Peak Element in a 2D Grid. The key lesson is that binary search can work on any structure where you can consistently eliminate half the search space at each step, not just sorted arrays.",
+    "description": "A 'peak' is any number in the array that is strictly bigger than both of its neighbors. You are given an array where no two neighboring numbers are ever equal, and you need to find the index of any peak (there can be more than one, and you only need to return one of them).",
     "examples": [
       {
-        "input": "nums = [1,2,3,1]",
+        "input": "nums = [1, 2, 3, 1]",
         "output": "2",
-        "explanation": "3 is a peak element."
+        "explanation": "The value 3 at index 2 is bigger than both of its neighbors (2 and 1), so index 2 is a peak."
       },
       {
-        "input": "nums = [1,2,1,3,5,6,4]",
+        "input": "nums = [1, 2, 1, 3, 5, 6, 4]",
         "output": "5",
-        "explanation": "Index 1 (value 2) or index 5 (value 6) are both valid peaks."
+        "explanation": "There are actually two valid peaks here: index 1 (value 2) and index 5 (value 6). Either answer would be accepted; index 5 is shown here."
       }
     ],
     "constraints": [
-      "1 <= nums.length <= 1000",
-      "-2^31 <= nums[i] <= 2^31 - 1",
-      "nums[i] != nums[i+1] for all valid i."
+      "1 <= nums.length <= 1000 (array has 1 to 1000 numbers)",
+      "-2^31 <= nums[i] <= 2^31 - 1 (numbers can be very large or very small)",
+      "No two neighboring numbers in the array are ever equal to each other"
     ],
     "hints": [
-      "Compare nums[mid] with nums[mid+1] to decide which side has a guaranteed peak.",
-      "Treat indices outside the array as negative infinity for boundary cases."
+      "Compare nums[mid] with nums[mid + 1] to decide which side is guaranteed to contain a peak.",
+      "Treat anything outside the array's boundaries as if it were negative infinity, to simplify edge cases."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
@@ -928,7 +1199,8 @@
       "Amazon",
       "Google",
       "Meta",
-      "Microsoft"
+      "Microsoft",
+      "Facebook"
     ],
     "tags": [
       "Array",
@@ -946,12 +1218,33 @@
       "Find Peak Element II"
     ],
     "followUp": [
-      "Can you extend this approach to a 2D grid?"
+      "Can you extend this same idea to find a peak in a 2D grid instead of a 1D array?"
     ],
     "testCases": [
       {
-        "input": "[1,2,3,1]",
-        "output": "2"
+        "input": "nums = [1,2,3,1]",
+        "output": "2",
+        "note": "Normal case - one clear peak in the middle of the array."
+      },
+      {
+        "input": "nums = [1,2,1,3,5,6,4]",
+        "output": "5",
+        "note": "Normal case - multiple valid peaks exist; any correct one is accepted."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "0",
+        "note": "Edge case - array has only one element, so it is automatically a peak."
+      },
+      {
+        "input": "nums = [1,2]",
+        "output": "1",
+        "note": "Edge case - array is strictly increasing, so the peak is the last element."
+      },
+      {
+        "input": "nums = [2,1]",
+        "output": "0",
+        "note": "Edge case - array is strictly decreasing, so the peak is the first element."
       }
     ],
     "acceptanceRate": "46.7%",
@@ -967,24 +1260,29 @@
     "platform": "LeetCode",
     "problemNumber": 981,
     "leetcodeUrl": "https://leetcode.com/problems/time-based-key-value-store/",
-    "description": "Design a data structure that stores values associated with a key and a timestamp, and retrieves the value with the largest timestamp less than or equal to a given timestamp. The storage is a HashMap from key to a list of (timestamp, value) pairs. Since set operations come in increasing timestamp order, the list is always sorted by timestamp — enabling binary search on get. For each get(key, timestamp), find the rightmost entry whose timestamp is <= the query timestamp. This is the upper_bound search shifted left by one: find the first timestamp strictly greater than the query, then take the entry just before it. This problem is a practical design application of binary search — it tests whether you can identify when binary search is the right tool in a non-obvious context and integrate it correctly with a dictionary.",
+    "description": "You need to design a special storage system that remembers a value along with the exact timestamp it was saved, for any given key. Later, when someone asks for a value at a specific timestamp, you should return the most recent value that was saved at or before that timestamp - not necessarily an exact timestamp match.",
     "examples": [
       {
-        "input": "set(\"foo\",\"bar\",1), get(\"foo\",1), get(\"foo\",3), set(\"foo\",\"bar2\",4), get(\"foo\",4), get(\"foo\",5)",
-        "output": "[null,\"bar\",\"bar\",null,\"bar2\",\"bar2\"]",
-        "explanation": "get returns the value with the largest timestamp <= the query."
+        "input": "set(\"foo\",\"bar\",1); get(\"foo\",1); get(\"foo\",3); set(\"foo\",\"bar2\",4); get(\"foo\",4); get(\"foo\",5)",
+        "output": "[null, \"bar\", \"bar\", null, \"bar2\", \"bar2\"]",
+        "explanation": "At timestamp 1, we save 'bar'. Asking for timestamp 3 still returns 'bar' since that's the latest value at or before time 3. After saving 'bar2' at time 4, asking for time 4 or 5 both return 'bar2', since it's the newest matching value."
+      },
+      {
+        "input": "set(\"price\",\"100\",2); get(\"price\",1)",
+        "output": "[null, \"\"]",
+        "explanation": "We save '100' starting at timestamp 2. But asking for timestamp 1, which is BEFORE anything was ever saved, returns an empty string, since there's no valid value yet at that point in time."
       }
     ],
     "constraints": [
-      "1 <= key.length, value.length <= 100",
-      "key, value consist of lowercase English letters and digits.",
-      "1 <= timestamp <= 10^7",
-      "All timestamps set for the same key are strictly increasing.",
-      "At most 2 * 10^5 calls to set and get."
+      "1 <= key.length, value.length <= 100 (keys and values are short strings)",
+      "key and value only contain lowercase English letters and digits",
+      "1 <= timestamp <= 10^7 (timestamps can be fairly large numbers)",
+      "For the same key, every timestamp used with set() is strictly increasing (never repeated or out of order)",
+      "At most 2 * 10^5 total calls to set and get combined"
     ],
     "hints": [
-      "Store a list of (timestamp, value) pairs per key, in insertion order.",
-      "Binary search the list for the largest timestamp <= the query timestamp."
+      "For each key, store a list of (timestamp, value) pairs in the order they were added - they'll naturally stay sorted by timestamp.",
+      "For get(), binary search this list for the largest timestamp that is still less than or equal to the requested timestamp."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(n)",
@@ -992,7 +1290,8 @@
       "Amazon",
       "Google",
       "Uber",
-      "Meta"
+      "Meta",
+      "LinkedIn"
     ],
     "tags": [
       "Hash Table",
@@ -1012,12 +1311,33 @@
       "LRU Cache"
     ],
     "followUp": [
-      "How would you support deleting old timestamps to save memory?"
+      "How would you support deleting old timestamps from memory to save space over time?"
     ],
     "testCases": [
       {
-        "input": "set(\"foo\",\"bar\",1), get(\"foo\",1)",
-        "output": "\"bar\""
+        "input": "set(\"foo\",\"bar\",1); get(\"foo\",1)",
+        "output": "\"bar\"",
+        "note": "Normal case - exact timestamp match."
+      },
+      {
+        "input": "set(\"foo\",\"bar\",1); get(\"foo\",3)",
+        "output": "\"bar\"",
+        "note": "Normal case - requested timestamp is after the stored one, so the stored value still applies."
+      },
+      {
+        "input": "get(\"foo\",1)",
+        "output": "\"\"",
+        "note": "Edge case - asking for a key that was never set at all, should return an empty string."
+      },
+      {
+        "input": "set(\"bar\",\"first\",1); set(\"bar\",\"second\",5); get(\"bar\",4)",
+        "output": "\"first\"",
+        "note": "Edge case - requested timestamp falls between two saved timestamps, should return the earlier (still valid) value."
+      },
+      {
+        "input": "set(\"bar\",\"first\",1); get(\"bar\",1)",
+        "output": "\"first\"",
+        "note": "Edge case - only one value ever stored for this key, and the timestamp matches exactly."
       }
     ],
     "acceptanceRate": "63.4%",
@@ -1033,27 +1353,27 @@
     "platform": "LeetCode",
     "problemNumber": 875,
     "leetcodeUrl": "https://leetcode.com/problems/koko-eating-bananas/",
-    "description": "Koko can eat k bananas per hour. Given piles of bananas and h hours, find the minimum k that allows eating all bananas within h hours. This introduces binary search on the answer — one of the most powerful and frequently tested patterns. Instead of searching the input array, you search the space of possible answers: k ranges from 1 to max(piles). For each candidate k, compute the total hours needed (sum of ceil(pile / k) for each pile). If the total hours exceed h, k is too slow — search right. Otherwise, k might work but a smaller k could too — record this candidate and search left. This problem is the entry point to a family of problems (Capacity to Ship, Minimum Days to Make m Bouquets, Split Array Largest Sum) all sharing the same template: feasibility check on answer, binary search the answer space.",
+    "description": "Koko the monkey has several piles of bananas and h hours to eat them all before the guards come back. She picks one eating speed k (bananas per hour) and sticks with it: in each hour, she picks one pile and eats up to k bananas from it (if the pile has fewer than k, she finishes that pile early and doesn't use the leftover time on another pile that hour). Find the smallest possible speed k that still lets her finish everything within h hours.",
     "examples": [
       {
-        "input": "piles = [3,6,7,11], h = 8",
+        "input": "piles = [3, 6, 7, 11], h = 8",
         "output": "4",
-        "explanation": "Eating 4 bananas per hour finishes within 8 hours."
+        "explanation": "If Koko eats 4 bananas per hour, she needs 1+2+2+3 = 8 hours total, exactly meeting the deadline. Any slower speed would take too long."
       },
       {
-        "input": "piles = [30,11,23,4,20], h = 5",
+        "input": "piles = [30, 11, 23, 4, 20], h = 5",
         "output": "30",
-        "explanation": "With only 5 hours, Koko must eat at the fastest pace."
+        "explanation": "With only 5 hours and 5 piles, Koko can eat at most one pile per hour, so she must eat fast enough to finish the biggest pile (30 bananas) in a single hour."
       }
     ],
     "constraints": [
-      "1 <= piles.length <= 10^4",
-      "piles.length <= h <= 10^9",
-      "1 <= piles[i] <= 10^9"
+      "1 <= piles.length <= 10^4 (there are 1 to 10,000 piles)",
+      "piles.length <= h <= 10^9 (hours available is at least the number of piles, since she needs at least 1 hour per pile)",
+      "1 <= piles[i] <= 10^9 (each pile can have up to a billion bananas)"
     ],
     "hints": [
-      "Binary search k in range [1, max(piles)].",
-      "For each candidate k, compute total hours as the sum of ceil(pile / k)."
+      "Binary search the eating speed k in the range from 1 to the maximum pile size.",
+      "For each candidate speed k, calculate total hours needed as the sum of ceil(pile / k) across all piles."
     ],
     "expectedTimeComplexity": "O(n log m)",
     "expectedSpaceComplexity": "O(1)",
@@ -1061,7 +1381,8 @@
       "Amazon",
       "Google",
       "Meta",
-      "Bloomberg"
+      "Bloomberg",
+      "Uber"
     ],
     "tags": [
       "Array",
@@ -1079,12 +1400,33 @@
       "Minimum Speed to Arrive on Time"
     ],
     "followUp": [
-      "Can you generalize the feasibility check into a reusable template?"
+      "Can you turn your 'is this speed fast enough' check into a reusable helper function/template for similar problems?"
     ],
     "testCases": [
       {
-        "input": "[3,6,7,11], h=8",
-        "output": "4"
+        "input": "piles = [3,6,7,11], h = 8",
+        "output": "4",
+        "note": "Normal case - deadline is somewhat tight, requiring a moderate eating speed."
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 5",
+        "output": "30",
+        "note": "Edge case - hours exactly equal the number of piles, forcing maximum possible speed."
+      },
+      {
+        "input": "piles = [1000000000], h = 2",
+        "output": "500000000",
+        "note": "Edge case - single very large pile, testing that your code handles big numbers efficiently."
+      },
+      {
+        "input": "piles = [1], h = 1",
+        "output": "1",
+        "note": "Edge case - smallest possible input, one pile with one banana and one hour."
+      },
+      {
+        "input": "piles = [312884470], h = 968709470",
+        "output": "1",
+        "note": "Edge case - huge number of hours available compared to bananas, so the slowest possible speed (1) is enough."
       }
     ],
     "acceptanceRate": "49.4%",
@@ -1100,33 +1442,34 @@
     "platform": "LeetCode",
     "problemNumber": 1011,
     "leetcodeUrl": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/",
-    "description": "Given package weights and a deadline of d days, find the minimum ship capacity to ship all packages in order within d days. Binary search on the answer: capacity ranges from max(weights) (minimum possible — must fit each package) to sum(weights) (maximum possible — ship everything in one day). For each candidate capacity, greedily simulate how many days are needed: accumulate weights until adding the next would exceed capacity, then start a new day. If days needed <= d, this capacity works — search left for something smaller. Otherwise search right. This is the second problem in the binary-search-on-answer series. The monotone property is clear: higher capacity requires fewer or equal days. Once you internalize this template, Koko Eating Bananas, this problem, and most variants become structurally identical — only the feasibility check changes.",
+    "description": "You have a list of package weights that must be shipped in their given order (you cannot reorder them), and you have exactly d days to ship everything. Each day, you load the ship with as many packages as fit without exceeding its weight capacity, then move to the next day. Find the smallest ship capacity that still allows you to finish shipping within d days.",
     "examples": [
       {
         "input": "weights = [1,2,3,4,5,6,7,8,9,10], days = 5",
         "output": "15",
-        "explanation": "A capacity of 15 lets you ship within 5 days."
+        "explanation": "With a ship capacity of 15, you can group the packages into 5 days worth of shipments without exceeding 15 on any day, and no smaller capacity would work within 5 days."
       },
       {
         "input": "weights = [3,2,2,4,1,4], days = 3",
         "output": "6",
-        "explanation": "A capacity of 6 lets you ship within 3 days."
+        "explanation": "A capacity of 6 lets you split the packages into exactly 3 days worth of shipments."
       }
     ],
     "constraints": [
-      "1 <= days <= weights.length <= 5 * 10^4",
-      "1 <= weights[i] <= 500"
+      "1 <= days <= weights.length <= 5 * 10^4 (there are between 1 and 50,000 packages, and days is at most the number of packages)",
+      "1 <= weights[i] <= 500 (each package weighs between 1 and 500)"
     ],
     "hints": [
-      "Binary search capacity between max(weights) and sum(weights).",
-      "Greedily simulate days needed for each candidate capacity."
+      "Binary search the capacity between max(weights) and the sum of all weights.",
+      "For each candidate capacity, greedily simulate how many days it would actually take to ship everything."
     ],
     "expectedTimeComplexity": "O(n log(sum))",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
       "Google",
-      "Apple"
+      "Apple",
+      "Microsoft"
     ],
     "tags": [
       "Array",
@@ -1144,12 +1487,33 @@
       "Split Array Largest Sum"
     ],
     "followUp": [
-      "What changes if packages could be reordered before shipping?"
+      "What would change if the packages could be reordered before shipping, instead of keeping their original order?"
     ],
     "testCases": [
       {
-        "input": "[1,2,3,4,5,6,7,8,9,10], days=5",
-        "output": "15"
+        "input": "weights = [1,2,3,4,5,6,7,8,9,10], days = 5",
+        "output": "15",
+        "note": "Normal case - moderate number of packages and days."
+      },
+      {
+        "input": "weights = [3,2,2,4,1,4], days = 3",
+        "output": "6",
+        "note": "Normal case - smaller list with a tighter day constraint."
+      },
+      {
+        "input": "weights = [1,2,3,1,1], days = 4",
+        "output": "3",
+        "note": "Edge case - days is close to the number of packages, so capacity must be at least the heaviest single package."
+      },
+      {
+        "input": "weights = [5], days = 1",
+        "output": "5",
+        "note": "Edge case - only one package and one day, so capacity must equal that package's weight."
+      },
+      {
+        "input": "weights = [500,500,500], days = 3",
+        "output": "500",
+        "note": "Edge case - one package per day exactly, testing the minimum possible capacity boundary."
       }
     ],
     "acceptanceRate": "68.1%",
@@ -1165,34 +1529,35 @@
     "platform": "LeetCode",
     "problemNumber": 436,
     "leetcodeUrl": "https://leetcode.com/problems/find-right-interval/",
-    "description": "Given a list of intervals, for each interval find the interval with the smallest start point greater than or equal to its end point. Sort start points and apply binary search: for each interval's end point, search for the leftmost start point >= end. This is a direct application of lower_bound — find the first value satisfying a condition in a sorted structure. The implementation sorts start points while preserving their original indices (using a sorted map or sorting index pairs), then for each query does a binary search and returns the mapped original index. This problem is a clean exercise in applying binary search as a lookup tool within a larger algorithm. It also exercises the mental separation of input preparation (sorting) from search application.",
+    "description": "You are given a list of intervals (each interval has a start and end point). For every interval, you need to find another interval whose start point is the smallest value that is still greater than or equal to the current interval's end point - basically, the 'closest interval that starts right after this one ends'. If no such interval exists, return -1 for that one.",
     "examples": [
       {
-        "input": "intervals = [[3,4],[2,3],[1,2]]",
-        "output": "[-1,0,1]",
-        "explanation": "For each interval, the right interval index is found by start-point lookup."
+        "input": "intervals = [[3,4], [2,3], [1,2]]",
+        "output": "[-1, 0, 1]",
+        "explanation": "For interval [3,4] (ends at 4), no interval starts at 4 or later, so the answer is -1. For [2,3] (ends at 3), interval [3,4] at original index 0 starts exactly at 3. For [1,2] (ends at 2), interval [2,3] at original index 1 starts exactly at 2."
       },
       {
-        "input": "intervals = [[1,4],[2,3],[3,4]]",
-        "output": "[-1,2,-1]",
-        "explanation": "Only the second interval has a valid right interval."
+        "input": "intervals = [[1,4], [2,3], [3,4]]",
+        "output": "[-1, 2, -1]",
+        "explanation": "Only the middle interval [2,3] (ends at 3) has a matching interval that starts at or after 3 - which is [3,4] at index 2. The others have no valid match."
       }
     ],
     "constraints": [
-      "1 <= intervals.length <= 2 * 10^4",
-      "intervals[i].length == 2",
-      "-10^6 <= starti <= endi <= 10^6",
-      "The start point of each interval is unique."
+      "1 <= intervals.length <= 2 * 10^4 (between 1 and 20,000 intervals)",
+      "intervals[i].length == 2 (each interval has exactly a start and an end)",
+      "-10^6 <= starti <= endi <= 10^6 (start is always less than or equal to end)",
+      "Every interval's start point is unique (no two intervals start at the exact same point)"
     ],
     "hints": [
-      "Sort start points while keeping track of their original indices.",
-      "For each interval's end point, binary search for the leftmost start >= end."
+      "Sort the intervals' start points while remembering each one's original index.",
+      "For each interval's end point, binary search for the smallest start point that is >= that end point."
     ],
     "expectedTimeComplexity": "O(n log n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": [
       "Amazon",
-      "Bloomberg"
+      "Bloomberg",
+      "Google"
     ],
     "tags": [
       "Array",
@@ -1211,12 +1576,33 @@
       "Merge Intervals"
     ],
     "followUp": [
-      "Could you solve this using a TreeMap / sorted structure instead of an array?"
+      "Could you solve this using a sorted map / tree-based structure instead of sorting an array?"
     ],
     "testCases": [
       {
-        "input": "[[3,4],[2,3],[1,2]]",
-        "output": "[-1,0,1]"
+        "input": "intervals = [[3,4],[2,3],[1,2]]",
+        "output": "[-1,0,1]",
+        "note": "Normal case - a chain of intervals where most have a valid right match."
+      },
+      {
+        "input": "intervals = [[1,4],[2,3],[3,4]]",
+        "output": "[-1,2,-1]",
+        "note": "Normal case - only one interval has a valid match, others return -1."
+      },
+      {
+        "input": "intervals = [[1,1]]",
+        "output": "[0]",
+        "note": "Edge case - only one interval, and it matches itself since its own start equals its own end."
+      },
+      {
+        "input": "intervals = [[3,4],[1,2]]",
+        "output": "[-1,0]",
+        "note": "Edge case - no interval has a match for the last one, so it returns -1."
+      },
+      {
+        "input": "intervals = [[1,12]]",
+        "output": "[0]",
+        "note": "Edge case - a single interval where the start is far below the end, but it still matches itself."
       }
     ],
     "acceptanceRate": "49.6%",
@@ -1232,28 +1618,28 @@
     "platform": "LeetCode",
     "problemNumber": 74,
     "leetcodeUrl": "https://leetcode.com/problems/search-a-2d-matrix/",
-    "description": "Given an m x n matrix where each row is sorted and the first element of each row is greater than the last element of the previous row, search for a target in O(log(m * n)) time. The entire matrix is conceptually a sorted 1D array. Treat the matrix as a flattened array of length m * n and binary search on this virtual array. Convert a mid index to 2D coordinates: row = mid / n, col = mid % n. This index mapping is the key insight — instead of two nested binary searches or special 2D logic, you get clean O(log(m * n)) single-pass binary search. Compare to Search a 2D Matrix II (problem 240) where the matrix is sorted differently and binary search alone is insufficient — knowing the distinction between the two matrix structures is a common interview follow-up.",
+    "description": "You are given a grid (matrix) of numbers with a special property: each row is sorted left-to-right, and the first number of every row is bigger than the last number of the row above it. Determine whether a given target value exists anywhere in the matrix.",
     "examples": [
       {
         "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3",
         "output": "true",
-        "explanation": "3 exists in the matrix."
+        "explanation": "If you read the matrix row by row, it reads 1,3,5,7,10,11,16,20,23,30,34,60 - fully sorted. The value 3 is present, so we return true."
       },
       {
         "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13",
         "output": "false",
-        "explanation": "13 does not exist in the matrix."
+        "explanation": "13 does not appear anywhere in the grid, so we return false."
       }
     ],
     "constraints": [
-      "m == matrix.length",
-      "n == matrix[i].length",
-      "1 <= m, n <= 100",
+      "m == matrix.length (number of rows)",
+      "n == matrix[i].length (number of columns)",
+      "1 <= m, n <= 100 (grid can be up to 100 rows and 100 columns)",
       "-10^4 <= matrix[i][j], target <= 10^4"
     ],
     "hints": [
-      "Treat the 2D matrix as a flattened sorted 1D array.",
-      "Convert a mid index to row/col using row = mid / n, col = mid % n."
+      "Treat the 2D matrix as one long, flattened, sorted 1D array of length m * n.",
+      "Convert a flat 'mid' index back to a row and column using row = mid / n and column = mid % n."
     ],
     "expectedTimeComplexity": "O(log(m*n))",
     "expectedSpaceComplexity": "O(1)",
@@ -1261,7 +1647,8 @@
       "Amazon",
       "Apple",
       "Bloomberg",
-      "Microsoft"
+      "Microsoft",
+      "Google"
     ],
     "tags": [
       "Array",
@@ -1280,12 +1667,33 @@
       "Count Negative Numbers in a Sorted Matrix"
     ],
     "followUp": [
-      "How would your approach change if the matrix were sorted like in Search a 2D Matrix II instead?"
+      "How would your approach need to change if the matrix were sorted differently, like in Search a 2D Matrix II?"
     ],
     "testCases": [
       {
-        "input": "[[1,3,5,7],[10,11,16,20],[23,30,34,60]], target=3",
-        "output": "true"
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3",
+        "output": "true",
+        "note": "Normal case - target exists in the first row."
+      },
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13",
+        "output": "false",
+        "note": "Normal case - target does not exist anywhere."
+      },
+      {
+        "input": "matrix = [[1]], target = 1",
+        "output": "true",
+        "note": "Edge case - smallest possible matrix (a single cell) that matches the target."
+      },
+      {
+        "input": "matrix = [[1]], target = 2",
+        "output": "false",
+        "note": "Edge case - smallest possible matrix (a single cell) that does not match."
+      },
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 60",
+        "output": "true",
+        "note": "Edge case - target is the very last (largest) value in the entire matrix."
       }
     ],
     "acceptanceRate": "49.5%",
@@ -1301,36 +1709,37 @@
     "platform": "LeetCode",
     "problemNumber": 1870,
     "leetcodeUrl": "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/",
-    "description": "Given train distances and a deadline hour, find the minimum integer speed to make all trips on time. Each trip except the last rounds up to the next integer hour. Binary search on speed from 1 to 10^7 (the constraint). For each candidate speed, compute total time: sum of ceil(dist / speed) for all but the last trip, plus last_dist / speed (exact, no ceiling). If total time <= hour, this speed works — record and search left. Otherwise search right. The ceiling arithmetic and floating-point precision for the last trip are the careful implementation details. This is the third problem in the binary-search-on-answer family — same template, different feasibility check. Recognizing this pattern quickly in an interview is what separates binary search beginners from practitioners.",
+    "description": "You need to catch several train rides back-to-back to reach a destination by a certain deadline (given in hours, which can include a decimal like 2.5). For every ride except the very last one, if you don't finish exactly at a whole-hour mark, you must wait until the next whole hour before boarding the next train (so those times get rounded up). Only the very last ride's time counts exactly, with no rounding. Find the smallest whole-number train speed that still gets you there on time.",
     "examples": [
       {
-        "input": "dist = [1,3,2], hour = 6",
+        "input": "dist = [1, 3, 2], hour = 6",
         "output": "1",
-        "explanation": "At speed 1, total time is exactly 6 hours."
+        "explanation": "At a speed of 1, the first two rides take 1 hour and 3 hours (both round up to whole hours), and the last ride takes exactly 2 hours without rounding, for a total of exactly 6 hours - just barely making the deadline."
       },
       {
-        "input": "dist = [1,3,2], hour = 2.7",
+        "input": "dist = [1, 3, 2], hour = 2.7",
         "output": "3",
-        "explanation": "A higher speed is required to finish within 2.7 hours."
+        "explanation": "The deadline is much tighter here (2.7 hours), so a faster speed of 3 is required to squeeze in all three rides in time."
       }
     ],
     "constraints": [
-      "n == dist.length",
-      "1 <= n <= 10^5",
-      "1 <= dist[i] <= 10^5",
-      "1 <= hour <= 10^9",
-      "There will be at most two digits after the decimal point in hour."
+      "n == dist.length (number of train rides)",
+      "1 <= n <= 10^5 (up to 100,000 rides)",
+      "1 <= dist[i] <= 10^5 (distance of each ride)",
+      "1 <= hour <= 10^9 (deadline in hours, can be very large)",
+      "The deadline (hour) will have at most 2 digits after the decimal point"
     ],
     "hints": [
-      "Binary search speed in range [1, 10^7].",
-      "For all trips but the last, round up the time; for the last trip use exact division."
+      "Binary search the speed in the range from 1 to 10^7.",
+      "For every ride except the last one, round the travel time up to the next whole hour; for the very last ride, use the exact (non-rounded) division."
     ],
     "expectedTimeComplexity": "O(n log m)",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
       "Google",
-      "Uber"
+      "Uber",
+      "Ola"
     ],
     "tags": [
       "Array",
@@ -1348,12 +1757,33 @@
       "Capacity to Ship Packages Within D Days"
     ],
     "followUp": [
-      "What if speeds did not have to be integers?"
+      "What would change in your approach if speeds were allowed to be decimal numbers instead of only whole numbers?"
     ],
     "testCases": [
       {
-        "input": "[1,3,2], hour=6",
-        "output": "1"
+        "input": "dist = [1,3,2], hour = 6",
+        "output": "1",
+        "note": "Normal case - deadline is exactly achievable at the slowest possible speed."
+      },
+      {
+        "input": "dist = [1,3,2], hour = 2.7",
+        "output": "3",
+        "note": "Normal case - a tight deadline requiring a faster speed."
+      },
+      {
+        "input": "dist = [1,1,100000], hour = 2.01",
+        "output": "10000000",
+        "note": "Edge case - deadline is barely more than the number of rides, forcing the maximum possible speed."
+      },
+      {
+        "input": "dist = [1,1,1], hour = 3.5",
+        "output": "1",
+        "note": "Edge case - even the slowest speed easily meets a generous deadline."
+      },
+      {
+        "input": "dist = [10,10,10], hour = 2.99",
+        "output": "-1",
+        "note": "Edge case - it's mathematically impossible to make it on time even at maximum speed, so the answer is -1 (there's not enough hours for even 3 separate one-hour-rounded rides)."
       }
     ],
     "acceptanceRate": "39.9%",
@@ -1369,35 +1799,36 @@
     "platform": "LeetCode",
     "problemNumber": 154,
     "leetcodeUrl": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/",
-    "description": "Like Find Minimum in Rotated Sorted Array, but the array may contain duplicates. Duplicates destroy the clean O(log n) guarantee: when arr[mid] == arr[right], you cannot determine which half contains the minimum — both remain possible. The only safe move is to decrement right by one, shrinking the search space by just one element rather than half. In the worst case (all elements equal), this degrades to O(n). The key insight is understanding why duplicates break the original algorithm and what the minimal safe fallback is. This problem tests whether you understand your assumptions: binary search works because you can always eliminate half the space. When you cannot, you fall back to linear elimination of one element. This worst-case analysis is exactly the kind of reasoning interviewers probe at the hard level.",
+    "description": "This is the same challenge as 'Find Minimum in Rotated Sorted Array', except now the array is allowed to contain duplicate numbers. Find the smallest number in the rotated array.",
     "examples": [
       {
-        "input": "nums = [1,3,5]",
+        "input": "nums = [1, 3, 5]",
         "output": "1",
-        "explanation": "The array is not actually rotated."
+        "explanation": "This array actually was not rotated at all (or rotated a full circle back to itself), so it's already sorted, and the minimum is simply the first value, 1."
       },
       {
-        "input": "nums = [2,2,2,0,1]",
+        "input": "nums = [2, 2, 2, 0, 1]",
         "output": "0",
-        "explanation": "The minimum is 0, despite the duplicate 2's creating ambiguity."
+        "explanation": "Even though there are repeated 2's making parts of the search ambiguous, the true minimum value in the array is 0."
       }
     ],
     "constraints": [
-      "1 <= nums.length <= 5000",
+      "1 <= nums.length <= 5000 (array has 1 to 5000 numbers)",
       "-5000 <= nums[i] <= 5000",
-      "nums is sorted and rotated between 1 and n times.",
-      "nums may contain duplicates."
+      "nums is a sorted array that has been rotated between 1 and n times",
+      "nums may contain duplicate values this time"
     ],
     "hints": [
-      "When nums[mid] == nums[right], you cannot determine which half holds the minimum.",
-      "In that ambiguous case, simply decrement right by one and continue."
+      "When nums[mid] equals nums[right], you cannot safely tell which half holds the minimum.",
+      "In that ambiguous case, simply move the right boundary one step inward (right = right - 1) and continue."
     ],
-    "expectedTimeComplexity": "O(log n) average, O(n) worst case",
+    "expectedTimeComplexity": "O(log n) on average, O(n) in the worst case",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
       "Microsoft",
-      "Google"
+      "Google",
+      "Meta"
     ],
     "tags": [
       "Array",
@@ -1415,12 +1846,33 @@
       "Search in Rotated Sorted Array II"
     ],
     "followUp": [
-      "Can you construct a worst-case input that forces O(n) behavior?"
+      "Can you construct an example input that forces your solution into its worst-case O(n) behavior?"
     ],
     "testCases": [
       {
-        "input": "[2,2,2,0,1]",
-        "output": "0"
+        "input": "nums = [1,3,5]",
+        "output": "1",
+        "note": "Edge case - array is effectively not rotated at all."
+      },
+      {
+        "input": "nums = [2,2,2,0,1]",
+        "output": "0",
+        "note": "Normal case - duplicates create ambiguity, but the true minimum is still findable."
+      },
+      {
+        "input": "nums = [1,1,1,1,1]",
+        "output": "1",
+        "note": "Edge case - every element is identical, forcing worst-case O(n) behavior."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1",
+        "note": "Edge case - only a single element, trivially the minimum."
+      },
+      {
+        "input": "nums = [3,1,3]",
+        "output": "1",
+        "note": "Edge case - duplicates on both sides of the true minimum value."
       }
     ],
     "acceptanceRate": "44.0%",
@@ -1436,35 +1888,36 @@
     "platform": "LeetCode",
     "problemNumber": 81,
     "leetcodeUrl": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/",
-    "description": "Search in a rotated sorted array that may contain duplicates. The standard approach from problem 33 breaks when arr[left] == arr[mid] — you cannot determine which half is sorted. The fix is to increment left (and decrement right) when this ambiguity arises, linearly shrinking the window by one from each side. This degrades worst case to O(n) when all elements are equal. The algorithm otherwise follows the same logic as problem 33: determine which half is sorted, check if the target falls within the sorted half, and recurse accordingly. This is the hardest rotated array variant. Solving it cleanly requires fully owning the logic from problems 33 and 153, then understanding precisely which additional case breaks the algorithm and why incrementing left resolves the ambiguity safely.",
+    "description": "This is the harder version of 'Search in Rotated Sorted Array', except now duplicate values are allowed. Determine whether a target value exists in the rotated array.",
     "examples": [
       {
-        "input": "nums = [2,5,6,0,0,1,2], target = 0",
+        "input": "nums = [2, 5, 6, 0, 0, 1, 2], target = 0",
         "output": "true",
-        "explanation": "0 exists in nums."
+        "explanation": "0 does appear in this array (twice, in fact), so the answer is true."
       },
       {
-        "input": "nums = [2,5,6,0,0,1,2], target = 3",
+        "input": "nums = [2, 5, 6, 0, 0, 1, 2], target = 3",
         "output": "false",
-        "explanation": "3 does not exist in nums."
+        "explanation": "3 does not appear anywhere in the array, so the answer is false."
       }
     ],
     "constraints": [
-      "1 <= nums.length <= 5000",
+      "1 <= nums.length <= 5000 (array has 1 to 5000 numbers)",
       "-10^4 <= nums[i] <= 10^4",
-      "nums is guaranteed to be rotated at some pivot.",
+      "nums is guaranteed to be a rotated sorted array (possibly with duplicates)",
       "-10^4 <= target <= 10^4"
     ],
     "hints": [
-      "When nums[left] == nums[mid], increment left to break the ambiguity.",
-      "Otherwise apply the same sorted-half logic as Search in Rotated Sorted Array."
+      "When nums[left] equals nums[mid], you can't tell which half is sorted - just increment left by one to remove the ambiguity.",
+      "Otherwise, use the same 'which half is sorted, and is target inside it' logic as the non-duplicate version of this problem."
     ],
-    "expectedTimeComplexity": "O(log n) average, O(n) worst case",
+    "expectedTimeComplexity": "O(log n) on average, O(n) in the worst case",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
       "Microsoft",
-      "Bloomberg"
+      "Bloomberg",
+      "Google"
     ],
     "tags": [
       "Array",
@@ -1482,12 +1935,33 @@
       "Find Minimum in Rotated Sorted Array II"
     ],
     "followUp": [
-      "Can you construct an input where this degrades to O(n)?"
+      "Can you construct an example input where this solution's worst-case O(n) behavior is triggered?"
     ],
     "testCases": [
       {
-        "input": "[2,5,6,0,0,1,2], target=0",
-        "output": "true"
+        "input": "nums = [2,5,6,0,0,1,2], target = 0",
+        "output": "true",
+        "note": "Normal case - target appears more than once in the array."
+      },
+      {
+        "input": "nums = [2,5,6,0,0,1,2], target = 3",
+        "output": "false",
+        "note": "Normal case - target does not exist in the array."
+      },
+      {
+        "input": "nums = [1,1,1,1,1,1], target = 2",
+        "output": "false",
+        "note": "Edge case - array full of identical duplicates, forcing worst-case O(n) behavior, and target still isn't found."
+      },
+      {
+        "input": "nums = [1,0,1,1,1], target = 0",
+        "output": "true",
+        "note": "Edge case - target is surrounded by identical duplicate values."
+      },
+      {
+        "input": "nums = [1], target = 1",
+        "output": "true",
+        "note": "Edge case - single-element array that matches the target."
       }
     ],
     "acceptanceRate": "37.4%",
@@ -1503,27 +1977,27 @@
     "platform": "LeetCode",
     "problemNumber": 410,
     "leetcodeUrl": "https://leetcode.com/problems/split-array-largest-sum/",
-    "description": "Given an array and an integer k, split the array into k non-empty contiguous subarrays to minimize the largest subarray sum. Binary search on the answer: the answer lies between max(nums) (minimum possible largest sum — k = n) and sum(nums) (maximum possible — k = 1). For a candidate maximum sum, greedily check the minimum number of splits needed: accumulate elements until adding the next would exceed the candidate, then start a new subarray. If the number of subarrays needed <= k, this candidate is feasible — search left. Otherwise search right. This is the flagship hard-level binary-search-on-answer problem. It has a DP solution too but the binary search approach is cleaner and faster. It also appears in disguise as Minimize the Maximum Difference of Adjacent Elements and similar problems. Owning this template at the hard level signals real binary search mastery.",
+    "description": "You are given an array of numbers and an integer k. You must split the array into exactly k pieces (each piece must be a continuous chunk, and no piece can be empty), and you want to choose the split points so that the 'largest sum among all the pieces' is as small as possible - basically, spreading the numbers out as evenly as possible across the k groups.",
     "examples": [
       {
-        "input": "nums = [7,2,5,10,8], k = 2",
+        "input": "nums = [7, 2, 5, 10, 8], k = 2",
         "output": "18",
-        "explanation": "Splitting into [7,2,5] and [10,8] gives a largest sum of 18."
+        "explanation": "Splitting into [7,2,5] (sum 14) and [10,8] (sum 18), the largest of the two sums is 18. No other way to split into exactly 2 pieces gives a smaller 'largest sum'."
       },
       {
-        "input": "nums = [1,2,3,4,5], k = 2",
+        "input": "nums = [1, 2, 3, 4, 5], k = 2",
         "output": "9",
-        "explanation": "Splitting into [1,2,3] and [4,5] gives a largest sum of 9."
+        "explanation": "Splitting into [1,2,3] (sum 6) and [4,5] (sum 9), the largest sum is 9, which is the smallest possible largest-sum for 2 pieces."
       }
     ],
     "constraints": [
-      "1 <= nums.length <= 1000",
-      "0 <= nums[i] <= 10^6",
-      "1 <= k <= min(50, nums.length)"
+      "1 <= nums.length <= 1000 (array has 1 to 1000 numbers)",
+      "0 <= nums[i] <= 10^6 (each number is between 0 and 1,000,000)",
+      "1 <= k <= min(50, nums.length) (you can split into at most 50 pieces, and never more pieces than there are numbers)"
     ],
     "hints": [
-      "Binary search the answer between max(nums) and sum(nums).",
-      "For each candidate sum, greedily count how many subarrays are needed."
+      "Binary search the answer between the largest single number in the array and the sum of the whole array.",
+      "For each candidate maximum sum, greedily count how many pieces you'd actually need to stay under that maximum."
     ],
     "expectedTimeComplexity": "O(n log(sum))",
     "expectedSpaceComplexity": "O(1)",
@@ -1531,7 +2005,8 @@
       "Amazon",
       "Google",
       "Meta",
-      "LinkedIn"
+      "LinkedIn",
+      "Microsoft"
     ],
     "tags": [
       "Array",
@@ -1551,12 +2026,33 @@
       "Koko Eating Bananas"
     ],
     "followUp": [
-      "Can you also solve this with dynamic programming, and how do the complexities compare?"
+      "Can you also solve this using dynamic programming, and how does its speed compare to the binary search approach?"
     ],
     "testCases": [
       {
-        "input": "[7,2,5,10,8], k=2",
-        "output": "18"
+        "input": "nums = [7,2,5,10,8], k = 2",
+        "output": "18",
+        "note": "Normal case - a mix of numbers split into two roughly balanced groups."
+      },
+      {
+        "input": "nums = [1,2,3,4,5], k = 2",
+        "output": "9",
+        "note": "Normal case - a simple increasing sequence split into two groups."
+      },
+      {
+        "input": "nums = [1,4,4], k = 3",
+        "output": "4",
+        "note": "Edge case - k equals the array length, so every number becomes its own piece."
+      },
+      {
+        "input": "nums = [5], k = 1",
+        "output": "5",
+        "note": "Edge case - single element and only one piece required, so the answer is just that one number."
+      },
+      {
+        "input": "nums = [2,3,1,1,1,1,1], k = 5",
+        "output": "3",
+        "note": "Edge case - moderately sized array being split into many small pieces, testing tighter grouping logic."
       }
     ],
     "acceptanceRate": "55.8%",
@@ -1572,30 +2068,30 @@
     "platform": "LeetCode",
     "problemNumber": 4,
     "leetcodeUrl": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
-    "description": "Find the median of two sorted arrays in O(log(min(m, n))) time — one of the most famous hard problems in existence. The insight is to binary search for the correct partition point in the smaller array. Partition both arrays such that the left halves together contain exactly (m + n) / 2 elements. The median candidates are the maximum of the two left-half maxima and the minimum of the two right-half minima. Adjust the partition by comparing cross-boundary elements: if nums1[partitionX - 1] > nums2[partitionY], move the partition left in nums1; otherwise move it right. Handle the odd/even total length distinction and edge cases where partitions hit the boundaries of an array. This is one of the few problems where truly understanding the solution requires working through the math rigorously. Most candidates who claim to know it are actually relying on memory. Derive it from scratch.",
+    "description": "You are given two separate sorted arrays, and you need to find the median (the middle value) if you imagine merging them into one big sorted array - but you must do this in O(log(min(m, n))) time, without actually merging them.",
     "examples": [
       {
-        "input": "nums1 = [1,3], nums2 = [2]",
+        "input": "nums1 = [1, 3], nums2 = [2]",
         "output": "2.00000",
-        "explanation": "The merged array is [1,2,3], whose median is 2."
+        "explanation": "If you merged both arrays together, you'd get [1, 2, 3]. Since there are 3 total numbers (odd count), the median is simply the middle one, 2."
       },
       {
-        "input": "nums1 = [1,2], nums2 = [3,4]",
+        "input": "nums1 = [1, 2], nums2 = [3, 4]",
         "output": "2.50000",
-        "explanation": "The merged array is [1,2,3,4], whose median is (2 + 3) / 2 = 2.5."
+        "explanation": "Merged together, you'd get [1, 2, 3, 4]. Since there are 4 total numbers (even count), the median is the average of the two middle values: (2 + 3) / 2 = 2.5."
       }
     ],
     "constraints": [
       "nums1.length == m",
       "nums2.length == n",
-      "0 <= m <= 1000",
-      "0 <= n <= 1000",
-      "1 <= m + n <= 2000",
+      "0 <= m <= 1000 (first array can be empty, up to 1000 elements)",
+      "0 <= n <= 1000 (second array can be empty, up to 1000 elements)",
+      "1 <= m + n <= 2000 (both arrays together must have at least 1 element total)",
       "-10^6 <= nums1[i], nums2[i] <= 10^6"
     ],
     "hints": [
-      "Binary search the partition point in the smaller array.",
-      "Compare cross-boundary elements (maxLeft, minRight) to validate the partition."
+      "Binary search for the correct partition point in whichever array is smaller, to keep things efficient.",
+      "Compare the values at the boundary of each partition (maxLeft vs minRight) to check whether your current split is valid or needs adjusting."
     ],
     "expectedTimeComplexity": "O(log(min(m,n)))",
     "expectedSpaceComplexity": "O(1)",
@@ -1604,7 +2100,8 @@
       "Google",
       "Microsoft",
       "Meta",
-      "Apple"
+      "Apple",
+      "Adobe"
     ],
     "tags": [
       "Array",
@@ -1623,12 +2120,33 @@
       "Find K-th Smallest Pair Distance"
     ],
     "followUp": [
-      "Can you extend this approach to find the median of k sorted arrays?"
+      "Can you extend this same partitioning idea to find the median across k different sorted arrays instead of just two?"
     ],
     "testCases": [
       {
-        "input": "[1,3], [2]",
-        "output": "2.00000"
+        "input": "nums1 = [1,3], nums2 = [2]",
+        "output": "2.00000",
+        "note": "Normal case - odd total count of elements, median is a single middle value."
+      },
+      {
+        "input": "nums1 = [1,2], nums2 = [3,4]",
+        "output": "2.50000",
+        "note": "Normal case - even total count of elements, median is the average of two middle values."
+      },
+      {
+        "input": "nums1 = [], nums2 = [1]",
+        "output": "1.00000",
+        "note": "Edge case - one array is completely empty."
+      },
+      {
+        "input": "nums1 = [], nums2 = [2,3]",
+        "output": "2.50000",
+        "note": "Edge case - one array is empty, other has an even number of elements."
+      },
+      {
+        "input": "nums1 = [1,2,3], nums2 = [4,5,6,7,8,9,10]",
+        "output": "5.50000",
+        "note": "Edge case - very unequal sized arrays, testing whether the algorithm still binary searches on the smaller array correctly."
       }
     ],
     "acceptanceRate": "43.0%",
@@ -1644,34 +2162,36 @@
     "platform": "LeetCode",
     "problemNumber": 1095,
     "leetcodeUrl": "https://leetcode.com/problems/find-in-mountain-array/",
-    "description": "A mountain array (sorted ascending then descending) is hidden behind an interactive API that costs per query. Find the smallest index of a target value using the minimum number of queries. The strategy requires three binary searches. First, find the peak index — binary search using local gradient (mountainArr.get(mid) vs mid + 1 determines ascending or descending slope). Second, binary search the ascending half for the target — standard ascending binary search. Third, if not found, binary search the descending half — standard descending binary search (reverse the comparison logic). Using the smallest index means you always prefer the ascending half result over the descending half. The interactive constraint makes it hard: each query costs, so you cannot scan linearly. This problem is a synthesis of three binary search techniques and tests whether you can compose them correctly under the interactive constraint. It is the ultimate binary search exam.",
+    "description": "You are given a 'mountain array' (numbers that rise to one peak and then fall), but you can't view it directly - you can only access it through a special interactive function called mountainArr.get(index), and every call to that function costs you, so you want to minimize how many times you call it. Your goal: find the smallest index where a target value appears, or return -1 if it's not present anywhere.",
     "examples": [
       {
-        "input": "array = [1,2,3,4,5,3,1], target = 3",
+        "input": "array = [1, 2, 3, 4, 5, 3, 1], target = 3",
         "output": "2",
-        "explanation": "The smallest index where 3 appears is 2 (on the ascending slope)."
+        "explanation": "The value 3 actually appears twice in this array - once at index 2 (on the way up the mountain) and once at index 5 (on the way down). Since we want the smallest index, we return 2."
       },
       {
-        "input": "array = [0,1,2,4,2,1], target = 3",
+        "input": "array = [0, 1, 2, 4, 2, 1], target = 3",
         "output": "-1",
-        "explanation": "3 does not appear in the array."
+        "explanation": "The value 3 does not appear anywhere in this mountain array, so we return -1."
       }
     ],
     "constraints": [
-      "3 <= mountain_arr.length() <= 10^4",
+      "3 <= mountain_arr.length() <= 10^4 (the mountain has at least 3 elements, since it needs an up-slope, peak, and down-slope)",
       "0 <= target <= 10^9",
-      "0 <= mountain_arr.get(index) <= 10^9"
+      "0 <= mountain_arr.get(index) <= 10^9",
+      "You should try to minimize the number of calls to mountainArr.get(), since each call is treated as costly"
     ],
     "hints": [
-      "First binary search for the peak index using local gradient comparisons.",
-      "Then binary search the ascending half, and if not found, the descending half."
+      "First, binary search to find the peak's index using the local slope comparison trick (compare a value to its neighbor).",
+      "Then binary search the ascending half for the target, and only if it's not found there, binary search the descending half too."
     ],
     "expectedTimeComplexity": "O(log n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": [
       "Amazon",
       "Google",
-      "Bloomberg"
+      "Bloomberg",
+      "Meta"
     ],
     "tags": [
       "Array",
@@ -1690,12 +2210,33 @@
       "Find Peak Element"
     ],
     "followUp": [
-      "How would you minimize the total number of API queries across all three binary searches?"
+      "How would you further minimize the total number of API queries used across all three binary searches combined?"
     ],
     "testCases": [
       {
-        "input": "[1,2,3,4,5,3,1], target=3",
-        "output": "2"
+        "input": "array = [1,2,3,4,5,3,1], target = 3",
+        "output": "2",
+        "note": "Normal case - target appears on both slopes; smallest index (ascending side) is returned."
+      },
+      {
+        "input": "array = [0,1,2,4,2,1], target = 3",
+        "output": "-1",
+        "note": "Normal case - target does not exist anywhere in the mountain."
+      },
+      {
+        "input": "array = [1,5,2], target = 5",
+        "output": "1",
+        "note": "Edge case - smallest possible mountain array (3 elements), target is exactly the peak."
+      },
+      {
+        "input": "array = [1,2,3,4,5], target = 1",
+        "output": "0",
+        "note": "Edge case - target is at the very first index of a purely ascending mountain (peak is at the end)."
+      },
+      {
+        "input": "array = [5,4,3,2,1], target = 1",
+        "output": "4",
+        "note": "Edge case - target is at the very last index of a purely descending mountain (peak is at the start)."
       }
     ],
     "acceptanceRate": "42.0%",

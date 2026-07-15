@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-    Award as AwardIcon, Lock, X, ArrowLeft,
+    Award as AwardIcon, Lock, X, ArrowLeft, ArrowRight,
     Target, Compass, Map, Activity, ShieldCheck, Crown,
     Flame, Zap, Gem, Dumbbell, Trophy,
     Code, Type, Link as LinkIcon, Layers, ListCollapse, GitFork, Network
@@ -216,6 +216,116 @@ const PREDEFINED_ACHIEVEMENTS = [
         icon: ListCollapse,
         gradient: "from-lime-500/20 to-green-500/10 border-lime-500/30 text-lime-400 shadow-[0_0_10px_rgba(132,204,22,0.1)]",
         check: (stats) => stats.isTopicComplete("Queue")
+    },
+    {
+        name: "Recursion Master",
+        slug: "recursion-master",
+        description: "Master all questions in the Recursion topic.",
+        category: "mastery",
+        rarity: "rare",
+        xpReward: 500,
+        icon: Code,
+        gradient: "from-rose-500/20 to-red-500/10 border-rose-500/30 text-rose-400 shadow-[0_0_10px_rgba(244,63,94,0.1)]",
+        check: (stats) => stats.isTopicComplete("Recursion")
+    },
+    {
+        name: "Backtracking Master",
+        slug: "backtracking-master",
+        description: "Master all questions in the Backtracking topic.",
+        category: "mastery",
+        rarity: "rare",
+        xpReward: 500,
+        icon: GitFork,
+        gradient: "from-emerald-500/20 to-teal-500/10 border-emerald-500/30 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.1)]",
+        check: (stats) => stats.isTopicComplete("Backtracking")
+    },
+    {
+        name: "Trees Master",
+        slug: "trees-master",
+        description: "Master all questions in the Trees topic.",
+        category: "mastery",
+        rarity: "rare",
+        xpReward: 500,
+        icon: Network,
+        gradient: "from-green-500/20 to-emerald-500/10 border-green-500/30 text-green-400 shadow-[0_0_10px_rgba(34,197,94,0.1)]",
+        check: (stats) => stats.isTopicComplete("Trees")
+    },
+    {
+        name: "BST Master",
+        slug: "bst-master",
+        description: "Master all questions in the Binary Search Tree topic.",
+        category: "mastery",
+        rarity: "rare",
+        xpReward: 500,
+        icon: Network,
+        gradient: "from-teal-600/20 to-green-600/10 border-teal-600/30 text-teal-400 shadow-[0_0_10px_rgba(13,148,136,0.1)]",
+        check: (stats) => stats.isTopicComplete("Binary Search Tree")
+    },
+    {
+        name: "Heap Master",
+        slug: "heap-master",
+        description: "Master all questions in the Heap / Priority Queue topic.",
+        category: "mastery",
+        rarity: "rare",
+        xpReward: 500,
+        icon: Layers,
+        gradient: "from-amber-500/20 to-yellow-500/10 border-amber-500/30 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.1)]",
+        check: (stats) => stats.isTopicComplete("Heap / Priority Queue")
+    },
+    {
+        name: "Graphs Master",
+        slug: "graphs-master",
+        description: "Master all questions in the Graphs topic.",
+        category: "mastery",
+        rarity: "rare",
+        xpReward: 500,
+        icon: Network,
+        gradient: "from-indigo-500/20 to-blue-500/10 border-indigo-500/30 text-indigo-400 shadow-[0_0_10px_rgba(99,102,241,0.1)]",
+        check: (stats) => stats.isTopicComplete("Graphs")
+    },
+    {
+        name: "Trie Master",
+        slug: "trie-master",
+        description: "Master all questions in the Trie topic.",
+        category: "mastery",
+        rarity: "rare",
+        xpReward: 500,
+        icon: Type,
+        gradient: "from-purple-500/20 to-fuchsia-500/10 border-purple-500/30 text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.1)]",
+        check: (stats) => stats.isTopicComplete("Trie")
+    },
+    {
+        name: "Greedy Master",
+        slug: "greedy-master",
+        description: "Master all questions in the Greedy topic.",
+        category: "mastery",
+        rarity: "rare",
+        xpReward: 500,
+        icon: Target,
+        gradient: "from-yellow-500/20 to-amber-500/10 border-yellow-500/30 text-yellow-400 shadow-[0_0_10px_rgba(234,179,8,0.1)]",
+        check: (stats) => stats.isTopicComplete("Greedy")
+    },
+    {
+        name: "DP Master",
+        slug: "dp-master",
+        description: "Master all questions in the Dynamic Programming topic.",
+        category: "mastery",
+        rarity: "rare",
+        xpReward: 500,
+        icon: Activity,
+        gradient: "from-fuchsia-500/20 to-pink-500/10 border-fuchsia-500/30 text-fuchsia-400 shadow-[0_0_10px_rgba(217,70,239,0.1)]",
+        check: (stats) => stats.isTopicComplete("Dynamic Programming")
+    },
+    {
+        name: "Bit Master",
+        slug: "bit-master",
+        description: "Master all questions in the Bit Manipulation topic.",
+        category: "mastery",
+        rarity: "rare",
+        xpReward: 500,
+        icon: Zap,
+        gradient: "from-slate-500/20 to-zinc-500/10 border-slate-500/30 text-slate-400 shadow-[0_0_10px_rgba(100,116,139,0.1)]",
+        check: (stats) => stats.isTopicComplete("Bit Manipulation")
     }
 ];
 
@@ -224,6 +334,7 @@ function Milestone({ progressData, loading: progressLoading }) {
     const { data: dashboardData } = useDashboardStats(user?._id);
     const [selectedBadge, setSelectedBadge] = useState(null);
     const [showGallery, setShowGallery] = useState(false);
+    const [centerIndex, setCenterIndex] = useState(0);
 
     useEffect(() => {
         if (!showGallery) return;
@@ -392,8 +503,20 @@ function Milestone({ progressData, loading: progressLoading }) {
     // Next 6 badges are secondary (Smaller)
     const secondaryBadges = displayCollection.slice(3, 9);
 
+    const handleNext = () => {
+        if (unlockedBadges.length > 0) {
+            setCenterIndex((prev) => (prev + 1) % unlockedBadges.length);
+        }
+    };
+
+    const handlePrev = () => {
+        if (unlockedBadges.length > 0) {
+            setCenterIndex((prev) => (prev - 1 + unlockedBadges.length) % unlockedBadges.length);
+        }
+    };
+
     return (
-        <div className="w-full h-full bg-[#121215]/60 border border-white/[0.05] rounded-2xl p-5 text-white shadow-lg backdrop-blur-md relative overflow-hidden transition-all duration-300 flex flex-col justify-between">
+        <div className="w-full h-full bg-white/8 border border-white/8 rounded-2xl p-5 text-white shadow-[0_18px_55px_rgba(0,0,0,0.2)] backdrop-blur-md relative overflow-hidden transition-all duration-300 flex flex-col justify-between min-h-[220px]">
             <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/[0.02] rounded-full blur-2xl pointer-events-none" />
             
             <Motion.div 
@@ -403,88 +526,119 @@ function Milestone({ progressData, loading: progressLoading }) {
                 className="flex flex-col justify-between h-full w-full"
             >
                 {/* Header */}
-                <div className="flex justify-between items-start mb-4">
+                <div className="flex justify-between items-start mb-2">
                     <div>
-                        <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-400">Badges Earned</h3>
-                        <p className="text-[10px] text-neutral-500 mt-0.5">Unlocked {unlockedCount} / {totalCount}</p>
+                        <h3 className="text-xs font-bold text-neutral-400 uppercase tracking-wider">Badges</h3>
+                        <p className="text-3xl font-black text-white mt-1 leading-none">{unlockedCount}</p>
                     </div>
-                    <button
-                        onClick={() => setShowGallery(true)}
-                        className="text-base font-bold text-neutral-400 hover:text-white transition-colors flex-shrink-0 cursor-pointer"
-                    >
-                        →
-                    </button>
+                    <div className="flex items-center gap-2">
+                        {unlockedBadges.length > 1 && (
+                            <button
+                                onClick={handleNext}
+                                className="p-1 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                                title="Next Badge"
+                            >
+                                <ArrowRight size={22} strokeWidth={2.5} />
+                            </button>
+                        )}
+                        <button
+                            onClick={() => setShowGallery(true)}
+                            className="p-1 text-xs font-bold text-neutral-500 hover:text-neutral-300 transition-colors cursor-pointer border border-white/5 rounded-lg px-2 py-1 bg-white/[0.02]"
+                            title="View All Achievements"
+                        >
+                            Gallery
+                        </button>
+                    </div>
                 </div>
 
-                {/* Badges Layout Area */}
-                <div className="space-y-4">
-                    
-                    {/* 1. First Three Badges (Featured & 30-40% Larger) */}
-                    <div className="grid grid-cols-3 gap-3">
-                        {featuredBadges.map((badge, idx) => {
-                            const IconComp = badge.icon || AwardIcon;
-                            return (
-                                <Motion.div 
-                                    key={idx} 
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.4, delay: idx * 0.08, ease: "easeOut" }}
-                                    className="flex flex-col items-center text-center"
-                                >
+                {/* Badges Layout Area - Carousel (Shows exactly 3 badges at a time) */}
+                <div className="flex items-center justify-center gap-6 h-28 my-auto relative overflow-hidden">
+                    {unlockedBadges.length === 0 ? (
+                        <div className="w-full py-8 text-center text-xs text-neutral-500 font-semibold">
+                            No badges unlocked yet. Keep solving DSA problems to earn milestones!
+                        </div>
+                    ) : unlockedBadges.length === 1 ? (
+                        <div className="flex items-center justify-center">
+                            <button
+                                type="button"
+                                onClick={() => setSelectedBadge(unlockedBadges[0])}
+                                className="w-20 h-20 flex items-center justify-center  z-10 filter drop-shadow-[0_8px_20px_rgba(249,115,22,0.15)] transition-all duration-300 cursor-pointer hover:scale-125"
+                            >
+                                <BadgeIcon slug={unlockedBadges[0].slug} size={72} unlocked={true} />
+                            </button>
+                        </div>
+                    ) : unlockedBadges.length === 2 ? (
+                        <div className="flex items-center justify-center gap-8">
+                            {unlockedBadges.map((badge, idx) => {
+                                const isCenter = centerIndex === idx;
+                                return (
                                     <button
+                                        key={badge.slug}
                                         type="button"
-                                        onClick={() => setSelectedBadge(badge)}
-                                        title={`${badge.name}: ${badge.description}`}
-                                        className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 transition-all duration-300 cursor-pointer"
+                                        onClick={() => setCenterIndex(idx)}
+                                        className={`w-20 h-20 flex items-center justify-center transition-all duration-300 cursor-pointer ${
+                                            isCenter 
+                                                ? " z-10 opacity-100 filter drop-shadow-[0_8px_20px_rgba(249,115,22,0.15)]" 
+                                                : " opacity-40 hover:opacity-60"
+                                        }`}
                                     >
-                                        <BadgeIcon slug={badge.slug} size={64} unlocked={badge.unlocked} className="transition-transform duration-300 group-hover:scale-110" />
-                                        {!badge.unlocked && (
-                                            <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-[0.5px]">
-                                                <Lock size={14} className="text-white/80" />
-                                            </div>
-                                        )}
+                                        <BadgeIcon slug={badge.slug} size={64} unlocked={true} />
                                     </button>
-                                    <span className="text-[10px] font-bold text-neutral-300 mt-1.5 truncate max-w-full leading-tight">
-                                        {badge.name}
-                                    </span>
-                                     <span className={`text-[8px] font-bold uppercase tracking-wider mt-0.5 ${badge.unlocked ? "text-orange-500/90" : "text-neutral-600"}`}>
-                                         {badge.unlocked ? "Unlocked" : "Locked"}
-                                     </span>
-                                </Motion.div>
-                            );
-                        })}
-                    </div>
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <>
+                            {/* Left Badge */}
+                            <button
+                                type="button"
+                                onClick={handlePrev}
+                                className="w-18 h-18 flex items-center justify-center scale-[1.20] opacity-60 hover:opacity-95 transition-all duration-300 cursor-pointer"
+                            >
+                                <BadgeIcon 
+                                    slug={unlockedBadges[(centerIndex - 1 + unlockedBadges.length) % unlockedBadges.length].slug} 
+                                    size={80} 
+                                    unlocked={true} 
+                                />
+                            </button>
 
-                    {/* Divider line */}
-                    <div className="h-px bg-white/[0.03]" />
+                            {/* Middle (Scaled Up) Badge */}
+                            <button
+                                type="button"
+                                onClick={() => setSelectedBadge(unlockedBadges[centerIndex])}
+                                className="w-27 h-27 flex items-center justify-center scale-[1.20] z-10 filter  transition-all duration-300 cursor-pointer hover:scale-[1.22]"
+                            >
+                                <BadgeIcon slug={unlockedBadges[centerIndex].slug} size={100} unlocked={true} />
+                            </button>
 
-                    {/* 2. Secondary Badges (Smaller) */}
-                    <div className="flex flex-wrap items-center justify-center gap-2">
-                        {secondaryBadges.map((badge, idx) => {
-                            const IconComp = badge.icon || AwardIcon;
-                            return (
-                                <Motion.button
-                                    key={idx}
-                                    type="button"
-                                    onClick={() => setSelectedBadge(badge)}
-                                    title={`${badge.name}: ${badge.description}`}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.3, delay: 0.2 + idx * 0.05, ease: "easeOut" }}
-                                    className="group relative flex items-center justify-center w-9 h-9 transition-all duration-300 cursor-pointer"
-                                >
-                                    <BadgeIcon slug={badge.slug} size={36} unlocked={badge.unlocked} className="transition-transform duration-300 group-hover:scale-110" />
-                                    {!badge.unlocked && (
-                                        <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-[0.5px]">
-                                            <Lock size={10} className="text-white/80" />
-                                        </div>
-                                    )}
-                                </Motion.button>
-                            );
-                        })}
-                    </div>
-
+                            {/* Right Badge */}
+                            <button
+                                type="button"
+                                onClick={handleNext}
+                                className="w-18 h-18 flex items-center justify-center scale-[1.20] opacity-60 hover:opacity-95 transition-all duration-300 cursor-pointer"
+                            >
+                                <BadgeIcon 
+                                    slug={unlockedBadges[(centerIndex + 1) % unlockedBadges.length].slug} 
+                                    size={80} 
+                                    unlocked={true} 
+                                />
+                            </button>
+                        </>
+                    )}
                 </div>
+
+                {/* Bottom Active Badge Info */}
+                {unlockedBadges.length > 0 && (
+                    <div className="pt-2 border-t border-white/[0.04] mt-2">
+                        <p className="text-[10px] text-neutral-500 font-semibold uppercase tracking-wider">
+                            {centerIndex === 0 ? "Most Recent Badge" : "Unlocked Badge"}
+                        </p>
+                        <h4 className="text-xs font-bold text-white mt-0.5">
+                            {unlockedBadges[centerIndex]?.name}
+                        </h4>
+                    </div>
+                )}
+
             </Motion.div>
 
             {/* Gallery Modal Overlay */}

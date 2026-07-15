@@ -8,6 +8,9 @@ function RightAds() {
             className="
                 w-[94%]
                 mx-auto
+                bg-white/8
+                border
+                border-white/8
                 rounded-3xl
                 lc-panel
                 p-6

@@ -116,9 +116,9 @@ function TeamSection() {
         <section className="w-full bg-transparent py-20 sm:py-28 lg:py-32 overflow-hidden relative">
 
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-                <h2 className="text-[2.1rem] sm:text-4xl md:text-5xl text-center mb-14">
+                <h2 className="text-[2.1rem] sm:text-4xl md:text-5xl font-semibold text-center mb-14">
                     <span className="text-white">Meet The </span>
-                    <span className="text-[#F46717]">Team</span>
+                    <span className="text-white/40">Team</span>
                 </h2>
             </div>
 

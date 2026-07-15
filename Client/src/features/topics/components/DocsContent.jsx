@@ -13,6 +13,7 @@ import RecommendedVideosSection from "./docs/RecommendedVideosSection";
 import SyntaxSection from "./docs/SyntaxSection";
 import VisualizationSection from "./docs/VisualizationSection";
 import WhyLearnSection from "./docs/WhyLearnSection";
+import DocVideoPlayer from "./docs/DocVideoPlayer";
 
 const sectionComponents = {
   paragraph: IntroductionSection,
@@ -31,7 +32,7 @@ const sectionComponents = {
   comparison_table: ComplexitySection,
   table: ComplexitySection,
   functions: WhyLearnSection,
-  videos: RecommendedVideosSection,
+  // videos: RecommendedVideosSection,
   mistakes: CommonMistakesSection,
   roadmap: PracticeRoadmapSection,
   questions: InterviewQuestionsSection,
@@ -67,6 +68,7 @@ function DocsContent({ doc, loading = false }) {
   return (
     <article className="mx-auto max-w-7xl space-y-4 px-3 py-4 bg-[#101012]/88 sm:px-5 lg:px-6">
       <HeroSection hero={doc.hero} />
+      <DocVideoPlayer doc={doc} />
       {doc.sections.map((section) => {
         const Component = sectionComponents[section.type];
         if (!Component) return null;

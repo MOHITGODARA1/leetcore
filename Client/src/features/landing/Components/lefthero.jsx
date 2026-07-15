@@ -6,20 +6,21 @@ function LeftSection({ onLoginClick }) {
         <div className="flex-1 text-white w-full max-w-2xl lg:max-w-none">
 
             {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full border border-white/20 bg-white/5 text-white text-sm font-semibold mb-6 sm:mb-7">
+            {/* <div className="inline-flex items-center px-4 py-2 rounded-full border border-white/20 bg-white text-black text-xs font-semibold mb-6 sm:mb-7">
                 1,000+ Learners (Soon)
-            </div>
+            </div> */}
 
             {/* Heading */}
-            <h1 className="text-[clamp(2.45rem,12vw,4.5rem)] sm:text-5xl lg:text-5xl leading-[1.06] tracking-normal text-white max-w-2xl lc-safe-text">
-                Core CS is baar actually<br />
+            <h1 className="text-[clamp(2.45rem,12vw,4.5rem)] sm:text-4xl lg:text-5xl leading-[1.11] font-semibold tracking-normal text-white max-w-2xl mt-10 lc-safe-text">
+                Learn Faster<br />
                 {/* <span className="text-white">Is Baar Actually</span> <br /> */}
                 
-                Samajh Aayega.
+                Master Core Subjects <br />
+                Crack Every Interview
             </h1>
 
             {/* Description */}
-            <p className="text-[#b7b7c2] text-base mt-5 leading-relaxed max-w-xl">
+            <p className="text-[#b7b7c2] text-sm mt-6 leading-relaxed max-w-lg">
                 Learn Operating Systems, DBMS, Computer Networks, and OOPS
                 through structured roadmaps, practice questions, and
                 interactive learning designed for placements.
@@ -28,18 +29,18 @@ function LeftSection({ onLoginClick }) {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 sm:mt-9">
 
-                <button onClick={onLoginClick} className="min-h-12 bg-white text-black px-8 py-4 rounded-2xl font-semibold cursor-pointer lc-interactive hover:bg-orange-50 active:scale-[0.98]">
+                <button onClick={onLoginClick} className="min-h-12 bg-white text-black  px-8 py-4 w-67 rounded-4xl font-bold cursor-pointer lc-interactive  active:scale-[0.98]">
                     Start Learning
                 </button>
 
-                <button onClick={onLoginClick} className="min-h-12 bg-orange-400 text-black px-8 py-4 rounded-2xl font-semibold cursor-pointer lc-orange-glow lc-interactive  active:scale-[0.98]">
+                <button onClick={onLoginClick} className="min-h-12 bg-orange-400  w-50 text-black px-4 py-4 rounded-4xl font-semibold cursor-pointer lc-orange-glow lc-interactive  active:scale-[0.98]">
                     Explore Roadmaps →
                 </button>
             </div>
 
             {/* Features */}
 
-            <div className="mt-9 sm:mt-10 flex flex-col gap-3.5 sm:gap-4 text-[#b7b7c2]">
+            <div className="mt-9 sm:mt-20 flex flex-col gap-3.5 sm:gap-4 text-[#b7b7c2]">
 
                 <div className="flex items-start gap-3 text-sm leading-6">
                     <FiMap className="text-[#b7b7c2] text-lg mt-0.5 shrink-0" />

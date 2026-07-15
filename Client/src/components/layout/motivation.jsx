@@ -10,13 +10,12 @@ function Motivation() {
                 border
                 h-44
                 sm:h-128
-                border-white/10
-                bg-[#111114]
+                border-white/8
+                bg-white/8
                 text-white
                 overflow-hidden
                 relative
                 backdrop-blur-2xl
-                shadow-[0_16px_45px_rgba(0,0,0,0.18)]
                 transition-transform
                 duration-300
                 hover:-translate-y-0.5

@@ -7,7 +7,7 @@ function HeroSection({ hero }) {
     <section id={hero.id} className="relative overflow-hidden  bg-[#101012]/88 p-5  sm:p-7">
       {/* <div className="absolute left-0 top-0 h-full w-[3px] bg-[#f46717]" /> */}
       {/* <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-[#f46717] via-orange-300/35 to-transparent" /> */}
-      <div className="grid items-center gap-6 lg:grid-cols-[1.08fr_0.92fr]">
+      <div className=" items-center gap-6 ">
         <Motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300">{hero.eyebrow}</p>
           <h1 className="mt-3 text-3xl font-bold text-white sm:text-5xl">{hero.title}</h1>
@@ -24,7 +24,7 @@ function HeroSection({ hero }) {
             ))}
           </div> */}
         </Motion.div>
-        <ArrayIllustration values={hero.visual.values} labels={hero.visual.labels} />
+        {/* <ArrayIllustration values={hero.visual.values} labels={hero.visual.labels} /> */}
       </div>
     </section>
   );

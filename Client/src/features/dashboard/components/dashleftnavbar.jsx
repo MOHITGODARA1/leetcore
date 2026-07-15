@@ -86,9 +86,9 @@ function DashLeftNavBar() {
                 rounded-2xl
                 w-full
                 md:w-[85px]
-                bg-[#111113]/88
+                bg-white/8
                 border
-                border-white/10
+                border-white/8
                 flex
                 flex-row
                 md:flex-col
@@ -109,16 +109,13 @@ function DashLeftNavBar() {
             <div className="flex md:flex-col items-center w-auto md:w-full">
 
                 {/* Logo */}
-                <Link to="/dashboard" className="mr-3 md:mr-0 md:mb-8 shrink-0 rounded-2xl">
+                <Link to="/dashboard" className="mr-3 md:mr-0 md:mb-1 shrink-0 rounded-2xl">
 
                     <div
                         className="
-                            w-9
-                            h-9
-                            rounded-2xl
-                            bg-[#111]
-                            border
-                            border-white/10
+                            w-19
+                            h-19
+                            
                             flex
                             items-center
                             justify-center
@@ -177,11 +174,9 @@ function DashLeftNavBar() {
 
                                     ${isActive
                                         ? `
-                                            bg-[#111]/95
+                                            
                                             text-white
-                                            border
-                                            border-white/10
-                                            shadow-[0_12px_30px_rgba(0,0,0,0.18)]
+                                            
                                             
                                           `
                                         : `

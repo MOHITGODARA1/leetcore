@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import SectionFrame from "./SectionFrame";
+import { renderFormattedText } from "./utils.jsx";
 
 function InterviewQuestionsSection({ section }) {
   const [openIndexes, setOpenIndexes] = useState({});
@@ -23,17 +24,17 @@ function InterviewQuestionsSection({ section }) {
           return (
             <div
               key={index}
-              className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.015] backdrop-blur-md transition-all duration-300 hover:border-orange-500/30 hover:bg-white/[0.03]"
+              className="overflow-hidden rounded-xl border border-white/4 bg-white/8 backdrop-blur-md transition-all duration-300  "
             >
               <button
                 onClick={() => toggleIndex(index)}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white/90 transition hover:text-white"
+                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white/90 transition hover:text-white cursor-pointer "
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-orange-400">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg  text-green-400">
                     <HelpCircle size={17} />
                   </div>
-                  <span className="text-sm sm:text-base">{item.question}</span>
+                  <span className="text-sm sm:text-base">{renderFormattedText(item.question)}</span>
                 </div>
                 <ChevronDown
                   size={18}
@@ -50,7 +51,7 @@ function InterviewQuestionsSection({ section }) {
                 }`}
               >
                 <div className="px-5 pl-16 text-sm leading-relaxed text-white/70 whitespace-pre-line">
-                  {item.answer}
+                  {renderFormattedText(item.answer)}
                 </div>
               </div>
             </div>

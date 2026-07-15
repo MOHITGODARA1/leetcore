@@ -43,7 +43,7 @@ function TomorrowTodo() {
     };
 
     return (
-        <section className="w-[94%] mx-auto rounded-3xl lc-panel p-5">
+        <section className="w-[94%] bg-white/8 border border-white/8 rounded-3xl lc-panel p-5">
             <div className="flex items-start justify-between gap-3">
                 <div>
                     <p className="lc-kicker">

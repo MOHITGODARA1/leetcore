@@ -44,7 +44,7 @@ function DsaProgressTracker() {
     const dashOffset = circumference - (circumference * percentage) / 100;
 
     return (
-        <section className="w-[94%] mx-auto rounded-3xl lc-panel px-5 pt-5 pb-4">
+        <section className="w-[94%] bg-white/8 border border-white/8 rounded-3xl lc-panel px-5 pt-5 pb-4">
             <div className="flex items-center justify-between">
                 <div>
                     <p className="lc-kicker">

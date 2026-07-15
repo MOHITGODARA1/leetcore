@@ -1,12 +1,11 @@
 import User from "../models/User.models.js";
-import SolvedProblem from "../models/SolvedProblem.models.js";
-import { calculateLevel } from "../utils/gamification.utils.js";
+import { syncUserSolvedCountAndRankings } from "../utils/ranking.utils.js";
 
 const getCurrentUser = async (req, res) => {
 
     try {
 
-        const user = await User.findById(req.user?.id);
+        let user = await User.findById(req.user?.id);
 
         if (!user) {
             return res.status(404).json({
@@ -15,16 +14,8 @@ const getCurrentUser = async (req, res) => {
             });
         }
 
-        // Recalculate actual solved count and level to sync database state
-        const actualSolvedCount = await SolvedProblem.countDocuments({ userId: user._id });
-        if (user.stats) {
-            const calculatedLevel = calculateLevel(user.xp, actualSolvedCount);
-            if (user.stats.totalProblemsSolved !== actualSolvedCount || user.level !== calculatedLevel) {
-                user.stats.totalProblemsSolved = actualSolvedCount;
-                user.level = calculatedLevel;
-                await user.save();
-            }
-        }
+        await syncUserSolvedCountAndRankings();
+        user = await User.findById(req.user?.id);
 
         await user.populate("badges.badgeId");
 

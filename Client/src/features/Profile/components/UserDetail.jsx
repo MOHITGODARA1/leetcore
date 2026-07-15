@@ -16,14 +16,14 @@ function UserDetail() {
         })
         : "This season";
 
-    const profileStats = user?.stats || data?.stats || {};
+    const profileStats = data?.stats || user?.stats || {};
     const totalSolved = profileStats.totalProblemsSolved || 0;
     const currentStreak = profileStats.currentStreak || 0;
-    const level = user?.level || data?.stats?.level || 1;
-    const xp = user?.xp || data?.stats?.xp || 0;
+    const level = data?.stats?.level || user?.level || 1;
+    const xp = data?.stats?.xp || user?.xp || 0;
 
     return (
-        <div className="h-full flex flex-col p-5 sm:p-6 text-white font-sans">
+        <div className="h-full  flex flex-col p-5 sm:p-6 text-white font-sans">
             {/* User Identity Section */}
             <div className="flex items-center gap-4">
                 <div className="w-20 h-20 rounded-2xl bg-neutral-900 border border-white/10 overflow-hidden flex items-center justify-center flex-shrink-0 shadow-[0_14px_34px_rgba(0,0,0,0.18)]">
@@ -58,7 +58,7 @@ function UserDetail() {
                     href={user.profileUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="lc-pressable mt-8 flex items-center justify-center gap-1.5 w-full py-2.5 px-3 rounded-xl border border-white/10 bg-white/5 text-neutral-200 text-xs font-semibold hover:bg-white/10 hover:text-white cursor-pointer"
+                    className="lc-pressable mt-8 flex items-center justify-center gap-1.5 w-full py-2.5 px-3 rounded-xl border border-white/10 bg-white/90 text-black text-xs font-semibold  cursor-pointer"
                 >
                     <FiGithub size={13} className="opacity-80" />
                     <span>GitHub Profile</span>

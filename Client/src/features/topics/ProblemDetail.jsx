@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Loader2 } from "lucide-react";
+import { Loader2, Clock, CheckCircle2 } from "lucide-react";
 import DashboardPageShell from "../dashboard/components/DashboardPageShell";
 import apiClient from "../../services/apiClient";
 import { useAuth } from "../../context/AuthContext";
@@ -103,8 +103,96 @@ function ProblemDetail() {
   const [needsGithubReconnect, setNeedsGithubReconnect] = useState(false);
   const [topicQuestions, setTopicQuestions] = useState([]);
 
+  // Active Countdown Timer States and Effects
+  const [timeLeft, setTimeLeft] = useState(2400);
+  const [timerActive, setTimerActive] = useState(false);
+  const [timerStarted, setTimerStarted] = useState(false);
+  const [showTimeoutModal, setShowTimeoutModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [solvedTime, setSolvedTime] = useState("");
+
+  const formatElapsedTime = (elapsedSeconds) => {
+    if (elapsedSeconds < 0) return "0 sec";
+    if (elapsedSeconds < 60) {
+      return `${elapsedSeconds} sec`;
+    }
+    const mins = Math.floor(elapsedSeconds / 60);
+    const secs = elapsedSeconds % 60;
+    if (secs === 0) {
+      return `${mins} min`;
+    }
+    return `${mins} min ${secs} sec`;
+  };
+
+  const handleStartTimer = () => {
+    setTimerStarted(true);
+    setTimerActive(true);
+    localStorage.setItem(`leetcore-timer-started:${decodedProblemId}`, "true");
+    if (timeLeft !== undefined) {
+      localStorage.setItem(`leetcore-timer-timeLeft:${decodedProblemId}`, timeLeft.toString());
+    }
+  };
+
+  useEffect(() => {
+    if (!question) return;
+
+    if (question.solved) {
+      setTimerStarted(true);
+      setTimerActive(false);
+      setTimeLeft(undefined);
+      setShowTimeoutModal(false);
+      return;
+    }
+
+    const savedTime = localStorage.getItem(`leetcore-timer-timeLeft:${decodedProblemId}`);
+    const savedStarted = localStorage.getItem(`leetcore-timer-started:${decodedProblemId}`);
+
+    let limit = 2400; // Default Medium: 40 min
+    const diff = question.difficulty?.toLowerCase();
+    if (diff === "easy" || diff === "eassy") limit = 1500; // Easy: 25 min
+    else if (diff === "medium" || diff === "mideum") limit = 2400; // Medium: 40 min
+    else if (diff === "hard") limit = 3600; // Hard: 60 min
+
+    if (savedStarted === "true" && savedTime !== null) {
+      const parsedTime = parseInt(savedTime, 10);
+      setTimeLeft(parsedTime);
+      setTimerStarted(true);
+      setTimerActive(parsedTime > 0);
+    } else {
+      // First time entering! Start the timer automatically
+      setTimeLeft(limit);
+      setTimerStarted(true);
+      setTimerActive(true);
+      localStorage.setItem(`leetcore-timer-started:${decodedProblemId}`, "true");
+      localStorage.setItem(`leetcore-timer-timeLeft:${decodedProblemId}`, limit.toString());
+    }
+
+    setShowTimeoutModal(false);
+  }, [question, decodedProblemId]);
+
+  useEffect(() => {
+    if (!timerActive || timeLeft === undefined || timeLeft <= 0) return;
+
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          setTimerActive(false);
+          setShowTimeoutModal(true);
+          localStorage.setItem(`leetcore-timer-timeLeft:${decodedProblemId}`, "0");
+          return 0;
+        }
+        const newTime = prev - 1;
+        localStorage.setItem(`leetcore-timer-timeLeft:${decodedProblemId}`, newTime.toString());
+        return newTime;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [timerActive, timeLeft, decodedProblemId]);
+
   // New IDE States
-  const [language, setLanguage] = useState("javascript");
+  const [language, setLanguage] = useState("cpp");
   const [customInput, setCustomInput] = useState("");
   const [customResult, setCustomResult] = useState(null);
   const [activeTab, setActiveTab] = useState("testcases");
@@ -279,6 +367,11 @@ function ProblemDetail() {
     setTestResults([]);
     setCompileError("");
     setNeedsGithubReconnect(false);
+
+    // Auto-start timer on first edit if not started yet
+    if (!timerStarted && question && !question.solved) {
+      handleStartTimer();
+    }
   };
 
   const handleCopyAnswer = async () => {
@@ -292,9 +385,10 @@ function ProblemDetail() {
   };
 
   const handleClearAnswer = () => {
-    setNote("");
-    localStorage.removeItem(noteKey);
-    setAnswerStatus("Cleared");
+    const template = getTemplate(language, question);
+    setNote(template);
+    localStorage.setItem(noteKey, template);
+    setAnswerStatus("Reset code");
     setSubmitStatus("");
     setRunStatus("");
     setTestResults([]);
@@ -329,9 +423,12 @@ function ProblemDetail() {
       return false;
     }
 
+    const isCustom = activeTab === "customInput";
+
     try {
       setRunningSolution(true);
-      setRunStatus(activeTab === "customInput" ? "Executing custom input..." : "Running visible test cases...");
+      setActiveTab("results");
+      setRunStatus(isCustom ? "Executing custom input..." : "Running visible test cases...");
       setSubmitStatus("");
       setTestResults([]);
       setCompileError("");
@@ -342,26 +439,59 @@ function ProblemDetail() {
         topic: topicName,
         solution: note,
         language,
-        customInput: activeTab === "customInput" ? customInput : undefined
+        customInput: isCustom ? customInput : undefined
       });
 
       setCompileError(response.data?.compileError || "");
 
-      if (activeTab === "customInput") {
+      if (isCustom) {
         setCustomResult(response.data);
         setRunStatus(response.data?.message || "Custom input executed.");
-        setActiveTab("results");
       } else {
         setTestResults(response.data?.results || []);
         setRunStatus(response.data?.message || "All visible test cases passed.");
+
+        if (response.data?.solved) {
+          setQuestion((prevQuestion) =>
+            prevQuestion ? { ...prevQuestion, solved: true } : prevQuestion
+          );
+          setTimerActive(false);
+
+          // Calculate time taken
+          if (timeLeft !== undefined) {
+            let limit = 2400;
+            const diff = question?.difficulty?.toLowerCase();
+            if (diff === "easy" || diff === "eassy") limit = 1500;
+            else if (diff === "medium" || diff === "mideum") limit = 2400;
+            else if (diff === "hard") limit = 3600;
+
+            const timeTaken = limit - timeLeft;
+            const formatted = formatElapsedTime(timeTaken);
+            setSolvedTime(formatted);
+            setShowSuccessModal(true);
+          }
+          
+          if (!response.data?.alreadySolved) {
+            setUser((prevUser) => {
+              if (!prevUser) return prevUser;
+              return {
+                ...prevUser,
+                xp: response.data.xp,
+                level: response.data.level,
+                stats: response.data.stats,
+                badges: response.data.badges || prevUser.badges
+              };
+            });
+          }
+        }
       }
       return Boolean(response.data?.passed);
     } catch (err) {
       setCompileError(err.response?.data?.compileError || "");
-      if (activeTab === "customInput") {
+
+      if (isCustom) {
         setCustomResult(err.response?.data || { passed: false, stderr: err.message, message: "Execution Failed" });
         setRunStatus(err.response?.data?.message || "Execution Failed.");
-        setActiveTab("results");
       } else {
         const results = err.response?.data?.results || [];
         setTestResults(results);
@@ -384,6 +514,7 @@ function ProblemDetail() {
 
     try {
       setSubmittingSolution(true);
+      setActiveTab("results");
       setSubmitStatus("Running tests before GitHub push...");
       setNeedsGithubReconnect(false);
       setCompileError("");
@@ -408,6 +539,21 @@ function ProblemDetail() {
         setQuestion((prevQuestion) =>
           prevQuestion ? { ...prevQuestion, solved: true } : prevQuestion
         );
+        setTimerActive(false);
+
+        // Calculate time taken
+        if (timeLeft !== undefined) {
+          let limit = 2400;
+          const diff = question?.difficulty?.toLowerCase();
+          if (diff === "easy" || diff === "eassy") limit = 1500;
+          else if (diff === "medium" || diff === "mideum") limit = 2400;
+          else if (diff === "hard") limit = 3600;
+
+          const timeTaken = limit - timeLeft;
+          const formatted = formatElapsedTime(timeTaken);
+          setSolvedTime(formatted);
+          setShowSuccessModal(true);
+        }
       }
 
       if (response.data?.stats) {
@@ -483,6 +629,9 @@ function ProblemDetail() {
                 details={details}
                 nextQuestions={nextQuestions}
                 formatPattern={formatPattern}
+                timeLeft={timeLeft}
+                timerStarted={timerStarted}
+                onStartTimer={handleStartTimer}
               />
             </div>
 
@@ -529,6 +678,71 @@ function ProblemDetail() {
             </div>
           </div>
         )}
+
+      {showTimeoutModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
+          <div className="relative max-w-md w-full bg-[#111114] border border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col items-center text-center gap-4 animate-in fade-in zoom-in duration-200">
+            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-500">
+              <Clock size={28} className="animate-pulse" />
+            </div>
+            <h3 className="text-lg font-black text-white tracking-tight">Time Limit Exceeded</h3>
+            <p className="text-sm text-white/70 leading-relaxed">
+              need to hard work in your life bro this is <strong className="text-white capitalize">{question?.difficulty || "Medium"}</strong> and you did not abel to solve in <strong className="text-white">{question?.difficulty === "Easy" ? "25 min" : question?.difficulty === "Hard" ? "60 min" : "40 min"}</strong> so practice every day keep it up
+            </p>
+            <div className="mt-2 w-full flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={() => setShowTimeoutModal(false)}
+                className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 px-4 py-2.5 font-bold text-white transition-colors cursor-pointer text-sm"
+              >
+                Keep Trying
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  let limit = 2400;
+                  const diff = question?.difficulty?.toLowerCase();
+                  if (diff === "easy" || diff === "eassy") limit = 1500;
+                  else if (diff === "medium" || diff === "mideum") limit = 2400;
+                  else if (diff === "hard") limit = 3600;
+                  setTimeLeft(limit);
+                  setTimerStarted(true);
+                  setTimerActive(true);
+                  setShowTimeoutModal(false);
+                  localStorage.setItem(`leetcore-timer-started:${decodedProblemId}`, "true");
+                  localStorage.setItem(`leetcore-timer-timeLeft:${decodedProblemId}`, limit.toString());
+                }}
+                className="w-full rounded-xl border border-white/10 hover:bg-white/5 px-4 py-2 text-xs font-semibold text-white/60 transition-colors cursor-pointer"
+              >
+                Reset Timer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showSuccessModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
+          <div className="relative max-w-md w-full bg-[#111114] border border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col items-center text-center gap-4 animate-in fade-in zoom-in duration-200">
+            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-500">
+              <CheckCircle2 size={28} className="animate-bounce" />
+            </div>
+            <h3 className="text-lg font-black text-white tracking-tight">Congratulations!</h3>
+            <p className="text-sm text-white/70 leading-relaxed">
+              All test cases passed! You solved this <strong className="text-white capitalize">{question?.difficulty || "Medium"}</strong> question in <strong className="text-orange-400 font-bold">{solvedTime}</strong>. Great job!
+            </p>
+            <div className="mt-2 w-full flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={() => setShowSuccessModal(false)}
+                className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 px-4 py-2.5 font-bold text-white transition-colors cursor-pointer text-sm"
+              >
+                Awesome
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </DashboardPageShell>
   );
 }

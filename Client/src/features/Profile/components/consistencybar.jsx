@@ -102,9 +102,9 @@ function ConsistencyBar({ userId: userIdProp }) {
             className="
                 w-full
                 rounded-2xl
-                bg-[#121215]/60
+                bg-white/8
                 border
-                border-white/[0.05]
+                border-white/8
                 shadow-lg
                 backdrop-blur-md
                 p-6
@@ -248,7 +248,7 @@ function ConsistencyBar({ userId: userIdProp }) {
                                     const dayData = activityMap.get(dateKey);
                                     const solvedCount = dayData?.problemsSolved || 0;
                                     
-                                    let bgClass = "bg-[#161b22] border border-white/[0.01]";
+                                    let bgClass = "bg-white/4 border border-white/1";
                                     if (loading) {
                                         bgClass = "bg-white/10 animate-pulse";
                                     } else if (solvedCount > 0) {

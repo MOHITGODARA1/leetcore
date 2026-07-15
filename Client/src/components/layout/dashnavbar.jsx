@@ -64,9 +64,9 @@ function Dashmainnavbar() {
                             sm:min-w-[150px]
                             h-[132px]
                             sm:h-[140px]
-                            bg-white/[0.045]
+                            bg-white/8
                             border
-                            border-white/10
+                            border-white/8
                             rounded-2xl
                             flex
                             flex-col

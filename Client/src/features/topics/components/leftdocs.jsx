@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
 const preferredSectionIds = [
   "introduction",
@@ -19,7 +19,7 @@ function formatTitle(section) {
   return section.title === "Time and Space Complexity" ? "Time & Space Complexity" : section.title;
 }
 
-function Docsleftnavbar({ doc, topicName }) {
+function Docsleftnavbar({ doc, topicName, isOpen, onToggle }) {
   const sections = useMemo(() => {
     const docSections = doc?.sections || [];
     const preferred = preferredSectionIds
@@ -73,17 +73,32 @@ function Docsleftnavbar({ doc, topicName }) {
   const activeSectionId = activeId || sections[0]?.id;
 
   return (
-    <aside className="w-full border-b border-white/5 bg-[#0b0b0c] lg:h-full lg:w-[355px] lg:flex-shrink-0 lg:border-b-0 lg:border-r lg:border-white/5">
-      <div className="p-4 lg:sticky lg:top-0 lg:max-h-full lg:overflow-y-auto lg:px-8 lg:py-10">
-        <div className="mb-5 flex items-center gap-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-orange-200/70 lg:mb-8 select-none">
-          <Link
-            to="/dashboard"
-            className="hover:text-orange-400 transition-colors"
+    <aside
+      className={`transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0 ${
+        isOpen
+          ? "w-full border-b border-white/5 bg-[#0b0b0c] lg:h-full lg:w-[355px] lg:border-b-0 lg:border-r lg:border-white/5"
+          : "w-full h-0 border-b-0 lg:h-full lg:w-0 lg:border-r-0 lg:border-white/0"
+      }`}
+    >
+      <div className="p-4 lg:sticky lg:top-0 lg:max-h-full lg:overflow-y-auto lg:px-8 lg:py-10 min-w-[320px]">
+        <div className="mb-5 flex items-center justify-between gap-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-orange-200/70 lg:mb-8 select-none">
+          <div className="flex items-center gap-1.5">
+            <Link
+              to="/dashboard"
+              className="hover:text-orange-400 transition-colors"
+            >
+              DSA
+            </Link>
+            <ChevronRight size={12} className="text-orange-200/40" />
+            <span>{doc?.topic || topicName}</span>
+          </div>
+          <button
+            onClick={onToggle}
+            className="rounded-lg p-1.5 text-white/50 hover:bg-white/5 hover:text-white transition-colors duration-200"
+            title="Hide Sidebar"
           >
-            DSA
-          </Link>
-          <ChevronRight size={12} className="text-orange-200/40" />
-          <span>{doc?.topic || topicName}</span>
+            <ChevronLeft size={16} />
+          </button>
         </div>
 
         <nav aria-label="Documentation sections">

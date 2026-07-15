@@ -52,7 +52,7 @@ async function testNewDayUnsolve() {
                 }
             },
             {
-                new: true,
+                returnDocument: 'after',
                 upsert: true,
                 setDefaultsOnInsert: true
             }

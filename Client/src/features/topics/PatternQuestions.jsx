@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import {
   AlertCircle,
   ArrowLeft,
@@ -50,6 +50,7 @@ function QuestionListContent({ topicNameOverride }) {
   const { topic, pattern } = useParams();
   const topicName = topicNameOverride || decodeURIComponent(topic || "");
   const patternName = decodeURIComponent(pattern || "");
+  const navigate = useNavigate();
 
   const { user, setUser } = useAuth();
   const [questions, setQuestions] = useState([]);
@@ -312,13 +313,13 @@ function QuestionListContent({ topicNameOverride }) {
           </div>
           <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full transition-all duration-500"
+              className="h-full bg-green-400 rounded-full transition-all duration-500"
               style={{ width: `${stats.percentage}%` }}
             />
           </div>
           <div className="flex justify-between items-center text-xs">
             <span className="text-white/40">Est. Time Remaining:</span>
-            <span className="text-orange-400 font-bold flex items-center gap-1">
+            <span className="text-white/80 font-bold flex items-center gap-1">
               <Clock size={12} /> {stats.timeLeftStr}
             </span>
           </div>
@@ -414,25 +415,46 @@ function QuestionListContent({ topicNameOverride }) {
                 const companies = Array.isArray(q.companies) ? q.companies : [];
 
                 return (
-                  <tr key={q._id} className="group hover:bg-white/5 transition-colors duration-250">
+                  
+                  <tr
+                    key={q._id}
+                    onClick={() =>
+                      navigate(
+                        `/dashboard/dsa/Practice/${encodeURIComponent(
+                          topicName
+                        )}/problem/${encodeURIComponent(q._id)}`
+                      )
+                    }
+                    className="group hover:bg-white/5 transition-colors duration-250 cursor-pointer"
+                  >
                     <td className="py-4 px-6 align-middle">
                       <button
-                        disabled={togglingId === q._id}
-                        onClick={() => handleToggleSolve(q._id, q.pattern)}
-                        className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (togglingId !== q._id) {
+                            handleToggleSolve(q._id, q.pattern);
+                          }
+                        }}
+                        className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 ${
                           q.solved
-                            ? "bg-orange-500 border-orange-500 text-white scale-110"
-                            : "border-white/20 hover:border-orange-500/50 group-hover:scale-105"
+                            ? "bg-emerald-500/90 border-emerald-500 text-white"
+                            : "border-white/10 hover:border-emerald-500/50 hover:bg-emerald-500/5"
                         }`}
-                        aria-label={q.solved ? "Mark unsolved" : "Mark solved"}
+                        aria-label={q.solved ? "Solved" : "Unsolved"}
+                        disabled={togglingId === q._id}
                       >
-                        {q.solved && <Check size={12} strokeWidth={4} />}
+                        {togglingId === q._id ? (
+                          <Loader2 size={11} className="animate-spin text-white" />
+                        ) : q.solved ? (
+                          <Check size={11} strokeWidth={4} />
+                        ) : null}
                       </button>
                     </td>
 
                     <td className="py-4 px-4 align-middle">
                       <Link
                         to={`/dashboard/dsa/Practice/${encodeURIComponent(topicName)}/problem/${encodeURIComponent(q._id)}`}
+                        onClick={(e) => e.stopPropagation()}
                         className="text-white font-semibold hover:text-orange-400 transition-colors"
                       >
                         {q.title}
@@ -446,7 +468,7 @@ function QuestionListContent({ topicNameOverride }) {
                     </td>
 
                     <td className="py-4 px-4 align-middle">
-                      <span className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/60 whitespace-nowrap">
                         {formatPattern(q.pattern)}
                       </span>
                     </td>
@@ -476,10 +498,19 @@ function QuestionListContent({ topicNameOverride }) {
                         href={q.leetcodeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 hover:bg-orange-500 hover:text-white transition-all duration-200"
                         aria-label="Open on LeetCode"
                       >
-                        <ExternalLink size={15} />
+                        <svg
+                          role="img"
+                          viewBox="0 0 24 24"
+                          className="w-[15px] h-[15px]"
+                          fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
+                        </svg>
                       </a>
                     </td>
                   </tr>

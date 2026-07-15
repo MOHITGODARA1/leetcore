@@ -8,7 +8,7 @@
     "platform": "LeetCode",
     "problemNumber": 206,
     "leetcodeUrl": "https://leetcode.com/problems/reverse-linked-list/",
-    "description": "Imagine a train moving forward — you need to make it move backward without lifting any compartment off the track. That is the essence of reversing a linked list. You are given a chain of nodes where each node points to the next. Your job is to flip all those arrows so the last node becomes the first. The trick lies in using three variables — previous, current, and next — to carefully rewire each pointer without losing track of the rest of the chain. At every step, you save the next node, point the current node backward, then slide both pointers forward. When current becomes null, previous is your new head. Beginners often try to collect values and rebuild — resist that urge. Pointer rewiring is the soul of this problem. Recursively, you trust the rest of the list is already reversed and just fix the last link. This problem is the backbone of at least five harder problems you will encounter in interviews.",
+    "description": "A linked list is a chain of nodes where each node points to the next one. Reverse the whole chain, so the last node becomes the first and the first becomes the last.",
     "examples": [
       {
         "input": "head = [1,2,3,4,5]",
@@ -19,11 +19,6 @@
         "input": "head = [1,2]",
         "output": "[2,1]",
         "explanation": "Two-node list reversed."
-      },
-      {
-        "input": "head = []",
-        "output": "[]",
-        "explanation": "Empty list remains empty."
       }
     ],
     "constraints": [
@@ -37,44 +32,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Apple",
-      "Adobe",
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Recursion"
-    ],
+    "companies": ["Amazon", "Apple", "Adobe", "Meta", "Google", "Microsoft", "Flipkart", "LinkedIn"],
+    "tags": ["Linked List", "Recursion"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Reverse Linked List - NeetCode",
-        "url": "https://youtube.com/watch?v=G0_I-ZF0S38"
-      }
+      { "title": "Reverse Linked List - NeetCode", "url": "https://youtube.com/watch?v=G0_I-ZF0S38" }
     ],
-    "relatedProblems": [
-      "Reverse Linked List II",
-      "Reverse Nodes in k-Group",
-      "Palindrome Linked List"
-    ],
-    "followUp": [
-      "Can you solve it both iteratively and recursively?"
-    ],
+    "relatedProblems": ["Reverse Linked List II", "Reverse Nodes in k-Group", "Palindrome Linked List"],
+    "followUp": ["Can you solve it both iteratively and recursively?"],
     "testCases": [
-      {
-        "input": "[1,2,3,4,5]",
-        "output": "[5,4,3,2,1]"
-      },
-      {
-        "input": "[1,2]",
-        "output": "[2,1]"
-      },
-      {
-        "input": "[]",
-        "output": "[]"
-      }
+      { "input": "[]", "output": "[]", "note": "Edge case: empty list (0 nodes) — should return an empty list without crashing." },
+      { "input": "[1]", "output": "[1]", "note": "Edge case: single node — reversing one node gives the same node back." },
+      { "input": "[1,2]", "output": "[2,1]", "note": "Smallest multi-node case — two nodes swap places." },
+      { "input": "[-5000,0,5000]", "output": "[5000,0,-5000]", "note": "Edge case: uses the minimum and maximum allowed node values, including zero." },
+      { "input": "[1,2,3,4,5]", "output": "[5,4,3,2,1]", "note": "Typical case with an odd number of nodes." }
     ],
     "acceptanceRate": "74.6%",
     "likes": 20000,
@@ -89,17 +60,12 @@
     "platform": "LeetCode",
     "problemNumber": 21,
     "leetcodeUrl": "https://leetcode.com/problems/merge-two-sorted-lists/",
-    "description": "Think of two sorted queues of people waiting to board a bus — you need to merge them into one sorted queue without making anyone jump out of line. You have two linked lists, both individually sorted, and your task is to weave them into a single sorted list. The key insight is to always pick the smaller head from the two lists and attach it to your result chain. A dummy node at the start of your result saves you from painful head-initialization logic. Two pointers walk down each list simultaneously, and whichever has the smaller value gets attached first. When one list is exhausted, the remaining portion of the other is directly appended — no need to traverse it node by node since it is already sorted. The recursive version is elegant: the problem reduces to merging two shorter lists after choosing the smaller head. This problem is not just a standalone exercise — it is the merge step in Merge Sort for linked lists and the building block for merging k sorted lists.",
+    "description": "You are given two linked lists, each already sorted from smallest to largest. Combine them into a single sorted list using all the original nodes.",
     "examples": [
       {
         "input": "list1 = [1,2,4], list2 = [1,3,4]",
         "output": "[1,1,2,3,4,4]",
         "explanation": "Both lists are merged in sorted order."
-      },
-      {
-        "input": "list1 = [], list2 = []",
-        "output": "[]",
-        "explanation": "Two empty lists produce an empty list."
       },
       {
         "input": "list1 = [], list2 = [0]",
@@ -119,40 +85,20 @@
     ],
     "expectedTimeComplexity": "O(n + m)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Microsoft",
-      "Apple",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Linked List",
-      "Recursion"
-    ],
+    "companies": ["Amazon", "Microsoft", "Apple", "Bloomberg", "Google", "Meta", "Uber", "Walmart Labs"],
+    "tags": ["Linked List", "Recursion"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Merge Two Sorted Lists - NeetCode",
-        "url": "https://youtube.com/watch?v=XIdigk956u0"
-      }
+      { "title": "Merge Two Sorted Lists - NeetCode", "url": "https://youtube.com/watch?v=XIdigk956u0" }
     ],
-    "relatedProblems": [
-      "Merge k Sorted Lists",
-      "Sort List",
-      "Merge Sorted Array"
-    ],
-    "followUp": [
-      "Can you solve it recursively in addition to iteratively?"
-    ],
+    "relatedProblems": ["Merge k Sorted Lists", "Sort List", "Merge Sorted Array"],
+    "followUp": ["Can you solve it recursively in addition to iteratively?"],
     "testCases": [
-      {
-        "input": "list1=[1,2,4], list2=[1,3,4]",
-        "output": "[1,1,2,3,4,4]"
-      },
-      {
-        "input": "list1=[], list2=[0]",
-        "output": "[0]"
-      }
+      { "input": "list1=[], list2=[]", "output": "[]", "note": "Edge case: both lists empty — result should be empty, not an error." },
+      { "input": "list1=[], list2=[0]", "output": "[0]", "note": "Edge case: one list empty — just return the other list as-is." },
+      { "input": "list1=[5], list2=[2]", "output": "[2,5]", "note": "Edge case: both lists have only one node each." },
+      { "input": "list1=[-100,-50,0], list2=[-100,50,100]", "output": "[-100,-100,-50,0,50,100]", "note": "Edge case: uses minimum and maximum allowed values, plus duplicate values across lists." },
+      { "input": "list1=[1,2,4], list2=[1,3,4]", "output": "[1,1,2,3,4,4]", "note": "Typical case with overlapping values in both lists." }
     ],
     "acceptanceRate": "63.2%",
     "likes": 21000,
@@ -167,17 +113,12 @@
     "platform": "LeetCode",
     "problemNumber": 141,
     "leetcodeUrl": "https://leetcode.com/problems/linked-list-cycle/",
-    "description": "Picture two runners on a circular track — one slow, one fast. If the track loops, the fast runner will eventually lap the slow one and they will meet. If the track is a straight line, the fast runner just reaches the end first and they never meet. That is Floyd's Cycle Detection algorithm applied to linked lists. You set two pointers at the head: slow moves one step at a time, fast moves two. If they ever point to the same node, a cycle exists. If fast or fast.next becomes null, the list has a definitive end and no cycle. The naive approach uses a HashSet to record every visited node — if you visit the same node twice, there is a cycle. But that costs O(n) space. Floyd's algorithm is the interview-expected solution because it uses O(1) space and O(n) time. Understanding why the two pointers always meet inside a cycle (and not just pass each other) requires thinking about modular arithmetic — the fast pointer gains one step per round relative to the slow pointer in the cycle.",
+    "description": "A linked list may contain a cycle, where a node's next pointer loops back to an earlier node instead of ending at null. Determine whether the given linked list has a cycle.",
     "examples": [
       {
         "input": "head = [3,2,0,-4], pos = 1",
         "output": "true",
         "explanation": "There is a cycle where the tail connects back to index 1."
-      },
-      {
-        "input": "head = [1,2], pos = 0",
-        "output": "true",
-        "explanation": "Cycle exists connecting tail to index 0."
       },
       {
         "input": "head = [1], pos = -1",
@@ -197,41 +138,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Microsoft",
-      "Google",
-      "Yahoo"
-    ],
-    "tags": [
-      "Linked List",
-      "Hash Table",
-      "Two Pointers"
-    ],
+    "companies": ["Amazon", "Microsoft", "Google", "Yahoo", "Meta", "Adobe", "Oracle"],
+    "tags": ["Linked List", "Hash Table", "Two Pointers"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Linked List Cycle - NeetCode",
-        "url": "https://youtube.com/watch?v=gBTe7lFR3vc"
-      }
+      { "title": "Linked List Cycle - NeetCode", "url": "https://youtube.com/watch?v=gBTe7lFR3vc" }
     ],
-    "relatedProblems": [
-      "Linked List Cycle II",
-      "Happy Number",
-      "Find the Duplicate Number"
-    ],
-    "followUp": [
-      "Can you solve it using O(1) memory instead of a HashSet?"
-    ],
+    "relatedProblems": ["Linked List Cycle II", "Happy Number", "Find the Duplicate Number"],
+    "followUp": ["Can you solve it using O(1) memory instead of a HashSet?"],
     "testCases": [
-      {
-        "input": "[3,2,0,-4], pos=1",
-        "output": "true"
-      },
-      {
-        "input": "[1], pos=-1",
-        "output": "false"
-      }
+      { "input": "[], pos=-1", "output": "false", "note": "Edge case: empty list — there's nothing to loop, so no cycle." },
+      { "input": "[1], pos=-1", "output": "false", "note": "Edge case: single node with no cycle, pointing to null." },
+      { "input": "[1], pos=0", "output": "true", "note": "Edge case: single node that points back to itself, forming a 1-node loop." },
+      { "input": "[1,2], pos=0", "output": "true", "note": "Edge case: smallest multi-node cycle, where the tail loops back to the head." },
+      { "input": "[3,2,0,-4], pos=1", "output": "true", "note": "Typical case: a longer list where the loop starts in the middle." }
     ],
     "acceptanceRate": "49.4%",
     "likes": 14000,
@@ -246,7 +166,7 @@
     "platform": "LeetCode",
     "problemNumber": 234,
     "leetcodeUrl": "https://leetcode.com/problems/palindrome-linked-list/",
-    "description": "A palindrome reads the same from both ends — like 'racecar' or '1 2 3 2 1'. In an array, checking this is trivial with two pointers at both ends. In a linked list, you cannot move backward, which makes it deceptively harder. The O(1) space solution is a beautiful composition of three separate techniques. First, locate the middle of the list using the fast-slow pointer trick. Second, reverse everything from the middle to the end — now you have two sub-lists that should mirror each other if the original was a palindrome. Third, compare both halves node by node. If all values match, it is a palindrome. A common mistake is forgetting to handle odd-length lists where the middle node does not need to match anything. Another subtle point: after comparison, a good implementation restores the second half to its original order — leaving the input list unmodified is considered clean engineering practice in interviews. Using a stack is simpler but costs O(n) space.",
+    "description": "Given the head of a linked list, determine whether the sequence of values it represents reads the same forwards and backwards.",
     "examples": [
       {
         "input": "head = [1,2,2,1]",
@@ -270,42 +190,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Meta",
-      "Adobe",
-      "Apple"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers",
-      "Stack",
-      "Recursion"
-    ],
+    "companies": ["Amazon", "Meta", "Adobe", "Apple", "Microsoft", "Bloomberg"],
+    "tags": ["Linked List", "Two Pointers", "Stack", "Recursion"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "Palindrome Linked List - NeetCode",
-        "url": "https://youtube.com/watch?v=yOzXms1J6Nw"
-      }
+      { "title": "Palindrome Linked List - NeetCode", "url": "https://youtube.com/watch?v=yOzXms1J6Nw" }
     ],
-    "relatedProblems": [
-      "Palindrome Number",
-      "Valid Palindrome",
-      "Reverse Linked List"
-    ],
-    "followUp": [
-      "Could you do it in O(n) time and O(1) space?"
-    ],
+    "relatedProblems": ["Palindrome Number", "Valid Palindrome", "Reverse Linked List"],
+    "followUp": ["Could you do it in O(n) time and O(1) space?"],
     "testCases": [
-      {
-        "input": "[1,2,2,1]",
-        "output": "true"
-      },
-      {
-        "input": "[1,2]",
-        "output": "false"
-      }
+      { "input": "[1]", "output": "true", "note": "Edge case: single node — always a palindrome by itself." },
+      { "input": "[1,1]", "output": "true", "note": "Edge case: smallest even-length palindrome (two matching values)." },
+      { "input": "[1,2]", "output": "false", "note": "Edge case: smallest even-length list that is NOT a palindrome." },
+      { "input": "[0,0,0,0,0]", "output": "true", "note": "Edge case: all values equal to the minimum allowed value (0), odd length." },
+      { "input": "[1,2,2,1]", "output": "true", "note": "Typical case: even-length palindrome with repeated values." }
     ],
     "acceptanceRate": "53.7%",
     "likes": 16000,
@@ -320,7 +218,7 @@
     "platform": "LeetCode",
     "problemNumber": 876,
     "leetcodeUrl": "https://leetcode.com/problems/middle-of-the-linked-list/",
-    "description": "Finding the middle of a linked list seems like it should require two passes — one to count the length, one to walk to the midpoint. But there is a smarter one-pass approach using two pointers moving at different speeds. Start both at head. Move slow by one step and fast by two steps each iteration. When fast reaches the last node or falls off the end, slow is sitting exactly at the middle. For even-length lists, slow lands on the second of the two middle nodes, which is usually what problems expect. This technique is deceptively simple but underpins an entire family of linked list problems. It appears as a sub-step in Palindrome Linked List, Sort List, Reorder List, and several tree-to-list conversion problems. Interviewers value candidates who immediately reach for this pattern rather than computing the length first — it signals familiarity with linked list idioms.",
+    "description": "Given the head of a linked list, return the node in the middle of the list. If there are two middle nodes, return the second one.",
     "examples": [
       {
         "input": "head = [1,2,3,4,5]",
@@ -344,39 +242,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Microsoft",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
+    "companies": ["Amazon", "Microsoft", "Google", "Adobe", "Yahoo"],
+    "tags": ["Linked List", "Two Pointers"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Middle of the Linked List - LeetCode 876",
-        "url": "https://youtube.com/watch?v=A2_ldqM4QcY"
-      }
+      { "title": "Middle of the Linked List - LeetCode 876", "url": "https://youtube.com/watch?v=A2_ldqM4QcY" }
     ],
-    "relatedProblems": [
-      "Palindrome Linked List",
-      "Reorder List",
-      "Sort List"
-    ],
-    "followUp": [
-      "What changes if you need the first middle node instead of the second for even-length lists?"
-    ],
+    "relatedProblems": ["Palindrome Linked List", "Reorder List", "Sort List"],
+    "followUp": ["What changes if you need the first middle node instead of the second for even-length lists?"],
     "testCases": [
-      {
-        "input": "[1,2,3,4,5]",
-        "output": "[3,4,5]"
-      },
-      {
-        "input": "[1,2,3,4,5,6]",
-        "output": "[4,5,6]"
-      }
+      { "input": "[1]", "output": "[1]", "note": "Edge case: single node — it is its own middle." },
+      { "input": "[1,2]", "output": "[2]", "note": "Edge case: two nodes — the second node is treated as the middle." },
+      { "input": "[1,2,3]", "output": "[2,3]", "note": "Edge case: odd length with 3 nodes, middle is the exact center." },
+      { "input": "[1,1,1,1,1,1,1,1]", "output": "[1,1,1,1]", "note": "Edge case: all identical values, even length — checks logic isn't relying on distinct values." },
+      { "input": "[1,2,3,4,5,6]", "output": "[4,5,6]", "note": "Typical case: even-length list, returns the second of the two middle nodes." }
     ],
     "acceptanceRate": "76.4%",
     "likes": 10000,
@@ -391,17 +270,12 @@
     "platform": "LeetCode",
     "problemNumber": 203,
     "leetcodeUrl": "https://leetcode.com/problems/remove-linked-list-elements/",
-    "description": "Deleting specific nodes from a linked list is conceptually simple — skip over any node whose value matches the target. But the implementation trips up beginners because of one awkward case: what if the node to be removed is the head itself? You cannot apply the usual trick of using a predecessor pointer because the head has none. The elegant fix is a sentinel node — a fake dummy node inserted before the real head. Now every node in the list (including the original head) has a predecessor, and deletion logic becomes uniform throughout. Walk with a current pointer: whenever current.next has the target value, skip it by setting current.next = current.next.next. Otherwise advance current. At the end, return sentinel.next as the new head. The recursive approach is clean too: the problem on a smaller list is the same problem — remove matching nodes from the tail, then decide whether to keep or skip the head. Practice this problem to internalize the sentinel pattern before tackling harder deletion problems.",
+    "description": "You're given a linked list and a target value. Remove every node whose value equals the target, and return the resulting list.",
     "examples": [
       {
         "input": "head = [1,2,6,3,4,5,6], val = 6",
         "output": "[1,2,3,4,5]",
         "explanation": "All nodes with value 6 are removed."
-      },
-      {
-        "input": "head = [], val = 1",
-        "output": "[]",
-        "explanation": "Empty list stays empty."
       },
       {
         "input": "head = [7,7,7,7], val = 7",
@@ -421,38 +295,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Apple",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Linked List",
-      "Recursion"
-    ],
+    "companies": ["Amazon", "Apple", "Bloomberg", "Microsoft", "Google"],
+    "tags": ["Linked List", "Recursion"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Remove Linked List Elements - LeetCode 203",
-        "url": "https://youtube.com/watch?v=JI71sxtHTng"
-      }
+      { "title": "Remove Linked List Elements - LeetCode 203", "url": "https://youtube.com/watch?v=JI71sxtHTng" }
     ],
-    "relatedProblems": [
-      "Remove Duplicates from Sorted List",
-      "Delete Node in a Linked List"
-    ],
-    "followUp": [
-      "Can you solve it recursively?"
-    ],
+    "relatedProblems": ["Remove Duplicates from Sorted List", "Delete Node in a Linked List"],
+    "followUp": ["Can you solve it recursively?"],
     "testCases": [
-      {
-        "input": "[1,2,6,3,4,5,6], val=6",
-        "output": "[1,2,3,4,5]"
-      },
-      {
-        "input": "[7,7,7,7], val=7",
-        "output": "[]"
-      }
+      { "input": "[], val=1", "output": "[]", "note": "Edge case: empty list — nothing to remove, return empty list." },
+      { "input": "[1], val=1", "output": "[]", "note": "Edge case: single node that itself matches the target and must be removed." },
+      { "input": "[1], val=2", "output": "[1]", "note": "Edge case: single node that does NOT match the target — should remain untouched." },
+      { "input": "[7,7,7,7], val=7", "output": "[]", "note": "Edge case: every node matches, including the head, resulting in a fully empty list." },
+      { "input": "[1,2,6,3,4,5,6], val=6", "output": "[1,2,3,4,5]", "note": "Typical case: target value appears in the middle and near the end of the list." }
     ],
     "acceptanceRate": "47.8%",
     "likes": 7200,
@@ -467,7 +323,7 @@
     "platform": "LeetCode",
     "problemNumber": 160,
     "leetcodeUrl": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
-    "description": "Two roads diverge and then converge — if two linked lists share a common tail, there exists exactly one node where they merge and never separate again. Your task is to find that node. The naive HashSet approach stores all nodes of list A, then walks list B until it finds a node already in the set — clean but O(n) space. The elegant O(1) space solution exploits a beautiful symmetry: if pointer A walks list A then list B, and pointer B walks list B then list A, they both travel the same total distance (len(A) + len(B)). If an intersection exists, they will land on it simultaneously. If not, they both reach null at the same time. No length calculation required, no extra memory, no complex logic. The insight that makes this work is that the extra distance each pointer travels to cover the other list exactly cancels out the length difference. This is the kind of solution interviewers remember.",
+    "description": "You're given two linked lists that may share a common tail. Find the node where they first intersect, or return null if they never intersect.",
     "examples": [
       {
         "input": "listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], intersectVal = 8",
@@ -493,40 +349,20 @@
     ],
     "expectedTimeComplexity": "O(n + m)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Microsoft",
-      "Bloomberg",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Hash Table",
-      "Two Pointers"
-    ],
+    "companies": ["Amazon", "Microsoft", "Bloomberg", "Adobe", "Google", "Meta"],
+    "tags": ["Linked List", "Hash Table", "Two Pointers"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "Intersection of Two Linked Lists - NeetCode",
-        "url": "https://youtube.com/watch?v=D0X0BONOQhI"
-      }
+      { "title": "Intersection of Two Linked Lists - NeetCode", "url": "https://youtube.com/watch?v=D0X0BONOQhI" }
     ],
-    "relatedProblems": [
-      "Linked List Cycle II",
-      "Minimum Index Sum of Two Lists"
-    ],
-    "followUp": [
-      "Can you solve it in O(1) space without modifying the lists?"
-    ],
+    "relatedProblems": ["Linked List Cycle II", "Minimum Index Sum of Two Lists"],
+    "followUp": ["Can you solve it in O(1) space without modifying the lists?"],
     "testCases": [
-      {
-        "input": "listA=[4,1,8,4,5], listB=[5,6,1,8,4,5], skipA=2, skipB=3",
-        "output": "8"
-      },
-      {
-        "input": "listA=[2,6,4], listB=[1,5], skipA=3, skipB=2",
-        "output": "null"
-      }
+      { "input": "listA=[2], listB=[3]", "output": "null", "note": "Edge case: both lists have exactly one node each and don't intersect." },
+      { "input": "listA=[1], listB=[1]", "output": "null (assuming these are two separate 1-node lists, not the same node)", "note": "Edge case: same value but different node objects — must compare node identity, not value." },
+      { "input": "listA=[2,6,4], listB=[1,5]", "output": "null", "note": "Edge case: lists of different lengths that never intersect at all." },
+      { "input": "listA=[1,9,1,2,4], listB=[3,2,4], skipA=3, skipB=1", "output": "2", "note": "Edge case: lists of different lengths that DO intersect, testing the length-difference logic." },
+      { "input": "listA=[4,1,8,4,5], listB=[5,6,1,8,4,5], skipA=2, skipB=3", "output": "8", "note": "Typical case: two lists of different lengths sharing a common tail." }
     ],
     "acceptanceRate": "55.9%",
     "likes": 13000,
@@ -541,7 +377,7 @@
     "platform": "LeetCode",
     "problemNumber": 237,
     "leetcodeUrl": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
-    "description": "This problem breaks the usual contract of deletion problems — you are not given the head of the list, only the node to be deleted. No access to the previous node means the usual technique of relinking predecessors is off the table. The creative solution exploits a simple observation: instead of physically removing the target node, impersonate its successor. Copy the next node's value into the current node, then delete the next node (which you do have predecessor access to, since the current node is its predecessor). It is like a magic trick — the node that was supposed to disappear instead takes on someone else's identity, and the original victim quietly vanishes. This works because the problem guarantees the node is not the tail. The key interview insight here is lateral thinking — when a standard approach is blocked, look for an equivalent transformation that achieves the same visible result.",
+    "description": "You're given direct access to a node in a singly linked list, but not the head of the list. Delete this node from the list, given that it's guaranteed not to be the last node.",
     "examples": [
       {
         "input": "head = [4,5,1,9], node = 5",
@@ -566,37 +402,20 @@
     ],
     "expectedTimeComplexity": "O(1)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Microsoft",
-      "Adobe",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Linked List"
-    ],
+    "companies": ["Microsoft", "Adobe", "Bloomberg", "Amazon", "Google"],
+    "tags": ["Linked List"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Delete Node in a Linked List - LeetCode 237",
-        "url": "https://youtube.com/watch?v=icVkFkRJcro"
-      }
+      { "title": "Delete Node in a Linked List - LeetCode 237", "url": "https://youtube.com/watch?v=icVkFkRJcro" }
     ],
-    "relatedProblems": [
-      "Remove Linked List Elements",
-      "Remove Nth Node From End of List"
-    ],
-    "followUp": [
-      "What would you do if the node could be the tail?"
-    ],
+    "relatedProblems": ["Remove Linked List Elements", "Remove Nth Node From End of List"],
+    "followUp": ["What would you do if the node could be the tail?"],
     "testCases": [
-      {
-        "input": "[4,5,1,9], node=5",
-        "output": "[4,1,9]"
-      },
-      {
-        "input": "[4,5,1,9], node=1",
-        "output": "[4,5,9]"
-      }
+      { "input": "[1,2], node=1 (the head)", "output": "[2]", "note": "Edge case: smallest allowed list (2 nodes), deleting the head node." },
+      { "input": "[4,5,1,9], node=9 is NOT allowed (guaranteed not tail)", "output": "n/a — invalid input by constraints", "note": "Edge case: shows why the constraint 'node is never the tail' matters — this trick can't remove the last node." },
+      { "input": "[-1000,0,1000], node=0 (middle value 0)", "output": "[-1000,1000]", "note": "Edge case: uses minimum, zero, and maximum allowed values." },
+      { "input": "[4,5,1,9], node=5 (second node)", "output": "[4,1,9]", "note": "Typical case: deleting a node near the front of the list." },
+      { "input": "[4,5,1,9], node=1 (third node)", "output": "[4,5,9]", "note": "Typical case: deleting a node closer to the end (but not the tail)." }
     ],
     "acceptanceRate": "77.3%",
     "likes": 6400,
@@ -611,7 +430,7 @@
     "platform": "LeetCode",
     "problemNumber": 1290,
     "leetcodeUrl": "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/",
-    "description": "Binary numbers are read left to right — the leftmost bit is the most significant. The linked list conveniently stores them in the same order, head to tail. As you traverse from head to tail, each new bit you encounter shifts the accumulated result one position left (multiply by 2) and adds the new bit's value. In bit manipulation terms: result = (result << 1) | node.val. By the time you reach the tail, result holds the complete decimal equivalent. The simplicity of this problem makes it a good warm-up, but it tests whether you understand binary-to-decimal conversion and can apply bit shifting. A candidate who loops through, collects values into an array, then converts — versus one who does it in a single pass using the shift-and-OR trick — signals a notable difference in low-level thinking.",
+    "description": "You're given a linked list where each node holds either 0 or 1, representing a binary number read from head to tail. Convert this binary number to its decimal value.",
     "examples": [
       {
         "input": "head = [1,0,1]",
@@ -636,37 +455,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Math"
-    ],
+    "companies": ["Amazon", "Google", "Microsoft", "Adobe", "Apple", "Bloomberg"],
+    "tags": ["Linked List", "Math"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Convert Binary Number in a Linked List to Integer - LeetCode 1290",
-        "url": "https://youtube.com/watch?v=oMK5gHpO5o4"
-      }
+      { "title": "Convert Binary Number in a Linked List to Integer - LeetCode 1290", "url": "https://youtube.com/watch?v=oMK5gHpO5o4" }
     ],
-    "relatedProblems": [
-      "Reverse Linked List",
-      "Number of 1 Bits"
-    ],
-    "followUp": [
-      "Can you solve it without using the bit-shift operator?"
-    ],
+    "relatedProblems": ["Reverse Linked List", "Number of 1 Bits"],
+    "followUp": ["Can you solve it without using the bit-shift operator?"],
     "testCases": [
-      {
-        "input": "[1,0,1]",
-        "output": "5"
-      },
-      {
-        "input": "[0]",
-        "output": "0"
-      }
+      { "input": "[0]", "output": "0", "note": "Edge case: smallest possible list (1 node), value is 0." },
+      { "input": "[1]", "output": "1", "note": "Edge case: smallest possible list (1 node), value is 1." },
+      { "input": "[1,0,0,0,0]", "output": "16", "note": "Edge case: a single leading 1 followed by all zeros — tests correct bit shifting." },
+      { "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]", "output": "1073741823", "note": "Edge case: uses the maximum allowed length (30 nodes), all set to 1." },
+      { "input": "[1,0,1]", "output": "5", "note": "Typical case: a short, mixed binary sequence." }
     ],
     "acceptanceRate": "82.7%",
     "likes": 3800,
@@ -681,7 +483,7 @@
     "platform": "LeetCode",
     "problemNumber": 83,
     "leetcodeUrl": "https://leetcode.com/problems/remove-duplicates-from-sorted-list/",
-    "description": "When a list is sorted, all duplicates of any value are guaranteed to be adjacent — they cluster together. This makes the problem straightforward: walk the list, and whenever a node's value equals its successor's value, skip the successor. Since the list is sorted, once the value changes you know all duplicates of the previous value have been handled. The key pointer move is: current.next = current.next.next when a duplicate is found, and advance current only when the value genuinely changes. A common bug is advancing current too eagerly — if you have three consecutive equal nodes, you must keep checking current.next before moving forward. This is the easier sibling of problem 82, where all occurrences of duplicated values must be removed entirely. Mastering 83 first makes 82 significantly easier to reason about.",
+    "description": "Given the head of a sorted linked list, remove all duplicate values so that each value appears only once, and return the resulting sorted list.",
     "examples": [
       {
         "input": "head = [1,1,2]",
@@ -706,37 +508,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Microsoft",
-      "Bloomberg",
-      "Apple"
-    ],
-    "tags": [
-      "Linked List"
-    ],
+    "companies": ["Microsoft", "Bloomberg", "Apple", "Amazon", "Google"],
+    "tags": ["Linked List"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Remove Duplicates from Sorted List - LeetCode 83",
-        "url": "https://youtube.com/watch?v=p10f-VpWGbE"
-      }
+      { "title": "Remove Duplicates from Sorted List - LeetCode 83", "url": "https://youtube.com/watch?v=p10f-VpWGbE" }
     ],
-    "relatedProblems": [
-      "Remove Duplicates from Sorted List II",
-      "Remove Duplicates from Sorted Array"
-    ],
-    "followUp": [
-      "What if you need to remove ALL occurrences of duplicated values (see problem 82)?"
-    ],
+    "relatedProblems": ["Remove Duplicates from Sorted List II", "Remove Duplicates from Sorted Array"],
+    "followUp": ["What if you need to remove ALL occurrences of duplicated values (see problem 82)?"],
     "testCases": [
-      {
-        "input": "[1,1,2]",
-        "output": "[1,2]"
-      },
-      {
-        "input": "[1,1,2,3,3]",
-        "output": "[1,2,3]"
-      }
+      { "input": "[]", "output": "[]", "note": "Edge case: empty list — nothing to deduplicate." },
+      { "input": "[5]", "output": "[5]", "note": "Edge case: single node — no duplicates possible." },
+      { "input": "[2,2,2,2]", "output": "[2]", "note": "Edge case: every node has the exact same value." },
+      { "input": "[-100,-100,0,100,100]", "output": "[-100,0,100]", "note": "Edge case: uses minimum and maximum allowed values with duplicates on both ends." },
+      { "input": "[1,1,2,3,3]", "output": "[1,2,3]", "note": "Typical case: duplicates appear in more than one place in the list." }
     ],
     "acceptanceRate": "51.4%",
     "likes": 8100,
@@ -751,7 +536,7 @@
     "platform": "LeetCode",
     "problemNumber": 1669,
     "leetcodeUrl": "https://leetcode.com/problems/merge-in-between-linked-lists/",
-    "description": "Think of list1 as a sentence and list2 as a clause you need to splice in between two words. You are given indices a and b, and your task is to cut out everything between position a and position b (inclusive) from list1, then stitch list2 in that gap. The mechanics: walk list1 to find the node just before position a — call it nodeA. Walk further to find the node just after position b — call it nodeB. Then connect nodeA.next to list2's head, traverse list2 all the way to its tail, and connect that tail to nodeB. Three pointer assignments total. The difficulty is careful index counting — off-by-one errors are the main trap. This problem tests whether you can mentally visualize the before-and-after state of a list and translate that visualization into clean pointer manipulation code.",
+    "description": "You're given list1 and list2, along with two indices a and b. Remove the nodes of list1 from index a to index b, and insert list2 in their place.",
     "examples": [
       {
         "input": "list1 = [0,1,2,3,4,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]",
@@ -776,33 +561,20 @@
     ],
     "expectedTimeComplexity": "O(n + m)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Google",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List"
-    ],
+    "companies": ["Amazon", "Google", "Adobe", "Microsoft", "Meta", "Bloomberg"],
+    "tags": ["Linked List"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Merge In Between Linked Lists - LeetCode 1669",
-        "url": "https://youtube.com/watch?v=MxKPsHjMqbo"
-      }
+      { "title": "Merge In Between Linked Lists - LeetCode 1669", "url": "https://youtube.com/watch?v=MxKPsHjMqbo" }
     ],
-    "relatedProblems": [
-      "Merge Two Sorted Lists",
-      "Remove Nth Node From End of List"
-    ],
-    "followUp": [
-      "What if you needed to insert list2 multiple times at different ranges?"
-    ],
+    "relatedProblems": ["Merge Two Sorted Lists", "Remove Nth Node From End of List"],
+    "followUp": ["What if you needed to insert list2 multiple times at different ranges?"],
     "testCases": [
-      {
-        "input": "list1=[0,1,2,3,4,5], a=3, b=4, list2=[1000000,1000001,1000002]",
-        "output": "[0,1,2,1000000,1000001,1000002,5]"
-      }
+      { "input": "list1=[0,1,2], a=1, b=1, list2=[9]", "output": "[0,9,2]", "note": "Edge case: smallest allowed list1 (3 nodes), a equals b, replacing just one node." },
+      { "input": "list1=[0,1,2,3], a=1, b=2, list2=[9]", "output": "[0,9,3]", "note": "Edge case: list2 has only a single node." },
+      { "input": "list1=[0,1,2,3,4], a=1, b=3, list2=[100,200]", "output": "[0,100,200,4]", "note": "Edge case: replacing multiple nodes near both ends of list1." },
+      { "input": "list1=[0,1,2,3,4,5,6], a=2, b=5, list2=[1000000,1000001,1000002]", "output": "[0,1,1000000,1000001,1000002,6]", "note": "Edge case: replacing a larger chunk close to the tail of list1." },
+      { "input": "list1=[0,1,2,3,4,5], a=3, b=4, list2=[1000000,1000001,1000002]", "output": "[0,1,2,1000000,1000001,1000002,5]", "note": "Typical case from the problem statement." }
     ],
     "acceptanceRate": "79.2%",
     "likes": 2100,
@@ -817,7 +589,7 @@
     "platform": "LeetCode",
     "problemNumber": 2,
     "leetcodeUrl": "https://leetcode.com/problems/add-two-numbers/",
-    "description": "You have two numbers stored digit by digit in linked lists — crucially, in reverse order (least significant digit at the head). This reverse storage is actually a gift: it means you can traverse both lists from head to tail and perform addition exactly as you would on paper, starting from the least significant digit and propagating the carry leftward (which in this case means toward the tail). At each step, sum the current digits from both lists plus any carry from the previous step. The new node's value is sum % 10, and the new carry is sum / 10. When one list runs out before the other, treat missing digits as zero. After exhausting both lists, if carry is still 1, append a final node with value 1. The medium difficulty comes from juggling the carry logic cleanly across lists of unequal length and not forgetting the trailing carry. This is the linked list analog of the grade-school addition algorithm.",
+    "description": "You're given two non-negative integers represented as linked lists, where each node holds a single digit and the digits are stored in reverse order (the ones digit comes first). Add the two numbers together and return the sum, also stored digit-by-digit in reverse order.",
     "examples": [
       {
         "input": "l1 = [2,4,3], l2 = [5,6,4]",
@@ -828,11 +600,6 @@
         "input": "l1 = [0], l2 = [0]",
         "output": "[0]",
         "explanation": "0 + 0 = 0."
-      },
-      {
-        "input": "l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]",
-        "output": "[8,9,9,9,0,0,0,1]",
-        "explanation": "9999999 + 9999 = 10009998, reversed."
       }
     ],
     "constraints": [
@@ -847,42 +614,20 @@
     ],
     "expectedTimeComplexity": "O(max(n, m))",
     "expectedSpaceComplexity": "O(max(n, m))",
-    "companies": [
-      "Amazon",
-      "Microsoft",
-      "Bloomberg",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Math",
-      "Recursion"
-    ],
+    "companies": ["Amazon", "Microsoft", "Bloomberg", "Adobe", "Google", "Meta", "Apple"],
+    "tags": ["Linked List", "Math", "Recursion"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Add Two Numbers - NeetCode",
-        "url": "https://youtube.com/watch?v=wgFPrzTjm7s"
-      }
+      { "title": "Add Two Numbers - NeetCode", "url": "https://youtube.com/watch?v=wgFPrzTjm7s" }
     ],
-    "relatedProblems": [
-      "Multiply Strings",
-      "Add Binary",
-      "Sum of Two Integers",
-      "Add Two Numbers II"
-    ],
-    "followUp": [
-      "What if the digits are stored in forward order instead of reverse?"
-    ],
+    "relatedProblems": ["Multiply Strings", "Add Binary", "Sum of Two Integers", "Add Two Numbers II"],
+    "followUp": ["What if the digits are stored in forward order instead of reverse?"],
     "testCases": [
-      {
-        "input": "l1=[2,4,3], l2=[5,6,4]",
-        "output": "[7,0,8]"
-      },
-      {
-        "input": "l1=[9,9,9,9,9,9,9], l2=[9,9,9,9]",
-        "output": "[8,9,9,9,0,0,0,1]"
-      }
+      { "input": "l1=[0], l2=[0]", "output": "[0]", "note": "Edge case: smallest possible lists (1 digit each), both zero." },
+      { "input": "l1=[5], l2=[5]", "output": "[0,1]", "note": "Edge case: single-digit addition that produces a carry (5+5=10)." },
+      { "input": "l1=[9,9,9], l2=[1]", "output": "[0,0,0,1]", "note": "Edge case: lists of very different lengths, with a carry chain rippling through every digit." },
+      { "input": "l1=[9,9,9,9,9,9,9], l2=[9,9,9,9]", "output": "[8,9,9,9,0,0,0,1]", "note": "Edge case: maximum digit values (9) causing multiple carries and an extra final node." },
+      { "input": "l1=[2,4,3], l2=[5,6,4]", "output": "[7,0,8]", "note": "Typical case: two equal-length lists, no carry needed." }
     ],
     "acceptanceRate": "42.3%",
     "likes": 28000,
@@ -897,7 +642,7 @@
     "platform": "LeetCode",
     "problemNumber": 19,
     "leetcodeUrl": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
-    "description": "You need to remove the nth node from the end — but you cannot know where the end is until you get there, and a linked list does not support backward traversal. The naive solution traverses the list once to find the length, then again to reach the target. The one-pass trick uses two pointers separated by a gap of n. Advance the fast pointer n steps ahead of slow (both start at the dummy head). Then move both together until fast reaches the last node. At this moment, slow is pointing to the node just before the one to be deleted — execute slow.next = slow.next.next. The dummy node before the head is critical: without it, removing the very first node of the list would require special casing. With it, the deletion logic works uniformly. The gap of n is the key insight — maintaining a fixed distance between two pointers is a reusable technique that appears across string, array, and linked list problems.",
+    "description": "Given the head of a linked list, remove the node that is n positions from the end of the list, and return the head of the resulting list.",
     "examples": [
       {
         "input": "head = [1,2,3,4,5], n = 2",
@@ -908,11 +653,6 @@
         "input": "head = [1], n = 1",
         "output": "[]",
         "explanation": "Only node removed."
-      },
-      {
-        "input": "head = [1,2], n = 1",
-        "output": "[1]",
-        "explanation": "Last node removed."
       }
     ],
     "constraints": [
@@ -928,39 +668,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Apple",
-      "Bloomberg",
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
+    "companies": ["Amazon", "Apple", "Bloomberg", "Microsoft", "Google", "Meta"],
+    "tags": ["Linked List", "Two Pointers"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "Remove Nth Node From End of List - NeetCode",
-        "url": "https://youtube.com/watch?v=XVuQxVej6y8"
-      }
+      { "title": "Remove Nth Node From End of List - NeetCode", "url": "https://youtube.com/watch?v=XVuQxVej6y8" }
     ],
-    "relatedProblems": [
-      "Swapping Nodes in a Linked List",
-      "Delete N Nodes After M Nodes of a Linked List"
-    ],
-    "followUp": [
-      "Could you do this in one pass?"
-    ],
+    "relatedProblems": ["Swapping Nodes in a Linked List", "Delete N Nodes After M Nodes of a Linked List"],
+    "followUp": ["Could you do this in one pass?"],
     "testCases": [
-      {
-        "input": "[1,2,3,4,5], n=2",
-        "output": "[1,2,3,5]"
-      },
-      {
-        "input": "[1], n=1",
-        "output": "[]"
-      }
+      { "input": "[1], n=1", "output": "[]", "note": "Edge case: smallest list (1 node), removing the only node." },
+      { "input": "[1,2], n=2", "output": "[2]", "note": "Edge case: n equals the list length, so the head itself gets removed." },
+      { "input": "[1,2], n=1", "output": "[1]", "note": "Edge case: removing the last node (tail) of the list." },
+      { "input": "[1,2,3,4,5], n=5", "output": "[2,3,4,5]", "note": "Edge case: n equals length again but with a longer list, testing head removal with dummy node logic." },
+      { "input": "[1,2,3,4,5], n=2", "output": "[1,2,3,5]", "note": "Typical case: removing a node from the middle-to-end of the list." }
     ],
     "acceptanceRate": "43.9%",
     "likes": 18000,
@@ -975,17 +696,12 @@
     "platform": "LeetCode",
     "problemNumber": 142,
     "leetcodeUrl": "https://leetcode.com/problems/linked-list-cycle-ii/",
-    "description": "Detecting a cycle is one thing — pinpointing exactly where it begins is another. This problem requires the second, harder skill. After Floyd's fast-slow pointers meet inside the cycle, a non-obvious mathematical property kicks in: the distance from the meeting point to the cycle entrance equals the distance from the head to the cycle entrance. So reset one pointer to head, keep the other at the meeting point, and advance both one step at a time. They will collide precisely at the cycle's entry node. Understanding why this works requires working through the algebra: if F is the distance from head to cycle start, C is the cycle length, and the meeting point is k steps into the cycle, then F = C - k (mod C). This is not something to memorize — it is something to derive once on paper so you truly own it. The HashSet approach is the fallback but costs O(n) space. Interviewers expect the O(1) space Floyd's extension.",
+    "description": "A linked list may contain a cycle. Find the node where the cycle begins, or return null if there is no cycle.",
     "examples": [
       {
         "input": "head = [3,2,0,-4], pos = 1",
         "output": "tail connects to node index 1",
         "explanation": "Cycle begins at node with value 2."
-      },
-      {
-        "input": "head = [1,2], pos = 0",
-        "output": "tail connects to node index 0",
-        "explanation": "Cycle begins at node with value 1."
       },
       {
         "input": "head = [1], pos = -1",
@@ -1005,39 +721,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Microsoft",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Hash Table",
-      "Two Pointers"
-    ],
+    "companies": ["Amazon", "Microsoft", "Google", "Meta", "Yahoo"],
+    "tags": ["Linked List", "Hash Table", "Two Pointers"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Linked List Cycle II - NeetCode",
-        "url": "https://youtube.com/watch?v=wjYnzkAhcNk"
-      }
+      { "title": "Linked List Cycle II - NeetCode", "url": "https://youtube.com/watch?v=wjYnzkAhcNk" }
     ],
-    "relatedProblems": [
-      "Linked List Cycle",
-      "Find the Duplicate Number"
-    ],
-    "followUp": [
-      "Can you solve it without using extra space?"
-    ],
+    "relatedProblems": ["Linked List Cycle", "Find the Duplicate Number"],
+    "followUp": ["Can you solve it without using extra space?"],
     "testCases": [
-      {
-        "input": "[3,2,0,-4], pos=1",
-        "output": "node at index 1 (value 2)"
-      },
-      {
-        "input": "[1], pos=-1",
-        "output": "null"
-      }
+      { "input": "[], pos=-1", "output": "null", "note": "Edge case: empty list — no cycle possible." },
+      { "input": "[1], pos=-1", "output": "null", "note": "Edge case: single node with no cycle." },
+      { "input": "[1], pos=0", "output": "node at index 0 (the only node)", "note": "Edge case: single node that loops back to itself." },
+      { "input": "[1,2], pos=0", "output": "node at index 0", "note": "Edge case: cycle starts at the very head of the list." },
+      { "input": "[3,2,0,-4], pos=1", "output": "node at index 1 (value 2)", "note": "Typical case: cycle starts somewhere in the middle of the list." }
     ],
     "acceptanceRate": "50.8%",
     "likes": 12000,
@@ -1052,7 +749,7 @@
     "platform": "LeetCode",
     "problemNumber": 143,
     "leetcodeUrl": "https://leetcode.com/problems/reorder-list/",
-    "description": "The target pattern is L0 -> Ln -> L1 -> Ln-1 -> L2 -> Ln-2 and so on. You are interleaving the front half of the list with the reversed back half. This problem is essentially three linked list problems glued together. Step one: find the middle using fast and slow pointers. Step two: reverse the second half of the list in-place. Step three: merge the two halves by alternating nodes — take one from the front half, then one from the reversed back half, repeat until one is exhausted. Each of these steps is independently a problem you should already know. The challenge is executing all three in sequence without losing pointers. Careful null-checking during the merge phase is critical — the first half may be one node longer than the second for odd-length lists. Storing all values in an array and rebuilding is easy but misses the point of the problem entirely.",
+    "description": "Given the head of a linked list arranged as L0 → L1 → ... → Ln, reorder it in place to follow the pattern L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → ...",
     "examples": [
       {
         "input": "head = [1,2,3,4]",
@@ -1076,41 +773,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Bloomberg",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers",
-      "Stack",
-      "Recursion"
-    ],
+    "companies": ["Amazon", "Bloomberg", "Google", "Meta", "Microsoft"],
+    "tags": ["Linked List", "Two Pointers", "Stack", "Recursion"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Reorder List - NeetCode",
-        "url": "https://youtube.com/watch?v=S5bfdSM9cB0"
-      }
+      { "title": "Reorder List - NeetCode", "url": "https://youtube.com/watch?v=S5bfdSM9cB0" }
     ],
-    "relatedProblems": [
-      "Palindrome Linked List",
-      "Middle of the Linked List",
-      "Reverse Linked List"
-    ],
-    "followUp": [
-      "Can you solve it without using extra space for a stack or array?"
-    ],
+    "relatedProblems": ["Palindrome Linked List", "Middle of the Linked List", "Reverse Linked List"],
+    "followUp": ["Can you solve it without using extra space for a stack or array?"],
     "testCases": [
-      {
-        "input": "[1,2,3,4]",
-        "output": "[1,4,2,3]"
-      },
-      {
-        "input": "[1,2,3,4,5]",
-        "output": "[1,5,2,4,3]"
-      }
+      { "input": "[1]", "output": "[1]", "note": "Edge case: single node — nothing to reorder." },
+      { "input": "[1,2]", "output": "[1,2]", "note": "Edge case: two nodes — reordering doesn't visibly change anything." },
+      { "input": "[1,2,3]", "output": "[1,3,2]", "note": "Edge case: smallest odd-length list where a real reorder happens." },
+      { "input": "[1,1,1,1,1,1]", "output": "[1,1,1,1,1,1]", "note": "Edge case: all identical values, even length — checks logic isn't relying on distinct values." },
+      { "input": "[1,2,3,4,5]", "output": "[1,5,2,4,3]", "note": "Typical case: odd-length list with a clear middle node that stays in place." }
     ],
     "acceptanceRate": "57.3%",
     "likes": 11000,
@@ -1125,17 +801,12 @@
     "platform": "LeetCode",
     "problemNumber": 24,
     "leetcodeUrl": "https://leetcode.com/problems/swap-nodes-in-pairs/",
-    "description": "You must physically swap adjacent node pairs — not just their values — which means rewiring pointers carefully. A dummy node before the head gives every pair a predecessor to attach to. For each pair: let first = dummy.next, second = first.next. You need dummy.next to point to second, second.next to point to first, and first.next to point to whatever came after second. The order in which you make these assignments matters enormously — changing one pointer before saving the next will sever your list. After the swap, advance dummy to first (which is now second in the ordering) to process the next pair. The recursive version is more readable: swap the first two nodes, then recursively handle the rest of the list and attach the result to the first swapped node. Treat this as your training ground before tackling Reverse Nodes in k-Group, where you generalize this swap to groups of k instead of pairs.",
+    "description": "Given a linked list, swap every two adjacent nodes and return the head of the modified list. The actual nodes must be swapped, not just their values.",
     "examples": [
       {
         "input": "head = [1,2,3,4]",
         "output": "[2,1,4,3]",
         "explanation": "Pairs (1,2) and (3,4) are each swapped."
-      },
-      {
-        "input": "head = []",
-        "output": "[]",
-        "explanation": "Empty list remains empty."
       },
       {
         "input": "head = [1]",
@@ -1154,38 +825,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Bloomberg",
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Recursion"
-    ],
+    "companies": ["Amazon", "Bloomberg", "Microsoft", "Google", "Adobe"],
+    "tags": ["Linked List", "Recursion"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "Swap Nodes in Pairs - NeetCode",
-        "url": "https://youtube.com/watch?v=o811TZLAWOo"
-      }
+      { "title": "Swap Nodes in Pairs - NeetCode", "url": "https://youtube.com/watch?v=o811TZLAWOo" }
     ],
-    "relatedProblems": [
-      "Reverse Nodes in k-Group",
-      "Reverse Linked List"
-    ],
-    "followUp": [
-      "Can you solve it both iteratively and recursively?"
-    ],
+    "relatedProblems": ["Reverse Nodes in k-Group", "Reverse Linked List"],
+    "followUp": ["Can you solve it both iteratively and recursively?"],
     "testCases": [
-      {
-        "input": "[1,2,3,4]",
-        "output": "[2,1,4,3]"
-      },
-      {
-        "input": "[1]",
-        "output": "[1]"
-      }
+      { "input": "[]", "output": "[]", "note": "Edge case: empty list — nothing to swap." },
+      { "input": "[1]", "output": "[1]", "note": "Edge case: single node — no pair exists, so it stays the same." },
+      { "input": "[1,2]", "output": "[2,1]", "note": "Edge case: exactly one pair to swap." },
+      { "input": "[1,2,3]", "output": "[2,1,3]", "note": "Edge case: odd number of nodes — last node has no pair and stays in place." },
+      { "input": "[1,2,3,4]", "output": "[2,1,4,3]", "note": "Typical case: even number of nodes, two full pairs swapped." }
     ],
     "acceptanceRate": "62.8%",
     "likes": 11000,
@@ -1200,7 +853,7 @@
     "platform": "LeetCode",
     "problemNumber": 328,
     "leetcodeUrl": "https://leetcode.com/problems/odd-even-linked-list/",
-    "description": "The goal is to rearrange a linked list so all nodes at odd positions (1st, 3rd, 5th...) come first, followed by all nodes at even positions (2nd, 4th, 6th...). Node values do not matter — only positional indices. The trick is to maintain two separate chains simultaneously: one threading through the odd-indexed nodes, one through the even-indexed nodes. Use odd and even pointers, starting at head and head.next respectively. Also save the evenHead (the original second node) because you will reconnect the odd chain's tail to it at the end. On each step, odd.next skips to the next odd node (which is even.next), and even.next skips to the next even node. Advance both. When even or even.next is null, you have processed everything — connect odd.next to evenHead. This must be done in O(1) extra space, ruling out any auxiliary list or array approach.",
+    "description": "Given the head of a linked list, group all the nodes at odd positions together, followed by all the nodes at even positions, preserving their original relative order within each group. This is about position, not the value stored in each node.",
     "examples": [
       {
         "input": "head = [1,2,3,4,5]",
@@ -1224,36 +877,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Apple",
-      "LinkedIn"
-    ],
-    "tags": [
-      "Linked List"
-    ],
+    "companies": ["Amazon", "Apple", "LinkedIn", "Microsoft", "Google"],
+    "tags": ["Linked List"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "Odd Even Linked List - LeetCode 328",
-        "url": "https://youtube.com/watch?v=C_LA6SOwVSM"
-      }
+      { "title": "Odd Even Linked List - LeetCode 328", "url": "https://youtube.com/watch?v=C_LA6SOwVSM" }
     ],
-    "relatedProblems": [
-      "Split Linked List in Parts"
-    ],
-    "followUp": [
-      "Can you solve it without saving the evenHead pointer separately?"
-    ],
+    "relatedProblems": ["Split Linked List in Parts"],
+    "followUp": ["Can you solve it without saving the evenHead pointer separately?"],
     "testCases": [
-      {
-        "input": "[1,2,3,4,5]",
-        "output": "[1,3,5,2,4]"
-      },
-      {
-        "input": "[2,1,3,5,6,4,7]",
-        "output": "[2,3,6,7,1,5,4]"
-      }
+      { "input": "[]", "output": "[]", "note": "Edge case: empty list — returns empty." },
+      { "input": "[1]", "output": "[1]", "note": "Edge case: single node — no even-position node exists." },
+      { "input": "[1,2]", "output": "[1,2]", "note": "Edge case: two nodes — one odd, one even, order unchanged." },
+      { "input": "[-1000000,0,1000000]", "output": "[-1000000,1000000,0]", "note": "Edge case: uses minimum and maximum allowed values, odd-length list." },
+      { "input": "[1,2,3,4,5]", "output": "[1,3,5,2,4]", "note": "Typical case: odd number of nodes." }
     ],
     "acceptanceRate": "60.6%",
     "likes": 8000,
@@ -1268,7 +905,7 @@
     "platform": "LeetCode",
     "problemNumber": 148,
     "leetcodeUrl": "https://leetcode.com/problems/sort-list/",
-    "description": "Sorting a linked list in O(n log n) time is the challenge here. Quick sort is impractical (no random access, poor pivot selection). Heap sort requires converting to an array. Merge sort, however, maps beautifully onto linked lists. The top-down recursive approach finds the middle using fast-slow pointers, splits the list in two, recursively sorts each half, and merges them using the merge-two-sorted-lists technique. It runs in O(n log n) time but uses O(log n) stack space for recursion. The follow-up asks for O(1) space — this requires bottom-up iterative merge sort: start by merging pairs of size 1, then pairs of size 2, then 4, then 8, until the sublist size exceeds the list length. Each pass requires careful splitting by count and reconnecting tails. The bottom-up version is significantly harder to implement cleanly — getting the tail connections right at each merge boundary is where most implementations break.",
+    "description": "Given the head of a linked list, sort it in ascending order and return the sorted list.",
     "examples": [
       {
         "input": "head = [4,2,1,3]",
@@ -1291,43 +928,21 @@
       "For O(1) space, use bottom-up iterative merge sort with doubling sublist sizes."
     ],
     "expectedTimeComplexity": "O(n log n)",
-    "expectedSpaceComplexity": "O(log n)",
-    "companies": [
-      "Amazon",
-      "Adobe",
-      "Google",
-      "Microsoft"
-    ],
-    "tags": [
-      "Linked List",
-      "Divide and Conquer",
-      "Sorting",
-      "Merge Sort"
-    ],
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Adobe", "Google", "Microsoft", "Meta"],
+    "tags": ["Linked List", "Divide and Conquer", "Sorting", "Merge Sort"],
     "estimatedTime": "35 min",
     "youtubeVideos": [
-      {
-        "title": "Sort List - NeetCode",
-        "url": "https://youtube.com/watch?v=TGveA1oFglI"
-      }
+      { "title": "Sort List - NeetCode", "url": "https://youtube.com/watch?v=TGveA1oFglI" }
     ],
-    "relatedProblems": [
-      "Merge Two Sorted Lists",
-      "Sort Colors",
-      "Insertion Sort List"
-    ],
-    "followUp": [
-      "Can you sort the list in O(n log n) time and O(1) memory (i.e. constant space)?"
-    ],
+    "relatedProblems": ["Merge Two Sorted Lists", "Sort Colors", "Insertion Sort List"],
+    "followUp": ["Can you sort the list in O(n log n) time and O(1) memory (i.e. constant space)?"],
     "testCases": [
-      {
-        "input": "[4,2,1,3]",
-        "output": "[1,2,3,4]"
-      },
-      {
-        "input": "[-1,5,3,4,0]",
-        "output": "[-1,0,3,4,5]"
-      }
+      { "input": "[]", "output": "[]", "note": "Edge case: empty list — already sorted trivially." },
+      { "input": "[1]", "output": "[1]", "note": "Edge case: single node — already sorted." },
+      { "input": "[2,1]", "output": "[1,2]", "note": "Edge case: smallest list that's out of order." },
+      { "input": "[-100000,100000,0]", "output": "[-100000,0,100000]", "note": "Edge case: uses minimum and maximum allowed values." },
+      { "input": "[4,2,1,3]", "output": "[1,2,3,4]", "note": "Typical case: several out-of-order values." }
     ],
     "acceptanceRate": "56.3%",
     "likes": 11000,
@@ -1342,7 +957,7 @@
     "platform": "LeetCode",
     "problemNumber": 138,
     "leetcodeUrl": "https://leetcode.com/problems/copy-list-with-random-pointer/",
-    "description": "Each node has a next pointer and a random pointer that can point to any node in the list or to null. A shallow copy is straightforward — a deep copy where random pointers in the clone point to clone nodes (not original nodes) is the real challenge. The HashMap approach is intuitive: first pass creates all clone nodes and maps original to clone. Second pass sets next and random on each clone using the map to translate original references to clone references. The O(1) space approach is ingenious: interleave each clone node directly after its original in the same list (so list becomes A -> A' -> B -> B' -> ...). Now clone.random = original.random.next (since the clone of any node is always its next). Finally, separate the interleaved list back into two independent lists. Both approaches are interview-valid — the O(1) version signals deeper problem-solving ability.",
+    "description": "You're given a linked list where each node has a 'next' pointer and an additional 'random' pointer that can point to any node in the list, or to null. Create a deep copy of the list, where the copy's next and random pointers point to nodes within the copy, not the original.",
     "examples": [
       {
         "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]",
@@ -1366,36 +981,21 @@
       "For O(1) space, interleave clone nodes after their originals, then separate."
     ],
     "expectedTimeComplexity": "O(n)",
-    "expectedSpaceComplexity": "O(n)",
-    "companies": [
-      "Amazon",
-      "Bloomberg",
-      "Microsoft",
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Hash Table"
-    ],
+    "expectedSpaceComplexity": "O(1)",
+    "companies": ["Amazon", "Bloomberg", "Microsoft", "Meta", "Google", "Uber"],
+    "tags": ["Linked List", "Hash Table"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Copy List with Random Pointer - NeetCode",
-        "url": "https://youtube.com/watch?v=5Y2EiZST97Y"
-      }
+      { "title": "Copy List with Random Pointer - NeetCode", "url": "https://youtube.com/watch?v=5Y2EiZST97Y" }
     ],
-    "relatedProblems": [
-      "Clone Graph",
-      "Clone Binary Tree With Random Pointer"
-    ],
-    "followUp": [
-      "Can you solve it in O(1) space by interleaving the copy nodes?"
-    ],
+    "relatedProblems": ["Clone Graph", "Clone Binary Tree With Random Pointer"],
+    "followUp": ["Can you solve it in O(1) space by interleaving the copy nodes?"],
     "testCases": [
-      {
-        "input": "[[7,null],[13,0],[11,4],[10,2],[1,0]]",
-        "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]"
-      }
+      { "input": "[]", "output": "[]", "note": "Edge case: empty list (0 nodes) — should return an empty (null) list." },
+      { "input": "[[1,null]]", "output": "[[1,null]]", "note": "Edge case: single node whose random pointer points to nothing." },
+      { "input": "[[1,0]]", "output": "[[1,0]]", "note": "Edge case: single node whose random pointer points to itself." },
+      { "input": "[[3,null],[3,0],[3,null]]", "output": "[[3,null],[3,0],[3,null]]", "note": "Edge case: all nodes share the same value — copy must be based on node identity, not value." },
+      { "input": "[[7,null],[13,0],[11,4],[10,2],[1,0]]", "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]", "note": "Typical case: a mix of random pointers pointing forward, backward, and to null." }
     ],
     "acceptanceRate": "56.4%",
     "likes": 13000,
@@ -1410,7 +1010,7 @@
     "platform": "LeetCode",
     "problemNumber": 61,
     "leetcodeUrl": "https://leetcode.com/problems/rotate-list/",
-    "description": "Rotating a list k positions to the right means the last k nodes move to the front. If k equals the list length, the list is unchanged — so always work with k mod length to avoid unnecessary rotations. The cleanest approach: find the length while reaching the tail, then form a circle by connecting tail to head. Now you have a ring. The new tail is at position (length - k % length - 1) counting from the original head. Break the circle there: new_head = new_tail.next, new_tail.next = null. What trips people up is computing the correct break point — drawing a small example first always helps. Edge cases include k = 0, k = length (no change), and single-node lists. The circular approach avoids two-pointer complexity and handles all cases cleanly with just length computation and one circular traversal.",
+    "description": "Given the head of a linked list, rotate the list to the right by k positions.",
     "examples": [
       {
         "input": "head = [1,2,3,4,5], k = 2",
@@ -1435,38 +1035,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Microsoft",
-      "Bloomberg"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
+    "companies": ["Amazon", "Microsoft", "Bloomberg", "Google", "Adobe"],
+    "tags": ["Linked List", "Two Pointers"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "Rotate List - NeetCode",
-        "url": "https://youtube.com/watch?v=UcGtPs2LE_c"
-      }
+      { "title": "Rotate List - NeetCode", "url": "https://youtube.com/watch?v=UcGtPs2LE_c" }
     ],
-    "relatedProblems": [
-      "Rotate Array",
-      "Split Linked List in Parts"
-    ],
-    "followUp": [
-      "What if k could be negative (rotate left)?"
-    ],
+    "relatedProblems": ["Rotate Array", "Split Linked List in Parts"],
+    "followUp": ["What if k could be negative (rotate left)?"],
     "testCases": [
-      {
-        "input": "[1,2,3,4,5], k=2",
-        "output": "[4,5,1,2,3]"
-      },
-      {
-        "input": "[0,1,2], k=4",
-        "output": "[2,0,1]"
-      }
+      { "input": "[], k=0", "output": "[]", "note": "Edge case: empty list — nothing to rotate." },
+      { "input": "[1], k=99999", "output": "[1]", "note": "Edge case: single node — rotating any amount has no visible effect." },
+      { "input": "[1,2,3], k=0", "output": "[1,2,3]", "note": "Edge case: k = 0 means no rotation at all." },
+      { "input": "[1,2,3], k=3", "output": "[1,2,3]", "note": "Edge case: k equals the list length, so it rotates back to the original order." },
+      { "input": "[0,1,2], k=4", "output": "[2,0,1]", "note": "Edge case: k is larger than the list length, testing the k mod length logic." }
     ],
     "acceptanceRate": "36.9%",
     "likes": 9300,
@@ -1481,7 +1063,7 @@
     "platform": "LeetCode",
     "problemNumber": 25,
     "leetcodeUrl": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
-    "description": "This is the generalization of Swap Nodes in Pairs (where k=2) and represents one of the most complex pure pointer manipulation problems you will encounter. The algorithm must reverse every consecutive group of k nodes, leaving any remaining nodes (fewer than k) untouched at the end. For each group: first verify that k nodes exist starting from the current position — if not, stop. Then reverse those k nodes in place using the standard three-pointer reversal technique, tracking the head and tail of each reversed group. After reversal, the previous group's tail must connect to the new group's head (the original k-th node), and the new group's tail (the original first node) must connect to the start of the next group. Maintaining four pointers — prevGroupTail, groupStart, groupEnd, nextGroupStart — without confusion is the real test. The recursive version is cleaner to read but harder to space-optimize. This problem genuinely separates candidates who have internalized linked list pointers from those who are still guessing.",
+    "description": "Given the head of a linked list, reverse the nodes in groups of k, and return the resulting list. If the number of nodes remaining at the end is less than k, leave those nodes as they are.",
     "examples": [
       {
         "input": "head = [1,2,3,4,5], k = 2",
@@ -1506,39 +1088,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Microsoft",
-      "Meta",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Recursion"
-    ],
+    "companies": ["Amazon", "Microsoft", "Meta", "Google", "Apple", "Bloomberg"],
+    "tags": ["Linked List", "Recursion"],
     "estimatedTime": "45 min",
     "youtubeVideos": [
-      {
-        "title": "Reverse Nodes in k-Group - NeetCode",
-        "url": "https://youtube.com/watch?v=1UOPsfP85V4"
-      }
+      { "title": "Reverse Nodes in k-Group - NeetCode", "url": "https://youtube.com/watch?v=1UOPsfP85V4" }
     ],
-    "relatedProblems": [
-      "Swap Nodes in Pairs",
-      "Reverse Linked List II"
-    ],
-    "followUp": [
-      "Can you solve it using O(1) extra space?"
-    ],
+    "relatedProblems": ["Swap Nodes in Pairs", "Reverse Linked List II"],
+    "followUp": ["Can you solve it using O(1) extra space?"],
     "testCases": [
-      {
-        "input": "[1,2,3,4,5], k=2",
-        "output": "[2,1,4,3,5]"
-      },
-      {
-        "input": "[1,2,3,4,5], k=3",
-        "output": "[3,2,1,4,5]"
-      }
+      { "input": "[1], k=1", "output": "[1]", "note": "Edge case: single node, k=1 — 'reversing' a group of one node changes nothing." },
+      { "input": "[1,2,3], k=3", "output": "[3,2,1]", "note": "Edge case: k equals the exact length of the list — the whole list reverses as one group." },
+      { "input": "[1,2,3,4], k=5", "output": "[1,2,3,4]", "note": "Edge case: k is bigger than the list length, so no group is big enough to reverse — list stays unchanged." },
+      { "input": "[1,2,3,4,5,6], k=2", "output": "[2,1,4,3,6,5]", "note": "Edge case: list length is an exact multiple of k, so every node ends up reversed." },
+      { "input": "[1,2,3,4,5], k=3", "output": "[3,2,1,4,5]", "note": "Typical case: leftover nodes at the end that don't form a full group and stay untouched." }
     ],
     "acceptanceRate": "58.2%",
     "likes": 12000,
@@ -1553,17 +1116,12 @@
     "platform": "LeetCode",
     "problemNumber": 23,
     "leetcodeUrl": "https://leetcode.com/problems/merge-k-sorted-lists/",
-    "description": "You have k sorted linked lists and need to merge them all into one sorted list. The brute force — collect all values, sort, rebuild — works but misses the point. The optimal approach uses a Min-Heap of size k: initialize it with the head node of each non-empty list. At each step, extract the minimum node, append it to the result, and push that node's next into the heap. The heap always has at most k entries, so each insertion and extraction is O(log k). Total time is O(N log k) where N is the total number of nodes across all lists. The divide-and-conquer alternative repeatedly merges pairs of lists: in the first round you merge lists [0,1], [2,3], [4,5]... halving the number of lists each round. This runs in O(N log k) time too, with O(log k) recursion depth. Both approaches are valid — the heap is more intuitive, the divide-and-conquer is a natural extension of the merge sort mindset. The problem tests whether you can reason about complexity with multiple input dimensions.",
+    "description": "You're given an array of k linked lists, each sorted in ascending order. Merge all the lists into one sorted linked list and return it.",
     "examples": [
       {
         "input": "lists = [[1,4,5],[1,3,4],[2,6]]",
         "output": "[1,1,2,3,4,4,5,6]",
         "explanation": "All three sorted lists merged into one sorted list."
-      },
-      {
-        "input": "lists = []",
-        "output": "[]",
-        "explanation": "Empty input returns empty list."
       },
       {
         "input": "lists = [[]]",
@@ -1586,42 +1144,20 @@
     ],
     "expectedTimeComplexity": "O(N log k)",
     "expectedSpaceComplexity": "O(k)",
-    "companies": [
-      "Amazon",
-      "Google",
-      "Meta",
-      "Uber"
-    ],
-    "tags": [
-      "Linked List",
-      "Divide and Conquer",
-      "Heap",
-      "Merge Sort"
-    ],
+    "companies": ["Amazon", "Google", "Meta", "Uber", "Microsoft", "Adobe"],
+    "tags": ["Linked List", "Divide and Conquer", "Heap", "Merge Sort"],
     "estimatedTime": "45 min",
     "youtubeVideos": [
-      {
-        "title": "Merge k Sorted Lists - NeetCode",
-        "url": "https://youtube.com/watch?v=q5a5OiGbT6Q"
-      }
+      { "title": "Merge k Sorted Lists - NeetCode", "url": "https://youtube.com/watch?v=q5a5OiGbT6Q" }
     ],
-    "relatedProblems": [
-      "Merge Two Sorted Lists",
-      "Ugly Number II",
-      "Sort List"
-    ],
-    "followUp": [
-      "Can you solve it without a heap using divide and conquer?"
-    ],
+    "relatedProblems": ["Merge Two Sorted Lists", "Ugly Number II", "Sort List"],
+    "followUp": ["Can you solve it without a heap using divide and conquer?"],
     "testCases": [
-      {
-        "input": "[[1,4,5],[1,3,4],[2,6]]",
-        "output": "[1,1,2,3,4,4,5,6]"
-      },
-      {
-        "input": "[]",
-        "output": "[]"
-      }
+      { "input": "lists=[]", "output": "[]", "note": "Edge case: zero lists at all (k=0) — result should be empty." },
+      { "input": "lists=[[]]", "output": "[]", "note": "Edge case: one list, but it's empty — result should still be empty." },
+      { "input": "lists=[[5]]", "output": "[5]", "note": "Edge case: a single list with a single node." },
+      { "input": "lists=[[],[],[1]]", "output": "[1]", "note": "Edge case: multiple empty lists mixed with one non-empty list." },
+      { "input": "lists=[[1,4,5],[1,3,4],[2,6]]", "output": "[1,1,2,3,4,4,5,6]", "note": "Typical case: several non-empty lists with overlapping values to merge." }
     ],
     "acceptanceRate": "51.8%",
     "likes": 19000,
@@ -1636,12 +1172,17 @@
     "platform": "LeetCode",
     "problemNumber": 146,
     "leetcodeUrl": "https://leetcode.com/problems/lru-cache/",
-    "description": "A Least Recently Used cache evicts the item that was accessed least recently when it runs out of space. The challenge is implementing both get and put in O(1) time. A HashMap alone gives O(1) lookup but cannot efficiently track access order. A doubly linked list alone tracks order but offers O(n) lookup. Together, they solve the problem perfectly: the HashMap maps keys to node references, and the doubly linked list maintains access order — most recently used at the front (head), least recently used at the back (tail). On every get or put, the accessed node is moved to the front. On every put that exceeds capacity, the tail node is evicted. Two sentinel nodes (a dummy head and dummy tail) make insertion and deletion at both ends O(1) without any null-checking. This is one of the most commonly asked design problems at top-tier companies — not because it is tricky algorithmically, but because clean implementation under pressure separates prepared candidates from everyone else.",
+    "description": "Design a data structure that implements a Least Recently Used (LRU) cache with a fixed capacity. It should support get(key) to retrieve a value (or -1 if the key isn't present) and put(key, value) to insert or update a value, evicting the least recently used item whenever the cache is full and a new item is added.",
     "examples": [
       {
-        "input": "LRUCache(2), put(1,1), put(2,2), get(1), put(3,3), get(2), put(4,4), get(1), get(3), get(4)",
-        "output": "[null,null,null,1,null,-1,null,1,3,4]",
-        "explanation": "Cache evicts LRU item when capacity is exceeded."
+        "input": "LRUCache(2), put(1,1), put(2,2), get(1), put(3,3), get(2)",
+        "output": "get(1) returns 1, get(2) returns -1 (evicted)",
+        "explanation": "After put(3,3), the cache is full and key 2 (least recently used) gets evicted."
+      },
+      {
+        "input": "LRUCache(1), put(2,1), get(2), put(3,2), get(2)",
+        "output": "get(2) returns 1, then get(2) returns -1 (evicted)",
+        "explanation": "With capacity 1, adding key 3 evicts key 2 immediately."
       }
     ],
     "constraints": [
@@ -1657,39 +1198,20 @@
     ],
     "expectedTimeComplexity": "O(1)",
     "expectedSpaceComplexity": "O(capacity)",
-    "companies": [
-      "Amazon",
-      "Google",
-      "Microsoft",
-      "Bloomberg",
-      "Meta"
-    ],
-    "tags": [
-      "Linked List",
-      "Hash Table",
-      "Design",
-      "Doubly-Linked List"
-    ],
+    "companies": ["Amazon", "Google", "Microsoft", "Bloomberg", "Meta", "Apple", "Netflix"],
+    "tags": ["Linked List", "Hash Table", "Design", "Doubly-Linked List"],
     "estimatedTime": "45 min",
     "youtubeVideos": [
-      {
-        "title": "LRU Cache - NeetCode",
-        "url": "https://youtube.com/watch?v=7ABFKPK2hD4"
-      }
+      { "title": "LRU Cache - NeetCode", "url": "https://youtube.com/watch?v=7ABFKPK2hD4" }
     ],
-    "relatedProblems": [
-      "LFU Cache",
-      "Design In-Memory File System",
-      "Design Most Recently Used Queue"
-    ],
-    "followUp": [
-      "How would you implement an LFU cache?"
-    ],
+    "relatedProblems": ["LFU Cache", "Design In-Memory File System", "Design Most Recently Used Queue"],
+    "followUp": ["How would you implement an LFU cache?"],
     "testCases": [
-      {
-        "input": "capacity=2, put(1,1), put(2,2), get(1), put(3,3), get(2)",
-        "output": "-1"
-      }
+      { "input": "LRUCache(1), put(1,1), get(1)", "output": "1", "note": "Edge case: minimum allowed capacity of 1." },
+      { "input": "LRUCache(1), put(1,1), put(2,2), get(1)", "output": "-1", "note": "Edge case: capacity 1 — adding a second key immediately evicts the first." },
+      { "input": "LRUCache(2), put(1,1), put(1,10), get(1)", "output": "10", "note": "Edge case: putting the same key again should update its value, not create a duplicate entry." },
+      { "input": "LRUCache(2), get(5)", "output": "-1", "note": "Edge case: getting a key that was never inserted should return -1, not crash." },
+      { "input": "LRUCache(2), put(1,1), put(2,2), get(1), put(3,3), get(2), put(4,4), get(1), get(3), get(4)", "output": "[1, -1, -1, 3, 4]", "note": "Typical case: mix of gets and puts triggering eviction based on recent usage." }
     ],
     "acceptanceRate": "42.8%",
     "likes": 21000,
@@ -1704,7 +1226,7 @@
     "platform": "LeetCode",
     "problemNumber": 82,
     "leetcodeUrl": "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/",
-    "description": "Unlike its easier cousin (problem 83) which keeps one copy of each duplicated value, this problem demands total elimination — if a value appears more than once anywhere in the list, every node with that value must be removed. A sentinel dummy node is non-negotiable: the head itself might need deletion, and the sentinel gives it a predecessor. Maintain a prev pointer that always points to the last confirmed unique node. Walk forward with curr: if curr and curr.next have the same value, you have found a duplicate cluster — keep advancing curr while duplicates continue, then connect prev.next to curr.next, skipping the entire cluster. If no duplicate is found at curr, safely advance prev to curr. The tricky part is never advancing prev into the duplicate zone — prev must remain anchored at the last clean node until the coast is clear. This problem is rated hard not for complexity but for the precision required in pointer updates.",
+    "description": "Given the head of a sorted linked list, remove all nodes that have duplicate values, leaving only the distinct values from the original list, and return the resulting sorted list.",
     "examples": [
       {
         "input": "head = [1,2,3,3,4,4,5]",
@@ -1729,38 +1251,20 @@
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": [
-      "Amazon",
-      "Bloomberg",
-      "Google"
-    ],
-    "tags": [
-      "Linked List",
-      "Two Pointers"
-    ],
+    "companies": ["Amazon", "Bloomberg", "Google", "Microsoft", "Meta"],
+    "tags": ["Linked List", "Two Pointers"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Remove Duplicates from Sorted List II - NeetCode",
-        "url": "https://youtube.com/watch?v=3Qm23f-CiGk"
-      }
+      { "title": "Remove Duplicates from Sorted List II - NeetCode", "url": "https://youtube.com/watch?v=3Qm23f-CiGk" }
     ],
-    "relatedProblems": [
-      "Remove Duplicates from Sorted List",
-      "Remove Duplicates from Sorted Array II"
-    ],
-    "followUp": [
-      "What if the list is not sorted — how would your approach change?"
-    ],
+    "relatedProblems": ["Remove Duplicates from Sorted List", "Remove Duplicates from Sorted Array II"],
+    "followUp": ["What if the list is not sorted — how would your approach change?"],
     "testCases": [
-      {
-        "input": "[1,2,3,3,4,4,5]",
-        "output": "[1,2,5]"
-      },
-      {
-        "input": "[1,1,1,2,3]",
-        "output": "[2,3]"
-      }
+      { "input": "[]", "output": "[]", "note": "Edge case: empty list — nothing to process." },
+      { "input": "[1]", "output": "[1]", "note": "Edge case: single node — no duplicates possible, stays unchanged." },
+      { "input": "[1,1]", "output": "[]", "note": "Edge case: entire list is one duplicate pair — everything gets removed, including the head." },
+      { "input": "[1,1,1,2,3]", "output": "[2,3]", "note": "Edge case: duplicate group is at the very start (head) of the list, size 3." },
+      { "input": "[1,2,3,3,4,4,5]", "output": "[1,2,5]", "note": "Typical case: multiple duplicate groups scattered through the middle of the list." }
     ],
     "acceptanceRate": "46.8%",
     "likes": 8900,
@@ -1775,12 +1279,17 @@
     "platform": "LeetCode",
     "problemNumber": 707,
     "leetcodeUrl": "https://leetcode.com/problems/design-linked-list/",
-    "description": "Building a linked list from scratch forces you to implement every operation you have been taking for granted: get by index, insert at head, insert at tail, insert at arbitrary index, and delete by index. You must handle all edge cases — empty list, single node, out-of-bounds index, inserting at head versus tail versus middle. A sentinel dummy head node simplifies everything: all insertions become 'insert after some predecessor' and there is always a predecessor. Track the size at all times to validate indices and to efficiently decide whether to insert at head or tail. For doubly linked list implementation, add a sentinel tail too and maintain prev pointers — this makes deletion O(1) since you have direct access to neighbors. The reason this is listed as hard is not algorithmic complexity but implementation correctness across all edge cases simultaneously. It is the ultimate test of whether you actually understand how linked lists work rather than just memorizing patterns.",
+    "description": "Design your own implementation of a linked list, supporting: get a value by index, add a node at the head, add a node at the tail, add a node before a given index, and delete a node at a given index.",
     "examples": [
       {
-        "input": "MyLinkedList(), addAtHead(1), addAtTail(3), addAtIndex(1,2), get(1), deleteAtIndex(1), get(1)",
-        "output": "[null,null,null,null,2,null,3]",
-        "explanation": "List becomes [1,2,3]; get(1) returns 2; after delete, get(1) returns 3."
+        "input": "MyLinkedList(), addAtHead(1), addAtTail(3), addAtIndex(1,2), get(1)",
+        "output": "2",
+        "explanation": "List becomes [1,2,3]; get(1) returns the value at index 1, which is 2."
+      },
+      {
+        "input": "MyLinkedList(), addAtHead(1), deleteAtIndex(0), get(0)",
+        "output": "-1",
+        "explanation": "After deleting the only node, getting index 0 on an empty list returns -1."
       }
     ],
     "constraints": [
@@ -1795,39 +1304,20 @@
     ],
     "expectedTimeComplexity": "O(n) per operation",
     "expectedSpaceComplexity": "O(n)",
-    "companies": [
-      "Amazon",
-      "Microsoft",
-      "Adobe"
-    ],
-    "tags": [
-      "Linked List",
-      "Design"
-    ],
+    "companies": ["Amazon", "Microsoft", "Adobe", "Google", "Bloomberg"],
+    "tags": ["Linked List", "Design"],
     "estimatedTime": "40 min",
     "youtubeVideos": [
-      {
-        "title": "Design Linked List - LeetCode 707",
-        "url": "https://youtube.com/watch?v=Wf4QhpdVFQo"
-      }
+      { "title": "Design Linked List - LeetCode 707", "url": "https://youtube.com/watch?v=Wf4QhpdVFQo" }
     ],
-    "relatedProblems": [
-      "Design HashMap",
-      "Design HashSet",
-      "LRU Cache"
-    ],
-    "followUp": [
-      "Can you implement it as a doubly linked list for O(1) deletion?"
-    ],
+    "relatedProblems": ["Design HashMap", "Design HashSet", "LRU Cache"],
+    "followUp": ["Can you implement it as a doubly linked list for O(1) deletion?"],
     "testCases": [
-      {
-        "input": "addAtHead(1), addAtTail(3), addAtIndex(1,2), get(1)",
-        "output": "2"
-      },
-      {
-        "input": "addAtHead(1), deleteAtIndex(0), get(0)",
-        "output": "-1"
-      }
+      { "input": "MyLinkedList(), get(0)", "output": "-1", "note": "Edge case: getting from a brand-new, empty list should return -1, not crash." },
+      { "input": "MyLinkedList(), addAtHead(1), get(0)", "output": "1", "note": "Edge case: adding to an empty list via addAtHead, then reading it back." },
+      { "input": "MyLinkedList(), addAtHead(1), deleteAtIndex(0), get(0)", "output": "-1", "note": "Edge case: deleting the only node in the list, then confirming it's really gone." },
+      { "input": "MyLinkedList(), addAtIndex(5, 10)", "output": "no-op (index out of bounds on empty list, insertion ignored)", "note": "Edge case: inserting at an index far beyond the current list size should be safely ignored." },
+      { "input": "MyLinkedList(), addAtHead(1), addAtTail(3), addAtIndex(1,2), get(1), deleteAtIndex(1), get(1)", "output": "2, then 3", "note": "Typical case: mix of head/tail/middle insertions and a deletion." }
     ],
     "acceptanceRate": "27.3%",
     "likes": 3900,

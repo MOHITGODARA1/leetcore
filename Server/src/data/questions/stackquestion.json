@@ -10,37 +10,17 @@
     "leetcodeUrl": "https://leetcode.com/problems/valid-parentheses/",
     "description": "Given a string s containing just '(', ')', '{', '}', '[' and ']', determine if the input string is valid. Brackets must close in the correct order.",
     "examples": [
-      {
-        "input": "s = \"()[]{}\"",
-        "output": "true",
-        "explanation": "All brackets are properly closed."
-      },
-      {
-        "input": "s = \"(]\"",
-        "output": "false",
-        "explanation": "Mismatched bracket types."
-      }
+      { "input": "s = \"()[]{}\"", "output": "true", "explanation": "All brackets are properly closed." },
+      { "input": "s = \"(]\"", "output": "false", "explanation": "Mismatched bracket types." }
     ],
-    "constraints": [
-      "1 <= s.length <= 10^4",
-      "s consists of parentheses only '()[]{}'."
-    ],
-    "hints": [
-      "Push opening brackets onto the stack.",
-      "On closing bracket, check if top of stack matches.",
-      "Stack should be empty at the end."
-    ],
+    "constraints": ["1 <= s.length <= 10^4", "s consists of parentheses only '()[]{}'."],
+    "hints": ["Push opening brackets onto the stack.", "On closing bracket, check if top of stack matches.", "Stack should be empty at the end."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Google", "Facebook", "Microsoft", "Bloomberg"],
     "tags": ["Stack", "String"],
     "estimatedTime": "10 min",
-    "youtubeVideos": [
-      {
-        "title": "Valid Parentheses - LeetCode 20",
-        "url": "https://www.youtube.com/watch?v=WTzjTskDFMg"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Valid Parentheses - LeetCode 20", "url": "https://www.youtube.com/watch?v=WTzjTskDFMg" }],
     "relatedProblems": ["Generate Parentheses", "Longest Valid Parentheses", "Remove Invalid Parentheses"],
     "followUp": ["What if there are multiple types of brackets nested deeply?"],
     "testCases": [
@@ -63,33 +43,16 @@
     "leetcodeUrl": "https://leetcode.com/problems/implement-stack-using-queues/",
     "description": "Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support push, top, pop, and empty operations.",
     "examples": [
-      {
-        "input": "push(1), push(2), top() -> 2, pop() -> 2, empty() -> false",
-        "output": "null, null, 2, 2, false",
-        "explanation": "Stack operations mirrored using queues."
-      }
+      { "input": "push(1), push(2), top() -> 2, pop() -> 2, empty() -> false", "output": "null, null, 2, 2, false", "explanation": "Stack operations mirrored using queues." }
     ],
-    "constraints": [
-      "1 <= val <= 9",
-      "At most 100 calls to push, pop, top, and empty.",
-      "All calls to pop and top are valid."
-    ],
-    "hints": [
-      "On every push, rotate the queue so the new element is at front.",
-      "All other operations are O(1).",
-      "Can also be done with a single queue."
-    ],
+    "constraints": ["1 <= val <= 9", "At most 100 calls to push, pop, top, and empty.", "All calls to pop and top are valid."],
+    "hints": ["On every push, rotate the queue so the new element is at front.", "All other operations are O(1).", "Can also be done with a single queue."],
     "expectedTimeComplexity": "O(n) push, O(1) others",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Microsoft"],
     "tags": ["Stack", "Queue", "Design"],
     "estimatedTime": "15 min",
-    "youtubeVideos": [
-      {
-        "title": "Implement Stack using Queues - LeetCode 225",
-        "url": "https://www.youtube.com/watch?v=rW4vm0-DLYc"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Implement Stack using Queues - LeetCode 225", "url": "https://www.youtube.com/watch?v=rW4vm0-DLYc" }],
     "relatedProblems": ["Implement Queue using Stacks"],
     "followUp": ["Can you implement it using only one queue?"],
     "testCases": [
@@ -111,33 +74,16 @@
     "leetcodeUrl": "https://leetcode.com/problems/implement-queue-using-stacks/",
     "description": "Implement a first-in-first-out (FIFO) queue using only two stacks. Supported operations: push, peek, pop, empty.",
     "examples": [
-      {
-        "input": "push(1), push(2), peek() -> 1, pop() -> 1, empty() -> false",
-        "output": "null, null, 1, 1, false",
-        "explanation": "Queue behavior using two stacks."
-      }
+      { "input": "push(1), push(2), peek() -> 1, pop() -> 1, empty() -> false", "output": "null, null, 1, 1, false", "explanation": "Queue behavior using two stacks." }
     ],
-    "constraints": [
-      "1 <= val <= 9",
-      "At most 100 calls total.",
-      "All pop/peek calls are valid."
-    ],
-    "hints": [
-      "Use one stack for input and one for output.",
-      "Transfer elements lazily when output stack is empty.",
-      "Amortized O(1) per operation."
-    ],
+    "constraints": ["1 <= val <= 9", "At most 100 calls total.", "All pop/peek calls are valid."],
+    "hints": ["Use one stack for input and one for output.", "Transfer elements lazily when output stack is empty.", "Amortized O(1) per operation."],
     "expectedTimeComplexity": "O(1) amortized",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Microsoft", "Apple"],
     "tags": ["Stack", "Queue", "Design"],
     "estimatedTime": "15 min",
-    "youtubeVideos": [
-      {
-        "title": "Implement Queue using Stacks - LeetCode 232",
-        "url": "https://www.youtube.com/watch?v=eanwa3ht3YQ"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Implement Queue using Stacks - LeetCode 232", "url": "https://www.youtube.com/watch?v=eanwa3ht3YQ" }],
     "relatedProblems": ["Implement Stack using Queues"],
     "followUp": ["Can all operations be amortized O(1)?"],
     "testCases": [
@@ -159,33 +105,16 @@
     "leetcodeUrl": "https://leetcode.com/problems/min-stack/",
     "description": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.",
     "examples": [
-      {
-        "input": "push(-2), push(0), push(-3), getMin() -> -3, pop(), top() -> 0, getMin() -> -2",
-        "output": "-3, 0, -2",
-        "explanation": "Min is tracked at each stack state."
-      }
+      { "input": "push(-2), push(0), push(-3), getMin() -> -3, pop(), top() -> 0, getMin() -> -2", "output": "-3, 0, -2", "explanation": "Min is tracked at each stack state." }
     ],
-    "constraints": [
-      "-2^31 <= val <= 2^31 - 1",
-      "All pop/top/getMin calls are valid.",
-      "At most 3 * 10^4 calls."
-    ],
-    "hints": [
-      "Use an auxiliary stack to track minimums.",
-      "Push current min alongside each element.",
-      "Pop both stacks together."
-    ],
+    "constraints": ["-2^31 <= val <= 2^31 - 1", "All pop/top/getMin calls are valid.", "At most 3 * 10^4 calls."],
+    "hints": ["Use an auxiliary stack to track minimums.", "Push current min alongside each element.", "Pop both stacks together."],
     "expectedTimeComplexity": "O(1) all operations",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Google", "Facebook", "Microsoft", "Uber"],
     "tags": ["Stack", "Design"],
     "estimatedTime": "15 min",
-    "youtubeVideos": [
-      {
-        "title": "Min Stack - LeetCode 155",
-        "url": "https://www.youtube.com/watch?v=qkLl7nAwDPo"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Min Stack - LeetCode 155", "url": "https://www.youtube.com/watch?v=qkLl7nAwDPo" }],
     "relatedProblems": ["Sliding Window Maximum", "Max Stack"],
     "followUp": ["Can you do it with O(1) extra space?"],
     "testCases": [
@@ -207,36 +136,17 @@
     "leetcodeUrl": "https://leetcode.com/problems/backspace-string-compare/",
     "description": "Given two strings s and t typed into editors where '#' means backspace, return true if they are equal after processing.",
     "examples": [
-      {
-        "input": "s = \"ab#c\", t = \"ad#c\"",
-        "output": "true",
-        "explanation": "Both become 'ac' after backspaces."
-      },
-      {
-        "input": "s = \"a#c\", t = \"b\"",
-        "output": "false",
-        "explanation": "s becomes 'c', t is 'b'."
-      }
+      { "input": "s = \"ab#c\", t = \"ad#c\"", "output": "true", "explanation": "Both become 'ac' after backspaces." },
+      { "input": "s = \"a#c\", t = \"b\"", "output": "false", "explanation": "s becomes 'c', t is 'b'." }
     ],
-    "constraints": [
-      "1 <= s.length, t.length <= 200",
-      "s and t only contain lowercase letters and '#'."
-    ],
-    "hints": [
-      "Use a stack and push characters, pop on '#'.",
-      "Or use two pointers from the end for O(1) space."
-    ],
+    "constraints": ["1 <= s.length, t.length <= 200", "s and t only contain lowercase letters and '#'."],
+    "hints": ["Use a stack and push characters, pop on '#'.", "Or use two pointers from the end for O(1) space."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n) stack / O(1) two-pointer",
     "companies": ["Facebook", "Amazon", "Google"],
     "tags": ["Stack", "Two Pointers", "String", "Simulation"],
     "estimatedTime": "15 min",
-    "youtubeVideos": [
-      {
-        "title": "Backspace String Compare - LeetCode 844",
-        "url": "https://www.youtube.com/watch?v=k2qrymM_DOo"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Backspace String Compare - LeetCode 844", "url": "https://www.youtube.com/watch?v=k2qrymM_DOo" }],
     "relatedProblems": ["Compare Strings by Frequency of Smallest Character"],
     "followUp": ["Can you do it in O(1) space?"],
     "testCases": [
@@ -258,36 +168,19 @@
     "leetcodeUrl": "https://leetcode.com/problems/baseball-game/",
     "description": "Given a list of operations ('integer', '+', 'D', 'C') for a baseball game score, calculate the sum of all valid scores.",
     "examples": [
-      {
-        "input": "ops = [\"5\",\"2\",\"C\",\"D\",\"+\"]",
-        "output": "30",
-        "explanation": "Scores: 5, 2 → C removes 2 → D doubles 5 to 10 → + sums 5+10=15. Total = 5+10+15=30."
-      }
+      { "input": "ops = [\"5\",\"2\",\"C\",\"D\",\"+\"]", "output": "30", "explanation": "Scores: 5, 2 → C removes 2 → D doubles 5 to 10 → + sums 5+10=15. Total = 5+10+15=30." }
     ],
-    "constraints": [
-      "1 <= ops.length <= 1000",
-      "ops[i] is 'C', 'D', '+', or an integer in [-3*10^4, 3*10^4]."
-    ],
-    "hints": [
-      "Use a stack to track valid scores.",
-      "Apply each operation directly on top elements."
-    ],
+    "constraints": ["1 <= ops.length <= 1000", "ops[i] is 'C', 'D', '+', or an integer in [-3*10^4, 3*10^4]."],
+    "hints": ["Use a stack to track valid scores.", "Apply each operation directly on top elements."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Google"],
     "tags": ["Stack", "Array", "Simulation"],
     "estimatedTime": "10 min",
-    "youtubeVideos": [
-      {
-        "title": "Baseball Game - LeetCode 682",
-        "url": "https://www.youtube.com/watch?v=Id_tqGdsZQI"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Baseball Game - LeetCode 682", "url": "https://www.youtube.com/watch?v=Id_tqGdsZQI" }],
     "relatedProblems": ["Valid Parentheses", "Evaluate Reverse Polish Notation"],
     "followUp": ["Extend to handle nested bracket scoring."],
-    "testCases": [
-      { "input": "[\"5\",\"2\",\"C\",\"D\",\"+\"]", "output": "30" }
-    ],
+    "testCases": [{ "input": "[\"5\",\"2\",\"C\",\"D\",\"+\"]", "output": "30" }],
     "acceptanceRate": "74.5%",
     "likes": 3600,
     "dislikes": 530
@@ -302,38 +195,18 @@
     "problemNumber": 2390,
     "leetcodeUrl": "https://leetcode.com/problems/removing-stars-from-a-string/",
     "description": "Given a string s containing stars '*', repeatedly remove the closest non-star character to the left of each star. Return the resulting string.",
-    "examples": [
-      {
-        "input": "s = \"leet**cod*e\"",
-        "output": "\"lecoe\"",
-        "explanation": "Stars remove 't', 'e', then 'd'."
-      }
-    ],
-    "constraints": [
-      "1 <= s.length <= 10^5",
-      "s consists of lowercase letters and '*'.",
-      "Operation is always possible."
-    ],
-    "hints": [
-      "Use a stack — push letters, pop on '*'.",
-      "Build result from remaining stack."
-    ],
+    "examples": [{ "input": "s = \"leet**cod*e\"", "output": "\"lecoe\"", "explanation": "Stars remove 't', 'e', then 'd'." }],
+    "constraints": ["1 <= s.length <= 10^5", "s consists of lowercase letters and '*'.", "Operation is always possible."],
+    "hints": ["Use a stack — push letters, pop on '*'.", "Build result from remaining stack."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Google", "Amazon"],
     "tags": ["Stack", "String", "Simulation"],
     "estimatedTime": "10 min",
-    "youtubeVideos": [
-      {
-        "title": "Removing Stars From a String - LeetCode 2390",
-        "url": "https://www.youtube.com/watch?v=UrIDiWNVJpI"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Removing Stars From a String - LeetCode 2390", "url": "https://www.youtube.com/watch?v=UrIDiWNVJpI" }],
     "relatedProblems": ["Backspace String Compare", "Baseball Game"],
     "followUp": ["What if stars could remove multiple characters?"],
-    "testCases": [
-      { "input": "\"leet**cod*e\"", "output": "\"lecoe\"" }
-    ],
+    "testCases": [{ "input": "\"leet**cod*e\"", "output": "\"lecoe\"" }],
     "acceptanceRate": "70.1%",
     "likes": 3100,
     "dislikes": 95
@@ -348,37 +221,18 @@
     "problemNumber": 1544,
     "leetcodeUrl": "https://leetcode.com/problems/make-the-string-great/",
     "description": "Given a string s of lower and upper case letters, repeatedly remove adjacent pairs where one is the lowercase and the other is the uppercase version of the same letter. Return the resulting string.",
-    "examples": [
-      {
-        "input": "s = \"leEeetcode\"",
-        "output": "\"leetcode\"",
-        "explanation": "'eE' pair is removed, leaving 'leetcode'."
-      }
-    ],
-    "constraints": [
-      "1 <= s.length <= 100",
-      "s contains only English letters."
-    ],
-    "hints": [
-      "Use a stack.",
-      "If top of stack and current char form a bad pair, pop. Otherwise push."
-    ],
+    "examples": [{ "input": "s = \"leEeetcode\"", "output": "\"leetcode\"", "explanation": "'eE' pair is removed, leaving 'leetcode'." }],
+    "constraints": ["1 <= s.length <= 100", "s contains only English letters."],
+    "hints": ["Use a stack.", "If top of stack and current char form a bad pair, pop. Otherwise push."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Google"],
     "tags": ["Stack", "String"],
     "estimatedTime": "10 min",
-    "youtubeVideos": [
-      {
-        "title": "Make The String Great - LeetCode 1544",
-        "url": "https://www.youtube.com/watch?v=4yNDK4K1DhU"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Make The String Great - LeetCode 1544", "url": "https://www.youtube.com/watch?v=4yNDK4K1DhU" }],
     "relatedProblems": ["Remove All Adjacent Duplicates In String", "Backspace String Compare"],
     "followUp": ["What if you need to remove k-length same-character groups?"],
-    "testCases": [
-      { "input": "\"leEeetcode\"", "output": "\"leetcode\"" }
-    ],
+    "testCases": [{ "input": "\"leEeetcode\"", "output": "\"leetcode\"" }],
     "acceptanceRate": "57.2%",
     "likes": 3400,
     "dislikes": 120
@@ -393,38 +247,18 @@
     "problemNumber": 1598,
     "leetcodeUrl": "https://leetcode.com/problems/crawler-log-folder/",
     "description": "Given a list of file system operations ('../', './', 'folder/'), find the minimum number of operations to return to the main folder.",
-    "examples": [
-      {
-        "input": "logs = [\"d1/\",\"d2/\",\"../\",\"d21/\",\"./\"]",
-        "output": "2",
-        "explanation": "Currently 2 folders deep."
-      }
-    ],
-    "constraints": [
-      "1 <= logs.length <= 10^3",
-      "logs[i].length >= 3",
-      "logs[i] is valid folder names."
-    ],
-    "hints": [
-      "Track current depth with a counter.",
-      "'../' decrements depth (min 0), './' does nothing, others increment."
-    ],
+    "examples": [{ "input": "logs = [\"d1/\",\"d2/\",\"../\",\"d21/\",\"./\"]", "output": "2", "explanation": "Currently 2 folders deep." }],
+    "constraints": ["1 <= logs.length <= 10^3", "logs[i].length >= 3", "logs[i] is valid folder names."],
+    "hints": ["Track current depth with a counter.", "'../' decrements depth (min 0), './' does nothing, others increment."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": ["Amazon"],
     "tags": ["Stack", "Array", "String"],
     "estimatedTime": "10 min",
-    "youtubeVideos": [
-      {
-        "title": "Crawler Log Folder - LeetCode 1598",
-        "url": "https://www.youtube.com/watch?v=fsLTZEpqQPM"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Crawler Log Folder - LeetCode 1598", "url": "https://www.youtube.com/watch?v=fsLTZEpqQPM" }],
     "relatedProblems": ["Simplify Path"],
     "followUp": ["What if folder names can contain special characters?"],
-    "testCases": [
-      { "input": "[\"d1/\",\"d2/\",\"../\",\"d21/\",\"./\"]", "output": "2" }
-    ],
+    "testCases": [{ "input": "[\"d1/\",\"d2/\",\"../\",\"d21/\",\"./\"]", "output": "2" }],
     "acceptanceRate": "75.6%",
     "likes": 1800,
     "dislikes": 200
@@ -439,38 +273,18 @@
     "problemNumber": 1047,
     "leetcodeUrl": "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/",
     "description": "Given a string s, repeatedly remove adjacent duplicate characters until no more can be removed. Return the final string.",
-    "examples": [
-      {
-        "input": "s = \"abbaca\"",
-        "output": "\"ca\"",
-        "explanation": "'bb' removed → 'aaca' → 'aa' removed → 'ca'."
-      }
-    ],
-    "constraints": [
-      "1 <= s.length <= 10^5",
-      "s consists of lowercase letters."
-    ],
-    "hints": [
-      "Use a stack.",
-      "If top equals current char, pop. Otherwise push.",
-      "Stack contents form the answer."
-    ],
+    "examples": [{ "input": "s = \"abbaca\"", "output": "\"ca\"", "explanation": "'bb' removed → 'aaca' → 'aa' removed → 'ca'." }],
+    "constraints": ["1 <= s.length <= 10^5", "s consists of lowercase letters."],
+    "hints": ["Use a stack.", "If top equals current char, pop. Otherwise push.", "Stack contents form the answer."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Bloomberg"],
     "tags": ["Stack", "String"],
     "estimatedTime": "10 min",
-    "youtubeVideos": [
-      {
-        "title": "Remove All Adjacent Duplicates In String",
-        "url": "https://www.youtube.com/watch?v=E_CNBOXSMGw"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Remove All Adjacent Duplicates In String", "url": "https://www.youtube.com/watch?v=E_CNBOXSMGw" }],
     "relatedProblems": ["Remove All Adjacent Duplicates in String II", "Make The String Great"],
     "followUp": ["What if you remove groups of k identical adjacent characters?"],
-    "testCases": [
-      { "input": "\"abbaca\"", "output": "\"ca\"" }
-    ],
+    "testCases": [{ "input": "\"abbaca\"", "output": "\"ca\"" }],
     "acceptanceRate": "72.0%",
     "likes": 6200,
     "dislikes": 200
@@ -486,42 +300,20 @@
     "leetcodeUrl": "https://leetcode.com/problems/balanced-binary-tree/",
     "description": "Given a binary tree, determine if it is height-balanced (every node's left and right subtree heights differ by at most 1). Solve iteratively using a stack.",
     "examples": [
-      {
-        "input": "root = [3,9,20,null,null,15,7]",
-        "output": "true",
-        "explanation": "All subtrees are balanced."
-      },
-      {
-        "input": "root = [1,2,2,3,3,null,null,4,4]",
-        "output": "false",
-        "explanation": "Left subtree is too deep."
-      }
+      { "input": "root = [3,9,20,null,null,15,7]", "output": "true", "explanation": "All subtrees are balanced." },
+      { "input": "root = [1,2,2,3,3,null,null,4,4]", "output": "false", "explanation": "Left subtree is too deep." }
     ],
-    "constraints": [
-      "Number of nodes in [0, 5000].",
-      "-10^4 <= Node.val <= 10^4."
-    ],
-    "hints": [
-      "Use a post-order traversal iteratively with a stack.",
-      "Return -1 from a subtree to signal imbalance.",
-      "Height of a node = 1 + max(leftHeight, rightHeight)."
-    ],
+    "constraints": ["Number of nodes in [0, 5000].", "-10^4 <= Node.val <= 10^4."],
+    "hints": ["Use a post-order traversal iteratively with a stack.", "Return -1 from a subtree to signal imbalance.", "Height of a node = 1 + max(leftHeight, rightHeight)."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Bloomberg", "Microsoft"],
     "tags": ["Stack", "Tree", "DFS"],
     "estimatedTime": "20 min",
-    "youtubeVideos": [
-      {
-        "title": "Balanced Binary Tree - LeetCode 110",
-        "url": "https://www.youtube.com/watch?v=QfJsau0ItOY"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Balanced Binary Tree - LeetCode 110", "url": "https://www.youtube.com/watch?v=QfJsau0ItOY" }],
     "relatedProblems": ["Maximum Depth of Binary Tree", "Minimum Depth of Binary Tree"],
     "followUp": ["Can you do it in one pass without recursion?"],
-    "testCases": [
-      { "input": "[3,9,20,null,null,15,7]", "output": "true" }
-    ],
+    "testCases": [{ "input": "[3,9,20,null,null,15,7]", "output": "true" }],
     "acceptanceRate": "49.4%",
     "likes": 8700,
     "dislikes": 500
@@ -537,42 +329,20 @@
     "leetcodeUrl": "https://leetcode.com/problems/evaluate-reverse-polish-notation/",
     "description": "Evaluate the value of an arithmetic expression in Reverse Polish Notation (postfix). Valid operators are +, -, *, /.",
     "examples": [
-      {
-        "input": "tokens = [\"2\",\"1\",\"+\",\"3\",\"*\"]",
-        "output": "9",
-        "explanation": "((2 + 1) * 3) = 9."
-      },
-      {
-        "input": "tokens = [\"4\",\"13\",\"5\",\"/\",\"+\"]",
-        "output": "6",
-        "explanation": "(4 + (13 / 5)) = 6."
-      }
+      { "input": "tokens = [\"2\",\"1\",\"+\",\"3\",\"*\"]", "output": "9", "explanation": "((2 + 1) * 3) = 9." },
+      { "input": "tokens = [\"4\",\"13\",\"5\",\"/\",\"+\"]", "output": "6", "explanation": "(4 + (13 / 5)) = 6." }
     ],
-    "constraints": [
-      "1 <= tokens.length <= 10^4",
-      "tokens[i] is either an operator or integer in [-200, 200]."
-    ],
-    "hints": [
-      "Push numbers onto the stack.",
-      "On operator, pop two numbers, apply, push result.",
-      "Division truncates toward zero."
-    ],
+    "constraints": ["1 <= tokens.length <= 10^4", "tokens[i] is either an operator or integer in [-200, 200]."],
+    "hints": ["Push numbers onto the stack.", "On operator, pop two numbers, apply, push result.", "Division truncates toward zero."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "LinkedIn", "Yahoo"],
     "tags": ["Stack", "Array", "Math"],
     "estimatedTime": "20 min",
-    "youtubeVideos": [
-      {
-        "title": "Evaluate Reverse Polish Notation",
-        "url": "https://www.youtube.com/watch?v=iu0082c4HDE"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Evaluate Reverse Polish Notation", "url": "https://www.youtube.com/watch?v=iu0082c4HDE" }],
     "relatedProblems": ["Basic Calculator", "Expression Add Operators"],
     "followUp": ["Can you support custom functions like sqrt()?"],
-    "testCases": [
-      { "input": "[\"2\",\"1\",\"+\",\"3\",\"*\"]", "output": "9" }
-    ],
+    "testCases": [{ "input": "[\"2\",\"1\",\"+\",\"3\",\"*\"]", "output": "9" }],
     "acceptanceRate": "48.1%",
     "likes": 7900,
     "dislikes": 1100
@@ -587,37 +357,18 @@
     "problemNumber": 22,
     "leetcodeUrl": "https://leetcode.com/problems/generate-parentheses/",
     "description": "Given n pairs of parentheses, generate all combinations of well-formed parentheses.",
-    "examples": [
-      {
-        "input": "n = 3",
-        "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]",
-        "explanation": "All valid combinations of 3 pairs."
-      }
-    ],
-    "constraints": [
-      "1 <= n <= 8"
-    ],
-    "hints": [
-      "Use recursion/backtracking.",
-      "Add '(' if open count < n.",
-      "Add ')' if close count < open count."
-    ],
+    "examples": [{ "input": "n = 3", "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]", "explanation": "All valid combinations of 3 pairs." }],
+    "constraints": ["1 <= n <= 8"],
+    "hints": ["Use recursion/backtracking.", "Add '(' if open count < n.", "Add ')' if close count < open count."],
     "expectedTimeComplexity": "O(4^n / sqrt(n))",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Google", "Facebook", "Microsoft"],
     "tags": ["Stack", "String", "Backtracking"],
     "estimatedTime": "25 min",
-    "youtubeVideos": [
-      {
-        "title": "Generate Parentheses - LeetCode 22",
-        "url": "https://www.youtube.com/watch?v=s9fokUqJ76A"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Generate Parentheses - LeetCode 22", "url": "https://www.youtube.com/watch?v=s9fokUqJ76A" }],
     "relatedProblems": ["Letter Combinations of a Phone Number", "Valid Parentheses", "Remove Invalid Parentheses"],
     "followUp": ["Can you generate them iteratively?"],
-    "testCases": [
-      { "input": "n=3", "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]" }
-    ],
+    "testCases": [{ "input": "n=3", "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]" }],
     "acceptanceRate": "73.2%",
     "likes": 20000,
     "dislikes": 850
@@ -632,38 +383,18 @@
     "problemNumber": 739,
     "leetcodeUrl": "https://leetcode.com/problems/daily-temperatures/",
     "description": "Given an array of daily temperatures, return an array where each element is the number of days until a warmer temperature. If no warmer day exists, put 0.",
-    "examples": [
-      {
-        "input": "temperatures = [73,74,75,71,69,72,76,73]",
-        "output": "[1,1,4,2,1,1,0,0]",
-        "explanation": "Days to wait for each warmer temperature."
-      }
-    ],
-    "constraints": [
-      "1 <= temperatures.length <= 10^5",
-      "30 <= temperatures[i] <= 100"
-    ],
-    "hints": [
-      "Use a monotonic decreasing stack of indices.",
-      "When a warmer temp is found, pop and calculate difference.",
-      "Remaining indices in stack get 0."
-    ],
+    "examples": [{ "input": "temperatures = [73,74,75,71,69,72,76,73]", "output": "[1,1,4,2,1,1,0,0]", "explanation": "Days to wait for each warmer temperature." }],
+    "constraints": ["1 <= temperatures.length <= 10^5", "30 <= temperatures[i] <= 100"],
+    "hints": ["Use a monotonic decreasing stack of indices.", "When a warmer temp is found, pop and calculate difference.", "Remaining indices in stack get 0."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Facebook", "Google"],
     "tags": ["Stack", "Array", "Monotonic Stack"],
     "estimatedTime": "25 min",
-    "youtubeVideos": [
-      {
-        "title": "Daily Temperatures - Monotonic Stack",
-        "url": "https://www.youtube.com/watch?v=cTBiBSnjO3c"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Daily Temperatures - Monotonic Stack", "url": "https://www.youtube.com/watch?v=cTBiBSnjO3c" }],
     "relatedProblems": ["Next Greater Element I", "Next Greater Element II", "Online Stock Span"],
     "followUp": ["What if temperatures could repeat?"],
-    "testCases": [
-      { "input": "[73,74,75,71,69,72,76,73]", "output": "[1,1,4,2,1,1,0,0]" }
-    ],
+    "testCases": [{ "input": "[73,74,75,71,69,72,76,73]", "output": "[1,1,4,2,1,1,0,0]" }],
     "acceptanceRate": "67.5%",
     "likes": 16000,
     "dislikes": 380
@@ -678,40 +409,18 @@
     "problemNumber": 853,
     "leetcodeUrl": "https://leetcode.com/problems/car-fleet/",
     "description": "n cars are driving toward a target. A car fleet is a group arriving at the same time. Return the number of car fleets.",
-    "examples": [
-      {
-        "input": "target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]",
-        "output": "3",
-        "explanation": "Cars form 3 distinct fleets."
-      }
-    ],
-    "constraints": [
-      "n == position.length == speed.length",
-      "1 <= n <= 10^5",
-      "0 < target <= 10^6",
-      "All positions are unique."
-    ],
-    "hints": [
-      "Sort cars by position descending.",
-      "Calculate time to reach target for each car.",
-      "Use a stack — if a car catches up to fleet ahead, merge them."
-    ],
+    "examples": [{ "input": "target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]", "output": "3", "explanation": "Cars form 3 distinct fleets." }],
+    "constraints": ["n == position.length == speed.length", "1 <= n <= 10^5", "0 < target <= 10^6", "All positions are unique."],
+    "hints": ["Sort cars by position descending.", "Calculate time to reach target for each car.", "Use a stack — if a car catches up to fleet ahead, merge them."],
     "expectedTimeComplexity": "O(n log n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Google", "Amazon"],
     "tags": ["Stack", "Array", "Sorting", "Monotonic Stack"],
     "estimatedTime": "30 min",
-    "youtubeVideos": [
-      {
-        "title": "Car Fleet - LeetCode 853",
-        "url": "https://www.youtube.com/watch?v=Pr6T-3yB9RM"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Car Fleet - LeetCode 853", "url": "https://www.youtube.com/watch?v=Pr6T-3yB9RM" }],
     "relatedProblems": ["Car Fleet II"],
     "followUp": ["What if cars could overtake each other?"],
-    "testCases": [
-      { "input": "target=12, position=[10,8,0,5,3], speed=[2,4,1,1,3]", "output": "3" }
-    ],
+    "testCases": [{ "input": "target=12, position=[10,8,0,5,3], speed=[2,4,1,1,3]", "output": "3" }],
     "acceptanceRate": "48.7%",
     "likes": 4700,
     "dislikes": 1200
@@ -726,40 +435,18 @@
     "problemNumber": 394,
     "leetcodeUrl": "https://leetcode.com/problems/decode-string/",
     "description": "Given an encoded string like '3[a2[c]]', decode it to 'accaccacc'. Encoding format is k[encoded_string] repeated k times.",
-    "examples": [
-      {
-        "input": "s = \"3[a2[c]]\"",
-        "output": "\"accaccacc\"",
-        "explanation": "'2[c]' = 'cc', '3[acc]' = 'accaccacc'."
-      }
-    ],
-    "constraints": [
-      "1 <= s.length <= 30",
-      "s consists of digits, letters, and '[', ']'.",
-      "All integers are in [1, 300].",
-      "Guaranteed valid input, no extra spaces."
-    ],
-    "hints": [
-      "Use two stacks: one for counts, one for strings.",
-      "On '[', push current string and count.",
-      "On ']', pop and repeat current string."
-    ],
+    "examples": [{ "input": "s = \"3[a2[c]]\"", "output": "\"accaccacc\"", "explanation": "'2[c]' = 'cc', '3[acc]' = 'accaccacc'." }],
+    "constraints": ["1 <= s.length <= 30", "s consists of digits, letters, and '[', ']'.", "All integers are in [1, 300].", "Guaranteed valid input, no extra spaces."],
+    "hints": ["Use two stacks: one for counts, one for strings.", "On '[', push current string and count.", "On ']', pop and repeat current string."],
     "expectedTimeComplexity": "O(n * max_k)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Google", "Amazon", "Apple", "Bloomberg"],
     "tags": ["Stack", "String", "Recursion"],
     "estimatedTime": "30 min",
-    "youtubeVideos": [
-      {
-        "title": "Decode String - LeetCode 394",
-        "url": "https://www.youtube.com/watch?v=qB0zZpBJlh8"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Decode String - LeetCode 394", "url": "https://www.youtube.com/watch?v=qB0zZpBJlh8" }],
     "relatedProblems": ["Encode String with Shortest Length", "Number of Atoms"],
     "followUp": ["Can you solve it recursively?"],
-    "testCases": [
-      { "input": "\"3[a2[c]]\"", "output": "\"accaccacc\"" }
-    ],
+    "testCases": [{ "input": "\"3[a2[c]]\"", "output": "\"accaccacc\"" }],
     "acceptanceRate": "59.4%",
     "likes": 12000,
     "dislikes": 560
@@ -775,38 +462,17 @@
     "leetcodeUrl": "https://leetcode.com/problems/asteroid-collision/",
     "description": "Given an array of asteroids (positive = right, negative = left, size = absolute value), find the state after all collisions. Collisions: smaller explodes, equal both explode, same direction never collide.",
     "examples": [
-      {
-        "input": "asteroids = [5,10,-5]",
-        "output": "[5,10]",
-        "explanation": "-5 hits 10 and explodes. 5 and 10 never meet."
-      },
-      {
-        "input": "asteroids = [8,-8]",
-        "output": "[]",
-        "explanation": "Both explode."
-      }
+      { "input": "asteroids = [5,10,-5]", "output": "[5,10]", "explanation": "-5 hits 10 and explodes. 5 and 10 never meet." },
+      { "input": "asteroids = [8,-8]", "output": "[]", "explanation": "Both explode." }
     ],
-    "constraints": [
-      "2 <= asteroids.length <= 10^4",
-      "-1000 <= asteroids[i] <= 1000",
-      "asteroids[i] != 0"
-    ],
-    "hints": [
-      "Push positive asteroids onto the stack.",
-      "On negative, compare with top of stack.",
-      "Handle equal-size destruction and chained collisions."
-    ],
+    "constraints": ["2 <= asteroids.length <= 10^4", "-1000 <= asteroids[i] <= 1000", "asteroids[i] != 0"],
+    "hints": ["Push positive asteroids onto the stack.", "On negative, compare with top of stack.", "Handle equal-size destruction and chained collisions."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Google", "Bloomberg"],
     "tags": ["Stack", "Array", "Simulation"],
     "estimatedTime": "25 min",
-    "youtubeVideos": [
-      {
-        "title": "Asteroid Collision - LeetCode 735",
-        "url": "https://www.youtube.com/watch?v=LN7KjRszjk4"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Asteroid Collision - LeetCode 735", "url": "https://www.youtube.com/watch?v=LN7KjRszjk4" }],
     "relatedProblems": ["Can Place Flowers", "Destroyed Planets"],
     "followUp": ["What if asteroids could move in more than two directions?"],
     "testCases": [
@@ -828,43 +494,20 @@
     "leetcodeUrl": "https://leetcode.com/problems/remove-k-digits/",
     "description": "Given a string num representing a non-negative integer, remove k digits to make the resulting number the smallest possible.",
     "examples": [
-      {
-        "input": "num = \"1432219\", k = 3",
-        "output": "\"1219\"",
-        "explanation": "Remove 4, 3, 2 to get the smallest."
-      },
-      {
-        "input": "num = \"10200\", k = 1",
-        "output": "\"200\"",
-        "explanation": "Remove 1; leading zeros stripped."
-      }
+      { "input": "num = \"1432219\", k = 3", "output": "\"1219\"", "explanation": "Remove 4, 3, 2 to get the smallest." },
+      { "input": "num = \"10200\", k = 1", "output": "\"200\"", "explanation": "Remove 1; leading zeros stripped." }
     ],
-    "constraints": [
-      "1 <= k <= num.length <= 10^5",
-      "num consists of digits only.",
-      "num does not have leading zeros except '0' itself."
-    ],
-    "hints": [
-      "Use a monotonic increasing stack.",
-      "Pop larger digits from the stack when you find a smaller one.",
-      "Handle remaining k removals and leading zeros."
-    ],
+    "constraints": ["1 <= k <= num.length <= 10^5", "num consists of digits only.", "num does not have leading zeros except '0' itself."],
+    "hints": ["Use a monotonic increasing stack.", "Pop larger digits from the stack when you find a smaller one.", "Handle remaining k removals and leading zeros."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Google", "Citadel"],
     "tags": ["Stack", "String", "Greedy", "Monotonic Stack"],
     "estimatedTime": "30 min",
-    "youtubeVideos": [
-      {
-        "title": "Remove K Digits - Monotonic Stack",
-        "url": "https://www.youtube.com/watch?v=cFabMOnJaq0"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Remove K Digits - Monotonic Stack", "url": "https://www.youtube.com/watch?v=cFabMOnJaq0" }],
     "relatedProblems": ["Remove Duplicate Letters", "Create Maximum Number"],
     "followUp": ["What if you want the largest number instead?"],
-    "testCases": [
-      { "input": "num=\"1432219\", k=3", "output": "\"1219\"" }
-    ],
+    "testCases": [{ "input": "num=\"1432219\", k=3", "output": "\"1219\"" }],
     "acceptanceRate": "31.0%",
     "likes": 8100,
     "dislikes": 320
@@ -879,38 +522,18 @@
     "problemNumber": 901,
     "leetcodeUrl": "https://leetcode.com/problems/online-stock-span/",
     "description": "Design an algorithm that collects daily stock prices and returns the span of each day's stock price — the maximum number of consecutive days (including today) for which the price was <= today's price.",
-    "examples": [
-      {
-        "input": "prices = [100,80,60,70,60,75,85]",
-        "output": "[1,1,1,2,1,4,6]",
-        "explanation": "Span counts consecutive prior days with smaller or equal prices."
-      }
-    ],
-    "constraints": [
-      "1 <= price <= 10^5",
-      "At most 10^4 calls to next."
-    ],
-    "hints": [
-      "Use a stack of (price, span) pairs.",
-      "Accumulate spans of popped elements.",
-      "Each element is pushed and popped at most once."
-    ],
+    "examples": [{ "input": "prices = [100,80,60,70,60,75,85]", "output": "[1,1,1,2,1,4,6]", "explanation": "Span counts consecutive prior days with smaller or equal prices." }],
+    "constraints": ["1 <= price <= 10^5", "At most 10^4 calls to next."],
+    "hints": ["Use a stack of (price, span) pairs.", "Accumulate spans of popped elements.", "Each element is pushed and popped at most once."],
     "expectedTimeComplexity": "O(1) amortized",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Goldman Sachs", "Bloomberg"],
     "tags": ["Stack", "Design", "Monotonic Stack"],
     "estimatedTime": "25 min",
-    "youtubeVideos": [
-      {
-        "title": "Online Stock Span - LeetCode 901",
-        "url": "https://www.youtube.com/watch?v=slYh0ZNEqSw"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Online Stock Span - LeetCode 901", "url": "https://www.youtube.com/watch?v=slYh0ZNEqSw" }],
     "relatedProblems": ["Daily Temperatures", "Next Greater Element II"],
     "followUp": ["Can you handle price updates or deletions?"],
-    "testCases": [
-      { "input": "[100,80,60,70,60,75,85]", "output": "[1,1,1,2,1,4,6]" }
-    ],
+    "testCases": [{ "input": "[100,80,60,70,60,75,85]", "output": "[1,1,1,2,1,4,6]" }],
     "acceptanceRate": "64.2%",
     "likes": 5800,
     "dislikes": 360
@@ -926,38 +549,17 @@
     "leetcodeUrl": "https://leetcode.com/problems/simplify-path/",
     "description": "Given a Unix-style absolute file path, simplify it. '//' becomes '/', '.' stays, '..' goes up one directory.",
     "examples": [
-      {
-        "input": "path = \"/home//foo/\"",
-        "output": "\"/home/foo\"",
-        "explanation": "Double slashes and trailing slash removed."
-      },
-      {
-        "input": "path = \"/../\"",
-        "output": "\"/\"",
-        "explanation": "Can't go above root."
-      }
+      { "input": "path = \"/home//foo/\"", "output": "\"/home/foo\"", "explanation": "Double slashes and trailing slash removed." },
+      { "input": "path = \"/../\"", "output": "\"/\"", "explanation": "Can't go above root." }
     ],
-    "constraints": [
-      "1 <= path.length <= 3000",
-      "path consists of English letters, digits, '.', '/', '_'.",
-      "path is a valid Unix path."
-    ],
-    "hints": [
-      "Split path by '/'.",
-      "Use a stack for directory names.",
-      "'..' pops, '.' and '' are ignored."
-    ],
+    "constraints": ["1 <= path.length <= 3000", "path consists of English letters, digits, '.', '/', '_'.", "path is a valid Unix path."],
+    "hints": ["Split path by '/'.", "Use a stack for directory names.", "'..' pops, '.' and '' are ignored."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Facebook", "Microsoft", "Amazon"],
     "tags": ["Stack", "String"],
     "estimatedTime": "20 min",
-    "youtubeVideos": [
-      {
-        "title": "Simplify Path - LeetCode 71",
-        "url": "https://www.youtube.com/watch?v=qYlHrAKJfyA"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Simplify Path - LeetCode 71", "url": "https://www.youtube.com/watch?v=qYlHrAKJfyA" }],
     "relatedProblems": ["Crawler Log Folder", "Minimum Number of Operations to Make Array Continuous"],
     "followUp": ["Handle Windows-style paths with backslashes."],
     "testCases": [
@@ -979,43 +581,20 @@
     "leetcodeUrl": "https://leetcode.com/problems/basic-calculator-ii/",
     "description": "Implement a basic calculator to evaluate a string expression with +, -, *, / and spaces (no parentheses). Integer division truncates toward zero.",
     "examples": [
-      {
-        "input": "s = \"3+2*2\"",
-        "output": "7",
-        "explanation": "Multiplication before addition."
-      },
-      {
-        "input": "s = \" 3/2 \"",
-        "output": "1",
-        "explanation": "Integer division."
-      }
+      { "input": "s = \"3+2*2\"", "output": "7", "explanation": "Multiplication before addition." },
+      { "input": "s = \" 3/2 \"", "output": "1", "explanation": "Integer division." }
     ],
-    "constraints": [
-      "1 <= s.length <= 3 * 10^5",
-      "s consists of digits, '+', '-', '*', '/', and spaces.",
-      "Guaranteed valid expression; result fits in 32-bit int."
-    ],
-    "hints": [
-      "Use a stack to defer additions/subtractions.",
-      "Apply * and / immediately.",
-      "Sum the stack at the end."
-    ],
+    "constraints": ["1 <= s.length <= 3 * 10^5", "s consists of digits, '+', '-', '*', '/', and spaces.", "Guaranteed valid expression; result fits in 32-bit int."],
+    "hints": ["Use a stack to defer additions/subtractions.", "Apply * and / immediately.", "Sum the stack at the end."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Citrix", "Microsoft"],
     "tags": ["Stack", "Math", "String"],
     "estimatedTime": "30 min",
-    "youtubeVideos": [
-      {
-        "title": "Basic Calculator II - LeetCode 227",
-        "url": "https://www.youtube.com/watch?v=U2rWM5RBkFc"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Basic Calculator II - LeetCode 227", "url": "https://www.youtube.com/watch?v=U2rWM5RBkFc" }],
     "relatedProblems": ["Basic Calculator", "Expression Add Operators", "Basic Calculator III"],
     "followUp": ["Add support for parentheses."],
-    "testCases": [
-      { "input": "\"3+2*2\"", "output": "7" }
-    ],
+    "testCases": [{ "input": "\"3+2*2\"", "output": "7" }],
     "acceptanceRate": "43.9%",
     "likes": 6400,
     "dislikes": 800
@@ -1030,38 +609,18 @@
     "problemNumber": 84,
     "leetcodeUrl": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
     "description": "Given an array of integers heights representing histogram bar heights (each width = 1), find the largest rectangle area possible.",
-    "examples": [
-      {
-        "input": "heights = [2,1,5,6,2,3]",
-        "output": "10",
-        "explanation": "Rectangle spanning bars at index 2-3 with height 5."
-      }
-    ],
-    "constraints": [
-      "1 <= heights.length <= 10^5",
-      "0 <= heights[i] <= 10^4"
-    ],
-    "hints": [
-      "Use a monotonic increasing stack of indices.",
-      "When a shorter bar is found, pop and calculate area.",
-      "Append height 0 to flush remaining stack at the end."
-    ],
+    "examples": [{ "input": "heights = [2,1,5,6,2,3]", "output": "10", "explanation": "Rectangle spanning bars at index 2-3 with height 5." }],
+    "constraints": ["1 <= heights.length <= 10^5", "0 <= heights[i] <= 10^4"],
+    "hints": ["Use a monotonic increasing stack of indices.", "When a shorter bar is found, pop and calculate area.", "Append height 0 to flush remaining stack at the end."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Google", "Facebook", "ByteDance"],
     "tags": ["Stack", "Array", "Monotonic Stack"],
     "estimatedTime": "45 min",
-    "youtubeVideos": [
-      {
-        "title": "Largest Rectangle in Histogram",
-        "url": "https://www.youtube.com/watch?v=zx5Sw9130L0"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Largest Rectangle in Histogram", "url": "https://www.youtube.com/watch?v=zx5Sw9130L0" }],
     "relatedProblems": ["Maximal Rectangle", "Trapping Rain Water"],
     "followUp": ["Extend to a 2D binary matrix (Maximal Rectangle)."],
-    "testCases": [
-      { "input": "[2,1,5,6,2,3]", "output": "10" }
-    ],
+    "testCases": [{ "input": "[2,1,5,6,2,3]", "output": "10" }],
     "acceptanceRate": "44.7%",
     "likes": 15000,
     "dislikes": 270
@@ -1076,39 +635,18 @@
     "problemNumber": 224,
     "leetcodeUrl": "https://leetcode.com/problems/basic-calculator/",
     "description": "Implement a basic calculator to evaluate a string expression with +, -, and parentheses. No * or /.",
-    "examples": [
-      {
-        "input": "s = \"(1+(4+5+2)-3)+(6+8)\"",
-        "output": "23",
-        "explanation": "Evaluate respecting parentheses and signs."
-      }
-    ],
-    "constraints": [
-      "1 <= s.length <= 3 * 10^5",
-      "s consists of digits, '+', '-', '(', ')', and ' '.",
-      "Guaranteed valid expression."
-    ],
-    "hints": [
-      "Use a stack to track the sign and running sum.",
-      "On '(', push current result and sign onto stack.",
-      "On ')', pop and combine with accumulated result."
-    ],
+    "examples": [{ "input": "s = \"(1+(4+5+2)-3)+(6+8)\"", "output": "23", "explanation": "Evaluate respecting parentheses and signs." }],
+    "constraints": ["1 <= s.length <= 3 * 10^5", "s consists of digits, '+', '-', '(', ')', and ' '.", "Guaranteed valid expression."],
+    "hints": ["Use a stack to track the sign and running sum.", "On '(', push current result and sign onto stack.", "On ')', pop and combine with accumulated result."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Google", "Amazon", "Airbnb", "Microsoft"],
     "tags": ["Stack", "Math", "String", "Recursion"],
     "estimatedTime": "40 min",
-    "youtubeVideos": [
-      {
-        "title": "Basic Calculator - LeetCode 224",
-        "url": "https://www.youtube.com/watch?v=malk4rmAeUA"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Basic Calculator - LeetCode 224", "url": "https://www.youtube.com/watch?v=malk4rmAeUA" }],
     "relatedProblems": ["Basic Calculator II", "Basic Calculator III", "Expression Add Operators"],
     "followUp": ["Add support for * and /."],
-    "testCases": [
-      { "input": "\"(1+(4+5+2)-3)+(6+8)\"", "output": "23" }
-    ],
+    "testCases": [{ "input": "\"(1+(4+5+2)-3)+(6+8)\"", "output": "23" }],
     "acceptanceRate": "43.0%",
     "likes": 7200,
     "dislikes": 620
@@ -1123,40 +661,18 @@
     "problemNumber": 85,
     "leetcodeUrl": "https://leetcode.com/problems/maximal-rectangle/",
     "description": "Given a binary matrix of 0s and 1s, find the largest rectangle containing only 1s and return its area.",
-    "examples": [
-      {
-        "input": "matrix = [[\"1\",\"0\",\"1\",\"0\",\"0\"],[\"1\",\"0\",\"1\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\",\"1\"],[\"1\",\"0\",\"0\",\"1\",\"0\"]]",
-        "output": "6",
-        "explanation": "Maximal rectangle covers 6 cells."
-      }
-    ],
-    "constraints": [
-      "rows == matrix.length",
-      "cols == matrix[i].length",
-      "1 <= rows, cols <= 200",
-      "matrix[i][j] is '0' or '1'."
-    ],
-    "hints": [
-      "Build a histogram row by row.",
-      "Apply Largest Rectangle in Histogram on each row.",
-      "Heights reset to 0 on '0' cells."
-    ],
+    "examples": [{ "input": "matrix = [[\"1\",\"0\",\"1\",\"0\",\"0\"],[\"1\",\"0\",\"1\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\",\"1\"],[\"1\",\"0\",\"0\",\"1\",\"0\"]]", "output": "6", "explanation": "Maximal rectangle covers 6 cells." }],
+    "constraints": ["rows == matrix.length", "cols == matrix[i].length", "1 <= rows, cols <= 200", "matrix[i][j] is '0' or '1'."],
+    "hints": ["Build a histogram row by row.", "Apply Largest Rectangle in Histogram on each row.", "Heights reset to 0 on '0' cells."],
     "expectedTimeComplexity": "O(rows * cols)",
     "expectedSpaceComplexity": "O(cols)",
     "companies": ["Amazon", "Microsoft", "Google", "Citadel"],
     "tags": ["Stack", "Array", "Matrix", "Dynamic Programming", "Monotonic Stack"],
     "estimatedTime": "50 min",
-    "youtubeVideos": [
-      {
-        "title": "Maximal Rectangle - LeetCode 85",
-        "url": "https://www.youtube.com/watch?v=g8bSdXCG-lA"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Maximal Rectangle - LeetCode 85", "url": "https://www.youtube.com/watch?v=g8bSdXCG-lA" }],
     "relatedProblems": ["Largest Rectangle in Histogram", "Maximal Square"],
     "followUp": ["Can you solve it using dynamic programming instead?"],
-    "testCases": [
-      { "input": "[[\"1\",\"0\",\"1\",\"0\"],[\"1\",\"0\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\"]]", "output": "6" }
-    ],
+    "testCases": [{ "input": "[[\"1\",\"0\",\"1\",\"0\"],[\"1\",\"0\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\"]]", "output": "6" }],
     "acceptanceRate": "46.1%",
     "likes": 8900,
     "dislikes": 180
@@ -1172,38 +688,17 @@
     "leetcodeUrl": "https://leetcode.com/problems/trapping-rain-water/",
     "description": "Given n non-negative integers representing elevation heights, compute how much water can be trapped after raining. Solve using a stack-based approach.",
     "examples": [
-      {
-        "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]",
-        "output": "6",
-        "explanation": "6 units of water are trapped between the bars."
-      },
-      {
-        "input": "height = [4,2,0,3,2,5]",
-        "output": "9",
-        "explanation": "9 units trapped in various pockets."
-      }
+      { "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]", "output": "6", "explanation": "6 units of water are trapped between the bars." },
+      { "input": "height = [4,2,0,3,2,5]", "output": "9", "explanation": "9 units trapped in various pockets." }
     ],
-    "constraints": [
-      "n == height.length",
-      "1 <= n <= 2 * 10^4",
-      "0 <= height[i] <= 10^5"
-    ],
-    "hints": [
-      "Use a monotonic decreasing stack.",
-      "When a taller bar is found, water is trapped horizontally.",
-      "Width = distance between current bar and new stack top; height = min of both sides minus popped bar."
-    ],
+    "constraints": ["n == height.length", "1 <= n <= 2 * 10^4", "0 <= height[i] <= 10^5"],
+    "hints": ["Use a monotonic decreasing stack.", "When a taller bar is found, water is trapped horizontally.", "Width = distance between current bar and new stack top; height = min of both sides minus popped bar."],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
     "companies": ["Amazon", "Google", "Microsoft", "Facebook", "Apple"],
     "tags": ["Stack", "Array", "Two Pointers", "Dynamic Programming", "Monotonic Stack"],
     "estimatedTime": "40 min",
-    "youtubeVideos": [
-      {
-        "title": "Trapping Rain Water - Stack Approach",
-        "url": "https://www.youtube.com/watch?v=ZI2z5pq0TqA"
-      }
-    ],
+    "youtubeVideos": [{ "title": "Trapping Rain Water - Stack Approach", "url": "https://www.youtube.com/watch?v=ZI2z5pq0TqA" }],
     "relatedProblems": ["Container With Most Water", "Largest Rectangle in Histogram", "Product of Array Except Self"],
     "followUp": ["Can you solve it in O(1) space using two pointers?"],
     "testCases": [

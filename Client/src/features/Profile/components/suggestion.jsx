@@ -23,7 +23,7 @@ function Suggestion() {
     ];
 
     return (
-        <div className="min-h-[260px] w-full bg-white/8 border border-white/5 rounded-2xl p-5 text-white">
+        <div className="min-h-[260px] w-full bg-white/8 border border-white/8 rounded-2xl p-5 text-white">
             <div className="flex items-center justify-between gap-4">
                 <div>
                     <p className="text-sm text-white/45">Today</p>

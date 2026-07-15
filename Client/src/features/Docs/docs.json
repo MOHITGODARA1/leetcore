@@ -1,3 +1,4 @@
+
 {
   "array": {
     "topic": "Array",
@@ -40,369 +41,341 @@
       }
     },
     "sections": [
-{
-"id": "introduction",
-"title": "Introduction",
-"type": "paragraph",
-"content": [
-"Array aur Vector linear data structures hote hain jo multiple elements ko sequential order mein store karte hain.",
-"Inmein har element ek index ke through access kiya ja sakta hai.",
-"Array ka size fixed hota hai aur create hone ke baad change nahi kiya ja sakta.",
-"Vector ek dynamic array hota hai jo runtime par apna size automatically increase ya decrease kar sakta hai."
-],
-"highlights": [
-"Core DSA Topic",
-"Interview Ready",
-"Contiguous Memory",
-"STL Vectors"
-]
-},
-{
-  "id": "definition",
-  "title": "One Line Definition",
-  "type": "dual_callout",
-  "array": "A fixed-size collection of elements stored in contiguous memory locations.",
-  "vector": "A dynamic array provided by C++ STL that automatically resizes itself when needed."
-},
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "type": "paragraph",
+        "photo": "",
+        "content": [
+         "Arrays and Vectors are linear data structures used to store collections of elements in sequential order.",
 
-{
-  "id": "real-life-example",
-  "title": "Real Life Example",
-  "type": "comparison",
+"Every element is assigned an index, making it easy to access any value directly.",
 
-  "array": {
-    "title": "Train Compartments",
-    "description": "Imagine karo aapne train mein 5 compartments reserve kiye hain. Reservation ke baad compartments ki sankhya fix ho jaati hai.",
-    "diagram": "[A] [B] [C] [D] [E]"
-  },
+"Arrays have a fixed size, so their capacity cannot change after creation.",
 
-  "vector": {
-    "title": "Queue Line",
-    "description": "Queue mein log aate aur jaate rehte hain. Size dynamically change hoti rehti hai.",
-    "diagram": "[A] [B] [C]\n↓\n[A] [B] [C] [D]\n↓\n[A] [B] [C] [D] [E]"
-  }
-},
-
-{
-  "id": "why-learn",
-  "title": "Why We Learn This?",
-  "type": "list",
-
-  "items": [
-    "Foundation of DSA",
-    "Used in almost every coding question",
-    "Helps understand memory management",
-    "Required for Sliding Window, Prefix Sum, Two Pointers and Binary Search",
-    "Vectors solve fixed-size limitations of arrays",
-    "Most STL-based DSA problems use vectors"
-  ]
-},
-
-{
-  "id": "visualization",
-  "title": "Visualization",
-  "type": "visualization",
-  "initialArray": [10, 20, 30, 40, 50],
-  "operations": ["push_back(value)", "pop_back()", "insert(index, value)", "erase(index)", "empty()", "size()"],
-  "controls": {
-    "operationLabel": "Operation",
-    "valueLabel": "Value",
-    "indexLabel": "Index",
-    "buttonLabel": "Run Visualization"
-  },
-  "labels": {
-    "before": "Before Operation",
-    "after": "After Operation",
-    "index": "Index",
-    "value": "Value"
-  },
-  "arrayCode": "int arr[5] = {10,20,30,40,50};",
-  "vectorCode": "vector<int> vec = {10,20,30,40,50};",
-  "diagram": {
-    "indexes": [0,1,2,3,4],
-    "values": [10,20,30,40,50]
-  },
-  "output": "30"
-},
-
-{
-  "id": "internal-working",
-  "title": "Internal Working",
-  "type": "array_vector_internal",
-
-  "array": {
-    "memory": {
-      "addresses": [1000,1004,1008,1012,1016],
-      "values": [10,20,30,40,50]
-    },
-
-    "explanation": [
-      "Array stores data in contiguous memory.",
-      "Each integer usually takes 4 bytes.",
-      "Next address = Previous address + 4."
-    ]
-  },
-
-  "vector": {
-    "size": 3,
-    "capacity": 4,
-
-    "growthPattern": [
-      0,
-      1,
-      2,
-      4,
-      8,
-      16
-    ],
-
-    "capacityExplanation": "Capacity generally doubles when full. Exact growth depends on STL implementation.",
-
-    "reallocation": {
-      "oldCapacity": 4,
-      "newCapacity": 8
-    }
-  }
-},
-
-{
+"Vectors are dynamic, automatically expanding or shrinking their storage as elements are inserted or removed."
+        ],
+        "highlights": [
+          "Core DSA Topic",
+          "Contiguous Memory",
+          "STL Vectors"
+        ]
+      },
+      {
+        "id": "definition",
+        "title": "One Line Definition",
+        "type": "dual_callout",
+        "array": "A fixed-size collection of elements stored in contiguous memory locations.",
+        "vector": "A dynamic array provided by C++ STL that automatically resizes itself when needed."
+      },
+      {
+        "id": "real-life-example",
+        "title": "Real Life Example",
+        "type": "comparison",
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1783572149/ChatGPT_Image_Jul_9_2026_10_12_06_AM_mro6di.png"
+      },
+      {
+        "id": "why-learn",
+        "title": "Why We Learn This?",
+        "type": "list",
+        "items": [
+          "Foundation of DSA",
+          "Used in almost every coding question",
+          "Helps understand memory management",
+          "Required for Sliding Window, Prefix Sum, Two Pointers and Binary Search",
+          "Vectors solve fixed-size limitations of arrays",
+          "Most STL-based DSA problems use vectors"
+        ]
+      },
+      {
+        "id": "visualization",
+        "title": "Visualization",
+        "type": "visualization",
+        "initialArray": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "operations": [
+          "push_back(value)",
+          "pop_back()",
+          "insert(index, value)",
+          "erase(index)",
+          "empty()",
+          "size()"
+        ],
+        "controls": {
+          "operationLabel": "Operation",
+          "valueLabel": "Value",
+          "indexLabel": "Index",
+          "buttonLabel": "Run Visualization"
+        },
+        "labels": {
+          "before": "Before Operation",
+          "after": "After Operation",
+          "index": "Index",
+          "value": "Value"
+        },
+        "arrayCode": "int arr[5] = {10,20,30,40,50};",
+        "vectorCode": "vector<int> vec = {10,20,30,40,50};",
+        "diagram": {
+          "indexes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "values": [
+            10,
+            20,
+            30,
+            40,
+            50
+          ]
+        },
+        "output": "30"
+      },
+      {
+        "id": "internal-working",
+        "title": "Internal Working",
+        "type": "array_vector_internal",
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1783571163/ChatGPT_Image_Jul_9_2026_09_50_18_AM_wp8mku.png",
+        "text": ""
+      },
+      {
   "id": "declaration",
-  "title": "Declaration",
+  "title": "Declaration & Initialization",
   "type": "syntax",
-
   "tabs": [
     {
       "label": "Array",
-      "code": "int arr[5];\nint arr[5]={10,20,30,40,50};"
+      "code": "// Declare an array of size 5\nint arr[5];\n\n// Initialize with values\nint arr1[5] = {10, 20, 30, 40, 50};\n\n// Size is automatically determined\nint arr2[] = {1, 2, 3, 4, 5};"
     },
-
     {
       "label": "Vector",
-      "code": "vector<int> vec;\nvector<int> vec={10,20,30,40,50};"
+      "code": "#include <vector>\nusing namespace std;\n\n// Empty vector\nvector<int> vec;\n\n// Initialize with values\nvector<int> vec1 = {10, 20, 30, 40, 50};\n\n// Vector with fixed size\nvector<int> vec2(5);\n\n// Vector with size and default value\nvector<int> vec3(5, 100);"
     }
   ]
 },
-
-{
-  "id": "complexity",
-  "title": "Basic Operations & Time Complexity",
-  "type": "comparison_table",
-
-  "rows": [
-    {
-      "operation": "Traversal",
-      "array": "O(n)",
-      "vector": "O(n)"
-    },
-    {
-      "operation": "Access",
-      "array": "O(1)",
-      "vector": "O(1)"
-    },
-    {
-      "operation": "Update",
-      "array": "O(1)",
-      "vector": "O(1)"
-    },
-    {
-      "operation": "Insert",
-      "array": "O(n)",
-      "vector": "O(n)"
-    }
-  ]
-},
-
-{
-  "id": "vector-functions",
-  "title": "Important Vector Functions",
-  "type": "functions",
-
-  "items": [
-    {
-      "name": "push_back()",
-      "description": "Add element"
-    },
-    {
-      "name": "pop_back()",
-      "description": "Remove last element"
-    },
-    {
-      "name": "size()",
-      "description": "Current size"
-    },
-    {
-      "name": "capacity()",
-      "description": "Current capacity"
-    },
-    {
-      "name": "front()",
-      "description": "First element"
-    },
-    {
-      "name": "back()",
-      "description": "Last element"
-    },
-    {
-      "name": "empty()",
-      "description": "Check empty"
-    },
-    {
-      "name": "clear()",
-      "description": "Remove all elements"
-    }
-  ]
-},
-
-{
-  "id": "array-vs-vector",
-  "title": "Array vs Vector",
-  "type": "comparison_table",
-
-  "rows": [
-    {
-      "feature": "Size",
-      "array": "Fixed",
-      "vector": "Dynamic"
-    },
-    {
-      "feature": "Memory",
-      "array": "Contiguous",
-      "vector": "Contiguous"
-    },
-    {
-      "feature": "Access",
-      "array": "O(1)",
-      "vector": "O(1)"
-    },
-    {
-      "feature": "Resize",
-      "array": "No",
-      "vector": "Yes"
-    },
-    {
-      "feature": "STL Support",
-      "array": "No",
-      "vector": "Yes"
-    }
-  ]
-},
-
-{
-  "id": "common-mistakes",
-  "title": "Common Mistakes",
-  "type": "mistakes",
-
-  "items": [
-    {
-      "title": "Array Out Of Bounds",
-      "wrong": "int arr[5];\ncout << arr[5];",
-      "why": "Valid indexes are 0 to 4."
-    },
-
-    {
-      "title": "Accessing Empty Vector",
-      "wrong": "vector<int> vec;\ncout << vec.back();",
-      "why": "Calling back() on empty vector causes runtime error."
-    }
-  ]
-},
-
-{
-  "id": "when-not-to-use",
-  "title": "When Not To Use Array Or Vector",
-  "type": "table",
-
-  "rows": [
-    {
-      "situation": "Frequent insert/delete at beginning",
-      "choice": "Linked List"
-    },
-    {
-      "situation": "Fast search needed",
-      "choice": "Hash Map"
-    },
-    {
-      "situation": "FIFO operations",
-      "choice": "Queue"
-    },
-    {
-      "situation": "LIFO operations",
-      "choice": "Stack"
-    }
-  ]
-},
-
-{
-  "id": "interview-questions",
-  "title": "Interview Questions",
-  "type": "questions",
-  "questions": [
-    {
-      "question": "When to Use a Vector?",
-      "answer": "Use a Vector when the size of the array is not known beforehand, you need automatic resizing, or you need to dynamically insert/delete elements at the end in amortized O(1) time."
-    },
-    {
-      "question": "When Not to Use Arrays or Vectors?",
-      "answer": "Avoid them when insertions or deletions in the middle are frequent (use Linked List/BST), when O(1) search by key is needed (use Hash Map), or when memory layout needs to be non-contiguous."
-    },
-    {
-      "question": "Difference Between Array and Vector?",
-      "answer": "An Array has a static/fixed size determined at compile-time and is allocated on the stack (or heap manually). A Vector has a dynamic size that grows at runtime, manages memory automatically, and is allocated on the heap."
-    },
-    {
-      "question": "What is Capacity in Vector?",
-      "answer": "Capacity is the total amount of memory allocated for the vector (maximum elements it can hold without reallocation), whereas Size is the number of actual elements currently stored."
-    },
-    {
-      "question": "Why does Vector resize?",
-      "answer": "A Vector resizes to allow adding more elements when its size reaches its capacity. It automatically allocates a new, larger memory block (usually double the size), copies/moves existing elements there, and deletes the old memory."
-    }
-  ]
-},
-{
-  "id": "videos",
-  "title": "Recommended Videos",
-  "type": "videos",
-  "items": [
-    {
-      "title": "Introduction to Arrays in C++",
-      "channel": "Love Babbar",
-      "duration": "48:15",
-      "url": "https://youtu.be/sNrLlmOIn-c?si=LBPeJxKTW9OrJNDC",
-      "thumbnail": {
-        "kind": "array-cubes",
-        "values": [5, 10, 15, 20]
+      {
+        "id": "complexity",
+        "title": "Basic Operations & Time Complexity",
+        "type": "comparison_table",
+        "rows": [
+          {
+            "operation": "Traversal",
+            "array": "O(n)",
+            "vector": "O(n)"
+          },
+          {
+            "operation": "Access",
+            "array": "O(1)",
+            "vector": "O(1)"
+          },
+          {
+            "operation": "Update",
+            "array": "O(1)",
+            "vector": "O(1)"
+          },
+          {
+            "operation": "Insert",
+            "array": "O(n)",
+            "vector": "O(n)"
+          }
+        ]
+      },
+      {
+        "id": "vector-functions",
+        "title": "Important Vector Functions",
+        "type": "functions",
+        "items": [
+          {
+            "name": "push_back()",
+            "description": "Add element"
+          },
+          {
+            "name": "pop_back()",
+            "description": "Remove last element"
+          },
+          {
+            "name": "size()",
+            "description": "Current size"
+          },
+          {
+            "name": "capacity()",
+            "description": "Current capacity"
+          },
+          {
+            "name": "front()",
+            "description": "First element"
+          },
+          {
+            "name": "back()",
+            "description": "Last element"
+          },
+          {
+            "name": "empty()",
+            "description": "Check empty"
+          },
+          {
+            "name": "clear()",
+            "description": "Remove all elements"
+          }
+        ]
+      },
+      {
+        "id": "array-vs-vector",
+        "title": "Array vs Vector",
+        "type": "comparison_table",
+        "rows": [
+          {
+            "feature": "Size",
+            "array": "Fixed",
+            "vector": "Dynamic"
+          },
+          {
+            "feature": "Memory",
+            "array": "Contiguous",
+            "vector": "Contiguous"
+          },
+          {
+            "feature": "Access",
+            "array": "O(1)",
+            "vector": "O(1)"
+          },
+          {
+            "feature": "Resize",
+            "array": "No",
+            "vector": "Yes"
+          },
+          {
+            "feature": "STL Support",
+            "array": "No",
+            "vector": "Yes"
+          }
+        ]
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Common Mistakes",
+        "type": "mistakes",
+        "items": [
+          {
+            "title": "Array Out Of Bounds",
+            "wrong": "int arr[5];\ncout << arr[5];",
+            "why": "Valid indexes are 0 to 4."
+          },
+          {
+            "title": "Accessing Empty Vector",
+            "wrong": "vector<int> vec;\ncout << vec.back();",
+            "why": "Calling back() on empty vector causes runtime error."
+          }
+        ]
+      },
+      {
+        "id": "when-not-to-use",
+        "title": "When Not To Use Array Or Vector",
+        "type": "table",
+        "rows": [
+          {
+            "situation": "Frequent insert/delete at beginning",
+            "choice": "Linked List"
+          },
+          {
+            "situation": "Fast search needed",
+            "choice": "Hash Map"
+          },
+          {
+            "situation": "FIFO operations",
+            "choice": "Queue"
+          },
+          {
+            "situation": "LIFO operations",
+            "choice": "Stack"
+          }
+        ]
+      },
+      {
+        "id": "interview-questions",
+        "title": "Interview Questions",
+        "type": "questions",
+        "questions": [
+          {
+            "question": "When to Use a Vector?",
+            "answer": "Use a Vector when the size of the array is not known beforehand, you need automatic resizing, or you need to dynamically insert/delete elements at the end in amortized O(1) time."
+          },
+          {
+            "question": "When Not to Use Arrays or Vectors?",
+            "answer": "Avoid them when insertions or deletions in the middle are frequent (use Linked List/BST), when O(1) search by key is needed (use Hash Map), or when memory layout needs to be non-contiguous."
+          },
+          {
+            "question": "Difference Between Array and Vector?",
+            "answer": "An Array has a static/fixed size determined at compile-time and is allocated on the stack (or heap manually). A Vector has a dynamic size that grows at runtime, manages memory automatically, and is allocated on the heap."
+          },
+          {
+            "question": "What is Capacity in Vector?",
+            "answer": "Capacity is the total amount of memory allocated for the vector (maximum elements it can hold without reallocation), whereas Size is the number of actual elements currently stored."
+          },
+          {
+            "question": "Why does Vector resize?",
+            "answer": "A Vector resizes to allow adding more elements when its size reaches its capacity. It automatically allocates a new, larger memory block (usually double the size), copies/moves existing elements there, and deletes the old memory."
+          }
+        ]
+      },
+      {
+        "id": "videos",
+        "title": "Recommended Videos",
+        "type": "videos",
+        "items": [
+          {
+            "title": "Introduction to Arrays in C++",
+            "channel": "Love Babbar",
+            "duration": "48:15",
+            "url": "https://youtu.be/sNrLlmOIn-c?si=LBPeJxKTW9OrJNDC",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                5,
+                10,
+                15,
+                20
+              ]
+            }
+          },
+          {
+            "title": "Introduction to Arrays in Java",
+            "channel": "Anuj Kumar Sharma",
+            "duration": "32:40",
+            "url": "https://youtu.be/qqRDHzPli3o?si=izzMRKjARNCjSG7W",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "practice-roadmap",
+        "title": "Practice Roadmap",
+        "type": "roadmap",
+        "nextTopic": "String",
+        "nextTitle": "Strings"
+      },
+      {
+        "id": "quick-revision",
+        "title": "Interview Rule",
+        "type": "callout",
+        "content": "If size is fixed use Array. If size changes use Vector. If insertions and deletions are frequent, consider another data structure."
       }
-    },
-    {
-      "title": "Introduction to Arrays in Java",
-      "channel": "Anuj Kumar Sharma",
-      "duration": "32:40",
-      "url": "https://youtu.be/qqRDHzPli3o?si=izzMRKjARNCjSG7W",
-      "thumbnail": {
-        "kind": "array-cubes",
-        "values": [1, 2, 3, 4]
-      }
-    }
-  ]
-},
-{
-  "id": "practice-roadmap",
-  "title": "Practice Roadmap",
-  "type": "roadmap",
-  "nextTopic": "String",
-  "nextTitle": "Strings"
-},
-
-{
-  "id": "quick-revision",
-  "title": "Interview Rule",
-  "type": "callout",
-
-  "content": "If size is fixed use Array. If size changes use Vector. If insertions and deletions are frequent, consider another data structure."
-}
-
-]
+    ]
   },
   "string": {
     "topic": "Strings",
@@ -451,10 +424,10 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "Strings ek linear data structure hote hain jo characters ko sequential order mein store karte hain. Inmein har character ek index ke through access kiya ja sakta hai. C++ mein string usually \\0 (null character) se end hoti hai (especially char arrays mein). String class (std::string) ek dynamic, mutable container hai jo internally apna size manage karta hai aur automatically resize ho jaata hai jab content change hota hai.",
-          "Computer asal mein letters nahi samajhta — wo sirf numbers samajhta hai. Har character ka apna fixed ASCII value hota hai.",
-          "ASCII (American Standard Code for Information Interchange) ek tarah ka translator hai. Computers sirf numbers (0 aur 1) samajhte hain letters nahi. Isliye, har letter, number, ya symbol (jaise 'A' ya '@') ko computer memory mein ek unique number (value) assign kiya gaya hai, jise ASCII value kehte hain."
-        ],
+  "A string is a sequence of characters stored one after another in memory. Each character has an index, so it can be accessed easily. In C++, std::string automatically manages its size, while character arrays end with a '\\0' (null character).",
+  "Computers do not understand letters directly. They only understand numbers, so every character is stored as a numeric value.",
+  "ASCII (American Standard Code for Information Interchange) is a standard that assigns a unique number to every letter, digit, and symbol. For example, 'A' = 65, 'a' = 97, and '0' = 48."
+],
         "highlights": [
           "Core DSA Topic",
           "Interview Ready",
@@ -506,16 +479,7 @@
         "id": "real-life-example",
         "title": "Real Life Example",
         "type": "comparison",
-        "left": {
-          "title": "Char Array — Roll Number Box on Exam Sheet",
-          "description": "Socho exam ya admit card mein roll number likhne ke liye exactly 6 boxes diye hote hain — ek box mein ek digit. Agar tumhara roll number sirf 4 digit ka hai, to baaki 2 boxes khaali reh jaate hain (waste). Aur agar tumhara roll number 7 digit ka hai, to wo us tray mein fit hi nahi hoga — kahin extra likhna padega, jo allowed nahi hai.",
-          "diagram": "['2']['3']['1']['9']['\\0'][ ] ← 1 box khaali, waste ho gaya\n\nChar array mein characters fixed boxes mein store hote hain — agar string chhoti hai to space waste hoti hai, agar bada hai to overflow ho jaata."
-        },
-        "right": {
-          "title": "String (STL) — WhatsApp Message Box",
-          "description": "WhatsApp pe message likhte waqt text box apne aap badhta jaata hai jaise tum type karte ho. Koi fixed limit nahi — jitna likho, box utna grow karta hai.",
-          "diagram": "\"Hi\"\n↓ (typing more...)\n\"Hi there\"\n↓ (typing more...)\n\"Hi there, how are you?\""
-        }
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1783916189/ChatGPT_Image_Jul_13_2026_09_40_53_AM_lclxtn.png"
       },
       {
         "id": "why-learn",
@@ -629,14 +593,14 @@
           "O"
         ],
         "operations": [
-          "toUpperCase(index)",
-          "toLowerCase(index)",
-          "push_back(char)",
-          "pop_back()",
-          "insert(index, char)",
-          "erase(index)",
-          "length()",
-          "empty()"
+          "s[index] = toupper(s[index])",
+          "s[index] = tolower(s[index])",
+          "s.push_back(char)",
+          "s.pop_back()",
+          "s.insert(index, 1, char)",
+          "s.erase(index, 1)",
+          "s.length()",
+          "s.empty()"
         ],
         "controls": {
           "operationLabel": "Operation",
@@ -655,49 +619,7 @@
         "id": "internal-working",
         "title": "Internal Working",
         "type": "internal",
-        "memory": {
-          "index": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5
-          ],
-          "char": [
-            "H",
-            "e",
-            "l",
-            "l",
-            "o",
-            "\\0"
-          ],
-          "ASCII": [
-            72,
-            101,
-            108,
-            108,
-            111,
-            0
-          ],
-          "address": [
-            2000,
-            2001,
-            2002,
-            2003,
-            2004,
-            2005
-          ]
-        },
-        "explanation": [
-          "Char Array is stored in contiguous memory locations, terminated by a null character (\\0).",
-          "String (STL) — Dynamic Growth: Capacity generally doubles when full, just like vector.",
-          "Exact reallocation and growth behavior depends on the STL library implementation."
-        ],
-        "formula": {
-          "label": "charAddress = base + index * sizeof(char)",
-          "example": "2000 + 4 * 1 = 2004"
-        }
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1783916290/ChatGPT_Image_Jul_13_2026_09_44_48_AM_lgmlym.png"
       },
       {
         "id": "syntax",
@@ -791,7 +713,12 @@
             "url": "https://youtu.be/Wdjr6uoZ0e0?si=Sc4l-mP9HMznFzJ-",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [12, 24, 36, 48]
+              "values": [
+                12,
+                24,
+                36,
+                48
+              ]
             }
           },
           {
@@ -801,7 +728,12 @@
             "url": "https://youtu.be/_hvBbiMRoo0?si=os8ghnRZg8y_-wgg",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [10, 20, 30, 40]
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
             }
           }
         ]
@@ -874,7 +806,7 @@
             "answer": "In languages like Java/Python, strings are immutable for memory optimization (String Pool), security (network/file parameters), and thread safety. C++ prioritizes performance and direct memory access, allowing strings to be modified in-place to avoid copy overhead."
           },
           {
-            "question": "How does substr() work internally — does it create a copy?",
+            "question": "How does substr() work internally \u2014 does it create a copy?",
             "answer": "In standard C++ STL, .substr(pos, len) creates a brand-new string object and copies the characters from the original string. This is an O(N) operation. However, modern C++ (C++17) introduces std::string_view which acts as a non-owning read-only view of a string segment without copying."
           },
           {
@@ -953,11 +885,8 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "Hashing ek technique hai jo data ko fixed-size values (hash codes) mein convert karti hai, taaki koi bhi element O(1) average time mein find, insert, aur delete kiya ja sake.",
-          "Hash Table ek data structure hai jo key-value pairs store karta hai aur internally ek array use karta hai jisme hash function keys ko array indices mein map karta hai.",
-          "Computer asal mein array index samajhta hai — wo sirf numbers samajhta hai. Har key ka ek hash value hota hai.",
-          "Hash Function ek tarah ka calculator hai. Computers direct strings ko index nahi bana sakte. Isliye, har string, number, ya object ko hash function ek unique number mein convert karta hai, jise hash value kehte hain."
-        ],
+          "Hashing is a technique used to store and retrieve data efficiently by converting a key into a fixed-size integer called a hash value. This hash value determines where the data should be stored, allowing searching, insertion, and deletion in O(1) average time.",
+        "A Hash Table is a data structure that stores data as key-value pairs. It internally uses an array"],
         "highlights": [
           "Core DSA Topic",
           "Interview Ready",
@@ -1003,22 +932,13 @@
         "leftTitle": "Hash Map / unordered_map",
         "rightTitle": "Hash Set / unordered_set",
         "left": "A key-value store where a hash function maps keys to array indices for O(1) average-time insert, lookup, and delete.",
-        "right": "A collection of unique keys backed by a hash table — no duplicates, O(1) average lookup, no ordering."
+        "right": "A collection of unique keys backed by a hash table \u2014 no duplicates, O(1) average lookup, no ordering."
       },
       {
         "id": "real-life-example",
         "title": "Real Life Example",
         "type": "comparison",
-        "left": {
-          "title": "Hash Map — Library Card Catalog",
-          "description": "Socho ek library mein laakhon books hain. Agar tum book ka naam leke dete ho, librarian turant uski shelf location bata deta hai — poori library scan kiye bina. Exactly wahi kaam Hash Map karta hai: key (book name) se value (location) seedha milta hai.",
-          "diagram": "\"Harry Potter\" → Shelf A-12, Row 3\n\"Clean Code\" → Shelf B-07, Row 1\n\"DSA Bible\" → Shelf C-22, Row 5\n\nBas waise hi Hash Map mein keys (book names) fixed slots mein store hote hain — agar key exist karti hai to O(1) mein milti hai, agar nahi to bhi O(1) mein pata chal jaata hai."
-        },
-        "right": {
-          "title": "Hash Set — Attendance Register",
-          "description": "Ek teacher ke paas students ki attendance track karni hai — koi duplicate entry nahi chahiye. Hash Set exactly yahi karta hai: ek unique names ka collection jahan check karna instant hai.",
-          "diagram": "\"Alice\"  : present\n\"Bob\"    : present\n\"Alice\"  : already marked (no duplicate)"
-        }
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1783842335/ChatGPT_Image_Jul_12_2026_01_13_21_PM_uhls13.png"
       },
       {
         "id": "why-learn",
@@ -1080,7 +1000,7 @@
           {
             "operation": "Count occurrences",
             "description": "O(n) total",
-            "stl": "—"
+            "stl": "\u2014"
           },
           {
             "operation": "Check existence",
@@ -1151,10 +1071,10 @@
           "address": [
             "hash(\"apple\")%6=0",
             "hash(\"cherry\")%6=1",
-            "—",
+            "\u2014",
             "hash(\"banana\")%6=3",
-            "—",
-            "—"
+            "\u2014",
+            "\u2014"
           ],
           "value": [
             "apple (val: 3)",
@@ -1167,13 +1087,14 @@
         },
         "explanation": [
           "Hash Map holds a contiguous array of buckets.",
-          "Hash Set (STL) — Dynamic Growth: Capacity generally doubles when load factor exceeds threshold (usually 1.0).",
+          "Hash Set (STL) \u2014 Dynamic Growth: Capacity generally doubles when load factor exceeds threshold (usually 1.0).",
           "Rehashing copies all elements to a new, larger array. Exact behavior depends on STL implementation."
         ],
         "formula": {
           "label": "bucketIndex = hash(key) % capacity",
           "example": "hash(\"banana\") % 6 = 3"
-        }
+        },
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1783844955/ChatGPT_Image_Jul_12_2026_01_53_17_PM_rmjnwb.png"
       },
       {
         "id": "syntax",
@@ -1230,7 +1151,7 @@
           {
             "operation": "Count occurrences",
             "avg": "O(n) total",
-            "worst": "—"
+            "worst": "\u2014"
           },
           {
             "operation": "Check existence",
@@ -1256,7 +1177,12 @@
             "url": "https://youtu.be/KEs5UyBJ39g?si=lp2G3nF7eecPNam_",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [15, 30, 45, 60]
+              "values": [
+                15,
+                30,
+                45,
+                60
+              ]
             }
           },
           {
@@ -1266,7 +1192,12 @@
             "url": "https://youtu.be/XLbvmMz8Fr8?si=md93np98yeEEjtxS",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [8, 16, 24, 32]
+              "values": [
+                8,
+                16,
+                24,
+                32
+              ]
             }
           }
         ]
@@ -1282,7 +1213,7 @@
             "correctLabel": "Correct Code",
             "wrong": "if (mp[\"key\"] == 0) // creates \"key\" with default value!",
             "correct": "if (mp.find(\"key\") != mp.end() && mp[\"key\"] == 0) // safe check",
-            "explanation": "Accessing mp[\"key\"] automatically inserts it with default value 0 if not present — use mp.find() or mp.count() to check existence."
+            "explanation": "Accessing mp[\"key\"] automatically inserts it with default value 0 if not present \u2014 use mp.find() or mp.count() to check existence."
           },
           {
             "title": "Iterating While Modifying",
@@ -1368,7 +1299,7 @@
         "id": "quick-revision",
         "title": "Interview Rule",
         "type": "callout",
-        "content": "If you need O(1) average lookup, insert, or delete — use unordered_map or unordered_set.\n\nIf you need sorted order or range queries — use map or set instead.\n\nIf you need fast prefix matching or dictionary-style word storage — consider a Trie or Hash Map instead."
+        "content": "If you need O(1) average lookup, insert, or delete \u2014 use unordered_map or unordered_set.\n\nIf you need sorted order or range queries \u2014 use map or set instead.\n\nIf you need fast prefix matching or dictionary-style word storage \u2014 consider a Trie or Hash Map instead."
       },
       {
         "id": "practice-roadmap",
@@ -1382,12 +1313,12 @@
   "binarysearch": {
     "topic": "Binary Search",
     "title": "Let's Master Binary Search",
-    "subtitle": "Learn how divide-and-conquer eliminates half the search space every step — powering O(log n) lookups in sorted data",
+    "subtitle": "Learn how divide-and-conquer eliminates half the search space every step \u2014 powering O(log n) lookups in sorted data",
     "hero": {
       "id": "hero",
       "eyebrow": "DSA Documentation",
       "title": "Let's Master Binary Search",
-      "subtitle": "Learn how divide-and-conquer eliminates half the search space every step — powering O(log n) lookups in sorted data",
+      "subtitle": "Learn how divide-and-conquer eliminates half the search space every step \u2014 powering O(log n) lookups in sorted data",
       "accent": "Cut the search space in half with every decision",
       "stats": [
         {
@@ -1436,9 +1367,9 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "Binary Search ek searching algorithm hai jo sirf sorted arrays ya collections par kaam karta hai. Har step par woh middle element dekh ke decide karta hai ki target left half mein hai ya right half mein — aur doosra half eliminate kar deta hai.",
-          "Iska sabse bada fayda yeh hai ki har iteration mein search space aadha ho jaata hai — isliye even 1 billion elements mein sirf ~30 comparisons lagte hain.",
-          "Computer sirf comparisons samajhta hai — Binary Search is principle ko use karke unnecessary elements skip karta hai bina dekhein."
+          "Binary Search is a searching algorithm that works only on sorted arrays or collections. At each step, it looks at the middle element and decides whether the target is in the left half or the right half \u2014 and eliminates the other half.",
+          "Its main advantage is that in each iteration the search space is halved \u2014 which is why it takes only ~30 comparisons even in 1 billion elements.",
+          "A computer only understands comparisons \u2014 Binary Search uses this principle to skip unnecessary elements without even looking at them."
         ],
         "highlights": [
           "Core DSA Topic",
@@ -1485,15 +1416,15 @@
         "cards": [
           {
             "title": "Iterative Binary Search",
-            "content": "A search algorithm on a sorted array that repeatedly halves the search space by comparing the target with the middle element — achieving O(log n) time with O(1) space."
+            "content": "A search algorithm on a sorted array that repeatedly halves the search space by comparing the target with the middle element \u2014 achieving O(log n) time with O(1) space."
           },
           {
             "title": "Recursive Binary Search",
-            "content": "Same divide-and-conquer logic implemented via recursive function calls — achieving O(log n) time with O(log n) call-stack space."
+            "content": "Same divide-and-conquer logic implemented via recursive function calls \u2014 achieving O(log n) time with O(log n) call-stack space."
           },
           {
             "title": "Binary Search on Answer (Parametric Search)",
-            "content": "A powerful variant where Binary Search is applied not on an array index, but on a range of possible answers — used when the answer has a monotonic feasibility condition (true...true...false...false or vice versa)."
+            "content": "A powerful variant where Binary Search is applied not on an array index, but on a range of possible answers \u2014 used when the answer has a monotonic feasibility condition (true...true...false...false or vice versa)."
           }
         ]
       },
@@ -1501,21 +1432,7 @@
         "id": "real-life-example",
         "title": "Real Life Example",
         "type": "comparison",
-        "left": {
-          "title": "Iterative — Dictionary Lookup",
-          "description": "Socho tum ek physical dictionary mein word 'Mango' dhundh rahe ho. Kya tum page 1 se start karoge? Nahi! Tum middle open karoge, check karoge — M pehle hai ya baad mein — aur accordingly aadha dictionary ignore kar doge. Exactly yahi Binary Search karta hai.",
-          "diagram": "Step 1: Open middle of dict\nStep 2: M comes after? → search right half\nStep 3: Open new middle → word found!"
-        },
-        "center": {
-          "title": "Recursive — Guess the Number",
-          "description": "1 to 100 ke beech koi number guess karo. Agar tum 50 bolte ho aur jawab aata hai 'zyada hai' — tum turant 1–50 eliminate kar dete ho aur recursively baaki half (51-100) mein guess karna continue karte ho.",
-          "diagram": "Target: 73\nGuess 50 → 'Greater' → search [51..100]\nGuess 75 → 'Smaller' → search [51..74]\nGuess 62 → 'Greater' → search [63..74]"
-        },
-        "right": {
-          "title": "Parametric — Eating Bananas",
-          "description": "Jab tum pooch rahe ho: 'minimum speed kya ho ki Koko k hours mein sab bananas kha sake?' — yeh ek monotonic condition hai (feasible for speed x implies feasible for any speed > x). Binary Search on the answer range karo.",
-          "diagram": "Feasibility condition:\nSpeed:  1     2     3     4     5     6\nStatus: False False True  True  True  True\nTarget: Find the first True value (3)"
-        }
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1783917435/ChatGPT_Image_Jul_13_2026_10_07_01_AM_cnfbdl.png"
       },
       {
         "id": "why-learn",
@@ -1525,7 +1442,7 @@
           {
             "icon": "Sparkles",
             "title": "Interview Core",
-            "description": "Used in almost every coding interview — LeetCode has 200+ Binary Search problems, including Aggressive Cows and Book Allocation."
+            "description": "Used in almost every coding interview \u2014 LeetCode has 200+ Binary Search problems, including Aggressive Cows and Book Allocation."
           },
           {
             "icon": "Trophy",
@@ -1653,43 +1570,7 @@
         "id": "internal-working",
         "title": "Internal Working",
         "type": "internal",
-        "memory": {
-          "Step": [
-            "Init",
-            "Loop",
-            "Mid",
-            "Found",
-            "Go Right",
-            "Go Left",
-            "Not Found"
-          ],
-          "Operation": [
-            "low = 0, high = n-1",
-            "while (low <= high)",
-            "mid = low + (high-low)/2",
-            "arr[mid] == target",
-            "arr[mid] < target",
-            "arr[mid] > target",
-            "low > high"
-          ],
-          "Detail": [
-            "Set search boundaries to full array",
-            "Continue while valid search range exists",
-            "Safe mid formula — avoids integer overflow",
-            "Return mid index — element found",
-            "low = mid + 1 — eliminate left half",
-            "high = mid - 1 — eliminate right half",
-            "Loop ends — return -1"
-          ]
-        },
-        "explanation": [
-          "Binary Search operates on a step-by-step division of the search space.",
-          "Why mid = low + (high-low)/2 and NOT (low+high)/2?: Agar low = 2,000,000,000 aur high = 2,000,000,001 ho toh (low+high) integer overflow kar jaata hai C++/Java mein. low + (high-low)/2 always safe rehta hai."
-        ],
-        "formula": {
-          "label": "Safe Mid Calculation",
-          "example": "low + (high - low) / 2"
-        }
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1783918293/ChatGPT_Image_Jul_13_2026_10_21_14_AM_kviorp.png"
       },
       {
         "id": "syntax",
@@ -1731,13 +1612,13 @@
         ],
         "rows": [
           {
-            "operation": "Search — found",
+            "operation": "Search \u2014 found",
             "time": "O(log n)",
             "spaceIterative": "O(1)",
             "spaceRecursive": "O(log n)"
           },
           {
-            "operation": "Search — not found",
+            "operation": "Search \u2014 not found",
             "time": "O(log n)",
             "spaceIterative": "O(1)",
             "spaceRecursive": "O(log n)"
@@ -1798,7 +1679,12 @@
             "url": "https://youtu.be/YJeoQBevNVo?si=fktxlrfBZrJCGswF",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [4, 8, 16, 32]
+              "values": [
+                4,
+                8,
+                16,
+                32
+              ]
             }
           },
           {
@@ -1808,7 +1694,12 @@
             "url": "https://youtu.be/p_MZraK3w2s?si=Lk-xsZcIV7pHSieD",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [2, 4, 6, 8]
+              "values": [
+                2,
+                4,
+                6,
+                8
+              ]
             }
           }
         ]
@@ -1827,7 +1718,7 @@
             "explanation": "Applying Binary Search on an unsorted array gives wrong results with no error. Always verify or sort the array first."
           },
           {
-            "title": "Using (low + high) / 2 — Integer Overflow",
+            "title": "Using (low + high) / 2 \u2014 Integer Overflow",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
             "wrong": "int mid = (low + high) / 2; // overflow risk!",
@@ -1835,7 +1726,7 @@
             "explanation": "If low and high are very large, their sum can exceed the maximum integer limit. The subtraction-based calculation prevents this."
           },
           {
-            "title": "Wrong Loop Condition — Misses Last Element",
+            "title": "Wrong Loop Condition \u2014 Misses Last Element",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
             "wrong": "while (low < high) { // misses when low == high\n    // ...\n}",
@@ -1843,7 +1734,7 @@
             "explanation": "Using strictly less than (<) skips checking when the search space reduces to a single element where low == high."
           },
           {
-            "title": "Wrong Boundary Update — Causes Infinite Loop",
+            "title": "Wrong Boundary Update \u2014 Causes Infinite Loop",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
             "wrong": "low = mid; // never moves past mid\nhigh = mid;",
@@ -1950,7 +1841,7 @@
         "id": "quick-revision",
         "title": "Interview Rule",
         "type": "callout",
-        "content": "If you need O(log n) search in sorted data — use Binary Search.\n\nIf you need O(1) average lookup by key — use Hash Map instead.\n\nIf you see 'minimum/maximum feasible value' or a monotonic condition — think Binary Search on Answer (Parametric Search)."
+        "content": "If you need O(log n) search in sorted data \u2014 use Binary Search.\n\nIf you need O(1) average lookup by key \u2014 use Hash Map instead.\n\nIf you see 'minimum/maximum feasible value' or a monotonic condition \u2014 think Binary Search on Answer (Parametric Search)."
       },
       {
         "id": "practice-roadmap",
@@ -2008,9 +1899,9 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "Linked List ek linear data structure hai jo nodes ki chain hoti hai. Har node mein do cheezein hoti hain: ek data (value) aur ek pointer jo next node ka address store karta hai. Array ki tarah contiguous memory mein store nahi hoti — har node memory mein kahin bhi ho sakti hai.",
-          "Computer asal mein memory addresses samajhta hai — wo sirf numbers samajhta hai. Har node ka apna memory address hota hai.",
-          "Pointer ek tarah ka address book hai. Computer directly data dhundhta nahi — isliye, har node apne andar next node ka address (pointer) rakhti hai, jise hum link kehte hain."
+          "A Linked List is a linear data structure that is a chain of nodes. Each node contains two things: data (value) and a pointer that stores the address of the next node. Unlike arrays, it is not stored in contiguous memory locations \u2014 each node can be located anywhere in memory.",
+          "A computer actually understands memory addresses \u2014 it only understands numbers. Each node has its own memory address.",
+          "A pointer is like an address book. A computer does not directly find data \u2014 therefore, each node keeps the address of the next node (pointer) inside it, which we call a link."
         ],
         "highlights": [
           "Core DSA Topic",
@@ -2057,15 +1948,15 @@
         "cards": [
           {
             "title": "Singly Linked List",
-            "content": "A linear chain of nodes where each node holds data and a pointer to the next node — enabling dynamic, non-contiguous memory allocation with O(1) insert/delete at head."
+            "content": "A linear chain of nodes where each node holds data and a pointer to the next node \u2014 enabling dynamic, non-contiguous memory allocation with O(1) insert/delete at head."
           },
           {
             "title": "Doubly Linked List",
-            "content": "A linked list where each node holds data, a pointer to the next node, AND a pointer to the previous node — enabling O(1) insert/delete at both head and tail, and bidirectional traversal."
+            "content": "A linked list where each node holds data, a pointer to the next node, AND a pointer to the previous node \u2014 enabling O(1) insert/delete at both head and tail, and bidirectional traversal."
           },
           {
             "title": "Circular Linked List",
-            "content": "A singly or doubly linked list where the last node's next pointer points back to the head — enabling continuous circular traversal without a null terminator."
+            "content": "A singly or doubly linked list where the last node's next pointer points back to the head \u2014 enabling continuous circular traversal without a null terminator."
           }
         ]
       },
@@ -2073,21 +1964,7 @@
         "id": "real-life-example",
         "title": "Real Life Example",
         "type": "comparison",
-        "left": {
-          "title": "Singly LL — Train Bogies",
-          "description": "Socho ek train hai jisme bogies (compartments) ek dusre se judi hain. Har bogie ke andar passengers hain (data), aur har bogie ko pata hai ki aage kaun si bogie hai (next pointer). Lekin peechhe kaun si thi? Woh nahi pata — sirf aage dekhti hai.",
-          "diagram": "[Engine] → [Bogie A] → [Bogie B] → [Bogie C] → NULL\n\nSingly Linked List mein har node sirf next node ko jaanti hai. Peeche jaana possible nahi bina poori list traverse kiye."
-        },
-        "center": {
-          "title": "Doubly LL — Browser History",
-          "description": "Browser tab mein Back aur Forward dono kaam karte hain. Har page ko pata hai ki pehle kaun sa tha aur agle mein kaun aayega — exactly Doubly Linked List ki tarah, prev aur next references ke saath.",
-          "diagram": "NULL ← [Google] ⇔ [YouTube] ⇔ [GitHub] → NULL"
-        },
-        "right": {
-          "title": "Circular LL — Music Playlist Loop",
-          "description": "Jab playlist repeat mode on hota hai — last song khatam hone ke baad pehla song phir se chalta hai. Circular Linked List exactly yahi karta hai: last node ka next pointer head ko point karta hai.",
-          "diagram": "[Song 1] → [Song 2] → [Song 3] → [Song 1] (loops back)"
-        }
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1784087974/ChatGPT_Image_Jul_15_2026_09_14_30_AM_ysenm5.png"
       },
       {
         "id": "why-learn",
@@ -2218,36 +2095,7 @@
         "id": "internal-working",
         "title": "Internal Working",
         "type": "internal",
-        "memory": {
-          "Address": [
-            "1000",
-            "2200",
-            "3100"
-          ],
-          "Data (Content)": [
-            "10",
-            "20",
-            "30"
-          ],
-          "Next Address": [
-            "2200",
-            "3100",
-            "NULL"
-          ],
-          "Role": [
-            "Node 1 (head)",
-            "Node 2",
-            "Node 3 (tail)"
-          ]
-        },
-        "explanation": [
-          "Linked List nodes are stored in non-contiguous memory locations (e.g. 1000, 2200, 3100), linked together via pointer addresses.",
-          "Doubly Linked List: Each node contains three fields: prev pointer | data | next pointer. This doubles pointer memory overhead but enables O(1) bidirectional scans and direct node deletions."
-        ],
-        "formula": {
-          "label": "Memory Layout",
-          "example": "Non-contiguous heap-allocated nodes connected via memory address references"
-        }
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1784087976/ChatGPT_Image_Jul_15_2026_09_13_18_AM_r1cbrw.png"
       },
       {
         "id": "syntax",
@@ -2340,7 +2188,12 @@
             "url": "https://youtu.be/LyuuqCVkP5I?si=nK0jkb1NH3I1yhp5",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [3, 6, 9, 12]
+              "values": [
+                3,
+                6,
+                9,
+                12
+              ]
             }
           },
           {
@@ -2350,7 +2203,12 @@
             "url": "https://youtu.be/oAja8-Ulz6o?si=qf0vJAj2Qt1EQD5k",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [1, 2, 4, 8]
+              "values": [
+                1,
+                2,
+                4,
+                8
+              ]
             }
           }
         ]
@@ -2452,7 +2310,7 @@
         "id": "quick-revision",
         "title": "Interview Rule",
         "type": "callout",
-        "content": "If you need O(1) insert/delete at head or tail — use Linked List.\n\nIf you need O(1) random access by index — use Array or Vector instead.\n\nIf you need bidirectional traversal or O(1) deletion given a node pointer — use Doubly Linked List."
+        "content": "If you need O(1) insert/delete at head or tail \u2014 use Linked List.\n\nIf you need O(1) random access by index \u2014 use Array or Vector instead.\n\nIf you need bidirectional traversal or O(1) deletion given a node pointer \u2014 use Doubly Linked List."
       },
       {
         "id": "practice-roadmap",
@@ -2510,10 +2368,10 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "Stack ek linear data structure hai jo LIFO (Last In First Out) principle follow karta hai.",
-          "Iska matlab hai ki jo element sabse last mein insert (Push) kiya gaya hoga, wahi sabse pehle remove (Pop) hoga.",
-          "Stack mein insertion aur deletion dono operations sirf ek hi end se perform hote hain, jise Top kaha jata hai.",
-          "Jab koi naya element add kiya jata hai to woh Top par add hota hai aur jab koi element remove kiya jata hai to woh bhi Top se hi remove hota hai."
+          "A Stack is a linear data structure that follows the LIFO (Last In First Out) principle.",
+          "This means that the element inserted last (Push) will be the first one to be removed (Pop).",
+          "In a Stack, both insertion and deletion operations are performed from only one end, called the Top.",
+          "When a new element is added, it is added at the Top, and when an element is removed, it is also removed from the Top."
         ],
         "highlights": [
           "LIFO Principle",
@@ -2557,44 +2415,13 @@
         "id": "definition",
         "title": "One Line Definition",
         "type": "callout",
-        "content": "Stack ek aisa data structure hai jisme insertion aur deletion sirf ek side se hoti hai, jise Top kehte hain."
+        "content": "A Stack is a data structure where insertion and deletion happen from only one side, called the Top."
       },
       {
         "id": "real-life-example",
         "title": "Real Life Example",
-        "type": "example",
-        "content": [
-          "Socho tumhare paas plates ka stack hai.",
-          "Nayi plate hamesha upar rakhi jaati hai.",
-          "Plate hamesha upar se hi nikali jaati hai.",
-          "Jo plate sabse last me rakhi gayi thi, wahi sabse pehle niklegi.",
-          "Yahi Stack ka concept hai."
-        ],
-        "visual": {
-          "title": "Stack of plates",
-          "items": [
-            {
-              "label": "0",
-              "color": "#f04438"
-            },
-            {
-              "label": "1",
-              "color": "#2563eb"
-            },
-            {
-              "label": "2",
-              "color": "#6b7280"
-            },
-            {
-              "label": "3",
-              "color": "#f8fafc"
-            },
-            {
-              "label": "4",
-              "color": "#16a34a"
-            }
-          ]
-        }
+        "type": "comparison",
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1784087974/ChatGPT_Image_Jul_15_2026_09_17_46_AM_nmstbq.png"
       },
       {
         "id": "why-learn",
@@ -2604,12 +2431,12 @@
           {
             "icon": "Sparkles",
             "title": "Why Stack?",
-            "description": "Programming me kai situations aisi hoti hain jahan hume sabse recently added item ko pehle access karna hota hai. Normal array ya queue is behavior ko efficiently provide nahi karte."
+            "description": "In programming, there are many situations where we need to access the most recently added item first. A normal array or queue does not provide this behavior efficiently."
           },
           {
             "icon": "Trophy",
             "title": "Core Benefits",
-            "description": "Stack hume data ko organized way me store karne, recent operations ko quick access dene, aur recursion/function calls manage karne me help karta hai."
+            "description": "A Stack helps us store data in an organized way, gives quick access to recent operations, and helps manage recursion and function calls."
           },
           {
             "icon": "Workflow",
@@ -2713,33 +2540,7 @@
         "id": "internal-working",
         "title": "Internal Working",
         "type": "internal",
-        "memory": {
-          "index": [
-            0,
-            1,
-            2
-          ],
-          "address": [
-            1000,
-            1004,
-            1008
-          ],
-          "value": [
-            10,
-            20,
-            30
-          ]
-        },
-        "explanation": [
-          "Stack initialization: Stack <int> name; creates empty indexes.",
-          "name.push(10) pushes 10 at Index 0.",
-          "name.push(20) pushes 20 at Index 1.",
-          "Elements memory me continuously store hote hain (Address 1000, 1004, 1008)."
-        ],
-        "formula": {
-          "label": "position = base + step * index",
-          "example": "1000 + 4 * index"
-        }
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1784087974/ChatGPT_Image_Jul_15_2026_09_29_17_AM_u5t9mz.png"
       },
       {
         "id": "syntax",
@@ -2824,7 +2625,12 @@
             "url": "https://youtu.be/_6COl6V6mng?si=iVcbAovsiMeIUDOD",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [6, 12, 18, 24]
+              "values": [
+                6,
+                12,
+                18,
+                24
+              ]
             }
           },
           {
@@ -2834,7 +2640,12 @@
             "url": "https://youtu.be/7m1DMYAbdiY?si=nWgtRsDkvihKzwzW",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [5, 10, 15, 20]
+              "values": [
+                5,
+                10,
+                15,
+                20
+              ]
             }
           }
         ]
@@ -2949,10 +2760,10 @@
         "title": "Introduction",
         "type": "paragraph",
         "content": [
-          "Queue ek linear data structure hai jo FIFO (First In First Out) principle follow karta hai.",
-          "Iska matlab hai ki jo element sabse pehle insert (Enqueue) kiya gaya hoga, wahi sabse pehle remove (Dequeue) hoga.",
-          "Queue mein insertion ek end se hoti hai jise Rear (Back) kaha jata hai, aur deletion doosre end se hoti hai jise Front kaha jata hai.",
-          "Jab koi naya element add kiya jata hai to woh Rear par add hota hai aur jab koi element remove kiya jata hai to woh Front se remove hota hai."
+          "A Queue is a linear data structure that follows the FIFO (First In First Out) principle.",
+          "This means that the element inserted first (Enqueue) will be the first one to be removed (Dequeue).",
+          "In a Queue, insertion happens at one end called the Rear (Back), and deletion happens at the other end called the Front.",
+          "When a new element is added, it is added at the Rear, and when an element is removed, it is removed from the Front."
         ],
         "highlights": [
           "FIFO Principle",
@@ -2996,44 +2807,13 @@
         "id": "definition",
         "title": "One Line Definition",
         "type": "callout",
-        "content": "Queue ek aisa data structure hai jisme insertion Rear se aur deletion Front se hoti hai — jo pehle aaya, wahi pehle jayega."
+        "content": "A Queue is a data structure where insertion happens at the Rear and deletion at the Front \u2014 whoever comes first, leaves first."
       },
       {
         "id": "real-life-example",
         "title": "Real Life Example",
-        "type": "example",
-        "content": [
-          "Socho tum ek bank mein ho aur counter pe line lagi hai.",
-          "Jo insaan pehle line mein aaya, woh pehle serve hoga.",
-          "Naaya aadmi hamesha line ke end (Rear) mein lagta hai.",
-          "Service hamesha line ke shuruaat (Front) se hoti hai.",
-          "Yahi Queue ka concept hai — First Come, First Served!"
-        ],
-        "visual": {
-          "title": "People waiting in line",
-          "items": [
-            {
-              "label": "0",
-              "color": "#f04438"
-            },
-            {
-              "label": "1",
-              "color": "#2563eb"
-            },
-            {
-              "label": "2",
-              "color": "#6b7280"
-            },
-            {
-              "label": "3",
-              "color": "#f8fafc"
-            },
-            {
-              "label": "4",
-              "color": "#16a34a"
-            }
-          ]
-        }
+        "type": "comparison",
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1784087974/ChatGPT_Image_Jul_15_2026_09_23_35_AM_wtkhgf.png"
       },
       {
         "id": "why-learn",
@@ -3043,22 +2823,22 @@
           {
             "icon": "Sparkles",
             "title": "Kyun Seekhein Queue?",
-            "description": "Programming mein kai situations aisi hoti hain jahan hume pehle aaye element ko pehle process karna hota hai. Normal array is behavior ko efficiently provide nahi karta. Isi problem ko solve karne ke liye Queue use kiya jata hai."
+            "description": "In programming, there are many situations where we need to process the first-come element first. A normal array does not provide this behavior efficiently. A Queue is used to solve this problem."
           },
           {
             "icon": "Trophy",
             "title": "Core Benefits",
-            "description": "Queue hume data ko organized way mein store karne, pehle aaye element ko quickly access karne, aur BFS / Level Order Traversal problems efficiently solve karne mein help karta hai."
+            "description": "A Queue helps us store data in an organized way, quickly access the first element, and solve BFS / Level Order Traversal problems efficiently."
           },
           {
             "icon": "Workflow",
             "title": "Where We Use Queue",
-            "description": "BFS Traversal, Level Order Tree Traversal, CPU Scheduling, Printer Queue management, Sliding Window problems, Message Brokers, aur Real-time Streaming mein use hota hai."
+            "description": "It is used in BFS Traversal, Level Order Tree Traversal, CPU Scheduling, Printer Queue management, Sliding Window problems, Message Brokers, and Real-time Streaming."
           },
           {
             "icon": "Brain",
             "title": "Real Applications",
-            "description": "Operating Systems mein Process Scheduling, Networking mein Packet Handling, Web Servers mein Request Handling, aur Game Engines mein Event Processing ke liye Queue use hota hai."
+            "description": "It is used for Process Scheduling in Operating Systems, Packet Handling in Networking, Request Handling in Web Servers, and Event Processing in Game Engines."
           }
         ]
       },
@@ -3111,13 +2891,13 @@
           },
           {
             "operation": "clear()",
-            "description": "Saare elements remove kar deta hai",
+            "description": "Removes all elements",
             "stl": "loop pop",
             "complexity": "O(n)"
           },
           {
             "operation": "Deque Pop",
-            "description": "Dono ends se remove karne deta hai",
+            "description": "Allows removal from both ends",
             "stl": "pop_front/back()",
             "complexity": "O(1)"
           }
@@ -3172,41 +2952,7 @@
         "id": "internal-working",
         "title": "Internal Working",
         "type": "internal",
-        "memory": {
-          "index": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "address": [
-            1000,
-            1004,
-            1008,
-            1012,
-            1016
-          ],
-          "value": [
-            7,
-            14,
-            21,
-            28,
-            35
-          ]
-        },
-        "explanation": [
-          "Queue initialization: queue<int> name; creates empty queue with Front aur Rear dono null.",
-          "name.push(10) karne par 10 Address 1000 par store hota hai — yahi Front banta hai.",
-          "name.push(20) karne par 20 Address 1004 par store hota hai — yahi Rear ban jata hai.",
-          "name.push(30) karne par 30 Address 1008 par store hota hai, Rear aage move karta hai.",
-          "Elements memory mein continuously store hote hain (Address 1000, 1004, 1008).",
-          "pop() karne par Front wala element remove hota hai aur Front pointer next address pe move ho jata hai."
-        ],
-        "formula": {
-          "label": "position = base + step * index",
-          "example": "1000 + 4 * 4 = 1016"
-        }
+        "photo": "https://res.cloudinary.com/dznwqaqjw/image/upload/v1784087974/ChatGPT_Image_Jul_15_2026_09_23_40_AM_crgqph.png"
       },
       {
         "id": "syntax",
@@ -3310,7 +3056,12 @@
             "url": "https://youtu.be/W7uB9-TKfTg?si=0X-VvOwf5Rdybzlx",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [8, 16, 24, 32]
+              "values": [
+                8,
+                16,
+                24,
+                32
+              ]
             }
           },
           {
@@ -3320,7 +3071,12 @@
             "url": "https://youtu.be/va_6RmSrKCg?si=xpQy6kcCYcPp5aap",
             "thumbnail": {
               "kind": "array-cubes",
-              "values": [4, 8, 12, 16]
+              "values": [
+                4,
+                8,
+                12,
+                16
+              ]
             }
           }
         ]
@@ -3336,23 +3092,23 @@
             "correctLabel": "Correct Code",
             "wrong": "queue<int> q;\ncout << q.front(); // Crash! Queue is empty",
             "correct": "queue<int> q;\nif (!q.empty()) {\n    cout << q.front(); // Safe access\n}",
-            "explanation": "Agar queue empty ho aur tum front() ya pop() call kar do, toh undefined behavior ya runtime crash ho sakta hai. Hamesha pehle empty() check karo."
+            "explanation": "If the queue is empty and you call front() or pop(), it can cause undefined behavior or a runtime crash. Always check empty() first."
           },
           {
-            "title": "Queue ko Stack ki tarah use karna",
+            "title": "Using Queue as a Stack",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
             "wrong": "// Queue mein LIFO chahiye tha\nqueue<int> q;\nq.push(10);\nq.push(20);\ncout << q.back(); // Galat approach",
             "correct": "// LIFO ke liye Stack use karo\nstack<int> st;\nst.push(10);\nst.push(20);\ncout << st.top(); // Correct!",
-            "explanation": "Queue FIFO follow karta hai. Agar tumhe Last In First Out behavior chahiye, toh Queue ki jagah Stack use karo. Dono ko confuse mat karo."
+            "explanation": "A Queue follows FIFO. If you need Last In First Out behavior, use a Stack instead of a Queue. Do not confuse the two."
           },
           {
-            "title": "BFS mein Queue ki jagah Stack use karna",
+            "title": "Using Stack instead of Queue in BFS",
             "wrongLabel": "Wrong Code",
             "correctLabel": "Correct Code",
-            "wrong": "// BFS ke liye Stack use kiya — yeh DFS ban jaata hai\nstack<int> st;\nst.push(start);\nwhile (!st.empty()) {\n    int node = st.top(); st.pop();\n    // process neighbors...\n}",
+            "wrong": "// Using Stack instead of Queue for BFS \u2014 this turns it into DFS\nstack<int> st;\nst.push(start);\nwhile (!st.empty()) {\n    int node = st.top(); st.pop();\n    // process neighbors...\n}",
             "correct": "// BFS ke liye hamesha Queue use karo\nqueue<int> q;\nq.push(start);\nwhile (!q.empty()) {\n    int node = q.front(); q.pop();\n    // process neighbors...\n}",
-            "explanation": "BFS (Breadth First Search) ke liye Queue zaroori hai kyunki yeh level-by-level traverse karta hai. Stack use karne par DFS ho jata hai jo galat result deta hai."
+            "explanation": "A Queue is required for BFS (Breadth First Search) because it traverses level-by-level. Using a Stack turns it into DFS, which gives incorrect results."
           }
         ]
       },
@@ -3386,6 +3142,1549 @@
             "answer": "A Priority Queue is an abstract data type where each element has a priority, and elements are served based on priority. It is typically implemented internally using a Binary Heap (Max-Heap or Min-Heap) supporting O(log N) push/pop."
           }
         ]
+      }
+    ]
+  },
+  "trees": {
+    "topic": "Tree",
+    "title": "Let's Master Trees",
+    "subtitle": "Learn how nodes branch into hierarchies, enable fast search, and power real-world systems",
+    "hero": {
+      "id": "hero",
+      "eyebrow": "DSA Documentation",
+      "title": "Let's Master Trees",
+      "subtitle": "Learn how nodes branch into hierarchies, enable fast search, and power real-world systems",
+      "accent": "Think in hierarchy instead of a straight line",
+      "stats": [
+        {
+          "label": "Complexity",
+          "value": "O(log n) Balanced"
+        },
+        {
+          "label": "Core Types",
+          "value": "Binary / BST / AVL"
+        },
+        {
+          "label": "Problems",
+          "value": "20+"
+        }
+      ],
+      "visual": {
+        "values": [
+          50,
+          30,
+          70,
+          20,
+          40
+        ],
+        "labels": [
+          "Root",
+          "L",
+          "R",
+          "LL",
+          "LR"
+        ]
+      }
+    },
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "type": "paragraph",
+        "content": [
+          "A Tree is a non-linear, hierarchical data structure in which nodes are connected in parent-child relationships. The topmost node is called the 'root', and each node can have zero or more 'children' below it \u2014 just like a family tree.",
+          "In a Linked List, each node pointed to only one next node, but in a Tree, a node can point to multiple children \u2014 creating a branching structure.",
+          "Each node with no children is called a 'leaf node', and the longest path from the root to any leaf is called the 'height'. This structure is perfect for searching, sorting, and representing hierarchical data (like file systems or org charts)."
+        ],
+        "highlights": [
+          "Core DSA Topic",
+          "Interview Ready",
+          "Hierarchical Structure",
+          "Recursive by Nature"
+        ]
+      },
+      {
+        "id": "what-you-learn",
+        "title": "What You'll Learn",
+        "type": "learn_cards",
+        "items": [
+          {
+            "icon": "Boxes",
+            "title": "Core Concepts",
+            "description": "Understand root, parent, child, leaf, depth, height, and subtree relationships.",
+            "progress": 85
+          },
+          {
+            "icon": "Gauge",
+            "title": "Time Complexity",
+            "description": "Compare O(log n) balanced search with O(n) worst-case skewed trees.",
+            "progress": 78
+          },
+          {
+            "icon": "Workflow",
+            "title": "Traversals",
+            "description": "Practice inorder, preorder, postorder, and level-order traversal patterns.",
+            "progress": 84
+          },
+          {
+            "icon": "Brain",
+            "title": "Patterns",
+            "description": "Learn recursion, BST insert/search, height balancing, and LCA techniques.",
+            "progress": 88
+          }
+        ]
+      },
+      {
+        "id": "definition",
+        "title": "One Line Definition",
+        "type": "dual_callout",
+        "cards": [
+          {
+            "title": "Binary Tree",
+            "content": "A hierarchical structure where each node has at most two children, referred to as the left child and the right child \u2014 the foundation for all specialized tree variants."
+          },
+          {
+            "title": "Binary Search Tree (BST)",
+            "content": "A binary tree where the left subtree contains only smaller values and the right subtree contains only larger values \u2014 enabling O(log n) search, insert, and delete on average."
+          },
+          {
+            "title": "Balanced Tree (AVL)",
+            "content": "A self-balancing BST where the height difference between left and right subtrees of any node is at most 1 \u2014 guaranteeing O(log n) worst-case operations via rotations."
+          }
+        ]
+      },
+      {
+        "id": "real-life-example",
+        "title": "Real Life Example",
+        "type": "comparison",
+        "left": {
+          "title": "Binary Tree \u2014 Family Tree",
+          "description": "Imagine a family tree where grandparents have two children, who in turn have their own children. Each person (node) can have at most two direct children when following a binary structure \u2014 just like a Binary Tree.",
+          "diagram": "        [Root]\n        /    \\\n     [L]      [R]\n     /  \\      /  \\\n   [LL][LR] [RL][RR]\n\nEach node has at most 2 children \u2014 left and right."
+        },
+        "center": {
+          "title": "BST \u2014 Dictionary Lookup",
+          "description": "When we search for a word in a dictionary, we start from the middle page and decide if the word comes before or after \u2014 then we continue searching in that half only. A BST works exactly this way.",
+          "diagram": "         [50]\n         /   \\\n      [30]   [70]\n      /  \\    /  \\\n   [20][40][60][80]\n\nLeft subtree < Node < Right subtree"
+        },
+        "right": {
+          "title": "AVL \u2014 Library Shelf Balance",
+          "description": "In a well-organized library, books are arranged so evenly that no section is too long or too short \u2014 making book search always fast. An AVL Tree also keeps its height balanced through rotations.",
+          "diagram": "Balanced:      Unbalanced (fixed via rotation):\n   [30]              [10]\n   /  \\                 \\\n[20]  [40]              [20]\n                            \\\n                            [30]  \u2192 rotate \u2192 balanced"
+        }
+      },
+      {
+        "id": "why-learn",
+        "title": "Why We Learn This?",
+        "type": "why_learn",
+        "items": [
+          {
+            "icon": "Sparkles",
+            "title": "Recursive Thinking",
+            "description": "Trees build strong recursion skills \u2014 most tree problems are solved by breaking them into left/right subtree subproblems."
+          },
+          {
+            "icon": "Trophy",
+            "title": "Interview Standards",
+            "description": "Extremely common in interviews (Traversals, Height, LCA, Validate BST, Balanced Tree checks)."
+          },
+          {
+            "icon": "Workflow",
+            "title": "Core Foundations",
+            "description": "Forms the foundation of Heaps, Tries, B-Trees, Databases (indexes), File Systems, and Compilers (AST)."
+          },
+          {
+            "icon": "Brain",
+            "title": "Efficient Search",
+            "description": "Balanced trees give O(log n) search/insert/delete, far better than O(n) linear structures for large datasets."
+          }
+        ]
+      },
+      {
+        "id": "basic-operations",
+        "title": "Tree Operations",
+        "type": "operations",
+        "columns": [
+          "Operation",
+          "Description",
+          "Details"
+        ],
+        "rows": [
+          {
+            "operation": "insert(val)",
+            "description": "Add a new node in correct BST position",
+            "stl": "Recursively compares val and goes left/right"
+          },
+          {
+            "operation": "search(val)",
+            "description": "Find node by value",
+            "stl": "Returns node pointer or nullptr if not found"
+          },
+          {
+            "operation": "deleteNode(val)",
+            "description": "Remove node and re-attach subtree",
+            "stl": "Handles leaf, one-child, and two-children cases"
+          },
+          {
+            "operation": "inorder()",
+            "description": "Left \u2192 Node \u2192 Right traversal",
+            "stl": "Produces sorted order for a BST"
+          },
+          {
+            "operation": "preorder()",
+            "description": "Node \u2192 Left \u2192 Right traversal",
+            "stl": "Used to copy/serialize a tree"
+          },
+          {
+            "operation": "postorder()",
+            "description": "Left \u2192 Right \u2192 Node traversal",
+            "stl": "Used to safely delete a tree"
+          },
+          {
+            "operation": "levelOrder()",
+            "description": "Traverse level by level (BFS)",
+            "stl": "Uses a queue to visit nodes breadth-first"
+          },
+          {
+            "operation": "height()",
+            "description": "Compute the height of the tree",
+            "stl": "1 + max(height(left), height(right))"
+          },
+          {
+            "operation": "findLCA(a, b)",
+            "description": "Find lowest common ancestor of two nodes",
+            "stl": "Recursively splits search based on node values"
+          }
+        ],
+        "panelTitle": "Helpers Covered",
+        "functions": [
+          "root",
+          "left",
+          "right",
+          "parent",
+          "height",
+          "TreeNode"
+        ]
+      },
+      {
+        "id": "visualization",
+        "title": "Interactive Visualization",
+        "type": "visualization",
+        "initialArray": [
+          50,
+          30,
+          70
+        ],
+        "operations": [
+          "insert(value)",
+          "search(value)",
+          "deleteNode(value)",
+          "inorder()",
+          "preorder()",
+          "postorder()",
+          "levelOrder()",
+          "height()"
+        ],
+        "controls": {
+          "operationLabel": "Operation",
+          "valueLabel": "Value",
+          "indexLabel": "Index",
+          "buttonLabel": "Run Visualization"
+        },
+        "labels": {
+          "before": "Before Operation",
+          "after": "After Operation",
+          "index": "Index",
+          "value": "Value"
+        }
+      },
+      {
+        "id": "internal-working",
+        "title": "Internal Working",
+        "type": "internal",
+        "memory": {
+          "Address": [
+            "1000",
+            "2200",
+            "3100"
+          ],
+          "Data (Content)": [
+            "50",
+            "30",
+            "70"
+          ],
+          "Left Address": [
+            "2200",
+            "NULL",
+            "NULL"
+          ],
+          "Right Address": [
+            "3100",
+            "NULL",
+            "NULL"
+          ],
+          "Role": [
+            "Root Node",
+            "Left Child",
+            "Right Child"
+          ]
+        },
+        "explanation": [
+          "Tree nodes are stored in non-contiguous heap memory (e.g. 1000, 2200, 3100), connected via left and right pointer addresses instead of a single next pointer.",
+          "Each node contains three fields: left pointer | data | right pointer. This lets the structure branch instead of forming a straight chain, enabling O(log n) operations when the tree stays balanced."
+        ],
+        "formula": {
+          "label": "Memory Layout",
+          "example": "Non-contiguous heap-allocated nodes connected via left/right pointer references"
+        }
+      },
+      {
+        "id": "syntax",
+        "title": "Syntax & Node Declarations",
+        "type": "syntax",
+        "tabs": [
+          {
+            "label": "Binary Tree (C++)",
+            "language": "cpp",
+            "code": "// Binary Tree Node representation\nstruct TreeNode {\n    int data;\n    TreeNode* left;\n    TreeNode* right;\n    TreeNode(int d) : data(d), left(nullptr), right(nullptr) {}\n};\n\n// Basic Binary Tree class\nclass BinaryTree {\npublic:\n    TreeNode* root;\n    BinaryTree() : root(nullptr) {}\n};"
+          },
+          {
+            "label": "BST Insert (C++)",
+            "language": "cpp",
+            "code": "// Recursive BST insert\nTreeNode* insert(TreeNode* node, int val) {\n    if (node == nullptr) return new TreeNode(val);\n    if (val < node->data)\n        node->left = insert(node->left, val);\n    else if (val > node->data)\n        node->right = insert(node->right, val);\n    return node;\n}"
+          },
+          {
+            "label": "BST Insert (JavaScript)",
+            "language": "javascript",
+            "code": "// Node representation\nclass TreeNode {\n  constructor(val) {\n    this.data = val;\n    this.left = null;\n    this.right = null;\n  }\n}\n\n// Recursive BST insert\nfunction insert(node, val) {\n  if (node === null) return new TreeNode(val);\n  if (val < node.data) node.left = insert(node.left, val);\n  else if (val > node.data) node.right = insert(node.right, val);\n  return node;\n}"
+          }
+        ]
+      },
+      {
+        "id": "complexity",
+        "title": "Complexity Matrix",
+        "type": "complexity",
+        "columns": [
+          "Operation",
+          "BST (Skewed Worst-Case)",
+          "Balanced Tree (AVL)"
+        ],
+        "keys": [
+          "operation",
+          "singly",
+          "doubly"
+        ],
+        "rows": [
+          {
+            "operation": "Search",
+            "singly": "O(n)",
+            "doubly": "O(log n)"
+          },
+          {
+            "operation": "Insert",
+            "singly": "O(n)",
+            "doubly": "O(log n)"
+          },
+          {
+            "operation": "Delete",
+            "singly": "O(n)",
+            "doubly": "O(log n)"
+          },
+          {
+            "operation": "Find Min / Max",
+            "singly": "O(n)",
+            "doubly": "O(log n)"
+          },
+          {
+            "operation": "Traversal (in/pre/post order)",
+            "singly": "O(n)",
+            "doubly": "O(n)"
+          },
+          {
+            "operation": "Level Order (BFS)",
+            "singly": "O(n)",
+            "doubly": "O(n)"
+          },
+          {
+            "operation": "Height Calculation",
+            "singly": "O(n)",
+            "doubly": "O(log n)"
+          },
+          {
+            "operation": "Find LCA",
+            "singly": "O(n)",
+            "doubly": "O(log n)"
+          },
+          {
+            "operation": "Space Complexity",
+            "singly": "O(n)",
+            "doubly": "O(n)"
+          }
+        ]
+      },
+      {
+        "id": "videos",
+        "title": "Recommended Videos",
+        "type": "videos",
+        "items": [
+          {
+            "title": "Tree Data Structure in C++",
+            "channel": "Love Babbar",
+            "duration": "1:22:10",
+            "url": "https://www.youtube.com/watch?v=5NiXlPrLslg&list=PL4YZcCgVMxM12fOt9Bx4NO4dxWjkthjJG",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                5,
+                3,
+                8,
+                1
+              ]
+            }
+          },
+          {
+            "title": "Binary Search Tree in Java",
+            "channel": "Apna College",
+            "duration": "55:40",
+            "url": "https://www.youtube.com/watch?v=-DzowlcaUmE",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                2,
+                7,
+                4,
+                9
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Common Mistakes",
+        "type": "mistakes",
+        "items": [
+          {
+            "title": "Not Handling Empty Tree (nullptr Dereference)",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "int height(TreeNode* node) {\n    return 1 + max(height(node->left), height(node->right)); // crashes on null!\n}",
+            "correct": "int height(TreeNode* node) {\n    if (node == nullptr) return 0;\n    return 1 + max(height(node->left), height(node->right));\n}",
+            "explanation": "Every recursive tree function needs a base case for nullptr, otherwise it dereferences a null pointer and crashes."
+          },
+          {
+            "title": "Losing Subtree Reference on Delete",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "TreeNode* deleteNode(TreeNode* node, int val) {\n    // ...\n    node = node->right; // left subtree is now lost!\n}",
+            "correct": "TreeNode* deleteNode(TreeNode* node, int val) {\n    // find inorder successor, copy its value,\n    // then recursively delete the successor node\n    // while re-linking both left and right subtrees\n    return node;\n}",
+            "explanation": "When deleting a node with two children, you must find the inorder successor (or predecessor), copy its value, and delete it safely \u2014 never just drop a whole subtree."
+          },
+          {
+            "title": "Confusing BST Property with Local Comparison Only",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "bool isBST(TreeNode* node) {\n    if (!node) return true;\n    if (node->left && node->left->data > node->data) return false;\n    if (node->right && node->right->data < node->data) return false;\n    return isBST(node->left) && isBST(node->right); // still wrong!\n}",
+            "correct": "bool isBST(TreeNode* node, long minVal = LONG_MIN, long maxVal = LONG_MAX) {\n    if (!node) return true;\n    if (node->data <= minVal || node->data >= maxVal) return false;\n    return isBST(node->left, minVal, node->data) &&\n           isBST(node->right, node->data, maxVal);\n}",
+            "explanation": "Checking only immediate children isn't enough \u2014 every node in the left subtree must be less than ALL ancestors up the chain, not just its direct parent. Use a min/max range instead."
+          }
+        ]
+      },
+      {
+        "id": "when-not-to-use",
+        "title": "When Not To Use Tree",
+        "type": "table",
+        "rows": [
+          {
+            "situation": "Need O(1) random access by index",
+            "choice": "Array / Vector"
+          },
+          {
+            "situation": "Data has no hierarchical or ordered relationship",
+            "choice": "Array / Hash Map"
+          },
+          {
+            "situation": "Need fastest possible key-value lookups",
+            "choice": "Hash Map"
+          },
+          {
+            "situation": "Frequent insert/delete only at ends (FIFO/LIFO)",
+            "choice": "Queue / Stack"
+          },
+          {
+            "situation": "Data is naturally sequential (logs, streams)",
+            "choice": "Linked List / Array"
+          },
+          {
+            "situation": "Tree becomes skewed and unbalanced often",
+            "choice": "Self-Balancing Tree (AVL / Red-Black) or Hash Map"
+          }
+        ]
+      },
+      {
+        "id": "interview-questions",
+        "title": "Interview Questions",
+        "type": "questions",
+        "questions": [
+          {
+            "question": "What is the difference between a Binary Tree and a Binary Search Tree?",
+            "answer": "A Binary Tree only restricts each node to at most two children, with no ordering rule. A Binary Search Tree additionally requires that the left subtree's values are smaller and the right subtree's values are larger than the node itself."
+          },
+          {
+            "question": "How do you find the height of a binary tree?",
+            "answer": "Recursively compute 1 + max(height(left subtree), height(right subtree)), with the base case returning 0 for a null node."
+          },
+          {
+            "question": "How do you check if a binary tree is balanced?",
+            "answer": "For every node, compute the height of the left and right subtrees. If the absolute difference is more than 1 at any node, or any subtree is unbalanced, the tree is not balanced. This is usually done bottom-up in a single traversal for O(n) efficiency."
+          },
+          {
+            "question": "What is the difference between inorder, preorder, and postorder traversal?",
+            "answer": "Inorder visits Left \u2192 Node \u2192 Right (gives sorted order for a BST). Preorder visits Node \u2192 Left \u2192 Right (useful for copying a tree). Postorder visits Left \u2192 Right \u2192 Node (useful for safely deleting a tree)."
+          },
+          {
+            "question": "How do you find the Lowest Common Ancestor (LCA) of two nodes in a BST?",
+            "answer": "Starting at the root, if both values are smaller than the current node, recurse left. If both are larger, recurse right. The moment the values split (one smaller, one larger, or one equals the node), that node is the LCA."
+          },
+          {
+            "question": "Why can BST operations degrade to O(n)?",
+            "answer": "If elements are inserted in sorted (or reverse sorted) order, the BST becomes skewed like a linked list, with each node having only one child. This removes the benefit of branching, making search, insert, and delete all O(n) instead of O(log n)."
+          }
+        ]
+      },
+      {
+        "id": "quick-revision",
+        "title": "Interview Rule",
+        "type": "callout",
+        "content": "If you need fast ordered search, insert, and delete \u2014 use a Binary Search Tree.\n\nIf worst-case O(log n) guarantees matter \u2014 use a self-balancing tree like AVL or Red-Black Tree.\n\nIf you only need key-value lookups with no ordering requirement \u2014 use a Hash Map instead."
+      },
+      {
+        "id": "practice-roadmap",
+        "title": "Practice Roadmap",
+        "type": "roadmap",
+        "nextTopic": "Graph",
+        "nextTitle": "Graph"
+      }
+    ]
+  },
+  "heappriorityqueue": {
+    "topic": "Heap / Priority Queue",
+    "title": "Let's Master Heaps & Priority Queues",
+    "subtitle": "Learn how a complete binary tree gives instant access to the min or max element, and powers scheduling systems everywhere",
+    "hero": {
+      "id": "hero",
+      "eyebrow": "DSA Documentation",
+      "title": "Let's Master Heaps & Priority Queues",
+      "subtitle": "Learn how a complete binary tree gives instant access to the min or max element, and powers scheduling systems everywhere",
+      "accent": "Think in priority, not position",
+      "stats": [
+        {
+          "label": "Complexity",
+          "value": "O(1) Peek"
+        },
+        {
+          "label": "Core Types",
+          "value": "Min-Heap / Max-Heap"
+        },
+        {
+          "label": "Problems",
+          "value": "16+"
+        }
+      ],
+      "visual": {
+        "values": [
+          10,
+          20,
+          15,
+          30,
+          40,
+          25
+        ],
+        "labels": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    },
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "type": "paragraph",
+        "content": [
+          "A Heap is a special complete binary tree stored in an array that follows a simple rule: in a Min-Heap, each parent is smaller than its children, and in a Max-Heap, each parent is larger than its children.",
+          "Since a Heap is a 'complete' tree (every level except the last is fully filled), we can store it in a simple array \u2014 no explicit left/right pointers needed. Parent and children indices are calculated by formulas: parent = (i-1)/2, left = 2i+1, right = 2i+2.",
+          "A Priority Queue is an abstract data type that always extracts the highest-priority element first \u2014 and a Heap is its most efficient real-world implementation, with O(log n) insertion and O(1) peek."
+        ],
+        "highlights": [
+          "Core DSA Topic",
+          "Interview Ready",
+          "Array-Backed Tree",
+          "Priority-Based Access"
+        ]
+      },
+      {
+        "id": "what-you-learn",
+        "title": "What You'll Learn",
+        "type": "learn_cards",
+        "items": [
+          {
+            "icon": "Boxes",
+            "title": "Core Concepts",
+            "description": "Understand complete binary trees, heap property, array indexing, and peek/pop/push.",
+            "progress": 84
+          },
+          {
+            "icon": "Gauge",
+            "title": "Time Complexity",
+            "description": "Compare O(1) peek with O(log n) insert/delete via heapify up and down.",
+            "progress": 82
+          },
+          {
+            "icon": "Workflow",
+            "title": "Heapify Operations",
+            "description": "Practice sift-up (bubble-up) and sift-down (heapify-down) index rewiring.",
+            "progress": 80
+          },
+          {
+            "icon": "Brain",
+            "title": "Patterns",
+            "description": "Learn Top-K elements, Kth largest/smallest, merge K sorted lists, and scheduling patterns.",
+            "progress": 87
+          }
+        ]
+      },
+      {
+        "id": "definition",
+        "title": "One Line Definition",
+        "type": "dual_callout",
+        "cards": [
+          {
+            "title": "Min-Heap",
+            "content": "A complete binary tree where every parent node is smaller than or equal to its children \u2014 placing the smallest element at the root, retrievable in O(1)."
+          },
+          {
+            "title": "Max-Heap",
+            "content": "A complete binary tree where every parent node is larger than or equal to its children \u2014 placing the largest element at the root, retrievable in O(1)."
+          },
+          {
+            "title": "Priority Queue",
+            "content": "An abstract data type that serves elements by priority rather than insertion order \u2014 almost always implemented internally using a Min-Heap or Max-Heap."
+          }
+        ]
+      },
+      {
+        "id": "real-life-example",
+        "title": "Real Life Example",
+        "type": "comparison",
+        "left": {
+          "title": "Max-Heap \u2014 Hospital Emergency Room",
+          "description": "In an emergency room, patients are not treated in their arrival order \u2014 the most critical patient (highest priority) is seen first. Similarly, a Max-Heap always keeps the largest (highest priority) element at the root.",
+          "diagram": "          [90]\n          /   \\\n       [70]   [80]\n       /  \\    /\n    [40][60][50]\n\nEvery parent is larger than its children (Max-Heap property)."
+        },
+        "center": {
+          "title": "Min-Heap \u2014 Cheapest Flight Finder",
+          "description": "When we search for the cheapest flight, we repeatedly need the 'lowest price so far'. A Min-Heap always keeps the smallest value at the root \u2014 which is why shortest-path problems like Dijkstra's algorithm are based on it.",
+          "diagram": "          [5]\n          / \\\n       [12] [8]\n       /  \\\n    [20][15]\n\nRoot hamesha minimum value hai."
+        },
+        "right": {
+          "title": "Priority Queue \u2014 OS Task Scheduler",
+          "description": "In an Operating System, the CPU scheduler runs tasks based on their priority, not the order they arrived. A high-priority task (like a system alert) will run before a low-priority background task \u2014 this is a classic real-world use case of a Priority Queue.",
+          "diagram": "Queue (by priority): [Critical] \u2192 [High] \u2192 [Normal] \u2192 [Low]\n\nHamesha highest priority element pehle nikalta hai."
+        }
+      },
+      {
+        "id": "why-learn",
+        "title": "Why We Learn This?",
+        "type": "why_learn",
+        "items": [
+          {
+            "icon": "Sparkles",
+            "title": "Efficient Priority Access",
+            "description": "Gives O(1) access to the min or max element without fully sorting the data \u2014 huge savings over repeated linear scans."
+          },
+          {
+            "icon": "Trophy",
+            "title": "Interview Standards",
+            "description": "Extremely common in interviews (Kth Largest Element, Top K Frequent, Merge K Sorted Lists, Median Finder)."
+          },
+          {
+            "icon": "Workflow",
+            "title": "Core Foundations",
+            "description": "Powers Heap Sort, Dijkstra's & Prim's algorithms, event-driven simulations, and OS/task schedulers."
+          },
+          {
+            "icon": "Brain",
+            "title": "Space Efficient",
+            "description": "Stored as a plain array with no pointer overhead, unlike pointer-based trees, while still behaving like a binary tree."
+          }
+        ]
+      },
+      {
+        "id": "basic-operations",
+        "title": "Heap Operations",
+        "type": "operations",
+        "columns": [
+          "Operation",
+          "Description",
+          "Details"
+        ],
+        "rows": [
+          {
+            "operation": "push(val)",
+            "description": "Insert a new element into the heap",
+            "stl": "Adds at the end, then sifts up (bubble-up) to restore order"
+          },
+          {
+            "operation": "pop()",
+            "description": "Remove and return the root (min/max)",
+            "stl": "Swaps root with last element, removes it, then sifts down"
+          },
+          {
+            "operation": "peek() / top()",
+            "description": "Return the root without removing it",
+            "stl": "O(1) direct access to arr[0]"
+          },
+          {
+            "operation": "heapifyUp(i)",
+            "description": "Restore heap property after insertion",
+            "stl": "Compares node with parent, swaps while out of order"
+          },
+          {
+            "operation": "heapifyDown(i)",
+            "description": "Restore heap property after removal",
+            "stl": "Compares node with children, swaps with smaller/larger child"
+          },
+          {
+            "operation": "buildHeap(arr)",
+            "description": "Convert an unsorted array into a heap",
+            "stl": "Runs heapifyDown from the last non-leaf node upward \u2014 O(n)"
+          },
+          {
+            "operation": "heapSort(arr)",
+            "description": "Sort an array using heap operations",
+            "stl": "Repeatedly pop the root and place it at the end \u2014 O(n log n)"
+          },
+          {
+            "operation": "size()",
+            "description": "Return number of elements",
+            "stl": "O(1) \u2014 just the underlying array length"
+          },
+          {
+            "operation": "isEmpty()",
+            "description": "Check if the heap has no elements",
+            "stl": "O(1) \u2014 checks if array length is zero"
+          }
+        ],
+        "panelTitle": "Helpers Covered",
+        "functions": [
+          "arr",
+          "parent(i)",
+          "left(i)",
+          "right(i)",
+          "swap",
+          "heapify"
+        ]
+      },
+      {
+        "id": "visualization",
+        "title": "Interactive Visualization",
+        "type": "visualization",
+        "initialArray": [
+          10,
+          20,
+          15
+        ],
+        "operations": [
+          "push(value)",
+          "pop()",
+          "peek()",
+          "heapifyUp(index)",
+          "heapifyDown(index)",
+          "buildHeap()",
+          "heapSort()",
+          "size()"
+        ],
+        "controls": {
+          "operationLabel": "Operation",
+          "valueLabel": "Value",
+          "indexLabel": "Index",
+          "buttonLabel": "Run Visualization"
+        },
+        "labels": {
+          "before": "Before Operation",
+          "after": "After Operation",
+          "index": "Index",
+          "value": "Value"
+        }
+      },
+      {
+        "id": "internal-working",
+        "title": "Internal Working",
+        "type": "internal",
+        "memory": {
+          "Index": [
+            "0",
+            "1",
+            "2"
+          ],
+          "Data (Content)": [
+            "10",
+            "20",
+            "15"
+          ],
+          "Parent Index": [
+            "NULL",
+            "0",
+            "0"
+          ],
+          "Role": [
+            "Root (min)",
+            "Left Child",
+            "Right Child"
+          ]
+        },
+        "explanation": [
+          "Unlike Linked Lists or Trees, a Heap is stored in a single contiguous array \u2014 there are no pointers at all. Parent and child relationships are derived purely from index arithmetic.",
+          "For any node at index i: parent is at (i-1)/2, left child is at 2i+1, right child is at 2i+2. This makes a Heap extremely cache-friendly compared to pointer-based tree structures."
+        ],
+        "formula": {
+          "label": "Index Formula",
+          "example": "parent(i) = (i-1)/2 | left(i) = 2i+1 | right(i) = 2i+2"
+        }
+      },
+      {
+        "id": "syntax",
+        "title": "Syntax & Node Declarations",
+        "type": "syntax",
+        "tabs": [
+          {
+            "label": "Min-Heap (C++ STL)",
+            "language": "cpp",
+            "code": "#include <queue>\n#include <vector>\nusing namespace std;\n\n// Min-Heap using STL priority_queue\npriority_queue<int, vector<int>, greater<int>> minHeap;\n\nminHeap.push(10);\nminHeap.push(5);\nminHeap.push(20);\n\nint smallest = minHeap.top(); // 5\nminHeap.pop();"
+          },
+          {
+            "label": "Max-Heap (C++ Manual)",
+            "language": "cpp",
+            "code": "// Manual Max-Heap using a vector\nclass MaxHeap {\n    vector<int> arr;\n    void heapifyUp(int i) {\n        while (i > 0 && arr[(i-1)/2] < arr[i]) {\n            swap(arr[(i-1)/2], arr[i]);\n            i = (i-1)/2;\n        }\n    }\npublic:\n    void push(int val) {\n        arr.push_back(val);\n        heapifyUp(arr.size() - 1);\n    }\n};"
+          },
+          {
+            "label": "Min-Heap (JavaScript)",
+            "language": "javascript",
+            "code": "// Manual Min-Heap using an array\nclass MinHeap {\n  constructor() {\n    this.arr = [];\n  }\n  parent(i) { return Math.floor((i - 1) / 2); }\n  push(val) {\n    this.arr.push(val);\n    let i = this.arr.length - 1;\n    while (i > 0 && this.arr[this.parent(i)] > this.arr[i]) {\n      [this.arr[this.parent(i)], this.arr[i]] = [this.arr[i], this.arr[this.parent(i)]];\n      i = this.parent(i);\n    }\n  }\n  peek() { return this.arr[0]; }\n}"
+          }
+        ]
+      },
+      {
+        "id": "complexity",
+        "title": "Complexity Matrix",
+        "type": "complexity",
+        "columns": [
+          "Operation",
+          "Heap (Array-Based)",
+          "Sorted Array"
+        ],
+        "keys": [
+          "operation",
+          "singly",
+          "doubly"
+        ],
+        "rows": [
+          {
+            "operation": "Find Min / Max",
+            "singly": "O(1)",
+            "doubly": "O(1)"
+          },
+          {
+            "operation": "Insert",
+            "singly": "O(log n)",
+            "doubly": "O(n)"
+          },
+          {
+            "operation": "Delete Min / Max",
+            "singly": "O(log n)",
+            "doubly": "O(n)"
+          },
+          {
+            "operation": "Search arbitrary value",
+            "singly": "O(n)",
+            "doubly": "O(log n)"
+          },
+          {
+            "operation": "Build from unsorted array",
+            "singly": "O(n)",
+            "doubly": "O(n log n)"
+          },
+          {
+            "operation": "Heap Sort (full sort)",
+            "singly": "O(n log n)",
+            "doubly": "O(n log n)"
+          },
+          {
+            "operation": "Space Complexity",
+            "singly": "O(n)",
+            "doubly": "O(n)"
+          }
+        ]
+      },
+      {
+        "id": "videos",
+        "title": "Recommended Videos",
+        "type": "videos",
+        "items": [
+          {
+            "title": "Heap & Priority Queue in C++",
+            "channel": "Love Babbar",
+            "duration": "1:10:45",
+            "url": "https://youtu.be/HqPJF2L5h9U",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                4,
+                9,
+                2,
+                6
+              ]
+            }
+          },
+          {
+            "title": "Heap Data Structure in Java",
+            "channel": "Apna College",
+            "duration": "58:15",
+            "url": "https://youtu.be/eVq8CmoC1x8",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                7,
+                1,
+                5,
+                3
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Common Mistakes",
+        "type": "mistakes",
+        "items": [
+          {
+            "title": "Wrong Comparator Direction (Min vs Max confusion)",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "// Wanted a Min-Heap but used default STL priority_queue\npriority_queue<int> pq; // this is actually a MAX-Heap!\npq.push(5);\npq.push(1);\ncout << pq.top(); // prints 5, not the minimum",
+            "correct": "// Explicitly specify a Min-Heap comparator\npriority_queue<int, vector<int>, greater<int>> pq;\npq.push(5);\npq.push(1);\ncout << pq.top(); // correctly prints 1",
+            "explanation": "C++'s default priority_queue is a Max-Heap. Forgetting to pass greater<int>() is one of the most common heap bugs in interviews."
+          },
+          {
+            "title": "Forgetting to Sift Down After Removing Root",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "int pop() {\n    int top = arr[0];\n    arr[0] = arr[arr.size()-1];\n    arr.pop_back();\n    return top; // heap property is now broken!\n}",
+            "correct": "int pop() {\n    int top = arr[0];\n    arr[0] = arr[arr.size()-1];\n    arr.pop_back();\n    heapifyDown(0); // restore heap property\n    return top;\n}",
+            "explanation": "After moving the last element to the root, you must sift it down to restore the heap property \u2014 otherwise the array no longer represents a valid heap."
+          },
+          {
+            "title": "Assuming a Heap is Fully Sorted",
+            "wrongLabel": "Wrong Assumption",
+            "correctLabel": "Correct Understanding",
+            "wrong": "// Treating heap array as sorted\nvector<int> arr = {1, 3, 2, 7, 5, 9};\n// Assuming arr[1] < arr[2] < arr[3] ... is WRONG",
+            "correct": "// Only the heap property holds: parent <= children (Min-Heap)\n// Sibling order is NOT guaranteed.\n// To get sorted order, you must pop repeatedly or run heapSort().",
+            "explanation": "A Heap only guarantees parent-child ordering, not full sorted order across the array. Sibling nodes can be in any relative order."
+          }
+        ]
+      },
+      {
+        "id": "when-not-to-use",
+        "title": "When Not To Use Heap / Priority Queue",
+        "type": "table",
+        "rows": [
+          {
+            "situation": "Need fully sorted data at all times",
+            "choice": "Sorted Array / Balanced BST (TreeMap/Set)"
+          },
+          {
+            "situation": "Need O(1) search by arbitrary value",
+            "choice": "Hash Map"
+          },
+          {
+            "situation": "Need fast key-value lookups with priorities",
+            "choice": "Indexed Priority Queue / Ordered Map"
+          },
+          {
+            "situation": "Need range queries (min/max in a range)",
+            "choice": "Segment Tree / Fenwick Tree"
+          },
+          {
+            "situation": "Need FIFO order, not priority order",
+            "choice": "Queue"
+          },
+          {
+            "situation": "Need to efficiently delete/update arbitrary elements",
+            "choice": "Indexed Heap or Balanced BST"
+          }
+        ]
+      },
+      {
+        "id": "interview-questions",
+        "title": "Interview Questions",
+        "type": "questions",
+        "questions": [
+          {
+            "question": "What is the difference between a Heap and a Priority Queue?",
+            "answer": "A Heap is a concrete data structure (a complete binary tree stored as an array). A Priority Queue is an abstract data type that serves elements by priority \u2014 Heaps are simply the most common and efficient way to implement it."
+          },
+          {
+            "question": "How do you find the Kth largest element in an array using a heap?",
+            "answer": "Maintain a Min-Heap of size K. Iterate through the array, pushing each element; if the heap size exceeds K, pop the smallest. After processing all elements, the root of the heap is the Kth largest element."
+          },
+          {
+            "question": "How is a Heap represented using an array instead of pointers?",
+            "answer": "Because a heap is always a complete binary tree, its nodes can be stored level by level in an array. For any index i, its parent is at (i-1)/2, its left child is at 2i+1, and its right child is at 2i+2 \u2014 no explicit pointers are needed."
+          },
+          {
+            "question": "What is the time complexity of building a heap from an unsorted array, and why is it O(n) and not O(n log n)?",
+            "answer": "Although each heapifyDown call can take O(log n), most nodes are near the bottom of the tree where heapify does very little work. Summing the work across all levels gives a tighter bound of O(n) rather than O(n log n)."
+          },
+          {
+            "question": "How would you find the median of a running stream of numbers?",
+            "answer": "Use two heaps: a Max-Heap for the smaller half of the numbers and a Min-Heap for the larger half, keeping their sizes balanced. The median is either the top of the larger heap, or the average of both tops if sizes are equal."
+          },
+          {
+            "question": "Why is Heap Sort not a stable sorting algorithm?",
+            "answer": "Heap Sort repeatedly swaps the root with the last element and sifts down, which can change the relative order of equal elements during these swaps, so it does not preserve the original order of duplicates."
+          }
+        ]
+      },
+      {
+        "id": "quick-revision",
+        "title": "Interview Rule",
+        "type": "callout",
+        "content": "If you need instant access to the smallest or largest element \u2014 use a Heap.\n\nIf you need elements served strictly by priority rather than arrival order \u2014 use a Priority Queue (backed by a Heap).\n\nIf you need fully sorted order or fast arbitrary search \u2014 use a Balanced BST or Sorted Array instead."
+      },
+      {
+        "id": "practice-roadmap",
+        "title": "Practice Roadmap",
+        "type": "roadmap",
+        "nextTopic": "Trie",
+        "nextTitle": "Trie"
+      }
+    ]
+  },
+  "graphs": {
+    "topic": "Graph",
+    "title": "Let's Master Graphs",
+    "subtitle": "Learn how nodes connect via edges, model networks, and power real-world routing and relationships",
+    "hero": {
+      "id": "hero",
+      "eyebrow": "DSA Documentation",
+      "title": "Let's Master Graphs",
+      "subtitle": "Learn how nodes connect via edges, model networks, and power real-world routing and relationships",
+      "accent": "Think in connections instead of a hierarchy",
+      "stats": [
+        {
+          "label": "Complexity",
+          "value": "O(V+E) Traversal"
+        },
+        {
+          "label": "Core Types",
+          "value": "Directed / Undirected"
+        },
+        {
+          "label": "Problems",
+          "value": "22+"
+        }
+      ],
+      "visual": {
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      }
+    },
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "type": "paragraph",
+        "content": [
+          "A Graph is a non-linear data structure composed of vertices (nodes) and edges (connections). Unlike trees, a Graph has no fixed 'root' and a node can connect to any number of other nodes \u2014 even in a cycle.",
+          "Edges can be of two types: directed (one-way connections, like an Instagram follow) or undirected (two-way connections, like a Facebook friendship). Edges can also have weights, representing cost, distance, or time.",
+          "Graphs are best for modeling real-world relationships \u2014 social networks, maps/roads, computer networks, and dependency chains (like build systems) \u2014 where the connection pattern does not follow a predictable, tree-like hierarchy."
+        ],
+        "highlights": [
+          "Core DSA Topic",
+          "Interview Ready",
+          "Network Modeling",
+          "Traversal-Heavy"
+        ]
+      },
+      {
+        "id": "what-you-learn",
+        "title": "What You'll Learn",
+        "type": "learn_cards",
+        "items": [
+          {
+            "icon": "Boxes",
+            "title": "Core Concepts",
+            "description": "Understand vertices, edges, adjacency list/matrix, degree, and connected components.",
+            "progress": 82
+          },
+          {
+            "icon": "Gauge",
+            "title": "Time Complexity",
+            "description": "Compare O(V+E) traversal with O(V^2) matrix-based lookups on dense graphs.",
+            "progress": 76
+          },
+          {
+            "icon": "Workflow",
+            "title": "Traversals",
+            "description": "Practice BFS and DFS for reachability, shortest paths, and cycle detection.",
+            "progress": 85
+          },
+          {
+            "icon": "Brain",
+            "title": "Patterns",
+            "description": "Learn topological sort, union-find, Dijkstra, and minimum spanning tree techniques.",
+            "progress": 87
+          }
+        ]
+      },
+      {
+        "id": "definition",
+        "title": "One Line Definition",
+        "type": "dual_callout",
+        "cards": [
+          {
+            "title": "Undirected Graph",
+            "content": "A collection of vertices connected by edges with no direction \u2014 if A connects to B, B is also considered connected to A, like a mutual friendship."
+          },
+          {
+            "title": "Directed Graph (Digraph)",
+            "content": "A collection of vertices connected by one-way edges \u2014 an edge from A to B does not imply a path from B to A, like a one-way street or a 'follows' relationship."
+          },
+          {
+            "title": "Weighted Graph",
+            "content": "A graph where every edge carries a numeric cost (distance, time, or price) \u2014 used in shortest path algorithms like Dijkstra's to find the cheapest route between nodes."
+          }
+        ]
+      },
+      {
+        "id": "real-life-example",
+        "title": "Real Life Example",
+        "type": "comparison",
+        "left": {
+          "title": "Undirected Graph \u2014 Facebook Friends",
+          "description": "On Facebook, when two people become friends, the connection goes both ways \u2014 if A is friends with B, then B is also friends with A. This is exactly like an Undirected Graph, where the edge is valid in both directions.",
+          "diagram": "   A \u2014\u2014 B\n   |    |\n   C \u2014\u2014 D\n\nEach edge can be traversed in both directions."
+        },
+        "center": {
+          "title": "Directed Graph \u2014 Instagram Follow",
+          "description": "On Instagram, if A follows B, it does not mean B follows A. This one-way relationship is like a Directed Graph, where edges have a specific direction.",
+          "diagram": "   A \u2192 B\n   \u2191    \u2193\n   D \u2190 C\n\nEdges are traversed in only one direction."
+        },
+        "right": {
+          "title": "Weighted Graph \u2014 Google Maps Routes",
+          "description": "In Google Maps, each road (edge) has its own distance or travel time (weight). Shortest path algorithms use these weights to find the fastest or shortest route \u2014 exactly like a Weighted Graph.",
+          "diagram": "   A --5km-- B\n   |          |\n  2km       3km\n   |          |\n   C --4km-- D\n\nEach edge has its own cost/weight."
+        }
+      },
+      {
+        "id": "why-learn",
+        "title": "Why We Learn This?",
+        "type": "why_learn",
+        "items": [
+          {
+            "icon": "Sparkles",
+            "title": "Real-World Modeling",
+            "description": "Graphs model almost anything with relationships \u2014 social networks, maps, dependencies, and computer networks."
+          },
+          {
+            "icon": "Trophy",
+            "title": "Interview Standards",
+            "description": "Extremely common in interviews (BFS/DFS, Cycle Detection, Topological Sort, Shortest Path, Union-Find)."
+          },
+          {
+            "icon": "Workflow",
+            "title": "Core Foundations",
+            "description": "Forms the foundation of routing algorithms, compilers (dependency graphs), recommendation systems, and network protocols."
+          },
+          {
+            "icon": "Brain",
+            "title": "Algorithmic Thinking",
+            "description": "Builds strong intuition for traversal, greedy choices, and dynamic programming on non-linear structures."
+          }
+        ]
+      },
+      {
+        "id": "basic-operations",
+        "title": "Graph Operations",
+        "type": "operations",
+        "columns": [
+          "Operation",
+          "Description",
+          "Details"
+        ],
+        "rows": [
+          {
+            "operation": "addVertex(v)",
+            "description": "Add a new vertex to the graph",
+            "stl": "Creates a new entry in the adjacency list"
+          },
+          {
+            "operation": "addEdge(u, v, w)",
+            "description": "Connect two vertices with an optional weight",
+            "stl": "Pushes v into u's list (and u into v's list if undirected)"
+          },
+          {
+            "operation": "removeEdge(u, v)",
+            "description": "Disconnect two vertices",
+            "stl": "Erases v from u's adjacency list (and vice versa)"
+          },
+          {
+            "operation": "bfs(start)",
+            "description": "Breadth-first traversal from a start vertex",
+            "stl": "Uses a queue to visit level by level"
+          },
+          {
+            "operation": "dfs(start)",
+            "description": "Depth-first traversal from a start vertex",
+            "stl": "Uses recursion or a stack to go as deep as possible"
+          },
+          {
+            "operation": "hasCycle()",
+            "description": "Detect if the graph has a cycle",
+            "stl": "Tracks visited + recursion stack (directed) or parent (undirected)"
+          },
+          {
+            "operation": "topologicalSort()",
+            "description": "Order vertices so edges point forward",
+            "stl": "DFS-based finish-time stacking, valid only for DAGs"
+          },
+          {
+            "operation": "shortestPath(u, v)",
+            "description": "Find cheapest path between two vertices",
+            "stl": "BFS for unweighted, Dijkstra for weighted graphs"
+          },
+          {
+            "operation": "connectedComponents()",
+            "description": "Count isolated groups of connected vertices",
+            "stl": "Repeated BFS/DFS or Union-Find over unvisited vertices"
+          }
+        ],
+        "panelTitle": "Helpers Covered",
+        "functions": [
+          "vertices",
+          "adjacencyList",
+          "visited",
+          "queue",
+          "stack",
+          "GraphNode"
+        ]
+      },
+      {
+        "id": "visualization",
+        "title": "Interactive Visualization",
+        "type": "visualization",
+        "initialArray": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "operations": [
+          "addVertex(value)",
+          "addEdge(u, v)",
+          "removeEdge(u, v)",
+          "bfs(start)",
+          "dfs(start)",
+          "hasCycle()",
+          "shortestPath(u, v)",
+          "connectedComponents()"
+        ],
+        "controls": {
+          "operationLabel": "Operation",
+          "valueLabel": "Value",
+          "indexLabel": "Index",
+          "buttonLabel": "Run Visualization"
+        },
+        "labels": {
+          "before": "Before Operation",
+          "after": "After Operation",
+          "index": "Index",
+          "value": "Value"
+        }
+      },
+      {
+        "id": "internal-working",
+        "title": "Internal Working",
+        "type": "internal",
+        "memory": {
+          "Vertex": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "Adjacency List": [
+            "[B, C]",
+            "[A, D]",
+            "[A, D]",
+            "[B, C]"
+          ],
+          "Degree": [
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "Role": [
+            "Start Vertex",
+            "Neighbor",
+            "Neighbor",
+            "End Vertex"
+          ]
+        },
+        "explanation": [
+          "Graphs are usually stored as an adjacency list (array/map of lists, one per vertex holding its neighbors) or an adjacency matrix (a V x V grid of 0s/1s marking edges).",
+          "Adjacency list uses O(V+E) space and is fast for sparse graphs (traversal-friendly). Adjacency matrix uses O(V^2) space but gives O(1) edge-existence checks \u2014 better for dense graphs."
+        ],
+        "formula": {
+          "label": "Storage Layout",
+          "example": "Adjacency List: O(V+E) space | Adjacency Matrix: O(V^2) space"
+        }
+      },
+      {
+        "id": "syntax",
+        "title": "Syntax & Graph Declarations",
+        "type": "syntax",
+        "tabs": [
+          {
+            "label": "Adjacency List (C++)",
+            "language": "cpp",
+            "code": "// Graph using adjacency list\nclass Graph {\npublic:\n    int vertices;\n    vector<vector<int>> adjList;\n\n    Graph(int v) : vertices(v), adjList(v) {}\n\n    void addEdge(int u, int v) {\n        adjList[u].push_back(v);\n        adjList[v].push_back(u); // omit this line for directed graph\n    }\n};"
+          },
+          {
+            "label": "BFS Traversal (C++)",
+            "language": "cpp",
+            "code": "void bfs(Graph& g, int start) {\n    vector<bool> visited(g.vertices, false);\n    queue<int> q;\n    q.push(start);\n    visited[start] = true;\n\n    while (!q.empty()) {\n        int node = q.front(); q.pop();\n        cout << node << \" \";\n        for (int neighbor : g.adjList[node]) {\n            if (!visited[neighbor]) {\n                visited[neighbor] = true;\n                q.push(neighbor);\n            }\n        }\n    }\n}"
+          },
+          {
+            "label": "BFS Traversal (JavaScript)",
+            "language": "javascript",
+            "code": "// Graph using adjacency list (Map of arrays)\nclass Graph {\n  constructor() {\n    this.adjList = new Map();\n  }\n\n  addEdge(u, v) {\n    if (!this.adjList.has(u)) this.adjList.set(u, []);\n    if (!this.adjList.has(v)) this.adjList.set(v, []);\n    this.adjList.get(u).push(v);\n    this.adjList.get(v).push(u); // omit for directed graph\n  }\n\n  bfs(start) {\n    const visited = new Set([start]);\n    const queue = [start];\n    const order = [];\n\n    while (queue.length) {\n      const node = queue.shift();\n      order.push(node);\n      for (const neighbor of this.adjList.get(node) || []) {\n        if (!visited.has(neighbor)) {\n          visited.add(neighbor);\n          queue.push(neighbor);\n        }\n      }\n    }\n    return order;\n  }\n}"
+          }
+        ]
+      },
+      {
+        "id": "complexity",
+        "title": "Complexity Matrix",
+        "type": "complexity",
+        "columns": [
+          "Operation",
+          "Adjacency List",
+          "Adjacency Matrix"
+        ],
+        "keys": [
+          "operation",
+          "singly",
+          "doubly"
+        ],
+        "rows": [
+          {
+            "operation": "Add Vertex",
+            "singly": "O(1)",
+            "doubly": "O(V^2) (resize matrix)"
+          },
+          {
+            "operation": "Add Edge",
+            "singly": "O(1)",
+            "doubly": "O(1)"
+          },
+          {
+            "operation": "Remove Edge",
+            "singly": "O(E) (find in list)",
+            "doubly": "O(1)"
+          },
+          {
+            "operation": "Check if Edge Exists",
+            "singly": "O(V) (scan neighbor list)",
+            "doubly": "O(1)"
+          },
+          {
+            "operation": "BFS / DFS Traversal",
+            "singly": "O(V + E)",
+            "doubly": "O(V^2)"
+          },
+          {
+            "operation": "Space Complexity",
+            "singly": "O(V + E)",
+            "doubly": "O(V^2)"
+          },
+          {
+            "operation": "Best Use Case",
+            "singly": "Sparse graphs (few edges)",
+            "doubly": "Dense graphs (many edges)"
+          }
+        ]
+      },
+      {
+        "id": "videos",
+        "title": "Recommended Videos",
+        "type": "videos",
+        "items": [
+          {
+            "title": "Graph Data Structure in C++",
+            "channel": "Love Babbar",
+            "duration": "1:30:45",
+            "url": "https://www.youtube.com/watch?v=EaK6aslcC5g&list=PLDzeHZWIZsTobi35C3I-tKB3tRDX6YxuA",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                4,
+                8,
+                2,
+                6
+              ]
+            }
+          },
+          {
+            "title": "Graphs Playlist in Java",
+            "channel": "Apna College",
+            "duration": "58:12",
+            "url": "https://www.youtube.com/watch?v=RpgyCJBbl5E&list=PLGjplNEQ1it-0w_PkFtKzH0ZExo6Lvm6R",
+            "thumbnail": {
+              "kind": "array-cubes",
+              "values": [
+                3,
+                9,
+                1,
+                7
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Common Mistakes",
+        "type": "mistakes",
+        "items": [
+          {
+            "title": "Forgetting to Mark Nodes Visited (Infinite Loop)",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "void dfs(int node) {\n    cout << node;\n    for (int neighbor : adjList[node])\n        dfs(neighbor); // never checks visited, loops forever on a cycle!\n}",
+            "correct": "void dfs(int node, vector<bool>& visited) {\n    visited[node] = true;\n    cout << node;\n    for (int neighbor : adjList[node])\n        if (!visited[neighbor])\n            dfs(neighbor, visited);\n}",
+            "explanation": "Without a visited set, DFS/BFS on a graph with a cycle will revisit the same nodes endlessly, causing an infinite loop or stack overflow."
+          },
+          {
+            "title": "Treating a Directed Graph as Undirected",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "void addEdge(int u, int v) {\n    adjList[u].push_back(v);\n    adjList[v].push_back(u); // wrong for a directed graph!\n}",
+            "correct": "void addEdge(int u, int v, bool directed) {\n    adjList[u].push_back(v);\n    if (!directed) adjList[v].push_back(u);\n}",
+            "explanation": "Adding the reverse edge by default silently turns a directed graph into an undirected one, breaking algorithms like topological sort that rely on edge direction."
+          },
+          {
+            "title": "Using DFS Visited-Only Check for Cycle Detection in Directed Graphs",
+            "wrongLabel": "Wrong Code",
+            "correctLabel": "Correct Code",
+            "wrong": "bool hasCycle(int node, vector<bool>& visited) {\n    if (visited[node]) return true; // wrong! flags cross-edges as cycles\n    visited[node] = true;\n    for (int n : adjList[node])\n        if (hasCycle(n, visited)) return true;\n    return false;\n}",
+            "correct": "bool hasCycle(int node, vector<bool>& visited, vector<bool>& inStack) {\n    visited[node] = true;\n    inStack[node] = true;\n    for (int n : adjList[node]) {\n        if (!visited[n] && hasCycle(n, visited, inStack)) return true;\n        else if (inStack[n]) return true; // back edge = real cycle\n    }\n    inStack[node] = false;\n    return false;\n}",
+            "explanation": "In a directed graph, a plain visited check flags valid cross-edges as cycles. You need a separate recursion-stack tracker to detect true back edges."
+          }
+        ]
+      },
+      {
+        "id": "when-not-to-use",
+        "title": "When Not To Use Graph",
+        "type": "table",
+        "rows": [
+          {
+            "situation": "Data has a strict single-parent hierarchy",
+            "choice": "Tree"
+          },
+          {
+            "situation": "Need O(1) random access by index",
+            "choice": "Array / Vector"
+          },
+          {
+            "situation": "Need fast key-value lookups with no relationships",
+            "choice": "Hash Map"
+          },
+          {
+            "situation": "Data is purely sequential with no branching",
+            "choice": "Linked List / Array"
+          },
+          {
+            "situation": "Relationships are simple parent-child only",
+            "choice": "Tree (simpler and less overhead)"
+          },
+          {
+            "situation": "Extremely large dense graphs with memory constraints",
+            "choice": "Compressed adjacency structures or specialized graph databases"
+          }
+        ]
+      },
+      {
+        "id": "interview-questions",
+        "title": "Interview Questions",
+        "type": "questions",
+        "questions": [
+          {
+            "question": "What is the difference between BFS and DFS?",
+            "answer": "BFS explores level by level using a queue, ideal for shortest path in unweighted graphs. DFS explores as deep as possible using recursion or a stack before backtracking, better suited for cycle detection and topological sort."
+          },
+          {
+            "question": "What is the difference between an adjacency list and an adjacency matrix?",
+            "answer": "An adjacency list stores only existing edges as a list per vertex, using O(V+E) space and favoring sparse graphs. An adjacency matrix stores a V x V grid marking all possible edges, using O(V^2) space but giving O(1) edge lookups, favoring dense graphs."
+          },
+          {
+            "question": "How do you detect a cycle in an undirected graph?",
+            "answer": "Run DFS while tracking the parent of each node. If you visit a node that is already visited and it is not the immediate parent, a cycle exists. Union-Find is also commonly used for this."
+          },
+          {
+            "question": "What is topological sort and when can it be applied?",
+            "answer": "Topological sort orders vertices so that every directed edge points from an earlier vertex to a later one. It can only be applied to a Directed Acyclic Graph (DAG) \u2014 a directed graph with no cycles."
+          },
+          {
+            "question": "How does Dijkstra's algorithm find the shortest path?",
+            "answer": "Dijkstra's uses a min-priority queue to repeatedly pick the unvisited vertex with the smallest known distance, then relaxes (updates) the distances of its neighbors. It works only on graphs with non-negative edge weights."
+          },
+          {
+            "question": "What is the difference between a Graph and a Tree?",
+            "answer": "A Tree is a special case of a Graph that is connected, acyclic, and has exactly one path between any two nodes (N nodes, N-1 edges). A Graph has no such restrictions \u2014 it can have cycles, multiple paths, disconnected parts, or multiple parents per node."
+          }
+        ]
+      },
+      {
+        "id": "quick-revision",
+        "title": "Interview Rule",
+        "type": "callout",
+        "content": "If you need shortest path in an unweighted graph \u2014 use BFS.\n\nIf you need cycle detection, topological sort, or deep exploration \u2014 use DFS.\n\nIf edges have weights and you need the cheapest path \u2014 use Dijkstra's (non-negative weights) or Bellman-Ford (handles negative weights)."
+      },
+      {
+        "id": "practice-roadmap",
+        "title": "Practice Roadmap",
+        "type": "roadmap",
+        "nextTopic": "Heap",
+        "nextTitle": "Heap"
       }
     ]
   }

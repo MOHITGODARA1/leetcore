@@ -3,7 +3,9 @@ import DashboardPageShell from "../dashboard/components/DashboardPageShell";
 import UserDetail from "./components/UserDetail";
 import OverallProgress from "./components/overallProgress";
 import Milestone from "./components/milestone";
-import TopicProgress from "./components/TopicProgress";
+import PlacementReadinessCard from "./components/PlacementReadinessCard";
+// import TopicProgress from "./components/TopicProgress";
+import WeakConceptAnalysis from "./components/WeakConceptAnalysis";
 import ConsistencyBar from "./components/consistencybar";
 import ContestRating from "./components/contestrating";
 import Suggestion from "./components/suggestion";
@@ -41,7 +43,7 @@ function Profile() {
     }, [user?._id]);
 
     return (
-        <DashboardPageShell className="pt-1 pl-0 pr-0 sm:pr-2 pb-6 flex flex-col lg:flex-row gap-5 lg:gap-7" plain={true} bgClass="bg-[#070709]">
+        <DashboardPageShell className="pt-1 pl-0 pr-0 sm:pr-2 pb-1 flex flex-col lg:flex-row gap-5 lg:gap-5" plain={true} bgClass="bg-[#070709]">
             {/* Left Column: User Detail Card wrapper */}
             <div
                 className="
@@ -53,10 +55,9 @@ function Profile() {
                         rounded-2xl
                         md:rounded-3xl
                         border
-                        border-white/[0.08]
-                        bg-[#121215]/68
-                        shadow-[0_18px_55px_rgba(0,0,0,0.22)]
-                        backdrop-blur-md
+                        border-white/8
+                        bg-white/8
+                        
                         overflow-hidden
                         flex-shrink-0
                     "
@@ -70,18 +71,23 @@ function Profile() {
                        flex-1
                        min-w-0
                        space-y-5
-                       lg:space-y-6
+                       lg:space-y-5
                        h-fit
                     "
             >
+                <PlacementReadinessCard progressData={progressData} loading={progressLoading} />
+
                 {/* Row 1: Overall Progress & Badges Earned (Side-by-side) */}
-                <div className="grid grid-cols-1 xl:grid-cols-[1.35fr_1fr] gap-5 lg:gap-6 w-full min-w-0 items-stretch">
+                <div className="grid grid-cols-1 xl:grid-cols-[1.35fr_1fr] gap-4 lg:gap-5 w-full min-w-0 items-stretch">
                     <OverallProgress progressData={progressData} loading={progressLoading} />
                     <Milestone progressData={progressData} loading={progressLoading} />
                 </div>
 
                 {/* Row 2: Learning Progress (Horizontal Compact block) */}
-                <TopicProgress topics={progressData?.topics || []} loading={progressLoading} />
+                {/* <TopicProgress topics={progressData?.topics || []} loading={progressLoading} /> */}
+
+                {/* DSA Solve Capability & Weak Point Analyzer */}
+                <WeakConceptAnalysis progressData={progressData} loading={progressLoading} />
 
                 {/* Row 3: Heatmap (Consistency chart) */}
                 <ConsistencyBar userId={user?._id} />

@@ -1,4 +1,5 @@
 import SectionFrame from "./SectionFrame";
+import { renderFormattedText } from "./utils.jsx";
 
 function DefinitionSection({ section }) {
   const isDual = section.type === "dual_callout";
@@ -10,30 +11,30 @@ function DefinitionSection({ section }) {
   return (
     <SectionFrame section={section}>
       {isDual ? (
-        <div className={`grid gap-4 p-5 ${section.cards ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
+        <div className={`grid gap-4  ${section.cards ? "sm:grid-cols-1" : "sm:grid-cols-1"}`}>
           {section.cards ? (
             section.cards.map((card, idx) => (
-              <div key={idx} className="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+              <div key={idx} className=" p-3">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-white">{card.title}</h4>
-                <p className="mt-2 text-sm leading-6 text-white/68">{card.content}</p>
+                <p className="mt-2 text-sm leading-6 text-white/70">{renderFormattedText(card.content)}</p>
               </div>
             ))
           ) : (
             <>
-              <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+              <div className=" p-2">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-white">{leftTitle}</h4>
-                <p className="mt-2 text-sm leading-6 text-white/68">{section[leftKey]}</p>
+                <p className="mt-2 text-sm leading-6 text-white/80">{renderFormattedText(section[leftKey])}</p>
               </div>
-              <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+              <div className=" p-2">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-white">{rightTitle}</h4>
-                <p className="mt-2 text-sm leading-6 text-white/68">{section[rightKey]}</p>
+                <p className="mt-2 text-sm leading-6 text-white/80">{renderFormattedText(section[rightKey])}</p>
               </div>
             </>
           )}
         </div>
       ) : (
-        <p className="p-5 text-sm leading-8 text-white/68">
-          {section.content}
+        <p className="p-5 text-sm leading-8 text-white/70">
+          {renderFormattedText(section.content)}
         </p>
       )}
     </SectionFrame>

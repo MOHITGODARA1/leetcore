@@ -100,7 +100,7 @@ export default function Calendar() {
 
 
     return (
-        <div className="w-[94%] mx-auto bg-[#1A1A1A] border border-white/8 rounded-3xl overflow-hidden text-sm font-sans shadow-[0_16px_45px_rgba(0,0,0,0.18)] p-4">
+        <div className="w-[94%] mx-auto bg-white/8 border border-white/8 rounded-3xl overflow-hidden text-sm font-sans shadow-[0_16px_45px_rgba(0,0,0,0.18)] p-4">
             {/* Header */}
             <div className="flex items-center justify-between mb-4">
                 <div className="flex flex-col">

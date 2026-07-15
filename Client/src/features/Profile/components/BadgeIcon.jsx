@@ -77,6 +77,84 @@ export function BadgeIcon({ slug, size = 48, unlocked = true, className = "" }) 
     );
   };
 
+  const renderShieldBadge = (line1, line2, color) => {
+    return (
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 200 200"
+        className={`${grayscaleClass} ${className}`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Outer Shield Path */}
+        <path
+          d="M 100 22 C 135 22, 165 30, 172 40 C 172 90, 155 142, 100 174 C 45 142, 28 90, 28 40 C 35 30, 65 22, 100 22 Z"
+          fill="#0C0C0F"
+          stroke={color}
+          strokeWidth="4"
+        />
+        {/* Inner Shield Path */}
+        <path
+          d="M 100 28 C 131 28, 158 35, 164 44 C 164 88, 149 135, 100 165 C 51 135, 36 88, 36 44 C 42 35, 69 28, 100 28 Z"
+          fill="none"
+          stroke={color}
+          strokeWidth="1.5"
+        />
+
+        {/* Text Center Header */}
+        <text
+          x="100"
+          y="72"
+          textAnchor="middle"
+          fill={color}
+          fontSize="15"
+          fontWeight="900"
+          letterSpacing="0.5"
+          fontFamily="'Georgia', 'Times New Roman', serif"
+        >
+          {line1}
+        </text>
+        <text
+          x="100"
+          y="94"
+          textAnchor="middle"
+          fill={color}
+          fontSize="15"
+          fontWeight="900"
+          letterSpacing="0.5"
+          fontFamily="'Georgia', 'Times New Roman', serif"
+        >
+          {line2}
+        </text>
+
+        {/* Laurel Wreath */}
+        <g fill={color} opacity="0.85">
+          {/* Left Wreath Leaves */}
+          <path d="M 75,130 C 72,125 68,122 62,120 C 66,124 70,128 72,133 Z" />
+          <path d="M 70,122 C 66,117 60,115 54,114 C 59,117 63,121 66,126 Z" />
+          <path d="M 64,113 C 59,108 52,106 46,107 C 51,109 56,113 58,118 Z" />
+          <path d="M 60,102 C 55,97 48,96 42,98 C 47,99 51,103 54,108 Z" />
+          <path d="M 58,91 C 54,86 48,86 42,89 C 47,89 51,93 53,98 Z" />
+          
+          {/* Right Wreath Leaves */}
+          <path d="M 125,130 C 128,125 132,122 138,120 C 134,124 130,128 128,133 Z" />
+          <path d="M 130,122 C 134,117 140,115 146,114 C 141,117 137,121 134,126 Z" />
+          <path d="M 136,113 C 141,108 148,106 154,107 C 149,109 144,113 142,118 Z" />
+          <path d="M 140,102 C 145,97 152,96 158,98 C 153,99 149,103 146,108 Z" />
+          <path d="M 142,91 C 146,86 152,86 158,89 C 153,89 149,93 147,98 Z" />
+        </g>
+
+        {/* Center Star */}
+        <path
+          d="M 100 114 L 104 124 L 115 124 L 106 130 L 109 141 L 100 134 L 91 141 L 94 130 L 85 124 L 96 124 Z"
+          fill={color}
+          stroke={color}
+          strokeWidth="0.5"
+        />
+      </svg>
+    );
+  };
+
   // Question Milestone Badges: Black center, outer ring with curved text top/bottom, custom logo center
   const renderMilestoneBadge = (title, subtitle, themeColor, logoElement) => {
     const pathIdTop = `topPath-${slug}`;
@@ -299,20 +377,12 @@ export function BadgeIcon({ slug, size = 48, unlocked = true, className = "" }) 
       return renderMilestoneBadge(
         "CORE MASTER",
         "500 QUESTIONS",
-        "#E28743", // Bronze
+        "#B28269", // Bronze
         (
           <g transform="translate(0, 0)">
-            {/* Shield */}
             <path
-              d="M 100 70 L 128 80 V 110 C 128 128, 100 142, 100 142 C 100 142, 72 128, 72 110 V 80 Z"
-              fill="none"
-              stroke="#E28743"
-              strokeWidth="3.5"
-            />
-            {/* Star inside shield */}
-            <path
-              d="M 100 88 L 104 98 L 115 98 L 106 104 L 109 115 L 100 108 L 91 115 L 94 104 L 85 98 L 96 98 Z"
-              fill="#E28743"
+              d="M 98,66 L 108,84 L 103,86 L 116,96 L 109,99 L 124,109 L 115,112 L 121,123 L 104,124 L 98,135 L 94,123 L 88,124 L 90,118 L 84,115 L 88,110 L 80,108 L 84,105 L 72,102 L 78,98 L 82,101 L 80,92 L 86,94 L 84,84 L 90,87 L 90,72 L 94,84 Z"
+              fill="#B28269"
             />
           </g>
         )
@@ -322,56 +392,24 @@ export function BadgeIcon({ slug, size = 48, unlocked = true, className = "" }) 
       return renderMilestoneBadge(
         "LEETCORE LEGEND",
         "1000 QUESTIONS",
-        "#F4B41A", // Gold
+        "#F46717", // Orange
         (
           <g transform="translate(0, 0)">
-            {/* Crown */}
             <path
-              d="M 68 122 L 60 90 L 80 102 L 100 80 L 120 102 L 140 90 L 132 122 Z"
-              fill="none"
-              stroke="#F4B41A"
-              strokeWidth="3.5"
-              strokeLinejoin="round"
+              d="M 68,90 C 72,82 78,76 86,76 C 96,76 103,84 108,82 C 114,80 120,72 128,76 C 122,81 115,83 109,87 C 117,87 126,84 130,89 C 122,93 114,94 108,98 C 115,99 123,97 126,102 C 117,106 109,106 104,111 C 110,112 116,111 118,116 C 108,119 100,117 96,122 C 98,124 102,126 101,129 C 94,125 90,120 88,114 C 84,113 78,111 76,106 C 79,106 82,105 84,103 C 76,101 71,97 68,90 Z"
+              fill="#F46717"
             />
-            {/* Crown dots */}
-            <circle cx="60" cy="90" r="3.5" fill="#F4B41A" />
-            <circle cx="100" cy="80" r="3.5" fill="#F4B41A" />
-            <circle cx="140" cy="90" r="3.5" fill="#F4B41A" />
-            <ellipse cx="100" cy="115" rx="16" ry="3.5" fill="#F4B41A" />
+            <circle cx="80" cy="86" r="2.5" fill="#000000" />
           </g>
         )
       );
 
     // 4. Topic Mastery Badges
     case "array-master":
-      return renderMilestoneBadge(
-        "ARRAY MASTER",
-        "TOPIC COMPLETED",
-        "#14B8A6", // Teal
-        (
-          <g transform="translate(0, 5)">
-            <rect x="70" y="86" width="60" height="24" rx="4" fill="none" stroke="#14B8A6" strokeWidth="3" />
-            <line x1="90" y1="86" x2="90" y2="110" stroke="#14B8A6" strokeWidth="2.5" />
-            <line x1="110" y1="86" x2="110" y2="110" stroke="#14B8A6" strokeWidth="2.5" />
-            <text x="80" y="102" textAnchor="middle" fill="#14B8A6" fontSize="11" fontWeight="bold" fontFamily="monospace">0</text>
-            <text x="100" y="102" textAnchor="middle" fill="#14B8A6" fontSize="11" fontWeight="bold" fontFamily="monospace">1</text>
-            <text x="120" y="102" textAnchor="middle" fill="#14B8A6" fontSize="11" fontWeight="bold" fontFamily="monospace">2</text>
-          </g>
-        )
-      );
+      return renderShieldBadge("ARRAY", "MASTER", "#FFA133");
 
     case "string-specialist":
-      return renderMilestoneBadge(
-        "STRING SPECIALIST",
-        "TOPIC COMPLETED",
-        "#EC4899", // Pink
-        (
-          <g transform="translate(0, 0)">
-            {/* Quotations mark and string text */}
-            <text x="100" y="105" textAnchor="middle" fill="#EC4899" fontSize="30" fontWeight="900" fontFamily="monospace">"str"</text>
-          </g>
-        )
-      );
+      return renderShieldBadge("STRING", "SPECIALIST", "#FFA133");
 
     case "hashing-hero":
       return renderMilestoneBadge(
@@ -407,50 +445,111 @@ export function BadgeIcon({ slug, size = 48, unlocked = true, className = "" }) 
       );
 
     case "linked-list-expert":
-      return renderMilestoneBadge(
-        "LINKED LIST EXPERT",
-        "TOPIC COMPLETED",
-        "#0EA5E9", // Sky Blue
-        (
-          <g transform="translate(0, 0)">
-            {/* Nodes connected */}
-            <circle cx="70" cy="100" r="8" fill="#0EA5E9" />
-            <circle cx="100" cy="100" r="8" fill="#0EA5E9" />
-            <circle cx="130" cy="100" r="8" fill="#0EA5E9" />
-            <path d="M 78 100 L 92 100 M 108 100 L 122 100" stroke="#0EA5E9" strokeWidth="2.5" />
-            {/* Arrows */}
-            <path d="M 88 97 L 92 100 L 88 103 M 118 97 L 122 100 L 118 103" fill="none" stroke="#0EA5E9" strokeWidth="1.5" />
-          </g>
-        )
-      );
+      return renderShieldBadge("LINKED LIST", "EXPERT", "#FFA133");
 
     case "stack-sensei":
+      return renderShieldBadge("STACK", "SENSEI", "#FFA133");
+
+    case "queue-commander":
+      return renderShieldBadge("QUEUE", "COMMANDER", "#FFA133");
+
+    case "recursion-master":
       return renderMilestoneBadge(
-        "STACK SENSEI",
+        "RECURSION MASTER",
         "TOPIC COMPLETED",
-        "#F97316", // Orange
+        "#F43F5E",
         (
-          <g transform="translate(0, 4)">
-            {/* Stacked plates */}
-            <rect x="75" y="80" width="50" height="8" rx="2" fill="#F97316" />
-            <rect x="75" y="92" width="50" height="8" rx="2" fill="#F97316" />
-            <rect x="75" y="104" width="50" height="8" rx="2" fill="#F97316" />
+          <g transform="translate(0, 0)">
+            <text x="100" y="112" textAnchor="middle" fill="#F43F5E" fontSize="38" fontWeight="bold" fontFamily="monospace">f()</text>
           </g>
         )
       );
 
-    case "queue-commander":
+    case "backtracking-master":
       return renderMilestoneBadge(
-        "QUEUE COMMANDER",
+        "BACKTRACKING MASTER",
         "TOPIC COMPLETED",
-        "#84CC16", // Lime
+        "#10B981",
         (
           <g transform="translate(0, 0)">
-            {/* Queue items queueing */}
-            <rect x="70" y="94" width="12" height="12" rx="2" fill="#84CC16" />
-            <rect x="90" y="94" width="12" height="12" rx="2" fill="#84CC16" />
-            <rect x="110" y="94" width="12" height="12" rx="2" fill="#84CC16" />
-            <path d="M 126 100 L 138 100 M 134 96 L 138 100 L 134 104" fill="none" stroke="#84CC16" strokeWidth="2" />
+            <text x="100" y="112" textAnchor="middle" fill="#10B981" fontSize="38" fontWeight="bold" fontFamily="monospace">←</text>
+          </g>
+        )
+      );
+
+    case "trees-master":
+      return renderShieldBadge("TREE", "EXPLORER", "#FFA133");
+
+    case "bst-master":
+      return renderMilestoneBadge(
+        "BST MASTER",
+        "TOPIC COMPLETED",
+        "#059669",
+        (
+          <g transform="translate(0, 0)">
+            <circle cx="100" cy="76" r="8" fill="#059669" />
+            <circle cx="80" cy="105" r="8" fill="#059669" />
+            <circle cx="120" cy="105" r="8" fill="#059669" />
+            <line x1="98" y1="84" x2="84" y2="97" stroke="#059669" strokeWidth="2" strokeLinejoin="round" />
+            <line x1="102" y1="84" x2="116" y2="97" stroke="#059669" strokeWidth="2" strokeLinejoin="round" />
+            <text x="100" y="138" textAnchor="middle" fill="#059669" fontSize="10" fontWeight="bold" fontFamily="monospace">BST</text>
+          </g>
+        )
+      );
+
+    case "heap-master":
+      return renderMilestoneBadge(
+        "HEAP MASTER",
+        "TOPIC COMPLETED",
+        "#F59E0B",
+        (
+          <g transform="translate(0, 0)">
+            <polygon points="100,70 70,120 130,120" fill="none" stroke="#F59E0B" strokeWidth="3" strokeLinejoin="round" />
+            <circle cx="100" cy="80" r="6" fill="#F59E0B" />
+            <circle cx="88" cy="100" r="6" fill="#F59E0B" />
+            <circle cx="112" cy="100" r="6" fill="#F59E0B" />
+          </g>
+        )
+      );
+
+    case "graphs-master":
+      return renderShieldBadge("GRAPH", "NAVIGATOR", "#FFA133");
+
+    case "trie-master":
+      return renderMilestoneBadge(
+        "TRIE MASTER",
+        "TOPIC COMPLETED",
+        "#A855F7",
+        (
+          <g transform="translate(0, 0)">
+            <text x="100" y="112" textAnchor="middle" fill="#A855F7" fontSize="38" fontWeight="bold" fontFamily="monospace">T</text>
+          </g>
+        )
+      );
+
+    case "greedy-master":
+      return renderMilestoneBadge(
+        "GREEDY MASTER",
+        "TOPIC COMPLETED",
+        "#EAB308",
+        (
+          <g transform="translate(0, 0)">
+            <text x="100" y="112" textAnchor="middle" fill="#EAB308" fontSize="38" fontWeight="bold" fontFamily="monospace">$</text>
+          </g>
+        )
+      );
+
+    case "dp-master":
+      return renderShieldBadge("DP", "ARCHITECT", "#FFA133");
+
+    case "bit-master":
+      return renderMilestoneBadge(
+        "BIT MASTER",
+        "TOPIC COMPLETED",
+        "#64748B",
+        (
+          <g transform="translate(0, 0)">
+            <text x="100" y="112" textAnchor="middle" fill="#64748B" fontSize="36" fontWeight="bold" fontFamily="monospace">01</text>
           </g>
         )
       );

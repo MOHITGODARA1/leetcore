@@ -8,17 +8,17 @@
     "platform": "LeetCode",
     "problemNumber": 217,
     "leetcodeUrl": "https://leetcode.com/problems/contains-duplicate/",
-    "description": "Given an integer array nums, your task is to determine whether any value appears at least twice in the array. If any duplicate value exists, return true. If every element in the array is completely distinct (i.e., no two elements are equal), return false. This is one of the most fundamental hashing problems because it directly demonstrates the core use case of a HashSet: O(1) average-time membership lookup. A naive brute-force approach compares every pair of elements in O(n^2), but using a HashSet allows you to check duplicates in a single O(n) pass. As you iterate, you ask: have I seen this number before? If yes, it's a duplicate. If no, add it to the set and move on.",
+    "description": "You're given an array of numbers, nums. Check if any number shows up more than once anywhere in the array. If any number repeats, return true. If every number is completely different from every other number, return false.",
     "examples": [
       {
         "input": "nums = [1,2,3,1]",
         "output": "true",
-        "explanation": "1 appears twice."
+        "explanation": "The number 1 shows up twice."
       },
       {
         "input": "nums = [1,2,3,4]",
         "output": "false",
-        "explanation": "All values are distinct."
+        "explanation": "Every number in the array is unique."
       }
     ],
     "constraints": [
@@ -26,25 +26,25 @@
       "-10^9 <= nums[i] <= 10^9"
     ],
     "hints": [
-      "Use a HashSet to track seen elements.",
-      "If you try to insert a duplicate, return true."
+      "Use a HashSet to keep track of numbers you've already seen.",
+      "The moment you try to add a number that's already in the set, you can immediately return true."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
-    "companies": ["Amazon", "Google", "Apple", "Adobe"],
+    "companies": ["Amazon", "Google", "Apple", "Adobe", "Microsoft", "Bloomberg", "Facebook"],
     "tags": ["Array", "Hash Table", "Sorting"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Contains Duplicate - NeetCode",
-        "url": "https://youtube.com/watch?v=3OamzN90kPg"
-      }
+      { "title": "Contains Duplicate - NeetCode", "url": "https://youtube.com/watch?v=3OamzN90kPg" }
     ],
     "relatedProblems": ["Contains Duplicate II", "Contains Duplicate III"],
     "followUp": ["Can you solve it without extra space using sorting?"],
     "testCases": [
-      { "input": "[1,2,3,1]", "output": "true" },
-      { "input": "[1,2,3,4]", "output": "false" }
+      { "input": "nums = [1,2,3,1]", "output": "true", "note": "Standard case with an obvious duplicate." },
+      { "input": "nums = [1,2,3,4]", "output": "false", "note": "All values are distinct." },
+      { "input": "nums = [1]", "output": "false", "note": "Edge case: only one element, so there's nothing to duplicate." },
+      { "input": "nums = [1,1,1,1]", "output": "true", "note": "Edge case: the same number is repeated many times." },
+      { "input": "nums = [-1,-1,2]", "output": "true", "note": "Edge case: negative numbers can be duplicates too." }
     ],
     "acceptanceRate": "61.5%",
     "likes": 14000,
@@ -59,17 +59,17 @@
     "platform": "LeetCode",
     "problemNumber": 1,
     "leetcodeUrl": "https://leetcode.com/problems/two-sum/",
-    "description": "Given an array of integers nums and an integer target, return the indices of the two numbers that add up to target. You may assume that each input has exactly one solution, and you may not use the same element twice. This is arguably the most famous hashing problem. The brute force checks every pair in O(n^2), but a HashMap reduces it to O(n). The key insight is: for each number x at index i, you don't need to scan the rest of the array. Instead, compute the complement (target - x) and check if that complement was already stored in the map. If it was, you found your pair immediately. If not, store x with its index and continue. This complement-lookup pattern is the backbone of many harder hashing problems like 4Sum II and Subarray Sum Equals K.",
+    "description": "You're given a list of numbers, nums, and a target number. Find the two numbers in the list that add up exactly to target, and return their positions (indices). You can assume there's always exactly one correct pair, and you can't use the same element twice.",
     "examples": [
       {
         "input": "nums = [2,7,11,15], target = 9",
         "output": "[0,1]",
-        "explanation": "nums[0] + nums[1] = 9."
+        "explanation": "nums[0] + nums[1] = 2 + 7 = 9."
       },
       {
         "input": "nums = [3,2,4], target = 6",
         "output": "[1,2]",
-        "explanation": "nums[1] + nums[2] = 6."
+        "explanation": "nums[1] + nums[2] = 2 + 4 = 6."
       }
     ],
     "constraints": [
@@ -78,24 +78,25 @@
       "Only one valid answer exists."
     ],
     "hints": [
-      "Store each number and its index in a HashMap.",
-      "For each element, check if target - element exists in the map."
+      "Store each number you've seen, along with its index, in a HashMap.",
+      "For every number, check whether (target - number) already exists in your HashMap."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
-    "companies": ["Amazon", "Google", "Meta", "Microsoft", "Apple"],
+    "companies": ["Amazon", "Google", "Meta", "Microsoft", "Apple", "Bloomberg", "Adobe"],
     "tags": ["Array", "Hash Table"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Two Sum - NeetCode",
-        "url": "https://youtube.com/watch?v=KLlXCFG5TnA"
-      }
+      { "title": "Two Sum - NeetCode", "url": "https://youtube.com/watch?v=KLlXCFG5TnA" }
     ],
     "relatedProblems": ["Two Sum II", "3Sum", "4Sum"],
     "followUp": ["What if the array is sorted?"],
     "testCases": [
-      { "input": "[2,7,11,15], target=9", "output": "[0,1]" }
+      { "input": "nums = [2,7,11,15], target = 9", "output": "[0,1]", "note": "Standard example." },
+      { "input": "nums = [3,2,4], target = 6", "output": "[1,2]", "note": "Answer is not at the start of the array." },
+      { "input": "nums = [3,3], target = 6", "output": "[0,1]", "note": "Edge case: the two matching numbers are identical." },
+      { "input": "nums = [-3,4,3,90], target = 0", "output": "[0,2]", "note": "Edge case: negative numbers are involved." },
+      { "input": "nums = [1,2], target = 3", "output": "[0,1]", "note": "Edge case: the smallest possible array length." }
     ],
     "acceptanceRate": "52.3%",
     "likes": 55000,
@@ -110,17 +111,17 @@
     "platform": "LeetCode",
     "problemNumber": 242,
     "leetcodeUrl": "https://leetcode.com/problems/valid-anagram/",
-    "description": "Given two strings s and t, return true if t is an anagram of s, and false otherwise. An anagram is a word formed by rearranging the letters of another word using all original letters exactly once. For example, 'listen' and 'silent' are anagrams. The hashing approach uses a frequency count map: count how many times each character appears in s, then subtract counts for each character in t. If the map is all zeros at the end, the strings are anagrams. Alternatively, you can use two separate frequency maps and compare them. This problem teaches the frequency-count pattern which is reused in Group Anagrams, Find All Anagrams in a String, and Minimum Window Substring.",
+    "description": "You're given two strings, s and t. Check whether t is an anagram of s — meaning t is made from exactly the same letters as s, used the exact same number of times, just arranged differently. For example, 'listen' and 'silent' are anagrams because they share the exact same letters.",
     "examples": [
       {
         "input": "s = \"anagram\", t = \"nagaram\"",
         "output": "true",
-        "explanation": "Both strings have the same character frequencies."
+        "explanation": "Both strings use the exact same letters the exact same number of times."
       },
       {
         "input": "s = \"rat\", t = \"car\"",
         "output": "false",
-        "explanation": "Different character sets."
+        "explanation": "The letters used in each string are different."
       }
     ],
     "constraints": [
@@ -128,24 +129,25 @@
       "s and t consist of lowercase English letters."
     ],
     "hints": [
-      "Count character frequencies using a HashMap.",
-      "Compare both frequency maps."
+      "Count how often each character appears using a HashMap.",
+      "Compare the two frequency counts, or subtract one from the other and check that everything cancels out to zero."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": ["Amazon", "Microsoft", "Bloomberg"],
+    "companies": ["Amazon", "Microsoft", "Bloomberg", "Google", "Facebook", "Apple"],
     "tags": ["Hash Table", "String", "Sorting"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Valid Anagram - NeetCode",
-        "url": "https://youtube.com/watch?v=9UtInBqnCgA"
-      }
+      { "title": "Valid Anagram - NeetCode", "url": "https://youtube.com/watch?v=9UtInBqnCgA" }
     ],
     "relatedProblems": ["Group Anagrams", "Find All Anagrams in a String"],
     "followUp": ["What if inputs contain Unicode characters?"],
     "testCases": [
-      { "input": "s=\"anagram\", t=\"nagaram\"", "output": "true" }
+      { "input": "s = \"anagram\", t = \"nagaram\"", "output": "true", "note": "Standard matching case." },
+      { "input": "s = \"rat\", t = \"car\"", "output": "false", "note": "Completely different letters." },
+      { "input": "s = \"a\", t = \"a\"", "output": "true", "note": "Edge case: smallest possible input, a single matching letter." },
+      { "input": "s = \"ab\", t = \"a\"", "output": "false", "note": "Edge case: strings of different lengths can never be anagrams." },
+      { "input": "s = \"aabb\", t = \"bbaa\"", "output": "true", "note": "Edge case: repeated letters, still matches when counted correctly." }
     ],
     "acceptanceRate": "64.2%",
     "likes": 12000,
@@ -160,12 +162,17 @@
     "platform": "LeetCode",
     "problemNumber": 706,
     "leetcodeUrl": "https://leetcode.com/problems/design-hashmap/",
-    "description": "Design a HashMap from scratch without using any built-in hash table libraries. You must implement the MyHashMap class supporting three operations: put(key, value) which inserts or updates a key-value pair, get(key) which returns the value for a key or -1 if not found, and remove(key) which deletes the key-value pair if it exists. This problem forces you to understand what actually happens under the hood of every HashMap you use. You must choose a hash function (typically key % tableSize), handle collisions using separate chaining (array of linked lists) or open addressing, and manage edge cases like updating existing keys. Building this from scratch is the best way to truly internalize why hash tables give O(1) average performance and what causes worst-case O(n) behavior.",
+    "description": "Build your own HashMap, without using any programming language's built-in hash table. You need three operations: put(key, value) to insert or update a key-value pair, get(key) to look up a value (returning -1 if the key was never inserted), and remove(key) to delete a key-value pair if it exists.",
     "examples": [
       {
         "input": "put(1,1), put(2,2), get(1), get(3), put(2,1), get(2), remove(2), get(2)",
         "output": "[null,null,1,-1,null,1,null,-1]",
-        "explanation": "Standard HashMap operations."
+        "explanation": "A typical sequence of insert, lookup, update, and remove operations."
+      },
+      {
+        "input": "put(5,10), get(5), remove(5), get(5)",
+        "output": "[null,10,null,-1]",
+        "explanation": "After removing a key, looking it up again returns -1."
       }
     ],
     "constraints": [
@@ -173,24 +180,25 @@
       "At most 10^4 calls to put, get, and remove."
     ],
     "hints": [
-      "Use an array of linked lists (chaining).",
-      "Hash function: key % tableSize."
+      "Use an array where each slot holds a small list of key-value pairs (this is called chaining).",
+      "A simple hash function like key % tableSize works well to pick which slot to use."
     ],
     "expectedTimeComplexity": "O(1) average",
     "expectedSpaceComplexity": "O(n)",
-    "companies": ["Amazon", "Google", "Bloomberg"],
+    "companies": ["Amazon", "Google", "Bloomberg", "Microsoft", "Facebook"],
     "tags": ["Array", "Hash Table", "Linked List", "Design"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "Design HashMap - LeetCode 706",
-        "url": "https://youtube.com/watch?v=cNWsgbKwwoU"
-      }
+      { "title": "Design HashMap - LeetCode 706", "url": "https://youtube.com/watch?v=cNWsgbKwwoU" }
     ],
     "relatedProblems": ["Design HashSet", "Design Linked List"],
     "followUp": ["How would you handle resizing?"],
     "testCases": [
-      { "input": "put(1,1), get(1)", "output": "1" }
+      { "input": "put(1,1), get(1)", "output": "1", "note": "Basic insert and lookup." },
+      { "input": "get(2)", "output": "-1", "note": "Edge case: looking up a key that was never inserted." },
+      { "input": "put(2,2), put(2,1), get(2)", "output": "1", "note": "Edge case: putting the same key twice should update its value." },
+      { "input": "put(3,3), remove(3), get(3)", "output": "-1", "note": "Edge case: removing a key makes future lookups return -1." },
+      { "input": "remove(5), get(5)", "output": "-1", "note": "Edge case: removing a key that was never inserted shouldn't cause any errors." }
     ],
     "acceptanceRate": "66.3%",
     "likes": 3200,
@@ -205,12 +213,17 @@
     "platform": "LeetCode",
     "problemNumber": 705,
     "leetcodeUrl": "https://leetcode.com/problems/design-hashset/",
-    "description": "Design a HashSet from scratch without using any built-in hash set libraries. You must implement the MyHashSet class supporting three operations: add(key) which inserts the key if not already present, contains(key) which returns true if the key exists, and remove(key) which removes the key if it exists. Similar to Design HashMap but simpler since you only store keys without values. This problem is the gateway to understanding the internal mechanics of sets. You will implement a hash function, choose a collision resolution strategy, and reason about load factor. The typical implementation uses an array of buckets where each bucket is a linked list, giving O(1) average case for all three operations.",
+    "description": "Build your own HashSet, without using any built-in set library. You need three operations: add(key) to insert a value if it's not already there, contains(key) to check whether a value exists, and remove(key) to delete a value if it exists.",
     "examples": [
       {
         "input": "add(1), add(2), contains(1), contains(3), add(2), contains(2), remove(2), contains(2)",
         "output": "[null,null,true,false,null,true,null,false]",
-        "explanation": "Standard HashSet operations."
+        "explanation": "A typical sequence of add, contains, and remove operations."
+      },
+      {
+        "input": "add(100), contains(100), remove(100), contains(100)",
+        "output": "[null,true,null,false]",
+        "explanation": "After removing a value, checking for it again returns false."
       }
     ],
     "constraints": [
@@ -218,24 +231,25 @@
       "At most 10^4 calls to add, remove, and contains."
     ],
     "hints": [
-      "Use an array of buckets with linked lists.",
-      "Use modulo as the hash function."
+      "Use an array of buckets, where each bucket holds a small list of values.",
+      "Use a simple modulo operation as your hash function to decide which bucket a value goes into."
     ],
     "expectedTimeComplexity": "O(1) average",
     "expectedSpaceComplexity": "O(n)",
-    "companies": ["Amazon", "Google"],
+    "companies": ["Amazon", "Google", "Microsoft", "Bloomberg"],
     "tags": ["Array", "Hash Table", "Linked List", "Design"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Design HashSet - LeetCode 705",
-        "url": "https://youtube.com/watch?v=VymjPQUXjL8"
-      }
+      { "title": "Design HashSet - LeetCode 705", "url": "https://youtube.com/watch?v=VymjPQUXjL8" }
     ],
     "relatedProblems": ["Design HashMap", "Design Linked List"],
     "followUp": ["Compare your design with Java's HashSet implementation."],
     "testCases": [
-      { "input": "add(1), contains(1)", "output": "true" }
+      { "input": "add(1), contains(1)", "output": "true", "note": "Basic add and lookup." },
+      { "input": "contains(3)", "output": "false", "note": "Edge case: checking a value that was never added." },
+      { "input": "add(2), add(2), contains(2)", "output": "true", "note": "Edge case: adding the same value twice shouldn't cause problems." },
+      { "input": "add(4), remove(4), contains(4)", "output": "false", "note": "Edge case: removing a value makes contains() return false afterward." },
+      { "input": "remove(10), contains(10)", "output": "false", "note": "Edge case: removing a value that was never added shouldn't cause any errors." }
     ],
     "acceptanceRate": "68.1%",
     "likes": 2900,
@@ -250,17 +264,17 @@
     "platform": "LeetCode",
     "problemNumber": 771,
     "leetcodeUrl": "https://leetcode.com/problems/jewels-and-stones/",
-    "description": "You are given two strings: jewels, which represents the types of stones that are jewels, and stones, which represents the stones you have. Each character in stones represents a stone you own, and you want to know how many of your stones are also jewels. Letters are case-sensitive, so 'a' is a different type from 'A'. This is one of the simplest practical applications of a HashSet. Instead of doing a nested loop (O(j * s)), you insert all jewel types into a HashSet in O(j) time, then iterate through each stone and check membership in O(1) per lookup. The total time is O(j + s). While simple, this problem is a perfect first example of trading space for time using hashing.",
+    "description": "You're given two strings: jewels, which lists which letter types count as jewels, and stones, which represents the stones you actually own. Count how many of your stones are jewels. Letters are case-sensitive, so 'a' and 'A' are treated as completely different types.",
     "examples": [
       {
         "input": "jewels = \"aA\", stones = \"aAAbbbb\"",
         "output": "3",
-        "explanation": "a, A, A are jewels in stones."
+        "explanation": "The stones 'a', 'A', and 'A' are all jewels."
       },
       {
         "input": "jewels = \"z\", stones = \"ZZ\"",
         "output": "0",
-        "explanation": "Case-sensitive, no match."
+        "explanation": "Since letters are case-sensitive, 'Z' does not match 'z'."
       }
     ],
     "constraints": [
@@ -268,24 +282,25 @@
       "All characters are English letters (case-sensitive)."
     ],
     "hints": [
-      "Store jewels in a HashSet.",
-      "Count how many stones are in the set."
+      "Put every character from jewels into a HashSet first.",
+      "Then count how many characters in stones exist in that HashSet."
     ],
     "expectedTimeComplexity": "O(j + s)",
     "expectedSpaceComplexity": "O(j)",
-    "companies": ["Amazon", "Google"],
+    "companies": ["Amazon", "Google", "Microsoft", "Facebook"],
     "tags": ["Hash Table", "String"],
     "estimatedTime": "5 min",
     "youtubeVideos": [
-      {
-        "title": "Jewels and Stones - LeetCode 771",
-        "url": "https://youtube.com/watch?v=rNlm9dGzVeI"
-      }
+      { "title": "Jewels and Stones - LeetCode 771", "url": "https://youtube.com/watch?v=rNlm9dGzVeI" }
     ],
     "relatedProblems": ["Intersection of Two Arrays"],
     "followUp": ["What if the input is a stream?"],
     "testCases": [
-      { "input": "jewels=\"aA\", stones=\"aAAbbbb\"", "output": "3" }
+      { "input": "jewels = \"aA\", stones = \"aAAbbbb\"", "output": "3", "note": "Standard example with mixed matches." },
+      { "input": "jewels = \"z\", stones = \"ZZ\"", "output": "0", "note": "Case sensitivity means no matches." },
+      { "input": "jewels = \"a\", stones = \"a\"", "output": "1", "note": "Edge case: smallest possible input, exactly one matching stone." },
+      { "input": "jewels = \"abc\", stones = \"aaaa\"", "output": "4", "note": "Edge case: the same jewel letter repeats many times in stones." },
+      { "input": "jewels = \"ab\", stones = \"cccc\"", "output": "0", "note": "Edge case: none of the stones are jewels at all." }
     ],
     "acceptanceRate": "88.2%",
     "likes": 4100,
@@ -300,17 +315,17 @@
     "platform": "LeetCode",
     "problemNumber": 1189,
     "leetcodeUrl": "https://leetcode.com/problems/maximum-number-of-balloons/",
-    "description": "Given a string text, you need to find the maximum number of times you can form the word 'balloon' using the characters from text. Each character from text can be used at most once. The word 'balloon' requires: 1x 'b', 1x 'a', 2x 'l', 2x 'o', 1x 'n'. This problem is a direct application of the frequency-count hashing pattern. Count the occurrences of each required letter in text using a HashMap, then divide the counts appropriately (divide by 2 for 'l' and 'o' since they appear twice in 'balloon'), and return the minimum across all required characters. This teaches you how to generalize frequency matching for any target word.",
+    "description": "You're given a string, text. Figure out how many times you can spell out the word 'balloon' using only the letters available in text (each letter in text can only be used once). Spelling 'balloon' requires: one 'b', one 'a', two 'l's, two 'o's, and one 'n'.",
     "examples": [
       {
         "input": "text = \"nlaebolko\"",
         "output": "1",
-        "explanation": "One 'balloon' can be formed."
+        "explanation": "There are just enough letters to spell 'balloon' exactly once."
       },
       {
         "input": "text = \"loonbalxballpoon\"",
         "output": "2",
-        "explanation": "Two 'balloon' instances."
+        "explanation": "There are enough letters to spell 'balloon' twice."
       }
     ],
     "constraints": [
@@ -318,24 +333,25 @@
       "text consists of lower case English letters only."
     ],
     "hints": [
-      "Count frequency of b, a, l, o, n in text.",
-      "l and o need to appear twice per balloon."
+      "Count how many times each of b, a, l, o, and n appears in text.",
+      "Remember that l and o are each needed twice per 'balloon', so divide those two counts by 2."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": ["Amazon", "Google"],
+    "companies": ["Amazon", "Google", "Microsoft"],
     "tags": ["Hash Table", "String", "Counting"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Maximum Number of Balloons - LeetCode 1189",
-        "url": "https://youtube.com/watch?v=_QBiEPHsTbs"
-      }
+      { "title": "Maximum Number of Balloons - LeetCode 1189", "url": "https://youtube.com/watch?v=_QBiEPHsTbs" }
     ],
     "relatedProblems": ["Ransom Note", "Find All Anagrams in a String"],
     "followUp": ["Can you generalize for any target word?"],
     "testCases": [
-      { "input": "\"nlaebolko\"", "output": "1" }
+      { "input": "text = \"nlaebolko\"", "output": "1", "note": "Exactly enough letters for one balloon." },
+      { "input": "text = \"loonbalxballpoon\"", "output": "2", "note": "Enough letters for two balloons." },
+      { "input": "text = \"balloon\"", "output": "1", "note": "Edge case: the input is exactly the word itself." },
+      { "input": "text = \"a\"", "output": "0", "note": "Edge case: almost none of the required letters are present." },
+      { "input": "text = \"bbaall\"", "output": "0", "note": "Edge case: has b, a, and l but is completely missing 'o' and 'n', so zero balloons can be formed." }
     ],
     "acceptanceRate": "67.4%",
     "likes": 2300,
@@ -350,17 +366,17 @@
     "platform": "LeetCode",
     "problemNumber": 290,
     "leetcodeUrl": "https://leetcode.com/problems/word-pattern/",
-    "description": "Given a pattern string (e.g., 'abba') and a string s containing space-separated words, determine if s follows the same pattern. This means there must be a bijection (one-to-one and onto mapping) between each character in pattern and each word in s. For example, if 'a' maps to 'dog', every 'a' must map to 'dog' and no other letter maps to 'dog'. This problem requires checking a bijection in both directions simultaneously. Use two HashMaps: one from pattern character to word, and another from word to pattern character. At each position, if the current character already maps to a different word (or vice versa), return false. This bidirectional mapping technique also appears in Isomorphic Strings and is critical in any encoding/decoding problem.",
+    "description": "You're given a short pattern (like 'abba') and a sentence s made of space-separated words. Check if the words in s follow the exact same pattern as the letters. This means each letter in the pattern must always correspond to the exact same word, and no two different letters can correspond to the same word (a strict one-to-one relationship in both directions).",
     "examples": [
       {
         "input": "pattern = \"abba\", s = \"dog cat cat dog\"",
         "output": "true",
-        "explanation": "a->dog, b->cat."
+        "explanation": "'a' consistently maps to 'dog' and 'b' consistently maps to 'cat'."
       },
       {
         "input": "pattern = \"abba\", s = \"dog cat cat fish\"",
         "output": "false",
-        "explanation": "Pattern breaks at end."
+        "explanation": "The last word 'fish' should have matched 'dog' (since the first and last letters are both 'a'), but it doesn't."
       }
     ],
     "constraints": [
@@ -368,24 +384,25 @@
       "s contains only lowercase English words separated by a single space."
     ],
     "hints": [
-      "Use two HashMaps: one for pattern->word and one for word->pattern.",
-      "Check bijection in both directions."
+      "Use two HashMaps: one mapping pattern-letter to word, and one mapping word to pattern-letter.",
+      "At every position, check that both mappings agree — if either one is broken, return false."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
-    "companies": ["Dropbox", "Google"],
+    "companies": ["Dropbox", "Google", "Amazon", "Microsoft"],
     "tags": ["Hash Table", "String"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Word Pattern - LeetCode 290",
-        "url": "https://youtube.com/watch?v=W_akoecmCbM"
-      }
+      { "title": "Word Pattern - LeetCode 290", "url": "https://youtube.com/watch?v=W_akoecmCbM" }
     ],
     "relatedProblems": ["Isomorphic Strings", "Find the Difference"],
     "followUp": ["What about Word Pattern II?"],
     "testCases": [
-      { "input": "pattern=\"abba\", s=\"dog cat cat dog\"", "output": "true" }
+      { "input": "pattern = \"abba\", s = \"dog cat cat dog\"", "output": "true", "note": "Consistent mapping in both directions." },
+      { "input": "pattern = \"abba\", s = \"dog cat cat fish\"", "output": "false", "note": "The pattern breaks at the last word." },
+      { "input": "pattern = \"aaaa\", s = \"dog cat cat dog\"", "output": "false", "note": "Edge case: pattern says all letters are the same, but the words differ." },
+      { "input": "pattern = \"abba\", s = \"dog dog dog dog\"", "output": "false", "note": "Edge case: two different pattern letters ('a' and 'b') would both map to the same word, breaking the one-to-one rule." },
+      { "input": "pattern = \"a\", s = \"dog\"", "output": "true", "note": "Edge case: smallest possible input, a single letter mapped to a single word." }
     ],
     "acceptanceRate": "42.3%",
     "likes": 6400,
@@ -400,17 +417,17 @@
     "platform": "LeetCode",
     "problemNumber": 205,
     "leetcodeUrl": "https://leetcode.com/problems/isomorphic-strings/",
-    "description": "Given two strings s and t, determine if they are isomorphic. Two strings are isomorphic if the characters in s can be replaced to get t, with a consistent one-to-one mapping where no two characters map to the same character but each character maps to exactly one character. For example, 'egg' and 'add' are isomorphic because 'e' maps to 'a' and 'g' maps to 'd'. But 'foo' and 'bar' are not, because 'o' would need to map to both 'a' and 'r'. The solution uses two HashMaps for bidirectional verification at every character position. This is structurally identical to Word Pattern but operates at the character level instead of the word level. Mastering this teaches you the general bijection-check template.",
+    "description": "You're given two strings, s and t, of the same length. Check whether they are 'isomorphic' — meaning you could replace every character in s with some other character to get exactly t, following a strict one-to-one rule (no two different characters in s can map to the same character, and each character always maps to exactly one character). For example, 'egg' and 'add' are isomorphic because every 'e' becomes 'a' and every 'g' becomes 'd'. But 'foo' and 'bar' are not, because the letter 'o' would need to become both 'a' and 'r', which breaks the rule.",
     "examples": [
       {
         "input": "s = \"egg\", t = \"add\"",
         "output": "true",
-        "explanation": "e->a, g->d."
+        "explanation": "'e' consistently maps to 'a' and 'g' consistently maps to 'd'."
       },
       {
         "input": "s = \"foo\", t = \"bar\"",
         "output": "false",
-        "explanation": "o maps to both a and r."
+        "explanation": "'o' would need to map to both 'a' and 'r', which isn't allowed."
       }
     ],
     "constraints": [
@@ -418,24 +435,25 @@
       "t.length == s.length"
     ],
     "hints": [
-      "Use two HashMaps for bidirectional mapping.",
-      "Check for consistency at each character pair."
+      "Use two HashMaps: one mapping s-character to t-character, and one mapping t-character to s-character.",
+      "Check both maps agree at every single position as you scan through the strings."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": ["Amazon", "LinkedIn"],
+    "companies": ["Amazon", "LinkedIn", "Google", "Microsoft"],
     "tags": ["Hash Table", "String"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Isomorphic Strings - LeetCode 205",
-        "url": "https://youtube.com/watch?v=7yF-U1hLEqQ"
-      }
+      { "title": "Isomorphic Strings - LeetCode 205", "url": "https://youtube.com/watch?v=7yF-U1hLEqQ" }
     ],
     "relatedProblems": ["Word Pattern", "Bijection Check"],
     "followUp": ["Can you solve using only one map?"],
     "testCases": [
-      { "input": "s=\"egg\", t=\"add\"", "output": "true" }
+      { "input": "s = \"egg\", t = \"add\"", "output": "true", "note": "Consistent character mapping." },
+      { "input": "s = \"foo\", t = \"bar\"", "output": "false", "note": "One character would need two different mappings." },
+      { "input": "s = \"paper\", t = \"title\"", "output": "true", "note": "A slightly longer example with a valid consistent mapping." },
+      { "input": "s = \"ab\", t = \"aa\"", "output": "false", "note": "Edge case: two different source characters ('a' and 'b') would both need to map to 'a', breaking the one-to-one rule." },
+      { "input": "s = \"a\", t = \"a\"", "output": "true", "note": "Edge case: smallest possible input, a single matching character." }
     ],
     "acceptanceRate": "44.1%",
     "likes": 7300,
@@ -450,17 +468,17 @@
     "platform": "LeetCode",
     "problemNumber": 383,
     "leetcodeUrl": "https://leetcode.com/problems/ransom-note/",
-    "description": "Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine. Each letter in magazine can only be used once. Imagine cutting letters from a magazine to form a ransom note — you need enough copies of each letter available. The solution is a direct application of frequency-count hashing: build a frequency map of all characters in magazine, then for each character in ransomNote, decrement its count. If any count drops below zero, the magazine doesn't have enough of that letter, so return false. This problem reinforces the idea that a HashMap can represent a multiset (a set allowing duplicate entries), which is a fundamental data structure pattern.",
+    "description": "You're given two strings: ransomNote and magazine. Check whether you can build ransomNote by using individual letters from magazine, where each letter in magazine can only be used once.",
     "examples": [
       {
         "input": "ransomNote = \"a\", magazine = \"b\"",
         "output": "false",
-        "explanation": "a is not in magazine."
+        "explanation": "The letter 'a' isn't available anywhere in magazine."
       },
       {
         "input": "ransomNote = \"aa\", magazine = \"aab\"",
         "output": "true",
-        "explanation": "Two a's available."
+        "explanation": "magazine has two 'a's available, which is exactly enough."
       }
     ],
     "constraints": [
@@ -468,24 +486,25 @@
       "Consists of lowercase English letters."
     ],
     "hints": [
-      "Count letter frequencies in magazine.",
-      "Check if ransomNote can be satisfied by those counts."
+      "Count how many times each letter appears in magazine.",
+      "Go through ransomNote and check that magazine has enough of every needed letter."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": ["Amazon", "Apple", "Google"],
+    "companies": ["Amazon", "Apple", "Google", "Microsoft"],
     "tags": ["Hash Table", "String", "Counting"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Ransom Note - LeetCode 383",
-        "url": "https://youtube.com/watch?v=sOHMbGVpDSw"
-      }
+      { "title": "Ransom Note - LeetCode 383", "url": "https://youtube.com/watch?v=sOHMbGVpDSw" }
     ],
     "relatedProblems": ["Valid Anagram", "Maximum Number of Balloons"],
     "followUp": ["What if each letter can only be used once?"],
     "testCases": [
-      { "input": "ransomNote=\"aa\", magazine=\"aab\"", "output": "true" }
+      { "input": "ransomNote = \"a\", magazine = \"b\"", "output": "false", "note": "Needed letter isn't available at all." },
+      { "input": "ransomNote = \"aa\", magazine = \"aab\"", "output": "true", "note": "Exactly enough copies available." },
+      { "input": "ransomNote = \"aa\", magazine = \"ab\"", "output": "false", "note": "Edge case: not quite enough copies of a needed letter." },
+      { "input": "ransomNote = \"a\", magazine = \"a\"", "output": "true", "note": "Edge case: smallest possible input, exact single-letter match." },
+      { "input": "ransomNote = \"aabbcc\", magazine = \"aabbcc\"", "output": "true", "note": "Edge case: an exact match using every single letter available." }
     ],
     "acceptanceRate": "59.2%",
     "likes": 5400,
@@ -500,17 +519,17 @@
     "platform": "LeetCode",
     "problemNumber": 349,
     "leetcodeUrl": "https://leetcode.com/problems/intersection-of-two-arrays/",
-    "description": "Given two integer arrays nums1 and nums2, return an array of their intersection — the elements that appear in both arrays. Each element in the result must be unique (even if it appears multiple times in both arrays). This problem illustrates set intersection using hashing. Insert all elements of nums1 into a HashSet. Then iterate through nums2, and for each element that exists in the HashSet, add it to the result set (using another set ensures uniqueness). The result set becomes your answer. This is a clean O(n + m) solution compared to the O(n * m) naive approach. The intersection pattern appears in many harder problems involving two data sources.",
+    "description": "You're given two arrays of numbers, nums1 and nums2. Find all the numbers that appear in both arrays, and return them with no duplicates in your answer (even if a number repeats several times in either array).",
     "examples": [
       {
         "input": "nums1 = [1,2,2,1], nums2 = [2,2]",
         "output": "[2]",
-        "explanation": "2 is common and appears once."
+        "explanation": "2 is the only number common to both arrays, and it appears once in the answer."
       },
       {
         "input": "nums1 = [4,9,5], nums2 = [9,4,9,8,4]",
         "output": "[9,4]",
-        "explanation": "4 and 9 are common."
+        "explanation": "Both 4 and 9 appear in both arrays."
       }
     ],
     "constraints": [
@@ -518,24 +537,25 @@
       "0 <= nums1[i], nums2[i] <= 1000"
     ],
     "hints": [
-      "Convert nums1 to a HashSet.",
-      "Check each element in nums2 against the set."
+      "Put all of nums1's numbers into a HashSet first.",
+      "Then check each number in nums2 against that HashSet to build your answer."
     ],
     "expectedTimeComplexity": "O(n + m)",
     "expectedSpaceComplexity": "O(min(n,m))",
-    "companies": ["Amazon", "Google", "Facebook"],
+    "companies": ["Amazon", "Google", "Facebook", "Microsoft"],
     "tags": ["Array", "Hash Table", "Two Pointers", "Binary Search", "Sorting"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Intersection of Two Arrays - LeetCode 349",
-        "url": "https://youtube.com/watch?v=OzBj8E3Rkbs"
-      }
+      { "title": "Intersection of Two Arrays - LeetCode 349", "url": "https://youtube.com/watch?v=OzBj8E3Rkbs" }
     ],
     "relatedProblems": ["Intersection of Two Arrays II", "Intersection of Three Sorted Arrays"],
     "followUp": ["What if the given array is already sorted?"],
     "testCases": [
-      { "input": "[1,2,2,1], [2,2]", "output": "[2]" }
+      { "input": "nums1 = [1,2,2,1], nums2 = [2,2]", "output": "[2]", "note": "Standard example with a repeated common number." },
+      { "input": "nums1 = [4,9,5], nums2 = [9,4,9,8,4]", "output": "[9,4]", "note": "Multiple common numbers, each returned once." },
+      { "input": "nums1 = [1,2,3], nums2 = [4,5,6]", "output": "[]", "note": "Edge case: the two arrays have nothing in common." },
+      { "input": "nums1 = [1,1,1], nums2 = [1,1,1]", "output": "[1]", "note": "Edge case: heavy duplicates on both sides still collapse to a single answer." },
+      { "input": "nums1 = [1], nums2 = [1]", "output": "[1]", "note": "Edge case: smallest possible arrays, both matching." }
     ],
     "acceptanceRate": "72.1%",
     "likes": 6800,
@@ -550,17 +570,17 @@
     "platform": "LeetCode",
     "problemNumber": 49,
     "leetcodeUrl": "https://leetcode.com/problems/group-anagrams/",
-    "description": "Given an array of strings strs, group all strings that are anagrams of each other together and return the groups in any order. Two strings are anagrams if one can be formed by rearranging the letters of the other. The key insight is finding a canonical key that all anagrams share. The most common approach is to sort each string alphabetically — all anagrams produce the same sorted string (e.g., 'eat', 'tea', 'ate' all sort to 'aet'). Use a HashMap where the key is the sorted string and the value is the list of original strings that hash to it. An alternative O(n*k) key (avoiding sorting) uses a tuple of 26 character counts as the key. This problem teaches you how to design smart hash keys to group related items.",
+    "description": "You're given a list of strings. Group together all the strings that are anagrams of each other, and return the groups in any order.",
     "examples": [
       {
         "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
         "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
-        "explanation": "Anagrams grouped together."
+        "explanation": "Strings sharing the same sorted letters get grouped together."
       },
       {
         "input": "strs = [\"\"]",
         "output": "[[\"\"]]",
-        "explanation": "Single empty string."
+        "explanation": "A single empty string simply forms its own group."
       }
     ],
     "constraints": [
@@ -569,24 +589,25 @@
       "Lowercase English letters only."
     ],
     "hints": [
-      "Sort each string to create a canonical key.",
-      "Use a HashMap with sorted string as key and list of anagrams as value."
+      "Sort each string's letters to create a shared 'signature' key.",
+      "Use a HashMap where the key is the signature and the value is a list of the original strings."
     ],
     "expectedTimeComplexity": "O(n * k log k)",
     "expectedSpaceComplexity": "O(n * k)",
-    "companies": ["Amazon", "Google", "Meta", "Microsoft", "Uber"],
+    "companies": ["Amazon", "Google", "Meta", "Microsoft", "Uber", "Facebook"],
     "tags": ["Array", "Hash Table", "String", "Sorting"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "Group Anagrams - NeetCode",
-        "url": "https://youtube.com/watch?v=vzdNOK2oB2E"
-      }
+      { "title": "Group Anagrams - NeetCode", "url": "https://youtube.com/watch?v=vzdNOK2oB2E" }
     ],
     "relatedProblems": ["Valid Anagram", "Find All Anagrams in a String"],
     "followUp": ["Can you use character frequency as the key instead of sorting?"],
     "testCases": [
-      { "input": "[\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]", "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]" }
+      { "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]", "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]", "note": "Standard multi-group example." },
+      { "input": "strs = [\"\"]", "output": "[[\"\"]]", "note": "Edge case: a single empty string is allowed by the constraints." },
+      { "input": "strs = [\"a\"]", "output": "[[\"a\"]]", "note": "Edge case: a single one-letter string with no group to join." },
+      { "input": "strs = [\"ab\",\"ba\",\"abc\"]", "output": "[[\"ab\",\"ba\"],[\"abc\"]]", "note": "Edge case: one matching pair plus one string that stands alone." },
+      { "input": "strs = [\"\",\"\",\"\"]", "output": "[[\"\",\"\",\"\"]]", "note": "Edge case: multiple empty strings all belong to the same group." }
     ],
     "acceptanceRate": "68.1%",
     "likes": 19000,
@@ -601,17 +622,17 @@
     "platform": "LeetCode",
     "problemNumber": 347,
     "leetcodeUrl": "https://leetcode.com/problems/top-k-frequent-elements/",
-    "description": "Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order. The guaranteed constraint is that the answer is unique. Step one is always the same: build a frequency HashMap by counting occurrences of each element. Step two is where the interesting choices happen. Option A (O(n log k)): use a min-heap of size k; iterate through the frequency map and maintain only the top k elements. Option B (O(n)) — bucket sort: create an array of n+1 buckets where bucket[i] holds all elements that appear exactly i times, then scan from the end to collect the top k. The bucket sort approach is optimal and demonstrates how hashing can completely replace comparison-based sorting in specific scenarios.",
+    "description": "You're given an array of numbers and a number k. Return the k numbers that appear most often in the array, in any order. It's guaranteed there's exactly one correct set of answers.",
     "examples": [
       {
         "input": "nums = [1,1,1,2,2,3], k = 2",
         "output": "[1,2]",
-        "explanation": "1 appears 3 times, 2 appears 2 times."
+        "explanation": "1 appears 3 times and 2 appears 2 times — the two most frequent numbers."
       },
       {
         "input": "nums = [1], k = 1",
         "output": "[1]",
-        "explanation": "Only one element."
+        "explanation": "There's only one number, so it's automatically the most frequent."
       }
     ],
     "constraints": [
@@ -619,8 +640,8 @@
       "k is in the range [1, number of unique elements]"
     ],
     "hints": [
-      "Count frequency with a HashMap.",
-      "Use a min-heap of size k or bucket sort by frequency."
+      "First, count how often each number appears using a HashMap.",
+      "Then use a min-heap of size k, or try bucket sort by frequency for an even faster solution."
     ],
     "expectedTimeComplexity": "O(n log k)",
     "expectedSpaceComplexity": "O(n)",
@@ -628,15 +649,16 @@
     "tags": ["Array", "Hash Table", "Divide and Conquer", "Sorting", "Heap", "Bucket Sort"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "Top K Frequent Elements - NeetCode",
-        "url": "https://youtube.com/watch?v=YPTqKIgVk-k"
-      }
+      { "title": "Top K Frequent Elements - NeetCode", "url": "https://youtube.com/watch?v=YPTqKIgVk-k" }
     ],
     "relatedProblems": ["Word Frequency", "Kth Largest Element in an Array", "Sort Characters By Frequency"],
     "followUp": ["Can you solve it in O(n) time using bucket sort?"],
     "testCases": [
-      { "input": "[1,1,1,2,2,3], k=2", "output": "[1,2]" }
+      { "input": "nums = [1,1,1,2,2,3], k = 2", "output": "[1,2]", "note": "Standard case with clear frequency ranking." },
+      { "input": "nums = [1], k = 1", "output": "[1]", "note": "Edge case: smallest possible input, one element." },
+      { "input": "nums = [1,2,3,4], k = 4", "output": "[1,2,3,4]", "note": "Edge case: k equals the total number of unique elements." },
+      { "input": "nums = [4,4,4,4], k = 1", "output": "[4]", "note": "Edge case: only one unique number in the whole array." },
+      { "input": "nums = [1,2,2,3,3,3], k = 1", "output": "[3]", "note": "Edge case: strictly one number is clearly the most frequent." }
     ],
     "acceptanceRate": "64.7%",
     "likes": 17000,
@@ -651,17 +673,17 @@
     "platform": "LeetCode",
     "problemNumber": 128,
     "leetcodeUrl": "https://leetcode.com/problems/longest-consecutive-sequence/",
-    "description": "Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence (e.g., [1,2,3,4]). The algorithm must run in O(n) time, which rules out sorting. The HashSet-based solution is elegant: insert all numbers into a HashSet for O(1) lookups, then for each number n, check if n-1 exists in the set. If it does NOT, then n is the start of a new sequence. From that start, keep incrementing and checking (n+1, n+2, ...) until the next number isn't in the set, counting the length. By only starting sequences at their true beginning, every number is visited at most twice total across all sequences, guaranteeing O(n). This problem shows how a HashSet can replace sorting when you only need membership queries.",
+    "description": "You're given an unsorted array of numbers. Find the length of the longest run of consecutive numbers that all appear somewhere in the array (for example, [1,2,3,4] is a run of length 4, even if they're scattered around in the original array).",
     "examples": [
       {
         "input": "nums = [100,4,200,1,3,2]",
         "output": "4",
-        "explanation": "[1,2,3,4] is the longest consecutive sequence."
+        "explanation": "The numbers 1, 2, 3, 4 form the longest consecutive run."
       },
       {
         "input": "nums = [0,3,7,2,5,8,4,6,0,1]",
         "output": "9",
-        "explanation": "[0,1,2,3,4,5,6,7,8]."
+        "explanation": "The numbers 0 through 8 form one long consecutive run."
       }
     ],
     "constraints": [
@@ -669,8 +691,8 @@
       "-10^9 <= nums[i] <= 10^9"
     ],
     "hints": [
-      "Store all numbers in a HashSet.",
-      "Only start counting from a number if num-1 is NOT in the set."
+      "Put all the numbers into a HashSet for instant lookups.",
+      "Only start counting a new sequence from a number if (number - 1) is not already in the set."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
@@ -678,15 +700,16 @@
     "tags": ["Array", "Hash Table", "Union Find"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Longest Consecutive Sequence - NeetCode",
-        "url": "https://youtube.com/watch?v=P6RZZMu_maU"
-      }
+      { "title": "Longest Consecutive Sequence - NeetCode", "url": "https://youtube.com/watch?v=P6RZZMu_maU" }
     ],
     "relatedProblems": ["Binary Tree Longest Consecutive Sequence"],
     "followUp": ["What if the array is already sorted?"],
     "testCases": [
-      { "input": "[100,4,200,1,3,2]", "output": "4" }
+      { "input": "nums = [100,4,200,1,3,2]", "output": "4", "note": "Standard case with a clear consecutive run." },
+      { "input": "nums = [0,3,7,2,5,8,4,6,0,1]", "output": "9", "note": "A longer run that also includes a duplicate number." },
+      { "input": "nums = []", "output": "0", "note": "Edge case: an empty array is allowed by the constraints." },
+      { "input": "nums = [1,2,0,1]", "output": "3", "note": "Edge case: duplicate values shouldn't affect the sequence length." },
+      { "input": "nums = [5]", "output": "1", "note": "Edge case: a single-element array is its own run of length 1." }
     ],
     "acceptanceRate": "47.8%",
     "likes": 20000,
@@ -701,17 +724,17 @@
     "platform": "LeetCode",
     "problemNumber": 3,
     "leetcodeUrl": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
-    "description": "Given a string s, find the length of the longest substring that contains no repeating characters. A substring is a contiguous sequence of characters within the string. This is the classic sliding window + hashing problem. Maintain a window with two pointers (left and right) and a HashSet (or HashMap) tracking the characters currently inside the window. Expand the right pointer to include new characters. When a duplicate is detected, shrink the window from the left until the duplicate is removed. The HashMap variant (storing character -> last seen index) allows jumping the left pointer directly to the position after the last occurrence of the duplicate, making the inner loop implicit. At each step, update the maximum window size. This problem is foundational for all sliding window problems.",
+    "description": "You're given a string. Find the length of the longest continuous chunk of it that has no repeated characters at all.",
     "examples": [
       {
         "input": "s = \"abcabcbb\"",
         "output": "3",
-        "explanation": "\"abc\" is the longest substring."
+        "explanation": "\"abc\" is the longest chunk with no repeated characters."
       },
       {
         "input": "s = \"bbbbb\"",
         "output": "1",
-        "explanation": "\"b\" is the longest substring."
+        "explanation": "Any window bigger than a single 'b' would contain a repeat."
       }
     ],
     "constraints": [
@@ -719,8 +742,8 @@
       "s consists of English letters, digits, symbols and spaces."
     ],
     "hints": [
-      "Use a sliding window with a HashSet.",
-      "Move the left pointer when a duplicate is found."
+      "Maintain a sliding window using a HashSet of currently 'active' characters.",
+      "When you find a duplicate, move the left pointer forward until that duplicate is removed from the window."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(min(n, m))",
@@ -728,15 +751,16 @@
     "tags": ["Hash Table", "String", "Sliding Window"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "Longest Substring Without Repeating Characters - NeetCode",
-        "url": "https://youtube.com/watch?v=wiGpQwVHdE0"
-      }
+      { "title": "Longest Substring Without Repeating Characters - NeetCode", "url": "https://youtube.com/watch?v=wiGpQwVHdE0" }
     ],
     "relatedProblems": ["Longest Substring with At Most Two Distinct Characters", "Minimum Window Substring"],
     "followUp": ["Can you use a HashMap storing indices to optimize the left pointer movement?"],
     "testCases": [
-      { "input": "\"abcabcbb\"", "output": "3" }
+      { "input": "s = \"abcabcbb\"", "output": "3", "note": "Standard case with a repeating pattern." },
+      { "input": "s = \"bbbbb\"", "output": "1", "note": "Every character in the string is the same." },
+      { "input": "s = \"\"", "output": "0", "note": "Edge case: an empty string is allowed by the constraints." },
+      { "input": "s = \"abcde\"", "output": "5", "note": "Edge case: every character is already unique." },
+      { "input": "s = \"pwwkew\"", "output": "3", "note": "Edge case: a repeat in the middle tests correct window shrinking." }
     ],
     "acceptanceRate": "34.2%",
     "likes": 40000,
@@ -751,12 +775,17 @@
     "platform": "LeetCode",
     "problemNumber": 454,
     "leetcodeUrl": "https://leetcode.com/problems/4sum-ii/",
-    "description": "Given four integer arrays nums1, nums2, nums3, and nums4, each of length n, count the number of tuples (i, j, k, l) such that nums1[i] + nums2[j] + nums3[k] + nums4[l] equals zero. The brute force is O(n^4), but hashing brings it to O(n^2). The trick is 'divide and conquer on pairs': compute every possible sum of nums1[i] + nums2[j] and store each sum along with how many times it occurs in a HashMap. Then iterate over every pair from nums3 and nums4, and for each sum S = nums3[k] + nums4[l], check if (-S) exists in the HashMap. If it does, add its count to the result. This problem elegantly demonstrates how to reduce a 4-variable problem to two 2-variable problems using a HashMap as a lookup bridge.",
+    "description": "You're given four separate arrays of numbers, all the same length. Count how many combinations you can make — picking exactly one number from each array — that add up to exactly zero.",
     "examples": [
       {
-        "input": "nums1=[1,2], nums2=[-2,-1], nums3=[-1,2], nums4=[0,2]",
+        "input": "nums1 = [1,2], nums2 = [-2,-1], nums3 = [-1,2], nums4 = [0,2]",
         "output": "2",
-        "explanation": "Two tuples sum to zero."
+        "explanation": "There are exactly two combinations, one from each array, that add up to zero."
+      },
+      {
+        "input": "nums1 = [0], nums2 = [0], nums3 = [0], nums4 = [0]",
+        "output": "1",
+        "explanation": "The only possible combination (0+0+0+0) sums to zero."
       }
     ],
     "constraints": [
@@ -764,24 +793,25 @@
       "1 <= n <= 200"
     ],
     "hints": [
-      "Split into two pairs: count all sums of (nums1[i]+nums2[j]) in a HashMap.",
-      "For each sum in (nums3+nums4), check if its negation exists in the map."
+      "Compute every sum of (nums1[i] + nums2[j]) and store how often each sum occurs in a HashMap.",
+      "For every sum of (nums3[k] + nums4[l]), check if the negative of that sum exists in your HashMap."
     ],
     "expectedTimeComplexity": "O(n^2)",
     "expectedSpaceComplexity": "O(n^2)",
-    "companies": ["Amazon", "Google"],
+    "companies": ["Amazon", "Google", "Microsoft"],
     "tags": ["Array", "Hash Table"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "4Sum II - LeetCode 454",
-        "url": "https://youtube.com/watch?v=SzQ55MvNIIM"
-      }
+      { "title": "4Sum II - LeetCode 454", "url": "https://youtube.com/watch?v=SzQ55MvNIIM" }
     ],
     "relatedProblems": ["Two Sum", "4Sum"],
     "followUp": ["How would you extend this to k arrays?"],
     "testCases": [
-      { "input": "[1,2],[-2,-1],[-1,2],[0,2]", "output": "2" }
+      { "input": "nums1 = [1,2], nums2 = [-2,-1], nums3 = [-1,2], nums4 = [0,2]", "output": "2", "note": "Standard case with two valid combinations." },
+      { "input": "nums1 = [0], nums2 = [0], nums3 = [0], nums4 = [0]", "output": "1", "note": "Edge case: smallest possible arrays (n=1), all zeros." },
+      { "input": "nums1 = [1], nums2 = [-1], nums3 = [0], nums4 = [0]", "output": "1", "note": "Edge case: n=1 with a single valid zero-sum combination." },
+      { "input": "nums1 = [1], nums2 = [2], nums3 = [3], nums4 = [4]", "output": "0", "note": "Edge case: no combination at all sums to zero." },
+      { "input": "nums1 = [0,0], nums2 = [0,0], nums3 = [0,0], nums4 = [0,0]", "output": "16", "note": "Edge case: every possible combination sums to zero, producing the maximum count for n=2." }
     ],
     "acceptanceRate": "57.3%",
     "likes": 5800,
@@ -796,12 +826,17 @@
     "platform": "LeetCode",
     "problemNumber": 438,
     "leetcodeUrl": "https://leetcode.com/problems/find-all-anagrams-in-a-string/",
-    "description": "Given two strings s and p, return a list of all the starting indices in s where a substring of length p.length() is an anagram of p. The order of results does not matter. This combines two concepts: the sliding window (fixed-size window of length p) and frequency-count hashing. Maintain a frequency map for p and a running frequency map for the current window in s. Slide the window one character at a time: add the new right character and remove the leftmost character. After each slide, compare the two maps — if they are equal, the current window is an anagram. To avoid comparing full maps at every step (which is O(26) but still adds up), you can maintain a counter of how many characters are 'satisfied', updating it only when a count crosses the threshold.",
+    "description": "You're given two strings, s and p. Find every starting position in s where a chunk of the same length as p is an anagram of p (uses the exact same letters, just rearranged).",
     "examples": [
       {
         "input": "s = \"cbaebabacd\", p = \"abc\"",
         "output": "[0,6]",
-        "explanation": "Anagrams at index 0 (\"cba\") and 6 (\"bac\")."
+        "explanation": "The chunk \"cba\" at index 0 and \"bac\" at index 6 are both anagrams of \"abc\"."
+      },
+      {
+        "input": "s = \"abab\", p = \"ab\"",
+        "output": "[0,1,2]",
+        "explanation": "Every 2-character chunk starting at these indices is an anagram of \"ab\"."
       }
     ],
     "constraints": [
@@ -809,24 +844,25 @@
       "s and p consist of lowercase English letters."
     ],
     "hints": [
-      "Use a fixed-size sliding window of length p.",
-      "Compare character frequency maps."
+      "Use a fixed-size sliding window equal to the length of p.",
+      "Compare character frequency counts inside the window against the frequency counts of p."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
-    "companies": ["Amazon", "Google", "Meta", "Uber"],
+    "companies": ["Amazon", "Google", "Meta", "Uber", "Microsoft"],
     "tags": ["Hash Table", "String", "Sliding Window"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "Find All Anagrams in a String - NeetCode",
-        "url": "https://youtube.com/watch?v=G8xtZy0fDKg"
-      }
+      { "title": "Find All Anagrams in a String - NeetCode", "url": "https://youtube.com/watch?v=G8xtZy0fDKg" }
     ],
     "relatedProblems": ["Valid Anagram", "Permutation in String"],
     "followUp": ["Can you use a difference counter to avoid comparing two maps?"],
     "testCases": [
-      { "input": "s=\"cbaebabacd\", p=\"abc\"", "output": "[0,6]" }
+      { "input": "s = \"cbaebabacd\", p = \"abc\"", "output": "[0,6]", "note": "Standard example with two matches." },
+      { "input": "s = \"abab\", p = \"ab\"", "output": "[0,1,2]", "note": "Overlapping matches across the string." },
+      { "input": "s = \"a\", p = \"ab\"", "output": "[]", "note": "Edge case: p is longer than s, so no match is possible." },
+      { "input": "s = \"a\", p = \"a\"", "output": "[0]", "note": "Edge case: smallest possible matching input." },
+      { "input": "s = \"aaaaaaaaaa\", p = \"aaaaaaaaaaaaa\"", "output": "[]", "note": "Edge case: p is longer than s even though both use the same repeated letter." }
     ],
     "acceptanceRate": "49.8%",
     "likes": 10000,
@@ -841,17 +877,17 @@
     "platform": "LeetCode",
     "problemNumber": 560,
     "leetcodeUrl": "https://leetcode.com/problems/subarray-sum-equals-k/",
-    "description": "Given an array of integers nums (which may include negative numbers) and an integer k, return the total number of contiguous subarrays whose sum equals k. This problem cannot use a sliding window because the array may contain negative numbers (shrinking the window doesn't guarantee decreasing the sum). Instead, use prefix sums with a HashMap. Define prefixSum[i] as the sum of nums[0..i]. A subarray nums[j..i] has sum k if and only if prefixSum[i] - prefixSum[j-1] = k, i.e., prefixSum[j-1] = prefixSum[i] - k. As you iterate and compute prefix sums, store each prefix sum's frequency in a HashMap. For each new prefix sum S, look up how many times S-k has appeared before — each occurrence corresponds to a valid subarray ending here. Initialize the map with {0: 1} to handle subarrays starting from index 0.",
+    "description": "You're given an array of numbers (which may include negative numbers) and a target number, k. Count how many continuous chunks of the array add up to exactly k.",
     "examples": [
       {
         "input": "nums = [1,1,1], k = 2",
         "output": "2",
-        "explanation": "Two subarrays [1,1] sum to 2."
+        "explanation": "Two overlapping chunks, both containing two 1's, add up to 2."
       },
       {
         "input": "nums = [1,2,3], k = 3",
         "output": "2",
-        "explanation": "[1,2] and [3] sum to 3."
+        "explanation": "The chunks [1,2] and [3] both sum to 3."
       }
     ],
     "constraints": [
@@ -860,24 +896,25 @@
       "-10^7 <= k <= 10^7"
     ],
     "hints": [
-      "Use prefix sum. For each prefix sum S, check if S-k was seen before.",
-      "Store prefix sum frequencies in a HashMap."
+      "Keep a running total as you scan the array, and check whether (running total - k) has occurred before.",
+      "Store how many times each running total has occurred so far in a HashMap, starting with {0: 1}."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
-    "companies": ["Amazon", "Google", "Facebook", "Oracle"],
+    "companies": ["Amazon", "Google", "Facebook", "Oracle", "Microsoft"],
     "tags": ["Array", "Hash Table", "Prefix Sum"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Subarray Sum Equals K - NeetCode",
-        "url": "https://youtube.com/watch?v=fFVZt-6sgyo"
-      }
+      { "title": "Subarray Sum Equals K - NeetCode", "url": "https://youtube.com/watch?v=fFVZt-6sgyo" }
     ],
     "relatedProblems": ["Two Sum", "Continuous Subarray Sum", "Path Sum III"],
     "followUp": ["What if all numbers are positive? Can you use sliding window?"],
     "testCases": [
-      { "input": "[1,1,1], k=2", "output": "2" }
+      { "input": "nums = [1,1,1], k = 2", "output": "2", "note": "Standard case with overlapping matches." },
+      { "input": "nums = [1,2,3], k = 3", "output": "2", "note": "Two different chunks both reaching the target sum." },
+      { "input": "nums = [1], k = 0", "output": "0", "note": "Edge case: a single-element array with no chunk summing to zero." },
+      { "input": "nums = [1,-1,0], k = 0", "output": "3", "note": "Edge case: negative numbers create multiple chunks that sum to zero." },
+      { "input": "nums = [-1,-1,1], k = 0", "output": "1", "note": "Edge case: negative numbers involved in the only valid chunk." }
     ],
     "acceptanceRate": "44.5%",
     "likes": 20000,
@@ -892,12 +929,17 @@
     "platform": "LeetCode",
     "problemNumber": 739,
     "leetcodeUrl": "https://leetcode.com/problems/daily-temperatures/",
-    "description": "Given an array of daily temperatures, for each day return the number of days you need to wait until a warmer temperature. If there is no future day with a higher temperature, return 0 for that day. While not a pure hashing problem, it uses a HashMap-like index lookup via a monotonic stack. Maintain a stack of indices representing days with 'unresolved' (not yet found a warmer day) temperatures in decreasing order of temperature. For each new day, while the stack is non-empty and the current temperature is greater than the temperature at the top-of-stack index, pop the stack, compute the difference in indices (that's the wait), and store it in the answer array. Push the current index onto the stack. The key insight: the stack acts as a hash-like structure that immediately resolves waiting queries in O(1) amortized per element.",
+    "description": "You're given a list of daily temperatures. For each day, figure out how many days you'd have to wait until a warmer day comes along. If no warmer day ever comes, put 0 for that day instead.",
     "examples": [
       {
         "input": "temperatures = [73,74,75,71,69,72,76,73]",
         "output": "[1,1,4,2,1,1,0,0]",
-        "explanation": "Days until next warmer temperature."
+        "explanation": "Each value tells you how many days to wait for a strictly warmer day."
+      },
+      {
+        "input": "temperatures = [30,40,50,60]",
+        "output": "[1,1,1,0]",
+        "explanation": "Since temperatures keep rising, each day only waits 1 day, except the last which never gets warmer."
       }
     ],
     "constraints": [
@@ -905,24 +947,25 @@
       "30 <= temperatures[i] <= 100"
     ],
     "hints": [
-      "Use a monotonic decreasing stack storing indices.",
-      "When a warmer temperature is found, pop and compute the difference."
+      "Keep a stack of day-indices that are still waiting for a warmer day, in decreasing temperature order.",
+      "When a warmer day appears, pop from the stack and calculate the difference in indices as your answer."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
-    "companies": ["Amazon", "Google", "Microsoft"],
+    "companies": ["Amazon", "Google", "Microsoft", "Facebook"],
     "tags": ["Array", "Stack", "Monotonic Stack"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "Daily Temperatures - NeetCode",
-        "url": "https://youtube.com/watch?v=cTBiBSnjO3c"
-      }
+      { "title": "Daily Temperatures - NeetCode", "url": "https://youtube.com/watch?v=cTBiBSnjO3c" }
     ],
     "relatedProblems": ["Next Greater Element I", "Next Greater Element II"],
     "followUp": ["What if temperatures can be negative?"],
     "testCases": [
-      { "input": "[73,74,75,71,69,72,76,73]", "output": "[1,1,4,2,1,1,0,0]" }
+      { "input": "temperatures = [73,74,75,71,69,72,76,73]", "output": "[1,1,4,2,1,1,0,0]", "note": "Standard mixed-temperature example." },
+      { "input": "temperatures = [30,40,50,60]", "output": "[1,1,1,0]", "note": "Edge case: strictly increasing temperatures." },
+      { "input": "temperatures = [60,50,40,30]", "output": "[0,0,0,0]", "note": "Edge case: strictly decreasing temperatures, so no day ever gets warmer." },
+      { "input": "temperatures = [30]", "output": "[0]", "note": "Edge case: a single day, with no future day to compare against." },
+      { "input": "temperatures = [30,30,30,30]", "output": "[0,0,0,0]", "note": "Edge case: all the same temperature, so it never gets strictly warmer." }
     ],
     "acceptanceRate": "67.8%",
     "likes": 14000,
@@ -937,12 +980,17 @@
     "platform": "LeetCode",
     "problemNumber": 138,
     "leetcodeUrl": "https://leetcode.com/problems/copy-list-with-random-pointer/",
-    "description": "A special linked list is given where each node has a next pointer and a random pointer that can point to any node in the list or null. Your task is to create a completely independent deep copy of this list — a new list where modifying the copy does not affect the original. The challenge is the random pointer: when copying a node, you may not have created the node it randomly points to yet. A HashMap elegantly solves this in two passes. First pass: iterate the original list and create a new copy node for each original node, storing the mapping (original node -> copy node) in a HashMap. Second pass: iterate again, and for each original node, set copy.next = map[original.next] and copy.random = map[original.random], using the HashMap as a translation layer between original and copy nodes.",
+    "description": "You're given a special linked list where every node has a normal 'next' pointer plus an extra 'random' pointer that can point to any other node in the list (or to nothing at all). Create a completely separate deep copy of this list, so that changing the copy never affects the original.",
     "examples": [
       {
         "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]",
         "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]",
-        "explanation": "Deep copy preserving all pointers."
+        "explanation": "A fully independent deep copy is created, matching every next and random pointer."
+      },
+      {
+        "input": "head = [[1,1],[2,0]]",
+        "output": "[[1,1],[2,0]]",
+        "explanation": "Even when nodes point to each other via random pointers, the copy preserves the same structure."
       }
     ],
     "constraints": [
@@ -951,24 +999,25 @@
       "Node.random is null or points to some node in the list."
     ],
     "hints": [
-      "Use a HashMap to map original nodes to their copies.",
-      "First pass: create all copies. Second pass: assign next and random pointers."
+      "Use a HashMap to map each original node to its newly created copy.",
+      "First pass: create all the copy nodes. Second pass: use the HashMap to set each copy's next and random pointers."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(n)",
-    "companies": ["Amazon", "Microsoft", "Bloomberg", "Meta"],
+    "companies": ["Amazon", "Microsoft", "Bloomberg", "Meta", "Google"],
     "tags": ["Hash Table", "Linked List"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Copy List with Random Pointer - NeetCode",
-        "url": "https://youtube.com/watch?v=5Y2EiZST97Y"
-      }
+      { "title": "Copy List with Random Pointer - NeetCode", "url": "https://youtube.com/watch?v=5Y2EiZST97Y" }
     ],
     "relatedProblems": ["Clone Graph", "Clone Binary Tree With Random Pointer"],
     "followUp": ["Can you solve it in O(1) space by interleaving the copy nodes?"],
     "testCases": [
-      { "input": "[[7,null],[13,0]]", "output": "[[7,null],[13,0]]" }
+      { "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]", "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]", "note": "Standard multi-node example with various random pointer targets." },
+      { "input": "head = []", "output": "[]", "note": "Edge case: an empty list, allowed by the constraints." },
+      { "input": "head = [[1,null]]", "output": "[[1,null]]", "note": "Edge case: a single node with no random pointer at all." },
+      { "input": "head = [[1,0]]", "output": "[[1,0]]", "note": "Edge case: a single node whose random pointer points back to itself." },
+      { "input": "head = [[1,1],[2,0]]", "output": "[[1,1],[2,0]]", "note": "Edge case: two nodes whose random pointers point to each other." }
     ],
     "acceptanceRate": "56.4%",
     "likes": 13000,
@@ -983,12 +1032,17 @@
     "platform": "LeetCode",
     "problemNumber": 146,
     "leetcodeUrl": "https://leetcode.com/problems/lru-cache/",
-    "description": "Design a data structure that implements a Least Recently Used (LRU) cache with a given capacity. It must support two operations: get(key) which returns the value of the key if it exists, otherwise -1, and put(key, value) which inserts or updates the key. When the cache reaches capacity, it must evict the least recently used item before inserting a new one. Both operations must run in O(1) average time. The canonical solution combines two data structures: a HashMap for O(1) key lookup, and a doubly linked list for O(1) insertion and deletion of any node. The list maintains order of use — most recently used at the front, least recently used at the tail. Every get or put moves the accessed node to the front. When eviction is needed, remove the tail node. This problem is a masterclass in combining multiple data structures to meet strict complexity requirements.",
+    "description": "Design a storage system (a 'cache') with a fixed capacity that follows the 'Least Recently Used' (LRU) rule: whenever it's full and a new item needs to be added, it removes whichever item hasn't been used in the longest time. You need two operations: get(key), which returns the stored value (or -1 if the key isn't there), and put(key, value), which adds or updates a key. Both operations must run in constant time.",
     "examples": [
       {
         "input": "LRUCache(2), put(1,1), put(2,2), get(1), put(3,3), get(2), put(4,4), get(1), get(3), get(4)",
         "output": "[null,null,null,1,null,-1,null,1,3,4]",
-        "explanation": "Cache of capacity 2 with LRU eviction."
+        "explanation": "With capacity 2, adding a third key evicts whichever key was least recently used."
+      },
+      {
+        "input": "LRUCache(1), put(1,1), put(2,2), get(1)",
+        "output": "[null,null,null,-1]",
+        "explanation": "With capacity 1, adding a second key immediately evicts the first."
       }
     ],
     "constraints": [
@@ -998,9 +1052,8 @@
       "At most 2 * 10^5 calls to get and put."
     ],
     "hints": [
-      "Combine a HashMap with a doubly linked list.",
-      "HashMap gives O(1) lookup; linked list gives O(1) insertion/deletion.",
-      "Maintain a dummy head and tail to simplify boundary cases."
+      "Combine a HashMap (for instant key lookup) with a doubly linked list (for instant reordering).",
+      "Move a node to the front of the list every time it's accessed via get or put; remove from the back when the cache is full."
     ],
     "expectedTimeComplexity": "O(1)",
     "expectedSpaceComplexity": "O(capacity)",
@@ -1008,15 +1061,16 @@
     "tags": ["Hash Table", "Linked List", "Design", "Doubly-Linked List"],
     "estimatedTime": "45 min",
     "youtubeVideos": [
-      {
-        "title": "LRU Cache - NeetCode",
-        "url": "https://youtube.com/watch?v=7ABFKPK2hD4"
-      }
+      { "title": "LRU Cache - NeetCode", "url": "https://youtube.com/watch?v=7ABFKPK2hD4" }
     ],
     "relatedProblems": ["LFU Cache", "Design In-Memory File System"],
     "followUp": ["How would you implement LFU cache?"],
     "testCases": [
-      { "input": "capacity=2, put(1,1), put(2,2), get(1), put(3,3), get(2)", "output": "-1" }
+      { "input": "capacity=2, put(1,1), put(2,2), get(1), put(3,3), get(2)", "output": "-1", "note": "Standard eviction case: 2 gets evicted since it was least recently used." },
+      { "input": "capacity=1, put(1,1), put(2,2), get(1)", "output": "-1", "note": "Edge case: capacity of 1 means the very first key gets evicted immediately." },
+      { "input": "capacity=2, put(1,1), get(1), put(2,2), put(3,3), get(1)", "output": "1", "note": "Edge case: accessing key 1 with get() protects it from eviction." },
+      { "input": "capacity=2, get(1)", "output": "-1", "note": "Edge case: calling get() on a completely empty cache." },
+      { "input": "capacity=2, put(1,1), put(1,10), get(1)", "output": "10", "note": "Edge case: updating an existing key's value shouldn't trigger any eviction." }
     ],
     "acceptanceRate": "42.8%",
     "likes": 21000,
@@ -1031,17 +1085,17 @@
     "platform": "LeetCode",
     "problemNumber": 76,
     "leetcodeUrl": "https://leetcode.com/problems/minimum-window-substring/",
-    "description": "Given two strings s and t, return the minimum length substring of s that contains every character in t (including duplicates) at least the required number of times. If no such substring exists, return an empty string. This is one of the hardest sliding window problems and is the ultimate test of the frequency-hashmap pattern. Maintain a need map (frequency of each character in t) and a window map (frequency of each character in the current window). Also maintain a 'formed' counter tracking how many unique characters in t have their required count satisfied in the window. Expand the right pointer to add characters, incrementing 'formed' when a character's window count meets its needed count. Once all characters are satisfied (formed == required), shrink the left pointer to minimize the window, updating the answer whenever a smaller valid window is found.",
+    "description": "You're given two strings, s and t. Find the shortest continuous chunk of s that contains every character from t, including matching duplicate counts (so if t needs two 'a's, your chunk needs at least two 'a's too). If no such chunk exists, return an empty string.",
     "examples": [
       {
         "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
         "output": "\"BANC\"",
-        "explanation": "Minimum window containing A, B, C."
+        "explanation": "\"BANC\" is the smallest chunk of s containing an A, a B, and a C."
       },
       {
         "input": "s = \"a\", t = \"a\"",
         "output": "\"a\"",
-        "explanation": "Entire string is the window."
+        "explanation": "The entire string is already the smallest valid window."
       }
     ],
     "constraints": [
@@ -1049,9 +1103,8 @@
       "s and t consist of uppercase and lowercase English letters."
     ],
     "hints": [
-      "Use a sliding window with two frequency maps.",
-      "Track how many characters are fully satisfied (have count).",
-      "Shrink the left pointer when all characters are satisfied."
+      "Use a sliding window paired with two frequency maps: one for what's needed and one for what's currently inside the window.",
+      "Only start shrinking the window from the left once every required character has enough copies inside it."
     ],
     "expectedTimeComplexity": "O(|s| + |t|)",
     "expectedSpaceComplexity": "O(|s| + |t|)",
@@ -1059,15 +1112,16 @@
     "tags": ["Hash Table", "String", "Sliding Window"],
     "estimatedTime": "45 min",
     "youtubeVideos": [
-      {
-        "title": "Minimum Window Substring - NeetCode",
-        "url": "https://youtube.com/watch?v=jSto0O4AJbM"
-      }
+      { "title": "Minimum Window Substring - NeetCode", "url": "https://youtube.com/watch?v=jSto0O4AJbM" }
     ],
     "relatedProblems": ["Substring with Concatenation of All Words", "Smallest Range Covering Elements from K Lists"],
     "followUp": ["What if you need all minimum windows (not just one)?"],
     "testCases": [
-      { "input": "s=\"ADOBECODEBANC\", t=\"ABC\"", "output": "\"BANC\"" }
+      { "input": "s = \"ADOBECODEBANC\", t = \"ABC\"", "output": "\"BANC\"", "note": "Classic example requiring three different characters." },
+      { "input": "s = \"a\", t = \"aa\"", "output": "\"\"", "note": "Edge case: s doesn't contain enough copies of the required character." },
+      { "input": "s = \"a\", t = \"a\"", "output": "\"a\"", "note": "Edge case: smallest possible input, s exactly equals t." },
+      { "input": "s = \"ab\", t = \"a\"", "output": "\"a\"", "note": "Edge case: only one required character out of a longer string." },
+      { "input": "s = \"aa\", t = \"aa\"", "output": "\"aa\"", "note": "Edge case: needing two of the same character, using the entire string." }
     ],
     "acceptanceRate": "42.2%",
     "likes": 17000,
@@ -1082,17 +1136,17 @@
     "platform": "LeetCode",
     "problemNumber": 41,
     "leetcodeUrl": "https://leetcode.com/problems/first-missing-positive/",
-    "description": "Given an unsorted integer array nums, find the smallest missing positive integer. The solution must run in O(n) time and use O(1) extra space — which means you cannot use a separate hash table. This constraint forces you to use the array itself as an implicit hash map, making it one of the most creative hashing problems. The key observation is: the answer must lie in the range [1, n+1], where n is the length of the array. So use the array indices as positions. In the first pass, for each value v where 1 <= v <= n, place v at index v-1 by swapping. After rearranging, scan the array: the first index i where nums[i] != i+1 means i+1 is the missing positive. If all positions match, return n+1. This technique — using the array itself as a hash map — is called index hashing and appears in several other problems.",
+    "description": "You're given an unsorted array of numbers. Find the smallest positive whole number (1, 2, 3, ...) that is not present anywhere in the array.",
     "examples": [
       {
         "input": "nums = [1,2,0]",
         "output": "3",
-        "explanation": "1 and 2 are present, 3 is missing."
+        "explanation": "1 and 2 are both present, so 3 is the smallest missing positive number."
       },
       {
         "input": "nums = [3,4,-1,1]",
         "output": "2",
-        "explanation": "2 is the smallest missing positive."
+        "explanation": "1, 3, and 4 are present, but 2 is missing."
       }
     ],
     "constraints": [
@@ -1100,9 +1154,9 @@
       "-2^31 <= nums[i] <= 2^31 - 1"
     ],
     "hints": [
-      "The answer is in range [1, n+1].",
-      "Use the array itself as a hash map: place nums[i] at index nums[i]-1.",
-      "Scan for the first index i where nums[i] != i+1."
+      "The answer always lies somewhere between 1 and (array length + 1).",
+      "Use the array itself as a hash map: try to place each number v at index v-1 by swapping.",
+      "Scan afterward for the first index i where nums[i] doesn't equal i+1 — that's your missing number."
     ],
     "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
@@ -1110,16 +1164,16 @@
     "tags": ["Array", "Hash Table"],
     "estimatedTime": "40 min",
     "youtubeVideos": [
-      {
-        "title": "First Missing Positive - NeetCode",
-        "url": "https://youtube.com/watch?v=8g78yfzMlao"
-      }
+      { "title": "First Missing Positive - NeetCode", "url": "https://youtube.com/watch?v=8g78yfzMlao" }
     ],
     "relatedProblems": ["Missing Number", "Find the Duplicate Number", "Find All Numbers Disappeared in an Array"],
     "followUp": ["What would change if you could use O(n) extra space?"],
     "testCases": [
-      { "input": "[1,2,0]", "output": "3" },
-      { "input": "[3,4,-1,1]", "output": "2" }
+      { "input": "nums = [1,2,0]", "output": "3", "note": "Standard case, missing number comes right after the present ones." },
+      { "input": "nums = [3,4,-1,1]", "output": "2", "note": "Negative numbers are present but ignored." },
+      { "input": "nums = [1,2,3]", "output": "4", "note": "Edge case: every number from 1 up to n is present, so the answer is n+1." },
+      { "input": "nums = [-1,-2,-3]", "output": "1", "note": "Edge case: no positive numbers exist at all in the array." },
+      { "input": "nums = [1]", "output": "2", "note": "Edge case: smallest possible array, with the only positive number already present." }
     ],
     "acceptanceRate": "38.9%",
     "likes": 15000,
@@ -1134,12 +1188,17 @@
     "platform": "LeetCode",
     "problemNumber": 460,
     "leetcodeUrl": "https://leetcode.com/problems/lfu-cache/",
-    "description": "Design a data structure for a Least Frequently Used (LFU) cache. It must support get(key) which returns the value or -1, and put(key, value) which inserts or updates. When the cache is full, evict the least frequently used key. If there is a tie in frequency, evict the least recently used among those. Both operations must be O(1). This is harder than LRU because you must track both frequency and recency simultaneously. The O(1) solution requires three HashMaps: (1) key -> value, (2) key -> frequency, and (3) frequency -> ordered set of keys (a LinkedHashSet to preserve insertion order for tie-breaking). Also maintain a minFreq variable tracking the current minimum frequency. On get or put, update the key's frequency: remove it from its current frequency bucket and add it to the next. On eviction, remove the least recently used key from the minFreq bucket.",
+    "description": "Design a cache (a small fast-access storage system) with a fixed capacity that follows the 'Least Frequently Used' (LFU) rule: when it's full and needs to evict something, it removes whichever item has been accessed the fewest number of times. If there's a tie between multiple items with the same low frequency, evict whichever one hasn't been used in the longest time. You need get(key) (returns the value, or -1 if missing) and put(key, value) (inserts or updates), both running in constant time.",
     "examples": [
       {
         "input": "LFUCache(2), put(1,1), put(2,2), get(1), put(3,3), get(2), get(3), put(4,4), get(1), get(3), get(4)",
         "output": "[null,null,null,1,null,-1,3,null,1,3,4]",
-        "explanation": "LFU eviction based on access frequency."
+        "explanation": "Key 2 gets evicted because it was used less frequently than key 1."
+      },
+      {
+        "input": "LFUCache(0), put(1,1), get(1)",
+        "output": "[null,null,-1]",
+        "explanation": "With zero capacity, nothing can ever actually be stored."
       }
     ],
     "constraints": [
@@ -1149,8 +1208,8 @@
       "At most 2 * 10^5 calls to get and put."
     ],
     "hints": [
-      "Use a HashMap<key, value>, HashMap<key, frequency>, and HashMap<frequency, LinkedHashSet<key>>.",
-      "Track minFrequency to find the LFU key in O(1)."
+      "Use three HashMaps together: key-to-value, key-to-frequency, and frequency-to-ordered-set-of-keys.",
+      "Keep track of the current minimum frequency across the whole cache to instantly know which group to evict from."
     ],
     "expectedTimeComplexity": "O(1)",
     "expectedSpaceComplexity": "O(capacity)",
@@ -1158,15 +1217,16 @@
     "tags": ["Hash Table", "Linked List", "Design", "Doubly-Linked List"],
     "estimatedTime": "60 min",
     "youtubeVideos": [
-      {
-        "title": "LFU Cache - LeetCode 460",
-        "url": "https://youtube.com/watch?v=0PSB9y8ehbk"
-      }
+      { "title": "LFU Cache - LeetCode 460", "url": "https://youtube.com/watch?v=0PSB9y8ehbk" }
     ],
     "relatedProblems": ["LRU Cache", "Design In-Memory File System"],
     "followUp": ["How does LFU differ from LRU in real cache performance?"],
     "testCases": [
-      { "input": "capacity=2, put(1,1), put(2,2), get(1), put(3,3), get(2)", "output": "-1" }
+      { "input": "capacity=2, put(1,1), put(2,2), get(1), put(3,3), get(2)", "output": "-1", "note": "Standard case: key 2 is evicted for being used less often than key 1." },
+      { "input": "capacity=0, put(1,1), get(1)", "output": "-1", "note": "Edge case: zero capacity means nothing can ever be stored at all." },
+      { "input": "capacity=1, put(1,1), put(2,2), get(1)", "output": "-1", "note": "Edge case: capacity of 1 forces immediate eviction whenever a new key is added." },
+      { "input": "capacity=3, put(1,1), put(2,2), put(3,3), get(1), get(1), get(2), put(4,4), get(3)", "output": "-1", "note": "Edge case: key 3 has the lowest usage frequency, so it gets evicted when the cache is full." },
+      { "input": "capacity=2, put(1,1), put(1,10), get(1)", "output": "10", "note": "Edge case: updating an existing key's value still counts as using it, and doesn't evict anything." }
     ],
     "acceptanceRate": "44.2%",
     "likes": 5800,
@@ -1181,17 +1241,17 @@
     "platform": "LeetCode",
     "problemNumber": 30,
     "leetcodeUrl": "https://leetcode.com/problems/substring-with-concatenation-of-all-words/",
-    "description": "Given a string s and an array of strings words where all words have equal length, find all starting indices in s where a substring is a concatenation of all words in words in any order (each word used exactly once). For example, if words = ['foo','bar'], valid substrings are 'foobar' and 'barfoo'. The window size is always fixed: words.length * wordLen. The solution uses a word-frequency HashMap for the target words and a sliding window that steps by wordLen (not by 1 character). For each possible starting offset (0 to wordLen-1), slide the window across s in word-sized steps, maintaining a current window word-count map. When the window has the right total words, compare maps. If they match, record the start index. Remove the leftmost word when the window is full or when an invalid word is encountered. The key challenge is thinking at word granularity instead of character granularity.",
+    "description": "You're given a string s and a list of words, where every word in the list is the exact same length. Find every starting position in s where a chunk of text is made up of all the words in the list glued together, in any order, using each word exactly once (for example, if words = ['foo','bar'], both 'foobar' and 'barfoo' would count).",
     "examples": [
       {
         "input": "s = \"barfoothefoobarman\", words = [\"foo\",\"bar\"]",
         "output": "[0,9]",
-        "explanation": "\"barfoo\" at 0 and \"foobar\" at 9."
+        "explanation": "\"barfoo\" starting at index 0 and \"foobar\" starting at index 9 both use each word exactly once."
       },
       {
         "input": "s = \"wordgoodgoodgoodbestword\", words = [\"word\",\"good\",\"best\",\"word\"]",
         "output": "[]",
-        "explanation": "No valid concatenation found."
+        "explanation": "There's no position in s where all four words appear together correctly."
       }
     ],
     "constraints": [
@@ -1200,9 +1260,9 @@
       "1 <= words[i].length <= 30"
     ],
     "hints": [
-      "Use a word frequency HashMap for words.",
-      "Slide a window of size (words.length * wordLen) using steps of wordLen.",
-      "Compare the current window's word counts against the target map."
+      "Build a HashMap of how many times each word is needed.",
+      "Slide a window of size (number of words × word length) across s, moving in word-sized steps instead of single characters.",
+      "Compare the window's word-count map against the needed word-count map at each step."
     ],
     "expectedTimeComplexity": "O(n * m * k)",
     "expectedSpaceComplexity": "O(m * k)",
@@ -1210,15 +1270,16 @@
     "tags": ["Hash Table", "String", "Sliding Window"],
     "estimatedTime": "50 min",
     "youtubeVideos": [
-      {
-        "title": "Substring with Concatenation of All Words - LeetCode 30",
-        "url": "https://youtube.com/watch?v=rg9QHNd5Gxs"
-      }
+      { "title": "Substring with Concatenation of All Words - LeetCode 30", "url": "https://youtube.com/watch?v=rg9QHNd5Gxs" }
     ],
     "relatedProblems": ["Minimum Window Substring"],
     "followUp": ["Can you optimize to O(n) using an optimized sliding window per starting offset?"],
     "testCases": [
-      { "input": "\"barfoothefoobarman\", [\"foo\",\"bar\"]", "output": "[0,9]" }
+      { "input": "s = \"barfoothefoobarman\", words = [\"foo\",\"bar\"]", "output": "[0,9]", "note": "Standard example with two valid starting positions." },
+      { "input": "s = \"wordgoodgoodgoodbestword\", words = [\"word\",\"good\",\"best\",\"word\"]", "output": "[]", "note": "No valid concatenation exists even though the words appear nearby." },
+      { "input": "s = \"foobar\", words = [\"foo\",\"bar\"]", "output": "[0]", "note": "Edge case: the entire string is exactly one valid concatenation." },
+      { "input": "s = \"foo\", words = [\"foo\",\"bar\"]", "output": "[]", "note": "Edge case: s is too short to possibly contain every required word." },
+      { "input": "s = \"aaa\", words = [\"a\",\"a\"]", "output": "[0,1]", "note": "Edge case: repeated single-letter words, with overlapping valid starting positions." }
     ],
     "acceptanceRate": "31.4%",
     "likes": 4800,

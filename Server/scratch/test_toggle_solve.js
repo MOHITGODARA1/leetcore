@@ -170,7 +170,7 @@ async function testToggle() {
                 }
             },
             {
-                new: true,
+                returnDocument: 'after',
                 upsert: true,
                 setDefaultsOnInsert: true
             }

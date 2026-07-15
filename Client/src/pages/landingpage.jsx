@@ -4,6 +4,7 @@ import HeroSection from "../features/landing/herosection";
 import Features from "../features/landing/feature";
 import Feedback from "../features/landing/feedback";
 import TeamSection from "../features/landing/aboutcreator";
+import Contribute from "../features/landing/contribute";
 import Footer from "../features/landing/footer";
 import Login from "../auth/Login";
 
@@ -26,6 +27,8 @@ function LandingPage() {
                 <Feedback />
                 {/* Team Section */}
                 <TeamSection />
+                {/* Contribute Section */}
+                <Contribute />
                 {/* Footer */}
                 <Footer />
             </div>

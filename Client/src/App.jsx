@@ -12,6 +12,7 @@ import Docomentation from "./features/topics/Docomentation";
 import Practice from "./features/topics/Practice";
 import PatternQuestions from "./features/topics/PatternQuestions";
 import ProblemDetail from "./features/topics/ProblemDetail";
+import DocsPage from "./pages/DocsPage";
 
 /*  Main App */
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/docs" element={<DocsPage />} />
         <Route
           path="/dashboard"
           element={

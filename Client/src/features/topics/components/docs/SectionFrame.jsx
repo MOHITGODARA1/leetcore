@@ -1,6 +1,24 @@
 import { motion as Motion } from "framer-motion";
 
 function SectionFrame({ section, children, className = "" }) {
+  const photo = section?.photo || section?.image || section?.imageUrl;
+  const isPhotoTop = section?.photoPosition === "top";
+  const skipFramePhoto = section?.type === "internal" || section?.type === "array_vector_internal";
+
+  const renderPhoto = () => {
+    if (!photo || skipFramePhoto) return null;
+    return (
+      <div className={`flex justify-center overflow-hidden rounded-lg border border-white/4 bg-black/20 p-2 max-w-full ${isPhotoTop ? "mb-4" : "mt-4"}`}>
+        <img
+          src={photo}
+          alt={section.title || "Section illustration"}
+          className="w-full h-auto rounded-md"
+          loading="lazy"
+        />
+      </div>
+    );
+  };
+
   return (
     <Motion.section
       id={section.id}
@@ -14,7 +32,9 @@ function SectionFrame({ section, children, className = "" }) {
         <span className="h-5 w-[3px] rounded-full bg-[#f46717]" />
         <h2 className="text-base font-semibold text-white sm:text-lg">{section.title}</h2>
       </div>
+      {isPhotoTop && renderPhoto()}
       {children}
+      {!isPhotoTop && renderPhoto()}
     </Motion.section>
   );
 }

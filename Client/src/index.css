@@ -166,8 +166,8 @@ html {
 }
 
 .lc-panel {
-  background: rgba(17, 17, 19, 0.86);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* background: rgba(17, 17, 19, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.1); */
   box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(18px);
 }

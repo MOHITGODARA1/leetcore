@@ -32,10 +32,7 @@
     "tags": ["Queue", "Stack", "Design"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Implement Queue using Stacks - LeetCode 232",
-        "url": "https://www.youtube.com/watch?v=eanwa3ht3YQ"
-      }
+      { "title": "Implement Queue using Stacks - LeetCode 232", "url": "https://www.youtube.com/watch?v=eanwa3ht3YQ" }
     ],
     "relatedProblems": ["Implement Stack using Queues"],
     "followUp": ["Can all operations be amortized O(1)?"],
@@ -80,10 +77,7 @@
     "tags": ["Queue", "Design", "Data Stream"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Number of Recent Calls - LeetCode 933",
-        "url": "https://www.youtube.com/watch?v=uGdZEzfmOHE"
-      }
+      { "title": "Number of Recent Calls - LeetCode 933", "url": "https://www.youtube.com/watch?v=uGdZEzfmOHE" }
     ],
     "relatedProblems": ["Moving Average from Data Stream", "Design Hit Counter"],
     "followUp": ["What if the window size changes dynamically?"],
@@ -127,10 +121,7 @@
     "tags": ["Queue", "Array", "Design", "Data Stream"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Moving Average from Data Stream - LeetCode 346",
-        "url": "https://www.youtube.com/watch?v=3DOGGHIXqIA"
-      }
+      { "title": "Moving Average from Data Stream - LeetCode 346", "url": "https://www.youtube.com/watch?v=3DOGGHIXqIA" }
     ],
     "relatedProblems": ["Number of Recent Calls", "Design Hit Counter"],
     "followUp": ["What if you need median instead of average?"],
@@ -178,10 +169,7 @@
     "tags": ["Queue", "Hash Map", "String", "Counting"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "First Unique Character - LeetCode 387",
-        "url": "https://www.youtube.com/watch?v=GKgV3jcFRmQ"
-      }
+      { "title": "First Unique Character - LeetCode 387", "url": "https://www.youtube.com/watch?v=GKgV3jcFRmQ" }
     ],
     "relatedProblems": ["First Letter to Appear Twice", "Unique Number of Occurrences"],
     "followUp": ["What if the string is a stream of characters?"],
@@ -225,10 +213,7 @@
     "tags": ["Queue", "Tree", "BFS"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Binary Tree Level Order Traversal - BFS",
-        "url": "https://www.youtube.com/watch?v=6ZnyEApgFYg"
-      }
+      { "title": "Binary Tree Level Order Traversal - BFS", "url": "https://www.youtube.com/watch?v=6ZnyEApgFYg" }
     ],
     "relatedProblems": ["Binary Tree Zigzag Level Order Traversal", "Average of Levels in Binary Tree", "N-ary Tree Level Order Traversal"],
     "followUp": ["Can you do it bottom-up?"],
@@ -272,10 +257,7 @@
     "tags": ["Queue", "BFS", "DFS", "Matrix", "Array"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Flood Fill - LeetCode 733",
-        "url": "https://www.youtube.com/watch?v=aehEcTEPtCs"
-      }
+      { "title": "Flood Fill - LeetCode 733", "url": "https://www.youtube.com/watch?v=aehEcTEPtCs" }
     ],
     "relatedProblems": ["Number of Islands", "Island Perimeter"],
     "followUp": ["Can you do it iteratively with a queue?"],
@@ -318,10 +300,7 @@
     "tags": ["Queue", "Tree", "BFS", "DFS"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Average of Levels in Binary Tree - LeetCode 637",
-        "url": "https://www.youtube.com/watch?v=BgkA2RCUgGs"
-      }
+      { "title": "Average of Levels in Binary Tree - LeetCode 637", "url": "https://www.youtube.com/watch?v=BgkA2RCUgGs" }
     ],
     "relatedProblems": ["Binary Tree Level Order Traversal", "Binary Tree Level Order Traversal II"],
     "followUp": ["What if node values can overflow a 32-bit integer?"],
@@ -341,7 +320,7 @@
     "platform": "LeetCode",
     "problemNumber": 104,
     "leetcodeUrl": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
-    "description": "Given the root of a binary tree, return its maximum depth using an iterative BFS approach.",
+    "description": "Given the root of a binary tree, return its maximum depth — the number of nodes along the longest path from the root down to the farthest leaf node.",
     "examples": [
       {
         "input": "root = [3,9,20,null,null,15,7]",
@@ -364,10 +343,7 @@
     "tags": ["Queue", "Tree", "BFS", "DFS"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Maximum Depth of Binary Tree - BFS Approach",
-        "url": "https://www.youtube.com/watch?v=hTM3phVI6YQ"
-      }
+      { "title": "Maximum Depth of Binary Tree - BFS Approach", "url": "https://www.youtube.com/watch?v=hTM3phVI6YQ" }
     ],
     "relatedProblems": ["Balanced Binary Tree", "Minimum Depth of Binary Tree", "Maximum Depth of N-ary Tree"],
     "followUp": ["Compare BFS vs DFS approaches."],
@@ -387,7 +363,7 @@
     "platform": "LeetCode",
     "problemNumber": 101,
     "leetcodeUrl": "https://leetcode.com/problems/symmetric-tree/",
-    "description": "Given the root of a binary tree, check whether it is a mirror of itself (symmetric around its center). Solve iteratively using a queue.",
+    "description": "Given the root of a binary tree, check whether it is a mirror of itself (symmetric around its center).",
     "examples": [
       {
         "input": "root = [1,2,2,3,4,4,3]",
@@ -415,10 +391,7 @@
     "tags": ["Queue", "Tree", "BFS", "DFS"],
     "estimatedTime": "15 min",
     "youtubeVideos": [
-      {
-        "title": "Symmetric Tree - Iterative BFS",
-        "url": "https://www.youtube.com/watch?v=Mao9uzxwvmc"
-      }
+      { "title": "Symmetric Tree - Iterative BFS", "url": "https://www.youtube.com/watch?v=Mao9uzxwvmc" }
     ],
     "relatedProblems": ["Invert Binary Tree", "Same Tree"],
     "followUp": ["Can you solve it recursively?"],
@@ -463,10 +436,7 @@
     "tags": ["Queue", "Array", "Linked List", "Design"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "Design Circular Queue - LeetCode 622",
-        "url": "https://www.youtube.com/watch?v=aBbsfn863oM"
-      }
+      { "title": "Design Circular Queue - LeetCode 622", "url": "https://www.youtube.com/watch?v=aBbsfn863oM" }
     ],
     "relatedProblems": ["Design Circular Deque", "Design Front Middle Back Queue"],
     "followUp": ["Can you implement it using a linked list?"],
@@ -509,16 +479,13 @@
       "Simulate the queue process.",
       "Or compute mathematically: for i <= k, add min(tickets[i], tickets[k]); for i > k, add min(tickets[i], tickets[k]-1)."
     ],
-    "expectedTimeComplexity": "O(n * max(tickets))",
+    "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": ["Amazon", "Google"],
     "tags": ["Queue", "Array", "Simulation"],
     "estimatedTime": "10 min",
     "youtubeVideos": [
-      {
-        "title": "Time Needed to Buy Tickets - LeetCode 2073",
-        "url": "https://www.youtube.com/watch?v=RR1TPGRNP5E"
-      }
+      { "title": "Time Needed to Buy Tickets - LeetCode 2073", "url": "https://www.youtube.com/watch?v=RR1TPGRNP5E" }
     ],
     "relatedProblems": ["Number of Students Unable to Eat Lunch", "Implement Queue using Stacks"],
     "followUp": ["Can you solve it in O(n) without simulation?"],
@@ -562,10 +529,7 @@
     "tags": ["Queue", "Tree", "BFS", "Deque"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "Binary Tree Zigzag Level Order Traversal",
-        "url": "https://www.youtube.com/watch?v=KIYyJqnHf8E"
-      }
+      { "title": "Binary Tree Zigzag Level Order Traversal", "url": "https://www.youtube.com/watch?v=KIYyJqnHf8E" }
     ],
     "relatedProblems": ["Binary Tree Level Order Traversal", "Binary Tree Level Order Traversal II"],
     "followUp": ["Can you alternate direction without reversing the array?"],
@@ -614,10 +578,7 @@
     "tags": ["Queue", "BFS", "Array", "Matrix"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "Rotting Oranges - Multi Source BFS",
-        "url": "https://www.youtube.com/watch?v=y704fEOx0s0"
-      }
+      { "title": "Rotting Oranges - Multi Source BFS", "url": "https://www.youtube.com/watch?v=y704fEOx0s0" }
     ],
     "relatedProblems": ["Walls and Gates", "01 Matrix", "Nearest Exit from Entrance in Maze"],
     "followUp": ["What if oranges could rot diagonally too?"],
@@ -638,7 +599,7 @@
     "platform": "LeetCode",
     "problemNumber": 200,
     "leetcodeUrl": "https://leetcode.com/problems/number-of-islands/",
-    "description": "Given an m x n 2D binary grid of '1's (land) and '0's (water), return the number of islands using BFS.",
+    "description": "Given an m x n 2D binary grid of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and formed by connecting adjacent lands horizontally or vertically.",
     "examples": [
       {
         "input": "grid = [[\"1\",\"1\",\"0\"],[\"0\",\"1\",\"0\"],[\"0\",\"0\",\"1\"]]",
@@ -662,10 +623,7 @@
     "tags": ["Queue", "BFS", "DFS", "Matrix", "Union Find"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "Number of Islands - BFS Solution",
-        "url": "https://www.youtube.com/watch?v=pV2kpPD66nE"
-      }
+      { "title": "Number of Islands - BFS Solution", "url": "https://www.youtube.com/watch?v=pV2kpPD66nE" }
     ],
     "relatedProblems": ["Max Area of Island", "Surrounded Regions", "Walls and Gates"],
     "followUp": ["What if the grid wraps around (toroidal)?"],
@@ -711,10 +669,7 @@
     "tags": ["Queue", "BFS", "Dynamic Programming", "Matrix"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "01 Matrix - Multi Source BFS",
-        "url": "https://www.youtube.com/watch?v=Ex50jtvhwko"
-      }
+      { "title": "01 Matrix - Multi Source BFS", "url": "https://www.youtube.com/watch?v=Ex50jtvhwko" }
     ],
     "relatedProblems": ["Rotting Oranges", "Walls and Gates", "Nearest Exit from Entrance in Maze"],
     "followUp": ["Can you solve it with DP instead of BFS?"],
@@ -758,10 +713,7 @@
     "tags": ["Queue", "BFS", "Matrix"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "Walls and Gates - Multi Source BFS",
-        "url": "https://www.youtube.com/watch?v=e69C6xhiSQE"
-      }
+      { "title": "Walls and Gates - Multi Source BFS", "url": "https://www.youtube.com/watch?v=e69C6xhiSQE" }
     ],
     "relatedProblems": ["01 Matrix", "Rotting Oranges", "Nearest Exit from Entrance in Maze"],
     "followUp": ["What if there are multiple types of gates with different costs?"],
@@ -799,16 +751,13 @@
       "Use a cooldown queue of (task, available_time) pairs.",
       "Simulate time step by step."
     ],
-    "expectedTimeComplexity": "O(n log n)",
+    "expectedTimeComplexity": "O(n)",
     "expectedSpaceComplexity": "O(1)",
     "companies": ["Amazon", "Facebook", "Google", "Microsoft"],
     "tags": ["Queue", "Array", "Greedy", "Sorting", "Heap (Priority Queue)", "Counting"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Task Scheduler - Priority Queue Approach",
-        "url": "https://www.youtube.com/watch?v=s8p8ukTyA2I"
-      }
+      { "title": "Task Scheduler - Priority Queue Approach", "url": "https://www.youtube.com/watch?v=s8p8ukTyA2I" }
     ],
     "relatedProblems": ["Reorganize String", "Rearrange String k Distance Apart"],
     "followUp": ["Can you solve it with O(1) space using math?"],
@@ -852,10 +801,7 @@
     "tags": ["Queue", "Binary Search", "Design"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "Design Hit Counter - LeetCode 362",
-        "url": "https://www.youtube.com/watch?v=eNRFWVBFNGg"
-      }
+      { "title": "Design Hit Counter - LeetCode 362", "url": "https://www.youtube.com/watch?v=eNRFWVBFNGg" }
     ],
     "relatedProblems": ["Number of Recent Calls", "Moving Average from Data Stream"],
     "followUp": ["What if calls to hit are not in chronological order?"],
@@ -905,10 +851,7 @@
     "tags": ["Queue", "BFS", "DFS", "Array"],
     "estimatedTime": "20 min",
     "youtubeVideos": [
-      {
-        "title": "Jump Game III - BFS Approach",
-        "url": "https://www.youtube.com/watch?v=80SDRH62xpg"
-      }
+      { "title": "Jump Game III - BFS Approach", "url": "https://www.youtube.com/watch?v=80SDRH62xpg" }
     ],
     "relatedProblems": ["Jump Game", "Jump Game II", "Jump Game IV"],
     "followUp": ["Can you solve it with DFS instead?"],
@@ -952,10 +895,7 @@
     "tags": ["Queue", "Array", "Sorting", "Simulation"],
     "estimatedTime": "25 min",
     "youtubeVideos": [
-      {
-        "title": "Reveal Cards In Increasing Order - LeetCode 950",
-        "url": "https://www.youtube.com/watch?v=HWuDtAGbpzU"
-      }
+      { "title": "Reveal Cards In Increasing Order - LeetCode 950", "url": "https://www.youtube.com/watch?v=HWuDtAGbpzU" }
     ],
     "relatedProblems": ["Deckrev", "Time Needed to Buy Tickets"],
     "followUp": ["What if the deck had duplicate values?"],
@@ -975,7 +915,7 @@
     "platform": "LeetCode",
     "problemNumber": 207,
     "leetcodeUrl": "https://leetcode.com/problems/course-schedule/",
-    "description": "Given numCourses and prerequisites pairs, determine if you can finish all courses (i.e., no circular dependency). Solve using BFS-based topological sort.",
+    "description": "Given numCourses and prerequisites pairs, determine if you can finish all courses — that is, whether the prerequisites contain no circular dependency.",
     "examples": [
       {
         "input": "numCourses = 2, prerequisites = [[1,0]]",
@@ -1006,10 +946,7 @@
     "tags": ["Queue", "BFS", "Graph", "Topological Sort", "DFS"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Course Schedule - Kahn's BFS Topological Sort",
-        "url": "https://www.youtube.com/watch?v=EgI5nU9etnU"
-      }
+      { "title": "Course Schedule - Kahn's BFS Topological Sort", "url": "https://www.youtube.com/watch?v=EgI5nU9etnU" }
     ],
     "relatedProblems": ["Course Schedule II", "Alien Dictionary", "Minimum Height Trees"],
     "followUp": ["Return the actual course order."],
@@ -1054,10 +991,7 @@
     "tags": ["Queue", "Array", "Sliding Window", "Monotonic Queue", "Heap"],
     "estimatedTime": "40 min",
     "youtubeVideos": [
-      {
-        "title": "Sliding Window Maximum - Monotonic Deque",
-        "url": "https://www.youtube.com/watch?v=DfljaUwZsOk"
-      }
+      { "title": "Sliding Window Maximum - Monotonic Deque", "url": "https://www.youtube.com/watch?v=DfljaUwZsOk" }
     ],
     "relatedProblems": ["Minimum Window Substring", "Min Stack", "Longest Subarray of 1s After Deleting One Element"],
     "followUp": ["Can you extend this to a 2D matrix?"],
@@ -1102,10 +1036,7 @@
     "tags": ["Queue", "BFS", "Hash Set", "String"],
     "estimatedTime": "45 min",
     "youtubeVideos": [
-      {
-        "title": "Word Ladder - BFS Solution",
-        "url": "https://www.youtube.com/watch?v=h9iTnkgv05E"
-      }
+      { "title": "Word Ladder - BFS Solution", "url": "https://www.youtube.com/watch?v=h9iTnkgv05E" }
     ],
     "relatedProblems": ["Word Ladder II", "Minimum Genetic Mutation"],
     "followUp": ["Return all shortest transformation sequences (Word Ladder II)."],
@@ -1155,10 +1086,7 @@
     "tags": ["Queue", "BFS", "Array", "Matrix"],
     "estimatedTime": "30 min",
     "youtubeVideos": [
-      {
-        "title": "Shortest Path in Binary Matrix - BFS",
-        "url": "https://www.youtube.com/watch?v=YnxUdAO7TAo"
-      }
+      { "title": "Shortest Path in Binary Matrix - BFS", "url": "https://www.youtube.com/watch?v=YnxUdAO7TAo" }
     ],
     "relatedProblems": ["Word Ladder", "01 Matrix", "Rotting Oranges"],
     "followUp": ["What if diagonal movement is not allowed?"],
@@ -1179,7 +1107,7 @@
     "platform": "LeetCode",
     "problemNumber": 295,
     "leetcodeUrl": "https://leetcode.com/problems/find-median-from-data-stream/",
-    "description": "Design a data structure that supports adding integers from a data stream and finding the median at any time using two priority queues.",
+    "description": "Design a data structure that supports adding integers from a data stream and finding the median of all elements added so far, at any point in time.",
     "examples": [
       {
         "input": "addNum(1), addNum(2), findMedian()=1.5, addNum(3), findMedian()=2.0",
@@ -1203,10 +1131,7 @@
     "tags": ["Queue", "Two Pointers", "Sorting", "Heap (Priority Queue)", "Design", "Data Stream"],
     "estimatedTime": "45 min",
     "youtubeVideos": [
-      {
-        "title": "Find Median from Data Stream - Two Heaps",
-        "url": "https://www.youtube.com/watch?v=itmhHWaHupI"
-      }
+      { "title": "Find Median from Data Stream - Two Heaps", "url": "https://www.youtube.com/watch?v=itmhHWaHupI" }
     ],
     "relatedProblems": ["Sliding Window Median", "Find Median Given that 99% Numbers are between 0-100"],
     "followUp": ["What if you have 10^9 numbers? Can you use a different data structure?"],

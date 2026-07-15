@@ -6,7 +6,7 @@ function Feedback() {
     const feedbackData = [
         {
             name: "Rohit Sharma",
-            role: "SDE Intern at Amazon",
+            // role: "SDE Intern at Amazon",
             profile: "https://i.pravatar.cc/100?img=11",
             video:
                 "",
@@ -16,7 +16,7 @@ function Feedback() {
 
         {
             name: "Anusha Jha",
-            role: "Software Engineer",
+            // role: "Software Engineer",
             profile: "https://i.pravatar.cc/100?img=22",
             video:
                 "YOUR_VIDEO_LINK_HERE",
@@ -26,7 +26,7 @@ function Feedback() {
 
         {
             name: "Aakash T B",
-            role: "Frontend Developer",
+            // role: "Frontend Developer",
             profile: "https://i.pravatar.cc/100?img=15",
             video:
                 "YOUR_VIDEO_LINK_HERE",
@@ -36,7 +36,7 @@ function Feedback() {
 
         {
             name: "Sanika Deokule",
-            role: "Software Engineer Intern",
+            // role: "Software Engineer Intern",
             profile: "https://i.pravatar.cc/100?img=29",
             video:
                 "YOUR_VIDEO_LINK_HERE",
@@ -59,25 +59,25 @@ function Feedback() {
                 text-[2.35rem]
                 sm:text-4xl
                 md:text-5xl
-                
+                font-semibold
                 leading-[1.05]
                 tracking-normal
               "
                         >
-                            <span className="text-[#F46717]">
-                                Dekh bhai
+                            <span className="text-white/40">
+                                They Already Did It
                             </span>
 
                             <br />
 
                             <span className="text-white">
-                                Inho ne to samjh liya
+                                Read Their Stories
                             </span>
 
                             <br />
 
                             <span className="text-white">
-                                Abb teri bari hai
+                                Your Turn.
                             </span>
                         </h1>
                     </div>
@@ -91,7 +91,7 @@ function Feedback() {
 
                         <div className="mt-10">
                             <h3 className="text-white text-4xl font-semibold">
-                                1,000+
+                                30+
                             </h3>
 
                             <p className="text-[#8f8f9a] text-sm mt-2">

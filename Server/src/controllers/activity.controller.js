@@ -11,6 +11,7 @@ import {
     formatConsistencyWindow,
     getNextStreak,
 } from "../utils/gamification.utils.js";
+import { syncUserSolvedCountAndRankings } from "../utils/ranking.utils.js";
 
 const getUserOrThrow = async (userId) => {
     if (!userId || userId === "undefined" || !mongoose.Types.ObjectId.isValid(userId)) {
@@ -95,7 +96,7 @@ export const markDailyActivity = asyncHandler(async (req, res) => {
             },
         },
         {
-            new: true,
+            returnDocument: 'after',
             upsert: true,
             setDefaultsOnInsert: true,
         }
@@ -121,14 +122,16 @@ export const markDailyActivity = asyncHandler(async (req, res) => {
     });
     user.stats.consistencyPercentage = Math.round((activeDaysInWindow / 30) * 100);
     await user.save();
+    await syncUserSolvedCountAndRankings();
+    const refreshedUser = await User.findById(userId).select("stats xp level").lean();
 
     return res.status(existingActivity ? 200 : 201).json({
         success: true,
         message: existingActivity ? "Daily activity updated" : "Daily activity created",
         activity,
-        stats: user.stats,
-        xp: user.xp,
-        level: user.level,
+        stats: refreshedUser?.stats || user.stats,
+        xp: refreshedUser?.xp ?? user.xp,
+        level: refreshedUser?.level ?? user.level,
     });
 });
 
@@ -204,6 +207,8 @@ export const getStreakData = asyncHandler(async (req, res) => {
 
 export const getDashboardStats = asyncHandler(async (req, res) => {
     const userId = req.params.userId || req.user?.id;
+    await syncUserSolvedCountAndRankings();
+
     const user = await User.findById(userId)
         .select("stats badges xp level")
         .populate({

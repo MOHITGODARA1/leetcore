@@ -87,6 +87,28 @@ const UserSchema = new mongoose.Schema(
                 default: 0,
             },
 
+            problemRank: {
+                type: Number,
+                default: null,
+            },
+
+            totalRankedUsers: {
+                type: Number,
+                default: 0,
+            },
+
+            problemRankPercentile: {
+                type: Number,
+                default: 100,
+                min: 1,
+                max: 100,
+            },
+
+            percentileBadge: {
+                type: String,
+                default: "Top 100%",
+            },
+
             consistencyPercentage: {
                 type: Number,
                 default: 0,
@@ -124,5 +146,6 @@ const UserSchema = new mongoose.Schema(
 );
 
 UserSchema.index({ "badges.badgeId": 1 });
+UserSchema.index({ "stats.totalProblemsSolved": -1, "stats.problemRank": 1 });
 
 export default mongoose.model("User", UserSchema);

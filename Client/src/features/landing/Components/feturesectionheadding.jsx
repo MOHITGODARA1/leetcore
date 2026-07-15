@@ -21,19 +21,19 @@ function FeatureHeading() {
                 text-[2.5rem]
                 sm:text-4xl
                 md:text-5xl
-               
+                font-semibold
                 leading-[1.05]
                 tracking-normal
               "
                         >
                             <span className="text-white">
-                                Theory Se
+                                 Practice Less Theory
                             </span>
 
                             <br />
 
-                            <span className="text-orange-400">
-                                Zyada Ab Real
+                            <span className="text-white/60">
+                                Build Real Skills
                             </span>
 
 
@@ -41,7 +41,7 @@ function FeatureHeading() {
                             <br />
 
                             <span className="text-white">
-                                Understanding Hogi .
+                                Get Placed.
                             </span>
                         </h1>
                     </div>

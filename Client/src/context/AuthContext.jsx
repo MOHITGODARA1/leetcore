@@ -54,9 +54,7 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-
         const fetchUser = async () => {
-
             try {
                 const urlToken = getTokenFromUrl();
 
@@ -64,25 +62,42 @@ export const AuthProvider = ({ children }) => {
                     localStorage.setItem(AUTH_TOKEN_KEY, urlToken);
                 }
 
+                const token = localStorage.getItem(AUTH_TOKEN_KEY);
+                if (!token) {
+                    setUser(null);
+                    setLoading(false);
+                    return;
+                }
+
                 const response = await apiClient.get("/auth/me");
-
                 setUser(response.data.user);
-
-            } catch {
-
-                localStorage.removeItem(AUTH_TOKEN_KEY);
-                setUser(null);
-
+            } catch (err) {
+                // Only log out the user and clear token if the error is an explicit 401/403
+                if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+                    localStorage.removeItem(AUTH_TOKEN_KEY);
+                    setUser(null);
+                } else {
+                    // For temporary server/network errors, keep the token so session persists
+                    setUser(null);
+                }
             } finally {
-
                 setLoading(false);
-
             }
-
         };
 
         fetchUser();
+    }, []);
 
+    useEffect(() => {
+        const handleUnauthorized = () => {
+            setUser(null);
+            window.location.assign("/");
+        };
+
+        window.addEventListener("leetcore_unauthorized", handleUnauthorized);
+        return () => {
+            window.removeEventListener("leetcore_unauthorized", handleUnauthorized);
+        };
     }, []);
 
     const [badgeQueue, setBadgeQueue] = useState([]);

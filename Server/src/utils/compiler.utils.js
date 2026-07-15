@@ -101,8 +101,35 @@ function normalizeOutput(value) {
     return String(value).trim().toLowerCase();
 }
 
+function normalizeStringVal(val = "") {
+    const clean = String(val).replace(/\r/g, "").trim().toLowerCase();
+    if (clean === "true" || clean === "1" || clean === "yes") return "true";
+    if (clean === "false" || clean === "0" || clean === "no") return "false";
+    return clean;
+}
+
 function valuesMatch(actual, expected, questionTitle = "") {
-    if (normalizeOutput(actual) === normalizeOutput(expected)) return true;
+    const normActual = normalizeStringVal(normalizeOutput(actual));
+    const normExpected = normalizeStringVal(normalizeOutput(expected));
+    if (normActual === normExpected) return true;
+
+    // Fallback to token array match for arrays/complex values
+    const tokenize = (str) => {
+        return str
+            .replace(/[\[\]\(\)\{\},]/g, " ")
+            .split(/\s+/)
+            .map(s => {
+                const clean = s.trim().toLowerCase();
+                if (clean === "true" || clean === "1" || clean === "yes") return "true";
+                if (clean === "false" || clean === "0" || clean === "no") return "false";
+                return clean;
+            })
+            .filter(Boolean);
+    };
+
+    const actualTokens = tokenize(normalizeOutput(actual));
+    const expectedTokens = tokenize(normalizeOutput(expected));
+    if (actualTokens.join(" ") === expectedTokens.join(" ")) return true;
 
     const allowsAnyIndexOrder = questionTitle.toLowerCase() === "two sum";
     if (
@@ -201,22 +228,26 @@ function formatInputForStdin(inputStr) {
 }
 
 function outputsMatch(actualStdout, expectedStr, questionTitle = "") {
-    const cleanActual = actualStdout.replace(/\r/g, "").trim();
-    const cleanExpected = expectedStr.replace(/\r/g, "").trim();
+    const normActual = normalizeStringVal(actualStdout);
+    const normExpected = normalizeStringVal(expectedStr);
 
-    if (cleanActual === cleanExpected) return true;
-    if (cleanActual.toLowerCase() === cleanExpected.toLowerCase()) return true;
+    if (normActual === normExpected) return true;
 
     const tokenize = (str) => {
         return str
             .replace(/[\[\]\(\)\{\},]/g, " ")
             .split(/\s+/)
-            .map(s => s.trim().toLowerCase())
+            .map(s => {
+                const clean = s.trim().toLowerCase();
+                if (clean === "true" || clean === "1" || clean === "yes") return "true";
+                if (clean === "false" || clean === "0" || clean === "no") return "false";
+                return clean;
+            })
             .filter(Boolean);
     };
 
-    const actualTokens = tokenize(cleanActual);
-    const expectedTokens = tokenize(cleanExpected);
+    const actualTokens = tokenize(actualStdout);
+    const expectedTokens = tokenize(expectedStr);
 
     if (actualTokens.join(" ") === expectedTokens.join(" ")) return true;
 
@@ -276,7 +307,7 @@ export async function runCppSolution(question, solution, customInput = null) {
         }
     }
 
-    const testCases = Array.isArray(question.testCases) ? question.testCases.slice(0, 5) : [];
+    const testCases = Array.isArray(question.testCases) ? question.testCases : [];
     if (!testCases.length) {
         return {
             passed: false,
@@ -352,7 +383,7 @@ export async function runCppSolution(question, solution, customInput = null) {
 }
 
 export function runVisibleTestCases(question, solution) {
-    const testCases = Array.isArray(question.testCases) ? question.testCases.slice(0, 5) : [];
+    const testCases = Array.isArray(question.testCases) ? question.testCases : [];
 
     if (!testCases.length) {
         return {
@@ -377,7 +408,8 @@ export function runVisibleTestCases(question, solution) {
     } catch (error) {
         return {
             passed: false,
-            message: `Code error: ${error.message}`,
+            message: "Syntax / Compilation Error",
+            compileError: error.stack || error.message,
             results: []
         };
     }

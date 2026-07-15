@@ -40,7 +40,7 @@ function TopicProgress({ topics = [], loading = false }) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="w-full space-y-3.5 text-white rounded-2xl border border-white/[0.06] bg-[#121215]/45 p-4 sm:p-5 shadow-[0_16px_45px_rgba(0,0,0,0.16)]"
+            className="w-full space-y-3.5 text-white rounded-2xl border border-white/8 bg-white/8 p-4 sm:p-5 shadow-[0_16px_45px_rgba(0,0,0,0.16)]"
         >
             <div className="flex justify-between items-baseline">
                 <div>
@@ -71,7 +71,7 @@ function TopicProgress({ topics = [], loading = false }) {
                         >
                             <Link
                                 to={`/dashboard/dsa/Practice/${encodeURIComponent(topic.topic)}`}
-                                className="group flex flex-col justify-between p-3.5 rounded-xl bg-[#121215]/55 border border-white/[0.06] hover:border-orange-500/30 hover:shadow-[0_0_12px_rgba(249,115,22,0.08)] hover:bg-white/[0.04] transition-all duration-200 shadow-sm"
+                                className="relative overflow-hidden group flex flex-col justify-between p-3.5 pb-5 rounded-xl bg-white/3 border border-white/1  transition-all duration-200 shadow-sm"
                             >
                                 {/* Header details */}
                                 <div className="flex justify-between items-baseline gap-2 min-w-0">
@@ -84,6 +84,14 @@ function TopicProgress({ topics = [], loading = false }) {
                                 <div className="text-[10px] font-semibold text-neutral-400 mt-2">
                                     <span className="text-neutral-200 font-semibold">{topic.solved}</span>
                                     <span className="text-neutral-500 font-normal"> / {topic.total}</span>
+                                </div>
+
+                                {/* Progress Line Bar */}
+                                <div className="absolute bottom-0 left-0 w-full h-[4px] bg-white/5 overflow-hidden">
+                                    <div
+                                        className="h-full bg-orange-500 from-orange-500 to-amber-400 transition-all duration-500"
+                                        style={{ width: `${solvedPct}%` }}
+                                    />
                                 </div>
                             </Link>
                         </Motion.div>

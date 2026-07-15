@@ -21,10 +21,8 @@ function PracticeRoadmapSection({ section }) {
 
   return (
     <SectionFrame section={section}>
-      <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-orange-500/[0.07] via-zinc-950/60 to-black/80 p-8 sm:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.4)] backdrop-blur-2xl">
-        {/* Glow effects */}
-        <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-orange-500/10 blur-[60px]" />
-        <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-orange-500/5 blur-[60px]" />
+      <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/10  to-black/80 p-8 sm:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.4)] backdrop-blur-2xl">
+       
 
         <div className="relative z-10 flex flex-col items-center text-center">
           {/* Completion Badge */}
@@ -48,7 +46,7 @@ function PracticeRoadmapSection({ section }) {
             >
               <Link
                 to={`/dashboard/dsa/Practice/${encodeURIComponent(topic)}`}
-                className="group inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-orange-500/30 px-8 py-3.5 font-bold text-white/90 transition-all duration-300 cursor-pointer"
+                className="group inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5  px-8 py-3.5 font-bold text-white/90 transition-all duration-300 cursor-pointer"
               >
                 <span>Practice {currentTopicDisplayName}</span>
                 <ArrowRight size={18} className="opacity-70 transition-transform duration-300 group-hover:translate-x-1" />
@@ -62,7 +60,7 @@ function PracticeRoadmapSection({ section }) {
             >
               <Link
                 to={`/dashboard/dsa/Docs/${encodeURIComponent(section.nextTopic)}`}
-                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 px-8 py-3.5 font-bold text-white transition-all duration-300 shadow-[0_0_30px_rgba(244,103,23,0.25)] hover:shadow-[0_0_40px_rgba(244,103,23,0.5)] cursor-pointer"
+                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-xl bg-white text-black px-8 py-3.5 font-bold  transition-all duration-300 shadow-[0_0_30px_rgba(244,103,23,0.25)] hover:shadow-[0_0_40px_rgba(244,103,23,0.5)] cursor-pointer"
               >
                 <span>Next Chapter: {section.nextTitle || section.nextTopic}</span>
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1.5" />
