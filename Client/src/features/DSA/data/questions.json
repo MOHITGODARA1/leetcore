@@ -1,0 +1,270 @@
+{
+  "arrays": [
+    {
+      "name": "Two Sum",
+      "link": "https://leetcode.com/problems/two-sum/",
+      "acceptanceRate": "56.3%",
+      "difficulty": "Easy"
+    },
+    {
+      "name": "Best Time to Buy and Sell Stock",
+      "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+      "acceptanceRate": "55.2%",
+      "difficulty": "Easy"
+    }
+  ],
+  "strings": [
+    {
+      "name": "Valid Anagram",
+      "link": "https://leetcode.com/problems/valid-anagram/",
+      "acceptanceRate": "66.1%",
+      "difficulty": "Easy"
+    },
+    {
+      "name": "Longest Palindromic Substring",
+      "link": "https://leetcode.com/problems/longest-palindromic-substring/",
+      "acceptanceRate": "33.8%",
+      "difficulty": "Medium"
+    }
+  ],
+  "two-pointers": [
+    {
+      "name": "Valid Palindrome",
+      "link": "https://leetcode.com/problems/valid-palindrome/",
+      "acceptanceRate": "48.2%",
+      "difficulty": "Easy"
+    },
+    {
+      "name": "3Sum",
+      "link": "https://leetcode.com/problems/3sum/",
+      "acceptanceRate": "34.7%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Container With Most Water",
+      "link": "https://leetcode.com/problems/container-with-most-water/",
+      "acceptanceRate": "54.9%",
+      "difficulty": "Medium"
+    }
+  ],
+  "sliding-window": [
+    {
+      "name": "Longest Substring Without Repeating Characters",
+      "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+      "acceptanceRate": "34.8%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Minimum Window Substring",
+      "link": "https://leetcode.com/problems/minimum-window-substring/",
+      "acceptanceRate": "42.1%",
+      "difficulty": "Hard"
+    }
+  ],
+  "kadans": [
+    {
+      "name": "Maximum Subarray",
+      "link": "https://leetcode.com/problems/maximum-subarray/",
+      "acceptanceRate": "50.8%",
+      "difficulty": "Medium"
+    }
+  ],
+  "prefix-sum": [
+    {
+      "name": "Subarray Sum Equals K",
+      "link": "https://leetcode.com/problems/subarray-sum-equals-k/",
+      "acceptanceRate": "43.9%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Range Sum Query - Immutable",
+      "link": "https://leetcode.com/problems/range-sum-query-immutable/",
+      "acceptanceRate": "62.4%",
+      "difficulty": "Easy"
+    }
+  ],
+  "hashing": [
+    {
+      "name": "Group Anagrams",
+      "link": "https://leetcode.com/problems/group-anagrams/",
+      "acceptanceRate": "68.2%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Contains Duplicate",
+      "link": "https://leetcode.com/problems/contains-duplicate/",
+      "acceptanceRate": "61.3%",
+      "difficulty": "Easy"
+    }
+  ],
+  "binary-search": [
+    {
+      "name": "Binary Search",
+      "link": "https://leetcode.com/problems/binary-search/",
+      "acceptanceRate": "57.1%",
+      "difficulty": "Easy"
+    },
+    {
+      "name": "Search in Rotated Sorted Array",
+      "link": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+      "acceptanceRate": "40.5%",
+      "difficulty": "Medium"
+    }
+  ],
+  "linked-list": [
+    {
+      "name": "Reverse Linked List",
+      "link": "https://leetcode.com/problems/reverse-linked-list/",
+      "acceptanceRate": "76.4%",
+      "difficulty": "Easy"
+    },
+    {
+      "name": "Linked List Cycle",
+      "link": "https://leetcode.com/problems/linked-list-cycle/",
+      "acceptanceRate": "49.8%",
+      "difficulty": "Easy"
+    },
+    {
+      "name": "Merge Two Sorted Lists",
+      "link": "https://leetcode.com/problems/merge-two-sorted-lists/",
+      "acceptanceRate": "64.1%",
+      "difficulty": "Easy"
+    }
+  ],
+  "stack-and-queue": [
+    {
+      "name": "Valid Parentheses",
+      "link": "https://leetcode.com/problems/valid-parentheses/",
+      "acceptanceRate": "40.9%",
+      "difficulty": "Easy"
+    },
+    {
+      "name": "Min Stack",
+      "link": "https://leetcode.com/problems/min-stack/",
+      "acceptanceRate": "53.8%",
+      "difficulty": "Medium"
+    }
+  ],
+  "recursion-and-backtracking": [
+    {
+      "name": "Subsets",
+      "link": "https://leetcode.com/problems/subsets/",
+      "acceptanceRate": "77.5%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Permutations",
+      "link": "https://leetcode.com/problems/permutations/",
+      "acceptanceRate": "78.9%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "N-Queens",
+      "link": "https://leetcode.com/problems/n-queens/",
+      "acceptanceRate": "68.1%",
+      "difficulty": "Hard"
+    }
+  ],
+  "trees-heaps-and-tries": [
+    {
+      "name": "Maximum Depth of Binary Tree",
+      "link": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+      "acceptanceRate": "75.3%",
+      "difficulty": "Easy"
+    },
+    {
+      "name": "Invert Binary Tree",
+      "link": "https://leetcode.com/problems/invert-binary-tree/",
+      "acceptanceRate": "77.1%",
+      "difficulty": "Easy"
+    },
+    {
+      "name": "Binary Tree Level Order Traversal",
+      "link": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+      "acceptanceRate": "66.5%",
+      "difficulty": "Medium"
+    }
+  ],
+  "graph-bfs-dfs": [
+    {
+      "name": "Number of Islands",
+      "link": "https://leetcode.com/problems/number-of-islands/",
+      "acceptanceRate": "59.2%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Clone Graph",
+      "link": "https://leetcode.com/problems/clone-graph/",
+      "acceptanceRate": "56.4%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Course Schedule",
+      "link": "https://leetcode.com/problems/course-schedule/",
+      "acceptanceRate": "46.7%",
+      "difficulty": "Medium"
+    }
+  ],
+  "dynamic-programming": [
+    {
+      "name": "Climbing Stairs",
+      "link": "https://leetcode.com/problems/climbing-stairs/",
+      "acceptanceRate": "53.1%",
+      "difficulty": "Easy"
+    },
+    {
+      "name": "Coin Change",
+      "link": "https://leetcode.com/problems/coin-change/",
+      "acceptanceRate": "44.2%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Longest Common Subsequence",
+      "link": "https://leetcode.com/problems/longest-common-subsequence/",
+      "acceptanceRate": "51.8%",
+      "difficulty": "Medium"
+    }
+  ],
+  "greedy": [
+    {
+      "name": "Jump Game",
+      "link": "https://leetcode.com/problems/jump-game/",
+      "acceptanceRate": "38.5%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Gas Station",
+      "link": "https://leetcode.com/problems/gas-station/",
+      "acceptanceRate": "45.1%",
+      "difficulty": "Medium"
+    }
+  ],
+  "tries": [
+    {
+      "name": "Implement Trie (Prefix Tree)",
+      "link": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+      "acceptanceRate": "65.3%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Word Search II",
+      "link": "https://leetcode.com/problems/word-search-ii/",
+      "acceptanceRate": "39.2%",
+      "difficulty": "Hard"
+    }
+  ],
+  "heaps": [
+    {
+      "name": "Kth Largest Element in an Array",
+      "link": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+      "acceptanceRate": "67.4%",
+      "difficulty": "Medium"
+    },
+    {
+      "name": "Find Median from Data Stream",
+      "link": "https://leetcode.com/problems/find-median-from-data-stream/",
+      "acceptanceRate": "52.1%",
+      "difficulty": "Hard"
+    }
+  ]
+}

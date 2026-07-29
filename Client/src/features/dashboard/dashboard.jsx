@@ -1,20 +1,43 @@
-import DashboardPageShell from "./components/DashboardPageShell";
-import Dashmain from "./components/dashmain";
-import DashRightNavBar from "./components/dashrightnavbar";
+import { useState } from "react";
+
+import Upperdashnavbar from "../../components/common/dashuppernavbar";
+import Dashleftnavbar from "../../components/common/dashleftnavbar";
+import Mainboxes from "./components/mainboxes";
+import Dashtopic from "./components/dashtopic";
+import Mainnavbar from "./components/mainnavbar";
+import Searchbar from "./components/Searchbar";
 
 function Dashboard() {
-    return (
-        <DashboardPageShell className="p-1 sm:p-2 flex flex-col lg:flex-row gap-5 xl:gap-4" plain={true}>
-            {/* Main Section */}
-            <div className="flex-1 min-w-0">
-                <Dashmain />
-            </div>
-            {/* Right Sidebar */}
-            <div className="hidden xl:block w-[310px] 2xl:w-[350px] flex-shrink-0">
-                <DashRightNavBar />
-            </div>
-        </DashboardPageShell>
-    );
+  const [activeTab, setActiveTab] = useState("All Topics");
+
+  return (
+    <div className="h-screen bg-[#070709] text-white flex flex-col overflow-hidden">
+      {/* Top Navbar */}
+      <Upperdashnavbar />
+
+      {/* Sidebar + Main */}
+      <div className="flex flex-1 overflow-hidden">
+        {/* Left Sidebar */}
+        <div className="flex-shrink-0">
+          <Dashleftnavbar />
+        </div>
+
+        {/* Main Content */}
+        <main className="flex-1 min-w-0 mt-9 overflow-y-auto">
+          <Mainboxes />
+
+          <Mainnavbar
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+
+          <Searchbar />
+
+          <Dashtopic activeTab={activeTab} />
+        </main>
+      </div>
+    </div>
+  );
 }
 
 export default Dashboard;

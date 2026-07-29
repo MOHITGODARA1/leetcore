@@ -1,21 +1,5 @@
 import mongoose from "mongoose";
 
-const UserBadgeSchema = new mongoose.Schema(
-    {
-        badgeId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Badge",
-            required: true,
-        },
-        earnedAt: {
-            type: Date,
-            default: Date.now,
-        },
-    },
-    {
-        _id: false,
-    }
-);
 
 const UserSchema = new mongoose.Schema(
     {
@@ -61,80 +45,7 @@ const UserSchema = new mongoose.Schema(
             default: "",
             trim: true,
         },
-        stats: {
-            totalActiveDays: {
-                type: Number,
-                default: 0,
-            },
-
-            currentStreak: {
-                type: Number,
-                default: 0,
-            },
-
-            maxStreak: {
-                type: Number,
-                default: 0,
-            },
-
-            totalStudyMinutes: {
-                type: Number,
-                default: 0,
-            },
-
-            totalProblemsSolved: {
-                type: Number,
-                default: 0,
-            },
-
-            problemRank: {
-                type: Number,
-                default: null,
-            },
-
-            totalRankedUsers: {
-                type: Number,
-                default: 0,
-            },
-
-            problemRankPercentile: {
-                type: Number,
-                default: 100,
-                min: 1,
-                max: 100,
-            },
-
-            percentileBadge: {
-                type: String,
-                default: "Top 100%",
-            },
-
-            consistencyPercentage: {
-                type: Number,
-                default: 0,
-                min: 0,
-                max: 100,
-            },
-
-            lastActiveDate: {
-                type: String,
-                default: null,
-            },
-        },
-        badges: {
-            type: [UserBadgeSchema],
-            default: [],
-        },
-        xp: {
-            type: Number,
-            default: 0,
-            min: 0,
-        },
-        level: {
-            type: Number,
-            default: 1,
-            min: 1,
-        },
+        
         lastLogin: {
             type: Date,
             default: Date.now,
@@ -145,7 +56,6 @@ const UserSchema = new mongoose.Schema(
     }
 );
 
-UserSchema.index({ "badges.badgeId": 1 });
-UserSchema.index({ "stats.totalProblemsSolved": -1, "stats.problemRank": 1 });
+
 
 export default mongoose.model("User", UserSchema);

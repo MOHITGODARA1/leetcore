@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Galindo&display=swap');
 @import "tailwindcss";
+
+
+.galindo {
+  font-family: "Galindo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 :root {
   --lc-bg: #080808;
@@ -50,14 +58,6 @@ a {
   touch-action: manipulation;
 }
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 2px solid rgba(244, 103, 23, 0.72);
-  outline-offset: 3px;
-}
 
 ::selection {
   background: rgba(244, 103, 23, 0.35);

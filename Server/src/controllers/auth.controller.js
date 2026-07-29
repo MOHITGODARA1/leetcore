@@ -1,5 +1,6 @@
 import User from "../models/User.models.js";
 import axios from "axios";
+import https from "node:https";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 
@@ -19,6 +20,23 @@ const requiredEnv = (key) => {
 const trimTrailingSlash = (url) => url?.replace(/\/$/, "");
 
 const isProductionUrl = (url = "") => url.startsWith("https://");
+
+const shouldAllowSelfSignedGithubCerts = () =>
+    process.env.NODE_ENV !== "production"
+    && process.env.GITHUB_ALLOW_SELF_SIGNED_CERTS === "true";
+
+const githubHttpClient = axios.create({
+    headers: {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    },
+    ...(shouldAllowSelfSignedGithubCerts()
+        ? {
+            httpsAgent: new https.Agent({
+                rejectUnauthorized: false,
+            }),
+        }
+        : {}),
+});
 
 const getAuthCookieOptions = () => {
     const clientUrl = process.env.CLIENT_URL || DEFAULT_CLIENT_URL;
@@ -89,7 +107,7 @@ const registerUser = async (req, res) => {
 
         // Exchange code for access token
         authStep = "exchanging GitHub code for access token";
-        const tokenResponse = await axios.post(
+        const tokenResponse = await githubHttpClient.post(
             "https://github.com/login/oauth/access_token",
             {
                 client_id: clientId,
@@ -117,7 +135,7 @@ const registerUser = async (req, res) => {
 
         // Fetch GitHub user
         authStep = "fetching GitHub user profile";
-        const githubUser = await axios.get(
+        const githubUser = await githubHttpClient.get(
             "https://api.github.com/user",
             {
                 headers: {
@@ -128,7 +146,7 @@ const registerUser = async (req, res) => {
 
         // Fetch email
         authStep = "fetching GitHub email";
-        const emailResponse = await axios.get(
+        const emailResponse = await githubHttpClient.get(
             "https://api.github.com/user/emails",
             {
                 headers: {
@@ -209,9 +227,15 @@ const registerUser = async (req, res) => {
 
         const clientUrl = trimTrailingSlash(process.env.CLIENT_URL || DEFAULT_CLIENT_URL);
 
-        return res.redirect(`${clientUrl}/#/dashboard?token=${encodeURIComponent(token)}`);
+        return res.redirect(`${clientUrl}/dashboard?token=${encodeURIComponent(token)}`);
 
     } catch (error) {
+        try {
+            const fs = await import("node:fs");
+            fs.appendFileSync("debug.log", `[${new Date().toISOString()}] GitHub Auth Error: ${authStep} - ${error.stack || error.message} - Response: ${JSON.stringify(error.response?.data || {})}\n`);
+        } catch (e) {
+            console.error("Failed to write to debug.log:", e);
+        }
 
         const statusCode = error.response?.status || 500;
         const providerMessage = error.response?.data?.error_description
