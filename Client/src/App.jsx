@@ -6,6 +6,7 @@ import Whatsnext from "./pages/Whatsnextpage";
 import Career from "./pages/Career";
 import DigitalFootprint from "./pages/degitalfootprint";
 import DSA from "./features/DSA/DSA";
+import DSAQuestionPage from "./features/DSA/Components/DSAQuestionPage";
 /*  Main App */
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/dashboard/Social-media-footprint" element={<DigitalFootprint />} />
         <Route path="/dashboard/data-structures-and-algorithms" element={<DSA />} />
         <Route path="/dashboard/data-structures-and-algorithms/:topic" element={<DSA />} />
+        <Route path="/dashboard/data-structures-and-algorithms/:topic/:questionId" element={<DSAQuestionPage />} />
       </Routes>
     </>
   );

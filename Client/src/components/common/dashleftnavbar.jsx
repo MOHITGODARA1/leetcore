@@ -15,24 +15,24 @@ function DashLeftNavbar() {
     {
       name: "Interview Prep",
       icon: Brain,
-      path: "/dashboard/Prep & Tools",
+      path: "/dashboard/data-structures-and-algorithms",
     },
     {
       name: "Online Assessment",
       icon: BookOpen,
-      path: "/dashboard/Algorithms",
+      path: "/dashboard/what's-next-on-leetcore",
     },
     {
       name: "Companies",
       icon: Building2,
-      path: "/dashboard/Database",
+      path: "/dashboard/Career-oppertunity-on-leetcore",
     },
   ];
 
   return (
     <aside className="w-64 h-[calc(100vh-64px)] bg-white/5 border-r border-white/10 flex flex-col justify-between">
       {/* Top */}
-      <div className="py-6">
+      <div className="py-6 min-h-0 overflow-y-auto">
         <nav className="space-y-2 px-4">
           {menu.map((item) => {
             const Icon = item.icon;

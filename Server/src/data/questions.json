@@ -31,6 +31,20 @@
           "expectedOutput": "5 -2 10"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "42",
+          "expectedOutput": "42"
+        },
+        {
+          "input": "1 1 1 1",
+          "expectedOutput": "1 1 1 1"
+        },
+        {
+          "input": "9 8 7 6 5 4 3 2 1 0",
+          "expectedOutput": "0 1 2 3 4 5 6 7 8 9"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <sstream>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n    string line;\n    if (getline(cin, line)) {\n        stringstream ss(line);\n        int num;\n        vector<int> arr;\n        while (ss >> num) {\n            arr.push_back(num);\n        }\n        \n        // Write your code here to reverse and print the array\n        reverse(arr.begin(), arr.end());\n        \n        for (size_t i = 0; i < arr.size(); ++i) {\n            cout << arr[i] << (i == arr.size() - 1 ? \"\" : \" \");\n        }\n        cout << endl;\n    }\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            if (line.trim().isEmpty()) {\n                System.out.println();\n                return;\n            }\n            String[] parts = line.trim().split(\"\\\\s+\");\n            List<String> list = Arrays.asList(parts);\n            \n            // Write your code here to reverse and print the array\n            Collections.reverse(list);\n            \n            System.out.println(String.join(\" \", list));\n        }\n    }\n}",
@@ -66,6 +80,20 @@
         {
           "input": "-10 -5 -20 -3",
           "expectedOutput": "-3"
+        }
+      ],
+      "hiddenTestCases": [
+        {
+          "input": "42",
+          "expectedOutput": "42"
+        },
+        {
+          "input": "100 100 100",
+          "expectedOutput": "100"
+        },
+        {
+          "input": "-1 0 1",
+          "expectedOutput": "1"
         }
       ],
       "starterCode": {
@@ -105,6 +133,20 @@
           "expectedOutput": "3"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "1 1",
+          "expectedOutput": "1"
+        },
+        {
+          "input": "2 2 2 2",
+          "expectedOutput": "2"
+        },
+        {
+          "input": "1 4 3 2 5 2",
+          "expectedOutput": "2"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <sstream>\n#include <unordered_set>\n\nusing namespace std;\n\nint main() {\n    string line;\n    if (getline(cin, line)) {\n        stringstream ss(line);\n        int num;\n        vector<int> arr;\n        while (ss >> num) {\n            arr.push_back(num);\n        }\n        \n        // Write your code here to find the duplicate\n        unordered_set<int> seen;\n        for (int x : arr) {\n            if (seen.count(x)) {\n                cout << x << endl;\n                return 0;\n            }\n            seen.insert(x);\n        }\n    }\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            if (line.trim().isEmpty()) return;\n            String[] parts = line.trim().split(\"\\\\s+\");\n            \n            // Write your code here to find the duplicate\n            Set<Integer> seen = new HashSet<>();\n            for (String part : parts) {\n                int val = Integer.parseInt(part);\n                if (seen.contains(val)) {\n                    System.out.println(val);\n                    return;\n                }\n                seen.add(val);\n            }\n        }\n    }\n}",
@@ -140,6 +182,20 @@
         {
           "input": "0\n1 2 3",
           "expectedOutput": "1 2 3"
+        }
+      ],
+      "hiddenTestCases": [
+        {
+          "input": "5\n1 2",
+          "expectedOutput": "2 1"
+        },
+        {
+          "input": "4\n1 2 3 4",
+          "expectedOutput": "1 2 3 4"
+        },
+        {
+          "input": "7\n1 2 3 4 5",
+          "expectedOutput": "4 5 1 2 3"
         }
       ],
       "starterCode": {
@@ -179,6 +235,20 @@
           "expectedOutput": "1 5"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "1\n5 10",
+          "expectedOutput": "5 10"
+        },
+        {
+          "input": "3\n1 5\n2 4\n3 6",
+          "expectedOutput": "1 6"
+        },
+        {
+          "input": "3\n1 10\n2 3\n4 5",
+          "expectedOutput": "1 10"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n    int n;\n    if (cin >> n) {\n        vector<pair<int, int>> intervals(n);\n        for (int i = 0; i < n; ++i) {\n            cin >> intervals[i].first >> intervals[i].second;\n        }\n        \n        // Write your code here to merge overlapping intervals\n        if (n == 0) return 0;\n        sort(intervals.begin(), intervals.end());\n        vector<pair<int, int>> merged;\n        merged.push_back(intervals[0]);\n        for (int i = 1; i < n; ++i) {\n            if (intervals[i].first <= merged.back().second) {\n                merged.back().second = max(merged.back().second, intervals[i].second);\n            } else {\n                merged.push_back(intervals[i]);\n            }\n        }\n        \n        for (auto& interval : merged) {\n            cout << interval.first << \" \" << interval.second << endl;\n        }\n    }\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextInt()) {\n            int n = sc.nextInt();\n            int[][] intervals = new int[n][2];\n            for (int i = 0; i < n; i++) {\n                intervals[i][0] = sc.nextInt();\n                intervals[i][1] = sc.nextInt();\n            }\n            \n            // Write your code here to merge overlapping intervals\n            if (n == 0) return;\n            Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));\n            List<int[]> merged = new ArrayList<>();\n            merged.add(intervals[0]);\n            for (int i = 1; i < n; i++) {\n                int[] current = intervals[i];\n                int[] last = merged.get(merged.size() - 1);\n                if (current[0] <= last[1]) {\n                    last[1] = Math.max(last[1], current[1]);\n                } else {\n                    merged.add(current);\n                }\n            }\n            \n            for (int[] interval : merged) {\n                System.out.println(interval[0] + \" \" + interval[1]);\n            }\n        }\n    }\n}",
@@ -210,6 +280,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Valid Anagram\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Valid Anagram\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -234,6 +310,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -270,6 +352,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Valid Palindrome\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Valid Palindrome\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -299,6 +387,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for 3Sum\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for 3Sum\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -323,6 +417,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -359,6 +459,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Longest Substring Without Repeating Characters\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Longest Substring Without Repeating Characters\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -383,6 +489,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -419,6 +531,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Maximum Subarray\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Maximum Subarray\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -450,6 +568,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Subarray Sum Equals K\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Subarray Sum Equals K\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -474,6 +598,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -510,6 +640,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Group Anagrams\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Group Anagrams\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -534,6 +670,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -570,6 +712,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Binary Search\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Binary Search\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -594,6 +742,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -630,6 +784,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Reverse Linked List\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Reverse Linked List\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -659,6 +819,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Linked List Cycle\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Linked List Cycle\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -683,6 +849,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -719,6 +891,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Valid Parentheses\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Valid Parentheses\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -743,6 +921,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -779,6 +963,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Subsets\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Subsets\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -808,6 +998,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Permutations\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Permutations\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -832,6 +1028,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -868,6 +1070,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Maximum Depth of Binary Tree\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Maximum Depth of Binary Tree\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -897,6 +1105,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Invert Binary Tree\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Invert Binary Tree\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -921,6 +1135,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -957,6 +1177,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Number of Islands\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Number of Islands\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -986,6 +1212,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Clone Graph\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Clone Graph\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -1010,6 +1242,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -1046,6 +1284,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Climbing Stairs\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Climbing Stairs\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -1075,6 +1319,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Coin Change\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Coin Change\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -1099,6 +1349,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -1135,6 +1391,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Jump Game\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Jump Game\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -1159,6 +1421,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -1195,6 +1463,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Implement Trie (Prefix Tree)\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Implement Trie (Prefix Tree)\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -1219,6 +1493,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"
@@ -1255,6 +1535,12 @@
           "expectedOutput": "Sample Output"
         }
       ],
+      "hiddenTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
       "starterCode": {
         "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Kth Largest Element in an Array\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
         "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Kth Largest Element in an Array\n        System.out.println(\"Sample Output\");\n    }\n}",
@@ -1279,6 +1565,12 @@
         }
       ],
       "visibleTestCases": [
+        {
+          "input": "Sample Input",
+          "expectedOutput": "Sample Output"
+        }
+      ],
+      "hiddenTestCases": [
         {
           "input": "Sample Input",
           "expectedOutput": "Sample Output"

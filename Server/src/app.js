@@ -1,5 +1,7 @@
 import express from "express";
 import LoginRouter from "./routes/Login.route.js";
+import CompilerRouter from "./routes/compiler.route.js";
+import ActivityRouter from "./routes/activity.route.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import csurf from "csurf";
@@ -13,6 +15,10 @@ app.use(cookieParser());
 const allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5174",
+    "http://localhost:5175",
+    "http://127.0.0.1:5175",
+    "http://localhost:5180",
+    "http://127.0.0.1:5180",
     process.env.CLIENT_URL,
 ].filter(Boolean);
 
@@ -29,6 +35,9 @@ app.use(cors({
     credentials: true,
 }));
 app.use(express.json());
+
+app.use("/api/v1", CompilerRouter);
+app.use("/api/v1", ActivityRouter);
 
 const csrfProtection = csurf({
     cookie: {

@@ -219,6 +219,17 @@ html {
   transform: translateY(0) scale(0.98);
 }
 
+.lc-question-left-pane {
+  flex: 0 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .lc-question-left-pane {
+    flex-basis: var(--leetcore-left-pane-width, 44%);
+    max-width: 70%;
+  }
+}
+
 .lc-kicker {
   font-size: 0.6875rem;
   font-weight: 700;

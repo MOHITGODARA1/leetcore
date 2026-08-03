@@ -1,0 +1,21 @@
+{
+  "topics": [
+    { "id": "arrays", "label": "Arrays", "order": 0 },
+    { "id": "strings", "label": "Strings", "order": 1 },
+    { "id": "two-pointers", "label": "Two Pointers", "order": 2 },
+    { "id": "sliding-window", "label": "Sliding Window", "order": 3 },
+    { "id": "kadans", "label": "Kadane's", "order": 4 },
+    { "id": "prefix-sum", "label": "Prefix Sum", "order": 5 },
+    { "id": "hashing", "label": "Hashing", "order": 6 },
+    { "id": "binary-search", "label": "Binary Search", "order": 7 },
+    { "id": "linked-list", "label": "Linked List", "order": 8 },
+    { "id": "stack-and-queue", "label": "Stack & Queue", "order": 9 },
+    { "id": "recursion-and-backtracking", "label": "Recursion & Backtrack", "order": 10 },
+    { "id": "trees-heaps-and-tries", "label": "Trees", "order": 11 },
+    { "id": "tries", "label": "Tries", "order": 12 },
+    { "id": "heaps", "label": "Heaps", "order": 13 },
+    { "id": "graph-bfs-dfs", "label": "Graph", "order": 14 },
+    { "id": "dynamic-programming", "label": "Dynamic Programming", "order": 15 },
+    { "id": "greedy", "label": "Greedy", "order": 16 }
+  ]
+}

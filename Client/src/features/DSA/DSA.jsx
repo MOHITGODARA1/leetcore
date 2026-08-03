@@ -1,11 +1,19 @@
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import Upperdashnavbar from "../../components/common/dashuppernavbar";
 import DSARightNavbar from "./Components/DSArightnavbar";
 import DSARoadmap from "./Components/DSAroadmap";
-import Topicquestion from "./Components/Topicquestion";
+import questionsData from "./data/questions.json";
 
 function DSA() {
   const { topic } = useParams();
+
+  if (topic) {
+    const topicKey = topic.toLowerCase();
+    const topicQuestions = questionsData[topicKey] || [];
+    if (topicQuestions.length > 0) {
+      return <Navigate to={`/dashboard/data-structures-and-algorithms/${topicKey}/${topicQuestions[0].id}`} replace />;
+    }
+  }
 
   return (
     <div className="h-screen overflow-hidden bg-[#070709] text-white flex flex-col">
@@ -17,7 +25,7 @@ function DSA() {
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
               Algorithms Metro
             </h1>
-            <p className="mt-2 text-sm text-slate-400 max-w-2xl">
+            <p className="mt-2 text-sm text-white/55 max-w-2xl">
               Practice and master coding problems on arrays, trees, dynamic programming, and more.
             </p>
           </div>
@@ -25,9 +33,6 @@ function DSA() {
             <DSARoadmap />
           </div>
         </div>
-
-        {/* Topic Question Drawer (Opens from left of right sidebar) */}
-        {topic && <Topicquestion />}
 
         {/* Right Sidebar */}
         <DSARightNavbar />
