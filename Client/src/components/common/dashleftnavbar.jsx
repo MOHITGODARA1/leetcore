@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
-
 import {
-  LayoutDashboard,
-  BookOpen,
-  Building2,
+  SquaresFour,
   Brain,
+  Notebook,
+  Building,
   User,
-  ChevronRight,
-} from "lucide-react";
+  CaretRight,
+  Flame,
+} from "@phosphor-icons/react";
 
 function DashLeftNavbar() {
   const menu = [
-    { name: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+    { name: "Dashboard", icon: SquaresFour, path: "/dashboard" },
     {
       name: "Interview Prep",
       icon: Brain,
@@ -19,65 +19,101 @@ function DashLeftNavbar() {
     },
     {
       name: "Online Assessment",
-      icon: BookOpen,
+      icon: Notebook,
       path: "/dashboard/what's-next-on-leetcore",
     },
     {
       name: "Companies",
-      icon: Building2,
+      icon: Building,
       path: "/dashboard/Career-oppertunity-on-leetcore",
     },
   ];
 
+  const linkClass = ({ isActive }) =>
+    `group relative flex items-center gap-3.5 rounded-xl px-4 py-3 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.98] ${
+      isActive
+        ? "bg-[var(--dash-accent-soft)] text-[var(--dash-accent)]"
+        : "text-[var(--dash-muted)] hover:bg-[var(--dash-accent-softer)] hover:text-[var(--dash-text)]"
+    }`;
+
   return (
-    <aside className="w-64 h-[calc(100vh-64px)] bg-white/5 border-r border-white/10 flex flex-col justify-between">
-      {/* Top */}
-      <div className="py-6 min-h-0 overflow-y-auto">
-        <nav className="space-y-2 px-4">
+    <aside className="hidden w-64 shrink-0 flex-col border-r border-[var(--dash-line)] bg-[var(--dash-elevated)] lg:flex">
+      <div className="flex flex-col gap-6 px-5 pt-7">
+        <p className="dash-kicker px-2">Workspace</p>
+
+        <nav aria-label="Primary" className="space-y-1">
           {menu.map((item) => {
             const Icon = item.icon;
 
             return (
-              <NavLink
-                key={item.name}
-                to={item.path}
-                className={({ isActive }) =>
-                  `flex items-center gap-4 rounded-lg  px-4 py-3 transition-all duration-200 ${
-                    isActive
-                      ? "bg-[#222222] text-white"
-                      : "text-white hover:bg-[#222222] hover:text-white"
-                  }`
-                }
-              >
-                <Icon size={20} />
-                <span className="text-[16px] font-bold">{item.name}</span>
+              <NavLink key={item.name} to={item.path} className={linkClass}>
+                {({ isActive }) => (
+                  <>
+                    <span
+                      className={`absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                        isActive ? "bg-[var(--dash-accent)] opacity-100" : "opacity-0"
+                      }`}
+                    />
+                    <Icon
+                      size={19}
+                      weight={isActive ? "fill" : "regular"}
+                      className={isActive ? "text-[var(--dash-accent)]" : ""}
+                    />
+                    <span className="text-[14px] font-semibold tracking-tight">
+                      {item.name}
+                    </span>
+                  </>
+                )}
               </NavLink>
             );
           })}
         </nav>
+
+        {/* Streak card */}
+        <div className="rounded-2xl border border-[var(--dash-line)] bg-[var(--dash-panel)] p-4 shadow-[var(--shadow-sm)]">
+          <div className="flex items-center gap-2.5">
+            <span className="grid h-8 w-8 place-items-center rounded-lg bg-[var(--dash-warning-soft)] text-[var(--dash-warning)]">
+              <Flame size={16} weight="duotone" />
+            </span>
+            <p className="text-[13px] font-semibold text-[var(--dash-text)]">
+              Daily streak
+            </p>
+          </div>
+          <p className="mt-2.5 text-[12px] leading-relaxed text-[var(--dash-muted)]">
+            Solve one question a day to keep your practice sharp.
+          </p>
+        </div>
       </div>
 
-      {/* Bottom Profile */}
-      <div className="border-t border-white/10 p-4">
+      {/* Profile */}
+      <div className="mt-auto border-t border-[var(--dash-line)] px-5 py-5">
         <NavLink
           to="/dashboard/profile"
-          className="flex items-center justify-between rounded-xl  px-3 py-1  transition-all"
+          className={({ isActive }) =>
+            `group flex items-center justify-between rounded-xl px-3 py-2 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.98] ${
+              isActive
+                ? "bg-[var(--dash-accent-soft)] text-[var(--dash-accent)]"
+                : "text-[var(--dash-muted)] hover:bg-[var(--dash-accent-softer)] hover:text-[var(--dash-text)]"
+            }`
+          }
         >
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center ">
-              <User size={20} className="text-white" />
-            </div>
-
-            
-              <h3 className="text-lg font-semibold text-white">
+            <span className="grid h-10 w-10 place-items-center rounded-xl border border-[var(--dash-line)] bg-[var(--dash-panel)]">
+              <User size={18} weight="duotone" className="text-[var(--dash-muted)]" />
+            </span>
+            <span className="flex flex-col leading-tight">
+              <span className="text-[14px] font-semibold text-[var(--dash-text)]">
                 Profile
-              </h3>
-            
+              </span>
+              <span className="text-[11px] text-[var(--dash-faint)]">
+                View your readiness
+              </span>
+            </span>
           </div>
-
-          <ChevronRight
-            size={18}
-            className="text-white/40"
+          <CaretRight
+            size={15}
+            weight="bold"
+            className="text-[var(--dash-faint)] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5"
           />
         </NavLink>
       </div>

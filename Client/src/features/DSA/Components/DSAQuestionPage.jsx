@@ -25,6 +25,7 @@ import axios from "axios";
 import questionsData from "../data/questions.json";
 import topicsData from "../data/topics.json";
 import { recordAcceptedSubmission } from "../../../services/activityProgress";
+import { getCsrfToken } from "../../../services/csrf";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
@@ -53,6 +54,306 @@ const functionStarters = {
     cpp: "vector<pair<int, int>> mergeIntervals(vector<pair<int, int>> intervals) {\n    // Write your logic here\n    return intervals;\n}",
     java: "public static int[][] mergeIntervals(int[][] intervals) {\n    // Write your logic here\n    return intervals;\n}",
     python: "def merge_intervals(intervals):\n    # Write your logic here\n    return intervals"
+  },
+  "strings-1": {
+    cpp: "bool isAnagram(string s, string t) {\n    // Write your logic here\n    return false;\n}",
+    java: "public static boolean isAnagram(String s, String t) {\n    // Write your logic here\n    return false;\n}",
+    python: "def is_anagram(s: str, t: str) -> bool:\n    # Write your logic here\n    return False"
+  },
+  "strings-2": {
+    cpp: "string longestPalindrome(string s) {\n    // Write your logic here\n    return \"\";\n}",
+    java: "public static String longestPalindrome(String s) {\n    // Write your logic here\n    return \"\";\n}",
+    python: "def longest_palindrome(s: str) -> str:\n    # Write your logic here\n    return \"\""
+  },
+  "strings-3": {
+    cpp: "string longestCommonPrefix(vector<string>& strs) {\n    // Write your logic here\n    return \"\";\n}",
+    java: "public static String longestCommonPrefix(List<String> strs) {\n    // Write your logic here\n    return \"\";\n}",
+    python: "def longest_common_prefix(strs: list) -> str:\n    # Write your logic here\n    return \"\""
+  },
+  "strings-4": {
+    cpp: "int firstUniqChar(string s) {\n    // Write your logic here\n    return -1;\n}",
+    java: "public static int firstUniqChar(String s) {\n    // Write your logic here\n    return -1;\n}",
+    python: "def first_uniq_char(s: str) -> int:\n    # Write your logic here\n    return -1"
+  },
+  "strings-5": {
+    cpp: "string reverseWords(string s) {\n    // Write your logic here\n    return \"\";\n}",
+    java: "public static String reverseWords(String s) {\n    // Write your logic here\n    return \"\";\n}",
+    python: "def reverse_words(s: str) -> str:\n    # Write your logic here\n    return \"\""
+  },
+  "two-pointers-1": {
+    cpp: "bool isPalindrome(string s) {\n    // Write your logic here\n    return false;\n}",
+    java: "public static boolean isPalindrome(String s) {\n    // Write your logic here\n    return false;\n}",
+    python: "def is_palindrome(s: str) -> bool:\n    # Write your logic here\n    return False"
+  },
+  "two-pointers-2": {
+    cpp: "vector<int> twoSum(vector<int>& numbers, int target) {\n    // Write your logic here\n    return {};\n}",
+    java: "public static int[] twoSum(int[] numbers, int target) {\n    // Write your logic here\n    return new int[0];\n}",
+    python: "def two_sum(numbers: list, target: int) -> list:\n    # Write your logic here\n    return []"
+  },
+  "two-pointers-3": {
+    cpp: "int removeDuplicates(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int removeDuplicates(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def remove_duplicates(nums: list) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "two-pointers-4": {
+    cpp: "int maxArea(vector<int>& height) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int maxArea(int[] height) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def max_area(height: list) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "two-pointers-5": {
+    cpp: "int trap(vector<int>& height) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int trap(int[] height) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def trap(height: list) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "sliding-window-1": {
+    cpp: "int lengthOfLongestSubstring(string s) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int lengthOfLongestSubstring(String s) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def length_of_longest_substring(s: str) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "sliding-window-2": {
+    cpp: "int characterReplacement(string s, int k) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int characterReplacement(String s, int k) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def character_replacement(s: str, k: int) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "sliding-window-3": {
+    cpp: "int minSubArrayLen(int target, vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int minSubArrayLen(int target, int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def min_subarray_len(target: int, nums: list) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "sliding-window-4": {
+    cpp: "bool checkInclusion(string s1, string s2) {\n    // Write your logic here\n    return false;\n}",
+    java: "public static boolean checkInclusion(String s1, String s2) {\n    // Write your logic here\n    return false;\n}",
+    python: "def check_inclusion(s1: str, s2: str) -> bool:\n    # Write your logic here\n    return False"
+  },
+  "sliding-window-5": {
+    cpp: "int longestOnes(vector<int>& nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int longestOnes(int[] nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def longest_ones(nums: list, k: int) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "kadans-1": {
+    cpp: "int maxSubArray(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int maxSubArray(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def max_subarray(nums: list) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "kadans-2": {
+    cpp: "int maxProduct(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int maxProduct(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def max_product(nums: list) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "kadans-3": {
+    cpp: "int maxSubarraySumCircular(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int maxSubarraySumCircular(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def max_subarray_sum_circular(nums: list) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "kadans-4": {
+    cpp: "int maxProfit(vector<int>& prices) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int maxProfit(int[] prices) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def max_profit(prices: list) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "kadans-5": {
+    cpp: "int maximumSum(vector<int>& arr) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int maximumSum(int[] arr) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def maximum_sum(arr: list) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "prefix-sum-1": {
+    cpp: "int subarraySum(vector<int>& nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int subarraySum(int[] nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def subarray_sum(nums: list, k: int) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "prefix-sum-2": {
+    cpp: "vector<int> rangeSumQuery(vector<int>& nums, vector<vector<int>>& queries) {\n    // Write your logic here\n    return {};\n}",
+    java: "public static int[] rangeSum(int[] nums, int[][] queries) {\n    // Write your logic here\n    return new int[0];\n}",
+    python: "def range_sum(nums: list, queries: list) -> list:\n    # Write your logic here\n    return []"
+  },
+  "prefix-sum-3": {
+    cpp: "int pivotIndex(vector<int>& nums) {\n    // Write your logic here\n    return -1;\n}",
+    java: "public static int pivotIndex(int[] nums) {\n    // Write your logic here\n    return -1;\n}",
+    python: "def pivot_index(nums: list) -> int:\n    # Write your logic here\n    return -1"
+  },
+  "prefix-sum-4": {
+    cpp: "vector<int> productExceptSelf(vector<int>& nums) {\n    // Write your logic here\n    return {};\n}",
+    java: "public static int[] productExceptSelf(int[] nums) {\n    // Write your logic here\n    return new int[0];\n}",
+    python: "def product_except_self(nums: list) -> list:\n    # Write your logic here\n    return []"
+  },
+  "prefix-sum-5": {
+    cpp: "bool checkSubarraySum(vector<int>& nums, int k) {\n    // Write your logic here\n    return false;\n}",
+    java: "public static boolean checkSubarraySum(int[] nums, int k) {\n    // Write your logic here\n    return false;\n}",
+    python: "def check_subarray_sum(nums: list, k: int) -> bool:\n    # Write your logic here\n    return False"
+  },
+  "hashing-1": {
+    cpp: "vector<vector<string>> groupAnagrams(vector<string>& strs) {\n    // Write your logic here\n    return {};\n}",
+    java: "public static List<List<String>> groupAnagrams(String[] strs) {\n    // Write your logic here\n    return new ArrayList<>();\n}",
+    python: "def group_anagrams(strs: list) -> list:\n    # Write your logic here\n    return []"
+  },
+  "hashing-2": {
+    cpp: "bool containsDuplicate(vector<int>& nums) {\n    // Write your logic here\n    return false;\n}",
+    java: "public static boolean containsDuplicate(int[] nums) {\n    // Write your logic here\n    return false;\n}",
+    python: "def contains_duplicate(nums: list) -> bool:\n    # Write your logic here\n    return False"
+  },
+  "hashing-3": {
+    cpp: "vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {\n    // Write your logic here\n    return {};\n}",
+    java: "public static int[] intersection(int[] nums1, int[] nums2) {\n    // Write your logic here\n    return new int[0];\n}",
+    python: "def intersection(nums1: list, nums2: list) -> list:\n    # Write your logic here\n    return []"
+  },
+  "hashing-4": {
+    cpp: "int longestConsecutive(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int longestConsecutive(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def longest_consecutive(nums: list) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "hashing-5": {
+    cpp: "int subarraysDivByK(vector<int>& nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public static int subarraysDivByK(int[] nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def subarrays_div_by_k(nums: list, k: int) -> int:\n    # Write your logic here\n    return 0"
+  },
+  "trees-heaps-and-tries-1": {
+    cpp: "int maxDepth(TreeNode* root) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int maxDepth(TreeNode root) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def maxDepth(root):\n    # Write your logic here\n    return 0"
+  },
+  "trees-heaps-and-tries-2": {
+    cpp: "TreeNode* invertTree(TreeNode* root) {\n    // Write your logic here\n    return root;\n}",
+    java: "public TreeNode invertTree(TreeNode root) {\n    // Write your logic here\n    return root;\n}",
+    python: "def invertTree(root):\n    # Write your logic here\n    return root"
+  },
+  "trees-heaps-and-tries-3": {
+    cpp: "vector<vector<int>> levelOrder(TreeNode* root) {\n    // Write your logic here\n    return {};\n}",
+    java: "public List<List<Integer>> levelOrder(TreeNode root) {\n    // Write your logic here\n    return new ArrayList<>();\n}",
+    python: "def levelOrder(root):\n    # Write your logic here\n    return []"
+  },
+  "trees-heaps-and-tries-4": {
+    cpp: "bool isValidBST(TreeNode* root) {\n    // Write your logic here\n    return false;\n}",
+    java: "public boolean isValidBST(TreeNode root) {\n    // Write your logic here\n    return false;\n}",
+    python: "def isValidBST(root):\n    # Write your logic here\n    return False"
+  },
+  "trees-heaps-and-tries-5": {
+    cpp: "bool hasPathSum(TreeNode* root, int targetSum) {\n    // Write your logic here\n    return false;\n}",
+    java: "public boolean hasPathSum(TreeNode root, int targetSum) {\n    // Write your logic here\n    return false;\n}",
+    python: "def hasPathSum(root, targetSum):\n    # Write your logic here\n    return False"
+  },
+  "graph-bfs-dfs-1": {
+    cpp: "int numIslands(vector<vector<char>>& grid) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int numIslands(char[][] grid) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def numIslands(grid):\n    # Write your logic here\n    return 0"
+  },
+  "graph-bfs-dfs-2": {
+    cpp: "int maxAreaOfIsland(vector<vector<int>>& grid) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int maxAreaOfIsland(int[][] grid) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def maxAreaOfIsland(grid):\n    # Write your logic here\n    return 0"
+  },
+  "graph-bfs-dfs-3": {
+    cpp: "bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {\n    // Write your logic here\n    return false;\n}",
+    java: "public boolean canFinish(int numCourses, int[][] prerequisites) {\n    // Write your logic here\n    return false;\n}",
+    python: "def canFinish(numCourses, prerequisites):\n    # Write your logic here\n    return False"
+  },
+  "graph-bfs-dfs-4": {
+    cpp: "int orangesRotting(vector<vector<int>>& grid) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int orangesRotting(int[][] grid) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def orangesRotting(grid):\n    # Write your logic here\n    return 0"
+  },
+  "graph-bfs-dfs-5": {
+    cpp: "vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {\n    // Write your logic here\n    return image;\n}",
+    java: "public int[][] floodFill(int[][] image, int sr, int sc, int color) {\n    // Write your logic here\n    return image;\n}",
+    python: "def floodFill(image, sr, sc, color):\n    # Write your logic here\n    return image"
+  },
+  "tries-1": {
+    cpp: "class Trie {\npublic:\n    Trie() {\n        \n    }\n    \n    void insert(string word) {\n        \n    }\n    \n    bool search(string word) {\n        return false;\n    }\n    \n    bool startsWith(string prefix) {\n        return false;\n    }\n};",
+    java: "class Trie {\n    public Trie() {\n        \n    }\n    \n    public void insert(String word) {\n        \n    }\n    \n    public boolean search(String word) {\n        return false;\n    }\n    \n    public boolean startsWith(String prefix) {\n        return false;\n    }\n}",
+    python: "class Trie:\n    def __init__(self):\n        pass\n\n    def insert(self, word: str) -> None:\n        pass\n\n    def search(self, word: str) -> bool:\n        return False\n\n    def startsWith(self, prefix: str) -> bool:\n        return False"
+  },
+  "tries-2": {
+    cpp: "vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {\n    // Write your logic here\n    return {};\n}",
+    java: "public List<String> findWords(char[][] board, String[] words) {\n    // Write your logic here\n    return new ArrayList<>();\n}",
+    python: "def findWords(board, words):\n    # Write your logic here\n    return []"
+  },
+  "tries-3": {
+    cpp: "string replaceWords(vector<string>& dictionary, string sentence) {\n    // Write your logic here\n    return sentence;\n}",
+    java: "public String replaceWords(List<String> dictionary, String sentence) {\n    // Write your logic here\n    return sentence;\n}",
+    python: "def replaceWords(dictionary, sentence):\n    # Write your logic here\n    return sentence"
+  },
+  "tries-4": {
+    cpp: "class WordDictionary {\npublic:\n    WordDictionary() {\n        \n    }\n    \n    void addWord(string word) {\n        \n    }\n    \n    bool search(string word) {\n        return false;\n    }\n};",
+    java: "class WordDictionary {\n    public WordDictionary() {\n        \n    }\n    \n    public void addWord(String word) {\n        \n    }\n    \n    public boolean search(String word) {\n        return false;\n    }\n}",
+    python: "class WordDictionary:\n    def __init__(self):\n        pass\n\n    def addWord(self, word: str) -> None:\n        pass\n\n    def search(self, word: str) -> bool:\n        return False"
+  },
+  "tries-5": {
+    cpp: "int minExtraChar(string s, vector<string>& dictionary) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int minExtraChar(String s, String[] dictionary) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def minExtraChar(s, dictionary):\n    # Write your logic here\n    return 0"
+  },
+  "dynamic-programming-1": {
+    cpp: "int climbStairs(int n) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int climbStairs(int n) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def climbStairs(n):\n    # Write your logic here\n    return 0"
+  },
+  "dynamic-programming-2": {
+    cpp: "int coinChange(vector<int>& coins, int amount) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int coinChange(int[] coins, int amount) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def coinChange(coins, amount):\n    # Write your logic here\n    return 0"
+  },
+  "dynamic-programming-3": {
+    cpp: "int longestCommonSubsequence(string text1, string text2) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int longestCommonSubsequence(String text1, String text2) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def longestCommonSubsequence(text1, text2):\n    # Write your logic here\n    return 0"
+  },
+  "dynamic-programming-4": {
+    cpp: "int rob(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int rob(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def rob(nums):\n    # Write your logic here\n    return 0"
+  },
+  "dynamic-programming-5": {
+    cpp: "int minDistance(string word1, string word2) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int minDistance(String word1, String word2) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def minDistance(word1, word2):\n    # Write your logic here\n    return 0"
+  },
+  "heaps-1": {
+    cpp: "int findKthLargest(vector<int>& nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int findKthLargest(int[] nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def findKthLargest(nums, k):\n    # Write your logic here\n    return 0"
+  },
+  "heaps-2": {
+    cpp: "class MedianFinder {\npublic:\n    MedianFinder() {\n        \n    }\n    \n    void addNum(int num) {\n        \n    }\n    \n    double findMedian() {\n        return 0.0;\n    }\n};",
+    java: "class MedianFinder {\n    public MedianFinder() {\n        \n    }\n    \n    public void addNum(int num) {\n        \n    }\n    \n    public double findMedian() {\n        return 0.0;\n    }\n}",
+    python: "class MedianFinder:\n    def __init__(self):\n        pass\n\n    def addNum(self, num: int) -> None:\n        pass\n\n    def findMedian(self) -> float:\n        return 0.0"
+  },
+  "heaps-3": {
+    cpp: "ListNode* mergeKLists(vector<ListNode*>& lists) {\n    // Write your logic here\n    return nullptr;\n}",
+    java: "public ListNode mergeKLists(ListNode[] lists) {\n    // Write your logic here\n    return null;\n}",
+    python: "def mergeKLists(lists):\n    # Write your logic here\n    return None"
+  },
+  "heaps-4": {
+    cpp: "vector<int> topKFrequent(vector<int>& nums, int k) {\n    // Write your logic here\n    return {};\n}",
+    java: "public int[] topKFrequent(int[] nums, int k) {\n    // Write your logic here\n    return new int[0];\n}",
+    python: "def topKFrequent(nums, k):\n    # Write your logic here\n    return []"
+  },
+  "heaps-5": {
+    cpp: "vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {\n    // Write your logic here\n    return {};\n}",
+    java: "public int[][] kClosest(int[][] points, int k) {\n    // Write your logic here\n    return new int[0][0];\n}",
+    python: "def kClosest(points, k):\n    # Write your logic here\n    return []"
+  },
+  "greedy-1": {
+    cpp: "bool canJump(vector<int>& nums) {\n    // Write your logic here\n    return false;\n}",
+    java: "public boolean canJump(int[] nums) {\n    // Write your logic here\n    return false;\n}",
+    python: "def canJump(nums):\n    # Write your logic here\n    return False"
+  },
+  "greedy-2": {
+    cpp: "int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int canCompleteCircuit(int[] gas, int[] cost) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def canCompleteCircuit(gas, cost):\n    # Write your logic here\n    return 0"
+  },
+  "greedy-3": {
+    cpp: "int findContentChildren(vector<int>& g, vector<int>& s) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int findContentChildren(int[] g, int[] s) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def findContentChildren(g, s):\n    # Write your logic here\n    return 0"
+  },
+  "greedy-4": {
+    cpp: "vector<int> partitionLabels(string s) {\n    // Write your logic here\n    return {};\n}",
+    java: "public List<Integer> partitionLabels(String s) {\n    // Write your logic here\n    return new ArrayList<>();\n}",
+    python: "def partitionLabels(s):\n    # Write your logic here\n    return []"
+  },
+  "greedy-5": {
+    cpp: "int eraseOverlapIntervals(vector<vector<int>>& intervals) {\n    // Write your logic here\n    return 0;\n}",
+    java: "public int eraseOverlapIntervals(int[][] intervals) {\n    // Write your logic here\n    return 0;\n}",
+    python: "def eraseOverlapIntervals(intervals):\n    # Write your logic here\n    return 0"
   }
 };
 
@@ -96,7 +397,37 @@ const complexityByQuestion = {
   "arrays-2": { time: "O(n)", space: "O(1)", note: "A single pass is enough to compare every element with the current maximum." },
   "arrays-3": { time: "O(n)", space: "O(n)", note: "Hash-based duplicate detection usually visits each value once and stores seen values." },
   "arrays-4": { time: "O(n)", space: "O(n)", note: "Rotation touches every element; extra space depends on the implementation returned by the user." },
-  "arrays-5": { time: "O(n log n)", space: "O(n)", note: "Sorting dominates runtime, then intervals are merged in a linear pass." }
+  "arrays-5": { time: "O(n log n)", space: "O(n)", note: "Sorting dominates runtime, then intervals are merged in a linear pass." },
+  "strings-1": { time: "O(n)", space: "O(1)", note: "Can be solved using a fixed-size frequency array of 26 integers." },
+  "strings-2": { time: "O(n^2)", space: "O(1)", note: "Expanding around centers takes quadratic time but constant extra space." },
+  "strings-3": { time: "O(n * m)", space: "O(1)", note: "Comparing characters column by column across all strings." },
+  "strings-4": { time: "O(n)", space: "O(1)", note: "A frequency map of size at most 26 requires constant extra space." },
+  "strings-5": { time: "O(n)", space: "O(n)", note: "Parsing tokens and reversing them requires storage proportional to string length." },
+  "two-pointers-1": { time: "O(n)", space: "O(1)", note: "Comparing characters from start and end moving inwards." },
+  "two-pointers-2": { time: "O(n)", space: "O(1)", note: "Using two pointers on a sorted array takes linear time." },
+  "two-pointers-3": { time: "O(n)", space: "O(1)", note: "In-place duplicate removal is done with a fast and slow pointer." },
+  "two-pointers-4": { time: "O(n)", space: "O(1)", note: "Moving left or right pointer inwards depending on which bar is shorter." },
+  "two-pointers-5": { time: "O(n)", space: "O(1)", note: "Two pointers track max heights from left and right to compute trapped water." },
+  "sliding-window-1": { time: "O(n)", space: "O(min(m, n))", note: "Using a sliding window with a set or map to store character frequencies." },
+  "sliding-window-2": { time: "O(n)", space: "O(1)", note: "Slide window while updating letter frequencies in a fixed map of size 26." },
+  "sliding-window-3": { time: "O(n)", space: "O(1)", note: "Maintain a sliding window of elements summing to >= target with two pointers." },
+  "sliding-window-4": { time: "O(n)", space: "O(1)", note: "Check character counts in sliding window of size s1.length using a fixed map." },
+  "sliding-window-5": { time: "O(n)", space: "O(1)", note: "Expanding right pointer and shrinking left pointer when count of zeros exceeds k." },
+  "kadans-1": { time: "O(n)", space: "O(1)", note: "Kadane's algorithm keeps track of current maximum subarray sum at each index." },
+  "kadans-2": { time: "O(n)", space: "O(1)", note: "Keep track of both minimum and maximum product prefix to handle negative values." },
+  "kadans-3": { time: "O(n)", space: "O(1)", note: "Compute max normal subarray sum and max circular subarray sum using total sum minus min subarray." },
+  "kadans-4": { time: "O(n)", space: "O(1)", note: "One pass tracking the minimum price seen so far and calculating the max profit." },
+  "kadans-5": { time: "O(n)", space: "O(n)", note: "Dynamic programming keeping track of max sums with zero or one deletion." },
+  "prefix-sum-1": { time: "O(n)", space: "O(n)", note: "Using a prefix sum map to store frequencies of prefix sums seen so far." },
+  "prefix-sum-2": { time: "O(n + q)", space: "O(n)", note: "Precomputing a prefix sum array allows each range query to be solved in O(1) time." },
+  "prefix-sum-3": { time: "O(n)", space: "O(1)", note: "Check index where left sum equals total sum minus left sum minus pivot element." },
+  "prefix-sum-4": { time: "O(n)", space: "O(1)", note: "Compute prefix and suffix product array in-place without division." },
+  "prefix-sum-5": { time: "O(n)", space: "O(min(n, k))", note: "Using a prefix sum modulo k hash map to find matching subarrays of size >= 2." },
+  "hashing-1": { time: "O(n * m log m)", space: "O(n * m)", note: "Map sorted word representations to list of original words." },
+  "hashing-2": { time: "O(n)", space: "O(n)", note: "Store seen elements in a hash set to detect duplicate items instantly." },
+  "hashing-3": { time: "O(n + m)", space: "O(min(n, m))", note: "Find unique elements in both arrays using a hash set check." },
+  "hashing-4": { time: "O(n)", space: "O(n)", note: "Insert all numbers into a hash set and search for sequence starters." },
+  "hashing-5": { time: "O(n)", space: "O(k)", note: "Maintain cumulative sums modulo k in a map to count divisible subarrays." }
 };
 
 const getComplexityEstimate = (questionId, question) => {
@@ -191,6 +522,7 @@ export default function DSAQuestionPage() {
   const [solvedQuestions, setSolvedQuestions] = useState(() =>
     JSON.parse(localStorage.getItem("leetcore_solved_questions") || "[]")
   );
+  const [showCongrats, setShowCongrats] = useState(false);
   
   // Results of compilation & execution
   const [execResult, setExecResult] = useState(null);
@@ -214,6 +546,26 @@ export default function DSAQuestionPage() {
   const goToQuestion = (targetQuestion) => {
     if (!targetQuestion || !topicKey) return;
     navigate(`/dashboard/data-structures-and-algorithms/${topicKey}/${targetQuestion.id}`);
+  };
+
+  const currentTopicData = topicsData.topics.find((t) => t.id === topicKey);
+  const nextTopic = currentTopicData
+    ? topicsData.topics.find((t) => t.order === currentTopicData.order + 1)
+    : null;
+
+  const handleMoveToNextTopic = () => {
+    setShowCongrats(false);
+    if (!nextTopic) {
+      navigate("/dashboard/data-structures-and-algorithms");
+      return;
+    }
+    const nextTopicQuestions = questionsData[nextTopic.id] || [];
+    const firstQuestion = nextTopicQuestions[0];
+    if (firstQuestion) {
+      navigate(`/dashboard/data-structures-and-algorithms/${nextTopic.id}/${firstQuestion.id}`);
+    } else {
+      navigate("/dashboard/data-structures-and-algorithms");
+    }
   };
 
   const progressHistory = safeJsonParse(localStorage.getItem("leetcore_submission_history"), {});
@@ -450,15 +802,17 @@ export default function DSAQuestionPage() {
 
   if (!question) {
     return (
-      <div className="h-screen bg-[#0f0f10] text-white flex flex-col items-center justify-center p-6">
-        <AlertTriangle size={48} className="text-amber-300 mb-4 animate-bounce" />
-        <h1 className="text-2xl font-bold mb-2">Question Not Found</h1>
-        <p className="text-white/55 mb-6 text-center max-w-md">
+      <div className="h-screen bg-[var(--lc-bg)] text-[var(--lc-text)] flex flex-col items-center justify-center p-6">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--lc-line)] bg-[var(--lc-panel-soft)]">
+          <AlertTriangle size={28} className="text-[var(--lc-orange)]" />
+        </div>
+        <h1 className="mt-6 text-2xl font-bold tracking-tight">Question Not Found</h1>
+        <p className="mt-2 mb-6 max-w-md text-center text-[var(--lc-muted)]">
           The question ID you are trying to access does not exist or belongs to another topic.
         </p>
         <button
           onClick={() => navigate("/dashboard/data-structures-and-algorithms")}
-          className="lc-pressable flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/10 hover:bg-white/15 font-semibold text-white"
+          className="lc-pressable flex items-center gap-2 rounded-lg px-5 py-2.5 bg-[var(--lc-orange)] text-[var(--lc-text-inverse)] font-semibold hover:opacity-90"
         >
           <ArrowLeft size={16} /> Back to Roadmap
         </button>
@@ -474,7 +828,8 @@ export default function DSAQuestionPage() {
       mode
     }, {
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "x-csrf-token": await getCsrfToken()
       },
       timeout: 30000
     });
@@ -531,7 +886,14 @@ export default function DSAQuestionPage() {
           runtimeMs: result.executionTimeMs,
           memoryKb: result.memoryUsageKb,
         });
+        const wasAlreadySolved = solvedQuestions.includes(questionId);
         setSolvedQuestions(activity.solvedQuestions);
+
+        const solvedInTopic = topicQuestions.filter(q => activity.solvedQuestions.includes(q.id)).length;
+        const totalInTopic = topicQuestions.length;
+        if (solvedInTopic === totalInTopic && !wasAlreadySolved) {
+          setShowCongrats(true);
+        }
       }
     } catch (err) {
       setExecResult({
@@ -639,22 +1001,22 @@ export default function DSAQuestionPage() {
   };
 
   return (
-    <div className="h-screen bg-[#111113] text-white flex flex-col overflow-hidden">
+    <div className="h-screen bg-[var(--lc-bg)] text-[var(--lc-text)] flex flex-col overflow-hidden">
       
       {/* Workspace Header */}
-      <header className="min-h-14 border-b border-white/10 bg-[#1a1a1b] px-3 py-2 grid grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center shrink-0">
+      <header className="min-h-14 shrink-0 grid grid-cols-1 gap-3 border-b border-[var(--lc-line)] bg-[var(--lc-panel-soft)] px-3 py-2 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center">
         <div className="flex min-w-0 flex-wrap items-center gap-3">
           <button
             onClick={() => navigate("/dashboard/data-structures-and-algorithms")}
-            className="lc-pressable p-2 rounded-lg hover:bg-white/10 text-white/55 hover:text-white transition-colors duration-200"
+            className="lc-pressable p-2 rounded-lg hover:bg-[var(--lc-orange-soft)] text-[var(--lc-muted)] hover:text-[var(--lc-orange)] transition-colors duration-200"
             aria-label="Back to roadmap"
           >
             <ArrowLeft size={16} />
           </button>
           
-          <div className="h-4 w-px bg-white/10" />
+          <div className="h-4 w-px bg-[var(--lc-line)]" />
 
-          <h1 className="min-w-0 text-base font-bold text-white tracking-tight flex items-center gap-2">
+          <h1 className="min-w-0 text-base font-bold text-[var(--lc-text)] tracking-tight flex items-center gap-2">
             <span className="truncate">{question.name}</span>
             {solvedQuestions.includes(questionId) && (
               <span className="flex items-center gap-1 rounded-md border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-400">
@@ -680,16 +1042,16 @@ export default function DSAQuestionPage() {
           <button
             onClick={handleRunCode}
             disabled={isRunning || isSubmitting}
-            className="lc-pressable flex min-w-28 items-center justify-center gap-2 rounded-lg border border-white/10 bg-[#262628] px-4 py-2 text-sm font-medium text-white hover:bg-[#303033] disabled:cursor-not-allowed disabled:opacity-50"
+            className="lc-pressable flex min-w-28 items-center justify-center gap-2 rounded-xl border border-[var(--lc-line)] bg-[var(--lc-input)] px-4 py-2 text-sm font-medium text-[var(--lc-text)] hover:bg-[var(--lc-panel-hover)] disabled:cursor-not-allowed disabled:opacity-50"
           >
-            <Play size={15} className="fill-current text-white/75" />
+            <Play size={15} className="fill-current text-[var(--lc-muted)]" />
             Run Code
           </button>
 
           <button
             onClick={handleSubmit}
             disabled={isRunning || isSubmitting}
-            className="lc-pressable flex min-w-32 items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-50"
+            className="lc-pressable flex min-w-32 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-50"
           >
             <Send size={15} />
             Submit
@@ -699,12 +1061,12 @@ export default function DSAQuestionPage() {
         {/* Action Controls */}
         <div className="flex items-center justify-start gap-3 lg:justify-end">
           {/* Language Selector */}
-          <div className="flex items-center gap-1.5 bg-[#242426] border border-white/10 rounded-lg px-2.5 py-1.5">
-            <Code2 size={14} className="text-white/65" />
+          <div className="flex items-center gap-1.5 rounded-xl border border-[var(--lc-line)] bg-[var(--lc-input)] px-2.5 py-1.5">
+            <Code2 size={14} className="text-[var(--lc-muted)]" />
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
-              className="bg-transparent text-xs font-semibold text-white/80 focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs font-semibold text-[var(--lc-text)] focus:outline-none cursor-pointer"
             >
               <option value="cpp" className="bg-[var(--lc-panel)]">C++ (g++)</option>
               <option value="java" className="bg-[var(--lc-panel)]">Java (OpenJDK)</option>
@@ -714,16 +1076,16 @@ export default function DSAQuestionPage() {
 
           <button
             onClick={resetCode}
-            className="lc-pressable p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-colors duration-200"
+            className="lc-pressable p-2 rounded-lg bg-[var(--lc-input)] text-[var(--lc-muted)] hover:bg-[var(--lc-orange-soft)] hover:text-[var(--lc-orange)] transition-colors duration-200"
             title="Reset Starter Code"
           >
             <RefreshCw size={14} />
           </button>
 
-          <div className={`flex min-w-28 items-center justify-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium ${
+          <div className={`flex min-w-28 items-center justify-center gap-2 rounded-xl border px-3 py-2 text-sm font-medium ${
             timerStopped
               ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-400"
-              : "border-white/10 bg-[#242426] text-white/75"
+              : "border-[var(--lc-line)] bg-[var(--lc-input)] text-[var(--lc-muted)]"
           }`}>
             <Timer size={15} />
             <span className="font-mono tabular-nums">{formatDuration(elapsedSeconds)}</span>
@@ -734,12 +1096,12 @@ export default function DSAQuestionPage() {
       {/* Main Work Area */}
       <div
         ref={workspaceRef}
-        className="flex-1 flex flex-col gap-2 lg:flex-row min-h-0 w-full items-stretch overflow-hidden p-2 bg-[#111113]"
+        className="flex-1 flex flex-col gap-2 lg:flex-row min-h-0 w-full items-stretch overflow-hidden p-2 bg-[var(--lc-bg)]"
       >
         
         {/* Left Pane (Description & Test cases) */}
         <div
-          className="lc-question-left-pane w-full min-w-0 lg:min-w-[320px] overflow-hidden rounded-lg border border-white/10 flex flex-col bg-[#1a1a1b]"
+          className="lc-question-left-pane w-full min-w-0 lg:min-w-[320px] overflow-hidden rounded-xl border border-[var(--lc-line)] flex flex-col bg-[var(--lc-panel)]"
           style={{ "--leetcore-left-pane-width": `${leftPaneWidth}%` }}
         >
           
@@ -1091,8 +1453,46 @@ export default function DSAQuestionPage() {
             </div>
           )}
 
-        </div>
+      {/* Congratulations Modal */}
+      {showCongrats && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-fade-in animate-duration-200">
+          <div className="bg-[#18181b] border border-white/10 rounded-2xl p-8 max-w-md w-full text-center shadow-2xl relative overflow-hidden">
+            {/* Decorative gradient glowing circles */}
+            <div className="absolute -top-24 -left-24 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl"></div>
 
+            {/* Pulsing ring around check circle */}
+            <div className="relative mx-auto w-20 h-20 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center mb-6">
+              <div className="absolute inset-0 rounded-full bg-emerald-500/20 animate-ping opacity-75"></div>
+              <CheckCircle size={44} className="text-emerald-400 relative z-10" />
+            </div>
+
+            <h2 className="text-3xl font-extrabold text-white mb-2 tracking-tight font-sans">Congratulations!</h2>
+            <p className="text-white/70 text-sm mb-6 leading-relaxed">
+              You have successfully completed the <span className="text-emerald-400 font-bold capitalize">{(currentTopicData?.label || topicKey)?.replace("-", " ")}</span> topic by solving all of its challenges!
+            </p>
+
+            <div className="space-y-3">
+              <button
+                onClick={handleMoveToNextTopic}
+                className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-600/30 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                {nextTopic ? `Move to ${nextTopic.label}` : "Return to Roadmap"}
+                <ChevronRight size={18} />
+              </button>
+              
+              <button
+                onClick={() => setShowCongrats(false)}
+                className="w-full py-3 px-5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white/80 font-medium transition-all duration-150"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+        </div>
       </div>
     </div>
   );

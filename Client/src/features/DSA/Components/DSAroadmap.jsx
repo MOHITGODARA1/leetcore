@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Lock } from "@phosphor-icons/react";
 import topicsData from "../data/topics.json";
 import questionsData from "../data/questions.json";
 
@@ -7,11 +8,23 @@ import questionsData from "../data/questions.json";
 const NODES = topicsData.topics;
 const EDGES = topicsData.edges;
 
-const BOX_COLOR = "#f46717";
-const LINE_COLOR = "#ffffff";
-const LOCKED_FILL = "#151516";
-const LOCKED_STROKE = "rgba(255,255,255,0.14)";
-const LOCKED_TEXT = "rgba(255,255,255,0.36)";
+/* Palette — warm paper canvas + ink text, air-light cards, hairline
+   borders, amber kept strictly for the active/current/progress path. */
+const ORANGE = "#d97706";
+const KANVAS = "#f7f5f0";
+const GRID_DOT = "rgba(24,24,28,0.08)";
+const CARD_FILL = "#A4B885";
+const CARD_STROKE = "rgba(24,24,28,0.14)";
+const CARD_STROKE_ACTIVE = "rgba(24,24,28,0.22)";
+const NODE_TEXT = "#1c1c22";
+const META_TEXT = "rgba(28,28,34,0.55)";
+const TRACK_FILL = "rgba(28,28,34,0.09)";
+const LOCKED_FILL = "#EDEBE5";
+const LOCKED_STROKE = "rgba(24,24,28,0.16)";
+const LOCKED_TEXT = "rgba(28,28,34,0.4)";
+const LOCKED_LOCK = "rgba(28,28,34,0.35)";
+const LINE_COLOR = "#f7f5f0";
+const LINE_LOCKED = "#f7f5f0";
 
 const PAD = 10;
 const W = Math.max(...NODES.map((n) => n.x)) + PAD;
@@ -21,29 +34,14 @@ const H = Math.max(...NODES.map((n) => n.y)) + PAD;
 // rect's own center instead of the SVG's (0,0) corner.
 const hoverStyle = { transformBox: "fill-box", transformOrigin: "center" };
 
-function Node({ node, onSelect, unlocked, progressPct }) {
-  const rectWidth = Math.max(160, node.label.length * 9.5 + 32);
-  const rectHeight = 72;
-  const rx = 15;
+function Node({ node, onSelect, unlocked, progressPct, completed, isCurrent }) {
+  const rectWidth = Math.max(168, node.label.length * 9 + 36);
+  const rectHeight = 74;
+  const rx = 10;
 
-  const barWidth = rectWidth - 24;
-  const barHeight = 6;
-  const barX = node.x - barWidth / 2;
-  const barY = node.y + rectHeight / 2 - 12;
-
-  const halo = node.isInterchange && (
-    <rect
-      x={node.x - rectWidth / 2 - 6}
-      y={node.y - rectHeight / 2 - 6}
-      width={rectWidth + 12}
-      height={rectHeight + 12}
-      rx={rx + 4}
-      fill="none"
-      stroke={unlocked ? BOX_COLOR : LOCKED_STROKE}
-      strokeWidth={1.5}
-      strokeOpacity={0.3}
-    />
-  );
+  const barWidth = rectWidth - 28;
+  const barHeight = 5;
+  const barY = node.y + 13;
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -52,49 +50,47 @@ function Node({ node, onSelect, unlocked, progressPct }) {
     }
   };
 
-  const hitArea = (
-    <rect
-      x={node.x - rectWidth / 2 - 10}
-      y={node.y - rectHeight / 2 - 10}
-      width={rectWidth + 20}
-      height={rectHeight + 20}
-      fill="transparent"
-    />
-  );
+  const cardFill = unlocked ? CARD_FILL : LOCKED_FILL;
+
+  const cardStroke = unlocked && isCurrent ? ORANGE : unlocked ? CARD_STROKE : LOCKED_STROKE;
+
+  const labelFill = unlocked ? NODE_TEXT : LOCKED_TEXT;
 
   return (
     <g
       className={`outline-none group ${unlocked ? "cursor-pointer" : "cursor-not-allowed"}`}
       role="link"
       tabIndex={0}
-      aria-label={`Open ${node.label}${unlocked ? "" : " (Locked)"}`}
+      aria-label={`Open ${node.label}${unlocked ? "" : " (Locked)"}${completed ? " · Completed" : ""}`}
       onClick={() => onSelect(node, unlocked)}
       onKeyDown={handleKeyDown}
-      opacity={unlocked ? 1 : 0.5}
+      opacity={unlocked ? 1 : 0.55}
     >
-      {hitArea}
-      {halo}
+      {/* {hitArea}
+      {currentRing}
+      {halo} */}
       <g
-        className={`transition-transform duration-200 ease-out ${unlocked ? "group-active:scale-[0.97] group-focus-visible:scale-105" : ""}`}
+        className={`transition-transform duration-200 ease-out ${unlocked ? "group-hover:scale-[1.02] group-active:scale-[0.98] group-focus-visible:scale-[1.03]" : ""}`}
         style={hoverStyle}
       >
         <rect
-          x={node.x - rectWidth / 2}
+          x={node.x - (rectWidth - 10) / 2}
           y={node.y - rectHeight / 2}
           width={rectWidth - 10}
-          height={rectHeight - 12}
+          height={rectHeight - 10}
           rx={rx}
-          fill={unlocked ? BOX_COLOR : LOCKED_FILL}
-          stroke={unlocked ? BOX_COLOR : LOCKED_STROKE}
-          strokeWidth={2}
+          fill={cardFill}
+          stroke={cardStroke}
+          strokeWidth={isCurrent ? 2 : 1.4}
         />
+        
         <text
-          x={node.x - 5}
-          y={unlocked ? node.y - 12 : node.y - 4}
+          x={node.x}
+          y={node.y - 10}
           textAnchor="middle"
           dominantBaseline="central"
-          className="select-none text-[15px] font-bold"
-          style={{ fill: unlocked ? "#ffffff" : LOCKED_TEXT }}
+          className="select-none font-display text-[16px]  font-bold tracking-tight"
+          style={{ fill: labelFill }}
         >
           {node.label}
         </text>
@@ -103,27 +99,29 @@ function Node({ node, onSelect, unlocked, progressPct }) {
           <>
             {/* per-topic progress bar */}
             <rect
-              x={barX - 5}
-              y={barY - 16}
+              x={node.x - barWidth / 2}
+              y={barY}
               width={barWidth}
               height={barHeight}
               rx={barHeight / 2}
-              fill="rgba(0,0,0,0.18)"
+              fill={TRACK_FILL}
             />
             <rect
-              x={barX - 5}
-              y={barY - 16}
+              x={node.x - barWidth / 2}
+              y={barY}
               width={(barWidth * progressPct) / 100}
               height={barHeight}
               rx={barHeight / 2}
-              fill="rgba(0,0,0,0.42)"
+              
+              fill={completed ? ORANGE : isCurrent ? ORANGE : "rgba(217,119,6,0.85)"}
             />
+            
           </>
         ) : (
           /* Lock Icon */
-          <g transform={`translate(${node.x - 5}, ${node.y + 16})`}>
-            <rect x="-6" y="-3" width="12" height="9" rx="1.5" fill="none" stroke="rgba(255,255,255,0.32)" strokeWidth="1.5" />
-            <path d="M-3.5 -3 V-6 A3.5 3.5 0 0 1 3.5 -6 V-3" fill="none" stroke="rgba(255,255,255,0.32)" strokeWidth="1.5" />
+          <g transform={`translate(${node.x}, ${node.y + 15})`}>
+            <rect x="-5.5" y="-3" width="11" height="9" rx="2" fill="none" stroke={LOCKED_LOCK} strokeWidth="1.5" />
+            <path d="M-3.5 -3 V-5.5 A3.5 3.5 0 0 1 3.5 -5.5 V-3" fill="none" stroke={LOCKED_LOCK} strokeWidth="1.5" />
           </g>
         )}
       </g>
@@ -131,7 +129,7 @@ function Node({ node, onSelect, unlocked, progressPct }) {
   );
 }
 
-function Edges({ unlockedMap }) {
+function Edges({ unlockedMap, currentTopicId }) {
   const byId = Object.fromEntries(NODES.map((n) => [n.id, n]));
 
   return EDGES.map(([fromId, toId], i) => {
@@ -141,17 +139,19 @@ function Edges({ unlockedMap }) {
 
     // Connect line is unlocked if both nodes are unlocked
     const edgeUnlocked = unlockedMap[fromId] && unlockedMap[toId];
+    const touchesCurrent =
+      edgeUnlocked && (fromId === currentTopicId || toId === currentTopicId);
 
     return (
       <path
         key={i}
         d={`M ${a.x} ${a.y} L ${b.x} ${b.y}`}
-        stroke={edgeUnlocked ? LINE_COLOR : "rgba(255,255,255,0.12)"}
-        strokeWidth={4}
-        strokeDasharray={edgeUnlocked ? "none" : "6,6"}
+        stroke={edgeUnlocked ? (touchesCurrent ? LINE_COLOR : LINE_COLOR) : LINE_LOCKED}
+        strokeWidth={edgeUnlocked ? (touchesCurrent ? 3 : 2.25) : 1.75}
+        strokeDasharray={edgeUnlocked ? "none" : "4,6"}
         fill="none"
         strokeLinecap="round"
-        opacity={edgeUnlocked ? 0.9 : 0.4}
+        opacity={edgeUnlocked ? (touchesCurrent ? 0.85 : 0.75) : 0.7}
         className="transition-all duration-300"
       />
     );
@@ -160,7 +160,7 @@ function Edges({ unlockedMap }) {
 
 export default function RoadmapMap() {
   const navigate = useNavigate();
-  const [scale, setScale] = useState(1);
+  const [scale] = useState(1);
   const [solvedQuestions] = useState(() =>
     JSON.parse(localStorage.getItem("leetcore_solved_questions") || "[]")
   );
@@ -174,13 +174,6 @@ export default function RoadmapMap() {
     }
   }, [alertMessage]);
 
-  const changeScale = (nextScale) => {
-    setScale((current) => {
-      const resolved = typeof nextScale === "function" ? nextScale(current) : nextScale;
-      return Math.max(0.85, Math.min(1.65, resolved));
-    });
-  };
-
   // Helper: check topic statistics
   const getTopicStats = (topicId) => {
     const qList = questionsData[topicId] || [];
@@ -193,7 +186,10 @@ export default function RoadmapMap() {
 
   // Build unlocking map for all nodes
   const unlockedMap = {};
+  const statsMap = {};
   NODES.forEach((node) => {
+    const stats = getTopicStats(node.id);
+    statsMap[node.id] = stats;
     if (node.order === 0) {
       unlockedMap[node.id] = true;
     } else {
@@ -206,6 +202,11 @@ export default function RoadmapMap() {
       }
     }
   });
+
+  // Current topic = the earliest unlocked topic that isn't complete yet
+  const currentTopicId = NODES.find(
+    (n) => unlockedMap[n.id] && !statsMap[n.id].completed
+  )?.id;
 
   const handleNodeSelect = (node, unlocked) => {
     if (!unlocked) {
@@ -226,48 +227,30 @@ export default function RoadmapMap() {
     <div className="w-full relative">
       {/* Locked Alert Popup */}
       {alertMessage && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2.5 bg-[rgba(17,17,19,0.95)] border border-[rgba(244,103,23,0.28)] text-white/80 text-xs font-semibold rounded-xl shadow-2xl flex items-center gap-2 animate-in fade-in slide-in-from-top-4 duration-200 z-50">
-          <svg className="w-4 h-4 shrink-0 text-[var(--lc-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m0-8v6m0 5h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span>{alertMessage}</span>
+        <div
+          role="alert"
+          className="absolute top-4 left-1/2 z-50 -translate-x-1/2 flex items-center gap-2.5 rounded-xl border border-[rgba(217,119,6,0.3)] bg-[var(--lc-panel)] px-4 py-2.5 text-xs font-semibold text-[var(--lc-text)] shadow-[var(--shadow-lg)] animate-in fade-in slide-in-from-top-4 duration-200"
+        >
+          <Lock size={13} weight="fill" className="shrink-0 text-[#d97706]" />
+          <span className="text-[var(--lc-muted)]">{alertMessage}</span>
         </div>
       )}
 
-      <div className="relative w-full h-[600px] overflow-hidden shadow-2xl shadow-black/30 border border-white/5 rounded-2xl bg-[var(--lc-panel)]">
-        {/* Zoom controls */}
-        <div className="absolute bottom-4 right-4 z-30 flex items-center gap-2 bg-[rgba(17,17,19,0.8)] backdrop-blur-md border border-white/10 rounded-xl p-1.5">
-          <button
-            onClick={() => changeScale((s) => s - 0.1)}
-            className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/55 hover:text-white transition-colors duration-150 text-base font-bold"
-            title="Zoom Out"
-          >
-            -
-          </button>
-          <div className="text-[10px] font-mono text-white/55 w-10 text-center select-none">
-            {Math.round(scale * 100)}%
-          </div>
-          <button
-            onClick={() => changeScale((s) => s + 0.1)}
-            className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/55 hover:text-white transition-colors duration-150 text-base font-bold"
-            title="Zoom In"
-          >
-            +
-          </button>
-        </div>
-
+      <div className="relative w-full h-[560px] xl:h-[600px] overflow-hidden rounded-2xl  shadow-[var(--shadow-md)]">
         {/* map — viewBox auto-fits the h-[600px] container */}
         <svg
           viewBox={`-80 0 ${W + 160} ${H + 70}`}
           className="w-full h-full select-none"
           preserveAspectRatio="xMidYMid meet"
         >
-          <rect x="-80" y="0" width={W + 160} height={H + 70} fill="url(#roadmapGrid)" />
           <defs>
-            <pattern id="roadmapGrid" width="28" height="28" patternUnits="userSpaceOnUse">
-              <circle cx="1" cy="1" r="1.15" fill="rgba(255,255,255,0.14)" opacity="0.6" />
+            <pattern id="roadGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="1" fill="rgba(24,24,28,0.09)" opacity="0.9" />
             </pattern>
           </defs>
+          {/* solid light canvas + dot grid on top */}
+          {/* <rect x="-80" y="0" width={W + 160} height={H + 70} fill="#f7f5f0" />
+          <rect x="-80" y="0" width={W + 160} height={H + 70} fill="url(#roadGrid)" /> */}
           <g
             style={{
               transform: `scale(${scale})`,
@@ -275,9 +258,9 @@ export default function RoadmapMap() {
               transition: "transform 0.18s ease",
             }}
           >
-            <Edges unlockedMap={unlockedMap} />
+            <Edges unlockedMap={unlockedMap} currentTopicId={currentTopicId} />
             {NODES.map((n) => {
-              const stats = getTopicStats(n.id);
+              const stats = statsMap[n.id];
               const unlocked = unlockedMap[n.id];
               return (
                 <Node
@@ -285,6 +268,8 @@ export default function RoadmapMap() {
                   node={n}
                   unlocked={unlocked}
                   progressPct={stats.progress}
+                  completed={stats.completed}
+                  isCurrent={n.id === currentTopicId}
                   onSelect={handleNodeSelect}
                 />
               );

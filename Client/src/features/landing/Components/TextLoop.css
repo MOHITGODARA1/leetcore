@@ -1,0 +1,43 @@
+.text-loop {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.text-loop-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.text-loop-text {
+  user-select: none;
+}
+
+.text-loop-measure {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Landing hero background band — colors follow the theme tokens,
+   rendered faintly behind the hero content. */
+.text-loop--hero {
+  pointer-events: none;
+  opacity: 0.7;
+  mask-image: linear-gradient(to bottom, transparent 18%, black 55%, transparent 88%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 18%, black 55%, transparent 88%);
+}
+
+.text-loop--hero path {
+  stroke: var(--color-accent-soft, rgba(217, 119, 6, 0.16));
+}
+
+.text-loop--hero .text-loop-text {
+  fill: var(--color-text-faint, #82828b);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-loop svg {
+    animation: none !important;
+  }
+}

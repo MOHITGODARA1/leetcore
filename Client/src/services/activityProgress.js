@@ -1,4 +1,5 @@
 import axios from "axios";
+import { csrfRequestInterceptor } from "./csrf";
 import questionsData from "../features/DSA/data/questions.json";
 import topicsData from "../features/DSA/data/topics.json";
 
@@ -20,6 +21,8 @@ apiClient.interceptors.request.use((config) => {
   }
   return config;
 });
+
+apiClient.interceptors.request.use(csrfRequestInterceptor);
 
 const readJson = (key, fallback) => {
   try {

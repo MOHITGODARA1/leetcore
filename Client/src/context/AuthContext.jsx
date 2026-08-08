@@ -8,6 +8,7 @@ import {
     useMemo,
 } from "react";
 import axios from "axios";
+import { csrfRequestInterceptor } from "../services/csrf";
 
 const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
 const apiClient = axios.create({
@@ -22,6 +23,8 @@ apiClient.interceptors.request.use((config) => {
   }
   return config;
 });
+
+apiClient.interceptors.request.use(csrfRequestInterceptor);
 
 const AuthContext = createContext();
 const AUTH_TOKEN_KEY = "leetcore_auth_token";

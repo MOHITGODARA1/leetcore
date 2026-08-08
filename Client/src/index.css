@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Galindo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
 
 
 .galindo {
@@ -8,31 +15,499 @@
   font-style: normal;
 }
 
+/* ============================================================
+   LeetCore Landing design tokens (mirrored in
+   features/landing/Components/ui/design-system.js)
+   Dark-first, full light theme via html.light
+   ============================================================ */
 :root {
-  --lc-bg: #080808;
+  --color-bg: #09090b;
+  --color-bg-elevated: #0e0e10;
+  --color-bg-panel: #141416;
+  --color-bg-panel-hover: #1b1b1e;
+
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-strong: rgba(255, 255, 255, 0.12);
+  --color-border-focus: rgba(255, 255, 255, 0.6);
+
+  --color-text: #fafafa;
+  --color-text-muted: #a1a1aa;
+  --color-text-faint: #82828b;
+  --color-text-inverse: #09090b;
+
+  --color-accent: #d97706;
+  --color-accent-hover: #b45309;
+  --color-accent-soft: rgba(217, 119, 6, 0.1);
+  --color-accent-glow: rgba(217, 119, 6, 0.22);
+
+  --color-success: #22c55e;
+  --color-success-soft: rgba(34, 197, 94, 0.12);
+  --color-warning: #d97706;
+  --color-warning-soft: rgba(217, 119, 6, 0.12);
+  --color-error: #ef4444;
+  --color-error-soft: rgba(239, 68, 68, 0.12);
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-overlay-strong: rgba(0, 0, 0, 0.8);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.34);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.36);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.38);
+  --shadow-2xl: 0 24px 80px rgba(0, 0, 0, 0.42);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-accent: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-focus: 0 0 0 3px rgba(217, 119, 6, 0.3);
+}
+
+html.light {
+  --color-bg: #fafafa;
+  --color-bg-elevated: #f4f4f5;
+  --color-bg-panel: #ffffff;
+  --color-bg-panel-hover: #f4f4f5;
+
+  --color-border: rgba(9, 9, 11, 0.07);
+  --color-border-strong: rgba(9, 9, 11, 0.12);
+  --color-border-focus: rgba(9, 9, 11, 0.5);
+
+  --color-text: #0a0a0a;
+  --color-text-muted: #52525b;
+  --color-text-faint: #71717a;
+  --color-text-inverse: #fafafa;
+
+  --color-accent: #b45309;
+  --color-accent-hover: #92400e;
+  --color-accent-soft: rgba(180, 83, 9, 0.08);
+  --color-accent-glow: rgba(180, 83, 9, 0.18);
+
+  --color-success: #16a34a;
+  --color-success-soft: rgba(22, 163, 74, 0.1);
+  --color-warning: #b45309;
+  --color-warning-soft: rgba(180, 83, 9, 0.1);
+  --color-error: #dc2626;
+  --color-error-soft: rgba(220, 38, 38, 0.08);
+  --color-overlay: rgba(9, 9, 11, 0.5);
+  --color-overlay-strong: rgba(9, 9, 11, 0.72);
+
+  --shadow-xs: 0 1px 2px rgba(9, 9, 11, 0.05);
+  --shadow-sm: 0 1px 3px rgba(9, 9, 11, 0.05);
+  --shadow-md: 0 4px 12px rgba(9, 9, 11, 0.06);
+  --shadow-lg: 0 8px 24px rgba(9, 9, 11, 0.07);
+  --shadow-xl: 0 16px 48px rgba(9, 9, 11, 0.08);
+  --shadow-2xl: 0 24px 80px rgba(9, 9, 11, 0.1);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --shadow-accent: 0 8px 24px rgba(9, 9, 11, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(180, 83, 9, 0.25);
+}
+
+:root {
+  --lc-bg: #09090b;
   --lc-panel: #101011;
   --lc-panel-soft: #151516;
   --lc-line: rgba(255, 255, 255, 0.1);
-  --lc-muted: #a3a3ad;
-  --lc-orange: #f46717;
-  --lc-orange-soft: rgba(244, 103, 23, 0.14);
+  --lc-muted: #a1a1aa;
+  --lc-text: #fafafa;
+  --lc-orange: #e4e4e7;
+  --lc-orange-soft: rgba(255, 255, 255, 0.08);
+  --lc-card: rgba(255, 255, 255, 0.045);
+  --lc-card-border: rgba(255, 255, 255, 0.1);
+  --lc-scroll: rgba(255, 255, 255, 0.15);
+  --lc-input: rgba(255, 255, 255, 0.04);
   --lc-radius: 1rem;
   --lc-radius-lg: 1.5rem;
   --lc-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+html.light {
+  --lc-bg: #fafafa;
+  --lc-panel: #ffffff;
+  --lc-panel-soft: #f4f4f5;
+  --lc-line: rgba(9, 11, 16, 0.1);
+  --lc-muted: #52525b;
+  --lc-text: #0a0a0a;
+  --lc-orange: #52525b;
+  --lc-orange-soft: rgba(9, 11, 16, 0.06);
+  --lc-card: rgba(255, 255, 255, 0.9);
+  --lc-card-border: rgba(9, 11, 16, 0.08);
+  --lc-scroll: rgba(9, 11, 16, 0.2);
+  --lc-input: rgba(9, 11, 16, 0.04);
+}
+
+/* ============================================================
+   Dashboard design system — "warm ink & paper" SaaS command center
+   Scoped to the dashboard shell only (.dash-shell) so the landing
+   page, DSA pages and profile keep their own palettes.
+   Light = warm ivory paper + ink charcoal, deep navy primaries,
+   muted blue interactive accent, emerald success, amber warning,
+   soft rose errors, violet/teal data accents. Orange stays < 5%.
+   ============================================================ */
+/* Neutral fallbacks used by shared chrome rendered outside the shell */
+:root {
+  --dash-bg: #0b0b0e;
+  --dash-elevated: #0f0f13;
+  --dash-panel: #141418;
+  --dash-panel-2: #1b1b20;
+  --dash-line: rgba(255, 255, 255, 0.07);
+  --dash-line-strong: rgba(255, 255, 255, 0.13);
+  --dash-line-focus: rgba(255, 255, 255, 0.5);
+  --dash-text: #fafafa;
+  --dash-muted: #a1a1aa;
+  --dash-faint: #82828b;
+  --dash-accent: #e4e4e7;
+  --dash-accent-strong: #d4d4d8;
+  --dash-accent-soft: rgba(255, 255, 255, 0.08);
+  --dash-accent-softer: rgba(255, 255, 255, 0.05);
+  --dash-success: #22c55e;
+  --dash-success-soft: rgba(34, 197, 94, 0.12);
+  --dash-warning: #d97706;
+  --dash-warning-soft: rgba(217, 119, 6, 0.14);
+  --dash-danger: #ef4444;
+  --dash-danger-soft: rgba(239, 68, 68, 0.12);
+  --dash-violet: #c4b5fd;
+  --dash-violet-soft: rgba(196, 181, 253, 0.14);
+  --dash-teal: #5eead4;
+  --dash-teal-soft: rgba(94, 234, 212, 0.14);
+}
+
+html.light {
+  --dash-bg: #fafafa;
+  --dash-elevated: #f4f4f5;
+  --dash-panel: #ffffff;
+  --dash-panel-2: #f4f4f5;
+  --dash-line: rgba(9, 9, 11, 0.08);
+  --dash-line-strong: rgba(9, 9, 11, 0.13);
+  --dash-line-focus: rgba(9, 9, 11, 0.5);
+  --dash-text: #0a0a0a;
+  --dash-muted: #52525b;
+  --dash-faint: #71717a;
+  --dash-accent: #52525b;
+  --dash-accent-strong: #3f3f46;
+  --dash-accent-soft: rgba(9, 9, 11, 0.06);
+  --dash-accent-softer: rgba(9, 9, 11, 0.03);
+  --dash-success: #16a34a;
+  --dash-success-soft: rgba(22, 163, 74, 0.1);
+  --dash-warning: #b45309;
+  --dash-warning-soft: rgba(180, 83, 9, 0.1);
+  --dash-danger: #dc2626;
+  --dash-danger-soft: rgba(220, 38, 38, 0.08);
+  --dash-violet: #8b5cf6;
+  --dash-violet-soft: rgba(139, 92, 246, 0.1);
+  --dash-teal: #0d9488;
+  --dash-teal-soft: rgba(13, 148, 136, 0.1);
+}
+
+.dash-shell {
+  /* Surfaces & text: exact landing theme */
+  --dash-bg: #09090b;
+  --dash-elevated: #0e0e10;
+  --dash-panel: #141416;
+  --dash-panel-2: #1b1b1e;
+  --dash-line: rgba(255, 255, 255, 0.07);
+  --dash-line-strong: rgba(255, 255, 255, 0.12);
+  --dash-line-focus: rgba(255, 255, 255, 0.5);
+
+  --dash-text: #fafafa;
+  --dash-muted: #a1a1aa;
+  --dash-faint: #82828b;
+
+  /* Accent: the landing's amber, kept as a restrained highlight */
+  --dash-accent: #d97706;
+  --dash-accent-hover: #b45309;
+  --dash-accent-strong: #b45309;
+  --dash-accent-soft: rgba(217, 119, 6, 0.1);
+  --dash-accent-softer: rgba(217, 119, 6, 0.05);
+
+  --dash-success: #22c55e;
+  --dash-success-soft: rgba(34, 197, 94, 0.12);
+  --dash-warning: #d97706;
+  --dash-warning-soft: rgba(217, 119, 6, 0.12);
+  --dash-danger: #ef4444;
+  --dash-danger-soft: rgba(239, 68, 68, 0.12);
+  --dash-violet: #9aa0b8;
+  --dash-violet-soft: rgba(154, 160, 184, 0.14);
+  --dash-teal: #73c7b8;
+  --dash-teal-soft: rgba(115, 199, 184, 0.12);
+
+  /* Keep existing consumers working inside the shell */
+  --color-bg: var(--dash-bg);
+  --color-bg-elevated: var(--dash-elevated);
+  --color-bg-panel: var(--dash-panel);
+  --color-bg-panel-hover: var(--dash-panel-2);
+  --color-border: var(--dash-line);
+  --color-border-strong: var(--dash-line-strong);
+  --color-border-focus: var(--dash-line-focus);
+  --color-text: var(--dash-text);
+  --color-text-muted: var(--dash-muted);
+  --color-text-faint: var(--dash-faint);
+  --color-text-inverse: #09090b;
+  --color-accent: var(--dash-accent);
+  --color-accent-hover: var(--dash-accent-hover);
+  --color-accent-soft: var(--dash-accent-soft);
+  --color-accent-glow: rgba(217, 119, 6, 0.18);
+  --color-success: var(--dash-success);
+  --color-success-soft: var(--dash-success-soft);
+  --color-warning: var(--dash-warning);
+  --color-warning-soft: var(--dash-warning-soft);
+  --color-error: var(--dash-danger);
+  --color-error-soft: var(--dash-danger-soft);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.34);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.36);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.38);
+  --shadow-2xl: 0 24px 80px rgba(0, 0, 0, 0.42);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-focus: 0 0 0 3px rgba(217, 119, 6, 0.28);
+}
+
+html.light .dash-shell {
+  --dash-bg: #fafafa;
+  --dash-elevated: #f4f4f5;
+  --dash-panel: #ffffff;
+  --dash-panel-2: #f4f4f5;
+  --dash-line: rgba(9, 9, 11, 0.07);
+  --dash-line-strong: rgba(9, 9, 11, 0.12);
+  --dash-line-focus: rgba(9, 9, 11, 0.5);
+
+  --dash-text: #0a0a0a;
+  --dash-muted: #52525b;
+  --dash-faint: #71717a;
+
+  --dash-accent: #b45309;
+  --dash-accent-hover: #92400e;
+  --dash-accent-strong: #92400e;
+  --dash-accent-soft: rgba(180, 83, 9, 0.08);
+  --dash-accent-softer: rgba(180, 83, 9, 0.04);
+
+  --dash-success: #16a34a;
+  --dash-success-soft: rgba(22, 163, 74, 0.1);
+  --dash-warning: #b45309;
+  --dash-warning-soft: rgba(180, 83, 9, 0.1);
+  --dash-danger: #dc2626;
+  --dash-danger-soft: rgba(220, 38, 38, 0.08);
+  --dash-violet: #5b6277;
+  --dash-violet-soft: rgba(91, 98, 119, 0.1);
+  --dash-teal: #0d9488;
+  --dash-teal-soft: rgba(13, 148, 136, 0.1);
+
+  --color-text-inverse: #ffffff;
+  --shadow-xs: 0 1px 2px rgba(9, 9, 11, 0.05);
+  --shadow-sm: 0 1px 3px rgba(9, 9, 11, 0.05);
+  --shadow-md: 0 4px 12px rgba(9, 9, 11, 0.06);
+  --shadow-lg: 0 8px 24px rgba(9, 9, 11, 0.07);
+  --shadow-xl: 0 16px 48px rgba(9, 9, 11, 0.08);
+  --shadow-2xl: 0 24px 80px rgba(9, 9, 11, 0.1);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --shadow-focus: 0 0 0 3px rgba(180, 83, 9, 0.2);
+}
+
+.dash-shell ::selection {
+  background: rgba(217, 119, 6, 0.3);
+}
+
+html.light .dash-shell ::selection {
+  background: rgba(180, 83, 9, 0.16);
+}
+
+/* Subtle amber ambient wash for the dashboard canvas — restrained, no glow bars */
+.dash-shell .dash-ambient {
+  background:
+    radial-gradient(38rem 22rem at 12% -6%, rgba(217, 119, 6, 0.05), transparent 65%),
+    radial-gradient(30rem 20rem at 92% -10%, rgba(34, 197, 94, 0.03), transparent 60%);
+}
+
+html.light .dash-shell .dash-ambient {
+  background:
+    radial-gradient(38rem 22rem at 12% -6%, rgba(180, 83, 9, 0.04), transparent 65%),
+    radial-gradient(30rem 20rem at 92% -10%, rgba(22, 163, 74, 0.03), transparent 60%);
+}
+
+/* Premium eyebrow chip — pill + micro-tracking, matches the landing markers */
+.dash-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-bg-panel);
+  padding: 0.4rem 0.8rem;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.dash-eyebrow-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background: var(--color-success);
+}
+
+/* Tinted "soft" chip used for category icons and semantic states */
+.dash-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background: var(--color-bg-panel);
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------
+   Dashboard histogram (ActivityStats week chart) surfaces
+   ------------------------------------------------------------ */
+.dash-bar-default {
+  background: linear-gradient(to top, var(--dash-line), var(--dash-muted));
+  opacity: 0.9;
+}
+
+.dash-bar-today {
+  background: linear-gradient(to top, var(--dash-accent-soft), var(--dash-accent));
+}
+
+.dash-bar-muted {
+  background: var(--color-border-strong);
+}
+
+/* ------------------------------------------------------------
+   Dashboard kickers (small uppercase section labels)
+   ------------------------------------------------------------ */
+.dash-kicker {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dash-accent);
+  opacity: 0.9;
+}
+
 html,
 body {
   background-color: var(--lc-bg);
-  color: #ffffff;
+  color: var(--lc-text);
   overflow-x: hidden;
   overscroll-behavior-x: contain;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
   max-width: 100vw;
   min-height: 100%;
+  transition: background-color 250ms var(--lc-ease), color 250ms var(--lc-ease);
+}
+
+/* Accessible, consistent focus ring */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip-to-content link (hidden until keyboard focus) */
+.lc-skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  transform: translateY(-200%);
+  transition: transform 200ms var(--lc-ease);
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  background: var(--color-bg-panel);
+  color: var(--color-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--color-border-strong);
+}
+
+.lc-skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* Fixed film-grain overlay — GPU-safe, never attached to scrollers */
+.lc-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Hero ambient sheen — neutral, barely-there */
+.lc-hero-glow {
+  background: radial-gradient(
+    38rem 26rem at 12% -8%,
+    rgba(255, 255, 255, 0.035),
+    transparent 60%
+  );
+}
+
+html.light .lc-hero-glow {
+  background: radial-gradient(
+    38rem 26rem at 12% -8%,
+    rgba(9, 9, 11, 0.03),
+    transparent 60%
+  );
+}
+
+/* Fine blueprint grid for section backgrounds */
+.lc-bg-grid {
+  background-image:
+    linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
+
+/* Text balance to kill orphaned words */
+.lc-text-balance {
+  text-wrap: balance;
+}
+
+/* Offset anchored sections below the floating pill nav */
+main [id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Skeleton shimmer used for the hero mock loading state */
+.lc-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-panel-hover);
+}
+
+.lc-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-bg-panel),
+    transparent
+  );
+  animation: lcShimmer 1.6s infinite;
+}
+
+@keyframes lcShimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-skeleton::after {
+    animation: none;
+  }
 }
 
 * {
@@ -60,7 +535,12 @@ a {
 
 
 ::selection {
-  background: rgba(244, 103, 23, 0.35);
+  background: rgba(228, 228, 231, 0.35);
+  color: #09090b;
+}
+
+html.light ::selection {
+  background: rgba(9, 9, 11, 0.18);
   color: #ffffff;
 }
 
@@ -79,20 +559,26 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--lc-scroll);
   border: 3px solid transparent;
   border-radius: 999px;
   background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(244, 103, 23, 0.42);
+  background: rgba(255, 255, 255, 0.4);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(9, 9, 11, 0.28);
   border: 3px solid transparent;
   background-clip: padding-box;
 }
 
 html {
-  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+  scrollbar-color: var(--lc-scroll) transparent;
   scrollbar-width: thin;
 }
 
@@ -160,8 +646,8 @@ html {
 }
 
 .lc-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
-  border: 1px solid var(--lc-line);
+  background: var(--lc-card);
+  border: 1px solid var(--lc-card-border);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
 }
 
@@ -177,13 +663,18 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+html.light .lc-panel-soft {
+  background: rgba(9, 11, 16, 0.03);
+  border: 1px solid rgba(9, 11, 16, 0.07);
+}
+
 .lc-orange-glow {
-  box-shadow: 0 18px 50px rgba(244, 103, 23, 0.22);
+  box-shadow: 0 18px 50px rgba(255, 255, 255, 0.12);
 }
 
 .lc-surface {
-  background: rgba(17, 17, 19, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--lc-panel-soft);
+  border: 1px solid var(--lc-line);
   box-shadow: 0 20px 70px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(18px);
 }
@@ -235,13 +726,13 @@ html {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.38);
+  color: var(--lc-muted);
 }
 
 .lc-input {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
-  color: #ffffff;
+  border: 1px solid var(--lc-line);
+  background: var(--lc-input);
+  color: var(--lc-text);
   transition:
     border-color 180ms var(--lc-ease),
     background-color 180ms var(--lc-ease),
@@ -249,13 +740,18 @@ html {
 }
 
 .lc-input:hover {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.055);
+  border-color: color-mix(in srgb, var(--lc-line) 60%, var(--lc-text) 30%);
+  background: color-mix(in srgb, var(--lc-input) 80%, transparent 20%);
 }
 
 .lc-input:focus {
-  border-color: rgba(244, 103, 23, 0.62);
-  box-shadow: 0 0 0 4px rgba(244, 103, 23, 0.08);
+  border-color: var(--lc-muted);
+  box-shadow: 0 0 0 4px var(--lc-orange-soft);
+}
+
+.lc-input::placeholder {
+  color: var(--lc-muted);
+  opacity: 0.8;
 }
 
 .lc-scroll-x {
@@ -345,7 +841,146 @@ html {
 }
 
 .shimmer-skeleton {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 25%, rgba(255, 255, 255, 0.085) 50%, rgba(255, 255, 255, 0.03) 75%);
+  background: linear-gradient(90deg, var(--lc-card) 25%, var(--lc-card-border) 50%, var(--lc-card) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.6s infinite linear;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.55s var(--lc-ease) both;
+}
+
+/* ============================================================
+   Profile design system
+   LeetCode-inspired competitive-programmer profile.
+   Dark-only, theme-invariant. Semantic difficulty colors,
+   orange #F2A640 reserved for brand/emphasis/progress, subtle
+   translucent surfaces: rgba(255,255,255,0.08). No neon, no
+   gradients, no glassmorphism, no invented data.
+   ============================================================ */
+:root {
+  --pf-bg: #0b0b0e;
+  --pf-surface: rgba(255, 255, 255, 0.08);
+  --pf-surface-2: rgb(255 255 255 / 0.12);
+  --pf-surface-3: rgb(255 255 255 / 0.16);
+  --pf-border: rgba(255, 255, 255, 0.08);
+  --pf-border-strong: rgba(255, 255, 255, 0.16);
+  --pf-text: #fafafa;
+  --pf-muted: #aeb0b6;
+  --pf-faint: #7a7c85;
+  --pf-accent: #f2a640;
+  --pf-accent-soft: rgba(242, 166, 64, 0.16);
+  --pf-btn: rgba(255, 255, 255, 0.08);
+  --pf-btn-hover: rgba(255, 255, 255, 0.16);
+  --pf-heat-0: rgba(255, 255, 255, 0.05);
+  --pf-heat-1: rgba(242, 166, 64, 0.22);
+  --pf-heat-2: rgba(242, 166, 64, 0.42);
+  --pf-heat-3: rgba(242, 166, 64, 0.68);
+  --pf-heat-4: #f2a640;
+  --pf-easy: #2ebfa6;
+  --pf-easy-soft: rgba(46, 191, 166, 0.16);
+  --pf-medium: #f2b83c;
+  --pf-medium-soft: rgba(242, 184, 60, 0.16);
+  --pf-hard: #ef5552;
+  --pf-hard-soft: rgba(239, 85, 82, 0.16);
+  --pf-accepted: #2ebfa6;
+  --pf-attempted: #ef5552;
+  --pf-wip: #f2a640;
+  --pf-divider: rgba(255, 255, 255, 0.08);
+}
+
+html.light {
+  --pf-bg: #0b0b0e;
+  --pf-surface: rgba(255, 255, 255, 0.08);
+  --pf-surface-2: rgb(255 255 255 / 0.12);
+  --pf-surface-3: rgb(255 255 255 / 0.16);
+  --pf-border: rgba(255, 255, 255, 0.08);
+  --pf-border-strong: rgba(255, 255, 255, 0.16);
+  --pf-text: #fafafa;
+  --pf-muted: #aeb0b6;
+  --pf-faint: #7a7c85;
+  --pf-accent: #f2a640;
+  --pf-accent-soft: rgba(242, 166, 64, 0.16);
+  --pf-btn: rgba(255, 255, 255, 0.08);
+  --pf-btn-hover: rgba(255, 255, 255, 0.16);
+  --pf-heat-0: rgba(255, 255, 255, 0.05);
+  --pf-heat-1: rgba(242, 166, 64, 0.22);
+  --pf-heat-2: rgba(242, 166, 64, 0.42);
+  --pf-heat-3: rgba(242, 166, 64, 0.68);
+  --pf-heat-4: #f2a640;
+  --pf-easy: #2ebfa6;
+  --pf-easy-soft: rgba(46, 191, 166, 0.16);
+  --pf-medium: #f2b83c;
+  --pf-medium-soft: rgba(242, 184, 60, 0.16);
+  --pf-hard: #ef5552;
+  --pf-hard-soft: rgba(239, 85, 82, 0.16);
+  --pf-accepted: #2ebfa6;
+  --pf-attempted: #ef5552;
+  --pf-wip: #f2a640;
+  --pf-divider: rgba(255, 255, 255, 0.08);
+}
+
+.pf-card {
+  background: var(--pf-surface);
+  border: 1px solid var(--pf-border);
+}
+
+.pf-btn-solid {
+  background: var(--pf-accent);
+  border: 1px solid var(--pf-accent);
+  color: var(--pf-bg);
+  transition: opacity 150ms ease;
+}
+
+.pf-btn-solid:hover {
+  opacity: 0.85;
+}
+
+.pf-btn-ghost {
+  background: var(--pf-btn);
+  border: 1px solid var(--pf-border);
+  color: var(--pf-text);
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.pf-btn-ghost:hover {
+  background: var(--pf-btn-hover);
+  border-color: var(--pf-border-strong);
+}
+
+.pf-input {
+  background: var(--pf-surface);
+  border: 1px solid var(--pf-border);
+  color: var(--pf-text);
+  transition: border-color 150ms ease;
+}
+
+.pf-input:focus {
+  border-color: var(--pf-border-strong);
+  outline: none;
+}
+
+.pf-input::placeholder {
+  color: var(--pf-faint);
+}
+
+.pf-hoverable {
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.pf-hoverable:hover {
+  background: var(--pf-surface-2);
+  border-color: var(--pf-border-strong);
 }

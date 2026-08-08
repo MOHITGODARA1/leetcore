@@ -1,0 +1,38 @@
+.stroke-text {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.stroke-text--hover {
+  cursor: pointer;
+}
+
+.stroke-text__svg {
+  display: block;
+  width: 100%;
+  height: var(--stroke-text-height, 160px);
+}
+
+.stroke-text__stroke,
+.stroke-text__fill {
+  user-select: none;
+}
+
+/* Landing hero integration — glyph colors follow the theme tokens
+   (presentation attributes on the <text> nodes lose to CSS here, so the
+   stroke/fill props are overridden for this usage only). */
+.stroke-text--hero .stroke-text__stroke {
+  stroke: var(--color-accent, #d97706);
+}
+
+.stroke-text--hero .stroke-text__fill {
+  fill: var(--color-accent, #d97706);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stroke-text__stroke,
+  .stroke-text__fill {
+    transition: none !important;
+  }
+}

@@ -1,54 +1,34 @@
 import {
-  LayoutGrid,
-  GitBranch,
+  SquaresFour,
+  Stack,
   Database,
   Terminal,
-  Brain,
-  FileCode2,
-  Boxes,
   Network,
-  ShieldCheck,
-} from "lucide-react";
+  Brain,
+  FileCode,
+  TreeStructure,
+} from "@phosphor-icons/react";
 
 const topics = [
-  { name: "All Topics", icon: LayoutGrid },
-  { name: "Data Structures", icon: Boxes },
+  { name: "All Topics", icon: SquaresFour },
+  { name: "Data Structures", icon: Stack },
   { name: "Database", icon: Database },
   { name: "Operating System", icon: Terminal },
   { name: "Computer Networks", icon: Network },
   { name: "OOPs", icon: Brain },
-  { name: "System Design", icon: FileCode2 },
-  { name: "Low Level Design", icon: Brain },
-  { name: "Prep & Tools", icon: ShieldCheck },
+  { name: "System Design", icon: FileCode },
+  { name: "Low Level Design", icon: TreeStructure },
+  { name: "Prep & Tools", icon: Brain },
 ];
-
-const getTabColor = (tabName) => {
-  if (tabName === "Algorithms" || tabName === "Data Structures")
-    return "border-blue-500 text-blue-400";
-
-  if (tabName === "Operating System" || tabName === "Computer Networks")
-    return "border-purple-500 text-purple-400";
-
-  if (tabName === "Database")
-    return "border-teal-500 text-teal-400";
-
-  if (
-    tabName === "OOPs" ||
-    tabName === "System Design" ||
-    tabName === "Low Level Design"
-  )
-    return "border-emerald-500 text-emerald-400";
-
-  if (tabName === "Prep & Tools")
-    return "border-indigo-500 text-indigo-400";
-
-  return "border-[#F46717] text-[#F46717]";
-};
 
 function Mainnavbar({ activeTab, setActiveTab }) {
   return (
-    <div className="w-[calc(100%-1.5rem)] ml-6 border-b mt-3 border-white/10">
-      <div className="flex items-center gap-6 overflow-x-auto scrollbar-hide">
+    <div className="pt-12">
+      <div
+        role="tablist"
+        aria-label="Filter topics by category"
+        className="flex w-max max-w-full items-center gap-1 overflow-x-auto rounded-full border border-[var(--dash-line)] bg-[var(--dash-panel)] p-1 shadow-[var(--shadow-sm)] scrollbar-hide"
+      >
         {topics.map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.name;
@@ -56,14 +36,21 @@ function Mainnavbar({ activeTab, setActiveTab }) {
           return (
             <button
               key={item.name}
+              role="tab"
+              type="button"
+              aria-selected={isActive}
               onClick={() => setActiveTab(item.name)}
-              className={`flex cursor-pointer items-center gap-2.5 whitespace-nowrap border-b-2 px-2 py-3.5 text-sm font-semibold transition-all duration-200 ${
+              className={`relative flex shrink-0 cursor-pointer items-center gap-2 whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] font-medium transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none ${
                 isActive
-                  ? "text-white"
-                  : "border-transparent text-white/80 hover:text-white hover:bg-white/[0.03] rounded-t-lg"
+                  ? "bg-[var(--dash-accent)] text-white shadow-[var(--shadow-sm)]"
+                  : "text-[var(--dash-muted)] hover:text-[var(--dash-text)]"
               }`}
             >
-              <Icon size={16} />
+              <Icon
+                size={15}
+                weight={isActive ? "fill" : "regular"}
+                className={isActive ? "" : "opacity-80"}
+              />
               {item.name}
             </button>
           );

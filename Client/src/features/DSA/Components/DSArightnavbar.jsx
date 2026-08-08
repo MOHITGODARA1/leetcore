@@ -1,13 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   Flame,
-  Route,
+  GitPullRequest,
   Trophy,
   Target,
   BarChart3,
   CircleCheckBig,
-  Bug,
-  Star,
 } from "lucide-react";
 import {
   FaInstagram,
@@ -34,6 +32,9 @@ const defaultActivity = {
     rank: "-",
   },
 };
+
+const accent = "var(--lc-orange)";
+const accentSoft = "var(--lc-orange-soft)";
 
 function DSARightNavbar() {
   const [activity, setActivity] = useState(defaultActivity);
@@ -101,103 +102,97 @@ function DSARightNavbar() {
   }, [weeklyProgress]);
 
   return (
-    <aside className="hidden xl:block w-80 h-full overflow-y-auto border-l border-white/7 bg-white/6 p-6 flex-shrink-0">
+    <aside className="hidden xl:flex h-full w-80 shrink-0 flex-col overflow-y-auto p-6">
 
       {/* Current Journey */}
-      <div className="grid grid-cols-2 gap-4 ">
-        <div className="rounded-xl bg-white/9 p-4">
-          <Flame className="text-[#E0A03B]" size={18} />
-          <p className="text-sm text-white/80 mt-3">
-            Day Streak
-          </p>
-          <h3 className="text-2xl font-bold">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="rounded-xl border border-[var(--lc-line)] bg-white/[0.08] p-4">
+          <div >
+            <Flame size={20} className="text-orange-400" />
+          </div>
+          <p className="mt-3 text-[13px] text-[var(--lc-muted)]">Day Streak</p>
+          <h3 className="mt-0.5 text-2xl font-bold tabular-nums text-[var(--lc-text)]">
             {activity.streakCount || 0}
           </h3>
         </div>
 
-        <div className="rounded-xl  bg-white/9 p-4">
-          <Target className="text-[#E0A03B]" size={18} />
-          <p className="text-sm text-white mt-3">
-            Questions Left
-          </p>
-          <h3 className="text-2xl font-bold">
+        <div className="rounded-xl border border-[var(--lc-line)] bg-white/[0.08] p-4">
+          <div>
+            <Target size={16} className="text-green-400" />
+          </div>
+          <p className="mt-3 text-[13px] text-[var(--lc-muted)]">Questions Left</p>
+          <h3 className="mt-0.5 text-2xl font-bold tabular-nums text-[var(--lc-text)]">
             {questionsLeft}
           </h3>
         </div>
       </div>
 
-      <div className="rounded-2xl   mt-6 bg-white/9 p-5">
-        <div className="flex items-center gap-2 mb-3">
-          <Route size={18} className="text-white/80" />
-          <h2 className="font-semibold text-white">
+      <div className="mt-6 rounded-2xl border border-[var(--lc-line)] bg-white/[0.08] p-5">
+        <div className="flex items-center gap-2">
+          <GitPullRequest size={17} style={{ color: accent }} />
+          <h2 className="flex items-center gap-2 text-[15px] font-semibold text-[var(--lc-text)]">
+            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: accent }} />
             {currentTopic.label}
           </h2>
         </div>
 
-        <h3 className="text-md font-semibold mt-1 text-white/60">
+        <p className="mt-3 text-[13px] font-medium tabular-nums text-[var(--lc-muted)]">
           {currentTopic.solved}/{currentTopic.total} solved
-        </h3>
+        </p>
 
         <div className="mt-4">
-          <div className="flex justify-between text-sm text-white/80 mb-2">
+          <div className="mb-2 flex justify-between text-[12px] text-[var(--lc-muted)]">
             <span>Journey Progress</span>
-            <span>{currentTopic.percent || 0}%</span>
+            <span className="font-semibold tabular-nums text-[var(--lc-text)]">
+              {currentTopic.percent || 0}%
+            </span>
           </div>
 
-          <div className="h-2 rounded-full bg-white/40 overflow-hidden">
+          <div className="h-2 overflow-hidden rounded-full bg-[var(--lc-input)]">
             <div
-              className="h-full rounded-full bg-green-400"
-              style={{ width: `${currentTopic.percent || 0}%` }}
-            ></div>
+              className="h-full rounded-full transition-[width] duration-500"
+              style={{ width: `${currentTopic.percent || 0}%`, backgroundColor: accent }}
+            />
           </div>
         </div>
       </div>
 
       {/* Metrics */}
-      <div className="grid grid-cols-2 gap-4 mt-6">
-
-        
-
-        <div className="rounded-xl  bg-white/9 p-4">
-          <Trophy className="text-[#F2A640]" size={18} />
-          <p className="text-sm text-white/80 mt-3">
-            Contest Rank
-          </p>
-          <h3 className="text-2xl font-bold">
+      <div className="mt-6 grid grid-cols-2 gap-4">
+        <div className="rounded-xl border border-[var(--lc-line)] bg-white/[0.08] p-4">
+          <div className="grid h-8 w-8 items-center justify-center rounded-lg" style={{ background: accentSoft }}>
+            <Trophy size={16} className="text-[var(--lc-orange)]" />
+          </div>
+          <p className="mt-3 text-[13px] text-[var(--lc-muted)]">Contest Rank</p>
+          <h3 className="mt-0.5 text-2xl font-bold tabular-nums text-[var(--lc-text)]">
             {rankText}
           </h3>
         </div>
 
-        <div className="rounded-xl  bg-white/9 p-4">
-          <CircleCheckBig className="text-green-400" size={18} />
-          <p className="text-sm text-white/80 mt-3">
-            Readiness
-          </p>
-          <h3 className="text-2xl font-bold">
+        <div className="rounded-xl border border-[var(--lc-line)] bg-white/[0.08] p-4">
+          <div className="grid h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/15">
+            <CircleCheckBig size={16} className="text-emerald-400" />
+          </div>
+          <p className="mt-3 text-[13px] text-[var(--lc-muted)]">Readiness</p>
+          <h3 className="mt-0.5 text-2xl font-bold tabular-nums text-[var(--lc-text)]">
             {activity.readinessScore || 0}%
           </h3>
         </div>
-
       </div>
 
       {/* Weekly Progress */}
-      <div className="rounded-2xl  bg-white/9 p-5 mt-6">
-
-        <div className="flex items-center gap-2 mb-5">
-          <BarChart3 size={18} />
-          <h2 className="font-semibold">
+      <div className="mt-6 rounded-2xl border border-[var(--lc-line)] bg-white/[0.08] p-5">
+        <div className="mb-5 flex items-center gap-2">
+          <BarChart3 size={16} style={{ color: accent }} />
+          <h2 className="text-[15px] font-semibold text-[var(--lc-text)]">
             Weekly Progress
           </h2>
-          <span className="ml-auto text-xs font-semibold text-white/55">
+          <span className="ml-auto text-[12px] font-semibold tabular-nums text-[var(--lc-muted)]">
             {activity.weeklySolved || 0} solved
           </span>
         </div>
 
-        <svg
-          viewBox="0 0 320 120"
-          className="w-full h-32"
-          fill="none"
-        >
+        <svg viewBox="0 0 320 120" className="h-32 w-full" fill="none">
           <polyline
             points={chart.polyline}
             stroke="#F2A640"
@@ -217,25 +212,30 @@ function DSARightNavbar() {
           ))}
         </svg>
 
-        <div className="flex justify-between text-xs text-white/80 mt-2">
+        <div className="mt-2 flex justify-between text-[11px] font-medium tabular-nums text-[var(--lc-muted)]">
           {chart.days.map((day) => (
             <span key={day.date || day.label}>{day.label}</span>
           ))}
         </div>
-
       </div>
-      <div className="flex justify-center mt-6 w-full item-center">
-        <div className=" w-[90%] flex justify-between gap-4">
-          <Bug size={20} className="text-white/70"/>
-          <FaInstagram size={20} className="text-white/70"/>
-          <FaLinkedin size={20} className="text-white/70"/>
-          <FaGithub size={20} className="text-white/70"/>
-          <FaYoutube size={20} className="text-white/70"/>
-          <Star size={20} className="text-white/70"/>
+
+      <div className="mt-auto flex items-center justify-center pt-6">
+        <div
+          className="flex w-[90%] justify-between gap-4"
+          aria-hidden="true"
+        >
+          {[
+            { icon: FaInstagram, label: "Instagram" },
+            { icon: FaLinkedin, label: "LinkedIn" },
+            { icon: FaGithub, label: "GitHub" },
+            { icon: FaYoutube, label: "YouTube" },
+          ].map(({ icon: Icon, label }) => (
+            <span key={label} className="text-[var(--lc-muted)]">
+              <Icon size={20} />
+            </span>
+          ))}
         </div>
       </div>
-
-      
     </aside>
   );
 }

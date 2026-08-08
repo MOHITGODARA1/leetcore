@@ -1,40 +1,46 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   BookOpen,
   Copy,
   Check,
-  GitBranch,
-  GitPullRequest,
   Star,
   Users,
+  GitPullRequest,
+  GithubLogo,
   Bug,
   Cpu,
   FileText,
   Layout,
-  AlertCircle,
-  HelpCircle
-} from "lucide-react";
+  ListChecks,
+  WarningCircle,
+} from "@phosphor-icons/react";
+import { gsap, useGSAP } from "../../lib/gsap";
+import { useReducedMotion } from "./Components/ui/Reveal";
 
-const GithubIcon = ({ size = 16, className = "" }) => (
-  <svg 
-    viewBox="0 0 24 24" 
-    width={size} 
-    height={size} 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
-    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-    <path d="M9 18c-4.51 2-5-2-7-2" />
-  </svg>
-);
+function ContributionCard({ icon, label, desc }) {
+  const Icon = icon;
+  return (
+    <div className="group flex min-h-[104px] flex-col justify-between rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-panel)] p-4 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-[var(--color-border-strong)] hover:bg-[var(--color-bg-panel-hover)]">
+      <div className="grid h-8 w-8 place-items-center rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-panel-hover)] text-[var(--color-accent)] transition-colors duration-300 group-hover:border-[var(--color-accent)]/40">
+        <Icon size={16} weight="duotone" />
+      </div>
+      <div className="mt-4">
+        <h4 className="text-[13px] font-bold tracking-tight text-[var(--color-text)]">
+          {label}
+        </h4>
+        <p className="mt-1 text-[11.5px] leading-snug text-[var(--color-text-muted)]">
+          {desc}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 function Contribute() {
   const [copied, setCopied] = useState(false);
+  const rootRef = useRef(null);
+  const reduced = useReducedMotion();
   const repoUrl = "https://github.com/MOHITGODARA1/leetcore";
 
   const handleCopyLink = async () => {
@@ -47,167 +53,237 @@ function Contribute() {
     { label: "Fix Bugs", icon: Bug, desc: "Solve open issues and refactor code." },
     { label: "Add Features", icon: Cpu, desc: "Build new interactive modules." },
     { label: "Improve Docs", icon: FileText, desc: "Write guides and document APIs." },
-    { label: "Add DSA Questions", icon: HelpCircle, desc: "Submit placement interview problems." },
+    { label: "Add DSA Questions", icon: ListChecks, desc: "Submit placement interview problems." },
     { label: "Improve UI/UX", icon: Layout, desc: "Refine layouts and visual systems." },
-    { label: "Report Issues", icon: AlertCircle, desc: "Find bugs and document repro steps." }
+    { label: "Report Issues", icon: WarningCircle, desc: "Find bugs and document repro steps." },
   ];
 
   const stats = [
-    { label: "Contributors", value: "2", icon: Users },
-    { label: "GitHub Stars", value: "4", icon: Star },
-    
-    { label: "Pull Requests", value: "22", icon: GitPullRequest }
+    { label: "Contributors", value: 2, icon: Users },
+    { label: "GitHub Stars", value: 4, icon: Star },
+    { label: "Pull Requests", value: 22, icon: GitPullRequest },
   ];
 
+  useGSAP(
+    () => {
+      const cards = rootRef.current.querySelectorAll("[data-reveal]");
+      if (reduced) return;
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          cards,
+          { autoAlpha: 0, y: 30 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.9,
+            stagger: 0.09,
+            ease: "expo.out",
+            scrollTrigger: { trigger: rootRef.current, start: "top 78%", once: true },
+          }
+        );
+
+        // animated counters
+        rootRef.current.querySelectorAll("[data-count]").forEach((el) => {
+          const target = Number(el.dataset.count) || 0;
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: target,
+            duration: 1.2,
+            ease: "power2.out",
+            scrollTrigger: { trigger: el, start: "top 90%", once: true },
+            onUpdate: () => {
+              el.textContent = Math.round(obj.val);
+            },
+          });
+        });
+      }, rootRef);
+      return () => ctx.revert();
+    },
+    { scope: rootRef }
+  );
+
   return (
-    <section className="bg-transparent px-6 py-16 sm:px-8 sm:py-20 md:px-16 relative overflow-hidden border-t border-white/5">
-      {/* Subtle Dot Grid Background */}
-      <div 
-        className="absolute inset-0 opacity-10 pointer-events-none select-none"
+    <section
+      ref={rootRef}
+      id="creators"
+      className="relative overflow-hidden border-t border-[var(--color-border)] py-20 sm:py-24 lg:py-28"
+    >
+      {/* Dot grid */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.5]"
         style={{
-          backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px)",
-          backgroundSize: "24px 24px"
+          backgroundImage:
+            "radial-gradient(var(--color-border) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          maskImage: "radial-gradient(ellipse 70% 60% at 30% 20%, black, transparent 70%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 60% at 30% 20%, black, transparent 70%)",
         }}
+        aria-hidden="true"
       />
 
-      <div className="mx-auto max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Column: Heading and Call-to-Action */}
-          <div className="lg:col-span-5 flex flex-col justify-between self-stretch">
+      <div className="relative mx-auto w-full max-w-[1200px] px-6 sm:px-8">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
+          {/* Left column */}
+          <div className="flex flex-col justify-between self-stretch lg:col-span-5">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#f46717] bg-[#f46717]/10 px-3 py-1 rounded-full w-fit select-none">
-                Open Source
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mt-4 leading-none">
-                Build LeetCore Together
+              <h2
+                data-reveal
+                className="lc-text-balance font-display text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl"
+              >
+                Build LeetCore together
               </h2>
-              <p className="text-sm text-white/60 mt-4 leading-relaxed font-medium">
-                LeetCore is open source and community-driven. Whether you want to fix bugs, improve the UI, add new features, write documentation, or contribute interview questions, your contributions are always welcome.
+              <p
+                data-reveal
+                className="mt-4 max-w-md text-[15px] leading-relaxed text-[var(--color-text-muted)]"
+              >
+                LeetCore is open source and community-driven. Fix bugs, improve
+                the UI, add features, write docs, or submit interview questions
+                — every contribution helps a student prepare.
               </p>
-              <p className="text-xs text-white/45 mt-3 leading-relaxed">
-                Join our open-source community to build the ultimate placement prep platform and help students prepare for top software engineering placements.
-              </p>
-            </div>
 
-            {/* Buttons & Copyable Link Container */}
-            <div className="mt-8 flex flex-col gap-4">
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#f46717] hover:bg-[#d85610] px-4 py-2.5 text-xs font-bold text-white transition-colors cursor-pointer select-none"
-                >
-                  <GithubIcon size={14} />
-                  Contribute on GitHub
-                </a>
-                <Link
-                  to="/docs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 hover:bg-white/5 px-4 py-2.5 text-xs font-bold text-white/80 hover:text-white transition-colors cursor-pointer select-none"
-                >
-                  <BookOpen size={14} />
-                  View Documentation
-                </Link>
-              </div>
-
-              {/* Copyable Link Block */}
-              <div className="flex items-center justify-between gap-3 rounded-lg border border-white/5 bg-white/[0.01] px-3 py-2 max-w-sm">
-                <div className="flex items-center gap-2 min-w-0">
-                  <GithubIcon size={12} className="text-white/40 shrink-0" />
-                  <span className="font-mono text-[10px] text-white/50 truncate select-all">
-                    github.com/mohitgodara/leetcore
-                  </span>
+              <div data-reveal className="mt-8 flex flex-col gap-4">
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/cta inline-flex h-11 items-center gap-2 rounded-xl bg-[var(--color-text)] px-5 text-sm font-bold text-[var(--color-text-inverse)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97]"
+                  >
+                    <GithubLogo size={16} weight="fill" />
+                    Contribute on GitHub
+                  </a>
+                  <Link
+                    to="/docs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-11 items-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-panel)] px-5 text-sm font-bold text-[var(--color-text)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] active:translate-y-0 active:scale-[0.97]"
+                  >
+                    <BookOpen size={16} weight="duotone" />
+                    View documentation
+                  </Link>
                 </div>
-                <button
-                  type="button"
-                  onClick={handleCopyLink}
-                  className="text-white/40 hover:text-white transition-colors shrink-0 cursor-pointer"
-                  title="Copy Link"
-                >
-                  {copied ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
-                </button>
+
+                {/* Copyable repo link */}
+                <div className="flex max-w-sm items-center justify-between gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-panel)] px-3.5 py-2.5">
+                  <div className="flex min-w-0 items-center gap-2">
+                    <GithubLogo size={14} className="shrink-0 text-[var(--color-text-faint)]" />
+                    <span className="truncate font-mono text-[11px] text-[var(--color-text-muted)] select-all">
+                      github.com/mohitgodara/leetcore
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleCopyLink}
+                    className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[var(--color-text-faint)] transition-colors duration-200 hover:bg-[var(--color-bg-panel-hover)] hover:text-[var(--color-text)]"
+                    title="Copy link"
+                    aria-label="Copy repository link"
+                  >
+                    {copied ? (
+                      <Check size={14} weight="bold" className="text-[var(--color-success)]" />
+                    ) : (
+                      <Copy size={14} />
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Contribution Stats Grid */}
-            <div className="mt-8 pt-8 border-t border-white/5 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4">
-              {stats.map((stat, idx) => {
+            {/* Stats */}
+            <div data-reveal className="mt-10 grid grid-cols-3 gap-3 border-t border-[var(--color-border)] pt-8">
+              {stats.map((stat) => {
                 const Icon = stat.icon;
                 return (
-                  <div key={idx} className="rounded-xl border border-white/5 bg-white/[0.01] p-3 flex items-center gap-3 select-none">
-                    <div className="h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center text-white/70">
-                      <Icon size={14} />
+                  <div key={stat.label}>
+                    <div className="flex items-center gap-2 text-[var(--color-accent)]">
+                      <Icon size={16} weight="duotone" />
+                      <span
+                        className="font-display text-2xl font-bold tabular-nums text-[var(--color-text)]"
+                        data-count={stat.value}
+                        aria-label={`${stat.value} ${stat.label}`}
+                      >
+                        {stat.value}
+                      </span>
                     </div>
-                    <div>
-                      <span className="text-[10px] text-white/40 block font-semibold">{stat.label}</span>
-                      <span className="text-sm font-black text-white leading-none mt-0.5 block">{stat.value}</span>
-                    </div>
+                    <span className="mt-1 block font-mono text-[10.5px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-faint)]">
+                      {stat.label}
+                    </span>
                   </div>
                 );
               })}
             </div>
           </div>
 
-          {/* Right Column: Contribution Areas Grid and Graphic */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            
-            {/* Visual Git Branch Animation Block */}
-            <div className="w-full rounded-2xl border border-white/5 bg-[#09090b]/40 p-4 h-36 flex items-center justify-between relative overflow-hidden select-none">
-              <div className="flex flex-col justify-between h-full relative z-10">
-                <div>
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-orange-400">Git Workflow</span>
-                  <h4 className="text-xs font-bold text-white mt-1">Fork, commit, and open a Pull Request</h4>
-                </div>
-                <p className="text-[10px] text-white/40 max-w-[200px] leading-tight">
-                  Every contribution, no matter how small, helps thousands of students prepare for placements.
+          {/* Right column */}
+          <div className="flex flex-col gap-6 lg:col-span-7">
+            {/* Git workflow banner */}
+            <div
+              data-reveal
+              className="relative flex min-h-[140px] items-center justify-between overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-panel)] p-6"
+            >
+              <div className="relative z-10">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+                  Git workflow
+                </span>
+                <h4 className="mt-1 font-display text-base font-semibold text-[var(--color-text)]">
+                  Fork, commit, and open a pull request
+                </h4>
+                <p className="mt-2 max-w-[220px] text-[12px] leading-relaxed text-[var(--color-text-muted)]">
+                  Every contribution, however small, helps students prepare for
+                  placements.
                 </p>
               </div>
 
-              {/* Minimal SVG Git graph */}
-              <div className="absolute right-4 top-0 bottom-0 w-48 hidden sm:flex items-center justify-center opacity-80 pointer-events-none">
-                <svg viewBox="0 0 160 80" className="w-full h-full overflow-visible">
-                  {/* Master Branch line */}
-                  <line x1="10" y1="40" x2="150" y2="40" stroke="rgba(255,255,255,0.1)" strokeWidth="3" />
-                  
-                  {/* Feature Branch line */}
-                  <path d="M 40 40 Q 60 15, 80 15 T 120 40" fill="none" stroke="#f46717" strokeWidth="2.5" />
-                  
-                  {/* Nodes */}
-                  <circle cx="20" cy="40" r="4" fill="rgba(255,255,255,0.3)" />
-                  <circle cx="40" cy="40" r="4.5" fill="#f46717" />
-                  <circle cx="80" cy="15" r="4.5" fill="#f46717" />
-                  <circle cx="120" cy="40" r="4.5" fill="#f46717" />
-                  <circle cx="140" cy="40" r="4" fill="rgba(255,255,255,0.3)" />
-                  
-                  {/* Pull Request Label */}
-                  <rect x="62" y="24" width="36" height="12" rx="3" fill="#f46717" />
-                  <text x="80" y="32" fill="white" fontSize="6" fontWeight="bold" textAnchor="middle">PR #2</text>
-                </svg>
-              </div>
+              <svg
+                viewBox="0 0 160 80"
+                className="pointer-events-none absolute bottom-0 right-2 top-0 hidden w-48 sm:block"
+                aria-hidden="true"
+              >
+                <line
+                  x1="10"
+                  y1="40"
+                  x2="150"
+                  y2="40"
+                  stroke="var(--color-border)"
+                  strokeWidth="3"
+                />
+                <path
+                  d="M 40 40 Q 60 15, 80 15 T 120 40"
+                  fill="none"
+                  stroke="var(--color-accent)"
+                  strokeWidth="2.5"
+                />
+                <circle cx="20" cy="40" r="4" fill="var(--color-text-faint)" />
+                <circle cx="40" cy="40" r="4.5" fill="var(--color-accent)" />
+                <circle cx="80" cy="15" r="4.5" fill="var(--color-accent)" />
+                <circle cx="120" cy="40" r="4.5" fill="var(--color-accent)" />
+                <circle cx="140" cy="40" r="4" fill="var(--color-text-faint)" />
+                <rect x="62" y="24" width="36" height="12" rx="3" fill="var(--color-accent)" />
+                <text
+                  x="80"
+                  y="32.5"
+                  fill="#0a0a0b"
+                  fontSize="6"
+                  fontWeight="bold"
+                  textAnchor="middle"
+                >
+                  PR #2
+                </text>
+              </svg>
             </div>
 
-            {/* 6 Contribution area cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {contributionAreas.map((area, idx) => {
+            {/* Contribution areas */}
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+              {contributionAreas.map((area) => {
                 const Icon = area.icon;
                 return (
-                  <div key={idx} className="rounded-2xl border border-white/5 bg-[#09090b]/80 p-4 hover:border-white/10 hover:bg-[#0c0c0e]/95 transition-all duration-300 flex flex-col justify-between min-h-[100px] select-none">
-                    <div className="h-7 w-7 rounded-lg bg-white/5 flex items-center justify-center text-[#f46717]">
-                      <Icon size={12} />
-                    </div>
-                    <div className="mt-3">
-                      <h4 className="text-xs font-bold text-white tracking-tight">{area.label}</h4>
-                      <p className="text-[10px] text-white/50 mt-1 leading-snug">{area.desc}</p>
-                    </div>
+                  <div key={area.label} data-reveal>
+                    <ContributionCard icon={Icon} label={area.label} desc={area.desc} />
                   </div>
                 );
               })}
             </div>
           </div>
-
         </div>
       </div>
     </section>

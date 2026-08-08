@@ -1,0 +1,26 @@
+// Dashboard design system — re-exports the landing page's UI kit so both
+// surfaces share one visual language (tokens, buttons, cards, badges, motion).
+export {
+  Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  Container,
+  Section,
+  Grid,
+  Flex,
+  Badge,
+  Icon,
+  Avatar,
+  Reveal,
+  useGsapReveal,
+  useReducedMotion,
+  tokens,
+  generateCSSVars,
+  mq,
+  gsapPresets,
+  getColor,
+} from "../landing/Components/ui";

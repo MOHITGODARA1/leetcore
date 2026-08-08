@@ -192,28 +192,36 @@
       "name": "Valid Anagram",
       "difficulty": "Easy",
       "acceptanceRate": "66.1%",
-      "link": "https://leetcode.com/problems/valid-anagram/",
-      "description": "Given input data, solve the coding challenge for **Valid Anagram**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.\n\nAn Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
+      "inputFormat": "Two lines, where the first line contains the string `s` and the second line contains the string `t`.",
+      "outputFormat": "Print `true` if `t` is an anagram of `s`, else print `false`.",
+      "constraints": "1 <= s.length, t.length <= 5 * 10^4\ns and t consist of lowercase English letters.",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "anagram\nnagaram",
+          "output": "true",
+          "explanation": "\"nagaram\" is an anagram of \"anagram\"."
+        },
+        {
+          "input": "rat\ncar",
+          "output": "false",
+          "explanation": "\"car\" is not an anagram of \"rat\"."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "anagram\nnagaram",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "rat\ncar",
+          "expectedOutput": "false"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Valid Anagram\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Valid Anagram\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Valid Anagram\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "bool isAnagram(string s, string t) {\n    // Write your logic here\n    return false;\n}",
+        "java": "public static boolean isAnagram(String s, String t) {\n    // Write your logic here\n    return false;\n}",
+        "python": "def is_anagram(s: str, t: str) -> bool:\n    # Write your logic here\n    return False"
       }
     },
     {
@@ -221,28 +229,165 @@
       "name": "Longest Palindromic Substring",
       "difficulty": "Medium",
       "acceptanceRate": "33.8%",
-      "link": "https://leetcode.com/problems/longest-palindromic-substring/",
-      "description": "Given input data, solve the coding challenge for **Longest Palindromic Substring**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given a string `s`, return the longest palindromic substring in `s`.",
+      "inputFormat": "A single line containing the string `s`.",
+      "outputFormat": "Print the longest palindromic substring.",
+      "constraints": "1 <= s.length <= 1000\ns consists of only digits and English letters.",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "abac",
+          "output": "aba",
+          "explanation": "\"aba\" is the longest palindromic substring."
+        },
+        {
+          "input": "cbbd",
+          "output": "bb",
+          "explanation": "The longest palindromic substring is \"bb\"."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "abac",
+          "expectedOutput": "aba"
+        },
+        {
+          "input": "cbbd",
+          "expectedOutput": "bb"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Longest Palindromic Substring\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Longest Palindromic Substring\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Longest Palindromic Substring\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "string longestPalindrome(string s) {\n    // Write your logic here\n    return \"\";\n}",
+        "java": "public static String longestPalindrome(String s) {\n    // Write your logic here\n    return \"\";\n}",
+        "python": "def longest_palindrome(s: str) -> str:\n    # Write your logic here\n    return \"\""
+      }
+    },
+    {
+      "id": "strings-3",
+      "name": "Longest Common Prefix",
+      "difficulty": "Easy",
+      "acceptanceRate": "42.5%",
+      "description": "Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string `\"\"`.",
+      "inputFormat": "The first line contains an integer `N`, representing the number of strings. The next `N` lines each contain a single string.",
+      "outputFormat": "Print the longest common prefix. If there is no common prefix, print an empty line.",
+      "constraints": "1 <= N <= 200\n0 <= strs[i].length <= 200\nstrs[i] consists of only lowercase English letters.",
+      "examples": [
+        {
+          "input": "3\nflower\nflow\nflight",
+          "output": "fl",
+          "explanation": "\"fl\" is the longest common prefix."
+        },
+        {
+          "input": "3\ndog\nracecar\ncar",
+          "output": "",
+          "explanation": "There is no common prefix among the input strings."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "3\nflower\nflow\nflight",
+          "expectedOutput": "fl"
+        },
+        {
+          "input": "3\ndog\nracecar\ncar",
+          "expectedOutput": ""
+        }
+      ],
+      "starterCode": {
+        "cpp": "string longestCommonPrefix(vector<string>& strs) {\n    // Write your logic here\n    return \"\";\n}",
+        "java": "public static String longestCommonPrefix(List<String> strs) {\n    // Write your logic here\n    return \"\";\n}",
+        "python": "def longest_common_prefix(strs: list) -> str:\n    # Write your logic here\n    return \"\""
+      }
+    },
+    {
+      "id": "strings-4",
+      "name": "First Unique Character in a String",
+      "difficulty": "Easy",
+      "acceptanceRate": "60.2%",
+      "description": "Given a string `s`, find the first non-repeating character in it and return its index. If it does not exist, return `-1`.",
+      "inputFormat": "A single line containing the string `s`.",
+      "outputFormat": "Print the 0-based index of the first non-repeating character. If none exist, print `-1`.",
+      "constraints": "1 <= s.length <= 10^5\ns consists of lowercase English letters.",
+      "examples": [
+        {
+          "input": "leetcode",
+          "output": "0",
+          "explanation": "The character 'l' at index 0 is the first character that does not repeat."
+        },
+        {
+          "input": "loveleetcode",
+          "output": "2",
+          "explanation": "The character 'v' at index 2 is the first character that does not repeat."
+        },
+        {
+          "input": "aabb",
+          "output": "-1",
+          "explanation": "All characters repeat, so return -1."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "leetcode",
+          "expectedOutput": "0"
+        },
+        {
+          "input": "loveleetcode",
+          "expectedOutput": "2"
+        },
+        {
+          "input": "aabb",
+          "expectedOutput": "-1"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int firstUniqChar(string s) {\n    // Write your logic here\n    return -1;\n}",
+        "java": "public static int firstUniqChar(String s) {\n    // Write your logic here\n    return -1;\n}",
+        "python": "def first_uniq_char(s: str) -> int:\n    # Write your logic here\n    return -1"
+      }
+    },
+    {
+      "id": "strings-5",
+      "name": "Reverse Words in a String",
+      "difficulty": "Medium",
+      "acceptanceRate": "44.1%",
+      "description": "Given an input string `s`, reverse the order of the words. A word is defined as a sequence of non-space characters. The words in `s` will be separated by at least one space.\n\nReturn a string of the words in reverse order concatenated by a single space.\n\nNote that `s` may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.",
+      "inputFormat": "A single line containing the string `s`.",
+      "outputFormat": "Print the reversed words string.",
+      "constraints": "1 <= s.length <= 10^4\ns contains English letters (upper and lower case), digits, and spaces ' '.",
+      "examples": [
+        {
+          "input": "the sky is blue",
+          "output": "blue is sky the",
+          "explanation": "Reversing words yields \"blue is sky the\"."
+        },
+        {
+          "input": "  hello world  ",
+          "output": "world hello",
+          "explanation": "Reversed words should not contain leading or trailing spaces."
+        },
+        {
+          "input": "a good   example",
+          "output": "example good a",
+          "explanation": "Reduce multiple spaces between words to a single space in the reversed string."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "the sky is blue",
+          "expectedOutput": "blue is sky the"
+        },
+        {
+          "input": "  hello world  ",
+          "expectedOutput": "world hello"
+        },
+        {
+          "input": "a good   example",
+          "expectedOutput": "example good a"
+        }
+      ],
+      "starterCode": {
+        "cpp": "string reverseWords(string s) {\n    // Write your logic here\n    return \"\";\n}",
+        "java": "public static String reverseWords(String s) {\n    // Write your logic here\n    return \"\";\n}",
+        "python": "def reverse_words(s: str) -> str:\n    # Write your logic here\n    return \"\""
       }
     }
   ],
@@ -252,86 +397,188 @@
       "name": "Valid Palindrome",
       "difficulty": "Easy",
       "acceptanceRate": "48.2%",
-      "link": "https://leetcode.com/problems/valid-palindrome/",
-      "description": "Given input data, solve the coding challenge for **Valid Palindrome**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.\n\nGiven a string `s`, return `true` if it is a palindrome, or `false` otherwise.",
+      "inputFormat": "A single line containing the string `s`.",
+      "outputFormat": "Print `true` if it is a palindrome, else print `false`.",
+      "constraints": "1 <= s.length <= 2 * 10^5\ns consists only of printable ASCII characters.",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "A man, a plan, a canal: Panama",
+          "output": "true",
+          "explanation": "\"amanaplanacanalpanama\" is a palindrome."
+        },
+        {
+          "input": "race a car",
+          "output": "false",
+          "explanation": "\"raceacar\" is not a palindrome."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "A man, a plan, a canal: Panama",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "race a car",
+          "expectedOutput": "false"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Valid Palindrome\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Valid Palindrome\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Valid Palindrome\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "bool isPalindrome(string s) {\n    // Write your logic here\n    return false;\n}",
+        "java": "public static boolean isPalindrome(String s) {\n    // Write your logic here\n    return false;\n}",
+        "python": "def is_palindrome(s: str) -> bool:\n    // Write your logic here\n    return False"
       }
     },
     {
       "id": "two-pointers-2",
-      "name": "3Sum",
+      "name": "Two Sum II - Input Array Is Sorted",
       "difficulty": "Medium",
-      "acceptanceRate": "34.7%",
-      "link": "https://leetcode.com/problems/3sum/",
-      "description": "Given input data, solve the coding challenge for **3Sum**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "acceptanceRate": "60.5%",
+      "description": "Given a 1-indexed array of integers `numbers` that is already sorted in non-decreasing order, find two numbers such that they add up to a specific `target` number.\n\nReturn the indices of the two numbers, `index1` and `index2`, added by one (1-indexed) as a space-separated pair `index1 index2` where `1 <= index1 < index2 <= numbers.length`.",
+      "inputFormat": "The first line contains an integer `target`. The second line contains space-separated integers representing the sorted array.",
+      "outputFormat": "Print two space-separated integers representing the 1-based indices.",
+      "constraints": "2 <= numbers.length <= 3 * 10^4\n-1000 <= numbers[i] <= 1000\nnumbers is sorted in non-decreasing order.\n-1000 <= target <= 1000",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "9\n2 7 11 15",
+          "output": "1 2",
+          "explanation": "The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return 1 2."
+        },
+        {
+          "input": "6\n2 3 4",
+          "output": "1 3",
+          "explanation": "The sum of 2 and 4 is 6. Therefore, index1 = 1, index2 = 3. We return 1 3."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "9\n2 7 11 15",
+          "expectedOutput": "1 2"
+        },
+        {
+          "input": "6\n2 3 4",
+          "expectedOutput": "1 3"
+        },
+        {
+          "input": "-1\n-1 0",
+          "expectedOutput": "1 2"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for 3Sum\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for 3Sum\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for 3Sum\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "vector<int> twoSum(vector<int>& numbers, int target) {\n    // Write your logic here\n    return {};\n}",
+        "java": "public static int[] twoSum(int[] numbers, int target) {\n    // Write your logic here\n    return new int[0];\n}",
+        "python": "def two_sum(numbers: list, target: int) -> list:\n    // Write your logic here\n    return []"
       }
     },
     {
       "id": "two-pointers-3",
-      "name": "Container With Most Water",
-      "difficulty": "Medium",
-      "acceptanceRate": "54.9%",
-      "link": "https://leetcode.com/problems/container-with-most-water/",
-      "description": "Given input data, solve the coding challenge for **Container With Most Water**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "name": "Remove Duplicates from Sorted Array",
+      "difficulty": "Easy",
+      "acceptanceRate": "55.8%",
+      "description": "Given an integer array `nums` sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in `nums`.\n\nConsider the number of unique elements of `nums` to be `k`, to get accepted, you need to:\n1. Modify the array `nums` such that the first `k` elements of `nums` contain the unique elements in the order they were present in `nums` initially.\n2. Return `k`.",
+      "inputFormat": "A single line containing space-separated integers representing the sorted array.",
+      "outputFormat": "Print the number of unique elements `k` on the first line, followed by the first `k` unique elements on the second line.",
+      "constraints": "1 <= nums.length <= 3 * 10^4\n-100 <= nums[i] <= 100\nnums is sorted in non-decreasing order.",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "1 1 2",
+          "output": "2\n1 2",
+          "explanation": "Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively."
+        },
+        {
+          "input": "0 0 1 1 1 2 2 3 3 4",
+          "output": "5\n0 1 2 3 4",
+          "explanation": "Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "1 1 2",
+          "expectedOutput": "2\n1 2"
+        },
+        {
+          "input": "0 0 1 1 1 2 2 3 3 4",
+          "expectedOutput": "5\n0 1 2 3 4"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Container With Most Water\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Container With Most Water\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Container With Most Water\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int removeDuplicates(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int removeDuplicates(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def remove_duplicates(nums: list) -> int:\n    // Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "two-pointers-4",
+      "name": "Container With Most Water",
+      "difficulty": "Medium",
+      "acceptanceRate": "54.9%",
+      "description": "You are given an integer array `height` of length `n`. There are `n` vertical lines drawn such that the two endpoints of the `i-th` line are `(i, 0)` and `(i, height[i])`.\n\nFind two lines that together with the x-axis form a container, such that the container contains the most water.\n\nReturn the maximum amount of water a container can store.",
+      "inputFormat": "A single line containing space-separated integers representing heights.",
+      "outputFormat": "Print a single integer representing the maximum volume of water.",
+      "constraints": "2 <= n <= 10^5\n0 <= height[i] <= 10^4",
+      "examples": [
+        {
+          "input": "1 8 6 2 5 4 8 3 7",
+          "output": "49",
+          "explanation": "The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water the container can contain is 49."
+        },
+        {
+          "input": "1 1",
+          "output": "1",
+          "explanation": "The max area of water is 1."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "1 8 6 2 5 4 8 3 7",
+          "expectedOutput": "49"
+        },
+        {
+          "input": "1 1",
+          "expectedOutput": "1"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int maxArea(vector<int>& height) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int maxArea(int[] height) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def max_area(height: list) -> int:\n    // Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "two-pointers-5",
+      "name": "Trapping Rain Water",
+      "difficulty": "Hard",
+      "acceptanceRate": "61.2%",
+      "description": "Given `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.",
+      "inputFormat": "A single line containing space-separated integers representing the elevations.",
+      "outputFormat": "Print a single integer representing the trapped water volume.",
+      "constraints": "n == height.length\n1 <= n <= 2 * 10^4\n0 <= height[i] <= 10^5",
+      "examples": [
+        {
+          "input": "0 1 0 2 1 0 1 3 2 1 2 1",
+          "output": "6",
+          "explanation": "The elevation map is represented by [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water are being trapped."
+        },
+        {
+          "input": "4 2 0 3 2 5",
+          "output": "9",
+          "explanation": "Your elevation map is [4,2,0,3,2,5]. In this case, 9 units of water are trapped."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "0 1 0 2 1 0 1 3 2 1 2 1",
+          "expectedOutput": "6"
+        },
+        {
+          "input": "4 2 0 3 2 5",
+          "expectedOutput": "9"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int trap(vector<int>& height) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int trap(int[] height) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def trap(height: list) -> int:\n    // Write your logic here\n    return 0"
       }
     }
   ],
@@ -341,57 +588,187 @@
       "name": "Longest Substring Without Repeating Characters",
       "difficulty": "Medium",
       "acceptanceRate": "34.8%",
-      "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
-      "description": "Given input data, solve the coding challenge for **Longest Substring Without Repeating Characters**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given a string `s`, find the length of the longest substring without repeating characters.",
+      "inputFormat": "A single line containing the string `s`.",
+      "outputFormat": "Print a single integer representing the length.",
+      "constraints": "0 <= s.length <= 5 * 10^4\ns consists of English letters, digits, symbols and spaces.",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "abcabcbb",
+          "output": "3",
+          "explanation": "The answer is \"abc\", with the length of 3."
+        },
+        {
+          "input": "bbbbb",
+          "output": "1",
+          "explanation": "The answer is \"b\", with the length of 1."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "abcabcbb",
+          "expectedOutput": "3"
+        },
+        {
+          "input": "bbbbb",
+          "expectedOutput": "1"
+        },
+        {
+          "input": "pwwkew",
+          "expectedOutput": "3"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Longest Substring Without Repeating Characters\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Longest Substring Without Repeating Characters\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Longest Substring Without Repeating Characters\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int lengthOfLongestSubstring(string s) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int lengthOfLongestSubstring(String s) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def length_of_longest_substring(s: str) -> int:\n    # Write your logic here\n    return 0"
       }
     },
     {
       "id": "sliding-window-2",
-      "name": "Minimum Window Substring",
-      "difficulty": "Hard",
-      "acceptanceRate": "42.1%",
-      "link": "https://leetcode.com/problems/minimum-window-substring/",
-      "description": "Given input data, solve the coding challenge for **Minimum Window Substring**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "name": "Longest Repeating Character Replacement",
+      "difficulty": "Medium",
+      "acceptanceRate": "53.2%",
+      "description": "You are given a string `s` and an integer `k`. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most `k` times.\n\nReturn the length of the longest substring containing the same letter you can get after performing the above operations.",
+      "inputFormat": "The first line contains the integer `k`. The second line contains the string `s`.",
+      "outputFormat": "Print a single integer representing the length.",
+      "constraints": "1 <= s.length <= 10^5\ns consists of only uppercase English letters.\n0 <= k <= s.length",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "2\nABAB",
+          "output": "4",
+          "explanation": "Replace the two 'A's with two 'B's or vice versa."
+        },
+        {
+          "input": "1\nAABABBA",
+          "output": "4",
+          "explanation": "Replace the middle 'A' with 'B' to form \"AABBBBA\". The substring \"BBBB\" has length 4."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "2\nABAB",
+          "expectedOutput": "4"
+        },
+        {
+          "input": "1\nAABABBA",
+          "expectedOutput": "4"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Minimum Window Substring\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Minimum Window Substring\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Minimum Window Substring\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int characterReplacement(string s, int k) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int characterReplacement(String s, int k) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def character_replacement(s: str, k: int) -> int:\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "sliding-window-3",
+      "name": "Minimum Size Subarray Sum",
+      "difficulty": "Medium",
+      "acceptanceRate": "46.1%",
+      "description": "Given an array of positive integers `nums` and a positive integer `target`, return the minimal length of a subarray whose sum is greater than or equal to `target`. If there is no such subarray, return `0` instead.",
+      "inputFormat": "The first line contains target. The second line contains space-separated integers representing the array.",
+      "outputFormat": "Print a single integer.",
+      "constraints": "1 <= target <= 10^9\n1 <= nums.length <= 10^5\n1 <= nums[i] <= 10^4",
+      "examples": [
+        {
+          "input": "7\n2 3 1 2 4 3",
+          "output": "2",
+          "explanation": "The subarray [4,3] has the minimal length under the problem constraint."
+        },
+        {
+          "input": "4\n1 4 4",
+          "output": "1",
+          "explanation": "The subarray [4] or [4] has minimal length 1."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "7\n2 3 1 2 4 3",
+          "expectedOutput": "2"
+        },
+        {
+          "input": "4\n1 4 4",
+          "expectedOutput": "1"
+        },
+        {
+          "input": "11\n1 1 1 1 1 1 1 1",
+          "expectedOutput": "0"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int minSubArrayLen(int target, vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int minSubArrayLen(int target, int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def min_subarray_len(target: int, nums: list) -> int:\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "sliding-window-4",
+      "name": "Permutation in String",
+      "difficulty": "Medium",
+      "acceptanceRate": "44.9%",
+      "description": "Given two strings `s1` and `s2`, return `true` if `s2` contains a permutation of `s1`, or `false` otherwise.\n\nIn other words, return `true` if one of `s1`'s permutations is the substring of `s2`.",
+      "inputFormat": "The first line contains string `s1`. The second line contains string `s2`.",
+      "outputFormat": "Print `true` or `false`.",
+      "constraints": "1 <= s1.length, s2.length <= 10^4\ns1 and s2 consist of lowercase English letters.",
+      "examples": [
+        {
+          "input": "ab\neidbaooo",
+          "output": "true",
+          "explanation": "s2 contains one permutation of s1 (\"ba\")."
+        },
+        {
+          "input": "ab\neidboaoo",
+          "output": "false",
+          "explanation": "No permutation of s1 is contained in s2."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "ab\neidbaooo",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "ab\neidboaoo",
+          "expectedOutput": "false"
+        }
+      ],
+      "starterCode": {
+        "cpp": "bool checkInclusion(string s1, string s2) {\n    // Write your logic here\n    return false;\n}",
+        "java": "public static boolean checkInclusion(String s1, String s2) {\n    // Write your logic here\n    return false;\n}",
+        "python": "def check_inclusion(s1: str, s2: str) -> bool:\n    # Write your logic here\n    return False"
+      }
+    },
+    {
+      "id": "sliding-window-5",
+      "name": "Max Consecutive Ones III",
+      "difficulty": "Medium",
+      "acceptanceRate": "62.9%",
+      "description": "Given a binary array `nums` and an integer `k`, return the maximum number of consecutive `1`'s in the array if you can flip at most `k` `0`'s.",
+      "inputFormat": "The first line contains integer `k`. The second line contains space-separated binary elements.",
+      "outputFormat": "Print a single integer.",
+      "constraints": "1 <= nums.length <= 2 * 10^4\nnums[i] is either 0 or 1.\n0 <= k <= nums.length",
+      "examples": [
+        {
+          "input": "2\n1 1 1 0 0 0 1 1 1 1 0",
+          "output": "6",
+          "explanation": "[1,1,1,0,0,1,1,1,1,1,1] - numbers were flipped from index 5 to 10. The longest subarray is length 6."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "2\n1 1 1 0 0 0 1 1 1 1 0",
+          "expectedOutput": "6"
+        },
+        {
+          "input": "3\n0 0 1 1 0 0 1 1 1 0 1 1 0 0 0 1 1 1 1",
+          "expectedOutput": "10"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int longestOnes(vector<int>& nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int longestOnes(int[] nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def longest_ones(nums: list, k: int) -> int:\n    # Write your logic here\n    return 0"
       }
     }
   ],
@@ -401,28 +778,196 @@
       "name": "Maximum Subarray",
       "difficulty": "Medium",
       "acceptanceRate": "50.8%",
-      "link": "https://leetcode.com/problems/maximum-subarray/",
-      "description": "Given input data, solve the coding challenge for **Maximum Subarray**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given an integer array `nums`, find the subarray with the largest sum, and return its sum.",
+      "inputFormat": "A single line containing space-separated integers representing the array.",
+      "outputFormat": "Print a single integer.",
+      "constraints": "1 <= nums.length <= 2 * 10^4\n-10^4 <= nums[i] <= 10^4",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "-2 1 -3 4 -1 2 1 -5 4",
+          "output": "6",
+          "explanation": "The subarray [4,-1,2,1] has the largest sum = 6."
+        },
+        {
+          "input": "1",
+          "output": "1",
+          "explanation": "The subarray [1] has the largest sum = 1."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "-2 1 -3 4 -1 2 1 -5 4",
+          "expectedOutput": "6"
+        },
+        {
+          "input": "1",
+          "expectedOutput": "1"
+        },
+        {
+          "input": "5 4 -1 7 8",
+          "expectedOutput": "23"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Maximum Subarray\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Maximum Subarray\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Maximum Subarray\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int maxSubArray(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int maxSubArray(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def max_subarray(nums: list) -> int:\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "kadans-2",
+      "name": "Maximum Product Subarray",
+      "difficulty": "Medium",
+      "acceptanceRate": "34.9%",
+      "description": "Given an integer array `nums`, find a subarray that has the largest product, and return the product.",
+      "inputFormat": "A single line containing space-separated integers representing the array.",
+      "outputFormat": "Print a single integer.",
+      "constraints": "1 <= nums.length <= 2 * 10^4\n-10 <= nums[i] <= 10",
+      "examples": [
+        {
+          "input": "2 3 -2 4",
+          "output": "6",
+          "explanation": "[2,3] has the largest product = 6."
+        },
+        {
+          "input": "-2 0 -1",
+          "output": "0",
+          "explanation": "The result cannot be 2, because [-2,-1] is not a contiguous subarray."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "2 3 -2 4",
+          "expectedOutput": "6"
+        },
+        {
+          "input": "-2 0 -1",
+          "expectedOutput": "0"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int maxProduct(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int maxProduct(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def max_product(nums: list) -> int:\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "kadans-3",
+      "name": "Maximum Sum Circular Subarray",
+      "difficulty": "Medium",
+      "acceptanceRate": "44.2%",
+      "description": "Given a circular integer array `nums` of length `n`, return the maximum possible sum of a non-empty subarray of `nums`.\n\nA circular array means the end of the array connects to the beginning of the array. Formally, the next element of `nums[i]` is `nums[(i + 1) % n]` and the previous element of `nums[i]` is `nums[(i - 1 + n) % n]`.",
+      "inputFormat": "A single line containing space-separated integers representing the array.",
+      "outputFormat": "Print a single integer.",
+      "constraints": "1 <= nums.length <= 2 * 10^4\n-3 * 10^4 <= nums[i] <= 3 * 10^4",
+      "examples": [
+        {
+          "input": "1 -2 3 -2",
+          "output": "3",
+          "explanation": "Subarray [3] has maximum sum 3."
+        },
+        {
+          "input": "5 -3 5",
+          "output": "10",
+          "explanation": "Subarray [5,5] has maximum sum 5 + 5 = 10."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "1 -2 3 -2",
+          "expectedOutput": "3"
+        },
+        {
+          "input": "5 -3 5",
+          "expectedOutput": "10"
+        },
+        {
+          "input": "-3 -2 -3",
+          "expectedOutput": "-2"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int maxSubarraySumCircular(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int maxSubarraySumCircular(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def max_subarray_sum_circular(nums: list) -> int:\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "kadans-4",
+      "name": "Best Time to Buy and Sell Stock",
+      "difficulty": "Easy",
+      "acceptanceRate": "54.1%",
+      "description": "You are given an array `prices` where `prices[i]` is the price of a given stock on the `i-th` day.\n\nYou want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.\n\nReturn the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return `0`.",
+      "inputFormat": "A single line containing space-separated stock prices.",
+      "outputFormat": "Print a single integer.",
+      "constraints": "1 <= prices.length <= 10^5\n0 <= prices[i] <= 10^4",
+      "examples": [
+        {
+          "input": "7 1 5 3 6 4",
+          "output": "5",
+          "explanation": "Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5."
+        },
+        {
+          "input": "7 6 4 3 1",
+          "output": "0",
+          "explanation": "In this case, no transactions are done and max profit = 0."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "7 1 5 3 6 4",
+          "expectedOutput": "5"
+        },
+        {
+          "input": "7 6 4 3 1",
+          "expectedOutput": "0"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int maxProfit(vector<int>& prices) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int maxProfit(int[] prices) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def max_profit(prices: list) -> int:\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "kadans-5",
+      "name": "Maximum Subarray Sum with One Deletion",
+      "difficulty": "Medium",
+      "acceptanceRate": "43.5%",
+      "description": "Given an array of integers, return the maximum sum for a non-empty subarray (contiguous elements) with at most one element deletion. In other words, you want to choose a subarray and optionally delete one element from it so that there is still at least one element left and the sum of the remaining elements is maximum.\n\nNote that the subarray must be non-empty after deleting one element.",
+      "inputFormat": "A single line containing space-separated integers representing the array.",
+      "outputFormat": "Print a single integer.",
+      "constraints": "1 <= arr.length <= 2 * 10^4\n-10^4 <= arr[i] <= 10^4",
+      "examples": [
+        {
+          "input": "1 -2 0 3",
+          "output": "4",
+          "explanation": "Because we can choose [1, -2, 0, 3] and delete -2, getting [1, 0, 3] which has sum 4."
+        },
+        {
+          "input": "1 -2 -2 3",
+          "output": "3",
+          "explanation": "We can choose [3] or [1, -2, -2, 3] and delete -2 and -2, but we can only delete at most one element, so we choose [3] which has sum 3."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "1 -2 0 3",
+          "expectedOutput": "4"
+        },
+        {
+          "input": "1 -2 -2 3",
+          "expectedOutput": "3"
+        },
+        {
+          "input": "-1 -1 -1 -1",
+          "expectedOutput": "-1"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int maximumSum(vector<int>& arr) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int maximumSum(int[] arr) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def maximum_sum(arr: list) -> int:\n    # Write your logic here\n    return 0"
       }
     }
   ],
@@ -432,28 +977,36 @@
       "name": "Subarray Sum Equals K",
       "difficulty": "Medium",
       "acceptanceRate": "43.9%",
-      "link": "https://leetcode.com/problems/subarray-sum-equals-k/",
-      "description": "Given input data, solve the coding challenge for **Subarray Sum Equals K**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given an array of integers `nums` and an integer `k`, return the total number of subarrays whose sum equals to `k`.\n\nA subarray is a contiguous non-empty sequence of elements within an array.",
+      "inputFormat": "The first line contains target `k`. The second line contains space-separated integers representing the array.",
+      "outputFormat": "Print a single integer.",
+      "constraints": "1 <= nums.length <= 2 * 10^4\n-1000 <= nums[i] <= 1000\n-10^7 <= k <= 10^7",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "2\n1 1 1",
+          "output": "2",
+          "explanation": "[1,1] at index 0..1 and index 1..2 sum to 2."
+        },
+        {
+          "input": "3\n1 2 3",
+          "output": "2",
+          "explanation": "[1,2] and [3] sum to 3."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "2\n1 1 1",
+          "expectedOutput": "2"
+        },
+        {
+          "input": "3\n1 2 3",
+          "expectedOutput": "2"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Subarray Sum Equals K\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Subarray Sum Equals K\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Subarray Sum Equals K\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int subarraySum(vector<int>& nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int subarraySum(int[] nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def subarray_sum(nums: list, k: int) -> int:\n    # Write your logic here\n    return 0"
       }
     },
     {
@@ -461,28 +1014,145 @@
       "name": "Range Sum Query - Immutable",
       "difficulty": "Easy",
       "acceptanceRate": "62.4%",
-      "link": "https://leetcode.com/problems/range-sum-query-immutable/",
-      "description": "Given input data, solve the coding challenge for **Range Sum Query - Immutable**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given an integer array `nums`, handle multiple queries of the following type:\nCalculate the sum of the elements of `nums` between indices `left` and `right` inclusive where `left <= right`.\n\nYour task is to return the query results.",
+      "inputFormat": "The first line contains space-separated integers representing the array. The second line contains an integer `Q` representing the number of queries. The following `Q` lines each contain a space-separated pair `left right`.",
+      "outputFormat": "Print query results space-separated on a single line.",
+      "constraints": "-10^5 <= nums[i] <= 10^5\n0 <= left <= right < nums.length\nAt most 10^4 queries.",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "-2 0 3 -5 2 -1\n3\n0 2\n2 5\n0 5",
+          "output": "1 -1 -3",
+          "explanation": "Query 0..2 sums to 1. Query 2..5 sums to -1. Query 0..5 sums to -3."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "-2 0 3 -5 2 -1\n3\n0 2\n2 5\n0 5",
+          "expectedOutput": "1 -1 -3"
+        },
+        {
+          "input": "1 2 3 4\n2\n1 2\n0 3",
+          "expectedOutput": "5 10"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Range Sum Query - Immutable\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Range Sum Query - Immutable\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Range Sum Query - Immutable\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "vector<int> rangeSumQuery(vector<int>& nums, vector<vector<int>>& queries) {\n    // Write your logic here\n    return {};\n}",
+        "java": "public static int[] rangeSum(int[] nums, int[][] queries) {\n    // Write your logic here\n    return new int[0];\n}",
+        "python": "def range_sum(nums: list, queries: list) -> list:\n    # Write your logic here\n    return []"
+      }
+    },
+    {
+      "id": "prefix-sum-3",
+      "name": "Find Pivot Index",
+      "difficulty": "Easy",
+      "acceptanceRate": "56.1%",
+      "description": "Given an array of integers `nums`, calculate the pivot index of this array.\n\nThe pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right.\n\nIf the index is on the left edge of the array, then the left sum is `0` because there are no elements to the left. This also applies to the right edge of the array.\n\nReturn the leftmost pivot index. If no such index exists, return `-1`.",
+      "inputFormat": "A single line containing space-separated integers representing the array.",
+      "outputFormat": "Print a single integer representing pivot index.",
+      "constraints": "1 <= nums.length <= 10^4\n-1000 <= nums[i] <= 1000",
+      "examples": [
+        {
+          "input": "1 7 3 6 5 6",
+          "output": "3",
+          "explanation": "Left sum = 1+7+3 = 11. Right sum = 5+6 = 11."
+        },
+        {
+          "input": "1 2 3",
+          "output": "-1",
+          "explanation": "There is no index that satisfies the conditions."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "1 7 3 6 5 6",
+          "expectedOutput": "3"
+        },
+        {
+          "input": "1 2 3",
+          "expectedOutput": "-1"
+        },
+        {
+          "input": "2 1 -1",
+          "expectedOutput": "0"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int pivotIndex(vector<int>& nums) {\n    // Write your logic here\n    return -1;\n}",
+        "java": "public static int pivotIndex(int[] nums) {\n    // Write your logic here\n    return -1;\n}",
+        "python": "def pivot_index(nums: list) -> int:\n    # Write your logic here\n    return -1"
+      }
+    },
+    {
+      "id": "prefix-sum-4",
+      "name": "Product of Array Except Self",
+      "difficulty": "Medium",
+      "acceptanceRate": "66.5%",
+      "description": "Given an integer array `nums`, return an array `answer` such that `answer[i]` is equal to the product of all the elements of `nums` except `nums[i]`.\n\nThe product of any prefix or suffix of `nums` is guaranteed to fit in a 32-bit integer.",
+      "inputFormat": "A single line containing space-separated integers.",
+      "outputFormat": "Print space-separated integers representing products.",
+      "constraints": "2 <= nums.length <= 2 * 10^4\n-30 <= nums[i] <= 30",
+      "examples": [
+        {
+          "input": "1 2 3 4",
+          "output": "24 12 8 6",
+          "explanation": "answer[0] = 2*3*4 = 24. answer[1] = 1*3*4 = 12."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "1 2 3 4",
+          "expectedOutput": "24 12 8 6"
+        },
+        {
+          "input": "-1 1 0 -3 3",
+          "expectedOutput": "0 0 9 0 0"
+        }
+      ],
+      "starterCode": {
+        "cpp": "vector<int> productExceptSelf(vector<int>& nums) {\n    // Write your logic here\n    return {};\n}",
+        "java": "public static int[] productExceptSelf(int[] nums) {\n    // Write your logic here\n    return new int[0];\n}",
+        "python": "def product_except_self(nums: list) -> list:\n    # Write your logic here\n    return []"
+      }
+    },
+    {
+      "id": "prefix-sum-5",
+      "name": "Continuous Subarray Sum",
+      "difficulty": "Medium",
+      "acceptanceRate": "29.2%",
+      "description": "Given an integer array `nums` and an integer `k`, return `true` if `nums` has a good subarray or `false` otherwise.\n\nA good subarray is a subarray where:\n- its length is at least two, and\n- the sum of the elements of the subarray is a multiple of `k`.\n\nNote that a multiple of `k` includes `0` (i.e. `n * k = 0` for `n = 0`).",
+      "inputFormat": "The first line contains integer `k`. The second line contains space-separated integers.",
+      "outputFormat": "Print `true` or `false`.",
+      "constraints": "1 <= nums.length <= 2 * 10^4\n0 <= nums[i] <= 10^5\n1 <= k <= 2^31 - 1",
+      "examples": [
+        {
+          "input": "6\n23 2 4 6 7",
+          "output": "true",
+          "explanation": "[2, 4] is a continuous subarray of size 2 whose elements sum up to 6."
+        },
+        {
+          "input": "6\n23 2 6 4 7",
+          "output": "true",
+          "explanation": "[23, 2, 6, 4, 7] contains [23, 2, 6, 4] which sums to 35 (not a multiple of 6), but [23, 2, 6, 4, 7] contains [23, 2] = 25 (not multiple), but [2, 6, 4] sums to 12 which is a multiple of 6."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "6\n23 2 4 6 7",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "6\n23 2 6 4 7",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "13\n23 2 6 4 7",
+          "expectedOutput": "false"
+        }
+      ],
+      "starterCode": {
+        "cpp": "bool checkSubarraySum(vector<int>& nums, int k) {\n    // Write your logic here\n    return false;\n}",
+        "java": "public static boolean checkSubarraySum(int[] nums, int k) {\n    // Write your logic here\n    return false;\n}",
+        "python": "def check_subarray_sum(nums: list, k: int) -> bool:\n    # Write your logic here\n    return False"
       }
     }
   ],
@@ -492,28 +1162,31 @@
       "name": "Group Anagrams",
       "difficulty": "Medium",
       "acceptanceRate": "68.2%",
-      "link": "https://leetcode.com/problems/group-anagrams/",
-      "description": "Given input data, solve the coding challenge for **Group Anagrams**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given an array of strings `strs`, group the anagrams together. You can return the answer in any order.\n\nAn Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
+      "inputFormat": "A single line containing space-separated strings.",
+      "outputFormat": "Print sorted groups on separate lines, with elements within each group sorted lexicographically.",
+      "constraints": "1 <= strs.length <= 10^4\n0 <= strs[i].length <= 100\nstrs[i] consists of lowercase English letters.",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "eat tea tan ate nat bat",
+          "output": "ate eat tea\nbat\nnat tan",
+          "explanation": "Group 1: [\"ate\",\"eat\",\"tea\"], Group 2: [\"bat\"], Group 3: [\"nat\",\"tan\"]."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "eat tea tan ate nat bat",
+          "expectedOutput": "ate eat tea\nbat\nnat tan"
+        },
+        {
+          "input": "a",
+          "expectedOutput": "a"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Group Anagrams\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Group Anagrams\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Group Anagrams\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "vector<vector<string>> groupAnagrams(vector<string>& strs) {\n    // Write your logic here\n    return {};\n}",
+        "java": "public static List<List<String>> groupAnagrams(String[] strs) {\n    // Write your logic here\n    return new ArrayList<>();\n}",
+        "python": "def group_anagrams(strs: list) -> list:\n    # Write your logic here\n    return []"
       }
     },
     {
@@ -521,28 +1194,146 @@
       "name": "Contains Duplicate",
       "difficulty": "Easy",
       "acceptanceRate": "61.3%",
-      "link": "https://leetcode.com/problems/contains-duplicate/",
-      "description": "Given input data, solve the coding challenge for **Contains Duplicate**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given an integer array `nums`, return `true` if any value appears at least twice in the array, and return `false` if every element is distinct.",
+      "inputFormat": "A single line containing space-separated integers.",
+      "outputFormat": "Print `true` or `false`.",
+      "constraints": "1 <= nums.length <= 3 * 10^4\n-10^9 <= nums[i] <= 10^9",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "1 2 3 1",
+          "output": "true",
+          "explanation": "1 appears twice."
+        },
+        {
+          "input": "1 2 3 4",
+          "output": "false",
+          "explanation": "All elements are unique."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "1 2 3 1",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "1 2 3 4",
+          "expectedOutput": "false"
+        },
+        {
+          "input": "1 1 1 3 3 4 3 2 4 2",
+          "expectedOutput": "true"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Contains Duplicate\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Contains Duplicate\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Contains Duplicate\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "bool containsDuplicate(vector<int>& nums) {\n    // Write your logic here\n    return false;\n}",
+        "java": "public static boolean containsDuplicate(int[] nums) {\n    // Write your logic here\n    return false;\n}",
+        "python": "def contains_duplicate(nums: list) -> bool:\n    # Write your logic here\n    return False"
+      }
+    },
+    {
+      "id": "hashing-3",
+      "name": "Intersection of Two Arrays",
+      "difficulty": "Easy",
+      "acceptanceRate": "72.4%",
+      "description": "Given two integer arrays `nums1` and `nums2`, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.",
+      "inputFormat": "The first line contains space-separated elements of nums1. The second line contains space-separated elements of nums2.",
+      "outputFormat": "Print space-separated unique elements sorted lexicographically.",
+      "constraints": "1 <= nums1.length, nums2.length <= 1000\n0 <= nums1[i], nums2[i] <= 1000",
+      "examples": [
+        {
+          "input": "1 2 2 1\n2 2",
+          "output": "2",
+          "explanation": "Intersection is [2]."
+        },
+        {
+          "input": "4 9 5\n9 4 9 8 4",
+          "output": "4 9",
+          "explanation": "Intersection is [4,9] (or [9,4])."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "1 2 2 1\n2 2",
+          "expectedOutput": "2"
+        },
+        {
+          "input": "4 9 5\n9 4 9 8 4",
+          "expectedOutput": "4 9"
+        }
+      ],
+      "starterCode": {
+        "cpp": "vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {\n    // Write your logic here\n    return {};\n}",
+        "java": "public static int[] intersection(int[] nums1, int[] nums2) {\n    // Write your logic here\n    return new int[0];\n}",
+        "python": "def intersection(nums1: list, nums2: list) -> list:\n    # Write your logic here\n    return []"
+      }
+    },
+    {
+      "id": "hashing-4",
+      "name": "Longest Consecutive Sequence",
+      "difficulty": "Medium",
+      "acceptanceRate": "47.2%",
+      "description": "Given an unsorted array of integers `nums`, return the length of the longest consecutive elements sequence.\n\nYou must write an algorithm that runs in `O(n)` time.",
+      "inputFormat": "A single line containing space-separated integers representing the array.",
+      "outputFormat": "Print a single integer.",
+      "constraints": "0 <= nums.length <= 10^4\n-10^9 <= nums[i] <= 10^9",
+      "examples": [
+        {
+          "input": "100 4 200 1 3 2",
+          "output": "4",
+          "explanation": "The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4."
+        },
+        {
+          "input": "0 3 7 2 5 8 4 6 0 1",
+          "output": "9",
+          "explanation": "Longest sequence is [0, 1, 2, 3, 4, 5, 6, 7, 8]."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "100 4 200 1 3 2",
+          "expectedOutput": "4"
+        },
+        {
+          "input": "0 3 7 2 5 8 4 6 0 1",
+          "expectedOutput": "9"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int longestConsecutive(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int longestConsecutive(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def longest_consecutive(nums: list) -> int:\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "hashing-5",
+      "name": "Subarray Sums Divisible by K",
+      "difficulty": "Medium",
+      "acceptanceRate": "54.8%",
+      "description": "Given an integer array `nums` and an integer `k`, return the number of non-empty subarrays that have a sum divisible by `k`.\n\nA subarray is a contiguous part of an array.",
+      "inputFormat": "The first line contains divisor `k`. The second line contains space-separated integers.",
+      "outputFormat": "Print a single integer.",
+      "constraints": "1 <= nums.length <= 2 * 10^4\n-10^4 <= nums[i] <= 10^4\n2 <= k <= 10^4",
+      "examples": [
+        {
+          "input": "5\n4 5 0 -2 -3 1",
+          "output": "7",
+          "explanation": "There are 7 subarrays with a sum divisible by k = 5: [4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]"
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "5\n4 5 0 -2 -3 1",
+          "expectedOutput": "7"
+        },
+        {
+          "input": "9\n5",
+          "expectedOutput": "0"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int subarraysDivByK(vector<int>& nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public static int subarraysDivByK(int[] nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def subarrays_div_by_k(nums: list, k: int) -> int:\n    # Write your logic here\n    return 0"
       }
     }
   ],
@@ -851,27 +1642,36 @@
       "difficulty": "Easy",
       "acceptanceRate": "75.3%",
       "link": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
-      "description": "Given input data, solve the coding challenge for **Maximum Depth of Binary Tree**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given the root of a binary tree, return its maximum depth. A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
+      "inputFormat": "A single line containing space-separated elements representing the level-order traversal of the tree. Empty nodes are represented by 'null'.",
+      "outputFormat": "A single integer representing the maximum depth of the tree.",
+      "constraints": "1 <= number of nodes <= 10^4\n-100 <= Node.val <= 100",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "3 9 20 null null 15 7",
+          "output": "3",
+          "explanation": "The binary tree is [3, 9, 20, null, null, 15, 7], its max depth is 3."
+        },
+        {
+          "input": "1 null 2",
+          "output": "2",
+          "explanation": "The binary tree is [1, null, 2], its max depth is 2."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "3 9 20 null null 15 7",
+          "expectedOutput": "3"
+        },
+        {
+          "input": "1 null 2",
+          "expectedOutput": "2"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Maximum Depth of Binary Tree\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Maximum Depth of Binary Tree\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Maximum Depth of Binary Tree\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int maxDepth(TreeNode* root) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int maxDepth(TreeNode root) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def maxDepth(root):\n    # Write your logic here\n    return 0"
       }
     },
     {
@@ -880,27 +1680,31 @@
       "difficulty": "Easy",
       "acceptanceRate": "77.1%",
       "link": "https://leetcode.com/problems/invert-binary-tree/",
-      "description": "Given input data, solve the coding challenge for **Invert Binary Tree**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given the root of a binary tree, invert the tree, and return its root.",
+      "inputFormat": "A single line of space-separated nodes in level-order.",
+      "outputFormat": "A single line of space-separated nodes in level-order representing the inverted tree.",
+      "constraints": "0 <= number of nodes <= 100\n-100 <= Node.val <= 100",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "4 2 7 1 3 6 9",
+          "output": "4 7 2 9 6 3 1",
+          "explanation": "Inverting [4,2,7,1,3,6,9] yields [4,7,2,9,6,3,1]."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "4 2 7 1 3 6 9",
+          "expectedOutput": "4 7 2 9 6 3 1"
+        },
+        {
+          "input": "2 1 3",
+          "expectedOutput": "2 3 1"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Invert Binary Tree\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Invert Binary Tree\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Invert Binary Tree\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "TreeNode* invertTree(TreeNode* root) {\n    // Write your logic here\n    return root;\n}",
+        "java": "public TreeNode invertTree(TreeNode root) {\n    // Write your logic here\n    return root;\n}",
+        "python": "def invertTree(root):\n    # Write your logic here\n    return root"
       }
     },
     {
@@ -909,27 +1713,102 @@
       "difficulty": "Medium",
       "acceptanceRate": "66.5%",
       "link": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
-      "description": "Given input data, solve the coding challenge for **Binary Tree Level Order Traversal**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given the root of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level). Each level should be printed on a new line.",
+      "inputFormat": "Level-order elements of the tree.",
+      "outputFormat": "Each level on a new line, space-separated.",
+      "constraints": "0 <= number of nodes <= 2000\n-1000 <= Node.val <= 1000",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "3 9 20 null null 15 7",
+          "output": "3\n9 20\n15 7",
+          "explanation": "Level 1: [3], Level 2: [9, 20], Level 3: [15, 7]."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "3 9 20 null null 15 7",
+          "expectedOutput": "3\n9 20\n15 7"
+        },
+        {
+          "input": "1",
+          "expectedOutput": "1"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Binary Tree Level Order Traversal\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Binary Tree Level Order Traversal\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Binary Tree Level Order Traversal\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "vector<vector<int>> levelOrder(TreeNode* root) {\n    // Write your logic here\n    return {};\n}",
+        "java": "public List<List<Integer>> levelOrder(TreeNode root) {\n    // Write your logic here\n    return new ArrayList<>();\n}",
+        "python": "def levelOrder(root):\n    # Write your logic here\n    return []"
+      }
+    },
+    {
+      "id": "trees-heaps-and-tries-4",
+      "name": "Validate Binary Search Tree",
+      "difficulty": "Medium",
+      "acceptanceRate": "33.2%",
+      "link": "https://leetcode.com/problems/validate-binary-search-tree/",
+      "description": "Given the root of a binary tree, determine if it is a valid binary search tree (BST). A valid BST is defined as:\n- The left subtree of a node contains only nodes with keys less than the node's key.\n- The right subtree of a node contains only nodes with keys greater than the node's key.\n- Both the left and right subtrees must also be valid binary search trees.",
+      "inputFormat": "Level-order elements of the tree.",
+      "outputFormat": "true if valid BST, otherwise false.",
+      "constraints": "1 <= number of nodes <= 10^4\n-2^31 <= Node.val <= 2^31 - 1",
+      "examples": [
+        {
+          "input": "2 1 3",
+          "output": "true",
+          "explanation": "Left is 1 (< 2), right is 3 (> 2). Tree is valid BST."
+        },
+        {
+          "input": "5 1 4 null null 3 6",
+          "output": "false",
+          "explanation": "The root node's value is 5, but its right child's value is 4, which violates the BST property."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "2 1 3",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "5 1 4 null null 3 6",
+          "expectedOutput": "false"
+        }
+      ],
+      "starterCode": {
+        "cpp": "bool isValidBST(TreeNode* root) {\n    // Write your logic here\n    return false;\n}",
+        "java": "public boolean isValidBST(TreeNode root) {\n    // Write your logic here\n    return false;\n}",
+        "python": "def isValidBST(root):\n    # Write your logic here\n    return False"
+      }
+    },
+    {
+      "id": "trees-heaps-and-tries-5",
+      "name": "Path Sum",
+      "difficulty": "Easy",
+      "acceptanceRate": "50.1%",
+      "link": "https://leetcode.com/problems/path-sum/",
+      "description": "Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.",
+      "inputFormat": "The first line contains targetSum. The second line contains the tree in level-order.",
+      "outputFormat": "true if path exists, false otherwise.",
+      "constraints": "0 <= number of nodes <= 5000\n-1000 <= Node.val <= 1000\n-1000 <= targetSum <= 1000",
+      "examples": [
+        {
+          "input": "22\n5 4 8 11 null 13 4 7 2 null null null 1",
+          "output": "true",
+          "explanation": "The root-to-leaf path 5->4->11->2 sums to 22."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "22\n5 4 8 11 null 13 4 7 2 null null null 1",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "5\n1 2",
+          "expectedOutput": "false"
+        }
+      ],
+      "starterCode": {
+        "cpp": "bool hasPathSum(TreeNode* root, int targetSum) {\n    // Write your logic here\n    return false;\n}",
+        "java": "public boolean hasPathSum(TreeNode root, int targetSum) {\n    // Write your logic here\n    return false;\n}",
+        "python": "def hasPathSum(root, targetSum):\n    # Write your logic here\n    return False"
       }
     }
   ],
@@ -940,56 +1819,64 @@
       "difficulty": "Medium",
       "acceptanceRate": "59.2%",
       "link": "https://leetcode.com/problems/number-of-islands/",
-      "description": "Given input data, solve the coding challenge for **Number of Islands**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.",
+      "inputFormat": "First line contains m and n. The next m lines contain n space-separated characters (1 or 0).",
+      "outputFormat": "A single integer representing the number of islands.",
+      "constraints": "m == grid.length, n == grid[i].length\n1 <= m, n <= 300\ngrid[i][j] is '0' or '1'.",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "4 5\n1 1 1 1 0\n1 1 0 1 0\n1 1 0 0 0\n0 0 0 0 0",
+          "output": "1",
+          "explanation": "All adjacent 1s form one big island."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "4 5\n1 1 1 1 0\n1 1 0 1 0\n1 1 0 0 0\n0 0 0 0 0",
+          "expectedOutput": "1"
+        },
+        {
+          "input": "4 5\n1 1 0 0 0\n1 1 0 0 0\n0 0 1 0 0\n0 0 0 1 1",
+          "expectedOutput": "3"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Number of Islands\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Number of Islands\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Number of Islands\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int numIslands(vector<vector<char>>& grid) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int numIslands(char[][] grid) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def numIslands(grid):\n    # Write your logic here\n    return 0"
       }
     },
     {
       "id": "graph-bfs-dfs-2",
-      "name": "Clone Graph",
+      "name": "Max Area of Island",
       "difficulty": "Medium",
-      "acceptanceRate": "56.4%",
-      "link": "https://leetcode.com/problems/clone-graph/",
-      "description": "Given input data, solve the coding challenge for **Clone Graph**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "acceptanceRate": "72.4%",
+      "link": "https://leetcode.com/problems/max-area-of-island/",
+      "description": "You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical). The area of an island is the number of cells with a value 1 in the island. Return the maximum area of an island in grid. If there is no island, return 0.",
+      "inputFormat": "First line: m n. Next m lines: n space-separated integers (1 or 0).",
+      "outputFormat": "A single integer representing the max area.",
+      "constraints": "m == grid.length, n == grid[i].length\n1 <= m, n <= 50",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "4 5\n0 0 1 0 0\n0 0 1 1 0\n0 1 1 0 0\n0 0 0 0 0",
+          "output": "4",
+          "explanation": "The largest island has area 4."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "4 5\n0 0 1 0 0\n0 0 1 1 0\n0 1 1 0 0\n0 0 0 0 0",
+          "expectedOutput": "4"
+        },
+        {
+          "input": "2 2\n0 0\n0 0",
+          "expectedOutput": "0"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Clone Graph\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Clone Graph\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Clone Graph\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int maxAreaOfIsland(vector<vector<int>>& grid) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int maxAreaOfIsland(int[][] grid) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def maxAreaOfIsland(grid):\n    # Write your logic here\n    return 0"
       }
     },
     {
@@ -998,27 +1885,102 @@
       "difficulty": "Medium",
       "acceptanceRate": "46.7%",
       "link": "https://leetcode.com/problems/course-schedule/",
-      "description": "Given input data, solve the coding challenge for **Course Schedule**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai. Return true if you can finish all courses. Otherwise, return false.",
+      "inputFormat": "First line contains numCourses. The second line contains the number of prerequisites P. The next P lines each contain a pair ai bi.",
+      "outputFormat": "true if you can finish all courses, false otherwise.",
+      "constraints": "1 <= numCourses <= 2000\n0 <= prerequisites.length <= 5000",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "2\n1\n1 0",
+          "output": "true",
+          "explanation": "To take course 1 you should have finished course 0. So it is possible."
+        },
+        {
+          "input": "2\n2\n1 0\n0 1",
+          "output": "false",
+          "explanation": "There is a cycle. So it is impossible."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "2\n1\n1 0",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "2\n2\n1 0\n0 1",
+          "expectedOutput": "false"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Course Schedule\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Course Schedule\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Course Schedule\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {\n    // Write your logic here\n    return false;\n}",
+        "java": "public boolean canFinish(int numCourses, int[][] prerequisites) {\n    // Write your logic here\n    return false;\n}",
+        "python": "def canFinish(numCourses, prerequisites):\n    # Write your logic here\n    return False"
+      }
+    },
+    {
+      "id": "graph-bfs-dfs-4",
+      "name": "Rotting Oranges",
+      "difficulty": "Medium",
+      "acceptanceRate": "54.1%",
+      "link": "https://leetcode.com/problems/rotting-oranges/",
+      "description": "You are given an m x n grid where each cell can have one of three values:\n- 0 representing empty cell,\n- 1 representing fresh orange,\n- 2 representing rotten orange.\nEvery minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten. Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.",
+      "inputFormat": "First line contains m and n. The next m lines each contain n space-separated integers.",
+      "outputFormat": "A single integer representing the minutes or -1.",
+      "constraints": "m == grid.length, n == grid[i].length\n1 <= m, n <= 10\ngrid[i][j] is 0, 1, or 2.",
+      "examples": [
+        {
+          "input": "3 3\n2 1 1\n1 1 0\n0 1 1",
+          "output": "4",
+          "explanation": "At minute 4, all fresh oranges are rotten."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "3 3\n2 1 1\n1 1 0\n0 1 1",
+          "expectedOutput": "4"
+        },
+        {
+          "input": "3 3\n2 1 1\n0 1 1\n1 0 1",
+          "expectedOutput": "-1"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int orangesRotting(vector<vector<int>>& grid) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int orangesRotting(int[][] grid) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def orangesRotting(grid):\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "graph-bfs-dfs-5",
+      "name": "Flood Fill",
+      "difficulty": "Easy",
+      "acceptanceRate": "63.9%",
+      "link": "https://leetcode.com/problems/flood-fill/",
+      "description": "An image is represented by an m x n integer grid image where image[i][j] represents the pixel value of the image. You are also given three integers sr, sc, and color. You should perform a flood fill on the image starting from the pixel image[sr][sc]. Return the modified image after performing the flood fill.",
+      "inputFormat": "First line: m n. Next m lines: n space-separated integers. Last line: sr sc color.",
+      "outputFormat": "The modified grid image, each row on a new line, elements space-separated.",
+      "constraints": "m == image.length, n == image[i].length\n1 <= m, n <= 50\n0 <= image[i][j], color < 2^16",
+      "examples": [
+        {
+          "input": "3 3\n1 1 1\n1 1 0\n1 0 1\n1 1 2",
+          "output": "2 2 2\n2 2 0\n2 0 1",
+          "explanation": "All connected pixels with value 1 are filled with 2."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "3 3\n1 1 1\n1 1 0\n1 0 1\n1 1 2",
+          "expectedOutput": "2 2 2\n2 2 0\n2 0 1"
+        },
+        {
+          "input": "3 3\n0 0 0\n0 0 0\n0 0 0\n0 0 0",
+          "expectedOutput": "0 0 0\n0 0 0\n0 0 0"
+        }
+      ],
+      "starterCode": {
+        "cpp": "vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {\n    // Write your logic here\n    return image;\n}",
+        "java": "public int[][] floodFill(int[][] image, int sr, int sc, int color) {\n    // Write your logic here\n    return image;\n}",
+        "python": "def floodFill(image, sr, sc, color):\n    # Write your logic here\n    return image"
       }
     }
   ],
@@ -1029,27 +1991,36 @@
       "difficulty": "Easy",
       "acceptanceRate": "53.1%",
       "link": "https://leetcode.com/problems/climbing-stairs/",
-      "description": "Given input data, solve the coding challenge for **Climbing Stairs**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+      "inputFormat": "A single integer n.",
+      "outputFormat": "A single integer representing the number of ways.",
+      "constraints": "1 <= n <= 45",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "2",
+          "output": "2",
+          "explanation": "1+1 or 2"
+        },
+        {
+          "input": "3",
+          "output": "3",
+          "explanation": "1+1+1, 1+2, or 2+1"
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "2",
+          "expectedOutput": "2"
+        },
+        {
+          "input": "3",
+          "expectedOutput": "3"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Climbing Stairs\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Climbing Stairs\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Climbing Stairs\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int climbStairs(int n) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int climbStairs(int n) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def climbStairs(n):\n    # Write your logic here\n    return 0"
       }
     },
     {
@@ -1058,27 +2029,31 @@
       "difficulty": "Medium",
       "acceptanceRate": "44.2%",
       "link": "https://leetcode.com/problems/coin-change/",
-      "description": "Given input data, solve the coding challenge for **Coin Change**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money. Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.",
+      "inputFormat": "First line: amount. Second line: space-separated coin values.",
+      "outputFormat": "A single integer.",
+      "constraints": "1 <= coins.length <= 12\n1 <= coins[i] <= 2^31 - 1\n0 <= amount <= 10^4",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "11\n1 2 5",
+          "output": "3",
+          "explanation": "11 = 5 + 5 + 1"
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "11\n1 2 5",
+          "expectedOutput": "3"
+        },
+        {
+          "input": "3\n2",
+          "expectedOutput": "-1"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Coin Change\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Coin Change\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Coin Change\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int coinChange(vector<int>& coins, int amount) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int coinChange(int[] coins, int amount) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def coinChange(coins, amount):\n    # Write your logic here\n    return 0"
       }
     },
     {
@@ -1087,27 +2062,97 @@
       "difficulty": "Medium",
       "acceptanceRate": "51.8%",
       "link": "https://leetcode.com/problems/longest-common-subsequence/",
-      "description": "Given input data, solve the coding challenge for **Longest Common Subsequence**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.",
+      "inputFormat": "First line contains text1, second line contains text2.",
+      "outputFormat": "A single integer representing LCS length.",
+      "constraints": "1 <= text1.length, text2.length <= 1000",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "abcde\nace",
+          "output": "3",
+          "explanation": "The LCS is 'ace'."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "abcde\nace",
+          "expectedOutput": "3"
+        },
+        {
+          "input": "abc\nabc",
+          "expectedOutput": "3"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Longest Common Subsequence\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Longest Common Subsequence\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Longest Common Subsequence\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int longestCommonSubsequence(string text1, string text2) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int longestCommonSubsequence(String text1, String text2) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def longestCommonSubsequence(text1, text2):\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "dynamic-programming-4",
+      "name": "House Robber",
+      "difficulty": "Medium",
+      "acceptanceRate": "50.8%",
+      "link": "https://leetcode.com/problems/house-robber/",
+      "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. If two adjacent houses are broken into on the same night, security will contact the police. Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.",
+      "inputFormat": "A single line containing space-separated integers.",
+      "outputFormat": "A single integer representing the max money.",
+      "constraints": "1 <= nums.length <= 400\n0 <= nums[i] <= 400",
+      "examples": [
+        {
+          "input": "1 2 3 1",
+          "output": "4",
+          "explanation": "Rob house 1 (money = 1) and rob house 3 (money = 3). Total = 4."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "1 2 3 1",
+          "expectedOutput": "4"
+        },
+        {
+          "input": "2 7 9 3 1",
+          "expectedOutput": "12"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int rob(vector<int>& nums) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int rob(int[] nums) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def rob(nums):\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "dynamic-programming-5",
+      "name": "Edit Distance",
+      "difficulty": "Hard",
+      "acceptanceRate": "54.8%",
+      "link": "https://leetcode.com/problems/edit-distance/",
+      "description": "Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2. You have the following three operations permitted on a word:\n- Insert a character\n- Delete a character\n- Replace a character",
+      "inputFormat": "First line contains word1, second line contains word2.",
+      "outputFormat": "A single integer representing minimum operations.",
+      "constraints": "0 <= word1.length, word2.length <= 500",
+      "examples": [
+        {
+          "input": "horse\nros",
+          "output": "3",
+          "explanation": "horse -> rorse -> rose -> ros"
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "horse\nros",
+          "expectedOutput": "3"
+        },
+        {
+          "input": "intention\nexecution",
+          "expectedOutput": "5"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int minDistance(string word1, string word2) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int minDistance(String word1, String word2) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def minDistance(word1, word2):\n    # Write your logic here\n    return 0"
       }
     }
   ],
@@ -1118,27 +2163,34 @@
       "difficulty": "Medium",
       "acceptanceRate": "38.5%",
       "link": "https://leetcode.com/problems/jump-game/",
-      "description": "Given input data, solve the coding challenge for **Jump Game**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position. Return true if you can reach the last index, or false otherwise.",
+      "inputFormat": "A single line of space-separated integers.",
+      "outputFormat": "true if you can reach the last index, false otherwise.",
+      "constraints": "1 <= nums.length <= 10^4\n0 <= nums[i] <= 10^5",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "2 3 1 1 4",
+          "output": "true"
+        },
+        {
+          "input": "3 2 1 0 4",
+          "output": "false"
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "2 3 1 1 4",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "3 2 1 0 4",
+          "expectedOutput": "false"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Jump Game\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Jump Game\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Jump Game\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "bool canJump(vector<int>& nums) {\n    // Write your logic here\n    return false;\n}",
+        "java": "public boolean canJump(int[] nums) {\n    // Write your logic here\n    return false;\n}",
+        "python": "def canJump(nums):\n    # Write your logic here\n    return False"
       }
     },
     {
@@ -1147,27 +2199,126 @@
       "difficulty": "Medium",
       "acceptanceRate": "45.1%",
       "link": "https://leetcode.com/problems/gas-station/",
-      "description": "Given input data, solve the coding challenge for **Gas Station**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "There are n gas stations along a circular route, where the amount of gas at the ith station is gas[i]. You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from the ith station to its next (i + 1)th station. You begin the journey with an empty tank at one of the gas stations. Given two integer arrays gas and cost, return the starting gas station's index if you can travel around the circuit once in the clockwise direction, otherwise return -1. If there exists a solution, it is guaranteed to be unique.",
+      "inputFormat": "First line contains space-separated integers for gas. Second line contains space-separated integers for cost.",
+      "outputFormat": "A single integer representing the starting index, or -1.",
+      "constraints": "gas.length == cost.length\n1 <= gas.length <= 10^5\n0 <= gas[i], cost[i] <= 10^4",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "1 2 3 4 5\n3 4 5 1 2",
+          "output": "3"
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "1 2 3 4 5\n3 4 5 1 2",
+          "expectedOutput": "3"
+        },
+        {
+          "input": "2 3 4\n3 4 3",
+          "expectedOutput": "-1"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Gas Station\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Gas Station\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Gas Station\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int canCompleteCircuit(int[] gas, int[] cost) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def canCompleteCircuit(gas, cost):\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "greedy-3",
+      "name": "Assign Cookies",
+      "difficulty": "Easy",
+      "acceptanceRate": "52.3%",
+      "link": "https://leetcode.com/problems/assign-cookies/",
+      "description": "Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.",
+      "inputFormat": "First line: space-separated integers for g. Second line: space-separated integers for s.",
+      "outputFormat": "A single integer.",
+      "constraints": "1 <= g.length, s.length <= 3 * 10^4\n1 <= g[i], s[j] <= 2^31 - 1",
+      "examples": [
+        {
+          "input": "1 2 3\n1 1",
+          "output": "1"
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "1 2 3\n1 1",
+          "expectedOutput": "1"
+        },
+        {
+          "input": "1 2\n1 2 3",
+          "expectedOutput": "2"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int findContentChildren(vector<int>& g, vector<int>& s) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int findContentChildren(int[] g, int[] s) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def findContentChildren(g, s):\n    # Write your logic here\n    return 0"
+      }
+    },
+    {
+      "id": "greedy-4",
+      "name": "Partition Labels",
+      "difficulty": "Medium",
+      "acceptanceRate": "79.8%",
+      "link": "https://leetcode.com/problems/partition-labels/",
+      "description": "You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part. Note that the partition is done so that after concatenating all the parts in order, the resultant string should be s. Return a list of integers representing the size of these parts.",
+      "inputFormat": "A single string s.",
+      "outputFormat": "A single line containing space-separated integers representing the sizes of the parts.",
+      "constraints": "1 <= s.length <= 500\ns consists of lowercase English letters.",
+      "examples": [
+        {
+          "input": "ababcbacadefegdehijhklij",
+          "output": "9 7 8"
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "ababcbacadefegdehijhklij",
+          "expectedOutput": "9 7 8"
+        },
+        {
+          "input": "eccbbbbdec",
+          "expectedOutput": "10"
+        }
+      ],
+      "starterCode": {
+        "cpp": "vector<int> partitionLabels(string s) {\n    // Write your logic here\n    return {};\n}",
+        "java": "public List<Integer> partitionLabels(String s) {\n    // Write your logic here\n    return new ArrayList<>();\n}",
+        "python": "def partitionLabels(s):\n    # Write your logic here\n    return []"
+      }
+    },
+    {
+      "id": "greedy-5",
+      "name": "Non-overlapping Intervals",
+      "difficulty": "Medium",
+      "acceptanceRate": "53.2%",
+      "link": "https://leetcode.com/problems/non-overlapping-intervals/",
+      "description": "Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.",
+      "inputFormat": "First line: N (number of intervals). The next N lines each contain space-separated start and end values.",
+      "outputFormat": "A single integer representing the count of intervals to remove.",
+      "constraints": "1 <= intervals.length <= 10^5\nintervals[i].length == 2\n-5 * 10^4 <= starti < endi <= 5 * 10^4",
+      "examples": [
+        {
+          "input": "4\n1 2\n2 3\n3 4\n1 3",
+          "output": "1"
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "4\n1 2\n2 3\n3 4\n1 3",
+          "expectedOutput": "1"
+        },
+        {
+          "input": "3\n1 2\n1 2\n1 2",
+          "expectedOutput": "2"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int eraseOverlapIntervals(vector<vector<int>>& intervals) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int eraseOverlapIntervals(int[][] intervals) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def eraseOverlapIntervals(intervals):\n    # Write your logic here\n    return 0"
       }
     }
   ],
@@ -1178,27 +2329,27 @@
       "difficulty": "Medium",
       "acceptanceRate": "65.3%",
       "link": "https://leetcode.com/problems/implement-trie-prefix-tree/",
-      "description": "Given input data, solve the coding challenge for **Implement Trie (Prefix Tree)**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "A trie (pronounced as 'try') or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. Implement the Trie class:\n- `Trie()` Initializes the trie object.\n- `void insert(String word)` Inserts the string `word` into the trie.\n- `boolean search(String word)` Returns `true` if the string `word` is in the trie, and `false` otherwise.\n- `boolean startsWith(String prefix)` Returns `true` if there is a previously inserted string `word` that has the prefix `prefix`, and `false` otherwise.",
+      "inputFormat": "First line: N (number of operations). Next line: N space-separated operations. Last line: N space-separated arguments (corresponding to the operations).",
+      "outputFormat": "Space-separated responses.",
+      "constraints": "1 <= word.length, prefix.length <= 2000\nAt most 3 * 10^4 calls in total.",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "5\ninsert search search startsWith startsWith\napple apple app app apple",
+          "output": "null true false false true",
+          "explanation": "Trie operations correspond to insert(apple) -> null, search(apple) -> true, search(app) -> false, startsWith(app) -> false (wait, startsWith should be true, wait: if we look up 'app' in 'apple', startsWith(app) is true, yes! In the example, startsWith(app) is true, startsWith(apple) is true)."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "5\ninsert search search startsWith startsWith\napple apple app app apple",
+          "expectedOutput": "null true false true true"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Implement Trie (Prefix Tree)\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Implement Trie (Prefix Tree)\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Implement Trie (Prefix Tree)\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "class Trie {\npublic:\n    Trie() {\n        \n    }\n    \n    void insert(string word) {\n        \n    }\n    \n    bool search(string word) {\n        return false;\n    }\n    \n    bool startsWith(string prefix) {\n        return false;\n    }\n};",
+        "java": "class Trie {\n    public Trie() {\n        \n    }\n    \n    public void insert(String word) {\n        \n    }\n    \n    public boolean search(String word) {\n        return false;\n    }\n    \n    public boolean startsWith(String prefix) {\n        return false;\n    }\n}",
+        "python": "class Trie:\n    def __init__(self):\n        pass\n\n    def insert(self, word: str) -> None:\n        pass\n\n    def search(self, word: str) -> bool:\n        return False\n\n    def startsWith(self, prefix: str) -> bool:\n        return False"
       }
     },
     {
@@ -1207,27 +2358,126 @@
       "difficulty": "Hard",
       "acceptanceRate": "39.2%",
       "link": "https://leetcode.com/problems/word-search-ii/",
-      "description": "Given input data, solve the coding challenge for **Word Search II**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given an m x n board of characters and a list of strings words, return all words on the board. Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.",
+      "inputFormat": "First line contains m and n. The next m lines each contain n space-separated characters. The last line contains space-separated words.",
+      "outputFormat": "A single line containing space-separated words found, sorted alphabetically.",
+      "constraints": "m == board.length, n == board[i].length\n1 <= m, n <= 12\n1 <= words.length <= 3 * 10^4",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "4 4\no a a n\ne t a e\ni h k r\ni f l v\noath pea eat rain",
+          "output": "eat oath",
+          "explanation": "The words 'eat' and 'oath' can be formed on the board."
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "4 4\no a a n\ne t a e\ni h k r\ni f l v\noath pea eat rain",
+          "expectedOutput": "eat oath"
+        },
+        {
+          "input": "2 2\na b\nc d\nabacd",
+          "expectedOutput": ""
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Word Search II\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Word Search II\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Word Search II\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {\n    // Write your logic here\n    return {};\n}",
+        "java": "public List<String> findWords(char[][] board, String[] words) {\n    // Write your logic here\n    return new ArrayList<>();\n}",
+        "python": "def findWords(board, words):\n    # Write your logic here\n    return []"
+      }
+    },
+    {
+      "id": "tries-3",
+      "name": "Replace Words",
+      "difficulty": "Medium",
+      "acceptanceRate": "64.3%",
+      "link": "https://leetcode.com/problems/replace-words/",
+      "description": "Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the derivatives in the sentence with the root forming it. If a derivative can be replaced by more than one root, replace it with the root that has the shortest length. Return the sentence after the replacement.",
+      "inputFormat": "First line: space-separated roots. Second line: the sentence.",
+      "outputFormat": "The sentence with derivatives replaced.",
+      "constraints": "1 <= roots.length <= 1000\n1 <= sentence.length <= 10^6",
+      "examples": [
+        {
+          "input": "cat bat rat\nthe cattle was rattled by the battery",
+          "output": "the cat was rat by the bat",
+          "explanation": "'cattle' -> 'cat', 'rattled' -> 'rat', 'battery' -> 'bat'."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "cat bat rat\nthe cattle was rattled by the battery",
+          "expectedOutput": "the cat was rat by the bat"
+        },
+        {
+          "input": "a b c\na a b b c c",
+          "expectedOutput": "a a b b c c"
+        }
+      ],
+      "starterCode": {
+        "cpp": "string replaceWords(vector<string>& dictionary, string sentence) {\n    // Write your logic here\n    return sentence;\n}",
+        "java": "public String replaceWords(List<String> dictionary, String sentence) {\n    // Write your logic here\n    return sentence;\n}",
+        "python": "def replaceWords(dictionary, sentence):\n    # Write your logic here\n    return sentence"
+      }
+    },
+    {
+      "id": "tries-4",
+      "name": "Design Add and Search Words Data Structure",
+      "difficulty": "Medium",
+      "acceptanceRate": "45.0%",
+      "link": "https://leetcode.com/problems/design-add-and-search-words-data-structure/",
+      "description": "Design a data structure that supports adding new words and finding if a string matches any previously added string. Implement the WordDictionary class:\n- `WordDictionary()` Initializes the object.\n- `void addWord(word)` Adds word to the data structure.\n- `bool search(word)` Returns true if there is any string in the data structure that matches word or false otherwise. word may contain dots '.' where dots can be matched with any letter.",
+      "inputFormat": "First line: N (number of operations). Next line: N space-separated operations. Last line: N space-separated arguments.",
+      "outputFormat": "Space-separated responses.",
+      "constraints": "1 <= word.length <= 25\nAt most 10^4 calls in total.",
+      "examples": [
+        {
+          "input": "5\naddWord search search search search\nbad bad .ad b.. ba",
+          "output": "null true true true false",
+          "explanation": "addWord(bad) -> null, search(bad) -> true, search(.ad) -> true, search(b..) -> true, search(ba) -> false"
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "5\naddWord search search search search\nbad bad .ad b.. ba",
+          "expectedOutput": "null true true true false"
+        }
+      ],
+      "starterCode": {
+        "cpp": "class WordDictionary {\npublic:\n    WordDictionary() {\n        \n    }\n    \n    void addWord(string word) {\n        \n    }\n    \n    bool search(string word) {\n        return false;\n    }\n};",
+        "java": "class WordDictionary {\n    public WordDictionary() {\n        \n    }\n    \n    public void addWord(String word) {\n        \n    }\n    \n    public boolean search(String word) {\n        return false;\n    }\n}",
+        "python": "class WordDictionary:\n    def __init__(self):\n        pass\n\n    def addWord(self, word: str) -> None:\n        pass\n\n    def search(self, word: str) -> bool:\n        return False"
+      }
+    },
+    {
+      "id": "tries-5",
+      "name": "Extra Characters in a String",
+      "difficulty": "Medium",
+      "acceptanceRate": "52.8%",
+      "link": "https://leetcode.com/problems/extra-characters-in-a-string/",
+      "description": "You are given a 0-indexed string s and a dictionary of words dictionary. You have to break s into one or more non-overlapping substrings such that each substring is present in dictionary. There may be some extra characters in s which are not present in any of the substrings. Return the minimum number of extra characters left over if you break s optimally.",
+      "inputFormat": "First line: string s. Second line: space-separated dictionary words.",
+      "outputFormat": "A single integer.",
+      "constraints": "1 <= s.length <= 50\n1 <= dictionary.length <= 50",
+      "examples": [
+        {
+          "input": "leetscode\nleet code lee",
+          "output": "1",
+          "explanation": "We break s into 'leet' and 'code', leaving 's' as extra character (length 1)."
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "leetscode\nleet code lee",
+          "expectedOutput": "1"
+        },
+        {
+          "input": "sayhelloworld\nhello world",
+          "expectedOutput": "3"
+        }
+      ],
+      "starterCode": {
+        "cpp": "int minExtraChar(string s, vector<string>& dictionary) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int minExtraChar(String s, String[] dictionary) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def minExtraChar(s, dictionary):\n    # Write your logic here\n    return 0"
       }
     }
   ],
@@ -1238,27 +2488,30 @@
       "difficulty": "Medium",
       "acceptanceRate": "67.4%",
       "link": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
-      "description": "Given input data, solve the coding challenge for **Kth Largest Element in an Array**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element.",
+      "inputFormat": "First line contains k. The second line contains space-separated integers.",
+      "outputFormat": "A single integer.",
+      "constraints": "1 <= k <= nums.length <= 10^5\n-10^4 <= nums[i] <= 10^4",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "2\n3 2 1 5 6 4",
+          "output": "5"
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "2\n3 2 1 5 6 4",
+          "expectedOutput": "5"
+        },
+        {
+          "input": "4\n3 2 3 1 2 4 5 5 6",
+          "expectedOutput": "4"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Kth Largest Element in an Array\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Kth Largest Element in an Array\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Kth Largest Element in an Array\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "int findKthLargest(vector<int>& nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+        "java": "public int findKthLargest(int[] nums, int k) {\n    // Write your logic here\n    return 0;\n}",
+        "python": "def findKthLargest(nums, k):\n    # Write your logic here\n    return 0"
       }
     },
     {
@@ -1267,27 +2520,118 @@
       "difficulty": "Hard",
       "acceptanceRate": "52.1%",
       "link": "https://leetcode.com/problems/find-median-from-data-stream/",
-      "description": "Given input data, solve the coding challenge for **Find Median from Data Stream**.\n\n*(This is currently a placeholder problem. More details will be added soon.)*",
-      "inputFormat": "Standard Input structure.",
-      "outputFormat": "Standard Output structure.",
-      "constraints": "Time Limit: 2.0s\nMemory Limit: 256MB",
+      "description": "Implement the MedianFinder class to find the median of a stream of integers:\n- `MedianFinder()` initializes the MedianFinder object.\n- `void addNum(int num)` adds the integer num from the data stream to the data structure.\n- `double findMedian()` returns the median of all elements so far.",
+      "inputFormat": "First line: N (number of operations). Next line: N space-separated operations. Last line: N space-separated arguments.",
+      "outputFormat": "Space-separated responses, double values printed with 1 decimal place.",
+      "constraints": "-10^5 <= num <= 10^5\nAt most 5 * 10^4 calls in total.",
       "examples": [
         {
-          "input": "Sample Input",
-          "output": "Sample Output",
-          "explanation": "Sample Explanation of the problem."
+          "input": "4\naddNum addNum findMedian addNum findMedian\n1 2 [] 3 []",
+          "output": "null null 1.5 null 2.0"
         }
       ],
       "visibleTestCases": [
         {
-          "input": "Sample Input",
-          "expectedOutput": "Sample Output"
+          "input": "4\naddNum addNum findMedian addNum findMedian\n1 2 [] 3 []",
+          "expectedOutput": "null null 1.5 null 2.0"
         }
       ],
       "starterCode": {
-        "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Implement solution for Find Median from Data Stream\n    cout << \"Sample Output\" << endl;\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        // Implement solution for Find Median from Data Stream\n        System.out.println(\"Sample Output\");\n    }\n}",
-        "python": "import sys\n\ndef main():\n    # Implement solution for Find Median from Data Stream\n    print(\"Sample Output\")\n\nif __name__ == '__main__':\n    main()"
+        "cpp": "class MedianFinder {\npublic:\n    MedianFinder() {\n        \n    }\n    \n    void addNum(int num) {\n        \n    }\n    \n    double findMedian() {\n        return 0.0;\n    }\n};",
+        "java": "class MedianFinder {\n    public MedianFinder() {\n        \n    }\n    \n    public void addNum(int num) {\n        \n    }\n    \n    public double findMedian() {\n        return 0.0;\n    }\n}",
+        "python": "class MedianFinder:\n    def __init__(self):\n        pass\n\n    def addNum(self, num: int) -> None:\n        pass\n\n    def findMedian(self) -> float:\n        return 0.0"
+      }
+    },
+    {
+      "id": "heaps-3",
+      "name": "Merge k Sorted Lists",
+      "difficulty": "Hard",
+      "acceptanceRate": "51.2%",
+      "link": "https://leetcode.com/problems/merge-k-sorted-lists/",
+      "description": "You are given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.",
+      "inputFormat": "First line: k. Next k lines each contain space-separated integers representing a linked list.",
+      "outputFormat": "A single line containing space-separated integers of the merged sorted linked-list.",
+      "constraints": "k == lists.length\n0 <= k <= 10^4\n0 <= lists[i].length <= 500",
+      "examples": [
+        {
+          "input": "3\n1 4 5\n1 3 4\n2 6",
+          "output": "1 1 2 3 4 4 5 6"
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "3\n1 4 5\n1 3 4\n2 6",
+          "expectedOutput": "1 1 2 3 4 4 5 6"
+        }
+      ],
+      "starterCode": {
+        "cpp": "ListNode* mergeKLists(vector<ListNode*>& lists) {\n    // Write your logic here\n    return nullptr;\n}",
+        "java": "public ListNode mergeKLists(ListNode[] lists) {\n    // Write your logic here\n    return null;\n}",
+        "python": "def mergeKLists(lists):\n    # Write your logic here\n    return None"
+      }
+    },
+    {
+      "id": "heaps-4",
+      "name": "Top K Frequent Elements",
+      "difficulty": "Medium",
+      "acceptanceRate": "62.8%",
+      "link": "https://leetcode.com/problems/top-k-frequent-elements/",
+      "description": "Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.",
+      "inputFormat": "First line contains k. The second line contains space-separated integers.",
+      "outputFormat": "A single line containing space-separated integers representing top k frequent elements, sorted in ascending order.",
+      "constraints": "1 <= nums.length <= 10^5\n-10^4 <= nums[i] <= 10^4\nk is in the range [1, the number of unique elements in the array].",
+      "examples": [
+        {
+          "input": "2\n1 1 1 2 2 3",
+          "output": "1 2"
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "2\n1 1 1 2 2 3",
+          "expectedOutput": "1 2"
+        },
+        {
+          "input": "1\n1",
+          "expectedOutput": "1"
+        }
+      ],
+      "starterCode": {
+        "cpp": "vector<int> topKFrequent(vector<int>& nums, int k) {\n    // Write your logic here\n    return {};\n}",
+        "java": "public int[] topKFrequent(int[] nums, int k) {\n    // Write your logic here\n    return new int[0];\n}",
+        "python": "def topKFrequent(nums, k):\n    # Write your logic here\n    return []"
+      }
+    },
+    {
+      "id": "heaps-5",
+      "name": "K Closest Points to Origin",
+      "difficulty": "Medium",
+      "acceptanceRate": "66.1%",
+      "link": "https://leetcode.com/problems/k-closest-points-to-origin/",
+      "description": "Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0). The answer should be sorted by x-coordinate, then by y-coordinate if x-coordinates are equal.",
+      "inputFormat": "First line contains k. Second line contains N (number of points). The next N lines each contain xi yi.",
+      "outputFormat": "k lines, each with space-separated coordinates xi yi.",
+      "constraints": "1 <= k <= N <= 10^4\n-10^4 <= xi, yi <= 10^4",
+      "examples": [
+        {
+          "input": "1\n2\n1 3\n-2 2",
+          "output": "-2 2"
+        }
+      ],
+      "visibleTestCases": [
+        {
+          "input": "1\n2\n1 3\n-2 2",
+          "expectedOutput": "-2 2"
+        },
+        {
+          "input": "2\n3\n3 3\n5 -1\n-2 4",
+          "expectedOutput": "-2 4\n3 3"
+        }
+      ],
+      "starterCode": {
+        "cpp": "vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {\n    // Write your logic here\n    return {};\n}",
+        "java": "public int[][] kClosest(int[][] points, int k) {\n    // Write your logic here\n    return new int[0][0];\n}",
+        "python": "def kClosest(points, k):\n    # Write your logic here\n    return []"
       }
     }
   ]

@@ -1,251 +1,298 @@
-import React, { useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import {
-  Boxes,
+  Stack,
   Database,
   Cpu,
   Network,
-  BrainCircuit,
+  Brain,
   Target,
-  Layers3,
-  Code2,
+  TreeStructure,
+  Code,
   Binary,
-  FileCode2,
+  FileCode,
   GitBranch,
   ShieldCheck,
-} from "lucide-react";
-
-const CATEGORY_STYLES = {
-  dsa: {
-    color: "#3B82F6", // Blue
-    buttonBg: "bg-blue-600 hover:bg-blue-700 active:bg-blue-800",
-    progressBg: "bg-blue-500",
-  },
-  systems: {
-    color: "#8B5CF6", // Purple
-    buttonBg: "bg-purple-600 hover:bg-purple-700 active:bg-purple-800",
-    progressBg: "bg-purple-500",
-  },
-  database: {
-    color: "#0D9488", // Teal
-    buttonBg: "bg-teal-600 hover:bg-teal-700 active:bg-teal-800",
-    progressBg: "bg-teal-500",
-  },
-  design: {
-    color: "#10B981", // Emerald
-    buttonBg: "bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800",
-    progressBg: "bg-emerald-500",
-  },
-  prep: {
-    color: "#6366F1", // Indigo
-    buttonBg: "bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800",
-    progressBg: "bg-indigo-500",
-  }
-};
+  ArrowRight,
+  CircleNotch,
+} from "@phosphor-icons/react";
+import { useGsapEntrance } from "../hooks";
+import BorderGlow from "../../../components/ui/BorderGlow";
 
 const topics = [
   {
     title: "Data Structures & Algorithms",
     progress: 0,
     total: 8,
-    category: "dsa",
     link: "/dashboard/data-structures-and-algorithms",
-    icon: Boxes,
+    icon: Stack,
+    color: "#3b82f6",
   },
   {
     title: "SQL",
     progress: 0,
     total: 5,
-    category: "database",
     link: "/dashboard/sql",
     icon: Database,
+    color: "#22c55e",
   },
   {
     title: "Operating System",
     progress: 0,
     total: 3,
-    category: "systems",
     link: "/dashboard/operating-system",
     icon: Cpu,
+    color: "#8b5cf6",
   },
   {
     title: "Computer Networks",
     progress: 0,
     total: 3,
-    category: "systems",
     link: "/dashboard/computer-networks",
     icon: Network,
+    color: "#06b6d4",
   },
   {
     title: "System Design",
     progress: 0,
-    total:6,
-    category: "design",
+    total: 6,
     link: "/dashboard/system-design",
-    icon: BrainCircuit,
+    icon: Brain,
+    color: "#6366f1",
   },
   {
     title: "Low Level Design",
     progress: 0,
     total: 10,
-    category: "design",
     link: "/dashboard/low-level-design",
-    icon: Layers3,
+    icon: TreeStructure,
+    color: "#14b8a6",
   },
   {
     title: "Object Oriented Programming",
     progress: 0,
     total: 5,
-    category: "design",
     link: "/dashboard/object-oriented-programming",
-    icon: Code2,
+    icon: Code,
+    color: "#10b981",
   },
   {
     title: "Aptitude",
     progress: 0,
     total: 4,
-    category: "prep",
     link: "/dashboard/aptitude",
     icon: Target,
+    color: "#f59e0b",
   },
   {
     title: "Programming Fundamentals",
     progress: 0,
     total: 8,
-    category: "dsa",
     link: "/dashboard/programming-fundamentals",
     icon: Binary,
+    color: "#0ea5e9",
   },
   {
     title: "C++",
     progress: 0,
     total: 4,
-    category: "dsa",
     link: "/dashboard/c-plus-plus",
-    icon: FileCode2,
+    icon: FileCode,
+    color: "#38bdf8",
   },
   {
     title: "Git & GitHub",
     progress: 0,
     total: 8,
-    category: "prep",
     link: "/dashboard/git-and-github",
     icon: GitBranch,
+    color: "#f97316",
   },
   {
     title: "Interview Preparation",
     progress: 0,
     total: 6,
-    category: "prep",
     link: "/dashboard/interview-preparation",
     icon: ShieldCheck,
+    color: "#f43f5e",
   },
 ];
 
 const filterTopics = (topicsList, activeTab) => {
   if (activeTab === "All Topics") return topicsList;
   if (activeTab === "Algorithms" || activeTab === "Data Structures") {
-    return topicsList.filter(t => t.category === "dsa");
+    return topicsList.filter((t) =>
+      ["Data Structures & Algorithms", "Programming Fundamentals", "C++"].includes(t.title)
+    );
   }
   if (activeTab === "Database") {
-    return topicsList.filter(t => t.category === "database");
+    return topicsList.filter((t) => t.title === "SQL");
   }
   if (activeTab === "Operating System") {
-    return topicsList.filter(t => t.title === "Operating System");
+    return topicsList.filter((t) => t.title === "Operating System");
   }
   if (activeTab === "Computer Networks") {
-    return topicsList.filter(t => t.title === "Computer Networks");
+    return topicsList.filter((t) => t.title === "Computer Networks");
   }
   if (activeTab === "OOPs") {
-    return topicsList.filter(t => t.title === "Object Oriented Programming");
+    return topicsList.filter((t) => t.title === "Object Oriented Programming");
   }
   if (activeTab === "System Design") {
-    return topicsList.filter(t => t.title === "System Design");
+    return topicsList.filter((t) => t.title === "System Design");
   }
   if (activeTab === "Low Level Design") {
-    return topicsList.filter(t => t.title === "Low Level Design");
+    return topicsList.filter((t) => t.title === "Low Level Design");
   }
   if (activeTab === "Prep & Tools") {
-    return topicsList.filter(t => t.category === "prep");
+    return topicsList.filter((t) =>
+      ["Aptitude", "Git & GitHub", "Interview Preparation"].includes(t.title)
+    );
   }
   return topicsList;
 };
 
 function TopicCard({ topic }) {
-  const [isHovered, setIsHovered] = useState(false);
   const percentage = (topic.progress / topic.total) * 100;
   const isInProgress = topic.progress > 0;
-  
-  const categoryStyle = CATEGORY_STYLES[topic.category] || CATEGORY_STYLES.dsa;
   const Icon = topic.icon;
-
-  const cardBg = isInProgress ? "bg-[#11111b]" : "bg-[#0b0b0d]";
-  const cardBorder = isInProgress ? "border border-white/10" : "border border-white/5";
+  const iconColor = topic.color || "#d97706";
+  const tone = "var(--dash-warning)";
+  const soft = "rgba(217, 119, 6, 0.12)";
 
   return (
-    <Link to={topic.link} className="w-full">
-      <div
-        className={`rounded-2xl h-35 w-[98%] cursor-pointer p-5 transition-all duration-300 flex flex-col justify-between overflow-hidden relative group bg-white/11   `}
-        
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+    <BorderGlow
+      className="border-glow-card--edge-static h-full w-full"
+      edgeSensitivity={22}
+      glowColor="32 92 46"
+      backgroundColor="rgba(255, 255, 255, 0.08)"
+      borderRadius={20}
+      glowRadius={34}
+      glowIntensity={1.1}
+      coneSpread={20}
+      fillOpacity={0}
+      colors={["#d97706", "#f59e0b", "#b45309"]}
+    >
+      <Link
+        to={topic.link}
+        className="group relative flex h-full w-full flex-col"
+        aria-label={`${topic.title}: ${topic.progress} of ${topic.total} completed`}
       >
-        {/* Header: Title + Icon */}
-        <div className="flex justify-between items-start gap-3">
-          <div className="min-w-0">
-            <h2 className="text-lg font-bold text-white leading-snug truncate group-hover:text-white transition-colors">
-              {topic.title}
-            </h2>
-            <p className="text-xs text-white/50 mt-1">
-              {topic.progress}/{topic.total} Completed
-            </p>
+        <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-[20px] p-5">
+        <div className="relative">
+          {/* Header: Icon + Title */}
+          <div className="flex items-start gap-4">
+            <div
+              className="grid h-12 w-12 shrink-0 place-items-center rounded-xl"
+              style={{ color: iconColor }}
+            >
+              <Icon size={24} weight="duotone" />
+            </div>
+
+            <div className="min-w-0 flex-1">
+              <h3 className="truncate text-[16px] font-semibold leading-snug text-[var(--dash-text)] [text-wrap:balance]">
+                {topic.title}
+              </h3>
+              <p className="mt-1 font-mono text-[12px] font-medium tabular-nums text-[var(--dash-faint)]">
+                {topic.progress}/{topic.total} completed
+              </p>
+            </div>
+
+            <span className="mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[var(--dash-line)] text-[var(--dash-faint)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:border-[var(--dash-line-strong)] group-hover:text-[var(--dash-text)]">
+              <ArrowRight size={15} weight="bold" />
+            </span>
           </div>
-          <div className="shrink-0 " style={{ color: categoryStyle.color }}>
-            <Icon size={45} />
+
+          {/* Progress segments */}
+          <div className="mt-6 flex w-full items-center" aria-hidden="true">
+            {Array.from({ length: topic.total }).map((_, i) => {
+              const isFilled = i < topic.progress;
+              const isLast = i === topic.total - 1;
+
+              return (
+                <div key={i} className="flex flex-1 items-center last:flex-none">
+                  <div
+                    className="h-3 w-3 rounded-full transition-all duration-300"
+                    style={
+                      isFilled
+                        ? {
+                            backgroundColor: tone,
+                            boxShadow: `0 0 0 2px var(--dash-panel), 0 0 0 4px ${soft}`,
+                          }
+                        : { backgroundColor: "var(--dash-line-strong)" }
+                    }
+                  />
+                  {!isLast && (
+                    <div
+                      className="h-[3px] flex-1 rounded-full transition-colors duration-300"
+                      style={{
+                        backgroundColor: i < topic.progress - 1 ? tone : "var(--dash-line)",
+                        opacity: i < topic.progress - 1 ? 0.55 : 1,
+                      }}
+                    />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Footer */}
+          <div className="mt-5 flex items-center justify-between">
+            <span
+              className="text-[11px] font-semibold tracking-wide"
+              style={{ color: isInProgress ? tone : "var(--dash-faint)" }}
+            >
+              {isInProgress ? `${Math.round(percentage)}% complete` : "Not started"}
+            </span>
+
+            <span
+              className="flex items-center gap-1 text-[12px] font-medium text-[var(--dash-faint)] transition-colors duration-300"
+            >
+              {isInProgress ? "Continue" : "Start"}
+              <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+            </span>
           </div>
         </div>
-
-        {/* Middle: Progress Info + Bar */}
-        <div className="w-full mt-3 flex items-center">
-            {Array.from({ length: topic.total }).map((_, i) => {
-                const isFilled = i < topic.progress;
-                const isLast = i === topic.total - 1;
-
-                return (
-                <div key={i} className="flex items-center flex-1 last:flex-none">
-                    <div
-                    className={`rounded-full transition-all duration-300 ${
-                        isFilled
-                        ? `w-4 h-4 ${categoryStyle.progressBg}`
-                        : "w-4 h-4 bg-white/20"
-                    }`}
-                    />
-                    {!isLast && (
-                    <div
-                        className={`flex-1 h-[10px]   transition-all duration-300 ${
-                        i < topic.progress - 1 ? categoryStyle.progressBg : "bg-white/10"
-                        }`}
-                    />
-                    )}
-                </div>
-                );
-            })}
-            </div>
       </div>
     </Link>
+    </BorderGlow>
+  );
+}
+
+function EmptyState() {
+  return (
+    <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-[var(--dash-line-strong)] bg-[var(--dash-elevated)] px-6 py-20 text-center">
+      <span className="grid h-12 w-12 place-items-center rounded-xl border border-[var(--dash-line)] bg-[var(--dash-panel)] text-[var(--dash-faint)]">
+        <CircleNotch size={20} weight="duotone" />
+      </span>
+      <h3 className="mt-5 font-display text-base font-semibold tracking-tight text-[var(--dash-text)]">
+        No topics in this view
+      </h3>
+      <p className="mt-2 max-w-sm text-sm leading-relaxed text-[var(--dash-muted)]">
+        Nothing here yet. Try another category or check back soon.
+      </p>
+    </div>
   );
 }
 
 function DashTopic({ activeTab }) {
+  const sectionRef = useRef(null);
   const filtered = filterTopics(topics, activeTab);
 
+  useGsapEntrance(sectionRef, { y: 16, stagger: 0.05 });
+
   return (
-    <div className="w-[calc(100%-1.5rem)] ml-6 py-2 flex mt-5 gap-6">
-      <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-12 w-full justify-items-start">
-        {filtered.map((topic) => (
-          <TopicCard key={topic.title} topic={topic} />
-        ))}
-      </div>
+    <div ref={sectionRef} className="pb-6 pt-8">
+      {filtered.length === 0 ? (
+        <EmptyState />
+      ) : (
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {filtered.map((topic) => (
+            <div key={topic.title} data-reveal>
+              <TopicCard topic={topic} />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

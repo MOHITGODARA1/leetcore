@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@monaco-editor/react": "^4.7.0",
+    "@phosphor-icons/react": "^2.1.10",
     "@tailwindcss/vite": "^4.2.2",
     "@xyflow/react": "^12.10.2",
     "axios": "^1.14.0",
