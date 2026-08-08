@@ -122,7 +122,7 @@ function Upperdashnavbar() {
             <img
                 src="/leetcorelogo.png"
                 alt="LeetCore logo"
-                className="h-60 w-60 object-contain"
+                className="h-9 w-9 object-contain"
               />
             
             
