@@ -157,7 +157,11 @@ export const getActivitySummary = async () => {
   if (token) {
     try {
       const response = await apiClient.get("/activity/summary");
-      return response.data.summary;
+      const summary = response.data.summary;
+      if (summary) {
+        hydrateFromServer(summary);
+      }
+      return summary;
     } catch (error) {
       if (error.response?.status === 401 || error.response?.status === 403) {
         localStorage.removeItem(AUTH_TOKEN_KEY);
@@ -166,6 +170,50 @@ export const getActivitySummary = async () => {
   }
 
   return buildLocalActivitySummary();
+};
+
+export const syncSolvedWithServer = async () => {
+  const token = localStorage.getItem(AUTH_TOKEN_KEY);
+  if (!token) return false;
+
+  try {
+    const response = await apiClient.get("/activity/summary");
+    const summary = response.data.summary;
+    if (summary) {
+      hydrateFromServer(summary);
+      return true;
+    }
+    return false;
+  } catch (error) {
+    if (error.response?.status === 401 || error.response?.status === 403) {
+      localStorage.removeItem(AUTH_TOKEN_KEY);
+    }
+    return false;
+  }
+};
+
+const hydrateFromServer = (summary) => {
+  const solvedQuestions = Array.isArray(summary.solvedQuestionIds)
+    ? summary.solvedQuestionIds
+    : null;
+
+  if (solvedQuestions) {
+    writeJson(SOLVED_KEY, solvedQuestions);
+  }
+
+  const dailyActivity = Array.isArray(summary.dailyActivity)
+    ? summary.dailyActivity
+    : null;
+
+  if (dailyActivity) {
+    const localActivity = readJson(LOCAL_ACTIVITY_KEY, { dailyActivity: [], totalSubmissions: 0 });
+    localActivity.dailyActivity = dailyActivity;
+    if (typeof summary.totalSubmissions === "number") {
+      localActivity.totalSubmissions = summary.totalSubmissions;
+    }
+    localActivity.lastActivityAt = summary.lastActivityAt || null;
+    writeJson(LOCAL_ACTIVITY_KEY, localActivity);
+  }
 };
 
 const recordLocalAcceptedSubmission = ({ questionId, topicId }) => {

@@ -9,6 +9,7 @@ import {
 } from "react";
 import axios from "axios";
 import { csrfRequestInterceptor } from "../services/csrf";
+import { syncSolvedWithServer } from "../services/activityProgress";
 
 const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
 const apiClient = axios.create({
@@ -97,6 +98,10 @@ export const AuthProvider = ({ children }) => {
 
                 const response = await apiClient.get("/auth/me");
                 setUser(response.data.user);
+
+                // Mirror DB progress (solved questions, daily activity) into localStorage
+                // so DSA pages and the heatmap stay accurate after refresh / cross-device.
+                syncSolvedWithServer().catch(() => {});
             } catch (err) {
                 // Only log out the user and clear token if the error is an explicit 401/403
                 if (err.response && (err.response.status === 401 || err.response.status === 403)) {

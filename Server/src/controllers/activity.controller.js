@@ -149,6 +149,9 @@ const buildSummary = async (activity) => {
         weeklyProgress,
         contestRank,
         lastActivityAt: activity.lastActivityAt,
+        solvedQuestionIds: activity.solvedQuestions.map((question) => question.questionId),
+        dailyActivity: activity.dailyActivity,
+        totalSubmissions: activity.totalSubmissions,
     };
 };
 
