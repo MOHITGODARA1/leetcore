@@ -1,11 +1,7 @@
 import express from "express";
 import LoginRouter from "./routes/Login.route.js";
-import badgeRouter from "./routes/badge.route.js";
-import activityRouter from "./routes/activity.route.js";
-import feedbackRouter from "./routes/feedback.route.js";
-import bugRouter from "./routes/bug.route.js";
-import sponsorshipRouter from "./routes/sponsorship.route.js";
-import questionRouter from "./routes/question.route.js";
+import CompilerRouter from "./routes/compiler.route.js";
+import ActivityRouter from "./routes/activity.route.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import csurf from "csurf";
@@ -19,6 +15,10 @@ app.use(cookieParser());
 const allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5174",
+    "http://localhost:5175",
+    "http://127.0.0.1:5175",
+    "http://localhost:5180",
+    "http://127.0.0.1:5180",
     process.env.CLIENT_URL,
 ].filter(Boolean);
 
@@ -35,6 +35,9 @@ app.use(cors({
     credentials: true,
 }));
 app.use(express.json());
+
+app.use("/api/v1", CompilerRouter);
+app.use("/api/v1", ActivityRouter);
 
 const csrfProtection = csurf({
     cookie: {
@@ -57,24 +60,8 @@ app.get("/api/v1/health", (req, res) => {
     });
 });
 
-//route handling
-
-// app.use("/v1/api", LoginRouter);
+// route handling
 app.use("/api/v1", LoginRouter);
-app.use("/api/v1/badges", badgeRouter);
-app.use("/api/v1/activity", activityRouter);
-app.use("/api/v1/feedback", feedbackRouter);
-app.use("/api/v1/bugs", bugRouter);
-app.use("/api/v1/sponsorship", sponsorshipRouter);
-app.use("/api/v1/questions", questionRouter);
-
-// Compatibility aliases for clients following the unversioned route examples.
-app.use("/api/badges", badgeRouter);
-app.use("/api/activity", activityRouter);
-app.use("/api/feedback", feedbackRouter);
-app.use("/api/bugs", bugRouter);
-app.use("/api/sponsorship", sponsorshipRouter);
-app.use("/api/questions", questionRouter);
 
 app.use((req, res) => {
     res.status(404).json({
@@ -84,6 +71,5 @@ app.use((req, res) => {
 });
 
 app.use(errorMiddleware);
-
 
 export default app;

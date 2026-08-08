@@ -1,0 +1,41 @@
+{
+  "topics": [
+    { "id": "arrays", "label": "Arrays", "x": 0, "y": 60, "order": 0 },
+    { "id": "strings", "label": "Strings", "x": 200, "y": 60, "order": 1 },
+    { "id": "two-pointers", "label": "Two Pointers", "x": 200, "y": 200, "order": 2 },
+    { "id": "sliding-window", "label": "Sliding Window", "x": 390, "y": 100, "order": 3 },
+    { "id": "kadans", "label": "Kadane's", "x": 590, "y": 100, "order": 4 },
+    { "id": "prefix-sum", "label": "Prefix Sum", "x": 390, "y": 300, "order": 5 },
+    { "id": "hashing", "label": "Hashing", "x": 590, "y": 300, "order": 6 },
+    { "id": "binary-search", "label": "Binary Search", "x": 690, "y": 200, "order": 7 },
+    { "id": "linked-list", "label": "Linked List", "x": 900, "y": 200, "order": 8 },
+    { "id": "stack-and-queue", "label": "Stack & Queue", "x": 1100, "y": 200, "order": 9 },
+    { "id": "recursion-and-backtracking", "label": "Recursion & Backtrack", "x": 900, "y": 350, "order": 10 },
+    { "id": "trees-heaps-and-tries", "label": "Trees", "x": 900, "y": 500, "order": 11 },
+    { "id": "tries", "label": "Tries", "x": 1020, "y": 600, "order": 12 },
+    { "id": "heaps", "label": "Heaps", "x": 1020, "y": 720, "order": 13 },
+    { "id": "graph-bfs-dfs", "label": "Graph ", "x": 780, "y": 600, "order": 14 },
+    { "id": "dynamic-programming", "label": "Dynamic Programming", "x": 780, "y": 720, "order": 15 },
+    { "id": "greedy", "label": "Greedy", "x": 550, "y": 720, "order": 16 }
+  ],
+  "edges": [
+    ["arrays", "strings"],
+    ["strings", "two-pointers"],
+    ["two-pointers", "sliding-window"],
+    ["sliding-window", "kadans"],
+    ["hashing", "binary-search"],
+    ["kadans", "binary-search"],
+    ["two-pointers", "prefix-sum"],
+    ["prefix-sum", "hashing"],
+    ["linked-list", "stack-and-queue"],
+    ["binary-search", "linked-list"],
+    ["linked-list", "recursion-and-backtracking"],
+    ["recursion-and-backtracking", "trees-heaps-and-tries"],
+    ["trees-heaps-and-tries", "graph-bfs-dfs"],
+    ["graph-bfs-dfs", "dynamic-programming"],
+    ["trees-heaps-and-tries", "tries"],
+    ["tries", "heaps"],
+    ["dynamic-programming", "heaps"],
+    ["heaps", "greedy"]
+  ]
+}

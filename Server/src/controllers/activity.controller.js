@@ -1,251 +1,264 @@
-import mongoose from "mongoose";
-import User from "../models/User.models.js";
-import UserActivity from "../models/useractivity.models.js";
-import ApiError from "../utils/ApiError.js";
-import asyncHandler from "../utils/asyncHandler.js";
-import { getRangeBounds, toDateKey } from "../utils/date.utils.js";
-import {
-    calculateActivityXp,
-    calculateDailyConsistencyScore,
-    calculateLevel,
-    formatConsistencyWindow,
-    getNextStreak,
-} from "../utils/gamification.utils.js";
-import { syncUserSolvedCountAndRankings } from "../utils/ranking.utils.js";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import UserActivity from "../models/UserActivity.models.js";
 
-const getUserOrThrow = async (userId) => {
-    if (!userId || userId === "undefined" || !mongoose.Types.ObjectId.isValid(userId)) {
-        throw new ApiError(400, "Invalid user ID");
-    }
-    const user = await User.findById(userId);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const questionsPath = path.resolve(__dirname, "../data/questions.json");
+const topicsPath = path.resolve(__dirname, "../data/topics.json");
+const questionsData = JSON.parse(fs.readFileSync(questionsPath, "utf8"));
+const topicsData = JSON.parse(fs.readFileSync(topicsPath, "utf8"));
+const topics = topicsData.topics || [];
 
-    if (!user) {
-        throw new ApiError(404, "User not found");
-    }
+const toDateKey = (date = new Date()) => date.toISOString().slice(0, 10);
 
-    return user;
+const addDays = (date, days) => {
+    const nextDate = new Date(date);
+    nextDate.setUTCDate(nextDate.getUTCDate() + days);
+    return nextDate;
 };
 
-const sanitizeActivityPayload = (body = {}) => {
-    const studyMinutes = Math.max(Number(body.studyMinutes) || 0, 0);
-    const problemsSolved = Math.max(Number(body.problemsSolved) || 0, 0);
-    const sessionsCount = Math.max(Number(body.sessionsCount) || 1, 0);
-    const topicsLearned = Array.isArray(body.topicsLearned)
-        ? [...new Set(body.topicsLearned.map((topic) => String(topic).trim()).filter(Boolean))]
-        : [];
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
-    return {
-        studyMinutes,
-        problemsSolved,
-        sessionsCount,
-        topicsLearned,
-        active: body.active ?? true,
-        deviceType: body.deviceType,
+const findQuestionTopic = (questionId) => {
+    for (const [topicId, questions] of Object.entries(questionsData)) {
+        const question = questions.find((item) => item.id === questionId);
+        if (question) {
+            return {
+                topicId,
+                difficulty: question.difficulty || "Medium",
+            };
+        }
+    }
+
+    return null;
+};
+
+const getTopicSummaries = (solvedQuestions = []) => {
+    const solvedByTopic = solvedQuestions.reduce((acc, question) => {
+        acc[question.topicId] = (acc[question.topicId] || 0) + 1;
+        return acc;
+    }, {});
+
+    return topics.map((topic) => {
+        const total = questionsData[topic.id]?.length || 0;
+        const solved = Math.min(solvedByTopic[topic.id] || 0, total);
+        const percent = total > 0 ? Math.round((solved / total) * 100) : 0;
+
+        return {
+            id: topic.id,
+            label: topic.label,
+            order: topic.order,
+            solved,
+            total,
+            percent,
+        };
+    });
+};
+
+const getCurrentTopic = (topicSummaries) => {
+    const activeTopic = topicSummaries.find((topic) => topic.total > 0 && topic.solved < topic.total);
+    return activeTopic || topicSummaries.find((topic) => topic.total > 0) || {
+        id: "arrays",
+        label: "Arrays",
+        solved: 0,
+        total: 0,
+        percent: 0,
     };
 };
 
-export const markDailyActivity = asyncHandler(async (req, res) => {
-    const userIdCandidate = req.user?.id ?? req.body.userId;
-    const userId = typeof userIdCandidate === "string" ? userIdCandidate : null;
-    const date = req.body.date ? toDateKey(req.body.date) : toDateKey();
+const getWeeklyProgress = (dailyActivity = []) => {
+    const activityByDate = new Map(dailyActivity.map((day) => [day.date, day]));
+    const today = new Date();
 
-    if (!userId) {
-        throw new ApiError(400, "userId is required");
-    }
+    return Array.from({ length: 7 }, (_, index) => {
+        const date = addDays(today, index - 6);
+        const dateKey = toDateKey(date);
+        const day = activityByDate.get(dateKey);
 
-    const user = await getUserOrThrow(userId);
-    const payload = sanitizeActivityPayload(req.body);
-    const existingActivity = await UserActivity.findOne({ userId, date });
-    const wasNewActiveDay = !existingActivity && payload.active;
-
-    const nextStudyMinutes = (existingActivity?.studyMinutes || 0) + payload.studyMinutes;
-    const nextProblemsSolved = (existingActivity?.problemsSolved || 0) + payload.problemsSolved;
-    const nextSessionsCount = (existingActivity?.sessionsCount || 0) + payload.sessionsCount;
-    const nextTopics = [...new Set([...(existingActivity?.topicsLearned || []), ...payload.topicsLearned])];
-    const consistencyScore = calculateDailyConsistencyScore({
-        studyMinutes: nextStudyMinutes,
-        problemsSolved: nextProblemsSolved,
-        sessionsCount: nextSessionsCount,
+        return {
+            date: dateKey,
+            label: date.toLocaleDateString("en-US", { weekday: "short", timeZone: "UTC" }),
+            solvedCount: day?.solvedCount || 0,
+            submissions: day?.submissions || 0,
+        };
     });
-    const xpEarned = calculateActivityXp({
-        studyMinutes: payload.studyMinutes,
-        problemsSolved: payload.problemsSolved,
-        topicsLearned: payload.topicsLearned,
-    });
+};
 
-    const nextStreak = wasNewActiveDay
-        ? getNextStreak(user.stats?.lastActiveDate, user.stats?.currentStreak, date)
-        : user.stats?.currentStreak || existingActivity?.streakCount || 0;
-
-    const activity = await UserActivity.findOneAndUpdate(
-        { userId, date },
-        {
-            $set: {
-                active: payload.active,
-                studyMinutes: nextStudyMinutes,
-                problemsSolved: nextProblemsSolved,
-                sessionsCount: nextSessionsCount,
-                topicsLearned: nextTopics,
-                streakCount: nextStreak,
-                consistencyScore,
-                completionRate: consistencyScore,
-                ...(payload.deviceType ? { deviceType: payload.deviceType } : {}),
-            },
-            $inc: {
-                xpEarned,
-            },
-        },
-        {
-            returnDocument: 'after',
-            upsert: true,
-            setDefaultsOnInsert: true,
-        }
+const getStreakCount = (dailyActivity = []) => {
+    const solvedDates = new Set(
+        dailyActivity
+            .filter((day) => day.solvedCount > 0)
+            .map((day) => day.date)
     );
 
-    if (wasNewActiveDay) {
-        user.stats.totalActiveDays += 1;
-        user.stats.currentStreak = nextStreak;
-        user.stats.maxStreak = Math.max(user.stats.maxStreak || 0, nextStreak);
-        user.stats.lastActiveDate = date;
+    let cursor = new Date();
+    if (!solvedDates.has(toDateKey(cursor))) {
+        cursor = addDays(cursor, -1);
     }
 
-    user.stats.totalStudyMinutes += payload.studyMinutes;
-    user.stats.totalProblemsSolved += payload.problemsSolved;
-    user.xp += xpEarned;
-    user.level = calculateLevel(user.xp, user.stats.totalProblemsSolved);
-
-    const { startDate, endDate } = getRangeBounds(30, date);
-    const activeDaysInWindow = await UserActivity.countDocuments({
-        userId,
-        active: true,
-        date: { $gte: startDate, $lte: endDate },
-    });
-    user.stats.consistencyPercentage = Math.round((activeDaysInWindow / 30) * 100);
-    await user.save();
-    await syncUserSolvedCountAndRankings();
-    const refreshedUser = await User.findById(userId).select("stats xp level").lean();
-
-    return res.status(existingActivity ? 200 : 201).json({
-        success: true,
-        message: existingActivity ? "Daily activity updated" : "Daily activity created",
-        activity,
-        stats: refreshedUser?.stats || user.stats,
-        xp: refreshedUser?.xp ?? user.xp,
-        level: refreshedUser?.level ?? user.level,
-    });
-});
-
-export const getUserActivity = asyncHandler(async (req, res) => {
-    const userId = req.params.userId || req.user?.id;
-    const days = Math.min(Math.max(Number(req.query.days) || 30, 1), 365);
-    const { startDate, endDate } = getRangeBounds(days);
-
-    await getUserOrThrow(userId);
-
-    const activities = await UserActivity.find({
-        userId,
-        date: { $gte: startDate, $lte: endDate },
-    })
-        .sort({ date: -1 })
-        .lean();
-
-    return res.status(200).json({
-        success: true,
-        range: { startDate, endDate, days },
-        activities,
-    });
-});
-
-export const getConsistencyData = asyncHandler(async (req, res) => {
-    const userId = req.params.userId || req.user?.id;
-    const days = Math.min(Math.max(Number(req.query.days) || 30, 1), 365);
-    
-    let endDateKey = toDateKey();
-    const year = Number(req.query.year);
-    if (year && year < new Date().getFullYear()) {
-        endDateKey = `${year}-12-31`;
-    }
-    
-    const { startDate, endDate } = getRangeBounds(days, endDateKey);
-
-    const user = await getUserOrThrow(userId);
-    const activities = await UserActivity.find({
-        userId,
-        date: { $gte: startDate, $lte: endDate },
-    })
-        .select("date active studyMinutes problemsSolved sessionsCount consistencyScore")
-        .sort({ date: 1 })
-        .lean();
-
-    const weekly = formatConsistencyWindow({ activities, days: Math.min(7, days), endDateKey: endDate });
-    const monthly = formatConsistencyWindow({ activities, days: Math.min(30, days), endDateKey: endDate });
-    const selected = formatConsistencyWindow({ activities, days, endDateKey: endDate });
-
-    return res.status(200).json({
-        success: true,
-        consistencyPercentage: user.stats?.consistencyPercentage || selected.consistencyPercentage,
-        activeDays: selected.activeDays,
-        totalDays: selected.totalDays,
-        weekly,
-        monthly,
-        heatmap: selected.days,
-    });
-});
-
-export const getStreakData = asyncHandler(async (req, res) => {
-    const userId = req.params.userId || req.user?.id;
-    const user = await getUserOrThrow(userId);
-
-    return res.status(200).json({
-        success: true,
-        currentStreak: user.stats?.currentStreak || 0,
-        maxStreak: user.stats?.maxStreak || 0,
-        lastActiveDate: user.stats?.lastActiveDate || null,
-        totalActiveDays: user.stats?.totalActiveDays || 0,
-    });
-});
-
-export const getDashboardStats = asyncHandler(async (req, res) => {
-    const userId = req.params.userId || req.user?.id;
-    await syncUserSolvedCountAndRankings();
-
-    const user = await User.findById(userId)
-        .select("stats badges xp level")
-        .populate({
-            path: "badges.badgeId",
-            select: "name slug description image category rarity xpReward",
-        })
-        .lean();
-
-    if (!user) {
-        throw new ApiError(404, "User not found");
+    let streak = 0;
+    while (solvedDates.has(toDateKey(cursor))) {
+        streak += 1;
+        cursor = addDays(cursor, -1);
     }
 
-    const { startDate, endDate } = getRangeBounds(7);
-    const recentActivities = await UserActivity.find({
-        userId,
-        date: { $gte: startDate, $lte: endDate },
-    })
-        .select("date active studyMinutes problemsSolved sessionsCount consistencyScore")
-        .sort({ date: 1 })
-        .lean();
+    return streak;
+};
 
-    const weeklyConsistency = formatConsistencyWindow({
-        activities: recentActivities,
-        days: 7,
-        endDateKey: endDate,
-    });
-
-    return res.status(200).json({
-        success: true,
-        stats: {
-            ...user.stats,
-            xp: user.xp || 0,
-            level: user.level || 1,
-            badgesCount: user.badges?.length || 0,
+const getContestRank = async (activity) => {
+    const solvedCount = activity.solvedQuestions.length;
+    const betterUsers = await UserActivity.countDocuments({
+        $expr: {
+            $gt: [{ $size: "$solvedQuestions" }, solvedCount],
         },
-        badges: user.badges || [],
-        weeklyConsistency,
-        recentActivities,
     });
-});
+    const totalUsers = await UserActivity.countDocuments();
+    const rank = totalUsers > 0 ? betterUsers + 1 : 1;
+    const percentile = totalUsers > 1
+        ? Math.round(((totalUsers - rank) / (totalUsers - 1)) * 100)
+        : 100;
+
+    return {
+        rank,
+        totalUsers: Math.max(totalUsers, 1),
+        percentile,
+    };
+};
+
+const buildSummary = async (activity) => {
+    const topicProgress = getTopicSummaries(activity.solvedQuestions);
+    const currentTopic = getCurrentTopic(topicProgress);
+    const weeklyProgress = getWeeklyProgress(activity.dailyActivity);
+    const weeklySolved = weeklyProgress.reduce((total, day) => total + day.solvedCount, 0);
+    const streakCount = getStreakCount(activity.dailyActivity);
+    const solvedCount = activity.solvedQuestions.length;
+    const totalQuestions = Object.values(questionsData).reduce((total, questions) => total + questions.length, 0);
+    const readinessScore = clamp(Math.round((streakCount * 8) + (weeklySolved * 6) + (solvedCount * 2)), 0, 100);
+    const contestRank = await getContestRank(activity);
+
+    return {
+        solvedCount,
+        totalQuestions,
+        streakCount,
+        readinessScore,
+        weeklySolved,
+        currentTopic,
+        topicProgress,
+        weeklyProgress,
+        contestRank,
+        lastActivityAt: activity.lastActivityAt,
+    };
+};
+
+const getOrCreateActivity = async (userId) => {
+    let activity = await UserActivity.findOne({ user: userId });
+
+    if (!activity) {
+        activity = await UserActivity.create({ user: userId });
+    }
+
+    return activity;
+};
+
+export const getActivitySummary = async (req, res) => {
+    try {
+        const activity = await getOrCreateActivity(req.user.id);
+        const summary = await buildSummary(activity);
+
+        return res.status(200).json({
+            success: true,
+            summary,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Unable to load activity summary",
+        });
+    }
+};
+
+export const recordAcceptedSubmission = async (req, res) => {
+    try {
+        const {
+            questionId,
+            topicId,
+            difficulty,
+            language,
+            runtimeMs,
+            memoryKb,
+        } = req.body;
+
+        if (!questionId) {
+            return res.status(400).json({
+                success: false,
+                message: "questionId is required",
+            });
+        }
+
+        const questionMeta = findQuestionTopic(questionId);
+        if (!questionMeta) {
+            return res.status(404).json({
+                success: false,
+                message: "Question not found",
+            });
+        }
+
+        const activity = await getOrCreateActivity(req.user.id);
+        const resolvedTopicId = topicId || questionMeta.topicId;
+        const todayKey = toDateKey();
+        const existingQuestion = activity.solvedQuestions.find((question) => question.questionId === questionId);
+
+        if (existingQuestion) {
+            existingQuestion.attempts += 1;
+            existingQuestion.language = language || existingQuestion.language;
+            existingQuestion.lastSolvedAt = new Date();
+            existingQuestion.bestRuntimeMs = runtimeMs == null
+                ? existingQuestion.bestRuntimeMs
+                : Math.min(existingQuestion.bestRuntimeMs ?? runtimeMs, runtimeMs);
+            existingQuestion.bestMemoryKb = memoryKb == null
+                ? existingQuestion.bestMemoryKb
+                : Math.min(existingQuestion.bestMemoryKb ?? memoryKb, memoryKb);
+        } else {
+            activity.solvedQuestions.push({
+                questionId,
+                topicId: resolvedTopicId,
+                difficulty: difficulty || questionMeta.difficulty,
+                language,
+                bestRuntimeMs: runtimeMs ?? null,
+                bestMemoryKb: memoryKb ?? null,
+                firstSolvedAt: new Date(),
+                lastSolvedAt: new Date(),
+            });
+        }
+
+        const day = activity.dailyActivity.find((item) => item.date === todayKey);
+        if (day) {
+            day.submissions += 1;
+            if (!existingQuestion) day.solvedCount += 1;
+        } else {
+            activity.dailyActivity.push({
+                date: todayKey,
+                submissions: 1,
+                solvedCount: existingQuestion ? 0 : 1,
+            });
+        }
+
+        activity.totalSubmissions += 1;
+        activity.lastActivityAt = new Date();
+        await activity.save();
+
+        const summary = await buildSummary(activity);
+
+        return res.status(200).json({
+            success: true,
+            summary,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Unable to record activity",
+        });
+    }
+};
