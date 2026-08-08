@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import LandingNavbar from "../features/landing/landingnavbar";
 import HeroSection from "../features/landing/herosection";
 import Features from "../features/landing/feature";
@@ -9,6 +11,14 @@ import Login from "../auth/Login";
 
 function LandingPage() {
     const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const { user, loading } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!loading && user) {
+            navigate("/dashboard", { replace: true });
+        }
+    }, [loading, user, navigate]);
 
     return (
         <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">

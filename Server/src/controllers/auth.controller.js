@@ -227,7 +227,7 @@ const registerUser = async (req, res) => {
 
         const clientUrl = trimTrailingSlash(process.env.CLIENT_URL || DEFAULT_CLIENT_URL);
 
-        return res.redirect(`${clientUrl}/dashboard?token=${encodeURIComponent(token)}`);
+        return res.redirect(`${clientUrl}/?token=${encodeURIComponent(token)}`);
 
     } catch (error) {
         try {
