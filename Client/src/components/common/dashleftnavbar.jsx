@@ -15,7 +15,7 @@ function DashLeftNavbar() {
     {
       name: "Interview Prep",
       icon: Brain,
-      path: "/dashboard/data-structures-and-algorithms",
+      path: "/dashboard/interview-preparation",
     },
     {
       name: "Online Assessment",

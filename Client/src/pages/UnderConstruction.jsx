@@ -3,7 +3,7 @@ import { Wrench } from "@phosphor-icons/react";
 import Upperdashnavbar from "../components/common/dashuppernavbar";
 
 const TITLES = {
-  "/dashboard/data-structures-and-algorithms": "Interview Prep",
+  "/dashboard/interview-preparation": "Interview Prep",
   "/dashboard/what's-next-on-leetcore": "Online Assessment",
   "/dashboard/Career-oppertunity-on-leetcore": "Companies",
 };

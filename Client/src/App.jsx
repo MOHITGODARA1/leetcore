@@ -19,6 +19,7 @@ function App() {
         <Route path="/dashboard/what's-next-on-leetcore" element={<UnderConstruction />} />
         <Route path="/dashboard/Career-oppertunity-on-leetcore" element={<UnderConstruction />} />
         <Route path="/dashboard/Social-media-footprint" element={<DigitalFootprint />} />
+        <Route path="/dashboard/interview-preparation" element={<UnderConstruction />} />
         {/* DSA Roadmap — "Algorithms Metro" */}
         <Route path="/dashboard/data-structures-and-algorithms" element={<DSA />} />
         <Route path="/dashboard/data-structures-and-algorithms/:topic" element={<DSA />} />

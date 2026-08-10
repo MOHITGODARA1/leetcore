@@ -18,7 +18,7 @@ const MENU = [
   { label: "Dashboard", href: "/dashboard", icon: SquaresFour, end: true },
   {
     label: "Interview Prep",
-    href: "/dashboard/data-structures-and-algorithms",
+    href: "/dashboard/interview-preparation",
     icon: Brain,
   },
   {
@@ -122,7 +122,7 @@ function Upperdashnavbar() {
             <img
                 src="/leetcorelogo.png"
                 alt="LeetCore logo"
-                className="h-9 w-9 object-contain"
+                className="h-50 w-50 object-contain"
               />
             
             
