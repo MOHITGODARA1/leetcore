@@ -65,109 +65,104 @@ export function StatBand({ stats, contest }) {
   );
 }
 
-function DifficultyRow({ label, solved, total, colorVar }) {
-  const percent = total > 0 ? Math.round((solved / total) * 100) : 0;
+/* ---------- Solved ring: one donut replaces all difficulty progress bars ---------- */
 
+const RING_RADIUS = 58;
+const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
+const SEGMENT_GAP = 3;
+
+function ringSegments(breakdown) {
+  const series = [
+    { label: "Easy", ...(breakdown?.Easy || { solved: 0, total: 0 }), color: "var(--pf-easy)" },
+    { label: "Medium", ...(breakdown?.Medium || { solved: 0, total: 0 }), color: "var(--pf-medium)" },
+    { label: "Hard", ...(breakdown?.Hard || { solved: 0, total: 0 }), color: "var(--pf-hard)" },
+  ];
+
+  const totalSolved = series.reduce((sum, item) => sum + item.solved, 0);
+
+  let offset = 0;
+  const arcs = series
+    .filter((item) => item.solved > 0)
+    .map((item) => {
+      const frac = totalSolved > 0 ? item.solved / totalSolved : 0;
+      const arcLength = frac * RING_CIRCUMFERENCE;
+      const visible = Math.max(0, arcLength - SEGMENT_GAP);
+      const dash = `${visible} ${RING_CIRCUMFERENCE - visible}`;
+      const arc = { ...item, dash, offset };
+      offset += arcLength;
+      return arc;
+    });
+
+  return { series, arcs, totalSolved };
+}
+
+function LegendRow({ label, solved, total, color }) {
+  const percent = total > 0 ? Math.round((solved / total) * 100) : 0;
   return (
-    <div>
-      <div className="mb-1.5 flex items-center justify-between text-[13px]">
-        <span className="flex items-center gap-2 font-medium text-[var(--pf-text)]">
-          <span className="h-2 w-2 rounded-sm" style={{ backgroundColor: `var(${colorVar})` }} />
-          {label}
-        </span>
-        <span className="tabular-nums text-[12px] text-[var(--pf-muted)]">
-          <span className="font-semibold text-[var(--pf-text)]">{solved}</span>
-          <span className="text-[var(--pf-faint)]">/{total}</span>
-        </span>
-      </div>
-      <div
-        role="progressbar"
-        aria-valuenow={percent}
-        aria-valuemin="0"
-        aria-valuemax="100"
-        aria-label={`${label} problems solved ${percent}%`}
-        className="h-1.5 overflow-hidden rounded-full bg-[var(--pf-surface-2)]"
-      >
-        <div
-          className="h-full rounded-full transition-[width] duration-150 ease-out"
-          style={{ width: `${percent}%`, backgroundColor: `var(${colorVar})` }}
-        />
-      </div>
+    <div className="flex items-center justify-between gap-3 text-[13px]">
+      <span className="flex items-center gap-2 font-medium text-[var(--pf-text)]">
+        <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: color }} />
+        {label}
+      </span>
+      <span className="tabular-nums text-[12px] text-[var(--pf-muted)]">
+        <span className="font-semibold text-[var(--pf-text)]">{solved}</span>
+        <span className="text-[var(--pf-faint)]">/{total}</span>
+        <span className="ml-1.5 text-[var(--pf-faint)]">· {percent}%</span>
+      </span>
     </div>
   );
 }
 
-export function ProblemDistribution({ difficultyBreakdown, solvedCount, totalQuestions }) {
-  const rows = [
-    { label: "Easy", ...(difficultyBreakdown?.Easy || { solved: 0, total: 0 }), colorVar: "--pf-easy" },
-    { label: "Medium", ...(difficultyBreakdown?.Medium || { solved: 0, total: 0 }), colorVar: "--pf-medium" },
-    { label: "Hard", ...(difficultyBreakdown?.Hard || { solved: 0, total: 0 }), colorVar: "--pf-hard" },
-  ];
+export function SolvedRingCard({ stats }) {
+  const { solvedCount, totalQuestions, difficultyBreakdown } = stats;
+  const overall = totalQuestions > 0 ? Math.round((solvedCount / totalQuestions) * 100) : 0;
+  const { series, arcs, totalSolved } = ringSegments(difficultyBreakdown);
 
   return (
-    <section className="pf-card rounded-2xl p-5 sm:p-6">
+    <section className="pf-card flex flex-col rounded-2xl p-5 sm:p-6">
       <div className="flex items-baseline justify-between gap-2">
         <h2 className="text-[15px] font-semibold tracking-tight text-[var(--pf-text)]">Solved by Difficulty</h2>
         <span className="text-[11px] tabular-nums text-[var(--pf-faint)]">
-          <span className="font-semibold text-[var(--pf-accent)]">{solvedCount}</span> / {totalQuestions}
-        </span>
-      </div>
-      <div className="mt-5 space-y-5">
-        {rows.map((row) => (
-          <DifficultyRow key={row.label} {...row} />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-export function StreakCard({ stats }) {
-  const { currentStreak, longestStreak, solvedCount, totalQuestions } = stats;
-  const ratio = longestStreak > 0 ? Math.round((currentStreak / longestStreak) * 100) : 0;
-  const overall = totalQuestions > 0 ? Math.round((solvedCount / totalQuestions) * 100) : 0;
-
-  return (
-    <section className="pf-card rounded-2xl p-5 sm:p-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-[15px] font-semibold tracking-tight text-[var(--pf-text)]">Streak</h2>
-        <span className="text-[12px] tabular-nums text-[var(--pf-faint)]">
-          longest <span className="font-semibold text-[var(--pf-text)]">{longestStreak}d</span>
+          <span className="font-semibold text-[var(--pf-accent)]">{overall}%</span> complete
         </span>
       </div>
 
-      <div className="mt-4 flex items-baseline gap-1">
-        <span className="text-4xl font-bold tabular-nums tracking-tight text-[var(--pf-accent)]">{currentStreak}</span>
-        <span className="text-[13px] text-[var(--pf-faint)]">days</span>
-      </div>
-
-      <div className="mt-5 space-y-4">
-        <div>
-          <div className="mb-1.5 flex items-center justify-between text-[11px]">
-            <span className="text-[var(--pf-muted)]">Current vs longest</span>
-            <span className="tabular-nums font-medium text-[var(--pf-text)]">
-              {currentStreak} / {longestStreak}
-            </span>
-          </div>
-          <div
-            className="h-1.5 overflow-hidden rounded-full bg-[var(--pf-surface-2)]"
-            role="progressbar"
-            aria-valuenow={ratio}
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-label="Current streak relative to longest"
-          >
-            <div className="h-full rounded-full bg-[var(--pf-accent)] transition-[width] duration-150" style={{ width: `${ratio}%` }} />
+      <div className="mt-5 flex flex-col items-center gap-6 sm:flex-row sm:gap-8">
+        {/* Donut ring */}
+        <div className="relative shrink-0">
+          <svg viewBox="0 0 140 140" className="h-40 w-40 -rotate-90" role="img" aria-label={`${solvedCount} of ${totalQuestions} questions solved`}>
+            <circle cx="70" cy="70" r={RING_RADIUS} fill="none" stroke="var(--pf-surface-2)" strokeWidth="12" />
+            {arcs.map((arc) => (
+              <circle
+                key={arc.label}
+                cx="70"
+                cy="70"
+                r={RING_RADIUS}
+                fill="none"
+                stroke={arc.color}
+                strokeWidth="12"
+                strokeLinecap="round"
+                strokeDasharray={arc.dash}
+                strokeDashoffset={arc.offset}
+              />
+            ))}
+          </svg>
+          <div className="absolute inset-0 grid place-items-center text-center">
+            <div>
+              <p className="text-4xl font-bold tabular-nums tracking-tight text-[var(--pf-text)]">{totalSolved}</p>
+              <p className="text-[11px] uppercase tracking-[0.08em] text-[var(--pf-faint)]">solved</p>
+            </div>
           </div>
         </div>
 
-        <div>
-          <div className="mb-1.5 flex items-center justify-between text-[11px]">
-            <span className="text-[var(--pf-muted)]">Overall progress</span>
-            <span className="tabular-nums font-medium text-[var(--pf-text)]">{overall}%</span>
-          </div>
-          <div className="h-1.5 overflow-hidden rounded-full bg-[var(--pf-surface-2)]">
-            <div className="h-full rounded-full bg-[var(--pf-surface-3)] transition-[width] duration-150" style={{ width: `${overall}%` }} />
-          </div>
+        {/* Legend — counts only, no progress bars */}
+        <div className="w-full min-w-0 space-y-3.5">
+          {series.map((row) => (
+            <LegendRow key={row.label} {...row} />
+          ))}
+          <p className="border-t border-[var(--pf-divider)] pt-3 text-[12px] text-[var(--pf-faint)]">
+            {solvedCount} of {totalQuestions} total questions
+          </p>
         </div>
       </div>
     </section>

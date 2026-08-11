@@ -13,9 +13,23 @@ const currentUserRateLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-router.get("/auth/github/login", githubLogin);
+const authStartRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
-router.get("/auth/github/callback", registerUser);
+const authCallbackRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+router.get("/auth/github/login", authStartRateLimiter, githubLogin);
+
+router.get("/auth/github/callback", authCallbackRateLimiter, registerUser);
 
 router.post("/auth/logout", logoutUser);
 

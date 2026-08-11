@@ -1,0 +1,330 @@
+{
+  "sql-basics": {
+    "title": "SQL Basics",
+    "subtitle": "SELECT · FROM · WHERE · ORDER BY",
+    "summary": "The four core clauses of any SELECT query and the order in which the engine executes them.",
+    "sections": [
+      { "type": "intro", "text": "SQL (Structured Query Language) is the language used to talk to relational databases. Almost everything you write in an interview starts with SELECT — the query that reads data out of tables." },
+      { "type": "heading", "text": "Anatomy of a query" },
+      { "type": "code", "sql": "SELECT  name, age          -- 1. choose columns\nFROM    users               -- 2. from a table\nWHERE   age > 18            -- 3. filter rows\nORDER BY age DESC;          -- 4. sort the result" },
+      { "type": "paragraph", "text": "The clauses look like they run top-to-bottom, but the database actually processes them in a different order: FROM (pick the table) → WHERE (filter rows) → SELECT (compute/choose columns) → ORDER BY (sort). Remembering the logical order helps you reason about errors — for example, you cannot use an alias defined in SELECT inside WHERE, because WHERE runs before SELECT." },
+      { "type": "list", "title": "The core clauses", "items": [
+        "SELECT — the columns you want back. Supports expressions, aliases (AS) and the wildcard (*) for every column.",
+        "FROM — the table (or joined set of tables) you are reading from.",
+        "WHERE — a boolean filter over raw rows. Only rows where the condition is true survive.",
+        "ORDER BY — sorts the final rows. ASC (default) or DESC, and you can sort by several columns at once.",
+        "DISTINCT — removes duplicate rows from the result set." 
+      ]},
+      { "type": "code", "sql": "SELECT DISTINCT city\nFROM   customers\nORDER BY city ASC;" },
+      { "type": "tip", "text": "In interviews, avoid SELECT * unless the prompt literally says 'all columns'. Name them explicitly — it shows you understand the schema." },
+      { "type": "heading", "text": "WHERE vs HAVING" },
+      { "type": "paragraph", "text": "WHERE filters rows before any grouping or aggregation runs. HAVING filters groups after aggregation. The two are not interchangeable: a condition on a count, sum or average must go in HAVING." }
+    ],
+    "keypoints": [
+      "Logical execution order: FROM → WHERE → SELECT → ORDER BY",
+      "WHERE filters rows, HAVING filters groups",
+      "Destination of clauses matters: no SELECT aliases inside WHERE",
+      "DISTINCT, NOT NULL, and literal-safe comparisons are common gotchas"
+    ]
+  },
+
+  "filtering": {
+    "title": "Filtering & Operators",
+    "subtitle": "WHERE · AND/OR · IN · BETWEEN · LIKE · IS NULL",
+    "summary": "Compose precise row filters with comparison, logical, set-membership and pattern operators.",
+    "sections": [
+      { "type": "intro", "text": "Filtering is where most interview queries earn or lose points. The WHERE clause supports rich operators — and most mistakes come from NULL handling, not from forgetting the operators themselves." },
+      { "type": "heading", "text": "Comparison & logical operators" },
+      { "type": "code", "sql": "SELECT * FROM orders\nWHERE  amount  >= 100\n  AND  status  IN ('paid', 'shipped')\n  AND  region  <> 'EU';" },
+      { "type": "list", "title": "Operator families", "items": [
+        "Comparison — =, <>, <, >, <=, >=. The <> or != means 'not equal'.",
+        "Logical — AND, OR, NOT. AND binds tighter than OR; use parentheses to make intent explicit.",
+        "Set membership — IN (...), NOT IN (...). Equivalent to a list of OR conditions.",
+        "Range — BETWEEN a AND b is inclusive on both ends.",
+        "Pattern — LIKE with % (any string) and _ (any single character); NOT LIKE inverts it.",
+        "NULL checks — IS NULL and IS NOT NULL. You can never compare a value to NULL with = ."
+      ]},
+      { "type": "heading", "text": "The NULL trap" },
+      { "type": "paragraph", "text": "NULL means 'unknown', not zero and not empty. Every expression involving NULL yields NULL, and NULL = anything is always false. That is why WHERE salary = NULL never matches and must be written as WHERE salary IS NULL." },
+      { "type": "code", "sql": "-- WRONG: never matches\nSELECT * FROM employees WHERE bonus = NULL;\n\n-- RIGHT\nSELECT * FROM employees WHERE bonus IS NOT NULL;" },
+      { "type": "tip", "text": "With OR + NULL you can silently lose rows: WHERE bonus > 100 OR bonus <= 100 still excludes rows where bonus is NULL. Add an explicit IS NULL branch when you must cover all rows." },
+      { "type": "heading", "text": "LIKE & escaping" },
+      { "type": "code", "sql": "-- names starting with 'An', ending with 'a'\nSELECT * FROM users\nWHERE  name LIKE  'An%';\n\n-- exactly five-character codes\nSELECT * FROM products\nWHERE  sku LIKE  '____';" },
+      { "type": "paragraph", "text": "LIKE is case-insensitive in MySQL and SQLite by default, case-sensitive in PostgreSQL. For interview speed, remember % = any sequence (including empty) and _ = exactly one character." }
+    ],
+    "keypoints": [
+      "NULL is unknown; use IS NULL / IS NOT NULL, never = NULL",
+      "BETWEEN is inclusive; IN is shorthand for OR",
+      "% matches any sequence, _ matches one character",
+      "Parenthesize AND/OR mixes to avoid precedence surprises"
+    ]
+  },
+
+  "joins": {
+    "title": "Joins",
+    "subtitle": "INNER · LEFT · RIGHT · FULL · CROSS",
+    "summary": "Fuse two or more tables on matching keys, and know exactly which rows survive.",
+    "sections": [
+      { "type": "intro", "text": "Joins combine rows from two tables using a matching condition, usually a foreign key. The different join types change what happens to rows that have no partner, and that single difference decides the correct answer in most interview questions." },
+      { "type": "heading", "text": "INNER vs LEFT" },
+      { "type": "code", "sql": "-- only rows that match on both sides\nSELECT c.name, o.id\nFROM   customers c\nJOIN   orders o ON o.customer_id = c.id;\n\n-- every customer, even with zero orders\nSELECT c.name, o.id\nFROM   customers c\nLEFT JOIN orders o ON o.customer_id = c.id;" },
+      { "type": "list", "title": "The five join flavours", "items": [
+        "INNER JOIN — keep rows where the condition matches on both sides.",
+        "LEFT JOIN — keep every row from the left table; unmatched right rows become NULL.",
+        "RIGHT JOIN — symmetric to LEFT; keep every row from the right table.",
+        "FULL OUTER JOIN — keep every row from both sides, NULL-filling the gaps.",
+        "CROSS JOIN — the Cartesian product: every row of A paired with every row of B."
+      ]},
+      { "type": "heading", "text": "NULLs from LEFT JOIN" },
+      { "type": "paragraph", "text": "After a LEFT JOIN, unmatched rows carry NULL in the right-table columns. Two classic traps follow: counting with COUNT(col) silently skips NULLs, and IN filters on the right table also drop those rows. Use COUNT(*) and explicit IS NOT NULL/ZERO filters, or move the condition into the ON clause." },
+      { "type": "code", "sql": "-- count customers with at least one order:\nSELECT c.id, COUNT(o.id) AS orders\nFROM   customers c\nLEFT JOIN orders o ON o.customer_id = c.id\nGROUP BY c.id;" },
+      { "type": "tip", "text": "Qualify every column you touch (c.name, o.id). It is unmissably professional and prevents ambiguous-column errors the moment a third table enters." },
+      { "type": "heading", "text": "Self joins" },
+      { "type": "paragraph", "text": "When pairs must be compared inside one table — like employees and their managers — the table joins to itself under two aliases. The structure is identical to any other join; only the FROM target repeats." }
+    ],
+    "keypoints": [
+      "LEFT JOIN keeps left rows, NULL-fills the right side",
+      "COUNT(col) skips NULLs; COUNT(*) does not",
+      "Self-join via two aliases to compare rows within a table",
+      "Filters that should drop unmatched rows may belong in ON, not WHERE"
+    ]
+  },
+
+  "aggregations": {
+    "title": "Aggregations",
+    "subtitle": "GROUP BY · HAVING · COUNT/SUM/AVG/MIN/MAX",
+    "summary": "Collapse many rows into summary numbers, then filter the summarized result.",
+    "sections": [
+      { "type": "intro", "text": "Aggregate functions turn many rows into one number per group. GROUP BY defines the buckets; aggregate functions fill them; HAVING keeps the buckets that pass a post-aggregation test." },
+      { "type": "heading", "text": "The five aggregate functions" },
+      { "type": "code", "sql": "SELECT\n  region,\n  COUNT(*)     AS customers,\n  SUM(amount)  AS revenue,\n  AVG(amount)  AS avg_order,\n  MIN(amount)  AS smallest,\n  MAX(amount)  AS largest\nFROM orders\nGROUP BY region;" },
+      { "type": "paragraph", "text": "COUNT(*) counts rows; COUNT(column) counts non-NULL values in that column — the difference matters after joins. SUM and AVG ignore NULLs, MIN and MAX ignore them too, and every column in the SELECT list that is not an aggregate must appear in GROUP BY." },
+      { "type": "heading", "text": "HAVING filters groups" },
+      { "type": "code", "sql": "SELECT   department, COUNT(*) AS headcount\nFROM     employees\nGROUP BY department\nHAVING   COUNT(*) >= 10\nORDER BY headcount DESC;" },
+      { "type": "tip", "text": "You cannot reference an aggregate in WHERE — WHERE runs before grouping. Put the aggregate condition in HAVING, or wrap the aggregate with a subquery and filter outside." },
+      { "type": "heading", "text": "Count vs SUM of a boolean" },
+      { "type": "code", "sql": "-- active vs total, in one pass\nSELECT\n  COUNT(*) FILTER (WHERE status = 'active') AS active,   -- PostgreSQL\n  COUNT(*)                                    AS total\nFROM users;\n\n-- portable alternative\nSELECT\n  SUM(CASE WHEN status = 'active' THEN 1 ELSE 0 END) AS active,\n  COUNT(*)                                          AS total\nFROM users;" }
+    ],
+    "keypoints": [
+      "Every non-aggregated column in SELECT must appear in GROUP BY",
+      "COUNT(col) skips NULLs — prefer COUNT(*) for rows",
+      "HAVING: aggregate conditions; WHERE: pre-group row filters",
+      "CASE WHEN ... THEN 1 END sums booleans into counts"
+    ]
+  },
+
+  "subqueries": {
+    "title": "Subqueries",
+    "subtitle": "Scalar · Correlated · EXISTS · ANY/ALL",
+    "summary": "Nest one query inside another to answer a question that needs two passes over the data.",
+    "sections": [
+      { "type": "intro", "text": "A subquery is a query nested inside another query. It can return a single value (scalar), a single column (list), or an entire derived table. Knowing which shape you need is the whole skill." },
+      { "type": "heading", "text": "The three shapes" },
+      { "type": "code", "sql": "-- scalar: one value\nSELECT name FROM users\nWHERE  id = (SELECT MAX(user_id) FROM users);\n\n-- list: many values\nSELECT * FROM orders\nWHERE  customer_id IN (SELECT id FROM customers WHERE vip = 1);\n\n-- derived table: use it like a table\nSELECT t.year, AVG(t.revenue)\nFROM   (SELECT YEAR(o.date) AS year, o.amount AS revenue FROM orders o) t\nGROUP BY t.year;" },
+      { "type": "heading", "text": "Correlated subqueries" },
+      { "type": "paragraph", "text": "A correlated subquery references a column from the outer query, so it re-runs for every outer row. It is powerful but slower — which makes it a classic 'optimize this' question. Rewrites usually involve a window function or a join on a pre-aggregated table." },
+      { "type": "code", "sql": "-- employees earning above their department average\nSELECT name, salary\nFROM   employees e\nWHERE  salary > (SELECT AVG(salary)\n                  FROM   employees\n                  WHERE  department_id = e.department_id);" },
+      { "type": "heading", "text": "EXISTS vs IN" },
+      { "type": "paragraph", "text": "EXISTS stops at the first match and handles NULLs more predictably; IN with a subquery returning NULLs can silently drop rows. For 'has at least one X' questions, EXISTS (or a JOIN + DISTINCT) is usually the safest and often the fastest." },
+      { "type": "code", "sql": "-- customers who have placed an order\nSELECT c.name FROM customers c\nWHERE EXISTS (\n  SELECT 1 FROM orders o\n  WHERE o.customer_id = c.id\n);" }
+    ],
+    "keypoints": [
+      "Subqueries can be scalar, a list, or a derived table",
+      "Correlated subqueries re-evaluate per outer row",
+      "EXISTS beats IN for presence checks and NULL safety",
+      "ANY/ALL compare a value against a subquery list (e.g. > ANY(...))"
+    ]
+  },
+
+  "set-operations": {
+    "title": "Set Operations",
+    "subtitle": "UNION · INTERSECT · EXCEPT",
+    "summary": "Stack or subtract whole result sets vertically, with or without duplicates.",
+    "sections": [
+      { "type": "intro", "text": "Joins combine tables side-by-side (more columns). Set operations combine queries top-to-bottom (more rows). Both inputs must have the same number of columns with compatible types; the output column names come from the first query." },
+      { "type": "heading", "text": "UNION vs UNION ALL" },
+      { "type": "code", "sql": "-- deduplicates automatically\nSELECT city FROM customers\nUNION\nSELECT city FROM suppliers;\n\n-- keeps every row, even duplicates\nSELECT city FROM customers\nUNION ALL\nSELECT city FROM suppliers;" },
+      { "type": "paragraph", "text": "UNION removes duplicate rows across the combined result; UNION ALL keeps everything. Because deduplication costs work, UNION ALL is the default choice unless the specification needs distinct cities. A SQL interviewer will almost always probe this." },
+      { "type": "heading", "text": "INTERSECT & EXCEPT" },
+      { "type": "code", "sql": "-- cities present in both tables\nSELECT city FROM customers\nINTERSECT\nSELECT city FROM suppliers;\n\n-- cities with customers but no suppliers\nSELECT city FROM customers\nEXCEPT\nSELECT city FROM suppliers;" },
+      { "type": "list", "title": "Quick recall", "items": [
+        "UNION — all rows from A and B, duplicates removed.",
+        "UNION ALL — all rows from A and B, duplicates kept.",
+        "INTERSECT — rows present in both A and B.",
+        "EXCEPT (MINUS in Oracle) — rows in A that are not in B."
+      ]},
+      { "type": "tip", "text": "Set operations care about row membership only — NULLs are treated as equal for deduplication — and duplicates inside a single input are collapsed in UNION/INTERSECT/EXCEPT, never in UNION ALL." }
+    ],
+    "keypoints": [
+      "Same column count and compatible types required",
+      "UNION dedupes, UNION ALL keeps duplicates",
+      "INTERSECT / EXCEPT for membership differences",
+      "Output column names come from the first query"
+    ]
+  },
+
+  "window-functions": {
+    "title": "Window Functions",
+    "subtitle": "RANK · DENSE_RANK · ROW_NUMBER · LAG/LEAD · PARTITION BY",
+    "summary": "Compute values across a set of rows related to the current row, without collapsing the result.",
+    "sections": [
+      { "type": "intro", "text": "Aggregates like SUM collapse a group into one row. Window functions compute the same kinds of values but keep every row, and each row sees its own window of related rows. This single idea unlocks ranking, running totals, previous/next values and moving averages." },
+      { "type": "heading", "text": "OVER with PARTITION BY" },
+      { "type": "code", "sql": "SELECT\n  name,\n  department,\n  salary,\n  SUM(salary) OVER (PARTITION BY department) AS dept_total\nFROM employees;" },
+      { "type": "paragraph", "text": "PARTITION BY splits the rows into windows (like GROUP BY, but without collapsing). The SUM here is repeated on every row of the same department, which lets you compare a row against its group instantly." },
+      { "type": "heading", "text": "Ranking trio — the interview favourite" },
+      { "type": "code", "sql": "SELECT\n  name,\n  score,\n  ROW_NUMBER() OVER (ORDER BY score DESC) AS rn,\n  RANK()       OVER (ORDER BY score DESC) AS rnk,\n  DENSE_RANK() OVER (ORDER BY score DESC) AS dens\nFROM players;" },
+      { "type": "list", "title": "What each one returns on ties", "items": [
+        "ROW_NUMBER — unique sequential numbers; ties break arbitrarily.",
+        "RANK — ties share a rank, then the next rank skips (1, 1, 3).",
+        "DENSE_RANK — ties share a rank, next rank does not skip (1, 1, 2)."
+      ]},
+      { "type": "heading", "text": "Lag, lead and running totals" },
+      { "type": "code", "sql": "-- previous day's sales and a running total\nSELECT\n  day,\n  sales,\n  LAG(sales)  OVER (ORDER BY day) AS prev_day,\n  SUM(sales)  OVER (ORDER BY day) AS running_total\nFROM   daily_sales;" },
+      { "type": "tip", "text": "RANK() with PARTITION BY user is the standard answer to 'top N per group' — pair it with a subquery or CTE that filters rnk <= N." }
+    ],
+    "keypoints": [
+      "PARTITION BY splits windows; ORDER BY inside OVER orders them",
+      "ROW_NUMBER / RANK / DENSE_RANK differ on ties",
+      "LAG/LEAD reach previous/next rows; running totals via ORDER BY in OVER",
+      "Window functions cannot appear in WHERE"
+    ]
+  },
+
+  "ctes": {
+    "title": "CTEs & Recursion",
+    "subtitle": "WITH · Recursive CTEs · Readability",
+    "summary": "Name a temporary result set with WITH so complex queries become steps you can read and reuse.",
+    "sections": [
+      { "type": "intro", "text": "A Common Table Expression (CTE) attaches a name to a subquery using WITH. It does not always change performance, but it changes readability enormously — and readable is what wins interviews." },
+      { "type": "heading", "text": "Chaining CTEs" },
+      { "type": "code", "sql": "WITH vip_users AS (\n  SELECT id FROM users WHERE tier = 'vip'\n),\norders AS (\n  SELECT * FROM orders WHERE user_id IN (SELECT id FROM vip_users)\n)\nSELECT user_id, SUM(amount) FROM orders\nGROUP BY user_id;" },
+      { "type": "paragraph", "text": "Each CTE can reference the ones declared before it. This turns a wall of nested subqueries into a top-to-bottom story — build the dataset, refine it, ask the final question." },
+      { "type": "heading", "text": "Recursive CTEs" },
+      { "type": "code", "sql": "WITH RECURSIVE countdown AS (\n  SELECT 5 AS n\n  UNION ALL\n  SELECT n - 1 FROM countdown WHERE n > 1\n)\nSELECT n FROM countdown;" },
+      { "type": "paragraph", "text": "A recursive CTE has an anchor term (runs once) and a recursive term (runs repeatedly, feeding the previous round's output back in) joined by UNION ALL. It is the tool for trees, org charts, flights, categories with subcategories, and anything with an arbitrary depth." },
+      { "type": "tip", "text": "Recursion needs an end condition; without one the query loops forever and the database kills it. Put a WHERE guard in the recursive term (like n > 1 above) — same logic applies when simulating traversal depth." }
+    ],
+    "keypoints": [
+      "WITH names a temp result set; CTEs chain in order",
+      "Recursive CTE = anchor term + recursive term with UNION ALL",
+      "Guards in the recursive term prevent infinite loops",
+      "CTEs are the standard, readable 'top N per group' home"
+    ]
+  },
+
+  "functions": {
+    "title": "Functions & CASE",
+    "subtitle": "String · Date · Numeric · CASE WHEN",
+    "summary": "Transform values with built-in functions and branch expressions that fit cleanly inside a SELECT.",
+    "sections": [
+      { "type": "intro", "text": "Real queries rarely output raw columns. You will round averages, concatenate names, format dates and bucket values into ranges — that is exactly what built-in functions and CASE WHEN do." },
+      { "type": "heading", "text": "String functions" },
+      { "type": "code", "sql": "-- names are only as good as the string functions\nSELECT\n  UPPER(name)                               AS shout,\n  LENGTH(name)                              AS len,\n  LEFT(name, 3)                             AS initial,\n  REPLACE(phone, '-', '')                   AS digits,\n  CONCAT(first_name, ' ', last_name)        AS full_name,\n  SUBSTRING(email, 2, 5)                    AS chunk\nFROM users;" },
+      { "type": "heading", "text": "Date comparison by parts" },
+      { "type": "code", "sql": "-- orders from the current year\nSELECT * FROM orders\nWHERE YEAR(created_at) = 2025;   -- MySQL\n\n-- or a safe range (index-friendly, works everywhere)\nSELECT * FROM orders\nWHERE created_at >= '2025-01-01'\n  AND created_at <  '2026-01-01';" },
+      { "type": "paragraph", "text": "Casting a date column to a year string destroys index usage and slows the query on big tables. Prefer range comparisons over extracting parts when correctness of performance is under review." },
+      { "type": "heading", "text": "CASE WHEN buckets values" },
+      { "type": "code", "sql": "SELECT\n  name,\n  CASE\n    WHEN score >= 90 THEN 'Excellent'\n    WHEN score >= 70 THEN 'Good'\n    WHEN score >= 50 THEN 'Average'\n    ELSE 'Needs work'\n  END AS grade\nFROM results;" },
+      { "type": "paragraph", "text": "CASE evaluates conditions top to bottom and returns the first match, otherwise ELSE (or NULL if omitted). It works anywhere an expression works — and when you SUM(CASE WHEN ... THEN 1 ELSE 0 END) it becomes a portable conditional counter." },
+      { "type": "tip", "text": "CASE's first-match-wins behaviour is a feature: order the branches from most specific to least specific, like the score bucket list above." }
+    ],
+    "keypoints": [
+      "String helpers: UPPER, LENGTH, LEFT, SUBSTRING, CONCAT, REPLACE",
+      "Prefer date-range filters over extracting year/month",
+      "CASE WHEN evaluates top-to-bottom, first match wins",
+      "SUM(CASE ...) builds conditional counts across all databases"
+    ]
+  },
+
+  "indexing": {
+    "title": "Indexing & Performance",
+    "subtitle": "B-tree · Primary/Unique · Composite · EXPLAIN",
+    "summary": "Why indexes make reads fast, which columns deserve them, and how to read a query plan.",
+    "sections": [
+      { "type": "intro", "text": "An index is a sorted structure the database keeps beside a table so it can find rows without scanning everything. Interview performance questions almost always reduce to: what would make this query fast, and why does this index help." },
+      { "type": "heading", "text": "How a B-tree index works" },
+      { "type": "paragraph", "text": "A B-tree keeps key values in order, so point lookups become a logarithmic descent instead of a full table scan. Range conditions like BETWEEN, >= and < exploit that ordering efficiently. The same structure is why equality on an indexed column is a fraction of a millisecond." },
+      { "type": "list", "title": "Which indexes exist", "items": [
+        "PRIMARY KEY — unique, non-null, automatically indexed; the table's identity.",
+        "UNIQUE — enforces uniqueness and doubles as an index.",
+        "Composite — an index over several columns; leftmost-column order matters.",
+        "Foreign keys — usually worth indexing to speed up joins.",
+        "Full-text / GIN — for LIKE '%...%' and text search where a B-tree is no help."
+      ]},
+      { "type": "heading", "text": "Composite prefix rule" },
+      { "type": "code", "sql": "CREATE INDEX idx_orders_customer_date\n  ON orders (customer_id, created_at);" },
+      { "type": "paragraph", "text": "A composite index serves queries that use its leftmost columns as a prefix. The index above wins on customer_id alone, on customer_id + created_at, but not on created_at alone. Order columns from most selective to least selective." },
+      { "type": "tip", "text": "Classic anti-patterns: wrapping an indexed column in a function or a leading wildcard LIKE '%x' , and indexing low-cardinality columns like a boolean flag — neither can use the B-tree efficiently." },
+      { "type": "heading", "text": "Read the plan" },
+      { "type": "code", "sql": "EXPLAIN  ANALYZE\nSELECT * FROM orders\nWHERE customer_id = 12;   -- watch for Seq Scan vs Index Scan" },
+      { "type": "paragraph", "text": "EXPLAIN shows the planner's chosen steps — a Seq Scan reads the whole table, an Index Scan uses the index. If a hot query is scanning, the usual fix is an index that matches its filters." }
+    ],
+    "keypoints": [
+      "B-tree indexes speed equality and range lookups",
+      "Composite indexes obey the leftmost-prefix rule",
+      "Functions on indexed columns and leading-wildcard LIKE defeat indexes",
+      "EXPLAIN reveals Seq Scan vs Index Scan"
+    ]
+  },
+
+  "transactions": {
+    "title": "Transactions & ACID",
+    "subtitle": "Commit · Rollback · Isolation Levels",
+    "summary": "Group statements into atomic units and understand the guarantees that keep data consistent.",
+    "sections": [
+      { "type": "intro", "text": "A transaction is a sequence of statements that run as one unit: either all of them take effect or none of them do. Banking transfers are the canonical example — the debit without the credit must not be allowed to survive." },
+      { "type": "heading", "text": "ACID in one line each" },
+      { "type": "list", "title": "The four guarantees", "items": [
+        "Atomicity — all-or-nothing: a partial transaction is rolled back on failure.",
+        "Consistency — the database moves from one valid state to another; constraints hold.",
+        "Isolation — concurrent transactions do not see each other's uncommitted messes.",
+        "Durability — once committed, changes survive crashes."
+      ]},
+      { "type": "code", "sql": "BEGIN;\nUPDATE accounts SET balance = balance - 100 WHERE id = 1;\nUPDATE accounts SET balance = balance + 100 WHERE id = 2;\nCOMMIT;   -- or ROLLBACK; if anything went wrong" },
+      { "type": "heading", "text": "Isolation levels and their trade-offs" },
+      { "type": "list", "title": "From weakest to strongest", "items": [
+        "READ UNCOMMITTED — may see dirty (uncommitted) writes.",
+        "READ COMMITTED — sees only committed data; a refresh mid-transaction can still differ.",
+        "REPEATABLE READ — the same read returns the same result inside the transaction.",
+        "SERIALIZABLE — transactions behave as if they ran one after another."
+      ]},
+      { "type": "paragraph", "text": "Stronger isolation = more correctness, but more locking and lower concurrency. That tension — choose the weakest level that still prevents your anomalies — is exactly what a senior interview wants to hear you reason through." },
+      { "type": "tip", "text": "Read anomalies have names: dirty reads (uncommitted data), non-repeatable reads (same query, different result), and phantom reads (new rows appear). Match them to the isolation levels above when explaining trade-offs." }
+    ],
+    "keypoints": [
+      "Transaction = atomic all-or-nothing unit",
+      "ACID: Atomicity, Consistency, Isolation, Durability",
+      "Isolation levels trade correctness against concurrency",
+      "Dirty / non-repeatable / phantom reads are the canonical anomalies"
+    ]
+  },
+
+  "normalization": {
+    "title": "Normalization & Schema Design",
+    "subtitle": "1NF · 2NF · 3NF · Keys & Constraints",
+    "summary": "Remove redundancy from a schema with incremental normal forms and design tables that stay correct.",
+    "sections": [
+      { "type": "intro", "text": "A relational schema stores each fact once. Normalization is the discipline that gets you there by systematically removing redundancy — and redundancy is what causes update anomalies, inconsistent data and wasted storage." },
+      { "type": "heading", "text": "The normal forms in plain words" },
+      { "type": "list", "title": "1NF → 3NF", "items": [
+        "1NF — values are atomic: one value per cell, no repeating groups or comma-separated lists.",
+        "2NF — 1NF + every non-key column depends on the whole primary key, not just part of it (kills partial dependency; matters for composite keys).",
+        "3NF — 2NF + no column depends on another non-key column (no transitive dependency, like city depending on zip instead of on the primary key)."
+      ]},
+      { "type": "heading", "text": "Why normalization matters" },
+      { "type": "paragraph", "text": "Without 3NF, updating an employee's address means updating the identical value in many rows — miss one and the data disagrees. Normalized designs store the address once and reference it; the price is extra joins, which you then optimize with indexes." },
+      { "type": "code", "sql": "-- denormalized: city repeats for every customer in a zip\nSELECT * FROM customer_addresses;\n-- customer_id | zip | city\n\n-- normalized: city lives one level up, referenced by zip FK\n-- zip -> city lives in its own table; addresses store only zip" },
+      { "type": "heading", "text": "Keys and constraints" },
+      { "type": "code", "sql": "CREATE TABLE employees (\n  id         INT PRIMARY KEY,\n  email      VARCHAR(255) UNIQUE NOT NULL,\n  dept_id    INT REFERENCES departments(id),\n  CHECK (salary >= 0)\n);" },
+      { "type": "paragraph", "text": "PRIMARY KEY anchors identity, UNIQUE prevents duplicates, NOT NULL refuses unknowns, REFERENCES enforces the foreign-key link, and CHECK keeps domain rules inside the database rather than in application code." },
+      { "type": "tip", "text": "Normalize first, then denormalize deliberately — a star-schema data warehouse or a reporting cache can clone data on purpose for speed, but a transactional OLTP schema should never copy facts around casually." }
+    ],
+    "keypoints": [
+      "1NF atomic values, 2NF no partial dependency, 3NF no transitive dependency",
+      "Normalization removes redundancy and update anomalies at the cost of joins",
+      "Primary/unique/foreign/check constraints encode rules in the database",
+      "Denormalization is a measured exception, not the default"
+    ]
+  }
+}

@@ -2,13 +2,23 @@ import express from "express";
 import LoginRouter from "./routes/Login.route.js";
 import CompilerRouter from "./routes/compiler.route.js";
 import ActivityRouter from "./routes/activity.route.js";
+import ProfileRouter from "./routes/profile.route.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import csurf from "csurf";
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
 import errorMiddleware from "./middleware/error.middleware.js";
 import mongoose from "mongoose";
 
 const app = express();
+
+app.set("trust proxy", 1);
+app.disable("x-powered-by");
+
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+}));
 
 app.use(cookieParser());
 
@@ -34,10 +44,17 @@ app.use(cors({
     },
     credentials: true,
 }));
-app.use(express.json());
 
-app.use("/api/v1", CompilerRouter);
-app.use("/api/v1", ActivityRouter);
+app.use(express.json({ limit: "256kb" }));
+
+const apiRateLimiter = rateLimit({
+    windowMs: 60 * 1000,
+    max: 240,
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+
+app.use("/api/v1", apiRateLimiter);
 
 const csrfProtection = csurf({
     cookie: {
@@ -47,6 +64,7 @@ const csrfProtection = csurf({
     },
 });
 
+app.use("/api/v1", CompilerRouter);
 app.use(csrfProtection);
 
 app.get("/api/v1/csrf-token", (req, res) => {
@@ -62,6 +80,8 @@ app.get("/api/v1/health", (req, res) => {
 
 // route handling
 app.use("/api/v1", LoginRouter);
+app.use("/api/v1", ActivityRouter);
+app.use("/api/v1", ProfileRouter);
 
 app.use((req, res) => {
     res.status(404).json({

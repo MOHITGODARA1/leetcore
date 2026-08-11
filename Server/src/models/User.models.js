@@ -7,13 +7,16 @@ const UserSchema = new mongoose.Schema(
             type: String,
             required: true,
             unique: true,
-            index: true,
         },
         username: {
             type: String,
             required: true,
+            unique: true,
             trim: true,
-            index: true,
+            lowercase: true,
+            minlength: 3,
+            maxlength: 30,
+            match: /^[a-z0-9_-]+$/,
         },
         email: {
             type: String,
@@ -21,7 +24,6 @@ const UserSchema = new mongoose.Schema(
             lowercase: true,
             trim: true,
             required: true,
-            index: true,
         },
         avatar: {
             type: String,
@@ -44,8 +46,13 @@ const UserSchema = new mongoose.Schema(
             type: String,
             default: "",
             trim: true,
+            maxlength: 80,
         },
-        
+        publicProfileEnabled: {
+            type: Boolean,
+            default: true,
+            index: true,
+        },
         lastLogin: {
             type: Date,
             default: Date.now,
@@ -56,6 +63,7 @@ const UserSchema = new mongoose.Schema(
     }
 );
 
+UserSchema.index({ username: 1, publicProfileEnabled: 1 });
 
 
 export default mongoose.model("User", UserSchema);

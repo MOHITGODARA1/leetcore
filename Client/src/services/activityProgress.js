@@ -2,12 +2,19 @@ import axios from "axios";
 import { csrfRequestInterceptor } from "./csrf";
 import questionsData from "../features/DSA/data/questions.json";
 import topicsData from "../features/DSA/data/topics.json";
+import sqlTopicsData from "../features/SQL/data/topics.json";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
 const AUTH_TOKEN_KEY = "leetcore_auth_token";
 const SOLVED_KEY = "leetcore_solved_questions";
 const LOCAL_ACTIVITY_KEY = "leetcore_local_activity";
+const SQL_COMPLETED_KEY = "leetcore_sql_completed";
 export const ACTIVITY_UPDATED_EVENT = "leetcore_activity_updated";
+const SUMMARY_CACHE_TTL_MS = 30000;
+
+let cachedServerSummary = null;
+let cachedServerSummaryAt = 0;
+let summaryRequest = null;
 
 const apiClient = axios.create({
   baseURL: `${API_URL}/api/v1`,
@@ -83,6 +90,87 @@ const getTopicProgress = (solvedQuestions) => {
   });
 };
 
+/* SQL theory track — its "solved" count is tracked topic completions living
+   in localStorage, so it mounts on top of any summary (server or local). */
+const getSqlTopicProgress = () => {
+  const completed = readJson(SQL_COMPLETED_KEY, []).filter(Boolean);
+  const topics = sqlTopicsData.topics || [];
+  const solved = topics.filter((topic) => completed.includes(topic.id)).length;
+  const total = topics.length;
+
+  return {
+    id: "sql",
+    label: "SQL",
+    order: 0,
+    solved,
+    total,
+    percent: total > 0 ? Math.round((solved / total) * 100) : 0,
+  };
+};
+
+const attachSqlTopicProgress = (list) => {
+  const sql = getSqlTopicProgress();
+  const rest = Array.isArray(list) ? list.filter((item) => item?.id !== "sql") : [];
+  return [...rest, sql];
+};
+
+const withSqlTopicProgress = (summary) => {
+  if (!summary || Array.isArray(summary)) {
+    return summary;
+  }
+
+  const topicProgress = attachSqlTopicProgress(summary.topicProgress);
+  const currentTopic = topicProgress.find((topic) => topic.total > 0 && topic.solved < topic.total)
+    || topicProgress.find((topic) => topic.total > 0)
+    || summary.currentTopic;
+
+  return {
+    ...summary,
+    topicProgress,
+    currentTopic,
+  };
+};
+
+const clearSummaryCache = () => {
+  cachedServerSummary = null;
+  cachedServerSummaryAt = 0;
+  summaryRequest = null;
+};
+
+const cacheServerSummary = (summary) => {
+  cachedServerSummary = summary;
+  cachedServerSummaryAt = Date.now();
+  return summary;
+};
+
+const isServerSummaryCacheFresh = () =>
+  cachedServerSummary && Date.now() - cachedServerSummaryAt < SUMMARY_CACHE_TTL_MS;
+
+const fetchServerActivitySummary = async ({ force = false } = {}) => {
+  if (!force && isServerSummaryCacheFresh()) {
+    return cachedServerSummary;
+  }
+
+  if (!force && summaryRequest) {
+    return summaryRequest;
+  }
+
+  summaryRequest = apiClient.get("/activity/summary")
+    .then((response) => {
+      const summary = response.data.summary;
+      if (summary) {
+        hydrateFromServer(summary);
+        cacheServerSummary(summary);
+      }
+      return summary;
+    })
+    .finally(() => {
+      summaryRequest = null;
+    });
+
+  return summaryRequest;
+};
+
 const getWeeklyProgress = (dailyActivity) => {
   const activityByDate = new Map(dailyActivity.map((day) => [day.date, day]));
   const today = new Date();
@@ -121,7 +209,7 @@ const getStreakCount = (dailyActivity) => {
 export const buildLocalActivitySummary = () => {
   const solvedQuestions = readJson(SOLVED_KEY, []).filter((id) => getAllQuestionIds().includes(id));
   const localActivity = readJson(LOCAL_ACTIVITY_KEY, { dailyActivity: [], totalSubmissions: 0 });
-  const topicProgress = getTopicProgress(solvedQuestions);
+  const topicProgress = attachSqlTopicProgress(getTopicProgress(solvedQuestions));
   const currentTopic = topicProgress.find((topic) => topic.total > 0 && topic.solved < topic.total)
     || topicProgress.find((topic) => topic.total > 0)
     || { id: "arrays", label: "Arrays", solved: 0, total: 0, percent: 0 };
@@ -152,20 +240,13 @@ export const buildLocalActivitySummary = () => {
 };
 
 export const getActivitySummary = async () => {
-  const token = localStorage.getItem(AUTH_TOKEN_KEY);
-
-  if (token) {
-    try {
-      const response = await apiClient.get("/activity/summary");
-      const summary = response.data.summary;
-      if (summary) {
-        hydrateFromServer(summary);
-      }
-      return summary;
-    } catch (error) {
-      if (error.response?.status === 401 || error.response?.status === 403) {
-        localStorage.removeItem(AUTH_TOKEN_KEY);
-      }
+  try {
+    const summary = await fetchServerActivitySummary();
+    return withSqlTopicProgress(summary);
+  } catch (error) {
+    if (error.response?.status === 401 || error.response?.status === 403) {
+      localStorage.removeItem(AUTH_TOKEN_KEY);
+      clearSummaryCache();
     }
   }
 
@@ -173,20 +254,13 @@ export const getActivitySummary = async () => {
 };
 
 export const syncSolvedWithServer = async () => {
-  const token = localStorage.getItem(AUTH_TOKEN_KEY);
-  if (!token) return false;
-
   try {
-    const response = await apiClient.get("/activity/summary");
-    const summary = response.data.summary;
-    if (summary) {
-      hydrateFromServer(summary);
-      return true;
-    }
-    return false;
+    const summary = await fetchServerActivitySummary();
+    return Boolean(summary);
   } catch (error) {
     if (error.response?.status === 401 || error.response?.status === 403) {
       localStorage.removeItem(AUTH_TOKEN_KEY);
+      clearSummaryCache();
     }
     return false;
   }
@@ -254,25 +328,26 @@ const recordLocalAcceptedSubmission = ({ questionId, topicId }) => {
 
 export const recordAcceptedSubmission = async (payload) => {
   const localResult = recordLocalAcceptedSubmission(payload);
-  const token = localStorage.getItem(AUTH_TOKEN_KEY);
   let summary = localResult.summary;
 
-  if (token) {
-    try {
-      const meta = getQuestionMeta(payload.questionId, payload.topicId);
-      const response = await apiClient.post("/activity/submissions/accepted", {
-        questionId: payload.questionId,
-        topicId: meta.topicId,
-        difficulty: payload.difficulty || meta.difficulty,
-        language: payload.language,
-        runtimeMs: payload.runtimeMs,
-        memoryKb: payload.memoryKb,
-      });
-      summary = response.data.summary;
-    } catch (error) {
-      if (error.response?.status === 401 || error.response?.status === 403) {
-        localStorage.removeItem(AUTH_TOKEN_KEY);
-      }
+  try {
+    const meta = getQuestionMeta(payload.questionId, payload.topicId);
+    const response = await apiClient.post("/activity/submissions/accepted", {
+      questionId: payload.questionId,
+      topicId: meta.topicId,
+      difficulty: payload.difficulty || meta.difficulty,
+      language: payload.language,
+      runtimeMs: payload.runtimeMs,
+      memoryKb: payload.memoryKb,
+    });
+    if (response.data.summary) {
+      cacheServerSummary(response.data.summary);
+      summary = withSqlTopicProgress(response.data.summary);
+    }
+  } catch (error) {
+    if (error.response?.status === 401 || error.response?.status === 403) {
+      localStorage.removeItem(AUTH_TOKEN_KEY);
+      clearSummaryCache();
     }
   }
 

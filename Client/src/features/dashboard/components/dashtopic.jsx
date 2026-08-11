@@ -32,7 +32,7 @@ const topics = [
   {
     id: "sql",
     title: "SQL",
-    total: 5,
+    total: 12,
     link: "/dashboard/sql",
     icon: Database,
     color: "#22c55e",
@@ -176,7 +176,10 @@ const resolveProgress = (topic, topicProgress) => {
 
   if (topic.id === "dsa") {
     const agg = topicProgress.reduce(
-      (acc, tp) => ({ solved: acc.solved + (tp.solved || 0), total: acc.total + (tp.total || 0) }),
+      (acc, tp) => {
+        if (tp.id === "sql") return acc;
+        return { solved: acc.solved + (tp.solved || 0), total: acc.total + (tp.total || 0) };
+      },
       { solved: 0, total: 0 }
     );
     const solved = agg.solved;
@@ -285,8 +288,14 @@ function TopicCard({ topic }) {
           )}
         </div>
 
-        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-[var(--dash-line)] bg-[var(--dash-panel-2)] text-[var(--dash-muted)] transition-colors duration-300 group-hover:text-[var(--dash-text)]">
-          <Icon size={25} weight="duotone" />
+        <span
+          className="grid h-12 w-12 shrink-0 place-items-center rounded-xl  transition-colors duration-300"
+          style={{
+            color: topic.color,
+            
+          }}
+        >
+          <Icon size={40} weight="bold" />
         </span>
       </div>
 
@@ -364,7 +373,7 @@ function EmptyState() {
 function DashTopic({ activeTab }) {
   const sectionRef = useRef(null);
   const activity = useActivitySummary();
-  const topicProgress = activity.topicProgress;
+  const topicProgress = Array.isArray(activity.topicProgress) ? activity.topicProgress : [];
   const filtered = filterTopics(topics, activeTab).map((topic) => ({
     ...topic,
     progress: resolveProgress(topic, topicProgress),

@@ -14,6 +14,7 @@ const DEFAULT_ACTIVITY = {
   weeklySolved: 0,
   currentTopic: { label: "Arrays", solved: 0, total: 0, percent: 0 },
   weeklyProgress: [],
+  topicProgress: [],
 };
 
 /**

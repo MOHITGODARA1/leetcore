@@ -74,6 +74,10 @@ const UserActivitySchema = new mongoose.Schema(
             type: [SolvedQuestionSchema],
             default: [],
         },
+        solvedCount: {
+            type: Number,
+            default: 0,
+        },
         dailyActivity: {
             type: [DailyActivitySchema],
             default: [],
@@ -91,5 +95,13 @@ const UserActivitySchema = new mongoose.Schema(
         timestamps: true,
     }
 );
+
+UserActivitySchema.pre("save", function setSolvedCount(next) {
+    this.solvedCount = this.solvedQuestions.length;
+    next();
+});
+
+UserActivitySchema.index({ solvedCount: -1 });
+UserActivitySchema.index({ lastActivityAt: -1 });
 
 export default mongoose.model("UserActivity", UserActivitySchema);

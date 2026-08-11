@@ -1,0 +1,29 @@
+{
+  "topics": [
+    { "id": "sql-basics", "label": "SQL Basics", "x": 0, "y": 60, "order": 0 },
+    { "id": "filtering", "label": "Filtering", "x": 200, "y": 60, "order": 1 },
+    { "id": "joins", "label": "Joins", "x": 400, "y": 60, "order": 2 },
+    { "id": "aggregations", "label": "Aggregations", "x": 600, "y": 60, "order": 3 },
+    { "id": "subqueries", "label": "Subqueries", "x": 600, "y": 190, "order": 4 },
+    { "id": "set-operations", "label": "Set Operations", "x": 400, "y": 190, "order": 5 },
+    { "id": "window-functions", "label": "Window Functions", "x": 200, "y": 190, "order": 6 },
+    { "id": "ctes", "label": "CTEs & Recursion", "x": 0, "y": 190, "order": 7 },
+    { "id": "functions", "label": "Functions & CASE", "x": 0, "y": 320, "order": 8 },
+    { "id": "indexing", "label": "Indexing & Perf", "x": 200, "y": 320, "order": 9 },
+    { "id": "transactions", "label": "Transactions", "x": 400, "y": 320, "order": 10 },
+    { "id": "normalization", "label": "Normalization", "x": 600, "y": 320, "order": 11 }
+  ],
+  "edges": [
+    ["sql-basics", "filtering"],
+    ["filtering", "joins"],
+    ["joins", "aggregations"],
+    ["aggregations", "subqueries"],
+    ["subqueries", "set-operations"],
+    ["set-operations", "window-functions"],
+    ["window-functions", "ctes"],
+    ["ctes", "functions"],
+    ["functions", "indexing"],
+    ["indexing", "transactions"],
+    ["transactions", "normalization"]
+  ]
+}

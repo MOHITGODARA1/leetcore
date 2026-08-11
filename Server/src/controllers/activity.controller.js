@@ -10,6 +10,7 @@ const topicsPath = path.resolve(__dirname, "../data/topics.json");
 const questionsData = JSON.parse(fs.readFileSync(questionsPath, "utf8"));
 const topicsData = JSON.parse(fs.readFileSync(topicsPath, "utf8"));
 const topics = topicsData.topics || [];
+const totalQuestions = Object.values(questionsData).reduce((total, questions) => total + questions.length, 0);
 
 const toDateKey = (date = new Date()) => date.toISOString().slice(0, 10);
 
@@ -107,14 +108,26 @@ const getStreakCount = (dailyActivity = []) => {
     return streak;
 };
 
+const getSolvedCount = (activity) => (
+    typeof activity.solvedCount === "number"
+        ? activity.solvedCount
+        : activity.solvedQuestions?.length || 0
+);
+
 const getContestRank = async (activity) => {
-    const solvedCount = activity.solvedQuestions.length;
-    const betterUsers = await UserActivity.countDocuments({
-        $expr: {
-            $gt: [{ $size: "$solvedQuestions" }, solvedCount],
-        },
-    });
-    const totalUsers = await UserActivity.countDocuments();
+    const solvedCount = getSolvedCount(activity);
+    const [betterUsers, totalUsers] = await Promise.all([
+        UserActivity.countDocuments({
+            $or: [
+                { solvedCount: { $gt: solvedCount } },
+                {
+                    solvedCount: { $exists: false },
+                    $expr: { $gt: [{ $size: "$solvedQuestions" }, solvedCount] },
+                },
+            ],
+        }),
+        UserActivity.countDocuments(),
+    ]);
     const rank = totalUsers > 0 ? betterUsers + 1 : 1;
     const percentile = totalUsers > 1
         ? Math.round(((totalUsers - rank) / (totalUsers - 1)) * 100)
@@ -133,8 +146,7 @@ const buildSummary = async (activity) => {
     const weeklyProgress = getWeeklyProgress(activity.dailyActivity);
     const weeklySolved = weeklyProgress.reduce((total, day) => total + day.solvedCount, 0);
     const streakCount = getStreakCount(activity.dailyActivity);
-    const solvedCount = activity.solvedQuestions.length;
-    const totalQuestions = Object.values(questionsData).reduce((total, questions) => total + questions.length, 0);
+    const solvedCount = getSolvedCount(activity);
     const readinessScore = clamp(Math.round((streakCount * 8) + (weeklySolved * 6) + (solvedCount * 2)), 0, 100);
     const contestRank = await getContestRank(activity);
 
@@ -165,9 +177,19 @@ const getOrCreateActivity = async (userId) => {
     return activity;
 };
 
+const getOrCreateActivitySummary = async (userId) => {
+    let activity = await UserActivity.findOne({ user: userId }).lean();
+
+    if (!activity) {
+        activity = (await UserActivity.create({ user: userId })).toObject();
+    }
+
+    return activity;
+};
+
 export const getActivitySummary = async (req, res) => {
     try {
-        const activity = await getOrCreateActivity(req.user.id);
+        const activity = await getOrCreateActivitySummary(req.user.id);
         const summary = await buildSummary(activity);
 
         return res.status(200).json({
@@ -249,6 +271,7 @@ export const recordAcceptedSubmission = async (req, res) => {
         }
 
         activity.totalSubmissions += 1;
+        activity.solvedCount = activity.solvedQuestions.length;
         activity.lastActivityAt = new Date();
         await activity.save();
 

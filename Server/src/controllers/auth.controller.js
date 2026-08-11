@@ -21,6 +21,33 @@ const trimTrailingSlash = (url) => url?.replace(/\/$/, "");
 
 const isProductionUrl = (url = "") => url.startsWith("https://");
 
+const normalizeUsername = (value = "") => {
+    const normalized = value
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9_-]/g, "-")
+        .replace(/-+/g, "-")
+        .replace(/^[-_]+|[-_]+$/g, "");
+
+    return normalized.slice(0, 30) || "leetcore-user";
+};
+
+const getAvailableUsername = async (preferredUsername, currentUserId = null) => {
+    const base = normalizeUsername(preferredUsername).slice(0, 24);
+    let candidate = base.length >= 3 ? base : `${base}user`.slice(0, 24);
+    let suffix = 1;
+
+    while (await User.exists({
+        username: candidate,
+        ...(currentUserId ? { _id: { $ne: currentUserId } } : {}),
+    })) {
+        suffix += 1;
+        candidate = `${base}-${suffix}`.slice(0, 30);
+    }
+
+    return candidate;
+};
+
 const shouldAllowSelfSignedGithubCerts = () =>
     process.env.NODE_ENV !== "production"
     && process.env.GITHUB_ALLOW_SELF_SIGNED_CERTS === "true";
@@ -77,7 +104,7 @@ const githubLogin = (req, res) => {
     const params = new URLSearchParams({
         client_id: clientId,
         redirect_uri: getGithubCallbackUrl(),
-        scope: "read:user user:email public_repo",
+        scope: "read:user user:email",
     });
 
     const redirectURL = `https://github.com/login/oauth/authorize?${params.toString()}`;
@@ -171,11 +198,9 @@ const registerUser = async (req, res) => {
 
         const userData = {
             githubId,
-            username: login,
             email,
             avatar: avatar_url,
             profileUrl: html_url,
-            githubAccessToken: accessToken,
             bio: bio || "",
             name: name || login,
             lastLogin: new Date(),
@@ -200,12 +225,16 @@ const registerUser = async (req, res) => {
         if (!user) {
 
             authStep = "creating user";
-            user = await User.create(userData);
+            user = await User.create({
+                ...userData,
+                username: await getAvailableUsername(login),
+            });
 
         } else {
 
             authStep = "updating user";
             user.set(userData);
+            user.set("githubAccessToken", undefined);
             await user.save();
 
         }
@@ -227,7 +256,7 @@ const registerUser = async (req, res) => {
 
         const clientUrl = trimTrailingSlash(process.env.CLIENT_URL || DEFAULT_CLIENT_URL);
 
-        return res.redirect(`${clientUrl}/?token=${encodeURIComponent(token)}`);
+        return res.redirect(clientUrl);
 
     } catch (error) {
         try {

@@ -12,6 +12,10 @@ const getBearerToken = (req) => {
 
 const authMiddleware = async (req, res, next) => {
     try {
+        if (!process.env.JWT_SECRET) {
+            throw new Error("JWT secret is not configured");
+        }
+
         const token = req.cookies?.token || getBearerToken(req);
 
         if (!token) {
@@ -27,7 +31,9 @@ const authMiddleware = async (req, res, next) => {
 
         next();
     } catch (error) {
-        console.log("Auth middleware error:", error);
+        if (process.env.NODE_ENV !== "production") {
+            console.error("Auth middleware error:", error.message);
+        }
 
         return res.status(401).json({
             success: false,
