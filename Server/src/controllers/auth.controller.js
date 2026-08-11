@@ -21,6 +21,16 @@ const trimTrailingSlash = (url) => url?.replace(/\/$/, "");
 
 const isProductionUrl = (url = "") => url.startsWith("https://");
 
+const getClientUrl = () => trimTrailingSlash(process.env.CLIENT_URL || DEFAULT_CLIENT_URL);
+
+const redirectWithAuthError = (res, reason) => {
+    const clientUrl = getClientUrl();
+    const redirectUrl = new URL(clientUrl);
+    redirectUrl.searchParams.set("auth_error", reason || "github_login_failed");
+
+    return res.redirect(redirectUrl.toString());
+};
+
 const normalizeUsername = (value = "") => {
     const normalized = value
         .trim()
@@ -119,6 +129,10 @@ const registerUser = async (req, res) => {
 
         // Get code from GitHub
         authStep = "reading GitHub callback code";
+        if (req.query.error) {
+            return redirectWithAuthError(res, String(req.query.error));
+        }
+
         const code = req.query.code;
 
         if (!code) {
@@ -276,6 +290,10 @@ const registerUser = async (req, res) => {
             status: statusCode,
             message: providerMessage,
         });
+
+        if (req.accepts("html")) {
+            return redirectWithAuthError(res, "github_login_failed");
+        }
 
         return res.status(statusCode >= 400 && statusCode < 500 ? statusCode : 500).json({
             success: false,

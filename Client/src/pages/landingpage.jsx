@@ -11,8 +11,26 @@ import Login from "../auth/Login";
 
 function LandingPage() {
     const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const [authError, setAuthError] = useState(() => (
+        new URLSearchParams(window.location.search).get("auth_error")
+            ? "GitHub sign-in could not finish. Please try again in a moment."
+            : ""
+    ));
     const { user, loading } = useAuth();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("auth_error")) {
+            params.delete("auth_error");
+            const nextSearch = params.toString();
+            window.history.replaceState(
+                null,
+                "",
+                `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ""}${window.location.hash}`
+            );
+        }
+    }, []);
 
     useEffect(() => {
         if (!loading && user) {
@@ -32,6 +50,22 @@ function LandingPage() {
 
             {/* Floating glass navbar */}
             <LandingNavbar onLoginClick={() => setIsLoginOpen(true)} />
+
+            {authError && (
+                <div className="fixed inset-x-4 top-24 z-50 mx-auto max-w-md rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-panel)] px-4 py-3 text-sm text-[var(--color-text)] shadow-[var(--shadow-xl)]">
+                    <div className="flex items-start justify-between gap-3">
+                        <p>{authError}</p>
+                        <button
+                            type="button"
+                            onClick={() => setAuthError("")}
+                            className="shrink-0 text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+                            aria-label="Dismiss sign-in error"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
 
             <main id="main">
                 {/* Hero */}
