@@ -60,7 +60,6 @@ function SQLrightnavbar() {
 
   const topics = topicsData.topics;
   const completedCount = topics.filter((t) => completed.includes(t.id)).length;
-  const percent = topics.length > 0 ? Math.round((completedCount / topics.length) * 100) : 0;
   const currentTopic = topics.find((t) => !completed.includes(t.id));
 
   const chart = useMemo(() => {
@@ -91,7 +90,7 @@ function SQLrightnavbar() {
       {/* Current Journey */}
       <div className="grid grid-cols-2 gap-4">
         <div className="rounded-xl border border-[var(--lc-line)] bg-white/[0.08] p-4">
-          <Flame size={20} className="text-orange-400" />
+          <Flame size={20} className="text-[#4ade80]" />
           <p className="mt-3 text-[13px] text-[var(--lc-muted)]">Day Streak</p>
           <h3 className="mt-0.5 text-2xl font-bold tabular-nums text-[var(--lc-text)]">
             {activity.streakCount || 0}
@@ -120,20 +119,6 @@ function SQLrightnavbar() {
         <p className="mt-3 text-[13px] font-medium tabular-nums text-[var(--lc-muted)]">
           {completedCount}/{topics.length} topics
         </p>
-
-        <div className="mt-4">
-          <div className="mb-2 flex justify-between text-[12px] text-[var(--lc-muted)]">
-            <span>Journey Progress</span>
-            <span className="font-semibold tabular-nums text-[var(--lc-text)]">{percent}%</span>
-          </div>
-
-          <div className="h-2 overflow-hidden rounded-full bg-[var(--lc-input)]">
-            <div
-              className="h-full rounded-full transition-[width] duration-500"
-              style={{ width: `${percent}%`, backgroundColor: ACCENT }}
-            />
-          </div>
-        </div>
       </div>
 
       {/* Topic guide */}
@@ -150,7 +135,7 @@ function SQLrightnavbar() {
                   className={`flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-[13px] transition-colors duration-150 ${
                     isCurrent
                       ? "bg-[#15803d]/15 text-[#4ade80]"
-                      : "text-[var(--lc-muted)] hover:bg-[var(--lc-orange-soft)] hover:text-[var(--lc-text)]"
+                      : "text-[var(--lc-muted)] hover:bg-[var(--lc-input)] hover:text-[var(--lc-text)]"
                   }`}
                   aria-current={isCurrent ? "step" : undefined}
                 >

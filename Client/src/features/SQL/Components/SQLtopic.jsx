@@ -170,7 +170,7 @@ function SQLtopic({ topicId }) {
           <div className="mt-2.5 h-2 overflow-hidden rounded-full bg-[var(--lc-input)]">
             <div
               className="h-full rounded-full transition-[width] duration-500"
-              style={{ width: `${journeyPercent}%`, backgroundColor: "#15803d" }}
+              style={{ width: `${journeyPercent}%`, backgroundColor: "#4ade80" }}
             />
           </div>
           <p className="mt-2 text-[11px] text-[var(--lc-muted)]">

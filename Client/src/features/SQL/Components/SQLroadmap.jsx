@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Lock } from "@phosphor-icons/react";
+import { Lock } from "lucide-react";
 import topicsData from "../data/topics.json";
 import { getCompletedTopics } from "../storage";
 import { ACTIVITY_UPDATED_EVENT } from "../../../services/activityProgress";
@@ -9,21 +9,22 @@ import { ACTIVITY_UPDATED_EVENT } from "../../../services/activityProgress";
 const NODES = topicsData.topics;
 const EDGES = topicsData.edges;
 
-/* Palette — same warm paper canvas as the Algorithms Metro, but the
-   accent + card tint shift to a SQL-green so the two tracks read as
-   cousins, not copies. */
-const ACCENT = "#15803d";
-const KANVAS = "#f7f5f0";
-const CARD_FILL = "#A8C0A2";
-const CARD_STROKE = "rgba(24,24,28,0.14)";
-const NODE_TEXT = "#1c1c22";
-const TRACK_FILL = "rgba(28,28,34,0.09)";
-const LOCKED_FILL = "#EDEBE5";
-const LOCKED_STROKE = "rgba(24,24,28,0.16)";
-const LOCKED_TEXT = "rgba(28,28,34,0.4)";
-const LOCKED_LOCK = "rgba(28,28,34,0.35)";
-const LINE_COLOR = "#f7f5f0";
-const LINE_LOCKED = "#f7f5f0";
+/* Dark LeetCore palette — pulled from the shared --lc-* surface tokens so
+   the roadmap sits on the same dark system as the topic reader. SQL's green
+   identity is kept: mint #4ade80 carries progress/current, #15803d stays a
+   secondary accent. */
+const ACCENT = "#4ade80";
+const CARD_FILL = "#101011";
+const CARD_STROKE = "rgba(255,255,255,0.1)";
+const NODE_TEXT = "#fafafa";
+const TRACK_FILL = "rgba(255,255,255,0.08)";
+const LOCKED_FILL = "#0e0e10";
+const LOCKED_STROKE = "rgba(255,255,255,0.14)";
+const LOCKED_TEXT = "rgba(250,250,250,0.45)";
+const LOCKED_LOCK = "rgba(250,250,250,0.4)";
+const LINE_UNLOCKED = "rgba(255,255,255,0.25)";
+const LINE_CURRENT = "rgba(255,255,255,0.45)";
+const LINE_LOCKED = "rgba(255,255,255,0.12)";
 
 const PAD = 10;
 const W = Math.max(...NODES.map((n) => n.x)) + PAD;
@@ -33,7 +34,7 @@ const hoverStyle = { transformBox: "fill-box", transformOrigin: "center" };
 
 function Node({ node, onSelect, unlocked, completed, isCurrent }) {
   const rectWidth = Math.max(168, node.label.length * 9 + 36);
-  const rectHeight = 74;
+  const rectHeight = 84;
   const rx = 10;
 
   const barWidth = rectWidth - 28;
@@ -49,13 +50,14 @@ function Node({ node, onSelect, unlocked, completed, isCurrent }) {
 
   const cardFill = unlocked ? CARD_FILL : LOCKED_FILL;
   const cardStroke = unlocked && isCurrent ? ACCENT : unlocked ? CARD_STROKE : LOCKED_STROKE;
-  const labelFill = unlocked ? NODE_TEXT : LOCKED_TEXT;
+  const labelFill = unlocked ? (isCurrent ? ACCENT : NODE_TEXT) : LOCKED_TEXT;
 
   return (
     <g
       className={`outline-none group ${unlocked ? "cursor-pointer" : "cursor-not-allowed"}`}
       role="link"
       tabIndex={0}
+      aria-current={isCurrent ? "true" : undefined}
       aria-label={`Open ${node.label}${unlocked ? "" : " (Locked)"}${completed ? " · Completed" : ""}`}
       onClick={() => onSelect(node, unlocked)}
       onKeyDown={handleKeyDown}
@@ -73,8 +75,15 @@ function Node({ node, onSelect, unlocked, completed, isCurrent }) {
           rx={rx}
           fill={cardFill}
           stroke={cardStroke}
-          strokeWidth={isCurrent ? 2 : 1.4}
+          strokeWidth={isCurrent ? 2.5 : 1.4}
         />
+
+        {/* Current-station marker — a second, non-color cue above the card */}
+        {isCurrent && (
+          <g transform={`translate(${node.x}, ${node.y - rectHeight / 2 - 7})`}>
+            <circle r="3.5" fill={ACCENT} />
+          </g>
+        )}
 
         {/* Completed badge */}
         {completed && (
@@ -83,7 +92,7 @@ function Node({ node, onSelect, unlocked, completed, isCurrent }) {
             <path
               d="M -4 0 L -1 3 L 4 -3"
               fill="none"
-              stroke="#f7f5f0"
+              stroke="#0e0e10"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -96,7 +105,7 @@ function Node({ node, onSelect, unlocked, completed, isCurrent }) {
           y={node.y - 10}
           textAnchor="middle"
           dominantBaseline="central"
-          className="select-none font-display text-[16px] font-bold tracking-tight"
+          className="select-none font-display text-[17px] font-bold tracking-tight"
           style={{ fill: labelFill }}
         >
           {node.label}
@@ -129,6 +138,19 @@ function Node({ node, onSelect, unlocked, completed, isCurrent }) {
             <path d="M-3.5 -3 V-5.5 A3.5 3.5 0 0 1 3.5 -5.5 V-3" fill="none" stroke={LOCKED_LOCK} strokeWidth="1.5" />
           </g>
         )}
+
+        {/* Focus-visible outline — expands slightly beyond the card */}
+        <rect
+          x={node.x - (rectWidth - 10) / 2 - 4}
+          y={node.y - rectHeight / 2 - 4}
+          width={rectWidth - 2}
+          height={rectHeight - 2}
+          rx={rx + 3}
+          fill="none"
+          stroke={ACCENT}
+          strokeWidth="2"
+          className="opacity-0 transition-opacity duration-150 group-focus-visible:opacity-100"
+        />
       </g>
     </g>
   );
@@ -150,12 +172,12 @@ function Edges({ unlockedMap, currentTopicId }) {
       <path
         key={i}
         d={`M ${a.x} ${a.y} L ${b.x} ${b.y}`}
-        stroke={LINE_COLOR}
+        stroke={edgeUnlocked ? (touchesCurrent ? LINE_CURRENT : LINE_UNLOCKED) : LINE_LOCKED}
         strokeWidth={edgeUnlocked ? (touchesCurrent ? 3 : 2.25) : 1.75}
         strokeDasharray={edgeUnlocked ? "none" : "4,6"}
         fill="none"
         strokeLinecap="round"
-        opacity={edgeUnlocked ? (touchesCurrent ? 0.85 : 0.75) : 0.7}
+        opacity={edgeUnlocked ? (touchesCurrent ? 0.9 : 0.8) : 0.7}
         className="transition-all duration-300"
       />
     );
@@ -239,12 +261,12 @@ export default function SQLroadmap() {
           role="alert"
           className="absolute top-4 left-1/2 z-50 -translate-x-1/2 flex items-center gap-2.5 rounded-xl border border-[rgba(21,128,61,0.3)] bg-[var(--lc-panel)] px-4 py-2.5 text-xs font-semibold text-[var(--lc-text)] shadow-[var(--shadow-lg)] animate-in fade-in slide-in-from-top-4 duration-200"
         >
-          <Lock size={13} weight="fill" className="shrink-0 text-[#15803d]" />
+          <Lock size={14} fill="currentColor" className="shrink-0 text-[#15803d]" />
           <span className="text-[var(--lc-muted)]">{alertMessage}</span>
         </div>
       )}
 
-      <div className="relative w-full h-[560px] xl:h-[600px] overflow-hidden rounded-2xl shadow-[var(--shadow-md)]">
+      <div className="relative w-full h-[560px] xl:h-[600px] overflow-hidden rounded-xl border border-[var(--lc-line)] bg-[#0e0e10]">
         <svg
           viewBox={`-80 0 ${W + 160} ${H + 70}`}
           className="w-full h-full select-none"
